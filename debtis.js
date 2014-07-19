@@ -5,6 +5,7 @@ app.controller('myDebtIsCtrl', function ($scope) {
     $scope.debt = 0;
     $scope.total = 0;
     $scope.secondaryMarketDebt = 0;
+    $scope.debtType = 'Private';
 
     $scope.BEGINNING_PRINCIPAL = 0;
     $scope.ESTIMATED_INTEREST = .068;
@@ -19,9 +20,10 @@ app.controller('myDebtIsCtrl', function ($scope) {
     }
 
     $scope.submit = function() {
-        if (!isNaN($scope.debt)) {
-            $scope.BEGINNING_PRINCIPAL = parseFloat($scope.debt)
-            $scope.total = calculateDebt($scope.BEGINNING_PRINCIPAL, 0, $scope.ESTIMATED_YEARS);
+        debt = parseFloat($scope.debt)
+        if (!isNaN(debt) && debt != '') {
+            $scope.BEGINNING_PRINCIPAL = debt
+            $scope.total = calculateDebt(debt, 0, $scope.ESTIMATED_YEARS);
             $scope.secondaryMarketDebt = $scope.total * .05
         }
     };
