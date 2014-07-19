@@ -5,11 +5,24 @@ app.controller('myDebtIsCtrl', function ($scope) {
     $scope.debt = 0;
     $scope.total = 0;
     $scope.secondaryMarketDebt = 0;
-    $scope.debtType = 'Private';
+    $scope.debtType = 'salliemae';
 
     $scope.BEGINNING_PRINCIPAL = 0;
     $scope.ESTIMATED_INTEREST = .068;
-    $scope.ESTIMATED_YEARS = 20
+    $scope.ESTIMATED_YEARS = 20;
+
+    var getDebtMarketPrice = function() {
+        var price = 1
+        switch($scope.debtType) {
+            case 'federal':
+                price = 1.05
+                break
+            case 'salliemae':
+                price = .15
+                break
+        }
+        return Math.round($scope.total * price)
+    }
 
     var calculateDebt = function(debt, interest, yearsLeft) {
         if (yearsLeft <= 0) {
@@ -24,7 +37,7 @@ app.controller('myDebtIsCtrl', function ($scope) {
         if (!isNaN(debt) && debt != '') {
             $scope.BEGINNING_PRINCIPAL = debt
             $scope.total = calculateDebt(debt, 0, $scope.ESTIMATED_YEARS);
-            $scope.secondaryMarketDebt = $scope.total * .05
+            $scope.secondaryMarketDebt = getDebtMarketPrice()
         }
     };
 });
