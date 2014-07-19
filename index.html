@@ -34,8 +34,8 @@
         </form>
 
         <div class="feedback">
-            <h4>How much debt you'll end up paying: {{totalDebt}}</h4>
-            <h4>How much your debt is worth on the secondary market: {{secondaryMarketDebt}}</h4>
+            <h4>How much you'll end up paying: ${{total | humanize}} over {{ESTIMATED_YEARS}} Years</h4>
+            <h4>How much a debt buyer would pay: ${{secondaryMarketDebt | humanize}}</h4>
         </div>
     </body>
 </html>
