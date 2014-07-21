@@ -10,10 +10,6 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
         <link href="debtis.css" rel="stylesheet" />
-        <!-- Loading Flat UI -->
-        <link href="//cdn.jsdelivr.net/flat-ui/2.0/css/flat-ui.css" rel="stylesheet">
-        <link href="//cdn.jsdelivr.net/flat-ui/2.0/fonts/Flat-UI-Icons.dev.svg" rel="stylesheet">
-
         <link rel="shortcut icon" href="images/favicon.ico">
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
@@ -29,38 +25,33 @@
 
     <body ng-controller="myDebtIsCtrl" class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
             <h1>My debt is...</h1>
-            <form ng-submit="submit()">
+            <form ng-submit="submit()" class="form-inline">
                 <div class="form-group">
-                    <input class="form-control" type="text" ng-model="debt" />
+                    <input class="form-control"  type="text" ng-model="debt" />
+                    <input type="submit" name="Submit" class="btn btn-primary" value="How much?" />
                 </div>
-                <input type="submit" name="Submit" class="btn btn-primary btn-block btn-large" value="How much?" />
-                <label class="radio checked">
-                    <span class="icons">
-                        <span class="first-icon fui-radio-unchecked"></span>
-                        <span class="second-icon fui-radio-checked" ng-show="debtType == 'salliemae'"></span>
-                    </span>
+            </form>
+            <div class="radio">
+                <label>
                     <input type="radio" ng-model="debtType" value="salliemae" data-toggle="radio">
                         Sallie Mae
                     </input>
                     </span>
                 </label>
-                <label class="radio checked">
-                    <span class="icons">
-                        <span class="first-icon fui-radio-unchecked"></span>
-                        <span class="second-icon fui-radio-checked" ng-show="debtType == 'federal'"></span>
-                    </span>
+            </div>
+            <div class="radio">
+                <label>
                     <input type="radio" ng-model="debtType" value="federal" data-toggle="radio">
                         Federal
                     </input>
                 </label>
-            </form>
-
-        <div class="row">
-            <div class="feedback">
-                <h4>How much you'll end up paying: ${{total | humanize}} over {{ESTIMATED_YEARS}} Years</h4>
-                <h4>How much a debt buyer would pay: ${{secondaryMarketDebt | humanize}}</h4>
+            </div>
+            <div class="feedback" ng-show="showValues">
+                <h4>All payments: ${{total | humanize}} over {{ESTIMATED_YEARS}} Years</h4>
+                <h4>Total Interest Paid: ${{totalInterest | humanize}}</h4>
+                <h4>A debt buyer would pay: ${{secondaryMarketDebt | humanize}}</h4>
             </div>
         </div>
     </body>
