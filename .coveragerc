@@ -1,0 +1,13 @@
+[run]
+source = be
+
+omit =
+       be/*/tests/*
+       be/*/tests
+       be/*/migrations/*
+
+[report]
+omit =
+       be/*/tests/*
+       be/*/tests
+       be/*/migrations/*
