@@ -1,9 +1,7 @@
 Django==1.6.6
--e git+git@github.com:karissamck/burrow.git@f780a99c47483076851464b092017d3c16adeb35#egg=burrow-add-api-tokens
 dj-database-url==0.3.0
 dj-static==0.0.6
 django-toolbelt==0.0.1
--e git+git@github.com:karissamck/datapad-web.git@89d49acbdede06e08eeddd1cbc1d2e8b23c8e2a1#egg=dpapp-upstream/data-api
 gunicorn==19.1.1
 psycopg2==2.5.4
 static3==0.5.1
