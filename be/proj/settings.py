@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gather'
+    'be.gather'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,7 +48,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'proj.urls'
+ROOT_URLCONF = 'be.proj.urls'
 
 WSGI_APPLICATION = 'proj.wsgi.application'
 
