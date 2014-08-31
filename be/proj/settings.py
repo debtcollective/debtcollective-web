@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gather'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -47,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'be.proj.urls'
+ROOT_URLCONF = 'proj.urls'
 
-WSGI_APPLICATION = 'be.proj.wsgi.application'
+WSGI_APPLICATION = 'proj.wsgi.application'
 
 
 # Database
@@ -57,8 +58,12 @@ WSGI_APPLICATION = 'be.proj.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'debtis',
+        'USER': 'debtis',
+        'PASSWORD': 'debtis',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -83,7 +88,9 @@ STATIC_URL = '/static/'
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+config = dj_database_url.config()
+if config:
+    DATABASES['default'] = config
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
