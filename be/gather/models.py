@@ -1,10 +1,9 @@
 from django.db import models
 
-# Create your models here.
-
 class UserData(models.Model):
   user_id_secret = models.CharField(max_length=200)
   created_at = models.DateTimeField()
+  location = models.CharField(max_length=200)
 
   @staticmethod
   def user_id_secret(user_id):
