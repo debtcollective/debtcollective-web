@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 
 class UserData(models.Model):
   user_id_secret = models.CharField(max_length=200)
@@ -27,6 +28,4 @@ class Debt(models.Model):
   amount = models.IntegerField()
   kind = models.IntegerField(max_length=1, choices=DEBT_CHOICES)
   last_payment = models.DateTimeField()
-
-
 

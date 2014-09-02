@@ -1,3 +1,11 @@
 from django.contrib import admin
+from be.gather.models import UserData, Debt
 
-# Register your models here.
+class UserDataAdmin(admin.ModelAdmin):
+  exclude = ("user_id_secret", )
+
+class DebtAdmin(admin.ModelAdmin):
+  exclude = ("userdata", )
+
+admin.site.register(UserData, UserDataAdmin)
+admin.site.register(Debt, DebtAdmin)
