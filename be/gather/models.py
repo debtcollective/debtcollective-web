@@ -23,7 +23,7 @@ class Debt(models.Model):
     (CREDIT, 'Credit')
   )
 
-  userdata = ForeignKey(UserData)
+  userdata = models.ForeignKey(UserData)
   amount = models.IntegerField()
   kind = models.IntegerField(max_length=1, choices=DEBT_CHOICES)
   last_payment = models.DateTimeField()
