@@ -1,0 +1,10 @@
+footer {
+  padding: 1.5em 0 3em;
+  margin-top: 3em;
+  background-color: #b8bfbc;
+  text-align: center;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 2em;
+  font-weight: 700;
+}
