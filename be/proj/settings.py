@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'be.gather'
+    'be.proj'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -103,6 +103,10 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates').replace('\\','/'),
+)
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
