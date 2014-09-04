@@ -72,7 +72,7 @@ input {
   background-color: #520D02;
   color: rgba(255, 255, 255, .7);
   border: 0px;
-  padding: 5px;
+  padding: 10px;
   font-size: 1.5em;
 }
 
@@ -80,7 +80,7 @@ button[type="submit"] {
   background-color: #520D02;
   color: rgba(255, 255, 255, .7);
   border: 0px;
-  padding: 5px 15px 5px 15px;
+  padding: 10px 15px 10px 15px;
   font-size: 1.5em;
   cursor: pointer;
 }
