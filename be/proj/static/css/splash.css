@@ -1,10 +1,93 @@
 footer {
-  padding: 1.5em 0 3em;
-  margin-top: 3em;
-  background-color: #b8bfbc;
-  text-align: center;
-  font-style: italic;
-  color: rgba(0, 0, 0, 0.2);
-  font-size: 2em;
-  font-weight: 700;
+  padding: 10px;
+  color: rgba(255,255,255,.7);
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
+
+header {
+  text-align: left;
+  background-color: #520D02;
+  padding: 5px;
+  width: 200px;
+  height: 200px;
+  position: relative;
+}
+
+header h1 {
+  position: absolute;
+  bottom: 0;
+}
+
+input, button {
+  font-family: 'Inconsolata',  serif;
+}
+
+body {
+  font-family: 'Inconsolata', serif;
+  font-weight: 100;
+  background-color: #393d41;
+  color: rgba(255, 255, 255, .7);
+}
+
+a {
+  text-decoration: none;
+  color: rgba(255,255,255,.7);
+}
+
+a:hover {
+  color: rgba(255,255,255,.5);
+}
+
+.wrapper {
+  margin: auto;
+  position: relative;
+  top: 25%;
+  transform: translateY(-50%);
+}
+
+.signup-form {
+  position: relative;
+  text-align: center;
+  width: 400px;
+  margin:auto;
+  position: relative;
+}
+
+.dc-input {
+  background-color: #520D02;
+  padding-left: 5px;
+  margin-bottom: 10px;
+  text-align: right;
+  font-size: 20px;
+}
+
+label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+input {
+  background-color: #520D02;
+  color: rgba(255, 255, 255, .7);
+  border: 0px;
+  padding: 5px;
+  font-size: 1.5em;
+}
+
+button[type="submit"] {
+  background-color: #520D02;
+  color: rgba(255, 255, 255, .7);
+  border: 0px;
+  padding: 5px 15px 5px 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+input:focus {
+  background-color: #520D02;
+  border: 0px;
+  outline: 0px;
+}
+
