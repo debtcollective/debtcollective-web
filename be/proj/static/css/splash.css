@@ -13,17 +13,18 @@ span.small {
 
 header {
   text-align: left;
-  background-color: #520D02;
+  background-color: #9E2717;
   padding: 5px;
   width: 200px;
   height: 200px;
   position: relative;
 }
 
-header h1 {
+.header-text {
+  font-size: 2em;
   position: absolute;
   bottom: 0;
-  padding-left: 5px;
+  margin: 0px 0px 10px 10px;
 }
 
 input, button {
@@ -33,7 +34,7 @@ input, button {
 body {
   font-family: 'Inconsolata', serif;
   font-weight: 100;
-  background-color: #393d41;
+  background-color: #39413F;
   color: rgba(255, 255, 255, .7);
 }
 
@@ -55,14 +56,13 @@ a:hover {
 
 .signup-form {
   position: relative;
-  text-align: center;
+  text-align: left;
   width: 400px;
-  margin:auto;
+  margin: auto;
   position: relative;
 }
 
 .dc-input {
-  background-color: #520D02;
   padding-left: 5px;
   margin-bottom: 10px;
   text-align: right;
@@ -75,7 +75,7 @@ label {
 }
 
 input {
-  background-color: #520D02;
+  background-color: #9E2717;
   color: rgba(255, 255, 255, .7);
   border: 0px;
   padding: 10px;
@@ -83,12 +83,16 @@ input {
 }
 
 button[type="submit"] {
-  background-color: #520D02;
+  background-color: #9E2717;
   color: rgba(255, 255, 255, .7);
   border: 0px;
   padding: 10px 15px 10px 15px;
   font-size: 1.5em;
   cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #520D02;
 }
 
 input:focus {
