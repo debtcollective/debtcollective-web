@@ -9,5 +9,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'be.proj.views.splash', name='splash'),
+    url(r'^join/', 'be.proj.views.splash', name='splash'),
+    url(r'^$', 'be.proj.views.map', name='signup')
 )

@@ -12,21 +12,23 @@
 </head>
 <body>
   <header>
-    <div class="square">
-       <div class="header-text">the
-      <span style="text-decoration: line-through;">debt</span> collective<span class="small"></span></div>
+    <a href="/">
+      <div class="square">
+         <div class="header-text">the
+          <span style="text-decoration: line-through;">debt</span> collective<span class="small"></span></div>
+      </div>
+    </a>
+    <div class="navigation">
+      <a class="nav-item">
+        faq
+      </a>
+      <a class="nav-item" href="/join">
+        join
+      </a>
+      <a class="nav-item">
+        key
+      </a>
     </div>
   </header>
-  <div class="navigation">
-    <div class="nav-item">
-      faq
-    </div>
-    <div class="nav-item">
-      join
-    </div>
-    <div class="key">
-
-    </div>
-  </div>
-{% block body %}{% endblock %}
+  {% block body %}{% endblock %}
 </body>
