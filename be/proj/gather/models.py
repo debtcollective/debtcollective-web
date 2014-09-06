@@ -8,20 +8,22 @@ class UserData(models.Model):
 
   @staticmethod
   def user_id_secret(user_id):
-    """TODO: encrypt the given user id
-    to create the user_id_secret"""
-    pass
+    """encrypt the given user id to create the user_id_secret"""
+    m = hashlib.md5()
+    m.update()
 
 class Debt(models.Model):
   AUTO = 1
   HOME = 2
   STUDENT = 3
   CREDIT = 4
+  MEDICAL = 5
   DEBT_CHOICES = (
     (AUTO, 'Auto'),
     (HOME, 'Home'),
     (STUDENT, 'Student'),
-    (CREDIT, 'Credit')
+    (CREDIT, 'Credit'),
+    (MEDICAL, 'Medical')
   )
 
   userdata = models.ForeignKey(UserData)
