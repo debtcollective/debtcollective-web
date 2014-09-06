@@ -1,0 +1,111 @@
+
+/** HEADER **/
+
+header {
+  text-align: left;
+}
+
+.square {
+  background-color: #9E2717;
+  float: left;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.header-text {
+  font-size: 16px;
+  margin-bottom: 2px;
+  position: absolute;
+  bottom: 0;
+}
+
+/** NAVIGATION **/
+.navigation {
+  border-bottom: 1px solid black;
+}
+
+.nav-item {
+  padding: 10px;
+}
+
+/** GENERAL **/
+
+body {
+  font-family: 'Source Code Pro';
+  font-weight: 100;
+  background-color: #39413F;
+  color: rgba(255, 255, 255, .7);
+  margin: 0;
+}
+
+.vertical-center {
+  position: relative;
+  top: 25%;
+  transform: translateY(-50%);
+  margin: auto;
+}
+
+footer {
+  padding: 10px;
+  color: rgba(255,255,255,.7);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(255,255,255,.7);
+}
+
+a:hover {
+  color: rgba(255,255,255,.5);
+  cursor: pointer;
+}
+
+/** FORMS **/
+label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+input {
+  background-color: #9E2717;
+  color: rgba(255, 255, 255, .7);
+  border: 0px;
+  padding: 10px;
+  font-size: 26px;
+}
+
+button[type="submit"] {
+  background-color: #9E2717;
+  color: rgba(255, 255, 255, .7);
+  border: 0px;
+  padding: 10px 15px 10px 15px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #520D02;
+}
+
+input:focus {
+  background-color: #520D02;
+  border: 0px;
+  outline: 0px;
+}
+
+.dc-input {
+  margin-bottom: 10px;
+  text-align: right;
+  font-size: 20px;
+  float: left;
+}
+
+
+input, button {
+  font-family: 'Source Code Pro';
+}
