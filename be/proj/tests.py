@@ -18,6 +18,8 @@ class DebtisTest(unittest.TestCase):
 
     def tearDown(self):
       User.objects.all().delete()
+      UserData.objects.all().delete()
+      Debt.objects.all().delete()
 
 class TestSignup(DebtisTest):
 
