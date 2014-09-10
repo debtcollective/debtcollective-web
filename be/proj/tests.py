@@ -35,6 +35,28 @@ class TestSignup(DebtisTest):
       user = User.objects.get(username='test')
       self.assertEqual('test', user.username)
 
+    def test_login(self):
+      # it can login a user from the frontend
+      username = 'testuser'
+      password = 'testingpassword'
+      rs = self.client.post('/signup/',
+          {'username': username, 'password': password})
+      self.assertEqual(rs.status_code, 200)
+
+      user = User.objects.get(username=username)
+      self.assertEqual(username, user.username)
+
+      # bad password
+      rs = self.client.post('/login/',
+        {'username': username, 'password': 'this is a bad password'})
+      self.assertEqual(rs.status_code, 500)
+
+      # successful password
+      rs = self.client.post('/login/',
+        {'username': username, 'password': password})
+      self.assertEqual(rs.status_code, 200)
+
+
     def test_location(self):
       # it can store and retrieve location from the frontend
       rs = self.client.post('/signup/',

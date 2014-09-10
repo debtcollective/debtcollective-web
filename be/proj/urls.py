@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^$', 'be.proj.views.splash', name='splash'),
     url(r'^map/', 'be.proj.views.map', name='map'),
     url(r'^signup/', 'be.proj.views.signup', name='signup'),
+    url(r'^login/', 'be.proj.views.login', name='login')
 )
