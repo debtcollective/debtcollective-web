@@ -1,30 +1,10 @@
 from django.test.client import Client
 from django.utils import unittest
+from django.test import TestCase
 from django.contrib.auth.models import User
 from be.proj.gather.models import UserData, Debt
 
-class DebtisTest(unittest.TestCase):
-
-    def setUp(self):
-      self.client = Client()
-
-    def populateUsers(self):
-      rs = self.client.post('/signup/',
-          {'username': 'testing', 'password': 'testingpw'})
-      self.assertEqual(rs.status_code, 200)
-
-      user = User.objects.get(username='testing')
-      self.assertEqual('testing', user.username)
-
-    def tearDown(self):
-      User.objects.all().delete()
-      UserData.objects.all().delete()
-      Debt.objects.all().delete()
-
-class TestSignup(DebtisTest):
-
-    def setUp(self):
-      self.client = Client()
+class TestSignup(TestCase):
 
     def test_simple(self):
       # it can create a user from the frontend

@@ -14,9 +14,12 @@ app.controller('splashBodyCtrl', function ($scope, $http, util_svc) {
     $scope.onSubmitClick = function () {
         $scope.username = util_svc.generateUUID();
 
+        // temporarily, email is the password
+        // so that we can protect anonymity of our users.
+        // campaign monitor handles mailing lists
         data = {
             'username': $scope.username,
-            'password': $scope.email,
+            'password': $scope.email
         }
 
         $http.post('/signup/', data).then(function (resp) {

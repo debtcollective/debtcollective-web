@@ -18,10 +18,7 @@ def get_POST_data(request):
     return request.POST
   else:
     # assuming request.body contains json data which is UTF-8 encoded
-    json_str = request.body.decode(encoding='UTF-8')
-    # turn the json bytestr into a python obj
-    json_obj = json.loads(json_str)
-    return json_obj
+    return json.loads(request.body, encoding='utf-8')
 
 def json_response(response_data, status_code):
   rs = HttpResponse(json.dumps(response_data),
@@ -30,9 +27,7 @@ def json_response(response_data, status_code):
   return rs
 
 def splash(request):
-  c = {}
-  c.update(csrf(request))
-  return render_to_response('proj/splash.html', c)
+  return render_to_response('proj/splash.html')
 
 def map(request):
   return render_to_response('proj/map.html')

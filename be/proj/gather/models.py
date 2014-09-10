@@ -15,12 +15,15 @@ class Debt(models.Model):
   STUDENT = 'student'
   CREDIT = 'credit'
   MEDICAL = 'medical'
+  OTHER = 'other'
+
   DEBT_CHOICES = (
     (AUTO, 'Auto'),
     (HOME, 'Home'),
     (STUDENT, 'Student'),
     (CREDIT, 'Credit'),
-    (MEDICAL, 'Medical')
+    (MEDICAL, 'Medical'),
+    (OTHER, 'Other')
   )
 
   user = models.ForeignKey(User)
