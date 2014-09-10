@@ -5,6 +5,10 @@ header {
   text-align: left;
 }
 
+.hidden {
+  display: none;
+}
+
 .square {
   background-color: #9E2717;
   float: left;

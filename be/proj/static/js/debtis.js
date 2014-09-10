@@ -1,4 +1,29 @@
-var app = angular.module('myDebtIs', []);
+var app = angular.module('myDebtIs', [
+    'ngCookies'
+]);
+
+app.run(function run($http, $cookies){
+    $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
+})
+
+app.controller('splashBodyCtrl', function ($scope, $http, util_svc) {
+
+    $scope.email = null;
+    $scope.username = null
+
+    $scope.onSubmitClick = function () {
+        $scope.username = util_svc.generateUUID();
+
+        data = {
+            'username': $scope.username,
+            'password': $scope.email,
+        }
+
+        $http.post('/signup/', data).then(function (resp) {
+
+        });
+    }
+});
 
 app.controller('myDebtIsCtrl', function ($scope) {
     $scope.debtType = 'salliemae';

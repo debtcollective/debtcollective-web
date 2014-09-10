@@ -1,17 +1,17 @@
 {% extends "proj/base_template.html" %}
 
 {% block body %}
-  <div class="vertical-center">
+  <div class="vertical-center" ng-controller="splashBodyCtrl">
     <div class="signup-form">
       <div class="text">
         <h1>you are not a loan.</h1>
       </div>
       <div class="form">
-        <form class="form-inline" action="http://occupystudentdebtcampaign.createsend.com/t/j/s/uidyky/"
-          method="post" id="ss-form">
+        <form ng-submit="onSubmitClick()">
           <div class="dc-input">
-            <input type="text" name="cm-uidyky-uidyky" value=""
-              class="input-medium" id="entry_0" placeholder="enter an email..." autofocus>
+            <input type="text" class="hidden" name="cm-name" ng-model="username" />
+            <input type="email" name="cm-nskul-nskul"  ng-model="email"
+                placeholder="enter an email..." autofocus required />
           </div>
           <button type="submit" name="submit" class="btn" >join</button>
         </form>
