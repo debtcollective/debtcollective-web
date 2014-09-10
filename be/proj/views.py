@@ -5,7 +5,18 @@ from django.http import HttpResponse, Http404
 from be.proj.gather.models import Debt, UserData
 from django.core.context_processors import csrf
 
+
 import json
+
+def get_POST_data(request):
+  if len(request.POST.keys()) > 0:
+    return request.POST
+  else:
+    # assuming request.body contains json data which is UTF-8 encoded
+    json_str = request.body.decode(encoding='UTF-8')
+    # turn the json bytestr into a python obj
+    json_obj = json.loads(json_str)
+    return json_obj
 
 def json_response(response_data, status_code):
   rs = HttpResponse(json.dumps(response_data),
@@ -28,7 +39,7 @@ def login(request):
   if request.method != 'POST':
     raise Http404
 
-  rq = request.POST
+  rq = get_POST_data(request)
   user = authenticate(username=rq['username'], password=rq['password'])
   if user is not None:
     return json_response({'status': 'ok'}, 200)
@@ -46,7 +57,7 @@ def signup(request):
   if request.method != 'POST':
     raise Http404
 
-  rq = request.POST
+  rq = get_POST_data(request)
   username = rq['username']
   password = rq['password']
   user = User.objects.create_user(username, password=password, email=None)
