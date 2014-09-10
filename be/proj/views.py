@@ -5,10 +5,15 @@ from django.http import HttpResponse, Http404
 from be.proj.gather.models import Debt, UserData
 from django.core.context_processors import csrf
 
-
 import json
 
 def get_POST_data(request):
+  """
+  For some reason, posting json to the backend can be a real
+  headache and django wants to have control over the form
+  submission data. This is a workaround in cases where we want
+  to use ajax POST requests but don't have it encoded as form data.
+  """
   if len(request.POST.keys()) > 0:
     return request.POST
   else:
