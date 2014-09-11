@@ -1,31 +1,36 @@
 from django.db import models
 from django.contrib import admin
+from django.contrib.auth.models import User
+from datetime import datetime
 
-class UserData(models.Model):
-  user_id_secret = models.CharField(max_length=200)
-  created_at = models.DateTimeField()
-  location = models.CharField(max_length=200)
 
-  @staticmethod
-  def user_id_secret(user_id):
-    """TODO: encrypt the given user id
-    to create the user_id_secret"""
-    pass
+class UserProfile(models.Model):
+  user = models.OneToOneField(User)
+  created_at = models.DateTimeField(default=datetime.now)
+  location = models.CharField(max_length=200, null=True)
 
 class Debt(models.Model):
-  AUTO = 1
-  HOME = 2
-  STUDENT = 3
-  CREDIT = 4
+  AUTO = 'auto'
+  HOME = 'home'
+  STUDENT = 'student'
+  CREDIT = 'credit'
+  MEDICAL = 'medical'
+  OTHER = 'other'
+
   DEBT_CHOICES = (
     (AUTO, 'Auto'),
     (HOME, 'Home'),
     (STUDENT, 'Student'),
-    (CREDIT, 'Credit')
+    (CREDIT, 'Credit'),
+    (MEDICAL, 'Medical'),
+    (OTHER, 'Other')
   )
 
-  userdata = models.ForeignKey(UserData)
-  amount = models.IntegerField()
-  kind = models.IntegerField(max_length=1, choices=DEBT_CHOICES)
-  last_payment = models.DateTimeField()
+  user = models.ForeignKey(User)
 
+  # required
+  kind = models.CharField(max_length=7, choices=DEBT_CHOICES)
+
+  # optional
+  amount = models.IntegerField(null=True)
+  last_payment = models.DateTimeField(null=True)

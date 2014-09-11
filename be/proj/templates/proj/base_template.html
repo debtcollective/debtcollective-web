@@ -1,0 +1,35 @@
+<head>
+  <link rel="stylesheet" href="/static/css/splash.css" />
+  <link rel="stylesheet" href="/static/css/base.css" />
+  <!--<link href='http://fonts.googleapis.com/css?family=Inconsolata|VT323'
+      rel='stylesheet' type='text/css'>-->
+  <link href='http://fonts.googleapis.com/css?family=Cutive+Mono|Raleway' rel='stylesheet' type='text/css'>
+  <link rel="icon" type="image/ico" href="/static/img/favicon.ico">
+  <meta charset="UTF-8">
+  <title>the debt collective</title>
+  <meta name="description" content="You are not a loan.">
+  <meta name="keywords" content="debt,debt collective,no debt,debt help">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-cookies.min.js"></script>
+  <script src="/static/js/debtis.js"></script>
+  <script src="/static/js/util.js"></script>
+</head>
+<body ng-app="myDebtIs">
+  <header>
+    <a href="/">
+      <div class="square">
+         <div class="header-text">the
+          <span style="text-decoration: line-through;">debt</span> collective<span class="small"></span></div>
+      </div>
+    </a>
+    <div class="navigation">
+      <a class="nav-item">
+        faq
+      </a>
+      <a class="nav-item">
+        key
+      </a>
+    </div>
+  </header>
+  {% block body %}{% endblock %}
+</body>

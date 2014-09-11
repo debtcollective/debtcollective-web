@@ -1,4 +1,32 @@
-var app = angular.module('myDebtIs', []);
+var app = angular.module('myDebtIs', [
+    'ngCookies'
+]);
+
+app.run(function run($http, $cookies){
+    $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
+})
+
+app.controller('splashBodyCtrl', function ($scope, $http, util_svc) {
+
+    $scope.email = null;
+    $scope.username = null
+
+    $scope.onSubmitClick = function () {
+        $scope.username = util_svc.generateUUID();
+
+        // temporarily, email is the password
+        // so that we can protect anonymity of our users.
+        // campaign monitor handles mailing lists
+        data = {
+            'username': $scope.username,
+            'password': $scope.email
+        }
+
+        $http.post('/signup/', data).then(function (resp) {
+
+        });
+    }
+});
 
 app.controller('myDebtIsCtrl', function ($scope) {
     $scope.debtType = 'salliemae';

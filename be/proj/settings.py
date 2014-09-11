@@ -36,7 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'be.proj'
+    'be.proj',
+    'be.proj.gather'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -111,3 +112,5 @@ TEMPLATE_DIRS = (
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+AUTH_PROFILE_MODULE = 'gather.UserData'

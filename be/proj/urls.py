@@ -9,5 +9,14 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', 'be.proj.views.splash', name='splash')
+)
+
+def basic_url(name):
+  return url(r'^%s/' % name, name, name=name)
+
+urlpatterns += patterns('be.proj.views',
+  basic_url('map'),
+  basic_url('login'),
+  basic_url('signup'),
+  url(r'^$', 'splash', name='splash')
 )
