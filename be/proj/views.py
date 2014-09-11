@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse, Http404
-from be.proj.gather.models import Debt, UserData
+from be.proj.gather.models import Debt, UserProfile
 from django.core.context_processors import csrf
 
 import json
@@ -63,7 +63,7 @@ def signup(request):
   user = User.objects.create_user(username, password=password, email=None)
 
   location = rq.get('location')
-  data = UserData.objects.create(user=user, location=location)
+  data = UserProfile.objects.create(user=user, location=location)
 
   kind = rq.get('kind')
   amount = rq.get('amount')

@@ -2,7 +2,7 @@ from django.test.client import Client
 from django.utils import unittest
 from django.test import TestCase
 from django.contrib.auth.models import User
-from be.proj.gather.models import UserData, Debt
+from be.proj.gather.models import UserProfile, Debt
 
 class TestSignup(TestCase):
 
@@ -61,7 +61,7 @@ class TestSignup(TestCase):
       user = User.objects.get(username='testingloc2')
       self.assertEqual('testingloc2', user.username)
 
-      data = UserData.objects.get(user=user)
+      data = UserProfile.objects.get(user=user)
       self.assertEqual('47404', data.location)
 
     def test_debt(self):
