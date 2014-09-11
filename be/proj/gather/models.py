@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from datetime import datetime
 
 
-class UserData(models.Model):
+class UserProfile(models.Model):
   user = models.OneToOneField(User)
   created_at = models.DateTimeField(default=datetime.now)
   location = models.CharField(max_length=200, null=True)

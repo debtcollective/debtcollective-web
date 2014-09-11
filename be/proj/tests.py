@@ -48,7 +48,7 @@ class TestSignup(TestCase):
       user = User.objects.get(username='testingloc')
       self.assertEqual('testingloc', user.username)
 
-      data = UserData.objects.get(user=user)
+      data = user.get_profile()
       self.assertEqual('47404', data.location)
 
       # it turns numeric data into character
