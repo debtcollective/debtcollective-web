@@ -5,8 +5,8 @@ from datetime import datetime
 
 class Point(models.Model):
   name = models.CharField(max_length=50, unique=True)
-  lat = models.FloatField()
-  lon = models.FloatField()
+  latitude = models.FloatField()
+  longitude = models.FloatField()
 
 class UserProfile(models.Model):
   user = models.OneToOneField(User)

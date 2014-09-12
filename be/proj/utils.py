@@ -22,9 +22,8 @@ def json_response(response_data, status_code):
 
 class FlatJsonSerializer(Serializer):
     def get_dump_object(self, obj):
-        data = self._current
-        if not self.selected_fields or 'id' in self.selected_fields:
-            data['id'] = obj.id
+        data = obj.__dict__
+        del data['_state']
         return data
 
     def end_object(self, obj):
