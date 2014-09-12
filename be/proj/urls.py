@@ -22,5 +22,6 @@ urlpatterns += patterns('be.proj.views',
 )
 
 urlpatterns += patterns('be.proj.gather.views',
-  url(r'^map_data/', 'map_data', name="map_data"),
+  basic_url('points'),
+  basic_url('map_data')
 )

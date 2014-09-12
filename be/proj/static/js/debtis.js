@@ -1,5 +1,6 @@
 var app = angular.module('myDebtIs', [
-    'ngCookies'
+    'ngCookies',
+    'ui.bootstrap'
 ]);
 
 app.run(function run($http, $cookies){
@@ -9,7 +10,15 @@ app.run(function run($http, $cookies){
 app.controller('splashBodyCtrl', function ($scope, $http, util_svc) {
 
     $scope.email = null;
-    $scope.username = null
+    $scope.username = null;
+    $scope.location = null;
+
+    $scope.cities = [
+        {
+          name: 'hello',
+          lat: '123.2333'
+        }
+    ]
 
     $scope.onSubmitClick = function () {
         $scope.username = util_svc.generateUUID();
@@ -19,7 +28,8 @@ app.controller('splashBodyCtrl', function ($scope, $http, util_svc) {
         // campaign monitor handles mailing lists
         data = {
             'username': $scope.username,
-            'password': $scope.email
+            'password': $scope.email,
+            'location': $scope.location.id
         }
 
         $http.post('/signup/', data).then(function (resp) {

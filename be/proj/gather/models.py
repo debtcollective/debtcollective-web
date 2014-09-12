@@ -11,7 +11,7 @@ class Point(models.Model):
 class UserProfile(models.Model):
   user = models.OneToOneField(User)
   created_at = models.DateTimeField(default=datetime.now)
-  location = models.ForeignKey(Point)
+  location = models.ForeignKey(Point, null=True)
 
 class Debt(models.Model):
   AUTO = 'auto'

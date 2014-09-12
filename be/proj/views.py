@@ -2,29 +2,12 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse, Http404
-from be.proj.gather.models import Debt, UserProfile
 from django.core.context_processors import csrf
 
-import json
+from be.proj.utils import json_response, get_POST_data
+from be.proj.gather.models import Debt, UserProfile, Point
 
-def get_POST_data(request):
-  """
-  For some reason, posting json to the backend can be a real
-  headache and django wants to have control over the form
-  submission data. This is a workaround in cases where we want
-  to use ajax POST requests but don't have it encoded as form data.
-  """
-  if len(request.POST.keys()) > 0:
-    return request.POST
-  else:
-    # assuming request.body contains json data which is UTF-8 encoded
-    return json.loads(request.body, encoding='utf-8')
-
-def json_response(response_data, status_code):
-  rs = HttpResponse(json.dumps(response_data),
-      content_type="application/json")
-  rs.status_code = status_code
-  return rs
+import simplejson as json
 
 def splash(request):
   return render_to_response('proj/splash.html')
@@ -63,6 +46,8 @@ def signup(request):
   user = User.objects.create_user(username, password=password, email=None)
 
   location = rq.get('location')
+  if location:
+    location = Point.objects.get(id=location)
   data = UserProfile.objects.create(user=user, location=location)
 
   kind = rq.get('kind')
