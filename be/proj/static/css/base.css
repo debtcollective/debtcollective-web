@@ -82,11 +82,8 @@ input {
   border: 0px;
   padding: 10px;
   font-size: 26px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  -webkit-transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
-  transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
-
+  position: relative;
+  float: left;
 }
 
 button[type="submit"] {
@@ -96,10 +93,6 @@ button[type="submit"] {
   padding: 10px 15px 10px 15px;
   font-size: 26px;
   cursor: pointer;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  -webkit-transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
-  transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
 button[type="submit"]:hover {
@@ -122,4 +115,25 @@ input:focus {
 
 input, button {
   font-family: 'Source Code Pro';
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 160px;
+    margin: 2px 0 0;
+    list-style: none;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-clip: padding-box;
 }

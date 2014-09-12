@@ -13,12 +13,13 @@ app.controller('splashBodyCtrl', function ($scope, $http, util_svc) {
     $scope.username = null;
     $scope.location = null;
 
-    $scope.cities = [
-        {
-          name: 'hello',
-          lat: '123.2333'
-        }
-    ]
+    $http.get('/points/').then(function (resp) {
+        $scope.cities = resp.data
+    });
+
+    $scope.formValid = function () {
+        return $scope.location != null && $scope.email != null;
+    }
 
     $scope.onSubmitClick = function () {
         $scope.username = util_svc.generateUUID();
