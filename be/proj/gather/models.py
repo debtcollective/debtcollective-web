@@ -3,7 +3,6 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from datetime import datetime
 
-
 class Point(models.Model):
   name = models.CharField(max_length=50, unique=True)
   lat = models.FloatField()
