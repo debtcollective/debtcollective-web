@@ -9,7 +9,7 @@ class Point(models.Model):
   longitude = models.FloatField()
 
 class UserProfile(models.Model):
-  user = models.OneToOneField(User)
+  user = models.OneToOneField(User, unique=True)
   created_at = models.DateTimeField(default=datetime.now)
   location = models.ForeignKey(Point, null=True)
 

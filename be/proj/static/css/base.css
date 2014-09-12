@@ -37,6 +37,11 @@ header {
 
 /** GENERAL **/
 
+/** angular-bootstrap compliance **/
+.nav, .pagination, .carousel, .panel-title a { 
+    cursor: pointer; 
+}
+
 body {
   font-family: 'Source Code Pro';
   font-weight: 100;
@@ -136,4 +141,7 @@ input, button {
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
     background-clip: padding-box;
+    text-align: left;
+    max-width: 300px;
+    padding-left: 5px;
 }

@@ -7,15 +7,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     var targetSVG = "M-4.5,5.5 L5.5,5.5 L5.5,-4.5 L-4.5,-4.5 Z";
 
     var dataProvider = {
-        map: "worldHigh",
-        images:[
-            // todo: get a list of the locations
-            {latitude:32.57, longitude:-85.57, svgPath: targetSVG,
-            color:"#B00000", title: "Arizona: 300 credit card debtors", scale: 1.5, zoomLevel: 5},
-            {latitude:40.3951, longitude:-73.5619, svgPath: targetSVG,
-            color:"#B00000", title: "Arizona: 300 credit card debtors", scale: 1.5, zoomLevel: 5},
-        ]
-
+        map: "worldHigh"
     };
 
     map.addListener("clickMapObject", function (event) {
@@ -24,8 +16,6 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
             console.log(event.mapObject.id);
         }
     });
-
-    map.dataProvider = dataProvider;
 
     map.areasSettings = {
         autoZoom: true,
@@ -36,6 +26,53 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     map.handDrawn = true;
     map.handDrawScatter = 3;
     map.handDrawThickness = 4;
-    map.write("mapdiv");
 
+    $http.get('/map_data/').then(function (resp) {
+        parsedImages = [];
+        for (idx in resp.data) {
+            point = resp.data[idx];
+            parsedImages.push(amChartPoint(point));
+        }
+        dataProvider['images'] = parsedImages;
+        map.dataProvider = dataProvider;
+        map.validateNow();
+        map.write("mapdiv");
+    });
+
+    function pointTitle(point) {
+        /*
+        Creates a title for the given point.
+        e.g.
+        Pasadena
+        1 debtor
+
+        New York
+        32 debtors
+        */
+        var suffix = " debtor";
+        if (point['num_users'] > 1) {
+            suffix += 's';
+        }
+        return point['name'] + "<br>" + point['num_users'] + suffix;
+    }
+
+    function amChartPoint(point) {
+        /*
+        Creates an amChart point from the given point
+        that is given to us in the backend.
+
+        Parameters
+        ----------
+        - point (dict)
+            latitude
+            longitude
+            name
+            num_users
+        */
+        point['title'] = pointTitle(point);
+        point['svgPath'] = targetSVG;
+        point['color'] = '#B00000';
+        point['scale'] = Math.min(point['num_users'], 3)
+        return point
+    }
 });
