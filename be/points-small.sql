@@ -78,6 +78,11 @@ INSERT INTO gather_point (lat,lon,name) VALUES ('34.1420882','-118.25057','Glend
 
 INSERT INTO gather_point (lat,lon,name) VALUES ('-33.8548157','151.2164539','Sydney');
 
+INSERT INTO gather_point (lat,lon,name) VALUES ('-22.9112163','-43.2093781','Rio de Janeiro');
+
+
+INSERT INTO gather_point (lat,lon,name) VALUES ('-15.7941878','-47.8827491','Brasília');
+
 INSERT INTO gather_point (lat,lon,name) VALUES ('51.4580216','-0.9673727','Reading');
 
 INSERT INTO gather_point (lat,lon,name) VALUES ('50.9035305','-1.4041996','Southampton');
@@ -211,7 +216,21 @@ INSERT INTO gather_point (lat,lon,name) VALUES ('39.5295269','-119.813779','Reno
 
 INSERT INTO gather_point (lat,lon,name) VALUES ('53.2343427','-0.5370209','Lincoln');
 
+INSERT INTO gather_point (lat,lon,name) VALUES ('59.9132694','10.7391111','Oslo');
+
+INSERT INTO gather_point (lat,lon,name) VALUES ('41.2381017','-85.8530544','Warsaw');
+
+INSERT INTO gather_point (lat,lon,name) VALUES ('38.7128335','-9.1328948','Lisboa');
+
 INSERT INTO gather_point (lat,lon,name) VALUES ('43.6112423','3.8767336','Montpellier');
+
+INSERT INTO gather_point (lat,lon,name) VALUES ('45.5224507','-73.5912827','Montréal');
+
+INSERT INTO gather_point (lat,lon,name) VALUES ('18.549274','-72.3393295','Port-au-Prince');
+
+INSERT INTO gather_point (lat,lon,name) VALUES ('33.899327','35.4690289','Beirut - بيروت');
+
+INSERT INTO gather_point (lat,lon,name) VALUES ('19.4325305','-99.1332104','Ciudad de México');
 
 INSERT INTO gather_point (lat,lon,name) VALUES ('43.615046','-116.2044429','Boise');
 
