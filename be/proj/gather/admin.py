@@ -2,7 +2,7 @@ from django.contrib import admin
 from models import UserProfile, Debt
 
 class UserProfileAdmin(admin.ModelAdmin):
-  exclude = ("user_id_secret", )
+  exclude = ("user", )
 
 class DebtAdmin(admin.ModelAdmin):
   exclude = ("UserProfile", )
