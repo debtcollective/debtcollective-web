@@ -1,38 +1,41 @@
 app.controller('mapCtrl', function ($scope, $http, util_svc) {
-    // create AmMap object
     var map = new AmCharts.AmMap();
-    // set path to images
+
     map.pathToImages = "/static/js/vendor/ammap/images/";
 
-    /* create data provider object
-     map property is usually the same as the name of the map file.
+    // square
+    var targetSVG = "M-4.5,5.5 L5.5,5.5 L5.5,-4.5 L-4.5,-4.5 Z";
 
-     getAreasFromMap indicates that amMap should read all the areas available
-     in the map data and treat them as they are included in your data provider.
-     in case you don't set it to true, all the areas except listed in data
-     provider will be treated as unlisted.
-    */
     var dataProvider = {
-        map: "usaHigh",
-        getAreasFromMap: false,
+        map: "worldHigh",
         images:[
             // todo: get a list of the locations
-            {latitude:40.3951, longitude:-73.5619, type:"rectangle", color:"#B00000"}
+            {latitude:32.57, longitude:-85.57, svgPath: targetSVG,
+            color:"#B00000", title: "Arizona: 300 credit card debtors", scale: 1.5, zoomLevel: 5},
+            {latitude:40.3951, longitude:-73.5619, svgPath: targetSVG,
+            color:"#B00000", title: "Arizona: 300 credit card debtors", scale: 1.5, zoomLevel: 5},
         ]
 
     };
-    // pass data provider to the map object
+
+    map.addListener("clickMapObject", function (event) {
+        console.log(event);
+        if (event.mapObject.id != undefined && chartData[event.mapObject.id] != undefined) {
+            console.log(event.mapObject.id);
+        }
+    });
+
     map.dataProvider = dataProvider;
 
-    /* create areas settings
-     * autoZoom set to true means that the map will zoom-in when clicked on the area
-     * selectedColor indicates color of the clicked area.
-     */
     map.areasSettings = {
         autoZoom: true,
         selectedColor: "#CC0000"
     };
 
-    // write the map to container div
+    map.useHandCursorOnClickableOjects = true
+    map.handDrawn = true;
+    map.handDrawScatter = 3;
+    map.handDrawThickness = 4;
     map.write("mapdiv");
+
 });

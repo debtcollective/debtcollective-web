@@ -11,11 +11,12 @@ header {
 
 .square {
   background-color: #9E2717;
-  float: left;
   padding: 5px;
   width: 100px;
   height: 100px;
-  position: relative;
+  position: absolute;
+  right: 0;
+  z-index: 100;
 }
 
 .header-text {

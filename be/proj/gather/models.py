@@ -4,10 +4,15 @@ from django.contrib.auth.models import User
 from datetime import datetime
 
 
+class Point(models.Model):
+  name = models.CharField(max_length=50, unique=True)
+  lat = models.FloatField()
+  lon = models.FloatField()
+
 class UserProfile(models.Model):
   user = models.OneToOneField(User)
   created_at = models.DateTimeField(default=datetime.now)
-  location = models.CharField(max_length=200, null=True)
+  location = models.ForeignKey(Point)
 
 class Debt(models.Model):
   AUTO = 'auto'
