@@ -108,6 +108,7 @@ input:focus {
   background-color: #520D02;
   border: 0px;
   outline: 0px;
+  outline-offset: 0px;
 }
 
 .dc-input {
@@ -120,8 +121,6 @@ input:focus {
 
 input, button {
   font-family: 'Source Code Pro';
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
   -webkit-transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
   transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
