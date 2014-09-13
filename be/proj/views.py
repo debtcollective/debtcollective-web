@@ -41,8 +41,12 @@ def signup(request):
     raise Http404
 
   rq = get_POST_data(request)
-  username = rq['username']
-  password = rq['password']
+  username = rq.get('username')
+  password = rq.get('password')
+  if not username or not password:
+    return json_response({'status': 'error',
+      'message': 'Those credentials could not be authenticated.'}, 500)
+
   user = User.objects.create_user(username, password=password, email=None)
 
   location = rq.get('location')

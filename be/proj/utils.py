@@ -16,6 +16,8 @@ def get_POST_data(request):
     return json.loads(request.body, encoding='utf-8')
 
 def json_response(response_data, status_code):
+  if type(response_data) == dict:
+    response_data = json.dumps(response_data)
   rs = HttpResponse(response_data, content_type="application/json")
   rs.status_code = status_code
   return rs
