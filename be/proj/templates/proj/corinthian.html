@@ -4,6 +4,9 @@
 <div ng-controller="corinthianCtrl" class="corinthian">
   <div class="questions">
   <ul>
+    <li><input type="checkbox" ng-change="updateVis()" ng-model="all"> See all FAQ answers.
+    </li>
+
     <li><input type="checkbox" ng-change="updateVis()" ng-model="current"> I am a current student at a Corinthian college.
     </li>
 

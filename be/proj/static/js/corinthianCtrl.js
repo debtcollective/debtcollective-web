@@ -1,6 +1,7 @@
 app.controller('corinthianCtrl',
   function ($scope, $http, util_svc) {
 
+    $scope.all = false;
     $scope.current = false;
     $scope.grad = false;
     $scope.attending = false;
