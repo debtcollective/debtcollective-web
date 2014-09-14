@@ -20,3 +20,8 @@ urlpatterns += patterns('be.proj.views',
   basic_url('signup'),
   url(r'^$', 'splash', name='splash')
 )
+
+urlpatterns += patterns('be.proj.gather.views',
+  basic_url('points'),
+  basic_url('map_data')
+)

@@ -9,20 +9,32 @@
   <title>the debt collective</title>
   <meta name="description" content="You are not a loan.">
   <meta name="keywords" content="debt,debt collective,no debt,debt help">
+
+  <!-- angular -->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-cookies.min.js"></script>
   <script src="/static/js/debtis.js"></script>
   <script src="/static/js/util.js"></script>
+  <script src="/static/js/vendor/ui-bootstrap-custom-0.10.0.min.js" type="text/javascript"></script>
+  <script src="/static/js/vendor/ui-bootstrap-custom-tpls-0.10.0.min.js" type="text/javascript"></script>
+
+  <!-- maps -->
+  <script src="/static/js/vendor/ammap/ammap.js"></script>
+  <script src="/static/js/vendor/ammap/maps/js/worldHigh.js" type="text/javascript"></script>
+  <script src="/static/js/maps/debtMap.js" type="text/javascript"></script>
 </head>
 <body ng-app="myDebtIs">
   <header>
-    <a href="/">
+    <a href="/map">
       <div class="square">
          <div class="header-text">the
           <span style="text-decoration: line-through;">debt</span> collective<span class="small"></span></div>
       </div>
     </a>
     <div class="navigation">
+      <a href="/" class="nav-item">
+        join
+      </a>
       <a class="nav-item">
         faq
       </a>

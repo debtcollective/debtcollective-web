@@ -1,6 +1,15 @@
 .signup-form {
   position: relative;
   text-align: left;
-  width: 500px;
+  width: 400px;
   margin: auto;
+  height: 30px;
+}
+
+.signup-form button {
+    float: right;
+}
+
+.dc-input {
+    width: 350px;
 }

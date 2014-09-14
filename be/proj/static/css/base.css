@@ -11,11 +11,12 @@ header {
 
 .square {
   background-color: #9E2717;
-  float: left;
   padding: 5px;
   width: 100px;
   height: 100px;
-  position: relative;
+  position: absolute;
+  right: 0;
+  z-index: 100;
 }
 
 .header-text {
@@ -35,6 +36,11 @@ header {
 }
 
 /** GENERAL **/
+
+/** angular-bootstrap compliance **/
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
 
 body {
   font-family: 'Source Code Pro';
@@ -81,6 +87,8 @@ input {
   border: 0px;
   padding: 10px;
   font-size: 26px;
+  position: relative;
+  float: left;
 }
 
 button[type="submit"] {
@@ -100,6 +108,7 @@ input:focus {
   background-color: #520D02;
   border: 0px;
   outline: 0px;
+  outline-offset: 0px;
 }
 
 .dc-input {
@@ -112,4 +121,34 @@ input:focus {
 
 input, button {
   font-family: 'Source Code Pro';
+  -webkit-transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 160px;
+    margin: 2px 0 0;
+    list-style: none;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    background-clip: padding-box;
+    text-align: left;
+    max-width: 300px;
+    padding-left: 0px;
+}
+
+.dropdown-menu li {
+    padding: 5px;
+}
+
+.dropdown-menu li.active {
+  background-color: #9E2717;
 }
