@@ -23,8 +23,6 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 # Override the above with environment keys generated on the production server
-from envconfig import get_envconfig
-get_envconfig(globals())
 
 # Application definition
 INSTALLED_APPS = (
