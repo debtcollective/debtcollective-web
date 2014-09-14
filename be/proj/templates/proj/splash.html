@@ -1,25 +1,67 @@
 {% extends "proj/base_template.html" %}
 
 {% block body %}
-  <div class="vertical-center" ng-controller="splashBodyCtrl">
-    <div class="signup-form">
-      <div class="text">
-        <h1>you are not a loan.</h1>
+<div >
+  <div scroll ng-controller="splashBodyCtrl" ng-click="advance()"
+      class="ridiculous">
+      <div class="intro-text">
+        <div class="one" ng-class="{pane: yLoc <= 100}">
+          The American dream used to be buying a home.<br>
+          The new American dream is just getting out of debt.<br>
+        </div>
+        <div class="two" ng-class="{pane: yLoc == 200}">
+          Alone, our debts are a burden. <br>
+          Together, they make us powerful.
+        </div>
+        <div class="three" ng-class="{pane: yLoc == 300}">
+          <span class="three-one">
+            Every month, <br>student debtors,<br> medical debtors, <br>mortgage debtors, and others <br>are asked to make payments with little power</span><span class="three-two"> to bargain or negotiate.</span>
+          </span>
+        </div>
+        <div class="four" ng-class="{pane: yLoc == 400}">
+          yo
+        </div>
       </div>
-      <div class="form">
-        <form action="http://strikedebt.createsend.com/t/j/s/nskul/" method="post"
-            ng-submit="onSubmitClick()">
-          <div class="dc-input">
-            <input type="text" class="hidden" name="cm-name" ng-model="username" />
-            <input type="email" name="cm-nskul-nskul"  ng-model="email"
-                placeholder="enter an email..." autofocus required />
-            <input type="text" ng-model="location" placeholder="where at?" ng-show="email != null"
-                ng-model-options="{ updateOn: 'blur' }" typeahead-editable="false"
-                typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
-            <button type="submit" name="submit" class="btn" ng-show="formValid()">join</button>
-          </div>
-        </form>
+    <section class="images">
+      <div ng-class="{pane: yLoc == 300}">
+        <img src="/static/img/k-junk-01.png" width="700px"/>
       </div>
-    </div>
+      <div ng-class="{pane: yLoc == 400}">
+        <img src="/static/img/k-junk-02.png" width="700px"/>
+      </div>
+      <div ng-class="{pane: yLoc == 500}">
+        <img src="/static/img/k-junk-03.png" width="700px"/>
+      </div>
+    </section>
+
+    <section class="hidden">
+      <div class="signup-form">
+        <div class="text">
+          <h1>you are not a loan.</h1>
+        </div>
+
+        <div class="form">
+          <form action="http://strikedebt.createsend.com/t/j/s/nskul/" method="post"
+              ng-submit="onSubmitClick()">
+            <div class="dc-input">
+              <input type="text" class="hidden" name="cm-name" ng-model="username" />
+              <input type="email" name="cm-nskul-nskul"  ng-model="email"
+                  placeholder="enter an email..." autofocus required />
+              <input type="text" ng-model="location" placeholder="where at?" ng-show="email != null"
+                  ng-model-options="{ updateOn: 'blur' }" typeahead-editable="false"
+                  typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
+              <button type="submit" name="submit" class="btn" ng-show="formValid()">join</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
   </div>
+  <section class="hidden">
+    <div ng-controller="mapCtrl">
+      <div id="mapdiv" style="width: 100%; height: 800px;"></div>
+    </div>
+  </section>
+</section>
 {% endblock %}

@@ -13,3 +13,46 @@
 .dc-input {
     width: 350px;
 }
+
+section {
+  height: 100%;
+  width: 100%;
+}
+
+.intro-text {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+
+.intro-text div {
+  visibility: hidden;
+}
+
+.intro-text .pane {
+  position: fixed;
+  top: 0;
+  margin: 5px;
+  width: 100%;
+  text-align: left;
+  visibility: visible;
+}
+
+.images div.pane{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-25%);
+  margin: 5px;
+  width: 100%;
+  text-align: left;
+  visibility: visible;
+}
+
+.images div {
+  visibility: hidden;
+}
+
+.ridiculous {
+  height: 3000%;
+}
+
