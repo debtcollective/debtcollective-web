@@ -20,7 +20,6 @@ SECRET_KEY = 'nuu3(*jjx3meo@nn14j58z25&2%ofkb0ktp6=e0m$=*rfz-myl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 TEMPLATE_DEBUG = True
-ALLOWED_HOSTS = []
 
 # Override the above with environment keys generated on the production server
 
