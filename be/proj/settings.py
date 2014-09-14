@@ -83,9 +83,9 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
 ALLOWED_HOSTS = [
-  'debtcollective.org',
-  'debt-is.herokuapp.com',
-  'debt-is-staging.herokuapp.com',
+  '.debtcollective.org',
+  '.debt-is.herokuapp.com',
+  '.debt-is-staging.herokuapp.com',
   'localhost'
 ]
 
