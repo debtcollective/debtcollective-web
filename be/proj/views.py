@@ -9,6 +9,8 @@ from be.proj.gather.models import Debt, UserProfile, Point
 
 import simplejson as json
 
+from django.views.decorators.csrf import ensure_csrf_cookie
+@ensure_csrf_cookie
 def splash(request):
   return render_to_response('proj/splash.html')
 
