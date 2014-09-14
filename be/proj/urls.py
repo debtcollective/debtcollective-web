@@ -18,6 +18,7 @@ urlpatterns += patterns('be.proj.views',
   basic_url('map'),
   basic_url('login'),
   basic_url('signup'),
+  basic_url('corinthian'),
   url(r'^$', 'splash', name='splash')
 )
 

@@ -1,0 +1,163 @@
+{% extends "proj/base_template.html" %}
+
+{% block body %}
+<div ng-controller="corinthianCtrl" class="corinthian">
+  <div class="questions">
+  <ul>
+    <li><input type="checkbox" ng-change="updateVis()" ng-model="current"> I am a current student at a Corinthian college.
+    </li>
+
+    <li><input type="checkbox" ng-change="updateVis()"ng-model="grad"/> I graduated from a Corinthian college."
+    </li>
+
+    <li><input type="checkbox" ng-change="updateVis()"ng-model="attending" /> I am thinking of attending a Corinthian college.
+    </li>
+
+    <li><input type="checkbox" ng-change="updateVis()" ng-model="value"/>I have concerns about the value of a Corinthian degree.
+    </li>
+
+    <li><input type="checkbox" ng-change="updateVis()" ng-model="charges" />I am confused about some charges I saw on my Everest/Heald/Wyotech student portal.
+    </li>
+
+    <li><input type="checkbox" ng-change="updateVis()" ng-model="status" />I am confused about the status of my school.
+    </li>
+
+    <li><input type="checkbox" ng-change="updateVis()" ng-model="paying"/>I am having trouble paying my student loans or have stopped paying them.
+    </li>
+    </ul>
+
+  </div>
+  <div class="answers">
+    <div id="1" ng-show="isVisible(1)" class="faq-answer">
+      <h3>
+        #1. Are degrees from Everest and other Corinthian colleges a good investment?
+      </h3>
+      No. Research has shown that students who attend for-profit colleges make no more money, on average, than people who only completed high school. There may be cases in which graduates are able to get a high paying job with an Everest degree, but these are the exceptions and not the rule. Some students have told us that they met a lot of good friends and maybe even enjoyed some of their classes at Everest. If that is true for you, then you may have benefited from your time as a student, but we do not believe attending Everest - or any for-profit college - is a good financial investment.
+    </div>
+
+    <div id="2" ng-show="isVisible(2)" class="faq-answer">
+    <h3>
+      #2. Why is Everest "estimating" room and board, transportation costs, and other miscellaneous fees into online students’ tuition bills?
+    </h3>
+      <p>
+      The figures that Corinthian/Everest/Heald/Wyotech gives to the government are an estimate of the total cost for attending each school. This is common practice. The estimated budget for room/board/transportation comes from an average of what it would cost to physically attend the school in that location. This information is requested by the government to get an overall picture of your finances. The final amount of your loans is determined by your income, which you report in your FASFA, as well as the cost of attendance reported by the school. The formula looks like this: Low income + High cost of attendance = Huge loans.
+      </p>
+      <p>
+      In instances where the figures are over-estimated, you end up with a credit on your school account. The school returns this money to you usually in the form of a “stipend.”  However, in many cases the stipend is not a grant or scholarship. It is actually money that you borrowed. Unless you are getting money from a source clearly described as a grant, the stipend is part of your loans and must be paid back to the lender with interest.
+      </p>
+    </div>
+
+    <div id="3" ng-show="isVisible(3)" class="faq-answer">
+    <h3>
+    #3. Will there be a possibility for loan forgiveness for people who graduated but couldn’t find a job in their field?
+    </h3>
+    <p>
+      There may be some possibilities for loan forgiveness for former Everest students. The DOE has not made it clear in which circumstances this will be possible. The more students who join together to demand this relief, the more likely it will be available.That is why Strike Debt is committed to building a collective of debtors so that all of us can work together to force creditors to cancel unjust debts.
+    </p>
+    </div>
+
+    <div id="4" ng-show="isVisible(4)" class="faq-answer">
+    <h3>
+    #4. I withdrew from Everest but they were still receiving tuition for me for several months after I withdrew. Is that normal?
+    </h3>
+    <p>
+      No. If you have any concerns or questions about how Everest handled student loan funds in your name, you can file a complaint with the DOE ombudsman <a href="https://www.google.com/url?q=https%3A%2F%2Fstudentaid.ed.gov%2Frepay-loans%2Fdisputes%2Fprepare%2Fcontact-ombudsman&sa=D&sntz=1&usg=AFQjCNEsY2rsktVzJDQCJPwcPMqLjUzobw">here</a>.
+    </p>
+    </div>
+
+    <div id="5" ng-show="isVisible(5)" class="faq-answer">
+    <h3>
+      #5. How can I find out if my school is closing or has been sold?
+    </h3>
+    <p>Check this spreadsheet for updated information. Most campuses are due to be sold, not closed.</p>
+    </div>
+
+    <div id="6" ng-show="isVisible(6)" class="faq-answer">
+    <h3>
+    #6. What is a teach out?
+    </h3>
+    <p>
+    Arrangements are going to be put in place by the DOE and Corinthian officials to ensure that all enrolled students can either complete their course of study at their current school or transition to a new school. This is called a teach out. Only two Everest campuses have teach outs currently in place. Those schools are Everest Cross Lanes and Everest Eagan. There are currently no teach out plans in place for other Everest schools. We believe that, even if a teach out becomes available to you, it is not necessarily in your interest to participate in it. Students who participate in a teach out are forfeiting certain legal rights to have their loans discharged.
+    </p>
+    </div>
+
+    <div id="7" ng-show="isVisible(7)" class="faq-answer">
+    <h3>
+    #7. Do I have to participate in a teach out?
+    </h3>
+    <p>
+    No. You are not required to take part in any teach out that is offered by your school. Students who complete a teach out are forfeiting their legal rights to have their loans discharged because their school closed.
+    </p>
+    </div>
+
+    <div id="8" ng-show="isVisible(8)" class="faq-answer">
+    <h3>
+    #8. Do I qualify for loan forgiveness?
+    </h3>
+    <p>
+    You may be eligible for loan forgiveness if your school closes while you're enrolled and you do not complete your program either at the closed school or at another school. (This is why it is important not to participate in a teach out if you want to be eligible for a discharge of your loans.) You may also qualify for discharge of your debt if you stopped attending your school within 120 days before it closed and you did not complete your program.
+    </p>
+    <p>
+    Because Corinthian colleges have been accused of violating a number of laws, it may be possible that other loan forgiveness options are available. The more pressure the Department of Education gets from students to provide clear options for loan forgiveness, the more likely it is to do so. Save any emails or other correspondence you receive from the college. It may be useful to you later.
+    </p>
+    </div>
+
+    <div id="9" ng-show="isVisible(9)" class="faq-answer">
+    <h3>
+    #9. Should I apply for an official leave of absence?
+    </h3>
+    <p>
+    Yes. If you apply for and receive a leave, you would still be considered enrolled when and if the school closes or is sold. This may make it easier for you to eventually claim a discharge of your loans. We have heard reports that some Everest campuses are refusing students’ applications for a leave of absence. If you decide to apply for a leave, you should provide a really good excuse, such as claiming that you, your spouse, or your child is ill. You may be reluctant to stretch the truth to Everest college officials about your situation. But remember they are currently the subject of a criminal investigation. We believe their fraud more than justifies some measures on your part to protect your financial future.
+    </p>
+    </div>
+
+    <div id="10" ng-show="isVisible(10)" class="faq-answer">
+    <h3>
+    #10. I can’t pay my debt. What will happen to me?
+    </h3>
+    <p>
+    The consequences of default are severe. Your loans may be turned over to a collection agency, and you may receive harassing phone calls. Eventually,  your wages may be garnished up to 15% of your take-home or “disposable” pay.  Your federal and state income tax refunds may be taken. The federal government may withhold part of your Social Security benefit payments. Your defaulted loans will appear on your credit history for up to seven years after the default claim is paid, making it difficult for you to obtain an auto loan, mortgage, or even credit cards.  If you had a cosigner on your loan (this is usually a parent or grandparent), they will be held legally responsible to pay back your loans. The penalties that apply to the person who took out the loan are also applied to cosigners who default. These draconian measure illustrate how all of the power is in creditors’ hands. At Strike Debt, we hope to support Corinthian students by making individualized legal advice available. But we know that, in the long run, we need to put mass pressure on creditors to get all predatory loans discharged.
+    </p>
+    </div>
+
+    <div id="11" ng-show="isVisible(11)" class="faq-answer">
+    <h3>#11. Should I stop paying on my student loans?
+    </h3>
+    <p>
+    Stopping your payments is a serious decision that shouldn’t be taken lightly. Student loans are generally considered to be delinquent when you are behind on your payments. Your loans are considered to be in default when you fail to make a payment for 270 days for a federal loan or 120 days for a private loan. The penalties for default are of a much greater magnitude than for delinquency. If you can’t avoid delinquency but want to avoid default, try to make at least one payment every 120 (private) or 270 (federal) days. If you default, your loans may be sold to a collection agency or the Department of Education may pay a private collection firm to try and collect from you.
+    </p>
+    <p>
+    If you just graduated, many loans provide an automatic six-month deferment period. And if you have federal loans, you can extend this period on an annual basis either through deferment or forbearance programs.There are also options for deferment and forbearance, though these options will increase the amount of repayment. You can read much more about these options and what they might mean for you in the chapter on student debt in the Debt Resister’s Operations Manual.
+    </p>
+    </div>
+
+    <div id="12" ng-show="isVisible(12)" class="faq-answer">
+    <h3>
+    #12. Should I transfer to another college?
+    </h3>
+    <p>
+    We don’t believe you should continue your studies at Everest. Unfortunately, there aren’t many good options when it comes to schools who will accept your credits. As educators and activists, we strongly recommend that you not transfer to another for-profit school. And some non-profit schools are only a little better than Corinthian in terms of whether their degrees are a good investment of time and money. When making a decision about which school to attend, do careful research, talk to current students, and make sure the choice is right for you.
+    </p>
+    </div>
+
+    <div id="13" ng-show="isVisible(13)" class="faq-answer">
+    <h3>
+    #13. Should I drop out of Everest?
+    </h3>
+    <p>
+    If you would like to maintain your eligibility for a discharge of your student loans, we recommend that you delay your graduation as long as possible. One strategy is to file for an official Leave of Absence from Everest. If it is granted, your loans may still be dischargeable. If you transfer to another college and complete your program there, it is less likely that you will be eligible for a discharge of loans you accrued while a student at a Corinthian campus. Please be aware that there is a lot of uncertainty around the process for applying for a discharge. Much of the information we are providing comes from the Federal Student Aid website. One thing we can do together is demand that the federal government make it easier for students to apply for a loan discharge.
+    </p>
+    </div>
+
+    <div id="14" ng-show="isVisible(14)" class="faq-answer">
+    <h3>
+    #14. Will all of my credits transfer to a reputable college?
+    </h3>
+    <p>
+    No.  Since Corinthian is currently being investigated for fraud, it is highly unlikely that a reputable school will accept all your credits. If all your credits transfer, that is a good sign that the school you are transferring to is not a reputable college.
+    </p>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

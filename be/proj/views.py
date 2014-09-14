@@ -17,6 +17,9 @@ def splash(request):
 def map(request):
   return render_to_response('proj/map.html')
 
+def corinthian(request):
+  return render_to_response('proj/corinthian.html')
+
 def login(request):
   """
   POST /login

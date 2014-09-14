@@ -47,8 +47,9 @@
               <input type="text" class="hidden" name="cm-name" ng-model="username" />
               <input type="email" name="cm-nskul-nskul"  ng-model="email"
                   placeholder="enter an email..." autofocus required />
-              <input type="text" ng-model="location" placeholder="where at?" ng-show="email != null"
-                  ng-model-options="{ updateOn: 'blur' }" typeahead-editable="false"
+              <input type="text" ng-model="location" placeholder="where at?"    ng-show="email != null"
+                  ng-model-options="{ updateOn: 'blur' }"
+                  typeahead-editable="false"
                   typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
               <button type="submit" name="submit" class="btn" ng-show="formValid()">join</button>
             </div>
