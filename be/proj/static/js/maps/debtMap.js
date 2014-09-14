@@ -59,12 +59,12 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         /*
         Creates a title for the given point. Examples:
         "Pasadena
-         1 debtor"
+         1 member"
         "New York
-         32 debtors"
+         32 members"
         */
 
-        var suffix = " debtor";
+        var suffix = " member";
         if (point['num_users'] > 1) {
             suffix += 's';
         }
