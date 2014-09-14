@@ -39,26 +39,25 @@ class TestSignup(TestCase):
         {'username': username, 'password': password})
       self.assertEqual(rs.status_code, 200)
 
-
     def test_points(self):
-      Point.objects.create(lat=12.23, lon=-34.35, name="Albuquerque")
-      Point.objects.create(lat=12.23, lon=-32.35, name="New York")
-      Point.objects.create(lat=42.23, lon=-34.35, name="Newark")
-      Point.objects.create(lat=12.23, lon=-31.25, name="San Francisco")
+      Point.objects.create(latitude=12.23, longitude=-34.35, name="Albuquerque")
+      Point.objects.create(latitude=12.23, longitude=-32.35, name="New York")
+      Point.objects.create(latitude=42.23, longitude=-34.35, name="Newark")
+      Point.objects.create(latitude=12.23, longitude=-31.25, name="San Francisco")
 
       rs = self.client.post('/points/')
       self.assertEqual(rs.status_code, 200)
 
       resp = json.loads(rs.content)
       self.assertEqual(len(resp), 4)
-      self.assertIn('id', resp[0])
-      self.assertIn('name', resp[0])
-      self.assertIn('lat', resp[0])
-      self.assertIn('lon', resp[0])
+      fields = resp[0]
+      self.assertIn('name', fields)
+      self.assertIn('latitude', fields)
+      self.assertIn('longitude', fields)
 
     def test_location(self):
       # it can store and retrieve location from the frontend
-      p = Point.objects.create(lat=12.23, lon=-34.35, name="Albuquerque")
+      p = Point.objects.create(latitude=12.23, longitude=-34.35, name="Albuquerque")
       rs = self.client.post('/signup/',
           {'username': 'testingloc',
            'password': 'testingpw',
@@ -72,7 +71,7 @@ class TestSignup(TestCase):
       self.assertEqual(p.id, data.location.id)
 
       # it turns numeric data into character
-      p = Point.objects.create(lat=12.23, lon=-32.35, name="New York")
+      p = Point.objects.create(latitude=12.23, longitude=-32.35, name="New York")
       rs = self.client.post('/signup/',
           {'username': 'testingloc2',
            'password': 'testingpw',

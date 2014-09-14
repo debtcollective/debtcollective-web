@@ -21,16 +21,3 @@ def json_response(response_data, status_code):
   rs = HttpResponse(response_data, content_type="application/json")
   rs.status_code = status_code
   return rs
-
-class FlatJsonSerializer(Serializer):
-    def get_dump_object(self, obj):
-        data = obj.__dict__
-        del data['_state']
-        return data
-
-    def end_object(self, obj):
-        if not self.first:
-            self.stream.write(', ')
-        json.dump(self.get_dump_object(obj), self.stream,
-                  cls=DjangoJSONEncoder)
-        self._current = None

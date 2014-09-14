@@ -3,10 +3,19 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from datetime import datetime
 
+# do not edit! added by PythonBreakpoints
+from pdb import set_trace as _breakpoint
+
+
 class Point(models.Model):
   name = models.CharField(max_length=50, unique=True)
   latitude = models.FloatField()
   longitude = models.FloatField()
+
+  def to_json(self):
+    data = self.__dict__
+    del data['_state']
+    return data
 
 class UserProfile(models.Model):
   user = models.OneToOneField(User, unique=True)
