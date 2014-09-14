@@ -27,11 +27,12 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     $http.get('/map_data/').then(function (resp) {
         var parsedImages = [];
         var total_users = resp.data.total_users;
+        var points = resp.data.points;
 
         var point;
-        for (idx in resp.data.points) {
-            point = createAmChartPoint(resp.data[idx]);
-            point['scale'] = getPointScale(point['num_users']/total_users);
+        for (idx in points) {
+            point = createAmChartPoint(points[idx]);
+            point['scale'] = getPointScale(parseFloat(point['num_users']/total_users));
             parsedImages.push(point);
         }
 
@@ -51,7 +52,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         */
 
         // TODO
-        return percentage;
+        return Math.min(5, Math.max(.75, .5 + percentage));
     }
 
     function getPointTitle(point) {

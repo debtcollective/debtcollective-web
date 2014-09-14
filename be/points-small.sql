@@ -12,6 +12,10 @@ INSERT INTO gather_point (latitude,longitude,name) VALUES ('41.6833813','-86.250
 
 INSERT INTO gather_point (latitude,longitude,name) VALUES ('30.1600827','-85.6545729','Panama City');
 
+INSERT INTO gather_point (latitude,longitude,name) VALUES ('28.5421175','-81.3790462','Orlando');
+
+INSERT INTO gather_point (latitude,longitude,name) VALUES ('25.7742658','-80.1936589','Miami');
+
 INSERT INTO gather_point (latitude,longitude,name) VALUES ('41.0799898','-85.1386015','Fort Wayne');
 
 INSERT INTO gather_point (latitude,longitude,name) VALUES ('39.7989763','-89.6443688','Springfield');
@@ -215,8 +219,6 @@ INSERT INTO gather_point (latitude,longitude,name) VALUES ('39.5295269','-119.81
 INSERT INTO gather_point (latitude,longitude,name) VALUES ('53.2343427','-0.5370209','Lincoln');
 
 INSERT INTO gather_point (latitude,longitude,name) VALUES ('59.9132694','10.7391111','Oslo');
-
-INSERT INTO gather_point (latitude,longitude,name) VALUES ('41.2381017','-85.8530544','Warsaw');
 
 INSERT INTO gather_point (latitude,longitude,name) VALUES ('38.7128335','-9.1328948','Lisboa');
 
