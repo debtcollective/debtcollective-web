@@ -21,6 +21,9 @@ SECRET_KEY = 'nuu3(*jjx3meo@nn14j58z25&2%ofkb0ktp6=e0m$=*rfz-myl'
 DEBUG = True
 TEMPLATE_DEBUG = True
 
+from envconfig import get_envconfig
+get_envconfig(globals())
+
 # Override the above with environment keys generated on the production server
 
 # Application definition
