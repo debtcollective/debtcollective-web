@@ -18,11 +18,13 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     map.handDrawThickness = 4;
 
     // square
-    var targetSVG = "M-4.5,5.5 L5.5,5.5 L5.5,-4.5 L-4.5,-4.5 Z";
-
+    var targetSVG = "M16,1.466C7.973,1.466,1.466,7.973,1.466,16c0,8.027,6.507,14.534,14.534,14.534c8.027,0,14.534-6.507,14.534-14.534C30.534,7.973,24.027,1.466,16,1.466z M17.255,23.88v2.047h-1.958v-2.024c-3.213-0.44-4.621-3.08-4.621-3.08l2.002-1.673c0,0,1.276,2.223,3.586,2.223c1.276,0,2.244-0.683,2.244-1.849c0-2.729-7.349-2.398-7.349-7.459c0-2.2,1.738-3.785,4.137-4.159V5.859h1.958v2.046c1.672,0.22,3.652,1.1,3.652,2.993v1.452h-2.596v-0.704c0-0.726-0.925-1.21-1.959-1.21c-1.32,0-2.288,0.66-2.288,1.584c0,2.794,7.349,2.112,7.349,7.415C21.413,21.614,19.785,23.506,17.255,23.88z"
     // get data
     var dataProvider = {
-        map: "worldHigh"
+        map: "worldHigh",
+        zoomLevel: 1,
+        zoomLatitude: 39.096169,
+        zoomLongitude: -98.198721
     };
     $http.get('/map_data/').then(function (resp) {
         var parsedImages = [];
@@ -42,6 +44,15 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         map.write("mapdiv");
     });
 
+    var mapZoomed = false;
+
+    $scope.$watch('yLoc', function (newVal, oldVal) {
+        if(newVal == 5000 && !mapZoomed) {
+            mapZoomed = true;
+            map.zoomIn();
+        }
+    });
+
     /**********
      FUNCTIONS
     ***********/
@@ -52,23 +63,14 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         */
 
         // TODO
-        return Math.min(5, Math.max(.75, .5 + percentage));
+        return Math.min(4, Math.max(.75, .5 + percentage));
     }
 
     function getPointTitle(point) {
         /*
-        Creates a title for the given point. Examples:
-        "Pasadena
-         1 member"
-        "New York
-         32 members"
+        Creates a title for the given point.
         */
-
-        var suffix = " member";
-        if (point['num_users'] > 1) {
-            suffix += 's';
-        }
-        return point['name'] + "<br>" + point['num_users'] + suffix;
+        return point['name'] + "<br> $" + point['sum_amount'];
     }
 
     function createAmChartPoint(point) {
@@ -87,10 +89,9 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
 
         point['title'] = getPointTitle(point);
         point['svgPath'] = targetSVG;
-        point['color'] = '#B00000';
+        point['color'] = '#00B233';
         return point
     }
-
     // TODO: on map object click
     map.addListener("clickMapObject", function (event) {
         console.log(event);
