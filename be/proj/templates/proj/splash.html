@@ -82,16 +82,17 @@
                   typeahead-on-select="onSelect($item, $model, $label)"
                   typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
 
-               <input type="text" ng-model="debtType" placeholder="what kind of debt?"
+               <!--<input type="text" ng-model="debtType" placeholder="what kind of debt?"
                   ng-class="{muted: mutedValues('debtType')}"
                   ng-show="email != null && location != null "
                   ng-model-options="{ updateOn: 'blur' }"
                   typeahead-editable="false"
                   typeahead-on-select="onSelect($item, $model, $label)"
                   typeahead="type as type.name for type in types | filter:{name:$viewValue}" required>
+                -->
 
                <input type="text" ng-model="amount" placeholder="how much?"
-                  ng-show="email != null && debtType != null && location != null"
+                  ng-show="email != null && location != null"
                   ng-model-options="{ updateOn: 'blur' }">
                 <div class="join-button">
                   <button type="submit" name="submit" class="btn" ng-show="formValid()">sign up</button>

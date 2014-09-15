@@ -5,6 +5,7 @@ app.controller('splashCtrl', function ($scope, $http, util_svc) {
     $scope.username = null;
     $scope.location = null;
     $scope.debtType = null;
+    $scope.amount = null;
 
     $scope.types = [
         {name : 'medical',
@@ -36,12 +37,12 @@ app.controller('splashCtrl', function ($scope, $http, util_svc) {
         // so that we can protect anonymity of our users.
         // campaign monitor handles mailing lists
 
-        amount = parseFloat($scope.amount.replace(',', ''))
+        amount = parseFloat($scope.amount.replace(',', ''));
         data = {
             'username': $scope.username,
             'password': $scope.email,
             'point': $scope.location.id,
-            'kind': $scope.debtType.name,
+            //'kind': $scope.debtType.name,
             'amount': amount
         }
 

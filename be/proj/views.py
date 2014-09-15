@@ -62,7 +62,7 @@ def signup(request):
   kind = rq.get('kind')
   amount = rq.get('amount')
   last_payment = rq.get('last_payment')
-  if kind:
+  if amount:
     debt = Debt.objects.create(user=user, amount=amount,
       kind=kind, last_payment=last_payment)
 
