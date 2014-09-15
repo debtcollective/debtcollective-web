@@ -7,6 +7,11 @@ app.run(function run($http, $cookies){
     $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
 })
 
+app.config(function($interpolateProvider) {
+    $interpolateProvider.startSymbol('{$');
+    $interpolateProvider.endSymbol('$}');
+});
+
 app.controller('splashBodyCtrl', function ($scope, $http, util_svc) {
 
     $scope.email = null;

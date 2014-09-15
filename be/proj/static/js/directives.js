@@ -2,8 +2,26 @@ app.directive("scroll", function ($window) {
     return function($scope, $element, $attrs) {
 
         var OFFSET = 100;
+        var MAX_RANGES = 21;
+
         //$scope.one = true;
         $scope.yLoc = 0;
+        $scope.ranges = []
+
+        function createRange() {
+            var i = 0;
+            var cur = 0;
+            while (i < MAX_RANGES) {
+                $scope.ranges.push({
+                    'yScroll': cur,
+                    'num': i
+                });
+                cur += OFFSET;
+                i += 1;
+            }
+        }
+
+        createRange()
 
         $scope.advance = function () {
             $scope.yLoc = $scope.yLoc + OFFSET;

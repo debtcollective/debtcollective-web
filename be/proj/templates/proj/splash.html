@@ -1,7 +1,7 @@
 {% extends "proj/base_template.html" %}
 
 {% block body %}
-<div >
+<div>
   <div scroll ng-controller="splashBodyCtrl" ng-click="advance()"
       class="ridiculous">
       <div class="intro-text">
@@ -23,14 +23,11 @@
         </div>
       </div>
     <section class="images">
-      <div ng-class="{pane: yLoc == 300}">
-        <img src="/static/img/k-junk-01.png" width="700px"/>
-      </div>
-      <div ng-class="{pane: yLoc == 400}">
-        <img src="/static/img/k-junk-02.png" width="700px"/>
-      </div>
-      <div ng-class="{pane: yLoc == 500}">
-        <img src="/static/img/k-junk-03.png" width="700px"/>
+      <div ng-repeat="range in ranges">
+        <div ng-class="{pane: yLoc == range.yScroll}">
+          {$ range.num $}
+          <img ng-src="/static/img/animation/transitional-support-{{range.num}}.png"/>
+        </div>
       </div>
     </section>
 
