@@ -42,8 +42,8 @@ class Debt(models.Model):
   user = models.ForeignKey(User)
 
   # required
-  kind = models.CharField(max_length=7, choices=DEBT_CHOICES)
+  amount = models.IntegerField()
 
   # optional
-  amount = models.IntegerField(null=True)
+  kind = models.CharField(max_length=7, choices=DEBT_CHOICES, null=True)
   last_payment = models.DateTimeField(null=True)
