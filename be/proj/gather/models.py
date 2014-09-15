@@ -39,7 +39,7 @@ class Debt(models.Model):
     (OTHER, 'Other')
   )
 
-  user = models.ForeignKey(User)
+  userprofile = models.ForeignKey(UserProfile)
 
   # required
   kind = models.CharField(max_length=7, choices=DEBT_CHOICES)

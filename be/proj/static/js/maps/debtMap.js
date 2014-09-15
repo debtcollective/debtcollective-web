@@ -26,13 +26,13 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     };
     $http.get('/map_data/').then(function (resp) {
         var parsedImages = [];
-        var total_users = resp.data.total_users;
+        var total_amount = resp.data.total_amount;
         var points = resp.data.points;
 
         var point;
         for (idx in points) {
             point = createAmChartPoint(points[idx]);
-            point['scale'] = getPointScale(parseFloat(point['num_users']/total_users));
+            point['scale'] = getPointScale(parseFloat(point['sum_amount']/total_amount));
             parsedImages.push(point);
         }
 
