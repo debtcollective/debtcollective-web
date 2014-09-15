@@ -20,7 +20,7 @@ class Point(models.Model):
 class UserProfile(models.Model):
   user = models.OneToOneField(User, unique=True)
   created_at = models.DateTimeField(default=datetime.now)
-  location = models.ForeignKey(Point, null=True)
+  point = models.ForeignKey(Point, null=True)
 
 class Debt(models.Model):
   AUTO = 'auto'
@@ -39,7 +39,7 @@ class Debt(models.Model):
     (OTHER, 'Other')
   )
 
-  userprofile = models.ForeignKey(UserProfile)
+  user = models.ForeignKey(User)
 
   # required
   kind = models.CharField(max_length=7, choices=DEBT_CHOICES)

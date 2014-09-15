@@ -55,41 +55,79 @@ class TestSignup(TestCase):
       self.assertIn('latitude', fields)
       self.assertIn('longitude', fields)
 
+    def test_map_data(self):
+      Point.objects.create(latitude=12.23, longitude=-34.35, name="Albuquerque")
+      Point.objects.create(latitude=12.23, longitude=-32.35, name="New York")
+      Point.objects.create(latitude=42.23, longitude=-34.35, name="Newark")
+      p1 = Point.objects.create(latitude=12.23, longitude=-31.25, name="San Francisco")
+
+      rs = self.client.post('/signup/',
+          {'username': 'doingit',
+           'password': 'testingpw',
+           'kind': 'home',
+           'amount': 132200,
+           'point': p1.id
+           })
+      self.assertEqual(rs.status_code, 200)
+
+      rs = self.client.post('/signup/',
+          {'username': 'doingit2',
+           'password': 'testingpw',
+           'kind': 'home',
+           'amount': 132200,
+           'point': p1.id
+           })
+      self.assertEqual(rs.status_code, 200)
+
+      rs = self.client.get('/map_data/')
+      self.assertEqual(rs.status_code, 200)
+
+      data = json.loads(rs.content)
+
+      self.assertEqual(data['total_amount'], 132200 * 2)
+      self.assertEqual(len(data['points']), 1)
+      sf = data['points'][0]
+      self.assertEqual(sf['name'], 'San Francisco')
+      self.assertEqual(sf['sum_amount'], 132200 * 2)
+      self.assertEqual(sf['num_users'], 2)
+
     def test_location(self):
-      # it can store and retrieve location from the frontend
+      # it can store and retrieve point from the frontend
       p = Point.objects.create(latitude=12.23, longitude=-34.35, name="Albuquerque")
       rs = self.client.post('/signup/',
           {'username': 'testingloc',
            'password': 'testingpw',
-           'location':  p.id})
+           'point':  p.id})
       self.assertEqual(rs.status_code, 200)
 
       user = User.objects.get(username='testingloc')
       self.assertEqual('testingloc', user.username)
 
       data = user.get_profile()
-      self.assertEqual(p.id, data.location.id)
+      self.assertEqual(p.id, data.point.id)
 
       # it turns numeric data into character
       p = Point.objects.create(latitude=12.23, longitude=-32.35, name="New York")
       rs = self.client.post('/signup/',
           {'username': 'testingloc2',
            'password': 'testingpw',
-           'location': p.id})
+           'point': p.id})
       self.assertEqual(rs.status_code, 200)
 
       user = User.objects.get(username='testingloc2')
       self.assertEqual('testingloc2', user.username)
 
       data = UserProfile.objects.get(user=user)
-      self.assertEqual(p.id, data.location.id)
+      self.assertEqual(p.id, data.point.id)
 
     def test_debt(self):
+      p = Point.objects.create(latitude=12.23, longitude=-32.35, name="New York")
       rs = self.client.post('/signup/',
           {'username': 'doingit',
            'password': 'testingpw',
            'kind': 'home',
-           'amount': 132200
+           'amount': 132200,
+           'point': p.id
            })
       self.assertEqual(rs.status_code, 200)
 

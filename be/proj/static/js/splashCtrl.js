@@ -35,11 +35,14 @@ app.controller('splashCtrl', function ($scope, $http, util_svc) {
         // temporarily, email is the password
         // so that we can protect anonymity of our users.
         // campaign monitor handles mailing lists
+
+        amount = parseFloat($scope.amount.replace(',', ''))
         data = {
             'username': $scope.username,
             'password': $scope.email,
-            'location': $scope.location.id,
-            'kind': $scope.debtType
+            'point': $scope.location.id,
+            'kind': $scope.debtType.name,
+            'amount': amount
         }
 
         $http.post('/signup/', data).then(function (resp) {

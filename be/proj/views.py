@@ -54,10 +54,10 @@ def signup(request):
 
   user = User.objects.create_user(username, password=password, email=None)
 
-  location = rq.get('location')
-  if location:
-    location = Point.objects.get(id=location)
-  data = UserProfile.objects.create(user=user, location=location)
+  point = rq.get('point')
+  if point:
+    point = Point.objects.get(id=point)
+  data = UserProfile.objects.create(user=user, point=point)
 
   kind = rq.get('kind')
   amount = rq.get('amount')
