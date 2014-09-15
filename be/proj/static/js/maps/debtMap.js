@@ -26,7 +26,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         zoomLatitude: 39.096169,
         zoomLongitude: -98.198721
     };
-    $http.get('/map_data/').then(function (resp) {
+    $http.get('/static/js/map_data.json').then(function (resp) {
         var parsedImages = [];
         var total_amount = resp.data.total_amount;
         var points = resp.data.points;

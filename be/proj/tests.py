@@ -79,17 +79,25 @@ class TestSignup(TestCase):
            })
       self.assertEqual(rs.status_code, 200)
 
+      def test_map_data(rs):
+        self.assertEqual(rs.status_code, 200)
+        data = json.loads(rs.content)
+
+        self.assertEqual(data['total_amount'], 132200 * 2)
+        self.assertEqual(len(data['points']), 1)
+        sf = data['points'][0]
+        self.assertEqual(sf['name'], 'San Francisco')
+        self.assertEqual(sf['sum_amount'], 132200 * 2)
+        self.assertEqual(sf['num_users'], 2)
+
       rs = self.client.get('/map_data/')
-      self.assertEqual(rs.status_code, 200)
+      test_map_data(rs)
 
-      data = json.loads(rs.content)
+      rs = self.client.get('/generate_map_json/')
+      self.assertEqual(rs.status_code, 500)
 
-      self.assertEqual(data['total_amount'], 132200 * 2)
-      self.assertEqual(len(data['points']), 1)
-      sf = data['points'][0]
-      self.assertEqual(sf['name'], 'San Francisco')
-      self.assertEqual(sf['sum_amount'], 132200 * 2)
-      self.assertEqual(sf['num_users'], 2)
+      rs = self.client.get('/generate_map_json/?password=Bailoutthepeople$%^')
+      test_map_data(rs)
 
     def test_location(self):
       # it can store and retrieve point from the frontend
