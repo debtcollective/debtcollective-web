@@ -17,11 +17,12 @@
             Every month, <br>student debtors,<br> medical debtors, <br>mortgage debtors, and others <br>are asked to make payments with little power</span><span class="three-two"> to bargain or negotiate.</span>
           </span>
         </div>
-        <div class="four" ng-class="{pane: yLoc == 400}">
-          yo
+        <div class="four">
+          <span ng-class="{pane: yLoc >= 2800}">
+            If you owe the bank thousands of dollars, then the bank owns you. But if you owe the bank millions, then you own the bank.</span><span ng-class="{pane: yLoc >= 2000}">Collectively, we own the banks.</span>
         </div>
       </div>
-    <section class="images" ng-class="{grey: yLoc >= 2000}">
+    <section class="images" ng-style="backgroundStyle" ng-class="{grey: yLoc >= 2000}">
         <!-- for each range, display the appropriate animation. change in directives.js -->
         <div ng-repeat="range in ranges" ng-class="{pane: yLoc == range.yScroll}">
           <img ng-src="/static/img/animation/transitional-support-{$range.num$}.png"/>
