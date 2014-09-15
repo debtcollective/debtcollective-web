@@ -1,1 +1,1 @@
-{"points": [{"name": "San Francisco", "sum_amount": 264400, "longitude": -31.25, "num_users": 2, "latitude": 12.23, "id": 7}], "total_amount": 264400}
+{"points": [{"name": "San Diego", "sum_amount": 342342, "longitude": -117.2118132, "num_users": 2, "latitude": 32.7469748, "id": 51}, {"name": "San Francisco", "sum_amount": 90000, "longitude": -122.419199, "num_users": 4, "latitude": 37.7789601, "id": 50}, {"name": "Louisville", "sum_amount": 30000, "longitude": -85.7594075, "num_users": 1, "latitude": 38.2542386, "id": 5}], "total_amount": 462342}
