@@ -1,16 +1,32 @@
+app.directive("", function () {
+
+});
+
 app.directive("scroll", function ($window) {
     return function($scope, $element, $attrs) {
 
         var OFFSET = 100;
-        var MAX_RANGES = 21;
+        var MAX_RANGES = 27;
         var RANGE_COLORS = {
-            15: "#281519",
+            13: "#281519",
+            14: "#281519",
+            15: "#2e2327",
             16: "#2e2327",
             17: "#393035",
-            18: "#454b49",
-            19: "#3f4543",
-            20: "#38413e",
-            21: "#39413F"
+            18: "#393035",
+            19: "#454b49",
+            20: "#454b49",
+            21: "#3f4543",
+            22: "#3f4543",
+            23: "#38413e",
+            24: "#38413e",
+            25: "#39413F",
+            26: "#39413F",
+            27: "#39413F"
+        }
+
+        for(var i = 1; i < 13; i ++){
+            RANGE_COLORS[i] =  "#28151a";
         }
 
 
@@ -20,7 +36,7 @@ app.directive("scroll", function ($window) {
         $scope.locLookup = {}
 
         function createRange() {
-            var i = 0;
+            var i = 1;
             var cur = 0;
             while (i < MAX_RANGES) {
                 $scope.locLookup[cur] = i;

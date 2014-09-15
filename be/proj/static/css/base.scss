@@ -3,10 +3,12 @@ $dark-mid-grey: lighten($dark-grey, 20%);
 $mid-grey:      lighten($dark-grey, 40%);
 $off-grey:      #39413F;
 
+$linkblue:    #3d72a6;
 $maroon:        #28151a;
 
-$red:         #e92944;
-$light-red:   lighten($red, 10%);
+$dark-red:    #520D02;
+$red:         lighten($dark-red, 5%);
+$light-red:   lighten($red, 5%);
 $fb-blue:     #3d72a6;
 
 $text:      $dark-grey;
@@ -39,24 +41,43 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
 %button {
     display: inline-block;
-    padding: 0.75em 1em;
+    padding: 10px;
     font-size: 0.95em;
     font-weight: 600;
     text-transform: uppercase;
     @extend %sans;
-    background: $red;
-    color: #fff;
+    background: $light-red;
+    color: rgba(255, 255, 255, .7);
     text-align: center;
+    font-size: 26px;
     line-height: normal;
     border: 0;
     text-decoration: none;
     @include transition();
+    position: relative;
+    float: left;
 
     &:hover {
-        background: $light-red;
+      background: $red;
+    }
+
+    &:focus {
+      background-color: #520D02;
+      border: 0px;
+      outline: 0px;
+      outline-offset: 0px;
     }
 }
 
+input, button {
+  @extend %button;
+  font-family: 'Source Code Pro';
+  @include transition();
+}
+
+button {
+  cursor: pointer;
+}
 
 .grey {
   background-color: $off-grey;
@@ -71,34 +92,27 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 }
 
 body {
-    background: $maroon;
-    @extend %sans;
+    background-color: $off-grey;
+    font-size: 17px;
+    line-height: 1.6em;
 }
 
 #scroll {
     @extend %sans;
     color: #fff;
 
-    &, .intro-text {
-        height: 100%;
-        width: 100%;
-    }
-
-    section > div {
-        visibility: hidden;
-    }
-
     .intro-text {
+      background-color: $maroon;
         height: 100%;
         width: 100%;
         margin: auto;
 
         div {
-          visibility: hidden;
+          opacity: 0;
         }
 
         .pane {
-          visibility: visible;
+          opacity: 1;
           margin: 5px;
           text-align: left;
           position: fixed;
@@ -109,14 +123,19 @@ body {
     }
 
     .images {
-        height: 1000%;
+        @include transition();
+        height: 4000px;
 
         div {
-          visibility: hidden;
+          opacity: 0;
+          -webkit-transition: opacity .75s ease;
+          -moz-transition: opacity .75s ease;
+          -o-transition: opacity .75s ease;
+          transition: opacity .75s ease;
         }
 
         .pane {
-          visibility: visible;
+          opacity: 1;
           position: fixed;
           top: 50%;
           transform: translateY(-25%);
@@ -125,11 +144,124 @@ body {
           text-align: center;
         }
     }
+
+}
+
+.anchor {
+  padding-top: 300px;
+}
+
+#scroll.mainstate {
+  .nav-footer {
+    height: 25px;
+  }
+
+  .images {
+    opacity: 0;
+  }
 }
 
 section {
-  height: 100%;
   width: 100%;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+
+  #join {
+    article div {
+      margin: 1em 0;
+    }
+  }
+
+
+  article {
+    margin: 1em 0;
+    @extend %sans;
+    width: 63%;
+
+    // don't use paragraph reading style
+
+    // h2 + p::first-letter {
+    //  @extend %drop-cap;
+    // }
+
+    // p {
+    //  text-indent: 2.5em;
+
+    //  &:first-of-type {
+    //    text-indent: 0;
+    //  }
+    // }
+
+     p {
+      margin-bottom: 1em;
+      max-width: 38em;
+     }
+  }
+
+
+  article, aside {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  form {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1em;
+  }
+
+  h2 {
+    @extend %calluna;
+    font-weight: 100;
+    font-size: 2em;
+    margin: 1em 0 0.25em;
+    text-align: left;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+aside {
+  width: 33%;
+  margin-left: 3%;
+  background-color: $red;
+  padding: 2em;
+  color: #fff;
+  line-height: 1.4em;
+  font-size: 0.95em;
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.75em;
+    margin-top: 0;
+  }
+
+  #corinthean & {
+    background-color: $linkblue;
+
+    a.button {
+      background: darken($linkblue, 13%);
+
+      &:hover {
+        background: darken($linkblue, 20%);
+      }
+    }
+  }
+}
+
+#corinthian {
+  background-color: #ebedee;
 }
 
 /** HEADER **/
@@ -170,6 +302,10 @@ header {
 }
 
 /** GENERAL **/
+.fixed {
+  position: fixed;
+}
+
 /** angular-bootstrap compliance **/
 .nav, .pagination, .carousel, .panel-title a {
     cursor: pointer;
@@ -182,14 +318,19 @@ header {
     margin: auto;
 }
 
-footer {
-    padding: 10px;
+.nav-footer {
     color: rgba(255,255,255,.7);
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
+    height: 0px;
+    background-color: $linkblue;
+    width: 100%;
+    -webkit-transition: height .25s ease-in-out;
+    -moz-transition: height .25s ease-in-out;
+    -o-transition: height .25s ease-in-out;
+    transition: height .25s ease-in-out;
 }
-
 a {
     text-decoration: none;
     color: rgba(255,255,255,.7);
@@ -206,36 +347,6 @@ label {
     text-transform: uppercase;
 }
 
-input {
-    background-color: #9E2717;
-    color: rgba(255, 255, 255, .7);
-    border: 0px;
-    padding: 10px;
-    font-size: 26px;
-    position: relative;
-    float: left;
-}
-
-button[type="submit"] {
-    background-color: #9E2717;
-    color: rgba(255, 255, 255, .7);
-    border: 0px;
-    padding: 10px 15px 10px 15px;
-    font-size: 26px;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #520D02;
-}
-
-input:focus {
-    background-color: #520D02;
-    border: 0px;
-    outline: 0px;
-    outline-offset: 0px;
-}
-
 .dc-input {
     margin-bottom: 10px;
     text-align: right;
@@ -243,37 +354,30 @@ input:focus {
     float: left;
 }
 
-
-input, button {
-    font-family: 'Source Code Pro';
-    -webkit-transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: background-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
-
 .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      z-index: 1000;
-      display: none;
-      min-width: 160px;
-      margin: 2px 0 0;
-      list-style: none;
-      border: 1px solid #ccc;
-      border: 1px solid rgba(0,0,0,.15);
-      border-radius: 4px;
-      -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-      box-shadow: 0 6px 12px rgba(0,0,0,.175);
-      background-clip: padding-box;
-      text-align: left;
-      max-width: 300px;
-      padding-left: 0px;
-}
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  min-width: 160px;
+  margin: 2px 0 0;
+  list-style: none;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  background-clip: padding-box;
+  text-align: left;
+  max-width: 300px;
+  padding-left: 0px;
 
-.dropdown-menu li {
+  li {
       padding: 5px;
-}
-
-.dropdown-menu li.active {
-    background-color: #9E2717;
+      opacity: 1;
+    &.active {
+      background-color: #9E2717;
+    }
+  }
 }

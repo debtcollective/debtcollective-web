@@ -4,6 +4,22 @@ app.controller('splashCtrl', function ($scope, $http, util_svc) {
     $scope.email = null;
     $scope.username = null;
     $scope.location = null;
+    $scope.debtType = null;
+
+    $scope.types = [
+        {name : 'medical',
+         label: 'Medical'},
+         {name: 'home',
+        label: 'Mortgage'},
+        {name:'student',
+         label: 'Student'},
+         {name: 'credit',
+         label: 'Credit Card'},
+         {name: 'none',
+         label: 'None'},
+         {name: 'other',
+         label: 'Other'}
+    ]
 
     $http.get('/points/').then(function (resp) {
         $scope.cities = resp.data
@@ -22,7 +38,8 @@ app.controller('splashCtrl', function ($scope, $http, util_svc) {
         data = {
             'username': $scope.username,
             'password': $scope.email,
-            'location': $scope.location.id
+            'location': $scope.location.id,
+            'kind': $scope.debtType
         }
 
         $http.post('/signup/', data).then(function (resp) {
