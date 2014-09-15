@@ -68,7 +68,6 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
 body {
     background: $maroon;
-    @extend %sans;
 }
 
 #scroll {

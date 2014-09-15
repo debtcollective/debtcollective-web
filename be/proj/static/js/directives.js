@@ -28,8 +28,8 @@ app.directive("scroll", function ($window) {
         }
 
         function advancingFunction(i) {
-            if (this.pageYOffset >= i * Math.floor(this.pageYOffset/100)*100) {
-                $scope.yLoc = i * Math.ceil(this.pageYOffset/100)*100;
+            if (this.pageYOffset >= i * Math.floor(this.pageYOffset/OFFSET)*OFFSET) {
+                $scope.yLoc = i * Math.ceil(this.pageYOffset/OFFSET)*OFFSET;
             }
             else {
                 advancingFunction(i + 1);

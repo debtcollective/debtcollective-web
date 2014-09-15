@@ -5,30 +5,28 @@
   <div scroll ng-controller="splashBodyCtrl" ng-click="advance()"
       class="ridiculous">
       <div class="intro-text">
-        <div class="one" ng-class="{pane: yLoc <= 250}">
+        <div class="one" ng-class="{pane: yLoc <= 100}">
           The American dream used to be buying a home.<br>
           The new American dream is just getting out of debt.<br>
         </div>
-        <div class="two" ng-class="{pane: yLoc == 500}">
+        <div class="two" ng-class="{pane: yLoc == 200}">
           Alone, our debts are a burden. <br>
           Together, they make us powerful.
         </div>
-        <div class="three" ng-class="{pane: yLoc == 750}">
+        <div class="three" ng-class="{pane: yLoc == 300}">
           <span class="three-one">
             Every month, <br>student debtors,<br> medical debtors, <br>mortgage debtors, and others <br>are asked to make payments with little power</span><span class="three-two"> to bargain or negotiate.</span>
           </span>
         </div>
-        <div class="four" ng-class="{pane: yLoc == 1000}">
+        <div class="four" ng-class="{pane: yLoc == 400}">
           yo
         </div>
       </div>
     <section class="images">
-      <div ng-repeat="range in ranges">
-        <div ng-class="{pane: yLoc == range.yScroll}">
+        <div ng-repeat="range in ranges" ng-class="{pane: yLoc == range.yScroll}">
           {$ range.num $}
-          <img ng-src="/static/img/animation/transitional-support-{{range.num}}.png"/>
+          <img ng-src="/static/img/animation/transitional-support-{$range.num$}.png"/>
         </div>
-      </div>
     </section>
 
     <section class="hidden">
