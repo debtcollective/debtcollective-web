@@ -22,12 +22,15 @@
         </div>
       </div>
     <section class="images" ng-class="{grey: yLoc >= 2000}">
+        <!-- for each range, display the appropriate animation. change in directives.js -->
         <div ng-repeat="range in ranges" ng-class="{pane: yLoc == range.yScroll}">
           <img ng-src="/static/img/animation/transitional-support-{$range.num$}.png"/>
         </div>
+        <!--- sticky after scrolling the whole way. Make this background imagery? -->
         <div ng-class="{pane: yLoc >= 2000}">
           <img ng-src="/static/img/animation/transitional-support-20.png"/>
         </div>
+        <!-- the sticky bottom half of the person -->
         <div class="legs">
           <img ng-src="/static/img/animation/transitional-support-21.png"/>
         </div>
