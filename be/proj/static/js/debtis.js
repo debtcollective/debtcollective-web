@@ -7,36 +7,9 @@ app.run(function run($http, $cookies){
     $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
 })
 
-app.controller('splashBodyCtrl', function ($scope, $http, util_svc) {
-
-    $scope.email = null;
-    $scope.username = null;
-    $scope.location = null;
-
-    $http.get('/points/').then(function (resp) {
-        $scope.cities = resp.data
-    });
-
-    $scope.formValid = function () {
-        return $scope.location != null && $scope.email != null;
-    }
-
-    $scope.onSubmitClick = function () {
-        $scope.username = util_svc.generateUUID();
-
-        // temporarily, email is the password
-        // so that we can protect anonymity of our users.
-        // campaign monitor handles mailing lists
-        data = {
-            'username': $scope.username,
-            'password': $scope.email,
-            'location': $scope.location.id
-        }
-
-        $http.post('/signup/', data).then(function (resp) {
-
-        });
-    }
+app.config(function($interpolateProvider) {
+    $interpolateProvider.startSymbol('{$');
+    $interpolateProvider.endSymbol('$}');
 });
 
 app.controller('myDebtIsCtrl', function ($scope) {
@@ -87,18 +60,5 @@ app.controller('myDebtIsCtrl', function ($scope) {
             $scope.showValues = false
             $scope.resetState()
         }
-    };
-});
-
-app.filter('humanize', function(){
-    return function humanize(number) {
-        if(number < 1000) {
-            return Math.round(number);
-        }
-        var si = ['K', 'M', 'G', 'T', 'P', 'H'];
-        var exp = Math.floor(Math.log(number) / Math.log(1000));
-        var result = number / Math.pow(1000, exp);
-        result = (result % 1 > (1 / Math.pow(1000, exp - 1))) ? result.toFixed(2) : result.toFixed(0);
-        return result + si[exp - 1];
     };
 });

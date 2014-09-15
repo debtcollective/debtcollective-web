@@ -3,19 +3,22 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse, Http404
 from django.core.context_processors import csrf
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 from be.proj.utils import json_response, get_POST_data
 from be.proj.gather.models import Debt, UserProfile, Point
 
 import simplejson as json
 
-from django.views.decorators.csrf import ensure_csrf_cookie
 @ensure_csrf_cookie
 def splash(request):
   return render_to_response('proj/splash.html')
 
 def map(request):
   return render_to_response('proj/map.html')
+
+def corinthian(request):
+  return render_to_response('proj/corinthian.html')
 
 def login(request):
   """
@@ -51,10 +54,10 @@ def signup(request):
 
   user = User.objects.create_user(username, password=password, email=None)
 
-  location = rq.get('location')
-  if location:
-    location = Point.objects.get(id=location)
-  data = UserProfile.objects.create(user=user, location=location)
+  point = rq.get('point')
+  if point:
+    point = Point.objects.get(id=point)
+  data = UserProfile.objects.create(user=user, point=point)
 
   kind = rq.get('kind')
   amount = rq.get('amount')

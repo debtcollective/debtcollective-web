@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
+
+import os
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -18,10 +19,12 @@ urlpatterns += patterns('be.proj.views',
   basic_url('map'),
   basic_url('login'),
   basic_url('signup'),
+  basic_url('corinthian'),
   url(r'^$', 'splash', name='splash')
 )
 
 urlpatterns += patterns('be.proj.gather.views',
   basic_url('points'),
-  basic_url('map_data')
+  basic_url('map_data'),
+  basic_url('generate_map_json')
 )
