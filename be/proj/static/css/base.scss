@@ -1,6 +1,7 @@
 $dark-grey:     #313539;
 $dark-mid-grey: lighten($dark-grey, 20%);
 $mid-grey:      lighten($dark-grey, 40%);
+$off-grey:      #39413F;
 
 $maroon:        #28151a;
 
@@ -56,6 +57,11 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
     }
 }
 
+
+.grey {
+  background-color: $off-grey;
+}
+
 %button-lg {
     @extend %button;
     font-size: 1.2em;
@@ -63,8 +69,6 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
     padding: 1em 3em;
     border-width: 0.2em;
 }
-
-
 
 body {
     background: $maroon;
@@ -112,6 +116,7 @@ body {
     }
 
     .images {
+        height: 1000%;
 
         div {
           visibility: hidden;
@@ -172,7 +177,6 @@ header {
 }
 
 /** GENERAL **/
-
 /** angular-bootstrap compliance **/
 .nav, .pagination, .carousel, .panel-title a {
     cursor: pointer;
