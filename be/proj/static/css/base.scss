@@ -111,8 +111,6 @@ body {
 %pane {
   position: fixed;
   opacity: 1;
-  width: 100%;
-  text-align: center;
   margin: 5px;
   @include transition(opacity, 1s, ease);
 }
@@ -145,6 +143,8 @@ body {
     .images {
         @include transition();
         height: 2200px;
+        margin: auto;
+
         &.close {
           opacity: 0;
         }
@@ -168,7 +168,8 @@ body {
 }
 
 .anchor {
-  padding-top: 300px;
+  top: -180px;
+  position: absolute;
 }
 
 .twitter-timeline {
@@ -195,7 +196,7 @@ body {
 #scroll.mainstate {
   .banner {
     opacity: 1;
-    height: 44px;
+    top: 0px;
   }
   .social-media {
     opacity: 0;
@@ -209,6 +210,7 @@ section {
   width: 100%;
 }
 .body-text {
+  position: relative;
   font-family: "Raleway";
   margin: 44px auto;
   color: rgba(255,255,255,.7);
@@ -221,19 +223,33 @@ section {
 $weird-orange: #ff6600;
 
 .banner {
-  @include transition();
+  @include transition(all, .75s, ease);
+  .text {
+    @include bottom-nav-colors();
+    height: 44px;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+  }
 
   font-family: "Cutive mono";
-  top: 0;
   opacity: 0;
   position: fixed;
   width: 100%;
-  height: 0px;
+  height: 88px;
+  top: -44px;
   font-size: 18px;
-  padding: 10px;
-  margin: auto;
-  text-align: center;
-  @include bottom-nav-colors();
+
+  &.openable {
+    opacity: 0 !important;
+    top: -44px !important;
+
+    &:hover {
+      top: 0px !important;
+      opacity: 1 !important;
+      height: 44px;
+    }
+  }
 
 }
 
@@ -256,6 +272,7 @@ $weird-orange: #ff6600;
   cursor: pointer;
   padding: 10px;
   color: #666;
+  @include transition();
 
   &:hover {
     border-color: white;
