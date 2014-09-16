@@ -4,10 +4,19 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     /************
     MAP SETTINGS
     ************/
+
+    var POINT_COLOR = "#e8ffa0";
     map.areasSettings = {
         autoZoom: true,
-        selectedColor: "#CC0000"
+        selectedColor: "#CC0000",
+        unlistedAreasColor: "#e0e0d5",
+        unlistedAreasOutlineColor: "#000",
     };
+
+    map.zoomControl = {
+        zoomControlEnabled: false,
+        panControlEnabled: false
+    }
 
     map.pathToImages = "/static/js/vendor/ammap/images/";
     map.useHandCursorOnClickableOjects = true
@@ -22,7 +31,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     // get data
     var dataProvider = {
         map: "worldHigh",
-        zoomLevel: 1,
+        zoomLevel: 2,
         zoomLatitude: 39.096169,
         zoomLongitude: -98.198721
     };
@@ -89,8 +98,8 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         */
 
         point['title'] = getPointTitle(point);
-        point['svgPath'] = targetSVG;
-        point['color'] = '#00B233';
+        point['type'] = 'circle';
+        point['color'] = POINT_COLOR;
         return point
     }
     // TODO: on map object click

@@ -2,8 +2,11 @@ $dark-grey:     #313539;
 $dark-mid-grey: lighten($dark-grey, 20%);
 $mid-grey:      lighten($dark-grey, 40%);
 $off-grey:      #39413F;
+$menu-color:    #8a855c;
+$weird-yellow: rgb(224,224,213);
 
-$linkblue:    #3d72a6;
+$dark-blue:     rgb(17,13,33); //110d21
+$linkblue:      #3d72a6;
 $maroon:        #28151a;
 
 $dark-red:    #520D02;
@@ -14,12 +17,19 @@ $fb-blue:     #3d72a6;
 $text:      $dark-grey;
 $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
-@mixin transition($prop: all, $duration: .5s, $ease: ease-in-out) {
+@import "responsive";
+
+@mixin transition($prop: all, $duration: .25s, $ease: ease-in-out) {
     -webkit-transition: $prop $duration $ease;
     -moz-transition: $prop $duration $ease;
     -ms-transition: $prop $duration $ease;
     -o-transition: $prop $duration $ease;
     transition: $prop $duration $ease;
+}
+
+@mixin bottom-nav-colors() {
+  color: rgba(255,255,255,.7);
+  background-color: rgba(17,13,33,.7);
 }
 
 %calluna {
@@ -40,16 +50,10 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
 %button {
   display: inline-block;
-  padding: 10px;
-  font-size: 0.95em;
-  font-weight: 600;
-  text-transform: uppercase;
+  margin: 8px;
   @extend %sans;
-  background: $light-red;
-  color: rgba(255, 255, 255, .7);
   text-align: center;
-  font-size: 26px;
-  line-height: normal;
+  font-size: 18px;
   border: 0;
   text-decoration: none;
   @include transition();
@@ -57,11 +61,9 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
   float: left;
 
   &:hover {
-    background: $red;
   }
 
   &:focus {
-    background-color: #520D02;
     border: 0px;
     outline: 0px;
     outline-offset: 0px;
@@ -73,14 +75,15 @@ input, button {
   @extend %button;
   @include transition();
   width: 100%;
+  @include bottom-nav-colors();
 }
 
 button {
   cursor: pointer;
 }
 
-.grey {
-  background-color: $off-grey;
+div {
+  margin-top: 44px;
 }
 
 %button-lg {
@@ -118,10 +121,15 @@ body {
     color: #fff;
 
     .intro-text {
+      font-family: "Cutive mono";
+      text-align: center !important;
       background-color: $maroon;
+      color: rgba(255,255,255,.5);
       height: 100%;
       width: 100%;
       margin: auto;
+      font-size: 30px;
+      line-height: 36px;
 
       div {
         opacity: 0;
@@ -129,27 +137,49 @@ body {
 
       .pane {
         @extend %pane;
-        top: 0;
+        top: 44px;
       }
     }
 
     .images {
+        @include transition();
         height: 2200px;
-
+        &.close {
+          opacity: 0;
+        }
         div {
           opacity: 0;
+          @include transition(opacity, .75s, ease);
         }
 
         .pane {
           @extend %pane;
           top: 50%;
-          transform: translateY(-50%);
+          transform: translateY(-25%);
+          &:nth-child(19),
+          &:nth-child(20),
+          &:nth-child(21),
+          &:nth-child(22) {
+            border-bottom: #333 1px solid;
+          }
         }
     }
 }
 
 .anchor {
   padding-top: 300px;
+}
+
+.twitter-timeline {
+  position: absolute;
+  top: 500px;
+  left: 1px;
+}
+
+#mapdiv {
+  background-color: $off-grey;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
 }
 
 .social-media {
@@ -159,17 +189,15 @@ body {
   height: 150px;
   left: 20;
   top: 200;
-  @include transition();
 }
 
 #scroll.mainstate {
-  .images {
-    img {
-      height: 0px;
-    }
+  .banner {
+    opacity: 1;
+    height: 44px;
   }
   .social-media {
-    opacity: 1;
+    opacity: 0;
   }
   .nav-footer {
     height: initial;
@@ -179,19 +207,56 @@ body {
 section {
   width: 100%;
 }
+.body-text {
+  font-family: "Raleway";
+  margin: 44px auto;
+  color: rgba(255,255,255,.7);
+  line-height: 34px;
+
+  p {
+    margin-bottom: 1em;
+  }
+}
+$weird-orange: #ff6600;
+
+.banner {
+  @include transition();
+
+  font-family: "Cutive mono";
+  top: 0;
+  opacity: 0;
+  position: fixed;
+  width: 100%;
+  height: 0px;
+  font-size: 18px;
+  padding: 10px;
+  margin: auto;
+  text-align: center;
+  @include bottom-nav-colors();
+
+}
+
+.more {
+  @include transition();
+}
+
+.learnMore {
+  border-bottom: #666 solid 1px;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  color: #666;
+
+  &:hover {
+    border-color: white;
+    color: white;
+  }
+}
 
 .wrapper {
+  background-color: $off-grey;
   position: relative;
-  width: 100%;
   margin: 0 auto;
-
-  .body-text {
-    max-width: 700px;
-    margin: 1em auto;
-     p {
-      margin-bottom: 1em;
-     }
-  }
 
   #join {
     article div {
@@ -205,27 +270,11 @@ section {
     @extend %sans;
     width: 63%;
 
-    // don't use paragraph reading style
-
-    // h2 + p::first-letter {
-    //  @extend %drop-cap;
-    // }
-
-    // p {
-    //  text-indent: 2.5em;
-
-    //  &:first-of-type {
-    //    text-indent: 0;
-    //  }
-    // }
-
      p {
       margin-bottom: 1em;
       max-width: 38em;
      }
   }
-
-
   article, aside {
     display: inline-block;
     vertical-align: top;
@@ -236,11 +285,11 @@ section {
   }
 
   h2 {
-    @extend %calluna;
+    font-family: "Cutive mono";
     font-weight: 100;
-    font-size: 2em;
+    font-size: 28px;
     margin: 1em 0 0.25em;
-    text-align: left;
+    text-align: center;
 
     &:first-child {
       margin-top: 0;
@@ -262,18 +311,6 @@ aside {
     margin-bottom: 0.75em;
     margin-top: 0;
   }
-
-  #corinthean & {
-    background-color: $linkblue;
-
-    a.button {
-      background: darken($linkblue, 13%);
-
-      &:hover {
-        background: darken($linkblue, 20%);
-      }
-    }
-  }
 }
 
 #corinthian {
@@ -291,13 +328,13 @@ header {
 }
 
 .square {
-    background-color: #9E2717;
-    padding: 5px;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    right: 0;
-    z-index: 100;
+  background-color: #9E2717;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 0;
+  z-index: 100;
 }
 
 .header-text {
@@ -334,19 +371,16 @@ header {
     margin: auto;
 }
 
-.nav-footer.ng-hide-add.ng-hide-add-active,
-.nav-footer.ng-hide-remove.ng-hide-remove-active {
+.form.ng-hide-add.ng-hide-add-active,
+.form.ng-hide-remove.ng-hide-remove-active {
   @include transition();
 }
-
 .nav-footer {
-  color: rgba(255,255,255,.7);
+  @include bottom-nav-colors();
   position: fixed;
   bottom: 0;
   right: 0;
-  background-color: $maroon;
   width: 100%;
-  height: 0px;
 
   .dc-input {
     width: 100%;
@@ -365,21 +399,25 @@ header {
   }
 
   .footer-links {
-    padding: 5px 15px;
+    opacity: .65;
+    background-color: $dark-blue;
+    padding: 4.5px 15px;
+    font-size: 14px;
+    text-transform: uppercase;
     float: right;
     width: 100%;
-    background-color: $linkblue;
   }
 }
 
 a {
-    text-decoration: none;
-    color: rgba(255,255,255,.7);
-}
+  text-decoration: none;
+  color: inherit;
+  @include transition();
 
-a:hover {
-    color: rgba(255,255,255,.5);
-    cursor: pointer;
+  &:hover {
+      color: #666;
+      cursor: pointer;
+  }
 }
 
 /** FORMS **/
@@ -387,7 +425,6 @@ label {
     font-weight: bold;
     text-transform: uppercase;
 }
-
 
 .dropdown-menu {
   position: absolute;

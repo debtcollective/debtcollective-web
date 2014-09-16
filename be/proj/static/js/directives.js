@@ -1,7 +1,7 @@
 app.directive("scroll", function ($window) {
     return function($scope, $element, $attrs) {
 
-        $scope.amountToScroll = 2400;
+        $scope.amountToScroll = 2800;
         var OFFSET = 100;
         var MAX_RANGES = 22;
         var RANGE_COLORS = {
