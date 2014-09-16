@@ -19,11 +19,11 @@ input, button {
   line-height: normal;
   border: 0;
   text-decoration: none;
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -ms-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
   position: relative;
   float: left; }
   input:hover, button:hover {
@@ -36,11 +36,12 @@ input, button {
 
 input, button {
   font-family: 'Source Code Pro';
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -ms-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease; }
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  width: 100%; }
 
 button {
   cursor: pointer; }
@@ -71,18 +72,14 @@ body {
       margin: 5px;
       width: 100%; }
   #scroll .images {
-    -webkit-transition: all 0.25s ease;
-    -moz-transition: all 0.25s ease;
-    -ms-transition: all 0.25s ease;
-    -o-transition: all 0.25s ease;
-    transition: all 0.25s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
     height: 2800px; }
     #scroll .images div {
-      opacity: 0;
-      -webkit-transition: opacity .75s ease;
-      -moz-transition: opacity .75s ease;
-      -o-transition: opacity .75s ease;
-      transition: opacity .75s ease; }
+      opacity: 0; }
     #scroll .images .pane {
       opacity: 1;
       position: fixed;
@@ -95,8 +92,18 @@ body {
 .anchor {
   padding-top: 300px; }
 
+.social-media {
+  opacity: 0;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease; }
+
+#scroll.mainstate .social-media {
+  opacity: 1; }
 #scroll.mainstate .nav-footer {
-  height: 25px; }
+  height: initial; }
 #scroll.mainstate .images {
   opacity: 0; }
 
@@ -106,8 +113,12 @@ section {
 .wrapper {
   position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 700px;
   margin: 0 auto; }
+  .wrapper .body-text {
+    margin: 1em 0; }
+    .wrapper .body-text p {
+      margin-bottom: 1em; }
   .wrapper #join article div {
     margin: 1em 0; }
   .wrapper article {
@@ -116,13 +127,9 @@ section {
     .wrapper article p {
       margin-bottom: 1em;
       max-width: 38em; }
-  .wrapper article, .wrapper aside {
+  .wrapper article, .wrapper aside, .wrapper .body-text {
     display: inline-block;
     vertical-align: top; }
-  .wrapper form {
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto; }
   .wrapper h1, .wrapper h2, .wrapper h3, .wrapper h4, .wrapper h5, .wrapper h6 {
     line-height: 1.1em; }
   .wrapper h2 {
@@ -204,13 +211,28 @@ header {
   position: fixed;
   bottom: 0;
   right: 0;
-  height: 0px;
-  background-color: #3d72a6;
+  background-color: #28151a;
   width: 100%;
-  -webkit-transition: height .25s ease-in-out;
-  -moz-transition: height .25s ease-in-out;
-  -o-transition: height .25s ease-in-out;
-  transition: height .25s ease-in-out; }
+  height: 0px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease; }
+  .nav-footer .dc-input {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: right;
+    font-size: 20px; }
+    .nav-footer .dc-input form {
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto; }
+  .nav-footer .footer-links {
+    padding: 0px 15px;
+    float: right;
+    width: 100%;
+    background-color: #3d72a6; }
 
 a {
   text-decoration: none;
@@ -224,12 +246,6 @@ a:hover {
 label {
   font-weight: bold;
   text-transform: uppercase; }
-
-.dc-input {
-  margin-bottom: 10px;
-  text-align: right;
-  font-size: 20px;
-  float: left; }
 
 .dropdown-menu {
   position: absolute;

@@ -14,8 +14,7 @@ $fb-blue:     #3d72a6;
 $text:      $dark-grey;
 $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
-
-@mixin transition ($prop: all, $duration: 0.25s, $ease: ease) {
+@mixin transition ($prop: all, $duration: 1s, $ease: ease) {
     -webkit-transition: $prop $duration $ease;
     -moz-transition: $prop $duration $ease;
     -ms-transition: $prop $duration $ease;
@@ -40,39 +39,40 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 }
 
 %button {
-    display: inline-block;
-    padding: 10px;
-    font-size: 0.95em;
-    font-weight: 600;
-    text-transform: uppercase;
-    @extend %sans;
-    background: $light-red;
-    color: rgba(255, 255, 255, .7);
-    text-align: center;
-    font-size: 26px;
-    line-height: normal;
-    border: 0;
-    text-decoration: none;
-    @include transition();
-    position: relative;
-    float: left;
+  display: inline-block;
+  padding: 10px;
+  font-size: 0.95em;
+  font-weight: 600;
+  text-transform: uppercase;
+  @extend %sans;
+  background: $light-red;
+  color: rgba(255, 255, 255, .7);
+  text-align: center;
+  font-size: 26px;
+  line-height: normal;
+  border: 0;
+  text-decoration: none;
+  @include transition();
+  position: relative;
+  float: left;
 
-    &:hover {
-      background: $red;
-    }
+  &:hover {
+    background: $red;
+  }
 
-    &:focus {
-      background-color: #520D02;
-      border: 0px;
-      outline: 0px;
-      outline-offset: 0px;
-    }
+  &:focus {
+    background-color: #520D02;
+    border: 0px;
+    outline: 0px;
+    outline-offset: 0px;
+  }
 }
 
 input, button {
-  @extend %button;
   font-family: 'Source Code Pro';
+  @extend %button;
   @include transition();
+  width: 100%;
 }
 
 button {
@@ -103,23 +103,23 @@ body {
 
     .intro-text {
       background-color: $maroon;
-        height: 100%;
+      height: 100%;
+      width: 100%;
+      margin: auto;
+
+      div {
+        opacity: 0;
+      }
+
+      .pane {
+        text-align: center;
+        opacity: 1;
+        margin: 5px;
+        position: fixed;
+        top: 0;
+        margin: 5px;
         width: 100%;
-        margin: auto;
-
-        div {
-          opacity: 0;
-        }
-
-        .pane {
-          text-align: center;
-          opacity: 1;
-          margin: 5px;
-          position: fixed;
-          top: 0;
-          margin: 5px;
-          width: 100%;
-        }
+      }
     }
 
     .images {
@@ -128,10 +128,6 @@ body {
 
         div {
           opacity: 0;
-          -webkit-transition: opacity .75s ease;
-          -moz-transition: opacity .75s ease;
-          -o-transition: opacity .75s ease;
-          transition: opacity .75s ease;
         }
 
         .pane {
@@ -150,10 +146,17 @@ body {
 .anchor {
   padding-top: 300px;
 }
+.social-media {
+  opacity: 0;
+  @include transition();
+}
 
 #scroll.mainstate {
+  .social-media {
+    opacity: 1;
+  }
   .nav-footer {
-    height: 25px;
+    height: initial;
   }
 
   .images {
@@ -168,8 +171,15 @@ section {
 .wrapper {
   position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 700px;
   margin: 0 auto;
+
+  .body-text {
+    margin: 1em 0;
+     p {
+      margin-bottom: 1em;
+     }
+  }
 
   #join {
     article div {
@@ -204,15 +214,9 @@ section {
   }
 
 
-  article, aside {
+  article, aside, .body-text {
     display: inline-block;
     vertical-align: top;
-  }
-
-  form {
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -319,18 +323,36 @@ header {
 }
 
 .nav-footer {
-    color: rgba(255,255,255,.7);
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    height: 0px;
-    background-color: $linkblue;
+  color: rgba(255,255,255,.7);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: $maroon;
+  width: 100%;
+  height: 0px;
+  @include transition();
+
+  .dc-input {
     width: 100%;
-    -webkit-transition: height .25s ease-in-out;
-    -moz-transition: height .25s ease-in-out;
-    -o-transition: height .25s ease-in-out;
-    transition: height .25s ease-in-out;
+    margin-bottom: 10px;
+    text-align: right;
+    font-size: 20px;
+
+    form {
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  .footer-links {
+    padding: 0px 15px;
+    float: right;
+    width: 100%;
+    background-color: $linkblue;
+  }
 }
+
 a {
     text-decoration: none;
     color: rgba(255,255,255,.7);
@@ -347,12 +369,6 @@ label {
     text-transform: uppercase;
 }
 
-.dc-input {
-    margin-bottom: 10px;
-    text-align: right;
-    font-size: 20px;
-    float: left;
-}
 
 .dropdown-menu {
   position: absolute;

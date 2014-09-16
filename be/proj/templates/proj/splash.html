@@ -8,20 +8,17 @@
         <div class="zero" ng-class="{pane: yLoc <= 400}">
           Every month, we are forced into debt for basic necessities.
         </div>
-        <div class="one" ng-class="{pane: yLoc > 400 && yLoc <= 700}">
+        <div class="one" ng-class="{pane: yLoc > 400 && yLoc <= 1000}">
           We have no choice but to enter into contracts under unfair terms.
         </div>
-        <div class="one" ng-class="{pane: yLoc > 700 && yLoc <= 1000}">
+        <div class="one" ng-class="{pane: yLoc > 1000 && yLoc <= 1400}">
          We have little power to bargain or negotiate.
        </div>
-        <div class="two" ng-class="{pane: yLoc > 1000 && yLoc <= 1400}">
+        <div class="two" ng-class="{pane: yLoc > 1400 && yLoc <= 1700}">
           But if we work together, we can renegotiate our payments or even demand the cancellation of illegitimate debts.
         </div>
-        <div class="three" ng-class="{pane: yLoc > 1400 && yLoc <= 1700}">
+        <div class="three" ng-class="{pane: yLoc > 1700 && yLoc <= 2800}">
             If you owe the bank thousands of dollars, then the bank owns you. But if you owe the bank millions, then you own the bank. Collectively, we own the banks.
-        </div>
-        <div class="four" ng-class="{pane: yLoc > 1700 && yLoc <= 2000}">
-            “Just as bosses are dependent on workers, so are lenders dependent on borrowers. If workers walk out, the enterprise stops. If borrowers refuse to pay their debts, the lenders could be in real trouble.” - Francis Fox Piven
         </div>
       </section>
       <section class="images" ng-style="backgroundStyle"
@@ -37,41 +34,48 @@
       </section>
 
       <section class="wrapper">
-        <div class="signup-form">
-          <div class="text">
-            <h2>The Debt Collective</h2>
-          </div>
-        </div>
-        <article>
+        <div class="body-text">
+          <h2>The Debt Collective</h2>
           <p>Every month, we are forced into debt for basic necessities. We have no choice but to enter into contracts under unfair terms over which we have little power to bargain or negotiate. Creditors are holding us hostage. When we can’t meet the terms of the contact, we are harassed, we have our wages garnished, and some of us are even imprisoned. The goal of the Debt Collective aims to fight back against creditors and transform how basic necessities, such as education, health care, and housing are provided. Alone, our debts are a burden. Together, they make us powerful.</p>
 
-          <div >
-            <h2>Why Join <span>the Debt Collective?</span></h2>
-            <p>Creditors profit from the information they have about us. They use this information to confuse and threaten us. We need to untangle the web of confusion. By joining together, we can learn where our money goes and who is profiting from those payments.  By sharing information, we can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.</p>
+          <h2>Why Join <span>the Debt Collective?</span></h2>
+          <p>Creditors profit from the information they have about us. They use this information to confuse and threaten us. We need to untangle the web of confusion. By joining together, we can learn where our money goes and who is profiting from those payments.  By sharing information, we can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.
+          </p>
+        </div>
+        <div class="full-width">
+
+          <h2>Who are we?</h2>
+          <p>
+          <div ng-controller="mapCtrl">
+            <div id="mapdiv" style="width: 100%; height: 400px;"></div>
           </div>
-        </article>
-        <aside>
+          We’re the people behind the Rolling Jubilee debt cancellation initiative. We operate according to the principle that alone, our debts are a burden, but together, they make us powerful. The Debt Collective is the next step in making that vision a reality. Contact us.
+          </p>
+        </div>
+      </section>
+      <div class="social-media">
+         <a href="https://twitter.com/intent/tweet?button_hashtag=0debt&text=Creditors%20are%20holding%20us%20hostage.%20Alone%2C%20our%20debts%20are%20a%20burden.%20Together%2C%20they%20make%20us%20powerful.%20" class="twitter-hashtag-button" data-size="large" data-url="http://debtcollective.org">Tweet #0debt</a>
+      </div>
+
+      <div class="banner">
           <h2>Are you a Corinthian student?</h2>
           <p>
           Are you a current or former student at a Corinthian college, including Everest, Heald or Wyotech? Together we can demand a full refund and free education. Join the Corinthian Collective.
-          </p>
           <a href="/corinthian" class="button">Learn More</a>
-             <a href="https://twitter.com/intent/tweet?button_hashtag=0debt&text=Creditors%20are%20holding%20us%20hostage.%20Alone%2C%20our%20debts%20are%20a%20burden.%20Together%2C%20they%20make%20us%20powerful.%20" class="twitter-hashtag-button" data-size="large" data-url="http://debtcollective.org">Tweet #0debt</a>
-        </aside>
-        <div class="full-width">
-          <a class="anchor" name="join"></a>
-          <form class="form" action="http://strikedebt.createsend.com/t/j/s/nskul/" method="post"
-              ng-submit="onSubmitClick()">
-            <div class="dc-input">
+          </p>
+      </div>
+
+      <div class="nav-footer">
+          <div class="dc-input">
+            <form class="form" action="http://strikedebt.createsend.com/t/j/s/nskul/" method="post"
+            ng-submit="onSubmitClick()">
               <input type="text" class="hidden" name="cm-name" ng-model="username" />
               <input type="email" name="cm-nskul-nskul"  ng-model="email"
-                  placeholder="enter an email..." autofocus required />
+                  placeholder="enter an email..." autofocus required autocomplete="off" />
 
               <input type="text" ng-model="location" placeholder="where at?"
                   ng-show="email != null"
-                  ng-model-options="{ updateOn: 'blur' }"
                   typeahead-editable="false"
-                  typeahead-on-select="onSelect($item, $model, $label)"
                   typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
 
               <!--<input type="text" ng-model="debtType" placeholder="what kind of debt?"
@@ -91,20 +95,9 @@
               </div>
             </div>
           </form>
-
-          <div ng-controller="mapCtrl">
-            <div id="mapdiv" style="width: 100%; height: 400px;"></div>
+          <div class="footer-links">
+            <a href="#learn">learn more</a> | <a href="#who">who we are</a>
           </div>
-
-          <h2>Who are we?</h2>
-          <p>
-          We’re the people behind the Rolling Jubilee debt cancellation initiative. We operate according to the principle that alone, our debts are a burden, but together, they make us powerful. The Debt Collective is the next step in making that vision a reality. Contact us.
-          </p>
-        </div>
-      </section>
-
-      <div class="nav-footer">
-        <a href="#join">join us</a> | <a href="#learn">learn more</a> | <a href="#who">who we are</a>
       </div class="nav-footer">
 
     <div class="hidden">
@@ -112,7 +105,9 @@
         <div id="mapdiv" style="width: 100%; height: 800px;"></div>
       </div>
     </div>
-
+    <section>
+            “Just as bosses are dependent on workers, so are lenders dependent on borrowers. If workers walk out, the enterprise stops. If borrowers refuse to pay their debts, the lenders could be in real trouble.” - Francis Fox Piven
+    </section>
   </div>
 </div>
 
