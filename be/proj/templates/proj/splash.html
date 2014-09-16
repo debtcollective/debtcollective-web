@@ -3,27 +3,29 @@
 {% block body %}
 <div scroll>
   <div id="scroll" ng-controller="splashCtrl" ng-click="advance()"
-    ng-class="{mainstate: yLoc >= 4000}">
-      <div class="intro-text">
-        <div class="one" ng-class="{pane: yLoc <= 100}">
-          The American dream used to be buying a home.<br>
-          The new American dream is just getting out of debt.<br>
+    ng-class="{mainstate: yLoc > 2400}">
+      <section class="intro-text">
+        <div class="zero" ng-class="{pane: yLoc <= 400}">
+          Every month, we are forced into debt for basic necessities.
         </div>
-        <div class="two" ng-class="{pane: yLoc == 200}">
-          Alone, our debts are a burden. <br>
-          Together, they make us powerful.
+        <div class="one" ng-class="{pane: yLoc > 400 && yLoc <= 700}">
+          We have no choice but to enter into contracts under unfair terms.
         </div>
-        <div class="three" ng-class="{pane: yLoc == 300}">
-          <span class="three-one">
-            Every month, <br>student debtors,<br> medical debtors, <br>mortgage debtors, and others <br>are asked to make payments with little power</span><span class="three-two"> to bargain or negotiate.</span>
-          </span>
+        <div class="one" ng-class="{pane: yLoc > 700 && yLoc <= 1000}">
+         We have little power to bargain or negotiate.
+       </div>
+        <div class="two" ng-class="{pane: yLoc > 1000 && yLoc <= 1400}">
+          But if we work together, we can renegotiate our payments or even demand the cancellation of illegitimate debts.
         </div>
-        <div class="four">
-          <span ng-class="{pane: yLoc >= 2700 && yLoc <= 4000}">
-            If you owe the bank thousands of dollars, then the bank owns you. But if you owe the bank millions, then you own the bank.</span><span ng-class="{pane: yLoc >= 2000 && yLoc <= 4000}">Collectively, we own the banks.</span>
+        <div class="three" ng-class="{pane: yLoc > 1400 && yLoc <= 1700}">
+            If you owe the bank thousands of dollars, then the bank owns you. But if you owe the bank millions, then you own the bank. Collectively, we own the banks.
         </div>
-      </div>
-    <section class="images" ng-style="backgroundStyle" ng-class="{grey: yLoc >= 2000}">
+        <div class="four" ng-class="{pane: yLoc > 1700 && yLoc <= 2000}">
+            “Just as bosses are dependent on workers, so are lenders dependent on borrowers. If workers walk out, the enterprise stops. If borrowers refuse to pay their debts, the lenders could be in real trouble.” - Francis Fox Piven
+        </div>
+      </section>
+      <section class="images" ng-style="backgroundStyle"
+          ng-class="{grey: yLoc >= 2000}">
         <!-- for each range, display the appropriate animation. change in directives.js -->
         <div ng-repeat="range in ranges" ng-class="{pane: yLoc >= range.yScroll}">
           <img ng-src="/static/img/animation/transitional-support-{$range.num$}.png"/>
@@ -32,41 +34,31 @@
         <div class="sticky" ng-class="{pane: yLoc >= 2500}">
           <img ng-src="/static/img/animation/transitional-support-27.png"/>
         </div>
-        <!-- the sticky bottom half of the person -->
-        <div class="legs">
-          <img ng-src="/static/img/animation/transitional-support-28.png"/>
+      </section>
+
+      <section class="wrapper">
+        <div class="signup-form">
+          <div class="text">
+            <h2>The Debt Collective</h2>
+          </div>
         </div>
-    </section>
+        <article>
+          <p>Every month, we are forced into debt for basic necessities. We have no choice but to enter into contracts under unfair terms over which we have little power to bargain or negotiate. Creditors are holding us hostage. When we can’t meet the terms of the contact, we are harassed, we have our wages garnished, and some of us are even imprisoned. The goal of the Debt Collective aims to fight back against creditors and transform how basic necessities, such as education, health care, and housing are provided. Alone, our debts are a burden. Together, they make us powerful.</p>
 
-    <section class="wrapper">
-      <div class="signup-form">
-        <div class="text">
-          <h2>The Debt Collective: Organize, Resist, Reimagine</h2>
-        </div>
-
-      </div>
-
-    <article>
-        <p>Every month, we are forced into debt for basic necessities. We have no choice but to enter into contracts under unfair terms over which we have little power to bargain or negotiate. Creditors are holding us hostage. When we can’t meet the terms of the contact, we are harassed, we have our wages garnished, and some of us are even imprisoned. The goal of the Debt Collective aims to fight back against creditors and transform how basic necessities, such as education, health care, and housing are provided. Alone, our debts are a burden. Together, they make us powerful.</p>
-
-        <h2>Why join a <span>Debt Collective?</span></h2>
-        <p>Creditors profit from the information they have about us. They use this information to confuse and threaten us. We need to untangle the web of confusion. By joining together, we can learn where our money goes and who is profiting from those payments.  By sharing information, we can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.</p>
-
-
-    </article>
-      <aside>
-        <h2>Are you a Corinthean student?</h2>
-
-        <p>
-        Are you a current or former student at a Corinthian college, including Everest, Heald or Wyotech? Together we can demand a full refund and free education. Join the Corinthian Collective.
-        </p>
-
-        <a href="/corinthian" class="button">Learn More</a>
-
-
-           <a href="https://twitter.com/intent/tweet?button_hashtag=0debt&text=Creditors%20are%20holding%20us%20hostage.%20Alone%2C%20our%20debts%20are%20a%20burden.%20Together%2C%20they%20make%20us%20powerful.%20" class="twitter-hashtag-button" data-size="large" data-url="http://debtcollective.org">Tweet #0debt</a>
-      </aside>
-    <div class="full-width">
+          <div >
+            <h2>Why Join <span>the Debt Collective?</span></h2>
+            <p>Creditors profit from the information they have about us. They use this information to confuse and threaten us. We need to untangle the web of confusion. By joining together, we can learn where our money goes and who is profiting from those payments.  By sharing information, we can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.</p>
+          </div>
+        </article>
+        <aside>
+          <h2>Are you a Corinthian student?</h2>
+          <p>
+          Are you a current or former student at a Corinthian college, including Everest, Heald or Wyotech? Together we can demand a full refund and free education. Join the Corinthian Collective.
+          </p>
+          <a href="/corinthian" class="button">Learn More</a>
+             <a href="https://twitter.com/intent/tweet?button_hashtag=0debt&text=Creditors%20are%20holding%20us%20hostage.%20Alone%2C%20our%20debts%20are%20a%20burden.%20Together%2C%20they%20make%20us%20powerful.%20" class="twitter-hashtag-button" data-size="large" data-url="http://debtcollective.org">Tweet #0debt</a>
+        </aside>
+        <div class="full-width">
           <a class="anchor" name="join"></a>
           <form class="form" action="http://strikedebt.createsend.com/t/j/s/nskul/" method="post"
               ng-submit="onSubmitClick()">
@@ -82,58 +74,46 @@
                   typeahead-on-select="onSelect($item, $model, $label)"
                   typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
 
-               <!--<input type="text" ng-model="debtType" placeholder="what kind of debt?"
-                  ng-class="{muted: mutedValues('debtType')}"
-                  ng-show="email != null && location != null "
-                  ng-model-options="{ updateOn: 'blur' }"
-                  typeahead-editable="false"
-                  typeahead-on-select="onSelect($item, $model, $label)"
-                  typeahead="type as type.name for type in types | filter:{name:$viewValue}" required>
-                -->
+              <!--<input type="text" ng-model="debtType" placeholder="what kind of debt?"
+                ng-class="{muted: mutedValues('debtType')}"
+                ng-show="email != null && location != null "
+                ng-model-options="{ updateOn: 'blur' }"
+                typeahead-editable="false"
+                typeahead-on-select="onSelect($item, $model, $label)"
+                typeahead="type as type.name for type in types | filter:{name:$viewValue}" required>
+              -->
 
-               <input type="text" ng-model="amount" placeholder="how much?"
-                  ng-show="email != null && location != null"
-                  ng-model-options="{ updateOn: 'blur' }">
-                <div class="join-button">
-                  <button type="submit" name="submit" class="btn" ng-show="formValid()">sign up</button>
-                </div>
+              <input type="text" ng-model="amount" placeholder="how much?"
+                ng-show="email != null && location != null"
+                ng-model-options="{ updateOn: 'blur' }">
+              <div class="join-button">
+                <button type="submit" name="submit" class="btn" ng-show="formValid()">sign up</button>
+              </div>
             </div>
           </form>
 
-        <div ng-controller="mapCtrl">
-          <div id="mapdiv" style="width: 100%; height: 400px;"></div>
+          <div ng-controller="mapCtrl">
+            <div id="mapdiv" style="width: 100%; height: 400px;"></div>
+          </div>
+
+          <h2>Who are we?</h2>
+          <p>
+          We’re the people behind the Rolling Jubilee debt cancellation initiative. We operate according to the principle that alone, our debts are a burden, but together, they make us powerful. The Debt Collective is the next step in making that vision a reality. Contact us.
+          </p>
         </div>
-        <h2>Why do we need the <span>Debt Collective?</span></h2>
+      </section>
 
-        <p>Every month, student debtors, medical debtors, mortgage debtors, and others are asked to make payments with little power to bargain or negotiate. Indebted for life’s basic needs - including education, housing, medical care - debtors have no control over interest rates, repayment policies, credit scores, or the actions of debt collectors. Some have had their wages garnished or been imprisoned for their debts. The goal of the Debt Collective is to change this basic equation by creating and empowering a constituency of debtors for the purpose of organization, advocacy, and resistance.</p>
+      <div class="nav-footer">
+        <a href="#join">join us</a> | <a href="#learn">learn more</a> | <a href="#who">who we are</a>
+      </div class="nav-footer">
 
-        <h2>What can a <span>Debt Collective</span> do?</h2>
-
-        <p>The goal of the Debt Collective is to create a platform by debtors and for debtors for organization, advocacy, and resistance. Organizing collectively offers many possibilities for building power against creditors:</p>
-
-        <ul>
-            <li>We could organize debtors into groups based on region, type of debt, or institution</li>
-            <li>These groups could bargain collectively with creditors or even develop the power to threaten a debt strike.</li>
-            <li>A debt collective could also serve as a platform for creating a positive vision of a sustainable economy in which credit would be used to help people instead of destroying lives.</li>
-        </ul>
-
-        <div class="join">
-            <a href="#join">Join</a>
-        </div>
+    <div class="hidden">
+      <div ng-controller="mapCtrl">
+        <div id="mapdiv" style="width: 100%; height: 800px;"></div>
+      </div>
     </div>
 
-    </section>
-
-    <div class="nav-footer">
-    <a href="#join">join us</a> | <a href="#learn">learn more</a> | <a href="#who">who we are</a>
-    </div class="nav-footer">
   </div>
-  <section class="hidden">
-    <div ng-controller="mapCtrl">
-      <div id="mapdiv" style="width: 100%; height: 800px;"></div>
-    </div>
-  </section>
-
-</section>
+</div>
 
 {% endblock %}

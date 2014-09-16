@@ -112,9 +112,9 @@ body {
         }
 
         .pane {
+          text-align: center;
           opacity: 1;
           margin: 5px;
-          text-align: left;
           position: fixed;
           top: 0;
           margin: 5px;
@@ -124,7 +124,7 @@ body {
 
     .images {
         @include transition();
-        height: 4000px;
+        height: 2800px;
 
         div {
           opacity: 0;

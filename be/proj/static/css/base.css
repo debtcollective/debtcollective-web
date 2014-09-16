@@ -63,9 +63,9 @@ body {
     #scroll .intro-text div {
       opacity: 0; }
     #scroll .intro-text .pane {
+      text-align: center;
       opacity: 1;
       margin: 5px;
-      text-align: left;
       position: fixed;
       top: 0;
       margin: 5px;
@@ -76,7 +76,7 @@ body {
     -ms-transition: all 0.25s ease;
     -o-transition: all 0.25s ease;
     transition: all 0.25s ease;
-    height: 4000px; }
+    height: 2800px; }
     #scroll .images div {
       opacity: 0;
       -webkit-transition: opacity .75s ease;
