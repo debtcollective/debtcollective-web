@@ -19,11 +19,11 @@ input, button {
   line-height: normal;
   border: 0;
   text-decoration: none;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   position: relative;
   float: left; }
   input:hover, button:hover {
@@ -36,11 +36,11 @@ input, button {
 
 input, button {
   font-family: 'Source Code Pro';
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   width: 100%; }
 
 button {
@@ -66,7 +66,12 @@ body {
   opacity: 1;
   width: 100%;
   text-align: center;
-  margin: 5px; }
+  margin: 5px;
+  -webkit-transition: opacity 1s ease;
+  -moz-transition: opacity 1s ease;
+  -ms-transition: opacity 1s ease;
+  -o-transition: opacity 1s ease;
+  transition: opacity 1s ease; }
 
 #scroll {
   color: #fff; }
@@ -80,11 +85,6 @@ body {
     #scroll .intro-text .pane {
       top: 0; }
   #scroll .images {
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
     height: 2200px; }
     #scroll .images div {
       opacity: 0; }
@@ -97,11 +97,16 @@ body {
 
 .social-media {
   opacity: 0;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease; }
+  position: fixed;
+  width: 50px;
+  height: 150px;
+  left: 20;
+  top: 200;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
 
 #scroll.mainstate .images img {
   height: 0px; }
@@ -211,11 +216,11 @@ header {
 
 .nav-footer.ng-hide-add.ng-hide-add-active,
 .nav-footer.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease; }
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
 
 .nav-footer {
   color: rgba(255, 255, 255, 0.7);
