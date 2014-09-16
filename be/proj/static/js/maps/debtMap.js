@@ -42,12 +42,13 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         map.dataProvider = dataProvider;
         map.validateNow();
         map.write("mapdiv");
+        map.zoomIn();
     });
 
     var mapZoomed = false;
 
     $scope.$watch('yLoc', function (newVal, oldVal) {
-        if(newVal == 5000 && !mapZoomed) {
+        if(newVal >= 4000 && !mapZoomed) {
             mapZoomed = true;
             map.zoomIn();
         }

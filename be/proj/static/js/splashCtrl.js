@@ -1,4 +1,3 @@
-
 app.controller('splashCtrl', function ($scope, $http, util_svc) {
 
     $scope.email = null;
@@ -6,28 +5,23 @@ app.controller('splashCtrl', function ($scope, $http, util_svc) {
     $scope.location = null;
     $scope.debtType = null;
     $scope.amount = null;
-
-    $scope.types = [
-        {name : 'medical',
-         label: 'Medical'},
-         {name: 'home',
-        label: 'Mortgage'},
-        {name:'student',
-         label: 'Student'},
-         {name: 'credit',
-         label: 'Credit Card'},
-         {name: 'none',
-         label: 'None'},
-         {name: 'other',
-         label: 'Other'}
-    ]
+    $scope.showForm = false;
 
     $http.get('/points/').then(function (resp) {
         $scope.cities = resp.data
     });
 
+    $scope.footerHeight = function () {
+        $scope.showRest
+    }
+
     $scope.formValid = function () {
-        return $scope.location != null && $scope.email != null;
+        return $scope.location != null && $scope.email != null
+            && $scope.amount != null;
+    }
+
+    $scope.formVisible = function () {
+        return $scope.showForm == true || $scope.email != null;
     }
 
     $scope.onSubmitClick = function () {
@@ -47,7 +41,7 @@ app.controller('splashCtrl', function ($scope, $http, util_svc) {
         }
 
         $http.post('/signup/', data).then(function (resp) {
-
+            $scope.formSubmitted = true;
         });
     }
 });

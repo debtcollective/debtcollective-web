@@ -96,8 +96,24 @@ body {
     font-size: 17px;
     line-height: 1.6em;
 }
+#scrollthing {
+  position: fixed;
+  left: 0;
+  height: 0;
+  width: 2px;
+  background-color: $red;
+}
+
+%pane {
+  position: fixed;
+  opacity: 1;
+  width: 100%;
+  text-align: center;
+  margin: 5px;
+}
 
 #scroll {
+
     @extend %sans;
     color: #fff;
 
@@ -112,35 +128,25 @@ body {
       }
 
       .pane {
-        text-align: center;
-        opacity: 1;
-        margin: 5px;
-        position: fixed;
+        @extend %pane;
         top: 0;
-        margin: 5px;
-        width: 100%;
       }
     }
 
     .images {
         @include transition();
-        height: 2800px;
+        height: 2200px;
 
         div {
           opacity: 0;
         }
 
         .pane {
-          opacity: 1;
-          position: fixed;
+          @extend %pane;
           top: 50%;
-          transform: translateY(-25%);
-          margin: 5px;
-          width: 100%;
-          text-align: center;
+          transform: translateY(-50%);
         }
     }
-
 }
 
 .anchor {
@@ -152,15 +158,16 @@ body {
 }
 
 #scroll.mainstate {
+  .images {
+    img {
+      height: 0px;
+    }
+  }
   .social-media {
     opacity: 1;
   }
   .nav-footer {
     height: initial;
-  }
-
-  .images {
-    opacity: 0;
   }
 }
 
@@ -171,11 +178,11 @@ section {
 .wrapper {
   position: relative;
   width: 100%;
-  max-width: 700px;
   margin: 0 auto;
 
   .body-text {
-    margin: 1em 0;
+    max-width: 700px;
+    margin: 1em auto;
      p {
       margin-bottom: 1em;
      }
@@ -214,7 +221,7 @@ section {
   }
 
 
-  article, aside, .body-text {
+  article, aside {
     display: inline-block;
     vertical-align: top;
   }
@@ -322,6 +329,11 @@ header {
     margin: auto;
 }
 
+.nav-footer.ng-hide-add.ng-hide-add-active,
+.nav-footer.ng-hide-remove.ng-hide-remove-active {
+  @include transition();
+}
+
 .nav-footer {
   color: rgba(255,255,255,.7);
   position: fixed;
@@ -330,13 +342,15 @@ header {
   background-color: $maroon;
   width: 100%;
   height: 0px;
-  @include transition();
 
   .dc-input {
     width: 100%;
-    margin-bottom: 10px;
-    text-align: right;
     font-size: 20px;
+
+    #receiver {
+      text-align: center;
+      padding: 5px;
+    }
 
     form {
       max-width: 400px;
@@ -346,7 +360,7 @@ header {
   }
 
   .footer-links {
-    padding: 0px 15px;
+    padding: 5px 15px;
     float: right;
     width: 100%;
     background-color: $linkblue;

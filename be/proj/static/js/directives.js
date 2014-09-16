@@ -1,8 +1,9 @@
 app.directive("scroll", function ($window) {
     return function($scope, $element, $attrs) {
 
+        $scope.amountToScroll = 2400;
         var OFFSET = 100;
-        var MAX_RANGES = 23;
+        var MAX_RANGES = 22;
         var RANGE_COLORS = {
             10: "#281519",
             11: "#281519",
@@ -47,6 +48,11 @@ app.directive("scroll", function ($window) {
             $scope.yLoc = $scope.yLoc + OFFSET;
         }
 
+        function map_range(value, low1, high1, low2, high2) {
+            /* for the scrollthing */
+            return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+        }
+
         function scrolling(i) {
             if (this.pageYOffset >= i * Math.floor(this.pageYOffset/OFFSET)*OFFSET) {
                 $scope.yLoc = i * Math.ceil(this.pageYOffset/OFFSET)*OFFSET;
@@ -58,7 +64,20 @@ app.directive("scroll", function ($window) {
 
         angular.element($window).bind("scroll", function() {
             scrolling(1);
+            var windowHeight = $window.innerHeight;
+            var height = map_range(scroll, 0, $scope.amountToScroll*4, 0, windowHeight)
+            $scope.scrollThingHeight = {"height" : height}
             $scope.$apply();
         });
     };
+});
+
+app.directive('scrollOnClick', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, $elm) {
+      $elm.on('click', function() {
+      });
+    }
+  }
 });
