@@ -100,6 +100,7 @@ body {
     line-height: 1.6em;
 }
 #scrollthing {
+  @include transition();
   position: fixed;
   left: 0;
   height: 0;
@@ -236,8 +237,17 @@ $weird-orange: #ff6600;
 
 }
 
+.more.ng-hide {
+  opacity: 0;
+}
+
 .more {
-  @include transition();
+  opacity: 1;
+}
+
+.more.ng-hide-add.ng-hide-add-active,
+.more.ng-hide-remove.ng-hide-remove-active {
+  @include transition(all, 1s, ease);
 }
 
 .learnMore {

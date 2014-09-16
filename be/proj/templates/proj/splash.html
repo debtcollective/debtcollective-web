@@ -4,24 +4,32 @@
 <div scroll>
   <div id="scroll" ng-controller="splashCtrl"
     ng-class="{mainstate: yLoc > amountToScroll}">
-
-    <div id="scrollthing" ng-style="scrollThingHeight">
+    <div id="scrollthing" ng-style="scrollThingStyle">
     </div>
       <section class="intro-text">
-        <div class="zero" ng-class="{pane: yLoc <= 400}">
+        <div class="zero" ng-class="{pane: yLoc <= 300}">
           Every month, we are forced into debt for basic necessities.
         </div>
-        <div class="one" ng-class="{pane: yLoc > 400 && yLoc <= 1000}">
+        <div class="one" ng-class="{pane: yLoc > 300 && yLoc <= 600}">
           We have no choice but to enter into contracts under unfair terms.
         </div>
-        <div class="two" ng-class="{pane: yLoc > 1000 && yLoc <= 1400}">
+        <div class="two" ng-class="{pane: yLoc > 600 && yLoc <= 900}">
          We have little power to bargain or negotiate.
        </div>
-        <div class="three" ng-class="{pane: yLoc > 1400 && yLoc <= 1700}">
-          But if we work together, we can renegotiate our payments or even demand the cancellation of illegitimate debts.
+        <div ng-class="{pane: yLoc > 900 && yLoc <= 1200}">
+          But if we work together, we can renegotiate our payments.<br>
         </div>
-        <div class="four" ng-class="{pane: yLoc > 1700 && yLoc < 2400}">
-            If you owe the bank thousands of dollars, then the bank owns you. But if you owe the bank millions, then you own the bank. Collectively, we own the banks.
+        <div ng-class="{pane: yLoc > 1200 && yLoc <= 1500}">
+          We could even demand the cancellation of illegitimate debts.
+        </div>
+        <div ng-class="{pane: yLoc > 1500 && yLoc <= 1800}">
+          If you owe the bank thousands of dollars, then the bank owns you.
+        </div>
+        <div ng-class="{pane: yLoc > 1800 && yLoc <= 2100}">
+         But if you owe the bank millions, then you own the bank.
+        </div>
+        <div ng-class="{pane: yLoc > 2100 && yLoc < 2400}">
+         Collectively, we own the banks.
         </div>
       </section>
       <section scroll-on-click  class="images" ng-style="backgroundStyle"
@@ -36,7 +44,6 @@
       <a name="learn" class="anchor"></a>
       <section class="wrapper">
         <div class="body-text">
-
           <h2>The Debt Collective</h2>
           <p>Every month, we are forced into debt for basic necessities. We have no choice but to enter into contracts under unfair terms over which we have little power to bargain or negotiate. Creditors are holding us hostage. When we can’t meet the terms of the contact, we are harassed, we have our wages garnished, and some of us are even imprisoned. The goal of the Debt Collective aims to fight back against creditors and transform how basic necessities, such as education, health care, and housing are provided.
             <div class="learnMore" ng-show="!learnMore"
@@ -45,13 +52,18 @@
           </p>
           <div class="more" ng-show="learnMore">
             <h2>Why Join <span>the Debt Collective?</span></h2>
-            <p>Creditors profit from the information they have about us. They use this information to confuse and threaten us. We need to untangle the web of confusion. By joining together, we can learn where our money goes and who is profiting from those payments.  By sharing information, we can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.
+            <p>Creditors profit from the information they have about us. They use this information to confuse and threaten us. We need to untangle the web of confusion. By joining together, we can learn where our money goes and who is profiting from those payments.  By sharing information, we can also learn who stands to lose when we don’t pay. This kind of knowledge  help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.
             </p>
-          <a class="anchor" name="who"></a>
-          <h2>Who we are</h2>
-          <p>
-          We’re the people behind the Rolling Jubilee debt cancellation initiative. We operate according to the principle that alone, our debts are a burden, but together, they make us powerful. The Debt Collective is the next step in making that vision a reality. Contact us.
-          </p>
+            <h2>What can a debt collective do?</h2>
+            <p>
+            The goal of the Debt Collective is to create a platform by debtors and for debtors for organization, advocacy, and resistance. Organizing collectively offers many possibilities for building power against creditors:
+            </p>
+            <p>
+            We can organize debtors into groups based on region, type of debt, or institution.
+            These groups can bargain collectively with creditors or even develop the power to threaten a debt strike.
+            A debt collective can also serve as a platform for creating a positive vision of a sustainable economy in which credit would be used to help people instead of destroying lives.
+            </p>
+
             <div class="learnMore" ng-show="learnMore"
                 ng-click="learnMore=false">[ collapse ]</a>
             </div>
@@ -68,23 +80,21 @@
             #notaloan Tweets
            </a>-->
         </div>
-         <section class="body-text" style="height:500px;">
-         <h2>What can a debt collective do?</h2>
-         <p>
-        The goal of the Debt Collective is to create a platform by debtors and for debtors for organization, advocacy, and resistance. Organizing collectively offers many possibilities for building power against creditors:
-        </p>
-        <p>
-        We could organize debtors into groups based on region, type of debt, or institution
-        These groups could bargain collectively with creditors or even develop the power to threaten a debt strike.
-        A debt collective could also serve as a platform for creating a positive vision of a sustainable economy in which credit would be used to help people instead of destroying lives.
-        </p>
+        <section class="body-text" style="height:500px;">
 
-        <a class="anchor" name="background"></a>
-        <h2>Background</h2>
-        <quote>
-          “Just as bosses are dependent on workers, so are lenders dependent on borrowers. If workers walk out, the enterprise stops. If borrowers refuse to pay their debts, the lenders could be in real trouble.” - Francis Fox Piven
-        </quote>
-    </section>
+          <a class="anchor" name="background"></a>
+          <h2>Background</h2>
+          <quote>
+            “Just as bosses are dependent on workers, so are lenders dependent on borrowers. If workers walk out, the enterprise stops. If borrowers refuse to pay their debts, the lenders could be in real trouble.” - Francis Fox Piven
+          </quote>
+
+          <a class="anchor" name="who"></a>
+          <h2>Who we are</h2>
+          <p>
+          We’re the people behind the Rolling Jubilee debt cancellation initiative. We operate according to the principle that alone, our debts are a burden, but together, they make us powerful. The Debt Collective is the next step in making that vision a reality. Contact us.
+          </p>
+
+        </section>
       </section>
       <div class="social-media">
         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://debtcollective.org"
@@ -97,68 +107,8 @@
         </p>
       </div>
 
-      <div class="nav-footer" ng-style="footerHeight()">
-        <div class="dc-input" ng-class="{hidden: yLoc < amountToScroll}">
-          <div name="receiver" id="receiver" ng-show="formSubmitted">
-            Thanks for signing up! We've sent you an email.
-          </div>
-           <form ng-show="!formSubmitted" class="form"
-              target="receiver"
-              action="http://strikedebt.createsend.com/t/j/s/nskul/"
-              method="post" ng-submit="onSubmitClick()">
+      {% include "proj/nav.html" %}
 
-          <input type="text"
-            class="hidden" name="cm-name" ng-model="username" />
-
-          <input type="email" name="cm-nskul-nskul"  ng-model="email"
-              placeholder="enter an email..."
-              ng-focus="showForm=true"
-              ng-blur="showForm=false"
-              required autocomplete="off" />
-
-          <input type="text"
-              ng-model="location"
-              placeholder="what city?"
-              ng-show="formVisible()"
-              typeahead-editable="false"
-              typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
-
-          <!--<input type="text" ng-model="debtType" placeholder="what kind of debt?"
-            ng-class="{muted: mutedValues('debtType')}"
-            ng-show="email != null && location != null "
-            ng-model-options="{ updateOn: 'blur' }"
-            typeahead-editable="false"
-            typeahead-on-select="onSelect($item, $model, $label)"
-            typeahead="type as type.name for type in types | filter:{name:$viewValue}" required>
-          -->
-
-          <input type="text"
-            ng-model="amount"
-            placeholder="how much?"
-            ng-show="formVisible()"
-            ng-model-options="{ updateOn: 'blur' }">
-          <div class="join-button">
-            <button type="submit"
-              name="submit"
-              ng-show="formVisible()"
-              class="btn"
-              ng-disabled="!formValid()">sign up</button>
-          </div>
-        </div>
-      </form>
-
-      <div class="footer-links">
-        <a href="#top" du-scrollspy du-smooth-scroll>top </a>
-
-        &nbsp;&nbsp; ||
-        &nbsp;&nbsp;<a href="#learn" du-scrollspy du-smooth-scroll>learn more </a>
-         &nbsp;&nbsp;  |  &nbsp;&nbsp; <a du-scrollspy du-smooth-scroll href="#who">who we are</a>
-         &nbsp;&nbsp; |  &nbsp;&nbsp; <a du-scrollspy du-smooth-scroll href="#background">background</a> &nbsp;&nbsp;
-
-      </div>
-    </div>
-
-  </div>
 </div>
 
 {% endblock %}

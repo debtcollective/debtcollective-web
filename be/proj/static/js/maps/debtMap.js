@@ -21,6 +21,10 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     map.pathToImages = "/static/js/vendor/ammap/images/";
     map.useHandCursorOnClickableOjects = true
 
+    map.mouseWheelZoomEnabled = false;
+    map.panEventsEnabled = false;
+
+
     // hand drawn look & feel
     map.handDrawn = true;
     map.handDrawScatter = 3;

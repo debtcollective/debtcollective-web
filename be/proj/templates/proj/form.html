@@ -1,0 +1,44 @@
+<form ng-show="!formSubmitted" class="form"
+      target="receiver"
+      action="http://strikedebt.createsend.com/t/j/s/nskul/"
+      method="post" ng-submit="onSubmitClick()">
+
+    <input type="text"
+      class="hidden" name="cm-name" ng-model="username" />
+
+    <input type="email" name="cm-nskul-nskul"  ng-model="email"
+        placeholder="enter an email..."
+        ng-focus="showForm=true"
+        ng-blur="showForm=false"
+        required autocomplete="off" />
+
+    <input type="text"
+        ng-model="location"
+        placeholder="what city?"
+        ng-show="formVisible()"
+        typeahead-editable="false"
+        typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
+
+    <!--<input type="text" ng-model="debtType" placeholder="what kind of debt?"
+      ng-class="{muted: mutedValues('debtType')}"
+      ng-show="email != null && location != null "
+      ng-model-options="{ updateOn: 'blur' }"
+      typeahead-editable="false"
+      typeahead-on-select="onSelect($item, $model, $label)"
+      typeahead="type as type.name for type in types | filter:{name:$viewValue}" required>
+    -->
+
+    <input type="text"
+      ng-model="amount"
+      placeholder="how much?"
+      ng-show="formVisible()"
+      ng-model-options="{ updateOn: 'blur' }">
+    <div class="join-button">
+      <button type="submit"
+        name="submit"
+        ng-show="formVisible()"
+        class="btn"
+        ng-disabled="!formValid()">sign up</button>
+    </div>
+  </div>
+</form>

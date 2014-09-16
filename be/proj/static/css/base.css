@@ -77,6 +77,11 @@ body {
   line-height: 1.6em; }
 
 #scrollthing {
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
   position: fixed;
   left: 0;
   height: 0;
@@ -192,12 +197,19 @@ section {
   color: rgba(255, 255, 255, 0.7);
   background-color: rgba(17, 13, 33, 0.7); }
 
+.more.ng-hide {
+  opacity: 0; }
+
 .more {
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out; }
+  opacity: 1; }
+
+.more.ng-hide-add.ng-hide-add-active,
+.more.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease; }
 
 .learnMore {
   border-bottom: #666 solid 1px;

@@ -2,6 +2,8 @@ app.directive("scroll", function ($window) {
     return function($scope, $element, $attrs) {
 
         $scope.amountToScroll = 2800;
+        $scope.fullHeight = 5000;
+
         var OFFSET = 100;
         var MAX_RANGES = 22;
         var RANGE_COLORS = {
@@ -65,8 +67,13 @@ app.directive("scroll", function ($window) {
         angular.element($window).bind("scroll", function() {
             scrolling(1);
             var windowHeight = $window.innerHeight;
-            var height = map_range(scroll, 0, $scope.amountToScroll*4, 0, windowHeight)
-            $scope.scrollThingHeight = {"height" : height}
+            var scroll = this.pageYOffset;
+            var height = map_range(scroll, 0, $scope.amountToScroll*2, 0, windowHeight);
+            var opacity = 1;
+            if(scroll > $scope.amountToScroll) {
+                opacity = 0;
+            }
+            $scope.scrollThingStyle = {"height" : height, "opacity": opacity};
             $scope.$apply();
         });
     };

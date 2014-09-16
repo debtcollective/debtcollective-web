@@ -1,0 +1,19 @@
+<div class="nav-footer" ng-style="footerHeight()">
+  <div class="dc-input" ng-class="{hidden: yLoc < amountToScroll}">
+    <div name="receiver" id="receiver" ng-show="formSubmitted">
+      Thanks for signing up! We've sent you an email.
+    </div>
+
+    {% include "proj/form.html" %}
+
+    <div class="footer-links">
+      <a href="#top" du-scrollspy du-smooth-scroll>top </a>
+
+      &nbsp;&nbsp; ||
+      &nbsp;&nbsp;<a href="#learn" du-scrollspy du-smooth-scroll>learn more </a>
+       &nbsp;&nbsp;  |  &nbsp;&nbsp; <a du-scrollspy du-smooth-scroll href="#who">who we are</a>
+       &nbsp;&nbsp; |  &nbsp;&nbsp; <a du-scrollspy du-smooth-scroll href="#background">background</a> &nbsp;&nbsp;
+
+    </div>
+  </div>
+</div>
