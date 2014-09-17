@@ -213,7 +213,7 @@ div {
   margin-top: 44px; }
 
 body {
-  background-color: #39413f;
+  background-color: #110d21;
   line-height: 1.6em;
   font-size: 16px; }
 
@@ -237,7 +237,8 @@ body {
 .splash {
   position: relative;
   text-align: center;
-  height: 100%; }
+  height: 100%;
+  background-color: #39413f; }
   .splash .splash-text {
     position: absolute;
     bottom: 10%;
@@ -288,6 +289,7 @@ body {
         #scroll .intro-text .body-text .slide span {
           opacity: 0; }
   #scroll .images {
+    background-color: #39413f;
     -webkit-transition: opacity 1s ease;
     -moz-transition: opacity 1s ease;
     -ms-transition: opacity 1s ease;
@@ -295,7 +297,7 @@ body {
     transition: opacity 1s ease;
     height: 2900px;
     margin: auto; }
-    #scroll .images.close {
+    #scroll .images.close .pane {
       opacity: 0; }
     #scroll .images div {
       opacity: 0;

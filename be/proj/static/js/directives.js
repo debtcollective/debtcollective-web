@@ -11,11 +11,15 @@ app.directive("scroll", function ($window) {
             12: "#2e2327",
             13: "#2e2327",
             14: "#393035",
-            15: "#454b49"
+            15: "#454b49",
+            16: "#39413f"
         }
 
         for(var i = 1; i < 10; i ++){
             RANGE_COLORS[i] =  "#110d21";
+        }
+        for(var i = 16; i < MAX_RANGES; i ++){
+            RANGE_COLORS[i] = "#39413f"
         }
 
         //$scope.one = true;
