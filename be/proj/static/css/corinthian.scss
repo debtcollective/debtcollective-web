@@ -1,12 +1,29 @@
-h1 {
-	@extend %calluna;
-	font-size: 2.5em;
-	padding: 2em 0 1em;
+%calluna {
+    font-family: "calluna", serif;
+    font-weight: 600;
 }
 
+%sans {
+    // font-family: "camingodos-web", sans-serif;
+    font-family: "calluna-sans", sans-serif;
+    font-weight: 600;
+}
+
+
 #corinthian {
-	border-top: 1em solid $red;
+	background-color: #eee;
+	border-top: 1em solid $dark-red;
 	@extend %sans;
+	font-size: 18px;
+
+
+	h1 {
+		@extend %calluna;
+		font-size: 2.5em;
+		padding: 2em 0 1em;
+		color: $dark-grey;
+		letter-spacing: 0;
+	}
 
 	.wrapper {
 		max-width: 960px;
@@ -21,13 +38,26 @@ h1 {
 
 	input[type="checkbox"] {
 		display: inline-block;
+		margin-right: 0.5em;
+		vertical-align: middle;
+		height: 1em;
+		width: 1.25em;
 	}
 
 	.questions {
+		@extend %sans;
+
+		p {
+			text-indent: 0;
+			margin-bottom: 1.25em;
+		}
+
 		li {
 			background: #fff;
 			padding: 1em;
-			margin-bottom: 1em;
+			margin-bottom: 0.1em;
+			text-indent: -1.75em;
+			padding-left: 2.75em;
 		}
 	}
 
@@ -61,6 +91,7 @@ h1 {
 		background-color: darken($fb-blue, 10%);
 		padding: 0.75em 1em;
 		margin-top: 1em;
+		@extend %sans;
 
 		&:hover {
 			color: #fff;
@@ -70,8 +101,12 @@ h1 {
 }
 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
 	
-
+#corinthian {
+	article, aside {
+		width: 100%;
+	}
+}
 		
 }

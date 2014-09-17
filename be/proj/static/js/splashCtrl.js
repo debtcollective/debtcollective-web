@@ -1,4 +1,4 @@
-app.controller('splashCtrl', function ($scope, $http, util_svc) {
+app.controller('splashCtrl', function ($scope, $http, util_svc, $document) {
 
     $scope.email = null;
     $scope.username = null;
@@ -15,13 +15,18 @@ app.controller('splashCtrl', function ($scope, $http, util_svc) {
         $scope.showRest
     }
 
+    $scope.scrollClick = function () {
+        var someElement = angular.element(document.getElementById('mapdiv'));
+        $document.scrollToElement(someElement, 0, 2000);
+    }
+
     $scope.formValid = function () {
         return $scope.location != null && $scope.email != null
             && $scope.amount != null;
     }
 
     $scope.formVisible = function () {
-        return $scope.showForm == true || $scope.email != null;
+        return $scope.showForm == true;
     }
 
     $scope.onSubmitClick = function () {

@@ -9,7 +9,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     map.areasSettings = {
         autoZoom: true,
         selectedColor: "#CC0000",
-        unlistedAreasColor: "#e0e0d5",
+        unlistedAreasColor: "#feffe8",
         unlistedAreasOutlineColor: "#000",
     };
 
@@ -20,7 +20,9 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
 
     map.pathToImages = "/static/js/vendor/ammap/images/";
     map.useHandCursorOnClickableOjects = true
-
+    map.backgroundAlpha = 1;
+    map.borderAplha = 0
+    map.backgroundColor = "#d3d1c9";
     map.mouseWheelZoomEnabled = false;
     map.panEventsEnabled = false;
 

@@ -1,11 +1,10 @@
 app.directive("scroll", function ($window) {
     return function($scope, $element, $attrs) {
 
-        $scope.amountToScroll = 2800;
-        $scope.fullHeight = 5000;
+        $scope.amountToScroll = 2400;
 
-        var OFFSET = 100;
-        var MAX_RANGES = 22;
+        var OFFSET = 80;
+        var MAX_RANGES = 23;
         var RANGE_COLORS = {
             10: "#281519",
             11: "#281519",
@@ -16,7 +15,7 @@ app.directive("scroll", function ($window) {
         }
 
         for(var i = 1; i < 10; i ++){
-            RANGE_COLORS[i] =  "#28151a";
+            RANGE_COLORS[i] =  "#110d21";
         }
 
         //$scope.one = true;
@@ -68,7 +67,7 @@ app.directive("scroll", function ($window) {
             scrolling(1);
             var windowHeight = $window.innerHeight;
             var scroll = this.pageYOffset;
-            var height = map_range(scroll, 0, $scope.amountToScroll*2, 0, windowHeight);
+            var height = map_range(scroll, 0, $scope.amountToScroll, 0, windowHeight);
             var opacity = 1;
             if(scroll > $scope.amountToScroll) {
                 opacity = 0;
