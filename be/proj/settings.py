@@ -34,8 +34,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'be.proj',
-    'be.proj.gather',
+    'proj',
+    'proj.gather',
     'south'
 )
 MIDDLEWARE_CLASSES = (
@@ -46,7 +46,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-ROOT_URLCONF = 'be.proj.urls'
+ROOT_URLCONF = 'proj.urls'
 # XXX: unsure why 'be' needs to be left out of the initial path (karissa)
 WSGI_APPLICATION = 'proj.wsgi.application'
 
