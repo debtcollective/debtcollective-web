@@ -641,6 +641,8 @@ label {
     background: none; }
   #corinthian .lendyour {
     text-align: center; }
+    #corinthian .lendyour iframe {
+      width: 100%; }
   #corinthian a {
     color: #3d72a6;
     border-bottom: 0.15em solid #ddd;
