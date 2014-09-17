@@ -4,6 +4,11 @@ $mid-grey:      lighten($dark-grey, 40%);
 $off-grey:      #39413f;
 $weird-yellow: rgb(224,224,213);
 $menu-color:   #39413f;
+$light-yellow: #feffe8;
+$mauve: #d3d1c9;
+
+$link-light: #b6bea7;
+$link-light-hover: rgba(134,143,148, .8);
 
 $dark-blue:     rgb(17,13,33); //110d21
 $linkblue:      #3d72a6;
@@ -209,7 +214,7 @@ body {
 
     .images {
         @include transition(opacity, 1s, ease);
-        height: 2800px;
+        height: 2900px;
         margin: auto;
 
         &.close {
@@ -297,11 +302,11 @@ section {
   @extend %rale;
   position: relative;
   margin: 44px auto;
-  color: rgba(255,255,255,.7);
   line-height: 34px;
 
   p {
-    margin-bottom: 1em;
+    letter-spacing: 1.25px;
+    margin-bottom: 22px;
   }
 }
 
@@ -351,12 +356,11 @@ h2 {
   @extend %rale;
   font-size: 20px;
   line-height: 30px;
-  margin: 1em 0 0.25em;
   text-align: center;
-
-  &:first-child {
-    margin-top: 0;
-  }
+  margin-bottom: 22px;
+  margin-top: 88px;
+  text-transform: uppercase;
+  letter-spacing: 4.5px;
 }
 
 
@@ -374,16 +378,17 @@ h2 {
 }
 
 .learnMore {
-  border-bottom: #666 solid 1px;
+  @extend %mono;
+  @include transition();
+  border-bottom: $link-light solid 1px;
   text-align: center;
   cursor: pointer;
   padding: 10px;
-  color: #666;
-  @include transition();
+  color: $link-light;
 
   &:hover {
-    border-color: white;
-    color: white;
+    color: $link-light-hover;
+    border-color: $link-light-hover;
   }
 }
 
@@ -391,6 +396,11 @@ h2 {
   background-color: $off-grey;
   position: relative;
   margin: 0 auto;
+
+  &.light {
+    color:  #39413f !important;
+    background-color: rgba(254,255,232,.8);
+  }
 
   #join {
     article div {
@@ -413,11 +423,6 @@ h2 {
     display: inline-block;
     vertical-align: top;
   }
-
-  h1, h2, h3, h4, h5, h6 {
-    line-height: 1.1em;
-  }
-
 }
 
 aside {

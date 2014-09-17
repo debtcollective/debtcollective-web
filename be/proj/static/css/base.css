@@ -32,6 +32,7 @@
   .social-media {
     opacity: 0 !important; } }
 #corinthian .button, input[type="text"], input[type="email"], button, body, .splash .splash-footer {
+input, button, body, .splash .splash-footer, .learnMore {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -277,7 +278,7 @@ body {
     -ms-transition: opacity 1s ease;
     -o-transition: opacity 1s ease;
     transition: opacity 1s ease;
-    height: 2800px;
+    height: 2900px;
     margin: auto; }
     #scroll .images.close {
       opacity: 0; }
@@ -348,10 +349,10 @@ section {
 .body-text {
   position: relative;
   margin: 44px auto;
-  color: rgba(255, 255, 255, 0.7);
   line-height: 34px; }
   .body-text p {
-    margin-bottom: 1em; }
+    letter-spacing: 1.25px;
+    margin-bottom: 22px; }
 
 .banner {
   -webkit-transition: all 1s ease;
@@ -390,10 +391,11 @@ h1 {
 h2 {
   font-size: 20px;
   line-height: 30px;
-  margin: 1em 0 0.25em;
-  text-align: center; }
-  h2:first-child {
-    margin-top: 0; }
+  text-align: center;
+  margin-bottom: 22px;
+  margin-top: 88px;
+  text-transform: uppercase;
+  letter-spacing: 4.5px; }
 
 .more.ng-hide {
   opacity: 0; }
@@ -410,24 +412,27 @@ h2 {
   transition: all 1s ease; }
 
 .learnMore {
-  border-bottom: #666 solid 1px;
-  text-align: center;
-  cursor: pointer;
-  padding: 10px;
-  color: #666;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out; }
+  transition: all 0.25s ease-in-out;
+  border-bottom: #b6bea7 solid 1px;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  color: #b6bea7; }
   .learnMore:hover {
-    border-color: white;
-    color: white; }
+    color: rgba(134, 143, 148, 0.8);
+    border-color: rgba(134, 143, 148, 0.8); }
 
 .wrapper {
   background-color: #39413f;
   position: relative;
   margin: 0 auto; }
+  .wrapper.light {
+    color: #39413f !important;
+    background-color: rgba(254, 255, 232, 0.8); }
   .wrapper #join article div {
     margin: 1em 0; }
   .wrapper article {
@@ -439,8 +444,6 @@ h2 {
   .wrapper article, .wrapper aside {
     display: inline-block;
     vertical-align: top; }
-  .wrapper h1, .wrapper h2, .wrapper h3, .wrapper h4, .wrapper h5, .wrapper h6 {
-    line-height: 1.1em; }
 
 aside {
   width: 33%;
