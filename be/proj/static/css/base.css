@@ -62,7 +62,8 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: 10000; }
+    z-index: 10000;
+    width: 190px; }
 
 #corinthian .button, input[type="text"], input[type="email"], button, #corinthian input[type="text"], #corinthian input[type="email"], #corinthian button, body, .splash .splash-footer, .learnMore, .dropdown-menu {
   font-family: "Cutive mono", serif;

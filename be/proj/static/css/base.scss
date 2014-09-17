@@ -52,6 +52,7 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
     bottom: 0;
     left: 0;
     z-index: 10000;
+    width: 190px;
   }
 }
 
