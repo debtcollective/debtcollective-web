@@ -91,7 +91,7 @@ ALLOWED_HOSTS = [
 # Static asset configuration
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = '/app/staticfiles'
 STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates').replace('\\','/'),
