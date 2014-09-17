@@ -47,12 +47,24 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
 .map-container {
   position: relative;
+
   .legend {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     z-index: 10000;
-    width: 190px;
+    width: 175px;
+  }
+
+  .map-banner {
+    position: absolute;
+    z-index: 1000;
+    bottom: 0;
+  }
+
+  .compassrose {
+    position: absolute;
+    right: 0px;
   }
 }
 
@@ -305,7 +317,7 @@ body {
 }
 
 #mapdiv {
-  background-color: $off-grey;
+  background-color: $dark-blue;
 }
 
 .social-media {
@@ -339,6 +351,16 @@ section {
   margin: 44px auto;
   line-height: 34px;
 
+  &.map-body {
+    margin-top: -78px;
+    padding-top: 0;
+  }
+
+  .title-banner {
+    text-align: center;
+    padding-bottom: 22px;
+  }
+
   p {
     letter-spacing: 1.25px;
     margin-bottom: 22px;
@@ -348,6 +370,7 @@ section {
 $banner-height: 32px;
 .banner {
   @include frame-transition();
+  z-index: 999999;
   .text {
     background-color: rgba(109,15,21,.65);
     height: $banner-height;
@@ -572,6 +595,7 @@ header {
     }
 
     form {
+      @include frame-transition();
       max-width: 400px;
       width: 100%;
       margin: 0 auto;
@@ -592,6 +616,7 @@ header {
   right: 0;
   width: 100%;
   background-color: $dark-blue;
+  z-index: 9999999;
 
   a {
     color: $menu-color;

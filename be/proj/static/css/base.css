@@ -60,10 +60,17 @@
   position: relative; }
   .map-container .legend {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
     z-index: 10000;
-    width: 190px; }
+    width: 175px; }
+  .map-container .map-banner {
+    position: absolute;
+    z-index: 1000;
+    bottom: 0; }
+  .map-container .compassrose {
+    position: absolute;
+    right: 0px; }
 
 #corinthian .button, input[type="text"], input[type="email"], button, #corinthian input[type="text"], #corinthian input[type="email"], #corinthian button, body, .splash .splash-footer, .learnMore, .dropdown-menu {
   font-family: "Cutive mono", serif;
@@ -360,7 +367,7 @@ body {
   left: 1px; }
 
 #mapdiv {
-  background-color: #39413f; }
+  background-color: #110d21; }
 
 .social-media {
   opacity: 0;
@@ -385,6 +392,12 @@ section {
   position: relative;
   margin: 44px auto;
   line-height: 34px; }
+  .body-text.map-body {
+    margin-top: -78px;
+    padding-top: 0; }
+  .body-text .title-banner {
+    text-align: center;
+    padding-bottom: 22px; }
   .body-text p {
     letter-spacing: 1.25px;
     margin-bottom: 22px; }
@@ -395,6 +408,7 @@ section {
   -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
+  z-index: 999999;
   font-family: "Cutive mono";
   opacity: 0;
   position: fixed;
@@ -576,6 +590,11 @@ header {
       text-align: center;
       padding: 5px; }
     .nav-footer .dc-input form {
+      -webkit-transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+      -o-transition: all 1s ease;
+      transition: all 1s ease;
       max-width: 400px;
       width: 100%;
       margin: 0 auto; }
@@ -592,7 +611,8 @@ header {
   top: 0;
   right: 0;
   width: 100%;
-  background-color: #110d21; }
+  background-color: #110d21;
+  z-index: 9999999; }
   .header-links a {
     color: #39413f; }
 
