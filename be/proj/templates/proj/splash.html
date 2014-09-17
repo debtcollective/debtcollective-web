@@ -11,7 +11,7 @@
   </div>
   <div id="scroll" ng-controller="splashCtrl"
     ng-class="{mainstate: yLoc >= amountToScroll}">
-    <div id="scrollthing" ng-style="scrollThingStyle">
+    <div id="scrollthing" ng-style="scrollThingStyle" style="max-height: 2000px">
     </div>
     <section id="splash" class="splash" ng-class="{hidden: yLoc > 0}">
       <div class="splash-text">
@@ -31,12 +31,8 @@
           <div class="splash-square red"></div>
         </div>
         <div ng-repeat="range in ranges"
-             ng-class="{pane: yLoc > range.yScroll && yLoc < range.yScrollEnd && yLoc <= 2000}">
+             ng-class="{pane: yLoc > range.yScroll && yLoc < range.yScrollEnd}">
           <img class="splash-square" ng-src="/static/img/animation/transitional-support-{$range.num$}.png"/>
-        </div>
-
-        <div ng-class="{pane: yLoc >= 2000}">
-          <img class="splash-square" ng-src="/static/img/animation/transitional-support-22.png"/>
         </div>
     </section>
 
