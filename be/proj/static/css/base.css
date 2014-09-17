@@ -67,25 +67,37 @@
   font-family: "calluna", serif;
   font-weight: 600; }
 
-#corinthian, #corinthian .questions, #corinthian aside .button, #scroll, .wrapper article {
+#corinthian, #corinthian .questions, #corinthian article h2, #corinthian aside .button, #scroll, .wrapper article {
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
 #corinthian {
   background-color: #eee;
-  border-top: 1em solid #520d02;
-  font-size: 18px; }
+  border-top: 1em solid #3d72a6;
+  font-size: 18px;
+  padding: 3em 1em; }
   #corinthian h1 {
     font-size: 2.5em;
-    padding: 2em 0 1em;
+    padding: 1em 0;
     color: #313539;
     letter-spacing: 0; }
   #corinthian .wrapper {
     max-width: 960px;
     background: none; }
+  #corinthian a {
+    color: #3d72a6;
+    border-bottom: 0.15em solid #ddd;
+    -webkit-transition: all 0.15s ease-in-out;
+    -moz-transition: all 0.15s ease-in-out;
+    -ms-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out; }
+    #corinthian a:hover {
+      border-color: #ccc; }
   #corinthian .button {
     margin: 0;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    color: #fff; }
   #corinthian input[type="checkbox"] {
     display: inline-block;
     margin-right: 0.5em;
@@ -101,8 +113,19 @@
     margin-bottom: 0.1em;
     text-indent: -1.75em;
     padding-left: 2.75em; }
+    #corinthian .questions li:last-child {
+      background: none; }
   #corinthian article {
     margin-top: 0; }
+    #corinthian article h2 {
+      margin: 0;
+      text-align: left;
+      font-weight: normal;
+      font-size: 1.25em;
+      margin-bottom: 1em;
+      background: url(../img/highlight.png) no-repeat;
+      background-size: 100% 1em;
+      display: inline-block; }
     #corinthian article p {
       text-indent: 2em;
       margin-bottom: 0; }
@@ -110,7 +133,7 @@
       font-size: 1.33em;
       line-height: 1.2em;
       margin: 2em 0 0.5em;
-      color: #f02433; }
+      color: #2f5881; }
     #corinthian article h3 + p {
       text-indent: 0; }
   #corinthian aside {
