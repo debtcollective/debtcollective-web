@@ -8,11 +8,6 @@ app.directive("scroll", function ($window) {
         var RANGE_COLORS = {
             10: "#281519",
             11: "#281519",
-            12: "#2e2327",
-            13: "#2e2327",
-            14: "#393035",
-            15: "#454b49",
-            16: "#39413f"
         }
 
         for(var i = 1; i < 10; i ++){

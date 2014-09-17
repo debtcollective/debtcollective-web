@@ -31,11 +31,11 @@
           <div class="splash-square red"></div>
         </div>
         <div ng-repeat="range in ranges"
-             ng-class="{pane: yLoc > range.yScroll && yLoc <= 2200}">
+             ng-class="{pane: yLoc > range.yScroll && yLoc <= 2000}">
           <img class="splash-square" ng-src="/static/img/animation/transitional-support-{$range.num$}.png"/>
         </div>
 
-        <div ng-class="{pane: yLoc >= 2200}">
+        <div ng-class="{pane: yLoc >= 2000}">
           <img class="splash-square" ng-src="/static/img/animation/transitional-support-22.png"/>
         </div>
     </section>
