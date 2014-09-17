@@ -12,16 +12,30 @@
 
 #corinthian {
 	background-color: #eee;
-	border-top: 1em solid $fb-blue;
+	border-top: 0.5em solid $fb-blue;
 	@extend %sans;
 	font-size: 18px;
-	padding: 3em 1em;
+	padding-bottom: 2em;
+
+	header {
+		background-color: lighten($mid-grey, 20%);
+		padding: 2.5em 0 1.5em;
+		margin-bottom: 2em;
+
+		a {
+			border-bottom-color: lighten($mid-grey, 15%);
+
+			&:hover {
+				border-bottom-color: lighten($mid-grey, 10%);
+			}
+		}
+	}
 
 
 	h1 {
 		@extend %calluna;
 		font-size: 2.5em;
-		padding: 1em 0;
+		margin-bottom: 0.5em;
 		color: $dark-grey;
 		letter-spacing: 0;
 	}
@@ -132,7 +146,14 @@
 @media screen and (max-width: 600px) {
 	
 #corinthian {
-	padding-top: 1em;
+
+	header, article {
+		padding: 2em 1em 1em;
+	}
+
+	header {
+		margin-bottom: 0;
+	}
 
 	h1 {
 		font-size: 2em;
