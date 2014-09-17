@@ -76,6 +76,8 @@
   border-top: 0.5em solid #3d72a6;
   font-size: 18px;
   padding-bottom: 2em; }
+  #corinthian .wrapper {
+    padding: 0 1em; }
   #corinthian header {
     background-color: #caced2;
     padding: 2.5em 0 1.5em;
@@ -155,19 +157,20 @@
       background-color: #284c6e; }
 
 @media screen and (max-width: 600px) {
-  #corinthian header, #corinthian article {
-    padding: 2em 1em 1em; }
-  #corinthian header {
-    margin-bottom: 0; }
-  #corinthian h1 {
-    font-size: 2em; }
-  #corinthian article h2 {
-    font-size: 1.1em; }
-  #corinthian article, #corinthian aside {
-    width: 100%; }
-  #corinthian aside {
-    margin-left: 0;
-    margin-top: 2em; } }
+  #corinthian {
+    font-size: 17px;
+    line-height: 1.5em; }
+    #corinthian header {
+      margin-bottom: 1em; }
+    #corinthian h1 {
+      font-size: 2em; }
+    #corinthian article h2 {
+      font-size: 1.1em; }
+    #corinthian article, #corinthian aside {
+      width: 100%; }
+    #corinthian aside {
+      margin-left: 0;
+      margin-top: 2em; } }
 input {
   text-align: left;
   height: 44px;

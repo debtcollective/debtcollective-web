@@ -17,6 +17,10 @@
 	font-size: 18px;
 	padding-bottom: 2em;
 
+	.wrapper {
+		padding: 0 1em;
+	}
+
 	header {
 		background-color: lighten($mid-grey, 20%);
 		padding: 2.5em 0 1.5em;
@@ -146,13 +150,15 @@
 @media screen and (max-width: 600px) {
 	
 #corinthian {
+	font-size: 17px;
+	line-height: 1.5em;
 
-	header, article {
-		padding: 2em 1em 1em;
-	}
+	// header, article {
+	// 	padding: 2em 1em 1em;	
+	// }
 
 	header {
-		margin-bottom: 0;
+		margin-bottom: 1em;
 	}
 
 	h1 {
