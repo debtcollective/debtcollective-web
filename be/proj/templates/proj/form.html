@@ -1,4 +1,9 @@
-<form ng-show="!formSubmitted" class="form"
+<div class="nav-footer" ng-class="{visible: formVisible()}">
+  <div class="dc-input" ng-class="{hidden: yLoc < amountToScroll}">
+    <div name="receiver" id="receiver" ng-show="formSubmitted">
+      Thanks for signing up! We've sent you an email.
+    </div>
+    <form ng-show="!formSubmitted" class="form"
       target="receiver"
       action="http://strikedebt.createsend.com/t/j/s/nskul/"
       method="post" ng-submit="onSubmitClick()">
@@ -12,33 +17,32 @@
         ng-blur="showForm=false"
         required autocomplete="off" />
 
-    <input type="text"
-        ng-model="location"
-        placeholder="what city?"
-        ng-show="formVisible()"
+    <div class="form-rest" ng-class="{visible: formVisible()}">
+      <input type="text"
+          ng-model="location"
+          placeholder="what city?"
+          typeahead-editable="false"
+          typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
+
+      <!--<input type="text" ng-model="debtType" placeholder="what kind of debt?"
+        ng-class="{muted: mutedValues('debtType')}"
+        ng-show="email != null && location != null "
+        ng-model-options="{ updateOn: 'blur' }"
         typeahead-editable="false"
-        typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
+        typeahead-on-select="onSelect($item, $model, $label)"
+        typeahead="type as type.name for type in types | filter:{name:$viewValue}" required>
+      -->
 
-    <!--<input type="text" ng-model="debtType" placeholder="what kind of debt?"
-      ng-class="{muted: mutedValues('debtType')}"
-      ng-show="email != null && location != null "
-      ng-model-options="{ updateOn: 'blur' }"
-      typeahead-editable="false"
-      typeahead-on-select="onSelect($item, $model, $label)"
-      typeahead="type as type.name for type in types | filter:{name:$viewValue}" required>
-    -->
+      <input type="text"
+        ng-model="amount"
+        placeholder="how much debt?"
+        ng-model-options="{ updateOn: 'blur' }">
 
-    <input type="text"
-      ng-model="amount"
-      placeholder="how much?"
-      ng-show="formVisible()"
-      ng-model-options="{ updateOn: 'blur' }">
-    <div class="join-button">
-      <button type="submit"
-        name="submit"
-        ng-show="formVisible()"
-        class="btn"
-        ng-disabled="!formValid()">sign up</button>
-    </div>
+        <button type="submit"
+          name="submit"
+          class="btn signup-button"
+          ng-disabled="!formValid()">sign up</button>
+    </form>
   </div>
-</form>
+  </div>
+</div>
