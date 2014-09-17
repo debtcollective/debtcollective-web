@@ -31,7 +31,8 @@
 
   .social-media {
     opacity: 0 !important; } }
-#corinthian .button, input[type="text"], input[type="email"], button, body, .splash .splash-footer, .learnMore {
+#corinthian .button, input[type="text"], input[type="email"], button, #corinthian
+input[type="text"], body, .splash .splash-footer, .learnMore {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -45,21 +46,24 @@
   font-family: "rooney-web", sans-serif;
   font-weight: 400; }
 
-#corinthian .button, input[type="text"], input[type="email"], button {
+#corinthian .button, input[type="text"], input[type="email"], button, #corinthian
+input[type="text"] {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
-  display: inline-block;
   margin: 8px;
   border: 0;
+  color: #b6bea7;
   text-decoration: none;
   position: relative;
   float: left; }
-  #corinthian .button:hover, input[type="text"]:hover, input[type="email"]:hover, button:hover {
+  #corinthian .button:hover, input[type="text"]:hover, input[type="email"]:hover, button:hover, #corinthian
+  input[type="text"]:hover {
     background-color: #110d21; }
-  #corinthian .button:focus, input[type="text"]:focus, input[type="email"]:focus, button:focus {
+  #corinthian .button:focus, input[type="text"]:focus, input[type="email"]:focus, button:focus, #corinthian
+  input[type="text"]:focus {
     outline: 0px;
     outline-offset: 0px; }
 
@@ -171,15 +175,14 @@
     #corinthian aside {
       margin-left: 0;
       margin-top: 2em; } }
-input {
-  text-align: left;
-  height: 44px;
-  border-bottom: 1px solid #666;
-  background-color: inherit !important; }
-
 button {
   text-align: center; }
 
+input[type="text"], input[type="email"], button {
+  width: 100%;
+  background-color: rgba(17, 13, 33, 0.7); }
+
+#corinthian
 input[type="text"], input[type="email"], button {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
@@ -256,7 +259,7 @@ body {
     position: fixed;
     top: 0; }
     #scroll .intro-text .body-text {
-      padding-top: 88px; }
+      padding-top: 44px; }
       #scroll .intro-text .body-text .visible .pane {
         opacity: .8 !important; }
       #scroll .intro-text .body-text .slide {
@@ -313,8 +316,8 @@ body {
         border-bottom: #333 1px solid; }
 
 .anchor {
-  top: -180px;
-  position: absolute; }
+  position: absolute;
+  padding-top: 44px; }
 
 .twitter-timeline {
   position: absolute;
@@ -367,7 +370,8 @@ section {
   top: 0;
   font-size: 18px; }
   .banner .text {
-    background-color: rgba(17, 13, 33, 0.7);
+    background-color: rgba(109, 15, 21, 0.65);
+    color: #041a29;
     height: 44px;
     text-align: center;
     margin: auto;
@@ -510,7 +514,7 @@ header {
   transition: all 0.25s ease-in-out; }
 
 .nav-footer {
-  background-color: rgba(17, 13, 33, 0.7);
+  background-color: #110d21;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -ms-transition: all 1s ease;
@@ -519,6 +523,12 @@ header {
   position: fixed;
   right: 0;
   width: 100%; }
+  .nav-footer input {
+    color: #b6bea7;
+    text-align: left;
+    height: 44px;
+    border-bottom: 1px solid #666;
+    background-color: inherit !important; }
   .nav-footer.visible {
     bottom: 0px !important; }
   .nav-footer .dc-input {
@@ -629,6 +639,8 @@ label {
   #corinthian .wrapper {
     max-width: 960px;
     background: none; }
+  #corinthian .lendyour {
+    text-align: center; }
   #corinthian a {
     color: #3d72a6;
     border-bottom: 0.15em solid #ddd;

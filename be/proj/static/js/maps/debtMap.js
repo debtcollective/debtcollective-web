@@ -5,11 +5,11 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     MAP SETTINGS
     ************/
 
-    var POINT_COLOR = "#e8ffa0";
+    var POINT_COLOR = "#eb1020";
     map.areasSettings = {
         autoZoom: true,
         selectedColor: "#CC0000",
-        unlistedAreasColor: "#feffe8",
+        unlistedAreasColor: "#f1eee2",
         unlistedAreasOutlineColor: "#000",
     };
 
@@ -20,9 +20,9 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
 
     map.pathToImages = "/static/js/vendor/ammap/images/";
     map.useHandCursorOnClickableOjects = true
-    map.backgroundAlpha = .8;
+    map.backgroundAlpha = 1;
     map.borderAplha = 0;
-    map.backgroundColor = "#feffe8";
+    map.backgroundColor = "#f6f5ea";
     map.mouseWheelZoomEnabled = false;
     map.panEventsEnabled = false;
 
@@ -79,7 +79,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         */
 
         // TODO
-        return Math.min(4, Math.max(.75, .5 + percentage));
+        return Math.min(4, Math.max(.75, 2*percentage));
     }
 
     function getPointTitle(point) {
@@ -104,7 +104,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         */
 
         point['title'] = getPointTitle(point);
-        point['type'] = 'circle';
+        point['type'] = 'rectangle';
         point['color'] = POINT_COLOR;
         return point
     }

@@ -6,7 +6,7 @@
     <a href="#scroll" du-scrollspy>debt-collective </a>
     &nbsp;&nbsp; |
     &nbsp;&nbsp;<a href="#learn" ng-click="learnMore=true"  du-scrollspy du-smooth-scroll>information </a>
-     &nbsp;&nbsp;  |  &nbsp;&nbsp; <a du-scrollspy du-smooth-scroll href="#background">background</a> &nbsp;&nbsp;
+     &nbsp;&nbsp;  |  &nbsp;&nbsp; <a du-scrollspy du-smooth-scroll href="#background">background</a>
 
   </div>
   <div id="scroll" ng-controller="splashCtrl"
@@ -98,7 +98,7 @@
             #notaloan Tweets
            </a>-->
         </div>
-        <div class="body-text " id="learn">
+        <div class="body-text anchor" id="learn">
           <h2>The Debt Collective</h2>
           <p>Every month, we are forced into debt for basic necessities. We have no choice but to enter into contracts under unfair terms. We have little power to bargain or negotiate. Creditors are holding us hostage. When we can’t meet the terms of the contact, we are harassed, we have our wages garnished, and some of us are even imprisoned. The goal of the Debt Collective aims to fight back against creditors and transform how basic necessities, such as education, health care, and housing are provided.
             <div class="learnMore" ng-show="!learnMore"
@@ -123,17 +123,14 @@
             The goal of the Debt Collective is to create a platform by debtors and for debtors for organization, advocacy, and resistance. Organizing collectively offers many possibilities for building power against creditors:
             </p>
             <p>
-            We can organize debtors into groups based on region, type of debt, or institution.
-            These groups can bargain collectively with creditors or even develop the power to threaten a debt strike.
-            A debt collective can also serve as a platform for creating a positive vision of a sustainable economy in which credit would be used to help people instead of destroying lives.
+            As we build membership, we can organize debtors into groups based on region, type of debt, or institution. These groups can bargain with creditors or even develop the power to threaten a debt strike. A debt collective can help create a positive vision for a sustainable economy in which credit would be used create a better future for everyone.
             </p>
-
             <div class="learnMore" ng-show="learnMore"
                 ng-click="learnMore=false">[ collapse ]</a>
             </div>
           </div>
         </div>
-        <section class="body-text" id="background" style="height:500px;">
+        <section class="body-text" id="background">
             <h2>Background</h2>
             <quote>
               “Just as bosses are dependent on workers, so are lenders dependent on borrowers. If workers walk out, the enterprise stops. If borrowers refuse to pay their debts, the lenders could be in real trouble.” - Francis Fox Piven
@@ -141,17 +138,24 @@
 
             <h2>Who we are</h2>
             <p>
-            We’re the people behind the Rolling Jubilee debt cancellation initiative. We operate according to the principle that alone, our debts are a burden, but together, they make us powerful. The Debt Collective is the next step in making that vision a reality. Contact us.
+            We're the people behind the Rolling Jubilee debt cancellation initiative. We operate according to the principle that alone, our debts are a burden, but together, they make us powerful. The Debt Collective is the next step in making that vision a reality.
             </p>
+            <h2>Lend your voice</h2>
+            <p>
+            Make this photo your profile photo on Facebook or Twitter.
+            </p>
+            <div class="lendyour">
+              <img src="/static/img/socialmedia_WPA_debtstrike.png" />
+              <iframe src="https://www.lendyour.net/embed/lendbutton?account_id=8&campaign_id=19" frameBorder="0"></iframe>
+            </div>
         </section>
       </section>
     </div>
     <div class="social-media">
-      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://debtcollective.org"
-      data-text="Creditors are holding us hostage. Alone, our debts are a burden. Together, they make us powerful." data-count="none" data-hashtags="notaloan">Tweet</a>
+
     </div>
 
-    <div class="banner" ng-class="{openable: yLoc > amountToScroll + 400}">
+    <div class="banner" ng-class="{openable: yLoc > amountToScroll + 800}">
       <div class="text">
         <a href="/corinthian" class="button">If you are or were a Corinthian student,
         Join the Corinthian Collective.</a>
@@ -160,7 +164,6 @@
     </div>
 
     {% include "proj/form.html" %}
-    <iframe src="https://www.lendyour.net/embed/lendbutton?account_id=8&campaign_id=18" frameBorder="0"></iframe>
 </div>
 
 {% endblock %}

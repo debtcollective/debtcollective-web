@@ -25,7 +25,7 @@ $header-height: 32px;
 
 $footer-height: 41px;
 
-$text:      $dark-grey;
+$text:      $link-light;
 $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
 @import "responsive";
@@ -66,9 +66,9 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 %button {
   @include transition();
   @extend %mono;
-  display: inline-block;
   margin: 8px;
   border: 0;
+  color: $text;
   text-decoration: none;
   position: relative;
   float: left;
@@ -85,17 +85,18 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
 @import "corinthian";
 
-input {
-  text-align: left;
-  height: 44px;
-  border-bottom: 1px solid #666;
-  background-color: inherit !important;
-}
-
 button {
   text-align: center;
 }
 
+input[type="text"], input[type="email"], button {
+  @extend %button;
+  @extend %mono;
+  width: 100%;
+  @include bottom-nav-colors();
+}
+
+#corinthian
 input[type="text"], input[type="email"], button {
   @extend %button;
   @extend %mono;
@@ -192,7 +193,7 @@ body {
       top: 0;
 
       .body-text {
-        padding-top: 88px;
+        padding-top: 44px;
 
         .visible .pane {
           opacity: .8 !important;
@@ -257,8 +258,8 @@ body {
 }
 
 .anchor {
-  top: -180px;
   position: absolute;
+  padding-top: 44px;
 }
 
 .twitter-timeline {
@@ -314,7 +315,8 @@ $banner-height: 44px;
 .banner {
   @include frame-transition();
   .text {
-    @include bottom-nav-colors();
+    background-color: rgba(109,15,21,.65);
+    color: #041a29;
     height: $banner-height;
     text-align: center;
     margin: auto;
@@ -502,9 +504,16 @@ header {
 }
 
 .nav-footer {
-  @include bottom-nav-colors();
+  background-color: #110d21;
   @include frame-transition();
 
+  input {
+    color: $text;
+    text-align: left;
+    height: 44px;
+    border-bottom: 1px solid #666;
+    background-color: inherit !important;
+  }
   position: fixed;
   right: 0;
   width: 100%;
@@ -655,6 +664,10 @@ label {
   .wrapper {
     max-width: 960px;
     background: none;
+  }
+
+  .lendyour {
+    text-align: center;
   }
 
   a {
