@@ -1,4 +1,4 @@
-app.controller('splashCtrl', function ($scope, $http, util_svc, $document) {
+app.controller('splashCtrl', function ($scope, $http, util_svc, $document, $timeout) {
 
     $scope.email = null;
     $scope.username = null;
@@ -10,6 +10,11 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document) {
     $http.get('/points/').then(function (resp) {
         $scope.cities = resp.data
     });
+
+    $scope.bannerFadeInTimeout = false;
+    $timeout(function () {
+        $scope.bannerFadeInTimeout = true;
+    }, 500)
 
     $scope.scrollClick = function () {
         var someElement = angular.element(document.getElementById('mapdiv'));
@@ -26,8 +31,8 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document) {
     }
 
     $scope.emailFocus = function () {
-        el = document.getElementById("#email");
-        console.log('yo')
+        $scope.showForm = true;
+        el = document.getElementById("email");
         el.placeholder =  'enter your email...';
     }
 

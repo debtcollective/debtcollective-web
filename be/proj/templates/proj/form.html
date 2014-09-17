@@ -12,17 +12,16 @@
 
     <input type="text" class="hidden" name="cm-name" ng-model="username" />
 
-    <input type="email" name="cm-nskul-nskul"  ng-model="email"
+    <input type="email" id="email" name="cm-nskul-nskul"  ng-model="email"
         placeholder="put your debt on the map..."
-        ng-focus="showForm=true"
+        ng-focus="emailFocus()"
         ng-blur="showForm=false"
         required autocomplete="off" />
 
     <div class="form-rest" ng-class="{visible: formVisible()}">
       <input type="text"
-          id="email"
           ng-model="location"
-          ng-focus="emailFocus()"
+          ng-focus="showForm=true"
           ng-blur="showForm=false"
           placeholder="what city?"
           typeahead-editable="false"

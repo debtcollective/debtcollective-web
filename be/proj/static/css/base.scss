@@ -30,7 +30,6 @@ $footer-height: 41px;
 $text:      $link-light;
 $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
-@import "responsive";
 
 ::-webkit-input-placeholder {
   color: $olive-yellow;
@@ -65,7 +64,7 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
   .compassrose {
     position: absolute;
     right: 0px;
-    height: 215px;
+    height: 250px;
   }
 }
 
@@ -208,7 +207,7 @@ body {
   }
 
   .splash-footer {
-    @extend %mono;
+    @extend %h2no;
     @include transition();
     bottom: 0;
     position: absolute;
@@ -330,11 +329,12 @@ body {
   top: 200;
 }
 
+.banner.fadeIn {
+  opacity: 1;
+  top: $header-height;
+}
+
 #scroll.mainstate {
-  .banner {
-    opacity: 1;
-    top: $header-height;
-  }
   .social-media {
     opacity: 0;
   }
@@ -349,7 +349,7 @@ section {
 .body-text {
   @extend %rale;
   position: relative;
-  margin: 44px auto;
+  margin: 0px auto;
   line-height: 34px;
 
   &.map-body {
@@ -421,9 +421,12 @@ h2 {
   line-height: 30px;
   text-align: center;
   margin-bottom: 22px;
-  margin-top: 88px;
+  margin-top: 44px;
   text-transform: uppercase;
   letter-spacing: 4.5px;
+  &:nth-child(0){
+    margin-top: 0px;
+  }
 }
 
 
@@ -570,6 +573,7 @@ header {
   background-color: $olive;
   @include frame-transition();
   color: $olive-yellow;
+  z-index: 99999;
 
   input {
     color: $olive-yellow;
@@ -892,3 +896,4 @@ label {
 }
 
 }
+@import "responsive";

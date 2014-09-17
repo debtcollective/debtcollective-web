@@ -37,21 +37,48 @@
   }
 }
 
+.mobile-only {
+  display: none;
+}
+
 @media only screen and (max-width: 600px) {
+  .mobile-only {
+    display: visible;
+  }
+  .banner {
+    .text {
+      height: 100%;
+    }
+  }
+
+  .map-container {
+    img {
+      left: 50% !important;
+      transform: translateX(-50%);
+    }
+    .compassrose {
+      top: -250px;
+    }
+    .map-banner {
+      top: 50px;
+    }
+  }
+
+  .body-text.map-body {
+    margin-top: 29px !important;
+  }
+
   .wrapper {
     max-width: 100%;
   }
-  .hide-mobile {
+  .hidden-mobile {
     display: none;
   }
   .header-links {
     height: initial;
   }
-  .banner a {
-    font-size: 8px;
-  }
   .body-text {
-    margin: 6px;
+    padding: 0px 6px;
     width: 100%;
   }
   .social-media {

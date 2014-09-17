@@ -1,47 +1,3 @@
-@media (min-width: 2500px) {
-  .wrapper {
-    max-width: 56.5%; }
-
-  .body-text {
-    max-width: 39.4%; } }
-@media (min-width: 1130px) and (max-width: 2500px) {
-  .wrapper {
-    max-width: 93.75%; }
-
-  .body-text {
-    max-width: 64%; } }
-@media (min-width: 768px) and (max-width: 1130px) {
-  .wrapper {
-    max-width: 100%; }
-
-  .body-text {
-    max-width: 65.75%; } }
-@media only screen and (max-device-width: 768px) {
-  .body-text {
-    width: 473px;
-    max-width: 100%; }
-
-  .social-media {
-    opacity: 0 !important; } }
-@media only screen and (max-width: 600px) {
-  .wrapper {
-    max-width: 100%; }
-
-  .hide-mobile {
-    display: none; }
-
-  .header-links {
-    height: initial; }
-
-  .banner a {
-    font-size: 8px; }
-
-  .body-text {
-    margin: 6px;
-    width: 100%; }
-
-  .social-media {
-    opacity: 0 !important; } }
 ::-webkit-input-placeholder {
   color: #ccaa2d; }
 
@@ -71,9 +27,9 @@
   .map-container .compassrose {
     position: absolute;
     right: 0px;
-    height: 215px; }
+    height: 250px; }
 
-#corinthian .button, input[type="text"], input[type="email"], button, #corinthian input[type="text"], #corinthian input[type="email"], #corinthian button, body, .splash .splash-footer, .learnMore, .dropdown-menu {
+#corinthian .button, input[type="text"], input[type="email"], button, #corinthian input[type="text"], #corinthian input[type="email"], #corinthian button, body, .learnMore, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -382,9 +338,10 @@ body {
   left: 20;
   top: 200; }
 
-#scroll.mainstate .banner {
+.banner.fadeIn {
   opacity: 1;
   top: 32px; }
+
 #scroll.mainstate .social-media {
   opacity: 0; }
 #scroll.mainstate .nav-footer {
@@ -395,7 +352,7 @@ section {
 
 .body-text {
   position: relative;
-  margin: 44px auto;
+  margin: 0px auto;
   line-height: 34px; }
   .body-text.map-body {
     margin-top: -78px;
@@ -449,9 +406,11 @@ h2 {
   line-height: 30px;
   text-align: center;
   margin-bottom: 22px;
-  margin-top: 88px;
+  margin-top: 44px;
   text-transform: uppercase;
   letter-spacing: 4.5px; }
+  h2:nth-child(0) {
+    margin-top: 0px; }
 
 .more.ng-hide {
   opacity: 0; }
@@ -577,6 +536,7 @@ header {
   -o-transition: all 1s ease;
   transition: all 1s ease;
   color: #ccaa2d;
+  z-index: 99999;
   position: fixed;
   right: 0;
   width: 100%; }
@@ -797,3 +757,64 @@ label {
     #corinthian aside {
       margin-left: 0;
       margin-top: 2em; } }
+@media (min-width: 2500px) {
+  .wrapper {
+    max-width: 56.5%; }
+
+  .body-text {
+    max-width: 39.4%; } }
+@media (min-width: 1130px) and (max-width: 2500px) {
+  .wrapper {
+    max-width: 93.75%; }
+
+  .body-text {
+    max-width: 64%; } }
+@media (min-width: 768px) and (max-width: 1130px) {
+  .wrapper {
+    max-width: 100%; }
+
+  .body-text {
+    max-width: 65.75%; } }
+@media only screen and (max-device-width: 768px) {
+  .body-text {
+    width: 473px;
+    max-width: 100%; }
+
+  .social-media {
+    opacity: 0 !important; } }
+.mobile-only {
+  display: none; }
+
+@media only screen and (max-width: 600px) {
+  .mobile-only {
+    display: visible; }
+
+  .banner .text {
+    height: 100%; }
+
+  .map-container img {
+    left: 50% !important;
+    transform: translateX(-50%); }
+  .map-container .compassrose {
+    top: -250px; }
+  .map-container .map-banner {
+    top: 50px; }
+
+  .body-text.map-body {
+    margin-top: 29px !important; }
+
+  .wrapper {
+    max-width: 100%; }
+
+  .hidden-mobile {
+    display: none; }
+
+  .header-links {
+    height: initial; }
+
+  .body-text {
+    padding: 0px 6px;
+    width: 100%; }
+
+  .social-media {
+    opacity: 0 !important; } }

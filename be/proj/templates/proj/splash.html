@@ -4,7 +4,7 @@
 <div scroll>
   <div class="header-links">
     <a href="#scroll" du-scrollspy>debt-collective </a>
-    &nbsp;&nbsp; <span class="hide-mobile">|
+    &nbsp;&nbsp; <span class="hidden-mobile">|
     &nbsp;&nbsp;<a href="#learn" ng-click="learnMore=true"  du-scrollspy du-smooth-scroll>information </a>
      &nbsp;&nbsp;  |  &nbsp;&nbsp; <a du-scrollspy du-smooth-scroll href="#background">background</a></span>
 
@@ -90,6 +90,8 @@
         <div class="map-container" ng-controller="mapCtrl">
           <img src="/static/img/legend.png" class="legend" />
           <img src="/static/img/compassrose.png" class="compassrose" />
+
+          <img src="/static/img/map-title-banner.png" class="map-banner only-mobile" />
           <div id="mapdiv" style="width: 100%; height: 500px;"></div>
           <!-- <a class="twitter-timeline"
            data-chrome="noheader nofooter noborders noscrollbar transparent"
@@ -101,7 +103,7 @@
            </a>-->
         </div>
         <div class="body-text anchor map-body" id="learn">
-          <div class="title-banner">
+          <div class="title-banner hidden-mobile">
             <img src="/static/img/map-title-banner.png" class="map-banner" />
           </div>
           <p>Every month, we are forced into debt for basic necessities. We have no choice but to enter into contracts under unfair terms. We have little power to bargain or negotiate. Creditors are holding us hostage. When we can’t meet the terms of the contract, we are harassed, we have our wages garnished, and some of us are even imprisoned. The goal of the Debt Collective aims to fight back and transform how basic necessities, such as education, health care, and housing are provided.
@@ -147,11 +149,7 @@
         </section>
       </section>
     </div>
-    <div class="social-media">
-
-    </div>
-
-    <div class="banner" ng-class="{openable: yLoc > amountToScroll + 800}">
+    <div class="banner" ng-class="{fadeIn: bannerFadeInTimeout && yLoc == 0}"class="openable">
       <div class="text">
         <a href="/corinthian" class="button">If you are or were a Corinthian student, click here.</a>
         </p>
