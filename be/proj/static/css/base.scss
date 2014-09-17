@@ -320,6 +320,11 @@ $banner-height: 32px;
     padding: 5px;
   }
 
+  a {
+    color: #feffe8;
+  }
+
+
   font-family: "Cutive mono";
   opacity: 0;
   position: fixed;
@@ -557,7 +562,6 @@ header {
 
 a {
   text-decoration: none;
-
   color: #041a29;
   @include transition();
 

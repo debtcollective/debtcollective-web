@@ -373,6 +373,8 @@ section {
     text-align: center;
     margin: auto;
     padding: 5px; }
+  .banner a {
+    color: #feffe8; }
   .banner.openable {
     opacity: 0 !important;
     top: 0px !important; }
