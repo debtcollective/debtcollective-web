@@ -98,7 +98,7 @@
     margin: 0;
     text-transform: uppercase;
     color: #fff; }
-  #corinthian input[type="checkbox"] {
+  #corinthian input[type="checkbox"], #corinthian input[type="radio"] {
     display: inline-block;
     margin-right: 0.5em;
     vertical-align: middle;
