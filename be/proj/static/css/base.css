@@ -372,7 +372,7 @@ section {
   .banner .text {
     background-color: rgba(109, 15, 21, 0.65);
     color: #041a29;
-    height: 44px;
+    height: 32px;
     text-align: center;
     margin: auto;
     padding: 10px; }
@@ -380,9 +380,9 @@ section {
     opacity: 0 !important;
     top: 0px !important; }
     .banner.openable:hover {
-      top: 44px !important;
+      top: 32px !important;
       opacity: 1 !important;
-      height: 44px; }
+      height: 32px; }
 
 h1 {
   font-size: 46px;
@@ -639,10 +639,6 @@ label {
   #corinthian .wrapper {
     max-width: 960px;
     background: none; }
-  #corinthian .lendyour {
-    text-align: center; }
-    #corinthian .lendyour iframe {
-      width: 100%; }
   #corinthian a {
     color: #3d72a6;
     border-bottom: 0.15em solid #ddd;
@@ -709,6 +705,15 @@ label {
     #corinthian aside .button:hover {
       color: #fff;
       background-color: #284c6e; }
+
+.lendyour {
+  text-align: center; }
+  .lendyour p {
+    text-align: center; }
+  .lendyour img {
+    width: 400px; }
+  .lendyour iframe {
+    width: 100%; }
 
 @media screen and (max-width: 600px) {
   #corinthian {

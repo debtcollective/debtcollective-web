@@ -17,7 +17,7 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document) {
 
     $scope.scrollClick = function () {
         var someElement = angular.element(document.getElementById('mapdiv'));
-        $document.scrollToElement(someElement, 0, 2000);
+        $document.scrollToElement(someElement, 0, 18000);
     }
 
     $scope.formValid = function () {

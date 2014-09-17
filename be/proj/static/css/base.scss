@@ -311,7 +311,7 @@ section {
   }
 }
 
-$banner-height: 44px;
+$banner-height: 32px;
 .banner {
   @include frame-transition();
   .text {
@@ -666,13 +666,6 @@ label {
     background: none;
   }
 
-  .lendyour {
-    text-align: center;
-    iframe {
-      width: 100%;
-    }
-  }
-
   a {
     color: $fb-blue;
     border-bottom: 0.15em solid #ddd;
@@ -778,6 +771,19 @@ label {
   }
 }
 
+
+.lendyour {
+  text-align: center;
+  p {
+    text-align: center;
+  }
+  img {
+    width: 400px;
+  }
+  iframe {
+    width: 100%;
+  }
+}
 
 @media screen and (max-width: 600px) {
 
