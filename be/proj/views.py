@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse, Http404
 from django.core.context_processors import csrf
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 
 from proj.utils import json_response, get_POST_data
 from proj.gather.models import Debt, UserProfile, Point
@@ -35,6 +35,7 @@ def login(request):
     return json_response({'status': 'error',
       'message': 'Those credentials could not be authenticated.'}, 500)
 
+@csrf_exempt
 def signup(request):
   """
   POST /signup
