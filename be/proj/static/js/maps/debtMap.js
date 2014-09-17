@@ -78,7 +78,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         */
 
         // TODO
-        return Math.min(4, Math.max(.75, 2*percentage));
+        return Math.min(4, Math.max(.75, 4*percentage));
     }
 
     function getPointTitle(point) {
