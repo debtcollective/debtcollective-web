@@ -42,6 +42,28 @@
 
   .social-media {
     opacity: 0 !important; } }
+::-webkit-input-placeholder {
+  color: #ccaa2d; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #ccaa2d; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #ccaa2d; }
+
+:-ms-input-placeholder {
+  color: #ccaa2d; }
+
+.map-container {
+  position: relative; }
+  .map-container .legend {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10000; }
+
 #corinthian .button, input[type="text"], input[type="email"], button, #corinthian input[type="text"], #corinthian input[type="email"], #corinthian button, body, .splash .splash-footer, .learnMore, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;

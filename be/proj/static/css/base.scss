@@ -32,6 +32,29 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
 @import "responsive";
 
+::-webkit-input-placeholder {
+  color: $olive-yellow;
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: $olive-yellow;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $olive-yellow;
+}
+:-ms-input-placeholder {
+   color: $olive-yellow;
+}
+
+.map-container {
+  position: relative;
+  .legend {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+  }
+}
+
 @mixin transition($prop: all, $duration: .25s, $ease: ease-in-out) {
     -webkit-transition: $prop $duration $ease;
     -moz-transition: $prop $duration $ease;
