@@ -369,7 +369,6 @@ section {
   font-size: 18px; }
   .banner .text {
     background-color: rgba(109, 15, 21, 0.65);
-    color: #041a29;
     height: 32px;
     text-align: center;
     margin: auto;
@@ -558,12 +557,12 @@ header {
 
 a {
   text-decoration: none;
+  color: #041a29;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-  color: #eee; }
+  transition: all 0.25s ease-in-out; }
   a.active {
     color: #acb9b7;
     text-decoration: line-through; }

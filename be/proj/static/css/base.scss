@@ -314,7 +314,6 @@ $banner-height: 32px;
   @include frame-transition();
   .text {
     background-color: rgba(109,15,21,.65);
-    color: #041a29;
     height: $banner-height;
     text-align: center;
     margin: auto;
@@ -558,8 +557,9 @@ header {
 
 a {
   text-decoration: none;
+
+  color: #041a29;
   @include transition();
-  color: #eee;
 
   &.active {
     color: rgb(172,185,183);

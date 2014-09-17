@@ -36,7 +36,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     // get data
     var dataProvider = {
         map: "worldHigh",
-        zoomLevel: 2,
+        zoomLevel: 1.5,
         zoomLatitude: 39.096169,
         zoomLongitude: -98.198721
     };
@@ -62,7 +62,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     var mapZoomed = false;
 
     $scope.$watch('yLoc', function (newVal, oldVal) {
-        if(newVal >= 4000 && !mapZoomed) {
+        if(newVal >= 2800 && !mapZoomed) {
             mapZoomed = true;
             map.zoomIn();
         }
