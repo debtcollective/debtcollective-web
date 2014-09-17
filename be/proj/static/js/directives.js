@@ -26,13 +26,16 @@ app.directive("scroll", function ($window) {
         function createRange() {
             var i = 1;
             var cur = 0;
+            var next = 0;
             while (i < MAX_RANGES) {
                 $scope.locLookup[cur] = i;
+                next = cur += OFFSET;
                 $scope.ranges.push({
                     'yScroll': cur,
+                    'yScrollEnd': next*1.5,
                     'num': i
                 });
-                cur += OFFSET;
+                cur = next;
                 i += 1;
             }
         }

@@ -58,19 +58,20 @@
 
 .map-container {
   position: relative; }
+  .map-container img {
+    z-index: 10000; }
   .map-container .legend {
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10000;
+    bottom: 0;
+    left: -8px;
     width: 175px; }
   .map-container .map-banner {
     position: absolute;
-    z-index: 1000;
     bottom: 0; }
   .map-container .compassrose {
     position: absolute;
-    right: 0px; }
+    right: 0px;
+    height: 215px; }
 
 #corinthian .button, input[type="text"], input[type="email"], button, #corinthian input[type="text"], #corinthian input[type="email"], #corinthian button, body, .splash .splash-footer, .learnMore, .dropdown-menu {
   font-family: "Cutive mono", serif;
@@ -316,12 +317,16 @@ body {
         #scroll .intro-text .body-text .slide span {
           opacity: 0; }
   #scroll .images {
-    background-color: #39413f;
     -webkit-transition: opacity 1s ease;
     -moz-transition: opacity 1s ease;
     -ms-transition: opacity 1s ease;
     -o-transition: opacity 1s ease;
     transition: opacity 1s ease;
+    -webkit-transition: background-color 1s ease;
+    -moz-transition: background-color 1s ease;
+    -ms-transition: background-color 1s ease;
+    -o-transition: background-color 1s ease;
+    transition: background-color 1s ease;
     height: 2900px;
     margin: auto; }
     #scroll .images.close .pane {
@@ -344,7 +349,7 @@ body {
       top: 50%;
       width: 100%;
       position: fixed;
-      opacity: .65;
+      opacity: .9;
       margin: auto;
       transform: translateY(-25%); }
       #scroll .images .pane .splash-square {

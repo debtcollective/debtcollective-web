@@ -47,24 +47,25 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
 .map-container {
   position: relative;
-
+  img {
+    z-index: 10000;
+  }
   .legend {
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10000;
+    bottom: 0;
+    left: -8px;
     width: 175px;
   }
 
   .map-banner {
     position: absolute;
-    z-index: 1000;
     bottom: 0;
   }
 
   .compassrose {
     position: absolute;
     right: 0px;
+    height: 215px;
   }
 }
 
@@ -259,8 +260,8 @@ body {
     }
 
     .images {
-      background-color: #39413f;
         @include transition(opacity, 1s, ease);
+        @include transition(background-color, 1s, ease);
         height: 2900px;
         margin: auto;
 
@@ -281,7 +282,7 @@ body {
           top: 50%;
           width: 100%;
           position: fixed;
-          opacity: .65;
+          opacity: .9;
           margin: auto;
           transform: translateY(-25%);
 

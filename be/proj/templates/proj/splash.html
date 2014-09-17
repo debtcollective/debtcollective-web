@@ -31,7 +31,7 @@
           <div class="splash-square red"></div>
         </div>
         <div ng-repeat="range in ranges"
-             ng-class="{pane: yLoc > range.yScroll && yLoc <= 2000}">
+             ng-class="{pane: yLoc > range.yScroll && yLoc < range.yScrollEnd && yLoc <= 2000}">
           <img class="splash-square" ng-src="/static/img/animation/transitional-support-{$range.num$}.png"/>
         </div>
 

@@ -36,7 +36,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     // get data
     var dataProvider = {
         map: "worldHigh",
-        zoomLevel: 1.5,
+        zoomLevel: 2,
         zoomLatitude: 39.096169,
         zoomLongitude: -98.198721
     };
@@ -56,7 +56,6 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         map.dataProvider = dataProvider;
         map.validateNow();
         map.write("mapdiv");
-        map.zoomIn();
     });
 
     var mapZoomed = false;
