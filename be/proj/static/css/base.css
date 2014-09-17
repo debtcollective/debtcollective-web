@@ -147,8 +147,17 @@
       background-color: #284c6e; }
 
 @media screen and (max-width: 600px) {
-  #corinthian article, #corinthian aside {
-    width: 100%; } }
+  #corinthian {
+    padding-top: 1em; }
+    #corinthian h1 {
+      font-size: 2em; }
+    #corinthian article h2 {
+      font-size: 1.1em; }
+    #corinthian article, #corinthian aside {
+      width: 100%; }
+    #corinthian aside {
+      margin-left: 0;
+      margin-top: 2em; } }
 input {
   text-align: left;
   height: 44px;

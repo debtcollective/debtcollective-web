@@ -132,9 +132,25 @@
 @media screen and (max-width: 600px) {
 	
 #corinthian {
+	padding-top: 1em;
+
+	h1 {
+		font-size: 2em;
+	}
+
+	article {
+		h2 {
+			font-size: 1.1em;
+		}
+	}
 
 	article, aside {
 		width: 100%;
+	}
+
+	aside {
+		margin-left: 0;
+		margin-top: 2em;
 	}
 }
 		
