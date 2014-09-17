@@ -325,9 +325,7 @@ body {
   left: 1px; }
 
 #mapdiv {
-  background-color: #39413f;
-  border-top: 1px solid #666;
-  border-bottom: 1px solid #666; }
+  background-color: #39413f; }
 
 .social-media {
   opacity: 0;
@@ -375,7 +373,7 @@ section {
     height: 32px;
     text-align: center;
     margin: auto;
-    padding: 10px; }
+    padding: 5px; }
   .banner.openable {
     opacity: 0 !important;
     top: 0px !important; }
