@@ -99,7 +99,7 @@
   position: relative;
   float: left; }
   #corinthian .button:hover, input[type="text"]:hover, input[type="email"]:hover, button:hover, #corinthian input[type="text"]:hover, #corinthian input[type="email"]:hover, #corinthian button:hover {
-    background-color: #eb1020; }
+    background-color: #861800; }
   #corinthian .button:focus, input[type="text"]:focus, input[type="email"]:focus, button:focus, #corinthian input[type="text"]:focus, #corinthian input[type="email"]:focus, #corinthian button:focus {
     outline: 0px;
     outline-offset: 0px; }
@@ -219,7 +219,7 @@ button {
 
 input[type="text"], input[type="email"], button {
   width: 100%;
-  background-color: #eb1020; }
+  background-color: #861800; }
 
 #corinthian input[type="text"], #corinthian input[type="email"], #corinthian button {
   -webkit-transition: all 0.25s ease-in-out;

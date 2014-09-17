@@ -11,10 +11,6 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document) {
         $scope.cities = resp.data
     });
 
-    $scope.footerHeight = function () {
-        $scope.showRest
-    }
-
     $scope.scrollClick = function () {
         var someElement = angular.element(document.getElementById('mapdiv'));
         $document.scrollToElement(someElement, 0, 18000);
@@ -27,6 +23,12 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document) {
 
     $scope.formVisible = function () {
         return $scope.showForm == true;
+    }
+
+    $scope.emailFocus = function () {
+        el = document.getElementById("#email");
+        console.log('yo')
+        el.placeholder =  'enter your email...';
     }
 
     $scope.onSubmitClick = function () {
@@ -47,6 +49,7 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document) {
 
         $http.post('/signup/', data).then(function (resp) {
             $scope.formSubmitted = true;
+            $scope.showForm = true;
         });
     }
 });

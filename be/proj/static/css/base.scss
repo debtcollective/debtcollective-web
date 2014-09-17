@@ -16,9 +16,9 @@ $dark-blue:     rgb(17,13,33); //110d21
 $linkblue:      #3d72a6;
 $maroon:        rgb(32,18,25);
 
-$dark-red:    #520D02;
-$red:         #eb1020;
-$light-red:   lighten($red, 5%);
+$dark-red:    #861800;
+$pink-red:         #eb1020;
+$light-red:   lighten($pink-red, 5%);
 $fb-blue:     #3d72a6;
 $weird-orange: #ff6600;
 $intro-text: rgb(172,185,183);
@@ -112,7 +112,7 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
   float: left;
 
   &:hover {
-    background-color: $red;
+    background-color: $dark-red;
   }
 
   &:focus {
@@ -134,7 +134,7 @@ input[type="text"], input[type="email"], button {
   @extend %button;
   @extend %mono;
   width: 100%;
-  background-color: $red;
+  background-color: $dark-red;
 }
 
 #corinthian {
@@ -291,7 +291,7 @@ body {
             height: 245px;
             margin: auto;
             &.red {
-              background-color: $red;
+              background-color: $pink-red;
             }
           }
 
@@ -489,7 +489,7 @@ h2 {
 aside {
   width: 33%;
   margin-left: 3%;
-  background-color: $red;
+  background-color: $pink-red;
   padding: 2em;
   color: #fff;
   line-height: 1.4em;
