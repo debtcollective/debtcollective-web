@@ -3,19 +3,20 @@
 {% block body %}
 <div scroll>
   <div class="header-links">
-    <a href="#top" du-scrollspy du-smooth-scroll>debt-collective </a>
+    <a href="#splash" du-scrollspy>debt-collective </a>
     &nbsp;&nbsp; |
-    &nbsp;&nbsp;<a ng-click="learnMore=true" href="#learn" du-scrollspy du-smooth-scroll>information </a>
-     &nbsp;&nbsp;  |  &nbsp;&nbsp; <a du-scrollspy du-smooth-scroll href="#background">background</a> &nbsp;&nbsp; || &nbsp;&nbsp;  <a du-scrollspy du-smooth-scroll href="#background">full transcript</a>
+    &nbsp;&nbsp;<a href="#learn" du-scrollspy du-smooth-scroll>information </a>
+     &nbsp;&nbsp;  |  &nbsp;&nbsp; <a du-scrollspy du-smooth-scroll href="#background">background</a> &nbsp;&nbsp; | &nbsp;&nbsp;  <a du-scrollspy du-smooth-scroll ng-click="learnMore=true" href="#learn">full transcript</a>
+  &nbsp;&nbsp; || &nbsp;&nbsp; <a href="#top">top</a>
 
   </div>
   <div id="scroll" ng-controller="splashCtrl"
     ng-class="{mainstate: yLoc >= amountToScroll}">
     <div id="scrollthing" ng-style="scrollThingStyle">
     </div>
-    <section class="splash" ng-class="{hidden: yLoc > 0}">
+    <section id="splash" class="splash" ng-class="{hidden: yLoc > 0}">
       <div class="splash-text">
-        <h1>Organize. Resist. Reimagine.</h1>
+        <h1>Organize, Resist, Reimagine</h1>
       </div>
       <div class="splash-square pane">
       </div>
@@ -25,59 +26,66 @@
       </div>
     </section>
 
-
-      <section class="images" ng-style="backgroundStyle"
-          ng-class="{close: yLoc >= 2400}">
-          <!-- for each range, display the appropriate animation. change in directives.js -->
-          <div ng-class="{pane: yLoc == 0}">
-            <div class="splash-square red"></div>
-          </div>
-          <div ng-repeat="range in ranges"
-               ng-class="{pane: yLoc > range.yScroll}">
-            <img class="splash-square" ng-src="/static/img/animation/transitional-support-{$range.num$}.png"/>
-          </div>
-      </section>
+    <section class="images" ng-style="backgroundStyle"
+        ng-class="{close: yLoc >= 2400}">
+        <!-- for each range, display the appropriate animation. change in directives.js -->
+        <div ng-class="{pane: yLoc == 0}">
+          <div class="splash-square red"></div>
+        </div>
+        <div ng-repeat="range in ranges"
+             ng-class="{pane: yLoc > range.yScroll}">
+          <img class="splash-square" ng-src="/static/img/animation/transitional-support-{$range.num$}.png"/>
+        </div>
+    </section>
 
     <div class="wrapper">
       <section class="intro-text">
         <div class="body-text">
           <div class="slide">
-            <span ng-class="{pane: yLoc >= 1 && yLoc <= 900}">
+            <span ng-class="{pane: yLoc > 0 && yLoc <= 600}">
               Every month, we are forced into debt for basic necessities.
             </span>
-            <span ng-class="{pane: yLoc > 300 && yLoc <= 900}">
-              We have no choice but to enter into contracts under unfair terms.
+            <span ng-class="{pane: yLoc > 200 && yLoc <= 600}">
+              We have no choice but to enter into contracts under unfair terms,
             </span>
-            <span  ng-class="{pane: yLoc > 600 && yLoc <= 900}">
-             We have little power to bargain or negotiate.
+            <span  ng-class="{pane: yLoc > 400 && yLoc <= 600}">
+              over which we have little power to bargain or negotiate.
             </span>
           </div>
           <div class="slide">
-            <span ng-class="{pane: yLoc > 900 && yLoc <= 1800}">
+            <span ng-class="{pane: yLoc > 600 && yLoc <= 1200}">
               Creditors are holding us hostage.
             </span>
-            <span ng-class="{pane: yLoc > 1200 && yLoc <= 1800}">
-              When we can’t meet the terms of the contact, we are harassed.
+            <span ng-class="{pane: yLoc > 800 && yLoc <= 1200}">
+              When we can’t meet the terms of the contact, we are harassed,
             </span>
-            <span ng-class="{pane: yLoc > 1500 && yLoc <= 1800}">
-              We have our wages garnished, and some of us are even imprisoned.
-            </span>
-          <div class="slide">
-            <span ng-class="{pane: yLoc > 1800 && yLoc <= 2100}">>
-              The goal of the Debt Collective is to fight back against creditors</span><span ng-class="{pane: yLoc > 2100 && yLoc <= 2400}"> and transform how basic necessities, such as education, health care, and housing are provided.
+            <span ng-class="{pane: yLoc > 1000 && yLoc <= 1200}">
+              we have our wages garnished, and some of us are even imprisoned.
             </span>
           </div>
           <div class="slide">
-            <span ng-class="{pane: yLoc > 2400 && yLoc <= 2700}">
+            <span ng-class="{pane: yLoc > 1200 && yLoc <= 1600}">
+              The goal of the Debt Collective is to fight back against creditors
+            </span>
+            <span ng-class="{pane: yLoc > 1400 && yLoc <= 1600}">
+              and transform how basic necessities, such as education, health care, and housing are provided.
+            </span>
+          </div>
+          <div class="slide">
+            <span ng-class="{pane: yLoc > 1600 && yLoc <= 2800}">
               If you owe the bank thousands of dollars, then the bank owns you.
             </span>
-            <span ng-class="{pane: yLoc > 2700 && yLoc <= 3000}">
-              But if you owe the bank millions, then you own the bank.<br>Collectively, we own the banks.
+            <span ng-class="{pane: yLoc > 1800 && yLoc <= 2800}">
+              But if you owe the bank millions, then you own the bank.
+            </span>
+            <span ng-class="{pane: yLoc > 2000 && yLoc <= 2800}">
+              Collectively, we own the banks.
             </span>
           </div>
         </div>
       </section>
       <section>
+      <a name="debt" id="debt" class="anchor"></a>
         <div ng-controller="mapCtrl">
           <div id="mapdiv" style="width: 100%; height: 500px;"></div>
           <!-- <a class="twitter-timeline"

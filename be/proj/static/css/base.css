@@ -37,7 +37,7 @@ input, button, body, .splash .splash-footer {
   font-size: 16px;
   line-height: 20px; }
 
-.body-text, h1, h2 {
+#scroll .intro-text, .body-text, h1, h2 {
   font-family: "Raleway", sans-serif;
   font-weight: 600; }
 
@@ -75,7 +75,6 @@ input, button {
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   width: 100%;
-  color: rgba(255, 255, 255, 0.7);
   background-color: rgba(17, 13, 33, 0.7); }
 
 .signup-button {
@@ -101,7 +100,7 @@ body {
   left: 0;
   height: 0;
   width: 2px;
-  background-color: #6b1103; }
+  background-color: #acb9b7; }
 
 .form-rest {
   visibility: hidden; }
@@ -118,40 +117,54 @@ body {
     text-transform: uppercase;
     width: 100%; }
   .splash .splash-footer {
-    bottom: 0;
-    position: absolute;
-    width: 100%;
-    background-color: #110d21;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000; }
-
-#scroll {
-  color: #fff; }
-  #scroll .intro-text {
-    color: #fff;
-    height: 100%;
-    margin: auto;
-    position: fixed;
-    top: 0; }
-    #scroll .intro-text .body-text .slide span {
-      opacity: 0; }
-    #scroll .intro-text .body-text .visible .pane {
-      opacity: .8 !important; }
-    #scroll .intro-text .body-text .slide .pane {
-      opacity: .8;
-      top: 44px;
-      -webkit-transition: opacity 1s ease;
-      -moz-transition: opacity 1s ease;
-      -ms-transition: opacity 1s ease;
-      -o-transition: opacity 1s ease;
-      transition: opacity 1s ease; }
-  #scroll .images {
     -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     -ms-transition: all 0.25s ease-in-out;
     -o-transition: all 0.25s ease-in-out;
     transition: all 0.25s ease-in-out;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    color: #868f94;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000; }
+    .splash .splash-footer:hover {
+      opacity: .45; }
+
+#scroll {
+  color: #fff; }
+  #scroll .intro-text {
+    color: #acb9b7 !important;
+    height: 100%;
+    margin: auto;
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 30px;
+    position: fixed;
+    top: 0; }
+    #scroll .intro-text .body-text {
+      padding-top: 88px; }
+      #scroll .intro-text .body-text .visible .pane {
+        opacity: .8 !important; }
+      #scroll .intro-text .body-text .slide {
+        position: absolute; }
+        #scroll .intro-text .body-text .slide .pane {
+          opacity: .8;
+          top: 44px;
+          -webkit-transition: opacity 1s ease;
+          -moz-transition: opacity 1s ease;
+          -ms-transition: opacity 1s ease;
+          -o-transition: opacity 1s ease;
+          transition: opacity 1s ease; }
+        #scroll .intro-text .body-text .slide span {
+          opacity: 0; }
+  #scroll .images {
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    -ms-transition: opacity 1s ease;
+    -o-transition: opacity 1s ease;
+    transition: opacity 1s ease;
     height: 2800px;
     margin: auto; }
     #scroll .images.close {
@@ -160,11 +173,11 @@ body {
       opacity: 0;
       width: 100%;
       text-align: center;
-      -webkit-transition: opacity 0.75s ease;
-      -moz-transition: opacity 0.75s ease;
-      -ms-transition: opacity 0.75s ease;
-      -o-transition: opacity 0.75s ease;
-      transition: opacity 0.75s ease; }
+      -webkit-transition: opacity 1s ease;
+      -moz-transition: opacity 1s ease;
+      -ms-transition: opacity 1s ease;
+      -o-transition: opacity 1s ease;
+      transition: opacity 1s ease; }
     #scroll .images .pane {
       -webkit-transition: opacity 1s ease;
       -moz-transition: opacity 1s ease;
@@ -174,7 +187,7 @@ body {
       top: 50%;
       width: 100%;
       position: fixed;
-      opacity: 1;
+      opacity: .65;
       margin: auto;
       transform: translateY(-25%); }
       #scroll .images .pane .splash-square {
@@ -183,7 +196,7 @@ body {
         height: 245px;
         margin: auto; }
         #scroll .images .pane .splash-square.red {
-          background-color: #6b1103; }
+          background-color: #eb1020; }
       #scroll .images .pane:nth-child(19), #scroll .images .pane:nth-child(20), #scroll .images .pane:nth-child(21), #scroll .images .pane:nth-child(22) {
         border-bottom: #333 1px solid; }
 
@@ -242,7 +255,6 @@ section {
   top: 0;
   font-size: 18px; }
   .banner .text {
-    color: rgba(255, 255, 255, 0.7);
     background-color: rgba(17, 13, 33, 0.7);
     height: 44px;
     text-align: center;
@@ -257,8 +269,11 @@ section {
       height: 44px; }
 
 h1 {
-  font-size: 42px;
-  line-height: 42px; }
+  font-size: 46px;
+  line-height: 46px;
+  color: #feffe8;
+  font-weight: 100;
+  letter-spacing: 5px; }
 
 h2 {
   font-size: 20px;
@@ -318,7 +333,7 @@ h2 {
 aside {
   width: 33%;
   margin-left: 3%;
-  background-color: #6b1103;
+  background-color: #eb1020;
   padding: 2em;
   color: #fff;
   line-height: 1.4em;
@@ -381,7 +396,6 @@ header {
   transition: all 0.25s ease-in-out; }
 
 .nav-footer {
-  color: rgba(255, 255, 255, 0.7);
   background-color: rgba(17, 13, 33, 0.7);
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
@@ -405,31 +419,34 @@ header {
       margin: 0 auto; }
 
 .header-links {
-  color: rgba(255, 255, 255, 0.7);
-  background-color: rgba(17, 13, 33, 0.7);
   padding: 4.5px 15px;
   font-size: 14px;
   float: right;
-  width: 100%;
   text-align: center;
   z-index: 1000;
   position: fixed;
-  top: 0;
   height: 32px;
+  width: 100%;
+  top: 0;
   right: 0;
   width: 100%;
-  border-bottom: 1px sold #eee; }
+  background-color: #110d21; }
+  .header-links a {
+    color: #39413f; }
 
 a {
   text-decoration: none;
-  color: inherit;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out; }
+  transition: all 0.25s ease-in-out;
+  color: #eee; }
+  a.active {
+    color: #acb9b7;
+    text-decoration: line-through; }
   a:hover {
-    color: #666;
+    color: #868594;
     cursor: pointer; }
 
 /** FORMS **/
@@ -460,3 +477,9 @@ label {
     opacity: 1; }
     .dropdown-menu li.active {
       background-color: #9E2717; }
+
+.close-button {
+  float: right;
+  margin-right: 10px;
+  padding: 5px;
+  cursor: pointer; }

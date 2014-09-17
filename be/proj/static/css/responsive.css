@@ -1,21 +1,15 @@
 @media (min-width: 1640px) {
   .wrapper {
-    max-width: 56.5%;
-  }
+    max-width: 56.5%; }
 
   .body-text {
-    max-width: 39.4%;
-  }
-}
+    max-width: 39.4%; } }
 @media (min-width: 1130px) and (max-width: 1640px) {
   .wrapper {
-    max-width: 93.75%;
-  }
+    max-width: 93.75%; }
 
   .body-text {
-    max-width: 64%;
-  }
-}
+    max-width: 64%; } }
 @media (min-width: 768px) and (max-width: 1130px) {
   .wrapper {
     max-width: 100%; }
@@ -27,8 +21,7 @@
     width: 473px; }
 
   .social-media {
-    opacity: 0 !important; }
-  }
+    opacity: 0 !important; } }
 @media (max-device-width: 480px) {
   .wrapper {
     max-width: 100%; }

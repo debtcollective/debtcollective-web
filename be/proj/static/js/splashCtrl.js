@@ -26,7 +26,7 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document) {
     }
 
     $scope.formVisible = function () {
-        return $scope.showForm == true || $scope.email != null;
+        return $scope.showForm == true;
     }
 
     $scope.onSubmitClick = function () {

@@ -1,19 +1,20 @@
 $dark-grey:     #313539;
 $dark-mid-grey: lighten($dark-grey, 20%);
 $mid-grey:      lighten($dark-grey, 40%);
-$off-grey:      #39413F;
-$menu-color:    #8a855c;
+$off-grey:      #39413f;
 $weird-yellow: rgb(224,224,213);
+$menu-color:   #39413f;
 
 $dark-blue:     rgb(17,13,33); //110d21
 $linkblue:      #3d72a6;
-$maroon:        #28151a;
+$maroon:        rgb(32,18,25);
 
 $dark-red:    #520D02;
-$red:         lighten($dark-red, 5%);
+$red:         #eb1020;
 $light-red:   lighten($red, 5%);
 $fb-blue:     #3d72a6;
 $weird-orange: #ff6600;
+$intro-text: rgb(172,185,183);
 
 $header-height: 32px;
 
@@ -38,7 +39,6 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 }
 
 @mixin bottom-nav-colors() {
-  color: rgba(255,255,255,.7);
   background-color: rgba(17,13,33,.7);
 }
 
@@ -130,7 +130,7 @@ body {
   left: 0;
   height: 0;
   width: 2px;
-  background-color: $red;
+  background-color: $intro-text;
 }
 
 .form-rest {
@@ -156,13 +156,17 @@ body {
 
   .splash-footer {
     @extend %mono;
+    @include transition();
     bottom: 0;
     position: absolute;
     width: 100%;
-    background-color: $dark-blue;
+    color: rgb(134,143,148);
     padding: 10px;
     cursor: pointer;
     z-index: 1000;
+    &:hover {
+      opacity: .45;
+    }
   }
 }
 
@@ -171,29 +175,39 @@ body {
     color: #fff;
 
     .intro-text {
-      color: #fff;
+      @extend %rale;
+      color: $intro-text !important;
       height: 100%;
       margin: auto;
-      position:fixed;
+      font-weight: 100;
+      font-size: 20px;
+      line-height: 30px;
+      position: fixed;
       top: 0;
 
-      .body-text .slide span {
-        opacity: 0;
-      }
+      .body-text {
+        padding-top: 88px;
 
-      .body-text .visible .pane {
-        opacity: .8 !important;
-      }
+        .visible .pane {
+          opacity: .8 !important;
+        }
 
-      .body-text .slide .pane {
-        opacity: .8;
-        top: 44px;
-        @include transition(opacity, 1s, ease);
+        .slide {
+          position: absolute;
+          .pane {
+            opacity: .8;
+            top: 44px;
+            @include transition(opacity, 1s, ease);
+          }
+          span {
+            opacity: 0;
+          }
+        }
       }
     }
 
     .images {
-        @include transition();
+        @include transition(opacity, 1s, ease);
         height: 2800px;
         margin: auto;
 
@@ -204,7 +218,7 @@ body {
           opacity: 0;
           width: 100%;
           text-align: center;
-          @include transition(opacity, .75s, ease);
+          @include transition(opacity, 1s, ease);
         }
 
         .pane {
@@ -212,7 +226,7 @@ body {
           top: 50%;
           width: 100%;
           position: fixed;
-          opacity: 1;
+          opacity: .65;
           margin: auto;
           transform: translateY(-25%);
 
@@ -324,9 +338,13 @@ $banner-height: 44px;
 
 h1 {
   @extend %rale;
-  font-size: 42px;
-  line-height: 42px;
+  font-size: 46px;
+  line-height: 46px;
+  color: #feffe8;
+  font-weight: 100;
+  letter-spacing: 5px;
 }
+
 
 h2 {
   @extend %rale;
@@ -507,29 +525,37 @@ header {
 
 }
 .header-links {
-  @include bottom-nav-colors();
   padding: 4.5px 15px;
   font-size: 14px;
   float: right;
-  width: 100%;
   text-align: center;
   z-index: 1000;
   position: fixed;
-  top: 0;
   height: $header-height;
+  width: 100%;
+  top: 0;
   right: 0;
   width: 100%;
-  border-bottom: 1px sold #eee;
+  background-color: $dark-blue;
+
+  a {
+    color: $menu-color;
+  }
 }
 
 a {
   text-decoration: none;
-  color: inherit;
   @include transition();
+  color: #eee;
+
+  &.active {
+    color: rgb(172,185,183);
+    text-decoration: line-through;
+  }
 
   &:hover {
-      color: #666;
-      cursor: pointer;
+    color: rgb(134,133,148);
+    cursor: pointer;
   }
 }
 
@@ -565,4 +591,11 @@ label {
       background-color: #9E2717;
     }
   }
+}
+
+.close-button {
+  float: right;
+  margin-right: 10px;
+  padding: 5px;
+  cursor: pointer;
 }
