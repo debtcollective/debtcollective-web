@@ -6,6 +6,8 @@ $weird-yellow: rgb(224,224,213);
 $menu-color:   #39413f;
 $light-yellow: #feffe8;
 $mauve: #d3d1c9;
+$olive: rgba(2,2,2,.8);
+$olive-yellow: #ccaa2d;
 
 $link-light: #b6bea7;
 $link-light-hover: rgba(134,143,148, .8);
@@ -74,7 +76,7 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
   float: left;
 
   &:hover {
-    background-color: $dark-blue;
+    background-color: $red;
   }
 
   &:focus {
@@ -87,22 +89,26 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
 button {
   text-align: center;
+  &:hover {
+    opacity: .7;
+  }
 }
 
 input[type="text"], input[type="email"], button {
   @extend %button;
   @extend %mono;
   width: 100%;
-  @include bottom-nav-colors();
+  background-color: $red;
 }
 
-#corinthian
-input[type="text"], input[type="email"], button {
-  @extend %button;
-  @extend %mono;
-  @include transition();
-  width: 100%;
-  @include bottom-nav-colors();
+#corinthian {
+  input[type="text"], input[type="email"], button {
+    @extend %button;
+    @extend %mono;
+    @include transition();
+    width: 100%;
+    @include bottom-nav-colors();
+  }
 }
 
 .signup-button {
@@ -327,7 +333,7 @@ $banner-height: 32px;
   }
 
   a {
-    color: #feffe8;
+    color: #ccaa2d;
   }
 
   font-family: "Cutive mono";
@@ -513,14 +519,15 @@ header {
 }
 
 .nav-footer {
-  background-color: #110d21;
+  background-color: $olive;
   @include frame-transition();
+  color: $olive-yellow;
 
   input {
-    color: $text;
+    color: $olive-yellow;
     text-align: left;
     height: 44px;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #ccaa2d;
     background-color: inherit !important;
   }
   position: fixed;
@@ -550,7 +557,7 @@ header {
 }
 .header-links {
   padding: 4.5px 15px;
-  font-size: 14px;
+  font-size: 16px;
   float: right;
   text-align: center;
   z-index: 1000;
@@ -590,6 +597,7 @@ label {
 }
 
 .dropdown-menu {
+  @extend %mono;
   position: absolute;
   top: 100%;
   left: 0;
@@ -598,7 +606,7 @@ label {
   min-width: 160px;
   margin: 2px 0 0;
   list-style: none;
-  border: 1px solid #ccc;
+  background-color: $olive;
   border: 1px solid rgba(0,0,0,.15);
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
@@ -610,9 +618,14 @@ label {
 
   li {
       padding: 5px;
-      opacity: 1;
+      opacity: .7;
+      a {
+        color: $olive-yellow;
+      }
     &.active {
-      background-color: #9E2717;
+      background-color: $olive;
+      color: $olive-yellow;
+      opacity: 1;
     }
   }
 }

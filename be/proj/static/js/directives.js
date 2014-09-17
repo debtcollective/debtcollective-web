@@ -13,7 +13,7 @@ app.directive("scroll", function ($window) {
         for(var i = 1; i < 10; i ++){
             RANGE_COLORS[i] =  "#110d21";
         }
-        for(var i = 16; i < MAX_RANGES; i ++){
+        for(var i = 18; i < MAX_RANGES; i ++){
             RANGE_COLORS[i] = "#39413f"
         }
 

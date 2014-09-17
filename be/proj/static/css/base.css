@@ -42,8 +42,7 @@
 
   .social-media {
     opacity: 0 !important; } }
-#corinthian .button, input[type="text"], input[type="email"], button, #corinthian
-input[type="text"], body, .splash .splash-footer, .learnMore {
+#corinthian .button, input[type="text"], input[type="email"], button, #corinthian input[type="text"], #corinthian input[type="email"], #corinthian button, body, .splash .splash-footer, .learnMore, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -57,8 +56,7 @@ input[type="text"], body, .splash .splash-footer, .learnMore {
   font-family: "rooney-web", sans-serif;
   font-weight: 400; }
 
-#corinthian .button, input[type="text"], input[type="email"], button, #corinthian
-input[type="text"] {
+#corinthian .button, input[type="text"], input[type="email"], button, #corinthian input[type="text"], #corinthian input[type="email"], #corinthian button {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -70,11 +68,9 @@ input[type="text"] {
   text-decoration: none;
   position: relative;
   float: left; }
-  #corinthian .button:hover, input[type="text"]:hover, input[type="email"]:hover, button:hover, #corinthian
-  input[type="text"]:hover {
-    background-color: #110d21; }
-  #corinthian .button:focus, input[type="text"]:focus, input[type="email"]:focus, button:focus, #corinthian
-  input[type="text"]:focus {
+  #corinthian .button:hover, input[type="text"]:hover, input[type="email"]:hover, button:hover, #corinthian input[type="text"]:hover, #corinthian input[type="email"]:hover, #corinthian button:hover {
+    background-color: #eb1020; }
+  #corinthian .button:focus, input[type="text"]:focus, input[type="email"]:focus, button:focus, #corinthian input[type="text"]:focus, #corinthian input[type="email"]:focus, #corinthian button:focus {
     outline: 0px;
     outline-offset: 0px; }
 
@@ -188,13 +184,14 @@ input[type="text"] {
       margin-top: 2em; } }
 button {
   text-align: center; }
+  button:hover {
+    opacity: .7; }
 
 input[type="text"], input[type="email"], button {
   width: 100%;
-  background-color: rgba(17, 13, 33, 0.7); }
+  background-color: #eb1020; }
 
-#corinthian
-input[type="text"], input[type="email"], button {
+#corinthian input[type="text"], #corinthian input[type="email"], #corinthian button {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -389,7 +386,7 @@ section {
     margin: auto;
     padding: 5px; }
   .banner a {
-    color: #feffe8; }
+    color: #ccaa2d; }
   .banner.openable {
     opacity: 0 !important;
     top: 0px !important; }
@@ -531,20 +528,21 @@ header {
   transition: all 0.25s ease-in-out; }
 
 .nav-footer {
-  background-color: #110d21;
+  background-color: rgba(2, 2, 2, 0.8);
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -ms-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
+  color: #ccaa2d;
   position: fixed;
   right: 0;
   width: 100%; }
   .nav-footer input {
-    color: #b6bea7;
+    color: #ccaa2d;
     text-align: left;
     height: 44px;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #ccaa2d;
     background-color: inherit !important; }
   .nav-footer.visible {
     bottom: 0px !important; }
@@ -561,7 +559,7 @@ header {
 
 .header-links {
   padding: 4.5px 15px;
-  font-size: 14px;
+  font-size: 16px;
   float: right;
   text-align: center;
   z-index: 1000;
@@ -604,7 +602,7 @@ label {
   min-width: 160px;
   margin: 2px 0 0;
   list-style: none;
-  border: 1px solid #ccc;
+  background-color: rgba(2, 2, 2, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -615,9 +613,13 @@ label {
   padding-left: 0px; }
   .dropdown-menu li {
     padding: 5px;
-    opacity: 1; }
+    opacity: .7; }
+    .dropdown-menu li a {
+      color: #ccaa2d; }
     .dropdown-menu li.active {
-      background-color: #9E2717; }
+      background-color: rgba(2, 2, 2, 0.8);
+      color: #ccaa2d;
+      opacity: 1; }
 
 .close-button {
   float: right;
