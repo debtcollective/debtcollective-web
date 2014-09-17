@@ -31,36 +31,84 @@
 
   .social-media {
     opacity: 0 !important; } }
-input, button, #scroll, .wrapper article {
+h1, #corinthian article h3 {
+  font-family: "calluna", serif;
+  font-weight: 600; }
+
+#corinthian .button, input, button, #corinthian, #scroll, .wrapper article {
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-input, button {
+#corinthian article {
+  font-family: "rooney-web", sans-serif;
+  font-weight: 400; }
+
+#corinthian .button, input, button {
   display: inline-block;
   margin: 8px;
   text-align: center;
   font-size: 18px;
   border: 0;
   text-decoration: none;
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
   position: relative;
   float: left; }
-  input:focus, button:focus {
+  #corinthian .button:focus, input:focus, button:focus {
     border: 0px;
     outline: 0px;
     outline-offset: 0px; }
 
+h1 {
+  font-size: 2.5em;
+  padding: 2em 0 1em; }
+
+#corinthian {
+  border-top: 1em solid #6b1103; }
+  #corinthian .wrapper {
+    max-width: 960px;
+    background: none; }
+  #corinthian .button {
+    margin: 0;
+    text-transform: uppercase; }
+  #corinthian input[type="checkbox"] {
+    display: inline-block; }
+  #corinthian .questions li {
+    background: #fff;
+    padding: 1em;
+    margin-bottom: 1em; }
+  #corinthian article {
+    margin-top: 0; }
+    #corinthian article p {
+      text-indent: 2em;
+      margin-bottom: 0; }
+    #corinthian article h3 {
+      font-size: 1.33em;
+      line-height: 1.2em;
+      margin: 2em 0 0.5em;
+      color: #841503; }
+    #corinthian article h3 + p {
+      text-indent: 0; }
+  #corinthian aside {
+    background-color: #3d72a6; }
+  #corinthian aside .button {
+    background-color: #2f5881;
+    padding: 0.75em 1em;
+    margin-top: 1em; }
+    #corinthian aside .button:hover {
+      color: #fff;
+      background-color: #284c6e; }
+
 input, button {
   font-family: 'Source Code Pro';
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
   width: 100%;
   color: rgba(255, 255, 255, 0.7);
   background-color: rgba(17, 13, 33, 0.7); }
@@ -77,11 +125,11 @@ body {
   line-height: 1.6em; }
 
 #scrollthing {
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
   position: fixed;
   left: 0;
   height: 0;
@@ -115,11 +163,11 @@ body {
     #scroll .intro-text .pane {
       top: 44px; }
   #scroll .images {
-    -webkit-transition: all 0.25s ease-in-out;
-    -moz-transition: all 0.25s ease-in-out;
-    -ms-transition: all 0.25s ease-in-out;
-    -o-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -ms-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
     height: 2200px;
     margin: auto; }
     #scroll .images.close {
@@ -227,11 +275,11 @@ section {
   cursor: pointer;
   padding: 10px;
   color: #666;
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out; }
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear; }
   .learnMore:hover {
     border-color: white;
     color: white; }
@@ -324,11 +372,11 @@ header {
 
 .form.ng-hide-add.ng-hide-add-active,
 .form.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out; }
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear; }
 
 .nav-footer {
   color: rgba(255, 255, 255, 0.7);
@@ -359,11 +407,11 @@ header {
 a {
   text-decoration: none;
   color: inherit;
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out; }
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear; }
   a:hover {
     color: #666;
     cursor: pointer; }

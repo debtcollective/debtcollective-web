@@ -1,0 +1,37 @@
+h1 {
+  font-family: "calluna", serif;
+  font-weight: 600; }
+
+#corinthian .button {
+  font-family: "calluna-sans", sans-serif;
+  font-weight: 600; }
+
+#corinthian .button {
+  display: inline-block;
+  margin: 8px;
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  border: 0;
+  text-decoration: none;
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -ms-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+  position: relative;
+  float: left; }
+  #corinthian .button:focus {
+    border: 0px;
+    outline: 0px;
+    outline-offset: 0px; }
+
+h1 {
+  font-size: 2.5em; }
+
+#corinthian .wrapper {
+  max-width: 960px;
+  background: none; }
+#corinthian aside .button {
+  background-color: #3d72a6;
+  padding: 0.75em 1em; }

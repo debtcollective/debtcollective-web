@@ -19,7 +19,7 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
 @import "responsive";
 
-@mixin transition($prop: all, $duration: .25s, $ease: ease-in-out) {
+@mixin transition($prop: all, $duration: .25s, $ease: linear) {
     -webkit-transition: $prop $duration $ease;
     -moz-transition: $prop $duration $ease;
     -ms-transition: $prop $duration $ease;
@@ -69,6 +69,9 @@ $rule:      desaturate(lighten($mid-grey, 20%), 30%);
     outline-offset: 0px;
   }
 }
+
+
+@import "corinthian";
 
 input, button {
   font-family: 'Source Code Pro';
