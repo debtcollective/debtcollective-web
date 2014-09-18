@@ -3,7 +3,7 @@ app.directive("scroll", function ($window) {
 
         $scope.amountToScroll = 2700;
 
-        var OFFSET = 150;
+        var OFFSET = 100;
         var MAX_RANGES = 10;
         var RANGE_COLORS = {
             6: "#281519",
