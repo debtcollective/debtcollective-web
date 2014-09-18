@@ -394,6 +394,9 @@ section {
       opacity: 1 !important;
       height: 32px; }
 
+.press-links img {
+  margin: 10px; }
+
 h1 {
   font-size: 46px;
   line-height: 46px;
