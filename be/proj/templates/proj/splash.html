@@ -25,7 +25,7 @@
       </div>
     </section>
 
-    <section class="images" ng-style="backgroundStyle" ng-class="{close: yLoc >= 2400}">
+    <section class="images" ng-style="backgroundStyle" ng-class="{close: yLoc >= 2700}">
         <!-- for each range, display the appropriate animation. change in directives.js -->
         <div ng-class="{pane: yLoc == 0}">
           <div class="splash-square red"></div>
@@ -70,10 +70,10 @@
             </span>
           </div>
           <div class="slide">
-            <span ng-class="{pane: yLoc > 1600 && yLoc <= 2500}">
+            <span ng-class="{pane: yLoc > 1600 && yLoc <= 2800}">
               If you owe the bank thousands of dollars, then the bank owns you.
             </span>
-            <span ng-class="{pane: yLoc > 1800 && yLoc <= 2500}">
+            <span ng-class="{pane: yLoc > 1800 && yLoc <= 2800}">
               But if you owe the bank millions, then you own the bank.
             </span>
             <span ng-class="{pane: yLoc > 2000 && yLoc <= 2800}">
@@ -126,51 +126,41 @@
         </div>
         <section class="body-text" id="background">
             <h2>Background</h2>
-            <quote>
-              “Just as bosses are dependent on workers, so are lenders dependent on borrowers. If workers walk out, the enterprise stops. If borrowers refuse to pay their debts, the lenders could be in real trouble.” - Francis Fox Piven
-            </quote>
             <p>
               <div class="press-links">
                   <a href="http://www.nbcnews.com/news/education/shame-outrage-group-takes-action-against-student-debt-crisis-n204926"  target="_blank">
                    <img src="/static/img/press/dc-s17_pressclips-small-01.png" />
                   </a>
-                  <a href="http://www.npr.org/blogs/ed/2014/09/17/348036877/these-people-can-make-student-loans-disappear"  target="_blank">
-                  <img src="/static/img/press/dc-s17_pressclips-small-02.png" />
-                         </a>
-                  <a href="http://www.nyunews.com/2014/09/17/jubilee/"  target="_blank">
-                  <img src="/static/img/press/dc-s17_pressclips-small-03.png" />
-                         </a>
                   <a href="http://www.washingtonpost.com/news/storyline/wp/2014/09/17/how-one-student-got-burned-by-a-for-profit-college-and-bailed-out-by-occupy-wall-street/"  target="_blank">
-                  <img src="/static/img/press/dc-s17_pressclips-small-04.png" />
-                         </a>
+                    <img src="/static/img/press/dc-s17_pressclips-small-04.png" />
+                  </a>
                   <a href="http://america.aljazeera.com/opinions/2014/9/strike-student-debt.html"  target="_blank">
-                  <img src="/static/img/press/dc-s17_pressclips-small-05.png" />
-                         </a>
-                  <a href="http://www.huffingtonpost.com/jerry-ashton/occupy-student-loan-debt_b_5833178.html?utm_hp_ref=college&ir=College"  target="_blank">
-                  <img src="/static/img/press/dc-s17_pressclips-small-06.png" />
-                         </a>
+                    <img src="/static/img/press/dc-s17_pressclips-small-05.png" />
+                  </a>
                   <a href="http://www.theguardian.com/money/2014/sep/17/occupy-activists-student-debt-corinthian-colleges"  target="_blank">
-                  <img src="/static/img/press/dc-s17_pressclips-small-07.png" />
-                         </a>
-                  <a href="http://nyulocal.com/on-campus/2014/09/17/activists-abolish-4-million-in-student-debt/"  target="_blank">
-                  <img src="/static/img/press/dc-s17_pressclips-small-08.png" />
-                         </a>
-                  <a href="http://www.redeyechicago.com/news/local/redeye-student-debt-group-eliminates-20140916,0,7987422.story"  target="_blank">
-                  <img src="/static/img/press/dc-s17_pressclips-small-09.png" />
-                         </a>
-                  <a href="http://www.dailykos.com/story/2014/09/17/1330375/-Strike-Debt-s-Rolling-Jubilee-Erases-4-000-000-in-Student-Loan-Debt-For-100-000"  target="_blank">
-                  <img src="/static/img/press/dc-s17_pressclips-small-10.png" />
-                         </a>
+                    <img src="/static/img/press/dc-s17_pressclips-small-07.png" />
+                  </a>
+                  <a href="http://www.npr.org/blogs/ed/2014/09/17/348036877/these-people-can-make-student-loans-disappear"  target="_blank" class="hidden-mobile">
+                    <img src="/static/img/press/dc-s17_pressclips-small-02.png" />
+                   </a>
               </div>
             </p>
+
+
+            <quote>
+              “Just as bosses are dependent on workers, so are lenders dependent on borrowers. If workers walk out, the enterprise stops. If borrowers refuse to pay their debts, the lenders could be in real trouble.” - Francis Fox Piven
+            </quote>
+
             <h2>Who we are</h2>
+
             <p>
             We're the people behind the <a href="http://rollingjubilee.org" target="_blank">Rolling Jubilee debt cancellation initiative</a>. We operate according to the principle that alone, our debts are a burden, but together, they make us powerful. The Debt Collective is the next step in making that vision a reality.
             </p>
+
             <h2>Lend your voice</h2>
             <div class="lendyour">
               <p>
-              Share a photo on Facebook or Twitter.<br>
+              Share this photo on Facebook or Twitter.<br>
                 <img src="/static/img/socialmedia_WPA_debtstrike.png" />
               </p>
               <iframe src="https://www.lendyour.net/embed/lendbutton?account_id=8&campaign_id=19" frameBorder="0"></iframe>
@@ -178,9 +168,9 @@
         </section>
       </section>
     </div>
-    <div class="banner" ng-class="{fadeIn: bannerFadeInTimeout && yLoc == 0}"class="openable">
+    <div class="banner" ng-class="{fadeIn: bannerFadeInTimeout && yLoc == 0}" class="openable">
       <div class="text">
-        <a href="/corinthian/" class="button">If you are or were an Everest, Wyo Tech, or Heald student, click here.</a>
+        <a href="/corinthian/" target="_blank" class="button">If you are or were an Everest, Wyo Tech, or Heald student, click here.</a>
         </p>
       </div>
     </div>

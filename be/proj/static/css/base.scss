@@ -404,8 +404,12 @@ $banner-height: 32px;
   }
 
 }
-.press-links img {
-  margin: 10px;
+.press-links {
+  width: 100%;
+  text-align: center;
+  img {
+    margin: 10px;
+  }
 }
 
 h1 {
@@ -577,6 +581,11 @@ header {
   @include frame-transition();
   color: $olive-yellow;
   z-index: 99999;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  min-height: 266px;
+  bottom: -266px;
 
   input {
     color: $olive-yellow;
@@ -585,9 +594,6 @@ header {
     border-bottom: 1px solid #ccaa2d;
     background-color: inherit !important;
   }
-  position: fixed;
-  right: 0;
-  width: 100%;
 
   &.visible {
     bottom: 0px !important;

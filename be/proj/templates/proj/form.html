@@ -1,5 +1,5 @@
 <div class="nav-footer" ng-class="{visible: formVisible()}">
-  <div class="close-button" ng-if="formVisible()"
+  <div class="close-button" ng-show="formVisible()"
      ng-click="showForm=false">x</div>
   <div class="dc-input" ng-class="{hidden: yLoc < amountToScroll}">
     <div name="receiver" id="receiver" ng-show="formSubmitted">
