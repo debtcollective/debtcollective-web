@@ -12,7 +12,8 @@ app.controller('corinthianCtrl',
       "value": [1, 12, 13, 14],
       "charges": [2, 4],
       "status": [5, 6, 7],
-      "paying": [3, 8, 10, 11]
+      "paying": [3, 8, 10, 11],
+      "genesis": [15]
     }
 
     $scope.isVisible = function (i) {

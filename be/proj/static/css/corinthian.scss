@@ -109,11 +109,17 @@
 			background: url(../img/highlight.png) no-repeat;
 			background-size: 100% 1em;
 			display: inline-block;
+			text-transform: none;
+			letter-spacing: 0;
 		}
 
 		p {
 			text-indent: 2em;
 			margin-bottom: 0;
+
+			&:first-child {
+				text-indent: 0;
+			}
 		}
 
 		h3 {
