@@ -35,7 +35,7 @@
   font-size: 16px;
   line-height: 20px; }
 
-#scroll .intro-text, .body-text, h1, h2 {
+#scroll .intro-text, .body-text, h1, h2, .nav-footer .dc-input #receiver {
   font-family: "Raleway", sans-serif;
   font-weight: 600; }
 
@@ -342,10 +342,6 @@ body {
   left: 20;
   top: 200; }
 
-.banner.fadeIn {
-  opacity: 1;
-  top: 32px; }
-
 #scroll.mainstate .social-media {
   opacity: 0; }
 #scroll.mainstate .nav-footer {
@@ -369,34 +365,28 @@ section {
     margin-bottom: 22px; }
 
 .banner {
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
-  z-index: 999999;
+  -webkit-transition: all 0.75s ease;
+  -moz-transition: all 0.75s ease;
+  -ms-transition: all 0.75s ease;
+  -o-transition: all 0.75s ease;
+  transition: all 0.75s ease;
+  z-index: 9999990;
   font-family: "Cutive mono";
-  opacity: 0;
   position: fixed;
   width: 100%;
   height: 88px;
-  top: 0;
+  top: 2px;
   font-size: 18px; }
+  .banner.fadeIn, .banner:hover {
+    top: 32px; }
   .banner .text {
-    background-color: rgba(109, 15, 21, 0.65);
+    background-color: rgba(63, 31, 48, 0.8);
     height: 32px;
     text-align: center;
     margin: auto;
     padding: 5px; }
   .banner a {
     color: #ccaa2d; }
-  .banner.openable {
-    opacity: 0 !important;
-    top: 0px !important; }
-    .banner.openable:hover {
-      top: 32px !important;
-      opacity: 1 !important;
-      height: 32px; }
 
 .press-links {
   width: 100%;
@@ -540,11 +530,11 @@ header {
 
 .nav-footer {
   background-color: rgba(2, 2, 2, 0.8);
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition: all 0.75s ease;
+  -moz-transition: all 0.75s ease;
+  -ms-transition: all 0.75s ease;
+  -o-transition: all 0.75s ease;
+  transition: all 0.75s ease;
   color: #ccaa2d;
   z-index: 99999;
   position: fixed;
@@ -565,13 +555,13 @@ header {
     font-size: 20px; }
     .nav-footer .dc-input #receiver {
       text-align: center;
-      padding: 5px; }
+      padding: 10px; }
     .nav-footer .dc-input form {
-      -webkit-transition: all 1s ease;
-      -moz-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-      -o-transition: all 1s ease;
-      transition: all 1s ease;
+      -webkit-transition: all 0.75s ease;
+      -moz-transition: all 0.75s ease;
+      -ms-transition: all 0.75s ease;
+      -o-transition: all 0.75s ease;
+      transition: all 0.75s ease;
       max-width: 400px;
       width: 100%;
       margin: 0 auto; }

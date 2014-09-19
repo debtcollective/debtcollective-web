@@ -6,6 +6,10 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document, $time
     $scope.debtType = null;
     $scope.amount = null;
     $scope.showForm = false;
+    $scope.formSubmitted = false;
+
+    $scope.startShowingFormLoc = 3100;
+    $scope.stopShowingFormLoc = 3500;
 
     $http.get('/points/').then(function (resp) {
         $scope.cities = resp.data
@@ -27,11 +31,14 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document, $time
     }
 
     $scope.formVisible = function () {
-        return $scope.showForm == true;
+        return ($scope.showForm || ($scope.yLoc > $scope.startShowingFormLoc
+            && $scope.yLoc < $scope.stopShowingFormLoc))
+            && !$scope.forceClose && !$scope.formSubmitted ;
     }
 
     $scope.emailFocus = function () {
         $scope.showForm = true;
+        $scope.forceClose = false;
         el = document.getElementById("email");
         el.placeholder =  'enter your email...';
     }
