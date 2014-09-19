@@ -207,7 +207,7 @@ body {
   }
 
   .splash-footer {
-    @extend %h2no;
+    @extend %mono;
     @include transition();
     bottom: 0;
     position: absolute;
@@ -318,6 +318,12 @@ body {
 
 #mapdiv {
   background-color: $dark-blue;
+}
+
+.debt-total {
+  text-align: center;
+  @extend %mono;
+  font-size: 24px;
 }
 
 .social-media {

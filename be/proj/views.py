@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.http import HttpResponse, Http404
 from django.core.context_processors import csrf
+from django.db.models import Sum
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 
 from proj.utils import json_response, get_POST_data
@@ -12,7 +13,8 @@ import simplejson as json
 
 @ensure_csrf_cookie
 def splash(request):
-  return render_to_response('proj/splash.html')
+  total_amount = Debt.objects.all().aggregate(Sum('amount'))
+  return render_to_response('proj/splash.html', {'total_amount': total_amount['amount__sum']})
 
 def map(request):
   return render_to_response('proj/map.html')
