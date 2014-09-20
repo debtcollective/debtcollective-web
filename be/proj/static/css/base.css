@@ -2,7 +2,7 @@
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-#scroll input[type="text"], #scroll input[type="email"], #scroll button, #corinthian .button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
+#scroll input[type="text"], #scroll input[type="email"], #scroll button, #corinthian .wrapper .button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -16,11 +16,11 @@ article {
   font-family: "rooney-web", sans-serif;
   font-weight: 400; }
 
-#corinthian h1, article h3 {
+#corinthian .wrapper h1, article h3 {
   font-family: "calluna", serif;
   font-weight: 600; }
 
-#scroll input[type="text"], #scroll input[type="email"], #scroll button, #corinthian .button {
+#scroll input[type="text"], #scroll input[type="email"], #scroll button, #corinthian .wrapper .button {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -32,9 +32,9 @@ article {
   text-decoration: none;
   position: relative;
   float: left; }
-  #scroll input[type="text"]:hover, #scroll input[type="email"]:hover, #scroll button:hover, #corinthian .button:hover {
+  #scroll input[type="text"]:hover, #scroll input[type="email"]:hover, #scroll button:hover, #corinthian .wrapper .button:hover {
     background-color: #861800; }
-  #scroll input[type="text"]:focus, #scroll input[type="email"]:focus, #scroll button:focus, #corinthian .button:focus {
+  #scroll input[type="text"]:focus, #scroll input[type="email"]:focus, #scroll button:focus, #corinthian .wrapper .button:focus {
     outline: 0px;
     outline-offset: 0px; }
 
@@ -42,7 +42,7 @@ article {
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-#scroll input[type="text"], #scroll input[type="email"], #scroll button, #corinthian .button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
+#scroll input[type="text"], #scroll input[type="email"], #scroll button, #corinthian .wrapper .button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -317,34 +317,34 @@ article {
       border-bottom-color: #bdc1c6; }
       #corinthian header a:hover {
         border-bottom-color: #afb4ba; }
-  #corinthian h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
-    color: #313539;
-    letter-spacing: 0; }
   #corinthian .wrapper {
     max-width: 960px;
     background: none; }
-  #corinthian a {
-    color: #3d72a6;
-    border-bottom: 0.15em solid #ddd;
-    -webkit-transition: all 0.15s ease-in-out;
-    -moz-transition: all 0.15s ease-in-out;
-    -ms-transition: all 0.15s ease-in-out;
-    -o-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out; }
-    #corinthian a:hover {
-      border-color: #ccc; }
-  #corinthian .button {
-    margin: 0;
-    text-transform: uppercase;
-    color: #fff; }
-  #corinthian input[type="checkbox"], #corinthian input[type="radio"] {
-    display: inline-block;
-    margin-right: 0.5em;
-    vertical-align: middle;
-    height: 1em;
-    width: 1.25em; }
+    #corinthian .wrapper h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+      color: #313539;
+      letter-spacing: 0; }
+    #corinthian .wrapper a {
+      color: #3d72a6;
+      border-bottom: 0.15em solid #ddd;
+      -webkit-transition: all 0.15s ease-in-out;
+      -moz-transition: all 0.15s ease-in-out;
+      -ms-transition: all 0.15s ease-in-out;
+      -o-transition: all 0.15s ease-in-out;
+      transition: all 0.15s ease-in-out; }
+      #corinthian .wrapper a:hover {
+        border-color: #ccc; }
+    #corinthian .wrapper .button {
+      margin: 0;
+      text-transform: uppercase;
+      color: #fff; }
+    #corinthian .wrapper input[type="checkbox"], #corinthian .wrapper input[type="radio"] {
+      display: inline-block;
+      margin-right: 0.5em;
+      vertical-align: middle;
+      height: 1em;
+      width: 1.25em; }
   #corinthian .questions p {
     text-indent: 0;
     margin-bottom: 1.25em; }
@@ -363,6 +363,8 @@ article {
   width: 63%;
   display: inline-block;
   vertical-align: top; }
+  article.answers {
+    width: 100%; }
   article h2 {
     margin: 0;
     text-align: left;
