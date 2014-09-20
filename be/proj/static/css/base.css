@@ -376,8 +376,8 @@ article {
     background-size: 100% 1em;
     display: inline-block; }
   article p {
-    text-indent: 2em;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    margin-top: 22px; }
   article ul.list {
     margin-bottom: 10px;
     list-style: initial; }
