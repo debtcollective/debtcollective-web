@@ -29,3 +29,36 @@ $footer-height: 41px;
 
 $text:      $link-light;
 $rule:      desaturate(lighten($mid-grey, 20%), 30%);
+
+
+%sans {
+    // font-family: "camingodos-web", sans-serif;
+    font-family: "calluna-sans", sans-serif;
+    font-weight: 600;
+}
+
+
+%mono {
+    font-family: "Cutive mono", serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+%rale {
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+}
+
+%serif {
+    font-family: "rooney-web", sans-serif;
+    font-weight: 400;
+}
+
+%button-lg {
+    @extend %button;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 1em 3em;
+    border-width: 0.2em;
+}

@@ -1,6 +1,3 @@
-@import "variables";
-@import "mixins";
-
 #corinthian {
   background-color: #eee;
   border-top: 0.5em solid $fb-blue;
@@ -10,6 +7,14 @@
 
   .wrapper {
     padding: 0 1em;
+  }
+
+  input[type="text"], input[type="email"], button {
+    @extend %button;
+    @extend %mono;
+    @include transition();
+    width: 100%;
+    @include bottom-nav-colors();
   }
 
   header {
