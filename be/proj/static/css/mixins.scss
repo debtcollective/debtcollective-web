@@ -1,0 +1,65 @@
+@mixin transition($prop: all, $duration: .25s, $ease: ease-in-out) {
+    -webkit-transition: $prop $duration $ease;
+    -moz-transition: $prop $duration $ease;
+    -ms-transition: $prop $duration $ease;
+    -o-transition: $prop $duration $ease;
+    transition: $prop $duration $ease;
+}
+
+@mixin frame-transition(){
+  @include transition(all, .75s, ease);
+}
+
+@mixin bottom-nav-colors() {
+  background-color: rgba(17,13,33,.7);
+}
+
+
+%sans {
+    // font-family: "camingodos-web", sans-serif;
+    font-family: "calluna-sans", sans-serif;
+    font-weight: 600;
+}
+
+
+%mono {
+    font-family: "Cutive mono", serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+%rale {
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+}
+
+%serif {
+    font-family: "rooney-web", sans-serif;
+    font-weight: 400;
+}
+
+%calluna {
+    font-family: "calluna", serif;
+    font-weight: 600;
+}
+
+%button {
+  @include transition();
+  @extend %mono;
+  margin: 8px;
+  border: 0;
+  color: $text;
+  text-decoration: none;
+  position: relative;
+  float: left;
+
+  &:hover {
+    background-color: $dark-red;
+  }
+
+  &:focus {
+    outline: 0px;
+    outline-offset: 0px;
+  }
+}

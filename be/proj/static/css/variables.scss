@@ -1,0 +1,31 @@
+$dark-grey:     #313539;
+$dark-mid-grey: lighten($dark-grey, 20%);
+$mid-grey:      lighten($dark-grey, 40%);
+$off-grey:      #39413f;
+$weird-yellow: rgb(224,224,213);
+$menu-color:   #39413f;
+$light-yellow: #feffe8;
+$mauve: #d3d1c9;
+$olive: rgba(2,2,2,.8);
+$olive-yellow: #ccaa2d;
+
+$link-light: #b6bea7;
+$link-light-hover: rgba(134,143,148, .8);
+
+$dark-blue:     rgb(17,13,33); //110d21
+$linkblue:      #3d72a6;
+$maroon:        rgb(32,18,25);
+
+$dark-red:    #861800;
+$pink-red:         #eb1020;
+$light-red:   lighten($pink-red, 5%);
+$fb-blue:     #3d72a6;
+$weird-orange: #ff6600;
+$intro-text: rgb(172,185,183);
+
+$header-height: 32px;
+
+$footer-height: 41px;
+
+$text:      $link-light;
+$rule:      desaturate(lighten($mid-grey, 20%), 30%);
