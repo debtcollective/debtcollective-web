@@ -216,7 +216,7 @@ INSERT INTO gather_point (latitude,longitude,name) VALUES ('27.506407','-99.5075
 
 INSERT INTO gather_point (latitude,longitude,name) VALUES ('39.5295269','-119.813779','Reno');
 
-INSERT INTO gather_point (latitude,longitude,name) VALUES ('53.2343427','-0.5370209','Lincoln');
+INSERT INTO gather_point (latitude,longitude,name) VALUES ('40.815551', '-96.691758','Lincoln');
 
 INSERT INTO gather_point (latitude,longitude,name) VALUES ('59.9132694','10.7391111','Oslo');
 

@@ -12,6 +12,9 @@ class Point(models.Model):
   latitude = models.FloatField()
   longitude = models.FloatField()
 
+  def __unicode__(self):
+       return self.name
+
   def to_json(self):
     data = self.__dict__.copy()
     del data['_state']
