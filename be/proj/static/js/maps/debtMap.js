@@ -36,7 +36,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     // get data
     var dataProvider = {
         map: "worldHigh",
-        zoomLevel: 2,
+        zoomLevel: 1,
         zoomLatitude: 39.096169,
         zoomLongitude: -98.198721
     };
@@ -67,6 +67,9 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         }
     });
 
+    var scale = d3.scale.linear()
+    .domain([0,1]).range([.5,6]);
+
     /**********
      FUNCTIONS
     ***********/
@@ -77,7 +80,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         */
 
         // TODO
-        return Math.min(4, Math.max(.75, 4*percentage));
+        return scale(percentage);
     }
 
     function getPointTitle(point) {
