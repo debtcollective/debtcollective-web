@@ -10,53 +10,58 @@
         <a href="/">&larr; Back to the Debt Collective</a>
 
     </div></header>
-
     <div class="wrapper">
+        <article class="answers">
+                <p>
+                Corinthian is failing... Corinthian is a scam school that relies on massive amounts of federal funding.
+                </p>
+                <h2>Who profits from the scam?</h2>
+                <ul class="list">
+                    <li>Wells Fargo (Corinthian’s largest investor)</li>
+                    <li>The Department of Education</li>
+                    <li>Wealthy investors</li>
+                    <li>Lenders like Genesis and ASFG</li>
+                    <li>Debt collectors</li>
+                </ul>
+                 <p>
+                    Corinthian has been under investigation for years. These criminals should be held accountable. The Department of Education is refusing to do its job and protect students. The Corinthian Collective offers you both individual resources and a platform to come together to demand what is rightly yours: debt discharge and free education.
+                </p>
+        </article>
+            <aside>
+                <p>Are you a current or former student at a Corinthian college, including Everest, Heald or Wyotech? Together we can demand a full refund and free education. Join the Corinthian Collective.</p>
 
-    <article class="answers">
-        <p>
-        Corinthian is failing... Corinthian is a scam school that relies on massive amounts of federal funding.
-        </p>
-        <h2>Who profits from the scam?</h2>
-        <ul class="list">
-            <li>Wells Fargo (Corinthian’s largest investor)</li>
-            <li>The Department of Education</li>
-            <li>Wealthy investors</li>
-            <li>Lenders like Genesis and ASFG</li>
-            <li>Debt collectors</li>
-        </ul>
-         <p>
-            Corinthian has been under investigation for years. These criminals should be held accountable. The Department of Education is refusing to do its job and protect students. The Corinthian Collective offers you both individual resources and a platform to come together to demand what is rightly yours: debt discharge and free education.
-        </p>
+                <a href="https://www.facebook.com/groups/833008023378824/" target="_blank" class="button">Find us on Facebook</a>
+         </aside>
+     </div>
+    <div class="wrapper">
 
         <form class="questions">
             <h3>Select any statements that apply to you to learn more.</h3>
 
             <ul>
-                <li><input type="radio" name="faq" ng-model="visChoice" value="current"> I am a current student at a Corinthian college.
+                <li><input type="checkbox" name="faq" ng-model="current" ng-change="updateVis()" value="false"> I am a current student at a Corinthian college.
+                </li>
+                <li><input type="checkbox" name="faq" ng-model="grad" ng-change="updateVis()" value="false"/> I graduated from a Corinthian college.
                 </li>
 
-                <li><input type="radio" name="faq" ng-model="visChoice" value="grad"/> I graduated from a Corinthian college.
+                <li><input type="checkbox" name="faq" ng-model="attending" ng-change="updateVis()" value="false" /> I am thinking of attending a Corinthian college.
                 </li>
 
-                <li><input type="radio" name="faq" ng-model="visChoice" value="attending" /> I am thinking of attending a Corinthian college.
+                <li><input type="checkbox" name="faq" ng-model="value" ng-change="updateVis()" value="false"/>I have concerns about the value of a Corinthian degree.
                 </li>
 
-                <li><input type="radio" name="faq" ng-model="visChoice" value="value"/>I have concerns about the value of a Corinthian degree.
+                <li><input type="checkbox" name="faq" ng-model="charges" ng-change="updateVis()" value="false" />I am confused about some charges I saw on my Everest/Heald/Wyotech student portal.
                 </li>
 
-                <li><input type="radio" name="faq" ng-model="visChoice" value="charges" />I am confused about some charges I saw on my Everest/Heald/Wyotech student portal.
+                <li><input type="checkbox" name="faq" ng-model="status" ng-change="updateVis()" value="false" />I am confused about the status of my school.
                 </li>
 
-                <li><input type="radio" name="faq" ng-model="visChoice" value="status" />I am confused about the status of my school.
+                <li><input type="checkbox" name="faq" ng-model="paying" ng-change="updateVis()" value="false"/>I am having trouble paying my student loans or have stopped paying them.
                 </li>
 
-                <li><input type="radio" name="faq" ng-model="visChoice" value="paying"/>I am having trouble paying my student loans or have stopped paying them.
-                </li>
+                <li><input type="checkbox" name="faq" ng-model="genesis" ng-change="updateVis()" value="false">I have questions about my Genesis loans.</li>
 
-                <li><input type="radio" name="faq" ng-model="visChoice" value="genesis">I have questions about my Genesis loans.</li>
-
-                <li><input type="radio" name="faq" ng-model="visChoice" value="all">Read full text</a></li>
+                <li><input type="checkbox" name="faq" ng-model="all" ng-change="updateVis()" value="false">Read full text</a></li>
             </ul>
         </form>
 
@@ -168,15 +173,6 @@
 
             <p>Genesis is a type of private loan issued to Everest students. Corinthian has a financial  interest in getting your to pay. They pay debt collectors to call students and harass them into repaying these loans. In September 2014, the Consumer Financial Protection Bureau announced a lawsuit against Corinthian because of Genesis and other types of private loans. This means there is a chance that you will not have to pay your Genesis loans. The lawsuit could take a long time. But if you are trying to decide whether or not to pay your Genesis loans, you may want to consider that the Federal government believes you were defrauded by the lender.</p>
         </div>
-    </article>
-
-    <aside>
-
-        <p>Are you a current or former student at a Corinthian college, including Everest, Heald or Wyotech? Together we can demand a full refund and free education. Join the Corinthian Collective.</p>
-
-        <a href="https://www.facebook.com/groups/833008023378824/" target="_blank" class="button">Find us on Facebook</a>
-
-    </aside>
     </div>
 
 </div>

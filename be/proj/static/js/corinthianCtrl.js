@@ -1,11 +1,20 @@
 app.controller('corinthianCtrl',
   function ($scope, $http, util_svc) {
 
-    $scope.visChoice = 'all';
     $scope.visible = {};
 
+    $scope.all = false;
+    $scope.current = false;
+    $scope.grad = false;
+    $scope.attending = false;
+    $scope.concerns = false;
+    $scope.charges = false;
+    $scope.status = false;
+    $scope.paying = false;
+    $scope.genesis = false;
+
     var FAQ_ANSWERS = {
-      "all" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+      "all" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
       "current": [1, 5, 6, 9, 12, 13, 14],
       "grad": [3, 8, 10],
       "attending": [1, 14],
@@ -23,12 +32,15 @@ app.controller('corinthianCtrl',
       return $scope.visible[i];
     }
 
-    $scope.$watch('visChoice', function (newVal, oldVal) {
-        $scope.visible = {}
-        for(idx in FAQ_ANSWERS[newVal]) {
-          q = FAQ_ANSWERS[newVal][idx];
-          $scope.visible[q] = true;
+    $scope.updateVis = function () {
+      $scope.visible = {}
+      for(key in FAQ_ANSWERS) {
+        if($scope[key]) {
+          for(idx in FAQ_ANSWERS[key]) {
+            q = FAQ_ANSWERS[key][idx];
+            $scope.visible[q] = true;
+          }
         }
-    });
-
+      }
+    }
 });

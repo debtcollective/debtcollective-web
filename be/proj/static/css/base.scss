@@ -25,13 +25,6 @@ button {
   }
 }
 
-input[type="text"], input[type="email"], button {
-  @extend %button;
-  @extend %mono;
-  width: 100%;
-  background-color: $dark-red;
-}
-
 button {
   cursor: pointer;
 }
@@ -139,22 +132,6 @@ h2 {
   &.light {
     color:  #39413f !important;
     background-color: rgba(254,255,232,.8);
-  }
-}
-
-aside {
-  width: 33%;
-  margin-left: 3%;
-  background-color: $pink-red;
-  padding: 2em;
-  color: #fff;
-  line-height: 1.4em;
-  font-size: 0.95em;
-
-  h2 {
-    font-size: 1.5em;
-    margin-bottom: 0.75em;
-    margin-top: 0;
   }
 }
 

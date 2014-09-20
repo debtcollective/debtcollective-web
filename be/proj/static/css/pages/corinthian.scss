@@ -9,14 +9,6 @@
     padding: 0 1em;
   }
 
-  input[type="text"], input[type="email"], button {
-    @extend %button;
-    @extend %mono;
-    @include transition();
-    width: 100%;
-    @include bottom-nav-colors();
-  }
-
   header {
     background-color: lighten($mid-grey, 20%);
     padding: 2.5em 0 1.5em;
@@ -30,7 +22,6 @@
       }
     }
   }
-
 
   h1 {
     @extend %calluna;
@@ -91,53 +82,73 @@
     }
   }
 
-  article {
-    @extend %serif;
+}
+
+
+article {
+  @extend %serif;
+  margin-top: 0;
+  margin: 1em 0;
+  width: 63%;
+  display: inline-block;
+  vertical-align: top;
+
+  h2 {
+    @extend %sans;
+    margin: 0;
+    text-align: left;
+    font-weight: normal;
+    font-size: 1.25em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    background: url(../img/highlight.png) no-repeat;
+    background-size: 100% 1em;
+    display: inline-block;
+  }
+
+  p {
+    text-indent: 2em;
+    margin-bottom: 0;
+  }
+
+  ul.list {
+    margin-bottom: 10px;
+    list-style: initial;
+    li {
+      margin-left: 25px;
+    }
+  }
+
+  h3 {
+    @extend %calluna;
+    font-size: 1.33em;
+    line-height: 1.2em;
+    margin: 2em 0 0.5em;
+    color: darken($fb-blue, 10%);
+  }
+
+  h3 + p {
+    text-indent: 0;
+  }
+}
+
+aside {
+  display: inline-block;
+  vertical-align: top;
+  background-color: $fb-blue;
+  width: 33%;
+  margin-left: 3%;
+  padding: 2em;
+  color: #fff;
+  line-height: 1.4em;
+  font-size: 0.95em;
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.75em;
     margin-top: 0;
-
-    h2 {
-      @extend %sans;
-      margin: 0;
-      text-align: left;
-      font-weight: normal;
-      font-size: 1.25em;
-      margin-bottom: 1em;
-      margin-top: 1em;
-      background: url(../img/highlight.png) no-repeat;
-      background-size: 100% 1em;
-      display: inline-block;
-    }
-
-    p {
-      text-indent: 2em;
-      margin-bottom: 0;
-    }
-
-    ul.list {
-      list-style: initial;
-      li {
-        margin-left: 25px;
-      }
-    }
-
-    h3 {
-      @extend %calluna;
-      font-size: 1.33em;
-      line-height: 1.2em;
-      margin: 2em 0 0.5em;
-      color: darken($fb-blue, 10%);
-    }
-
-    h3 + p {
-      text-indent: 0;
-    }
   }
-
-  aside {
-    background-color: $fb-blue;
-  }
-
-  aside .button {
+  .button {
     background-color: darken($fb-blue, 10%);
     padding: 0.75em 1em;
     margin-top: 1em;
@@ -150,19 +161,6 @@
   }
 }
 
-.lendyour {
-  text-align: center;
-
-  p {
-    text-align: center;
-  }
-  img {
-    width: 400px;
-  }
-  iframe {
-    width: 100%;
-  }
-}
 
 @media screen and (max-width: 600px) {
 

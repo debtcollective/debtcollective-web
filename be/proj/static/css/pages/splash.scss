@@ -7,6 +7,15 @@
   cursor: pointer;
 }
 
+#scroll {
+  input[type="text"], input[type="email"], button {
+    @extend %button;
+    @extend %mono;
+    width: 100%;
+    background-color: $dark-red;
+  }
+}
+
 /** NAVIGATION **/
 .navigation {
     border-bottom: 1px solid black;
@@ -32,7 +41,7 @@
     color: $olive-yellow;
     text-align: left;
     height: 44px;
-    border-bottom: 1px solid #ccaa2d;
+    border-bottom: 1px solid #ccaa2d !important;
     background-color: inherit !important;
   }
 
@@ -271,6 +280,20 @@
     position: absolute;
     right: 0px;
     height: 250px;
+  }
+}
+
+.lendyour {
+  text-align: center;
+
+  p {
+    text-align: center;
+  }
+  img {
+    width: 400px;
+  }
+  iframe {
+    width: 100%;
   }
 }
 

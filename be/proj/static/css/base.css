@@ -1,8 +1,8 @@
-#scroll, #corinthian, #corinthian .questions, #corinthian article h2, #corinthian aside .button {
+#scroll, #corinthian, #corinthian .questions, article h2, aside .button {
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-#corinthian input[type="text"], #corinthian input[type="email"], #corinthian button, #corinthian .button, input[type="text"], input[type="email"], button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
+#scroll input[type="text"], #scroll input[type="email"], #scroll button, #corinthian .button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -12,15 +12,15 @@
   font-family: "Raleway", sans-serif;
   font-weight: 600; }
 
-#corinthian article {
+article {
   font-family: "rooney-web", sans-serif;
   font-weight: 400; }
 
-#corinthian h1, #corinthian article h3 {
+#corinthian h1, article h3 {
   font-family: "calluna", serif;
   font-weight: 600; }
 
-#corinthian input[type="text"], #corinthian input[type="email"], #corinthian button, #corinthian .button, input[type="text"], input[type="email"], button {
+#scroll input[type="text"], #scroll input[type="email"], #scroll button, #corinthian .button {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -32,17 +32,17 @@
   text-decoration: none;
   position: relative;
   float: left; }
-  #corinthian input[type="text"]:hover, #corinthian input[type="email"]:hover, #corinthian button:hover, #corinthian .button:hover, input[type="text"]:hover, input[type="email"]:hover, button:hover {
+  #scroll input[type="text"]:hover, #scroll input[type="email"]:hover, #scroll button:hover, #corinthian .button:hover {
     background-color: #861800; }
-  #corinthian input[type="text"]:focus, #corinthian input[type="email"]:focus, #corinthian button:focus, #corinthian .button:focus, input[type="text"]:focus, input[type="email"]:focus, button:focus {
+  #scroll input[type="text"]:focus, #scroll input[type="email"]:focus, #scroll button:focus, #corinthian .button:focus {
     outline: 0px;
     outline-offset: 0px; }
 
-#scroll, #corinthian, #corinthian .questions, #corinthian article h2, #corinthian aside .button {
+#scroll, #corinthian, #corinthian .questions, article h2, aside .button {
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-#corinthian input[type="text"], #corinthian input[type="email"], #corinthian button, #corinthian .button, input[type="text"], input[type="email"], button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
+#scroll input[type="text"], #scroll input[type="email"], #scroll button, #corinthian .button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -52,7 +52,7 @@
   font-family: "Raleway", sans-serif;
   font-weight: 600; }
 
-#corinthian article {
+article {
   font-family: "rooney-web", sans-serif;
   font-weight: 400; }
 
@@ -61,6 +61,10 @@
   margin-right: 10px;
   padding: 5px;
   cursor: pointer; }
+
+#scroll input[type="text"], #scroll input[type="email"], #scroll button {
+  width: 100%;
+  background-color: #861800; }
 
 /** NAVIGATION **/
 .navigation {
@@ -88,7 +92,7 @@
     color: #ccaa2d;
     text-align: left;
     height: 44px;
-    border-bottom: 1px solid #ccaa2d;
+    border-bottom: 1px solid #ccaa2d !important;
     background-color: inherit !important; }
   .nav-footer.visible {
     bottom: 0px !important; }
@@ -289,6 +293,15 @@
     right: 0px;
     height: 250px; }
 
+.lendyour {
+  text-align: center; }
+  .lendyour p {
+    text-align: center; }
+  .lendyour img {
+    width: 400px; }
+  .lendyour iframe {
+    width: 100%; }
+
 #corinthian {
   background-color: #eee;
   border-top: 0.5em solid #3d72a6;
@@ -296,14 +309,6 @@
   padding-bottom: 2em; }
   #corinthian .wrapper {
     padding: 0 1em; }
-  #corinthian input[type="text"], #corinthian input[type="email"], #corinthian button {
-    -webkit-transition: all 0.25s ease-in-out;
-    -moz-transition: all 0.25s ease-in-out;
-    -ms-transition: all 0.25s ease-in-out;
-    -o-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
-    width: 100%;
-    background-color: rgba(17, 13, 33, 0.7); }
   #corinthian header {
     background-color: #caced2;
     padding: 2.5em 0 1.5em;
@@ -351,50 +356,60 @@
     padding-left: 2.75em; }
     #corinthian .questions li:last-child {
       background: none; }
-  #corinthian article {
+
+article {
+  margin-top: 0;
+  margin: 1em 0;
+  width: 63%;
+  display: inline-block;
+  vertical-align: top; }
+  article h2 {
+    margin: 0;
+    text-align: left;
+    font-weight: normal;
+    font-size: 1.25em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    background: url(../img/highlight.png) no-repeat;
+    background-size: 100% 1em;
+    display: inline-block; }
+  article p {
+    text-indent: 2em;
+    margin-bottom: 0; }
+  article ul.list {
+    margin-bottom: 10px;
+    list-style: initial; }
+    article ul.list li {
+      margin-left: 25px; }
+  article h3 {
+    font-size: 1.33em;
+    line-height: 1.2em;
+    margin: 2em 0 0.5em;
+    color: #2f5881; }
+  article h3 + p {
+    text-indent: 0; }
+
+aside {
+  display: inline-block;
+  vertical-align: top;
+  background-color: #3d72a6;
+  width: 33%;
+  margin-left: 3%;
+  padding: 2em;
+  color: #fff;
+  line-height: 1.4em;
+  font-size: 0.95em; }
+  aside h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.75em;
     margin-top: 0; }
-    #corinthian article h2 {
-      margin: 0;
-      text-align: left;
-      font-weight: normal;
-      font-size: 1.25em;
-      margin-bottom: 1em;
-      margin-top: 1em;
-      background: url(../img/highlight.png) no-repeat;
-      background-size: 100% 1em;
-      display: inline-block; }
-    #corinthian article p {
-      text-indent: 2em;
-      margin-bottom: 0; }
-    #corinthian article ul.list {
-      list-style: initial; }
-      #corinthian article ul.list li {
-        margin-left: 25px; }
-    #corinthian article h3 {
-      font-size: 1.33em;
-      line-height: 1.2em;
-      margin: 2em 0 0.5em;
-      color: #2f5881; }
-    #corinthian article h3 + p {
-      text-indent: 0; }
-  #corinthian aside {
-    background-color: #3d72a6; }
-  #corinthian aside .button {
+  aside .button {
     background-color: #2f5881;
     padding: 0.75em 1em;
     margin-top: 1em; }
-    #corinthian aside .button:hover {
+    aside .button:hover {
       color: #fff;
       background-color: #284c6e; }
-
-.lendyour {
-  text-align: center; }
-  .lendyour p {
-    text-align: center; }
-  .lendyour img {
-    width: 400px; }
-  .lendyour iframe {
-    width: 100%; }
 
 @media screen and (max-width: 600px) {
   #corinthian {
@@ -429,10 +444,6 @@ button {
   text-align: center; }
   button:hover {
     opacity: .7; }
-
-input[type="text"], input[type="email"], button {
-  width: 100%;
-  background-color: #861800; }
 
 button {
   cursor: pointer; }
@@ -513,19 +524,6 @@ h2 {
   .wrapper.light {
     color: #39413f !important;
     background-color: rgba(254, 255, 232, 0.8); }
-
-aside {
-  width: 33%;
-  margin-left: 3%;
-  background-color: #eb1020;
-  padding: 2em;
-  color: #fff;
-  line-height: 1.4em;
-  font-size: 0.95em; }
-  aside h2 {
-    font-size: 1.5em;
-    margin-bottom: 0.75em;
-    margin-top: 0; }
 
 div {
   max-width: 100%; }
