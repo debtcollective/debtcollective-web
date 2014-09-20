@@ -15,6 +15,7 @@ urlpatterns += patterns('proj.views',
   basic_url('map'),
   basic_url('login'),
   basic_url('signup'),
+  basic_url('thankyou'),
   basic_url('corinthian'),
   url(r'^$', 'splash', name='splash')
 )

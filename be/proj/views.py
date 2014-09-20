@@ -22,6 +22,9 @@ def map(request):
 def corinthian(request):
   return render_to_response('proj/corinthian.html')
 
+def thankyou(request):
+  return render_to_response('proj/thankyou.html')
+
 def login(request):
   """
   POST /login
