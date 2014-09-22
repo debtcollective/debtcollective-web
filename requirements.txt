@@ -8,4 +8,4 @@ static3==0.5.1
 wsgiref==0.1.2
 simplejson==3.6.3
 south==1.0
-newrelic==2.30
+newrelic==2.30.0.27
