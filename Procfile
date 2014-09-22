@@ -1,1 +1,1 @@
-web: cd be && gunicorn proj.wsgi --log-file -
+web: cd be && newrelic-admin run-program gunicorn proj.wsgi --log-file -
