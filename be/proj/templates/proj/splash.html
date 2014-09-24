@@ -1,4 +1,5 @@
 {% extends "proj/base_template.html" %}
+{% load humanize %}
 
 {% block body %}
 <div scroll>
@@ -99,7 +100,7 @@
            </a>-->
         </div>
         <div class="body-text anchor map-body">
-          <div class="debt-total">{{total_amount}}</div>
+          <div class="debt-total">${{total_amount|intcomma}}</div>
           <div class="title-banner hidden-mobile">
             <img src="/static/img/map-title-banner.png" class="map-banner" />
           </div>
