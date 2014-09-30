@@ -490,7 +490,7 @@ section {
   position: fixed;
   width: 100%;
   height: 88px;
-  top: 2px;
+  top: 0px;
   font-size: 18px; }
   .banner.fadeIn, .banner:hover {
     top: 32px; }
