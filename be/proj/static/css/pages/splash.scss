@@ -92,7 +92,10 @@
   z-index: 9999999;
 
   a {
-    color: $menu-color;
+    color: rgb(134,133,148);
+    &:hover {
+      color: rgb(172,185,183);
+    }
   }
 }
 
