@@ -4,7 +4,9 @@
   @extend %sans;
   font-size: 18px;
   padding-bottom: 2em;
-
+  p {
+    @extend %serif;
+  }
   .wrapper {
     padding: 0 1em;
   }
@@ -74,24 +76,22 @@
       margin-bottom: 0.1em;
       text-indent: -1.75em;
       padding-left: 2.75em;
-
-      &:last-child {
-        background: none;
-      }
     }
   }
 
 }
 
+.centered {
+  text-align: center;
+}
 
 article {
   @extend %serif;
   margin-top: 0;
   margin: 1em 0;
-  width: 63%;
   display: inline-block;
   vertical-align: top;
-  &.answers {
+  &.answers, &.questions {
     width: 100%;
   }
 

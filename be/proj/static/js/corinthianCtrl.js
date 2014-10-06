@@ -3,7 +3,7 @@ app.controller('corinthianCtrl',
 
     $scope.visible = {};
 
-    $scope.all = false;
+    $scope.all = true;
     $scope.current = false;
     $scope.grad = false;
     $scope.attending = false;
@@ -37,10 +37,12 @@ app.controller('corinthianCtrl',
       for(key in FAQ_ANSWERS) {
         if($scope[key]) {
           for(idx in FAQ_ANSWERS[key]) {
+            $scope.all = false;
             q = FAQ_ANSWERS[key][idx];
             $scope.visible[q] = true;
           }
         }
       }
     }
+    $scope.updateVis();
 });

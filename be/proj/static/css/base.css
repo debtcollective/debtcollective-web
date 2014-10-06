@@ -12,7 +12,7 @@
   font-family: "Raleway", sans-serif;
   font-weight: 600; }
 
-article {
+#corinthian p, article {
   font-family: "rooney-web", sans-serif;
   font-weight: 400; }
 
@@ -52,7 +52,7 @@ article {
   font-family: "Raleway", sans-serif;
   font-weight: 600; }
 
-article {
+#corinthian p, article {
   font-family: "rooney-web", sans-serif;
   font-weight: 400; }
 
@@ -356,16 +356,16 @@ article {
     margin-bottom: 0.1em;
     text-indent: -1.75em;
     padding-left: 2.75em; }
-    #corinthian .questions li:last-child {
-      background: none; }
+
+.centered {
+  text-align: center; }
 
 article {
   margin-top: 0;
   margin: 1em 0;
-  width: 63%;
   display: inline-block;
   vertical-align: top; }
-  article.answers {
+  article.answers, article.questions {
     width: 100%; }
   article h2 {
     margin: 0;
