@@ -347,7 +347,7 @@
       vertical-align: middle;
       height: 1em;
       width: 1.25em; }
-  #corinthian .whatcanido h2.step-heading {
+  #corinthian .whatcanido .step-heading {
     padding-top: 2em; }
   #corinthian .questions p {
     text-indent: 0;
@@ -659,6 +659,9 @@ label {
   display: none; }
 
 @media only screen and (max-width: 600px) {
+  .half {
+    width: 100% !important; }
+
   .mobile-only {
     display: visible; }
 
