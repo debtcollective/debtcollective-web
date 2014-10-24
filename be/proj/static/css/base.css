@@ -410,6 +410,8 @@ article {
     padding: 2em;
     margin: 10px;
     display: inline-block; }
+    .letters .half h2 {
+      margin-top: 0px !important; }
     .letters .half .california {
       padding: 1em; }
     .letters .half:hover {
