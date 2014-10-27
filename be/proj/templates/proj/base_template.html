@@ -52,6 +52,14 @@
 
 </head>
 <body ng-app="myDebtIs">
+  <div class="header-links">
+    <a href="#scroll" du-scrollspy>left or debt? </a>
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+      <a href="#learn" ng-click="learnMore=true" du-scrollspy du-smooth-scroll>information </a>
+      &nbsp;&nbsp;  |  &nbsp;&nbsp;
+      <a du-scrollspy href="/corinthian/">corinthian students</a>
+
+  </div>
   {% block body %}{% endblock %}
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   <script>

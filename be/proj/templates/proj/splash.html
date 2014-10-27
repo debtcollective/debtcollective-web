@@ -3,15 +3,6 @@
 
 {% block body %}
 <div scroll>
-  <div class="header-links">
-    <a href="#scroll" du-scrollspy>debt-collective </a>
-    &nbsp;&nbsp; <span class="hidden-mobile">|
-    &nbsp;&nbsp;<a href="#map" du-scrollspy du-smooth-scroll>map</a>
-    &nbsp;&nbsp; | &nbsp;&nbsp;<a href="#learn" ng-click="learnMore=true"  du-scrollspy du-smooth-scroll>information </a>
-     &nbsp;&nbsp;  |  &nbsp;&nbsp; <a du-scrollspy du-smooth-scroll href="#background">background</a></span>
-    &nbsp;&nbsp;  |  &nbsp;&nbsp;  <a href="/corinthian/">corinthian students</a>
-
-  </div>
   <div id="scroll" ng-controller="splashCtrl"
     ng-class="{mainstate: yLoc >= amountToScroll}">
     <div id="scrollthing" ng-style="scrollThingStyle" style="max-height: 2000px">
@@ -170,13 +161,7 @@
             </div>
         </section>
       </section>
-    </div>
-    <div class="banner" ng-class="{fadeIn: bannerFadeInTimeout && yLoc == 0}">
-      <div class="text">
-        <a href="/corinthian/" target="_blank" class="button">If you are or were an Everest, Wyo Tech, or Heald student, click here.</a>
-        </p>
-      </div>
-    </div>
+  </div>
 
     {% include "proj/form.html" %}
 </div>

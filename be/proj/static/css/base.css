@@ -1,26 +1,18 @@
-#scroll, #corinthian, #corinthian .questions, article h2, aside .button {
+#scroll {
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-#scroll input[type="text"], #scroll input[type="email"], #scroll button, #corinthian .wrapper .button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
+#scroll input[type="text"], #scroll input[type="email"], #scroll button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px; }
 
-.nav-footer .dc-input #receiver, .intro-text, .body-text, h1, h2 {
+.nav-footer .dc-input #receiver, .intro-text, p, .body-text, h1, h2 {
   font-family: "Raleway", sans-serif;
   font-weight: 600; }
 
-#corinthian p, article {
-  font-family: "rooney-web", sans-serif;
-  font-weight: 400; }
-
-#corinthian .wrapper h1, article h3 {
-  font-family: "calluna", serif;
-  font-weight: 600; }
-
-#scroll input[type="text"], #scroll input[type="email"], #scroll button, #corinthian .wrapper .button {
+#scroll input[type="text"], #scroll input[type="email"], #scroll button {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -32,29 +24,25 @@
   text-decoration: none;
   position: relative;
   float: left; }
-  #scroll input[type="text"]:hover, #scroll input[type="email"]:hover, #scroll button:hover, #corinthian .wrapper .button:hover {
+  #scroll input[type="text"]:hover, #scroll input[type="email"]:hover, #scroll button:hover {
     background-color: #861800; }
-  #scroll input[type="text"]:focus, #scroll input[type="email"]:focus, #scroll button:focus, #corinthian .wrapper .button:focus {
+  #scroll input[type="text"]:focus, #scroll input[type="email"]:focus, #scroll button:focus {
     outline: 0px;
     outline-offset: 0px; }
 
-#scroll, #corinthian, #corinthian .questions, article h2, aside .button {
+#scroll {
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-#scroll input[type="text"], #scroll input[type="email"], #scroll button, #corinthian .wrapper .button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
+#scroll input[type="text"], #scroll input[type="email"], #scroll button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px; }
 
-.nav-footer .dc-input #receiver, .intro-text, .body-text, h1, h2 {
+.nav-footer .dc-input #receiver, .intro-text, p, .body-text, h1, h2 {
   font-family: "Raleway", sans-serif;
   font-weight: 600; }
-
-#corinthian p, article {
-  font-family: "rooney-web", sans-serif;
-  font-weight: 400; }
 
 .close-button {
   float: right;
@@ -157,7 +145,7 @@
     bottom: 0;
     position: absolute;
     width: 100%;
-    color: #868f94;
+    color: #110d21;
     padding: 10px;
     cursor: pointer;
     z-index: 1000; }
@@ -305,48 +293,13 @@
     width: 100%; }
 
 #corinthian {
-  background-color: #eee;
-  border-top: 0.5em solid #3d72a6;
-  font-size: 18px;
-  padding-bottom: 2em; }
-  #corinthian .wrapper {
-    padding: 0 1em; }
-  #corinthian header {
-    background-color: #caced2;
-    padding: 2.5em 0 1.5em;
-    margin-bottom: 2em; }
-    #corinthian header a {
-      border-bottom-color: #bdc1c6; }
-      #corinthian header a:hover {
-        border-bottom-color: #afb4ba; }
-  #corinthian .wrapper {
-    max-width: 960px;
-    background: none; }
-    #corinthian .wrapper h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-      color: #313539;
-      letter-spacing: 0; }
-    #corinthian .wrapper a {
-      color: #3d72a6;
-      border-bottom: 0.15em solid #ddd;
-      -webkit-transition: all 0.15s ease-in-out;
-      -moz-transition: all 0.15s ease-in-out;
-      -ms-transition: all 0.15s ease-in-out;
-      -o-transition: all 0.15s ease-in-out;
-      transition: all 0.15s ease-in-out; }
-      #corinthian .wrapper a:hover {
-        border-color: #ccc; }
-    #corinthian .wrapper .button {
-      margin: 0;
-      text-transform: uppercase;
-      color: #fff; }
-    #corinthian .wrapper input[type="checkbox"], #corinthian .wrapper input[type="radio"] {
-      display: inline-block;
-      margin-right: 0.5em;
-      vertical-align: middle;
-      height: 1em;
-      width: 1.25em; }
+  background-color: #110d21; }
+  #corinthian .wrapper input[type="checkbox"], #corinthian .wrapper input[type="radio"] {
+    display: inline-block;
+    margin-right: 0.5em;
+    vertical-align: middle;
+    height: 1em;
+    width: 1.25em; }
   #corinthian .whatcanido .step-heading {
     padding-top: 2em; }
   #corinthian .questions p {
@@ -357,41 +310,11 @@
     padding: 1em;
     margin-bottom: 0.1em;
     text-indent: -1.75em;
-    padding-left: 2.75em; }
+    padding-left: 2.75em;
+    text-align: left; }
 
-.centered {
-  text-align: center; }
-
-article {
-  margin-top: 0;
-  margin: 1em 0;
-  display: inline-block;
-  vertical-align: top; }
-  article.answers, article.questions {
-    width: 100%; }
-  article h2 {
-    text-align: left;
-    font-weight: normal;
-    font-size: 1.25em;
-    margin: 2em 0;
-    background: url(../img/highlight.png) no-repeat;
-    background-size: 100% 1em;
-    display: inline-block; }
-  article p {
-    margin-bottom: 0;
-    margin-top: 22px; }
-  article ul.list {
-    margin-bottom: 10px;
-    list-style: initial; }
-    article ul.list li {
-      margin-left: 25px; }
-  article h3 {
-    font-size: 1.33em;
-    line-height: 1.2em;
-    margin: 2em 0 0.5em;
-    color: #2f5881; }
-  article h3 + p {
-    text-indent: 0; }
+.corinthian-title {
+  padding-top: 44px; }
 
 .letters {
   margin: 1em auto;
@@ -399,11 +322,6 @@ article {
   .letters a {
     border-bottom: none !important; }
   .letters .half {
-    -webkit-transition: all 0.25s ease-in-out;
-    -moz-transition: all 0.25s ease-in-out;
-    -ms-transition: all 0.25s ease-in-out;
-    -o-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
     border: .15em solid #ddd;
     width: 40%;
     max-height: 400px;
@@ -426,43 +344,6 @@ hr {
   min-width: 100px;
   max-width: 250px; }
 
-aside {
-  display: inline-block;
-  vertical-align: top;
-  background-color: #3d72a6;
-  width: 33%;
-  margin-left: 3%;
-  padding: 2em;
-  color: #fff;
-  line-height: 1.4em;
-  font-size: 0.95em; }
-  aside h2 {
-    font-size: 1.5em;
-    margin-bottom: 0.75em;
-    margin-top: 0; }
-  aside .button {
-    background-color: #2f5881;
-    padding: 0.75em 1em;
-    margin-top: 1em; }
-    aside .button:hover {
-      color: #fff;
-      background-color: #284c6e; }
-
-@media screen and (max-width: 600px) {
-  #corinthian {
-    font-size: 17px;
-    line-height: 1.5em; }
-    #corinthian header {
-      margin-bottom: 1em; }
-    #corinthian h1 {
-      font-size: 2em; }
-    #corinthian article h2 {
-      font-size: 1.1em; }
-    #corinthian article, #corinthian aside {
-      width: 100%; }
-    #corinthian aside {
-      margin-left: 0;
-      margin-top: 2em; } }
 ::-webkit-input-placeholder {
   color: #ccaa2d; }
 
@@ -498,17 +379,17 @@ body {
 section {
   width: 100%; }
 
-.body-text {
+p, .body-text {
   position: relative;
   margin: 0px auto;
   line-height: 34px; }
-  .body-text.map-body {
+  p.map-body, .body-text.map-body {
     margin-top: -78px;
     padding-top: 0; }
-  .body-text .title-banner {
+  p .title-banner, .body-text .title-banner {
     text-align: center;
     padding-bottom: 22px; }
-  .body-text p {
+  p p, .body-text p {
     letter-spacing: 1.25px;
     margin-bottom: 22px; }
 
@@ -543,6 +424,9 @@ h1 {
   font-weight: 100;
   letter-spacing: 5px; }
 
+.centered {
+  text-align: center; }
+
 h2 {
   font-size: 20px;
   line-height: 30px;
@@ -560,7 +444,7 @@ h2 {
   margin: 0 auto; }
   .wrapper.light {
     color: #39413f !important;
-    background-color: rgba(254, 255, 232, 0.8); }
+    background-color: #f1eee2; }
 
 div {
   max-width: 100%; }

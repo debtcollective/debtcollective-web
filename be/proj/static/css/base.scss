@@ -49,7 +49,7 @@ section {
   width: 100%;
 }
 
-.body-text {
+p, .body-text {
   @extend %rale;
   position: relative;
   margin: 0px auto;
@@ -110,6 +110,11 @@ h1 {
 }
 
 
+.centered {
+  text-align: center;
+}
+
+
 h2 {
   @extend %rale;
   font-size: 20px;
@@ -131,7 +136,7 @@ h2 {
 
   &.light {
     color:  #39413f !important;
-    background-color: rgba(254,255,232,.8);
+    background-color: #f1eee2;
   }
 }
 

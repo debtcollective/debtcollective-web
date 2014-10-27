@@ -2,36 +2,29 @@
 
 {% block body %}
 <div ng-controller="corinthianCtrl" id="corinthian">
-
-    <header><div class="wrapper">
-
-        <h1>Information for Corinthian Students</h1>
-
-        <a href="/">&larr; Back to the Debt Collective</a>
-
-    </div></header>
-    <div class="wrapper">
-            <h1 class="centered">Do you have federal or private student debt from Corinthian Colleges? </h1>
-
-        <article>
+    <div class="wrapper light">
+        <h3 class="corinthian-title">
+            What you should know if you are or were an Everest, WYO Tech, or Heald student (of Corinthian Colleges) with federal or private student debt.
+        </h3>
+        <div class="body-text">
          <p>
-                Corinthian (Everest, Heald, and WyoTech) is failing... Corinthian is a scam school that relies on massive amounts of federal funding.
-                </p>
-                <h2>Who profits from the scam?</h2>
-                <ul class="list">
-                    <li>Wells Fargo (Corinthian’s largest investor)</li>
-                    <li>The Department of Education</li>
-                    <li>Wealthy investors</li>
-                    <li>Lenders like Genesis and ASFG</li>
-                    <li>Debt collectors</li>
-                </ul>
-                 <p>
-                    Corinthian has been under investigation for years. These criminals should be held accountable. The Department of Education is refusing to do its job and protect students. The Corinthian Collective offers you both individual resources and a platform to come together to demand what is rightly yours: debt discharge and free education.
-                </p>
-        </article>
-            <hr>
-        <div class="whatcanido">
-            <h1 class="centered">What can I do?</h1>
+            Corinthian (Everest, Heald, and WyoTech) is failing... Corinthian is a scam school that relies on massive amounts of federal funding.
+            </p>
+            <h2>Who profits from the scam?</h2>
+            <ul>
+                <li>Wells Fargo (Corinthian’s largest investor)</li>
+                <li>The Department of Education</li>
+                <li>Wealthy investors</li>
+                <li>Lenders like Genesis and ASFG</li>
+                <li>Debt collectors</li>
+            </ul>
+             <p>
+                Corinthian has been under investigation for years. These criminals should be held accountable. The Department of Education is refusing to do its job and protect students. The Corinthian Collective offers you both individual resources and a platform to come together to demand what is rightly yours: debt discharge and free education.
+            </p>
+        </div>
+        <hr>
+        <div class="whatcanido body-text">
+            <h2>What can I do?</h2>
             <h2 class="step-heading">
                 <a href="http://www.consumerfinance.gov/complaint/#student-loan" target="blank">
                     Step 1: file a complaint
@@ -46,7 +39,7 @@
             <p>
             Is a debt collector contacting you about your Genesis loans? If so, fill in, print, and mail this form letter. This letter will force the debt collector to prove they own your loans, and get them off your back in the short term.
             </p>
-            <h3 class="step-heading centered"> Where do you live?</h3>
+            <p> Where do you live?</p>
             <div class="letters">
             <a href="https://www.dropbox.com/s/xu0p287uy6tioec/Genesis%20Dispute%20CALIFORNIA.doc?dl=0" target="_blank">
                 <div class="half">
@@ -94,10 +87,9 @@
                     target="_blank" >Join the Everest Avengers.</a></p>
         </div>
         <hr>
-        <form class="questions">
-            <h1 class="centered">FAQ</h1>
-            <h3 class="centered">Select any statements to only show answers that are relevant to you.</h3>
-            <br>
+        <form class="questions body-text">
+            <h2>FAQ</h2>
+            <p>Select any statements to only show answers that are relevant to you.</p>
             <ul>
                 <li><input type="checkbox" name="faq" ng-model="current" ng-change="updateVis()" value="false"> I am a current student at a Corinthian college.
                 </li>
@@ -122,11 +114,13 @@
                 <li><input type="checkbox" name="faq" ng-model="genesis" ng-change="updateVis()" value="false">I have questions about my Genesis loans.</li>
             </ul>
         </form>
-    <article class="answers">
+        <article class="answers body-text">
 
         <div id="1" ng-show="isVisible(1)" class="faq-answer">
           <h3>Are degrees from Everest and other Corinthian colleges a good investment?</h3>
+          <p>
           No. Research has shown that students who attend for-profit colleges make no more money, on average, than people who only completed high school. There may be cases in which graduates are able to get a high paying job with an Everest degree, but these are the exceptions and not the rule. Attending Everest &mdash; or any for-profit college &mdash; is not a good financial investment.
+          </p>
         </div>
 
         <div id="2" ng-show="isVisible(2)" class="faq-answer">

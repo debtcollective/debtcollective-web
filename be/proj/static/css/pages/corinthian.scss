@@ -1,58 +1,7 @@
 #corinthian {
-  background-color: #eee;
-  border-top: 0.5em solid $fb-blue;
-  @extend %sans;
-  font-size: 18px;
-  padding-bottom: 2em;
-  p {
-    @extend %serif;
-  }
+  background-color: $dark-blue;
+
   .wrapper {
-    padding: 0 1em;
-  }
-
-  header {
-    background-color: lighten($mid-grey, 20%);
-    padding: 2.5em 0 1.5em;
-    margin-bottom: 2em;
-
-    a {
-      border-bottom-color: lighten($mid-grey, 15%);
-
-      &:hover {
-        border-bottom-color: lighten($mid-grey, 10%);
-      }
-    }
-  }
-  .wrapper {
-    max-width: 960px;
-    background: none;
-
-    h1 {
-      @extend %calluna;
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-      color: $dark-grey;
-      letter-spacing: 0;
-    }
-
-    a {
-      color: $fb-blue;
-      border-bottom: 0.15em solid #ddd;
-      @include transition(all, 0.15s);
-
-      &:hover {
-        border-color: #ccc;
-      }
-    }
-
-    .button {
-      @extend %button;
-      margin: 0;
-      text-transform: uppercase;
-      color: #fff;
-    }
-
     input[type="checkbox"], input[type="radio"] {
       display: inline-block;
       margin-right: 0.5em;
@@ -69,8 +18,6 @@
   }
 
   .questions {
-    @extend %sans;
-
     p {
       text-indent: 0;
       margin-bottom: 1.25em;
@@ -82,60 +29,14 @@
       margin-bottom: 0.1em;
       text-indent: -1.75em;
       padding-left: 2.75em;
+      text-align: left;
     }
   }
-
 }
 
-.centered {
-  text-align: center;
-}
+.corinthian-title {
+  padding-top: 44px;
 
-article {
-  @extend %serif;
-  margin-top: 0;
-  margin: 1em 0;
-  display: inline-block;
-  vertical-align: top;
-  &.answers, &.questions {
-    width: 100%;
-  }
-
-  h2 {
-    @extend %sans;
-    text-align: left;
-    font-weight: normal;
-    font-size: 1.25em;
-    margin: 2em 0;
-    background: url(../img/highlight.png) no-repeat;
-    background-size: 100% 1em;
-    display: inline-block;
-  }
-
-  p {
-    margin-bottom: 0;
-    margin-top: 22px;
-  }
-
-  ul.list {
-    margin-bottom: 10px;
-    list-style: initial;
-    li {
-      margin-left: 25px;
-    }
-  }
-
-  h3 {
-    @extend %calluna;
-    font-size: 1.33em;
-    line-height: 1.2em;
-    margin: 2em 0 0.5em;
-    color: darken($fb-blue, 10%);
-  }
-
-  h3 + p {
-    text-indent: 0;
-  }
 }
 
 .letters {
@@ -147,13 +48,13 @@ article {
   }
 
   .half {
-    @include transition();
     border: .15em solid #ddd;
     width: 40%;
     max-height: 400px;
     padding: 2em;
     margin: 10px;
     display: inline-block;
+
     h2 {
       margin-top: 0px !important;
     }
@@ -179,70 +80,4 @@ hr {
   margin: 4em auto;
   min-width: 100px;
   max-width: 250px;
-}
-
-aside {
-  display: inline-block;
-  vertical-align: top;
-  background-color: $fb-blue;
-  width: 33%;
-  margin-left: 3%;
-  padding: 2em;
-  color: #fff;
-  line-height: 1.4em;
-  font-size: 0.95em;
-
-  h2 {
-    font-size: 1.5em;
-    margin-bottom: 0.75em;
-    margin-top: 0;
-  }
-  .button {
-    background-color: darken($fb-blue, 10%);
-    padding: 0.75em 1em;
-    margin-top: 1em;
-    @extend %sans;
-
-    &:hover {
-      color: #fff;
-      background-color: darken($fb-blue, 15%);
-    }
-  }
-}
-
-
-@media screen and (max-width: 600px) {
-
-	#corinthian {
-	  font-size: 17px;
-	  line-height: 1.5em;
-
-	  // header, article {
-	  //  padding: 2em 1em 1em;
-	  // }
-
-	  header {
-	    margin-bottom: 1em;
-	  }
-
-	  h1 {
-	    font-size: 2em;
-	  }
-
-	  article {
-	    h2 {
-	      font-size: 1.1em;
-	    }
-	  }
-
-	  article, aside {
-	    width: 100%;
-	  }
-
-	  aside {
-	    margin-left: 0;
-	    margin-top: 2em;
-	  }
-	}
-
 }
