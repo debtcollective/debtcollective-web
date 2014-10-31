@@ -55,6 +55,14 @@ p, .body-text {
   margin: 0px auto;
   line-height: 34px;
 
+  ul {
+    padding-left: 40px;
+  }
+
+  li {
+    list-style: initial;
+  }
+
   &.map-body {
     margin-top: -78px;
     padding-top: 0;
@@ -129,6 +137,14 @@ h2 {
   }
 }
 
+h3 {
+  @extend %rale;
+  font-size: 20px;
+  line-height: 37px;
+  margin-bottom: 22px;
+  margin-top: 44px;
+  letter-spacing: 4.5px;
+}
 .wrapper {
   background-color: $off-grey;
   position: relative;

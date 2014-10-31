@@ -8,7 +8,7 @@
   font-size: 16px;
   line-height: 20px; }
 
-.nav-footer .dc-input #receiver, .intro-text, p, .body-text, h1, h2 {
+.nav-footer .dc-input #receiver, .intro-text, p, .body-text, h1, h2, h3 {
   font-family: "Raleway", sans-serif;
   font-weight: 600; }
 
@@ -40,7 +40,7 @@
   font-size: 16px;
   line-height: 20px; }
 
-.nav-footer .dc-input #receiver, .intro-text, p, .body-text, h1, h2 {
+.nav-footer .dc-input #receiver, .intro-text, p, .body-text, h1, h2, h3 {
   font-family: "Raleway", sans-serif;
   font-weight: 600; }
 
@@ -311,7 +311,8 @@
     margin-bottom: 0.1em;
     text-indent: -1.75em;
     padding-left: 2.75em;
-    text-align: left; }
+    text-align: left;
+    list-style: none; }
 
 .corinthian-title {
   padding-top: 44px; }
@@ -383,6 +384,10 @@ p, .body-text {
   position: relative;
   margin: 0px auto;
   line-height: 34px; }
+  p ul, .body-text ul {
+    padding-left: 40px; }
+  p li, .body-text li {
+    list-style: initial; }
   p.map-body, .body-text.map-body {
     margin-top: -78px;
     padding-top: 0; }
@@ -437,6 +442,13 @@ h2 {
   letter-spacing: 4.5px; }
   h2:nth-child(0) {
     margin-top: 0px; }
+
+h3 {
+  font-size: 20px;
+  line-height: 37px;
+  margin-bottom: 22px;
+  margin-top: 44px;
+  letter-spacing: 4.5px; }
 
 .wrapper {
   background-color: #39413f;
