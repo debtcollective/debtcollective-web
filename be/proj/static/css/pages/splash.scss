@@ -27,6 +27,7 @@
 }
 
 .nav-footer {
+  @extend %mono;
   background-color: $olive;
   @include frame-transition();
   color: $olive-yellow;
