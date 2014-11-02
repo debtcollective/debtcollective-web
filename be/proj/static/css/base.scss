@@ -81,7 +81,7 @@ p, .body-text {
 
 $banner-height: 32px;
 .banner {
-  @include frame-transition();
+  //@include frame-transition();
   z-index: 9999990;
   font-family: "Cutive mono";
   position: fixed;

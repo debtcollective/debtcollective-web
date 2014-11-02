@@ -176,7 +176,6 @@
     }
   }
   .images {
-    @include transition(opacity, 1s, ease);
     @include transition(background-color, 1s, ease);
     height: 2900px;
     margin: auto;
@@ -190,11 +189,9 @@
       opacity: 0;
       width: 100%;
       text-align: center;
-      @include transition(opacity, 1s, ease);
     }
 
     .pane {
-      @include transition(opacity, 1s, ease);
       top: 50%;
       width: 100%;
       position: fixed;

@@ -185,11 +185,6 @@
   #scroll.mainstate .nav-footer {
     bottom: -200px; }
   #scroll .images {
-    -webkit-transition: opacity 1s ease;
-    -moz-transition: opacity 1s ease;
-    -ms-transition: opacity 1s ease;
-    -o-transition: opacity 1s ease;
-    transition: opacity 1s ease;
     -webkit-transition: background-color 1s ease;
     -moz-transition: background-color 1s ease;
     -ms-transition: background-color 1s ease;
@@ -202,18 +197,8 @@
     #scroll .images div {
       opacity: 0;
       width: 100%;
-      text-align: center;
-      -webkit-transition: opacity 1s ease;
-      -moz-transition: opacity 1s ease;
-      -ms-transition: opacity 1s ease;
-      -o-transition: opacity 1s ease;
-      transition: opacity 1s ease; }
+      text-align: center; }
     #scroll .images .pane {
-      -webkit-transition: opacity 1s ease;
-      -moz-transition: opacity 1s ease;
-      -ms-transition: opacity 1s ease;
-      -o-transition: opacity 1s ease;
-      transition: opacity 1s ease;
       top: 50%;
       width: 100%;
       position: fixed;
@@ -399,11 +384,6 @@ p, .body-text {
     margin-bottom: 22px; }
 
 .banner {
-  -webkit-transition: all 0.75s ease;
-  -moz-transition: all 0.75s ease;
-  -ms-transition: all 0.75s ease;
-  -o-transition: all 0.75s ease;
-  transition: all 0.75s ease;
   z-index: 9999990;
   font-family: "Cutive mono";
   position: fixed;
