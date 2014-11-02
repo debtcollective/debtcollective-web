@@ -109,8 +109,15 @@ h1 {
   color: #feffe8;
   font-weight: 100;
   letter-spacing: 5px;
+
 }
 
+.quote {
+  transform: translateY(-25%);
+  top: 25%;
+  position: absolute;
+  padding: 2em;
+}
 
 .centered {
   text-align: center;
