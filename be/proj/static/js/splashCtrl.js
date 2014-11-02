@@ -3,13 +3,13 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document, $time
     $scope.email = null;
     $scope.username = null;
     $scope.location = null;
+    $scope.newsletter = true;
     $scope.debtType = null;
     $scope.amount = null;
     $scope.showForm = false;
     $scope.formSubmitted = false;
 
-    $scope.startShowingFormLoc = 3100;
-    $scope.stopShowingFormLoc = 3500;
+    $scope.startShowingFormLoc = 4300;
 
     $http.get('/points/').then(function (resp) {
         $scope.cities = resp.data
@@ -31,9 +31,10 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document, $time
     }
 
     $scope.formVisible = function () {
-        return ($scope.showForm || ($scope.yLoc > $scope.startShowingFormLoc
-            && $scope.yLoc < $scope.stopShowingFormLoc))
-            && !$scope.forceClose && !$scope.formSubmitted ;
+        visible = ($scope.showForm || $scope.yLoc > $scope.startShowingFormLoc)
+            && !$scope.forceClose && !$scope.formSubmitted;
+        if (visible) { $scope.emailFocus() };
+        return visible
     }
 
     $scope.emailFocus = function () {

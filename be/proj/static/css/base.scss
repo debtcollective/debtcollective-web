@@ -5,17 +5,11 @@
 @import "pages/corinthian";
 
 
-::-webkit-input-placeholder {
-  color: $olive-yellow;
-}
-:-moz-placeholder { /* Firefox 18- */
-   color: $olive-yellow;
-}
-::-moz-placeholder {  /* Firefox 19+ */
-   color: $olive-yellow;
-}
-:-ms-input-placeholder {
-   color: $olive-yellow;
+::-webkit-input-placeholder,
+:-moz-placeholder,  /* Firefox 18- */
+::-moz-placeholder,  /* Firefox 19+ */
+:-ms-input-placeholder{
+  color: $light-text-color;
 }
 
 button {
@@ -146,13 +140,13 @@ h3 {
   letter-spacing: 4.5px;
 }
 .wrapper {
-  background-color: $off-grey;
+  background-color: $dark-background-color;
   position: relative;
   margin: 0 auto;
 
   &.light {
-    color:  #39413f !important;
-    background-color: #f1eee2;
+    color:  $light-text-color;
+    background-color: $light-background-color;
   }
 }
 

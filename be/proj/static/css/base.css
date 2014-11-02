@@ -2,47 +2,36 @@
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-#scroll input[type="text"], #scroll input[type="email"], #scroll button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
+button, input[type="text"], input[type="email"], .nav-footer, .splash .splash-footer, .debt-total, body, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px; }
 
-.nav-footer .dc-input #receiver, .intro-text, p, .body-text, h1, h2, h3 {
+.intro-text, p, .body-text, h1, h2, h3 {
   font-family: "Raleway", sans-serif;
   font-weight: 600; }
 
-#scroll input[type="text"], #scroll input[type="email"], #scroll button {
+button {
+  color: #b6bea7; }
+  button:hover {
+    background-color: #861800; }
+
+button, input[type="text"], input[type="email"] {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   margin: 8px;
+  width: 100%;
   border: 0;
-  color: #b6bea7;
   text-decoration: none;
   position: relative;
   float: left; }
-  #scroll input[type="text"]:hover, #scroll input[type="email"]:hover, #scroll button:hover {
-    background-color: #861800; }
-  #scroll input[type="text"]:focus, #scroll input[type="email"]:focus, #scroll button:focus {
+  button:focus, input[type="text"]:focus, input[type="email"]:focus {
     outline: 0px;
     outline-offset: 0px; }
-
-#scroll {
-  font-family: "calluna-sans", sans-serif;
-  font-weight: 600; }
-
-#scroll input[type="text"], #scroll input[type="email"], #scroll button, .splash .splash-footer, .debt-total, body, .dropdown-menu {
-  font-family: "Cutive mono", serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 20px; }
-
-.nav-footer .dc-input #receiver, .intro-text, p, .body-text, h1, h2, h3 {
-  font-family: "Raleway", sans-serif;
-  font-weight: 600; }
 
 .close-button {
   float: right;
@@ -50,8 +39,7 @@
   padding: 5px;
   cursor: pointer; }
 
-#scroll input[type="text"], #scroll input[type="email"], #scroll button {
-  width: 100%;
+button {
   background-color: #861800; }
 
 /** NAVIGATION **/
@@ -63,24 +51,25 @@
   padding: 10px; }
 
 .nav-footer {
-  background-color: rgba(2, 2, 2, 0.8);
   -webkit-transition: all 0.75s ease;
   -moz-transition: all 0.75s ease;
   -ms-transition: all 0.75s ease;
   -o-transition: all 0.75s ease;
   transition: all 0.75s ease;
-  color: #ccaa2d;
+  border-top: 1px solid #39413f;
   z-index: 99999;
   position: fixed;
   right: 0;
   width: 100%;
   min-height: 266px;
-  bottom: -266px; }
+  bottom: -266px;
+  color: #39413f;
+  background-color: #f1eee2; }
   .nav-footer input {
-    color: #ccaa2d;
+    color: #39413f;
     text-align: left;
     height: 44px;
-    border-bottom: 1px solid #ccaa2d !important;
+    border-bottom: 1px solid #39413f !important;
     background-color: inherit !important; }
   .nav-footer.visible {
     bottom: 0px !important; }
@@ -330,19 +319,11 @@ hr {
   min-width: 100px;
   max-width: 250px; }
 
-::-webkit-input-placeholder {
-  color: #ccaa2d; }
-
-:-moz-placeholder {
-  /* Firefox 18- */
-  color: #ccaa2d; }
-
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #ccaa2d; }
-
+::-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder,
 :-ms-input-placeholder {
-  color: #ccaa2d; }
+  color: #39413f; }
 
 button {
   text-align: center; }
@@ -435,7 +416,7 @@ h3 {
   position: relative;
   margin: 0 auto; }
   .wrapper.light {
-    color: #39413f !important;
+    color: #39413f;
     background-color: #f1eee2; }
 
 div {

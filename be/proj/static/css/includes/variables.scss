@@ -16,6 +16,10 @@ $dark-blue:     rgb(17,13,33); //110d21
 $linkblue:      #3d72a6;
 $maroon:        rgb(32,18,25);
 
+$dark-background-color: $off-grey;
+$light-background-color: #f1eee2;
+$light-text-color: $off-grey;
+
 $dark-red:    #861800;
 $pink-red:         #eb1020;
 $light-red:   lighten($pink-red, 5%);
@@ -29,36 +33,3 @@ $footer-height: 41px;
 
 $text:      $link-light;
 $rule:      desaturate(lighten($mid-grey, 20%), 30%);
-
-
-%sans {
-    // font-family: "camingodos-web", sans-serif;
-    font-family: "calluna-sans", sans-serif;
-    font-weight: 600;
-}
-
-
-%mono {
-    font-family: "Cutive mono", serif;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
-}
-
-%rale {
-    font-family: "Raleway", sans-serif;
-    font-weight: 600;
-}
-
-%serif {
-    font-family: "rooney-web", sans-serif;
-    font-weight: 400;
-}
-
-%button-lg {
-    @extend %button;
-    font-size: 1.2em;
-    font-weight: 600;
-    padding: 1em 3em;
-    border-width: 0.2em;
-}

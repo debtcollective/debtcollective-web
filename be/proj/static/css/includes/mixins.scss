@@ -14,6 +14,38 @@
   background-color: rgba(17,13,33,.7);
 }
 
+%sans {
+    // font-family: "camingodos-web", sans-serif;
+    font-family: "calluna-sans", sans-serif;
+    font-weight: 600;
+}
+
+
+%mono {
+    font-family: "Cutive mono", serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+%rale {
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+}
+
+%serif {
+    font-family: "rooney-web", sans-serif;
+    font-weight: 400;
+}
+
+%button-lg {
+    @extend %button;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 1em 3em;
+    border-width: 0.2em;
+}
+
 
 %calluna {
     font-family: "calluna", serif;
@@ -21,18 +53,23 @@
 }
 
 %button {
-  @include transition();
-  @extend %mono;
-  margin: 8px;
-  border: 0;
+  @extend %input;
   color: $text;
-  text-decoration: none;
-  position: relative;
-  float: left;
 
   &:hover {
     background-color: $dark-red;
   }
+}
+
+%input {
+  @include transition();
+  @extend %mono;
+  margin: 8px;
+  width: 100%;
+  border: 0;
+  text-decoration: none;
+  position: relative;
+  float: left;
 
   &:focus {
     outline: 0px;

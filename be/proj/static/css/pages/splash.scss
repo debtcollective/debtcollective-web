@@ -7,15 +7,13 @@
   cursor: pointer;
 }
 
-#scroll {
-  input[type="text"], input[type="email"], button {
-    @extend %button;
-    @extend %mono;
-    width: 100%;
-    background-color: $dark-red;
-  }
+button {
+  @extend %button;
+  background-color: $dark-red;
 }
-
+input[type="text"], input[type="email"] {
+  @extend %input;
+}
 /** NAVIGATION **/
 .navigation {
     border-bottom: 1px solid black;
@@ -28,21 +26,22 @@
 
 .nav-footer {
   @extend %mono;
-  background-color: $olive;
   @include frame-transition();
-  color: $olive-yellow;
+  border-top: 1px solid $light-text-color;
   z-index: 99999;
   position: fixed;
   right: 0;
   width: 100%;
   min-height: 266px;
   bottom: -266px;
+  color:  $light-text-color;
+  background-color: $light-background-color;
 
   input {
-    color: $olive-yellow;
+    color: $light-text-color;
     text-align: left;
     height: 44px;
-    border-bottom: 1px solid #ccaa2d !important;
+    border-bottom: 1px solid $light-text-color !important;
     background-color: inherit !important;
   }
 
@@ -57,7 +56,6 @@
     #receiver {
       text-align: center;
       padding: 10px;
-      @extend %rale;
     }
 
     form {
