@@ -151,17 +151,23 @@ h3 {
   position: relative;
   margin: 0 auto;
 
+  h1 {
+    border-bottom: $dark-text-color 1px solid;
+    margin-top: 44px;
+    margin-bottom: 22px;
+    padding-bottom: 5px;
+    color: $dark-text-color;
+  }
+
   &.light {
     color:  $light-text-color;
     background-color: $light-background-color;
+    h1 {
+      color: $light-text-color;
+      border-bottom: $light-text-color 1px solid;
+    }
   }
-  h1 {
-    margin-top: 44px;
-    margin-bottom: 22px;
-    color: $light-text-color;
-    padding-bottom: 5px;
-    border-bottom: $light-text-color 1px solid;
-  }
+
 }
 
 div {

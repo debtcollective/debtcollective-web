@@ -430,15 +430,18 @@ h3 {
   background-color: #39413f;
   position: relative;
   margin: 0 auto; }
+  .wrapper h1 {
+    border-bottom: #f1eee2 1px solid;
+    margin-top: 44px;
+    margin-bottom: 22px;
+    padding-bottom: 5px;
+    color: #f1eee2; }
   .wrapper.light {
     color: #39413f;
     background-color: #f1eee2; }
-  .wrapper h1 {
-    margin-top: 44px;
-    margin-bottom: 22px;
-    color: #39413f;
-    padding-bottom: 5px;
-    border-bottom: #39413f 1px solid; }
+    .wrapper.light h1 {
+      color: #39413f;
+      border-bottom: #39413f 1px solid; }
 
 div {
   max-width: 100%; }
