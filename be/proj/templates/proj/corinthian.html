@@ -2,6 +2,20 @@
 
 {% block body %}
 <div scroll ng-controller="corinthianCtrl">
+
+  <div class="header-links hidden-mobile">
+      <a href="/#scroll" target="_blank" du-scrollspy>debt collective</a>
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+      <a class="underline" href="#nov4" target="_blank" du-scrollspy du-smooth-scroll>#n4doe </a>
+      &nbsp;&nbsp;  |  &nbsp;&nbsp;
+      <a href="http://www2.ed.gov/policy/highered/reg/hearulemaking/2015/index.html" target="_blank">hearing information</a>
+  </div>
+
+  <div class="header-links mobile-only centered">
+      <a href="/#scroll" target="_blank" du-scrollspy>debt collective</a>
+      <hr>
+    <a href="http://www2.ed.gov/policy/highered/reg/hearulemaking/2015/index.html" target="_blank" du-scrollspy>the hearing</a>
+  </div>
     <section class="splash corinthian" ng-class="{hidden : yLoc > 5}">
         <div class="splash-text">
             <h1>Corinthian Colleges are collapsing.</h1>
@@ -12,7 +26,7 @@
       </div>
       </section>
       <div class="splash-footer" ng-click="scrollClick()">
-        scroll to fight back
+        scroll to learn more
       </div>
     </section>
 
@@ -48,22 +62,106 @@
             <p>
                 Corinthian has been under investigation for years. These criminals should be held accountable. The Department of Education is refusing to do its job and protect students.
             </p>
+
             </div>
         </div>
-    <div  class="wrapper light">
+    <div id="nov4" class="wrapper light">
         <div class="body-text">
-            <h1 class="corinthian-title">Corinthian at the Department of Education, November 4th</h1>
+            <h2 class="corinthian-title">
+            Live: debt collective @ the Department of Education Public Hearing
+            </h2>
 
-            <p>The Debt Collective tech team created this page so that those of us who can't be in Anaheim in person can be there virtually. This website will go live an hour before the hearing with a livestream, chat, social media links, DoE twitter bomb and other virtual actions. Everyone who wants to support Corinthian students as they demand debt cancellation, meet here on Nov 4th: http://corinthian.debt.is </p>
-
-            <div class="livestream">
-
+            <div class="schedule">
+                <h3>12-1pm PST</h3>
+                <p>Meet and greet</p>
+                <h3>1-4pm PST</h3>
+                <p>Speakers begin including former Everest students and members of the Debt Collective</p>
+                <h3>4-6pm PST</h3>
+                <p>More actions TBD...</p>
             </div>
+        </div>
+        <div class="hearing">
+            <div class="livestream">
+                <div class="left centered">
+                    <h2> Livestream</h2>
+                    <iframe class="hidden-mobile" width="360" height="235" src="http://www.ustream.tv/embed/10090964?v=3&amp;wmode=direct"  scrolling="no" frameborder="0" style="border: 0px none transparent;">   </iframe>
 
+                    <iframe class="mobile-only" width="260" height="185" src="http://www.ustream.tv/embed/10090964?v=3&amp;wmode=direct"  scrolling="no" frameborder="0" style="border: 0px none transparent;">   </iframe>
+                </div>
+                <div class="timeline right">
+                    <h2>Live Tweet Chat</h2>
+                    <a class="twitter-timeline" href="https://twitter.com/hashtag/n4doe" data-widget-id="528915290864631809">#n4doe Tweets</a>
+                </div>
+            </div>
+            <div class="twitter-stuff">
+                <div class="left tweet-buttons centered">
+                    <a href="https://twitter.com/intent/tweet?text=%20%23notaloan">
+                        <div class="tweet-btn red">
+                            Your Story #notaloan
+                        </div>
+                    </a>
+
+                    <a href="https://twitter.com/intent/tweet?text=%20%40usedgov debtcollective.org%2Fcorinthian%2f">
+                        <div class="tweet-btn red">
+                            Tweet @USedgov
+                        </div>
+                    </a>
+
+                     <a href="https://twitter.com/intent/follow?screen_name=0debtzone">
+                        <div class="tweet-btn red">
+                            Follow @0debtzone
+                        </div>
+                    </a>
+
+                    <a href="https://www.facebook.com/groups/everestavengers/" target="_blank">
+                        <div class="tweet-btn blue">
+                            Everest Avengers on Facebook
+                        </div>
+                    </a>
+
+                    <a href="https://www.facebook.com/groups/0debtzone/" target="_blank">
+                        <div class="tweet-btn blue">
+                            Debt Collective on Facebook
+                        </div>
+                    </a>
+
+                    <div class="createsend-button" style="height:27px;display:inline-block;" data-listid="j/0E/1C9/A3A/87D4E9F391A21159">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="body-text">
+            <h1>Lend a hand!</h1>
+            <h2> Change your Profile Picture</h2>
+            <p>Put a red square in your social media profile picture.</p>
+            <p class="centered">
+
+            <script src="http://twibbon.com/embed/debt-collective" type="text/javascript">
+            </script>
+                <a href="https://twibbon.com/Support/debt-collective">
+                    <img src="/static/img/ange.jpg" width="200px"/>
+                </a>
+            </p>
+            <h2>Twitter Bomb!</h2>
+             <a href="https://twitter.com/intent/tweet?text=When%20we%20demand%20justice%20for%20everest%20students%20we%20fight%20for%20all%20student%20debtors!%20%23nov4%20%40usedgov%20%23live%20in%20%23CA%20%26%20online%20debtcollective.org%2Fcorinthian%2f">
+                <div class="tweet-btn">
+                    When we demand justice for everest students we fight for all student debtors! #nov4 @usedgov #live in #CA & online
+                </div>
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=To%20the%20DoE%20I%27m%20just%20a%20number%3A%20________.%20We%20need%20to%20fight%20back%2C%20we%20are%20%23NotAoan%20http%2F%2Fdebtcollective.org">
+                <div class="tweet-btn">
+                To the DoE I'm just a number: ________. We need to fight back, we are #NotAoan </div>
+            </a>
+           <a href="https://twitter.com/intent/tweet?text=So%2C%20%40USedgov%20could%20fund%20%23HigherEd%20for%20all%20using%20less%20than%201%25%20of%20the%20Federal%20Budget. http%3A%2F%2Fstrikedebt.org%2Fhow-far-to-free%2F">
+                <div class="tweet-btn">
+                 So, @USedgov could fund #HigherEd for all using less than 1% of the Federal Budget.
+                </div>
+            </a>
         </div>
         <div class="whatcanido body-text">
-            <h1>What can I do?</h1>
-            <h2 class="step-heading">
+            <h1>What should I do if I'm a Corinthian student?</h1>
+            <h2>
                 <a href="http://www.consumerfinance.gov/complaint/#student-loan" target="blank">
                     Step 1: file a complaint
                 </a>
@@ -72,29 +170,22 @@
             <p>
             File a complaint with the Consumer Financial Protection Bureau if you have trouble paying your loans or if you have received harassing or threatening phone calls from a debt collection agency. The CFPB is suing Everest because of Genesis loans. If you have Genesis debt, you can help bring down a predatory lender by telling the CFPB about your experience. Every complaint will be read by someone at the agency.
             <p>
-                <a href="http://www.consumerfinance.gov/complaint/#student-loan"  target="blank">Click here to file a complaint</a>
+                <a class="underline" href="http://www.consumerfinance.gov/complaint/#student-loan"  target="blank">Click here to file a complaint</a>
             </p>
             </p>
 
-            <h2 class="step-heading">Step 2: Do you have Genesis loans?</h2>
+            <h2 class="step-heading">Step 2: Fight your genesis loans.</h2>
             <p>
             Is a debt collector contacting you about your Genesis loans? If so, fill in, print, and mail this form letter. This letter will force the debt collector to prove they own your loans, and get them off your back in the short term.
             </p>
-            <p> Where do you live?</p>
-            <div class="letters">
-            <a href="https://www.dropbox.com/s/xu0p287uy6tioec/Genesis%20Dispute%20CALIFORNIA.doc?dl=0" target="_blank">
-                <div class="half">
-                    <img class="california" src="/static/img/corinthian/california.png" />
-                    <h2>California</h2>
-                </div>
+            <p>
+                <a class="underline" href="https://www.dropbox.com/s/xu0p287uy6tioec/Genesis%20Dispute%20CALIFORNIA.doc?dl=0" target="_blank">
+                    <img height="16px" src="/static/img/word_document.png" /> Document for California</a>
+                </a><br>
+                <a class="underline" href="https://www.dropbox.com/s/xh056zamuy7jscg/GENESIS%20DISPUTE.doc?dl=0" target="_blank">
+                    <img height="16px"  src="/static/img/word_document.png" /> Document for Not California
                 </a>
-                <a href="https://www.dropbox.com/s/xh056zamuy7jscg/GENESIS%20DISPUTE.doc?dl=0" target="_blank">
-                <div class="half">
-                    <img src="/static/img/corinthian/usa.png" />
-                    <h2>Not California</h2>
-                </div>
-                </a>
-            </div>
+            </p>
 
             <h2 class="step-heading">
                 <a href="https://www.dropbox.com/s/ii1xwijkf6v2f1q/Pell%20Dispute.doc?dl=0"
@@ -103,7 +194,12 @@
                 </a>
             </h2>
             <p>
-                Has Everest withheld your stipend money? If so, you can demand it from them using <a href="https://www.dropbox.com/s/ii1xwijkf6v2f1q/Pell%20Dispute.doc?dl=0" target="_blank">this letter.</a>
+                Has Everest withheld your stipend money? If so, you can demand it from them using this letter.
+            </p>
+            <p>
+                <a class="underline" href="https://www.dropbox.com/s/ii1xwijkf6v2f1q/Pell%20Dispute.doc?dl=0" target="_blank">
+                    <img height="16px"  src="/static/img/word_document.png" /> Document for All Student Debtors
+                </a>
             </p>
 
             <h2 class="step-heading"><a
@@ -166,7 +262,7 @@
         <div id="2" ng-show="isVisible(2)" class="faq-answer">
             <h3>Why is Everest "estimating" room and board, transportation costs, and other miscellaneous fees into online students’ tuition bills?</h3>
 
-            <p>The figures that Corinthian/Everest/Heald/Wyotech gives to the government are an estimate of the total cost for attending each school. This is common practice. The estimated budget for room/board/transportation comes from an average of what it would cost to physically attend the school in that location. This information is requested by the government to get an overall picture of your finances. The final amount of your loans is determined by your income, which you report in your FASFA, as well as the cost of attendance reported by the school. The formula looks like this: Low income + High cost of attendance = Huge loans.</p>
+            <p>The figures that Corinthian gives to the government are an estimate of the total cost for attending each school. This is common practice. The estimated budget for room/board/transportation comes from an average of what it would cost to physically attend the school in that location. This information is requested by the government to get an overall picture of your finances. The final amount of your loans is determined by your income, which you report in your FASFA, as well as the cost of attendance reported by the school. The formula looks like this: Low income + High cost of attendance = Huge loans.</p>
 
             <p>In instances where the figures are over-estimated, you end up with a credit on your school account. The school returns this money to you usually in the form of a “stipend.”  However, in many cases the stipend is not a grant or scholarship. It is actually money that you borrowed. Unless you are getting money from a source clearly described as a grant, the stipend is part of your loans and must be paid back to the lender with interest.</p>
         </div>
@@ -267,8 +363,6 @@
             <p>Genesis is a type of private loan issued to Everest students. Corinthian has a financial  interest in getting your to pay. They pay debt collectors to call students and harass them into repaying these loans. In September 2014, the Consumer Financial Protection Bureau announced a lawsuit against Corinthian because of Genesis and other types of private loans. This means there is a chance that you will not have to pay your Genesis loans. The lawsuit could take a long time. But if you are trying to decide whether or not to pay your Genesis loans, you may want to consider that the Federal government believes you were defrauded by the lender.</p>
         </div>
     </article>
-    <p>California designed by Knochen Assibier from the Noun Project</p>
     </div>
-
 </div>
 {% endblock %}

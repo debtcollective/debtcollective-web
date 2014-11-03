@@ -42,52 +42,92 @@
 }
 
 @media only screen and (max-width: 600px) {
-
-  .half {
-    width: 100% !important;
+  #corinthian .intro p {
+    margin: 44px 0px;
   }
+  .hearing {
+    div {
+      margin-bottom: 20px;
+    }
 
-  .mobile-only {
-    display: visible;
-  }
-  .banner {
-    .text {
-      height: 100%;
+    .tweet-buttons {
+      float: right;
+    }
+
+    .timeline {
+      float: left;
     }
   }
 
-  .map-container {
-    img {
-      left: 50% !important;
-      transform: translateX(-50%);
-    }
-    .compassrose {
-      top: -250px;
-    }
-    .map-banner {
-      top: 50px;
-    }
+  .button, button {
+    margin: 0px;
   }
 
-  .body-text.map-body {
-    margin-top: 29px !important;
+  .splash-square {
+    width: 200px;
+    height: 200px;
   }
 
-  .wrapper {
-    max-width: 100%;
+  ul {
+    padding-left: 0px !important;
   }
-  .hidden-mobile {
-    display: none;
+
+  h1 {
+    font-size: 23px;
+  }
+
+  .nav-footer.visible:not(.focused) {
+    bottom: -($footer-open-height - $footer-height) !important;
+  }
+
+  .close-button.visible:not(.focused) {
+    display: none !important;
+  }
+
+  .banner .text {
+    height: 100%;
   }
   .header-links {
     height: initial;
+  }
+  .slide {
+    padding: 3px;
+  }
+  .images .pane {
+    top: 65%;
+  }
+  .wrapper {
+    max-width: 100%;
   }
   .body-text {
     padding: 0px 6px;
     width: 100%;
   }
-  .social-media {
-    opacity: 0 !important;
+  .map-container {
+    .compassrose {
+      width: 141px;
+      height: initial;
+    }
+    .map-banner {
+      top: 50px;
+    }
+  }
+  .body-text.map-body {
+    margin-top: 29px !important;
+  }
+  .half {
+    width: 100% !important;
+  }
+  .quote {
+    line-height: initial;
+    padding: 2px;
+  }
+
+  .hidden-mobile {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
   }
 }
 

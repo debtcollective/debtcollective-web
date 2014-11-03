@@ -5,9 +5,13 @@
   margin-right: 10px;
   padding: 5px;
   cursor: pointer;
+  display: none;
+  &.visible {
+    display: block;
+  }
 }
 
-button {
+.button, button {
   @extend %button;
   background-color: $dark-red;
 }
@@ -32,8 +36,8 @@ input[type="text"], input[type="email"] {
   position: fixed;
   right: 0;
   width: 100%;
-  min-height: 266px;
-  bottom: -266px;
+  min-height: $footer-open-height;
+  bottom: -$footer-open-height;
   color:  $light-text-color;
   background-color: $light-background-color;
 
@@ -72,29 +76,6 @@ input[type="text"], input[type="email"] {
   text-align: center;
   img {
     margin: 10px;
-  }
-}
-
-.header-links {
-  padding: 4.5px 15px;
-  font-size: 16px;
-  float: right;
-  text-align: center;
-  z-index: 1000;
-  position: fixed;
-  height: $header-height;
-  width: 100%;
-  top: 0;
-  right: 0;
-  width: 100%;
-  background-color: $dark-blue;
-  z-index: 9999999;
-
-  a {
-    color: rgb(134,133,148);
-    &:hover {
-      color: rgb(172,185,183);
-    }
   }
 }
 
@@ -169,7 +150,7 @@ input[type="text"], input[type="email"] {
       opacity: 0;
     }
     .nav-footer {
-      bottom: -200px;
+      bottom: -($footer-open-height - $footer-height);
     }
   }
 }
@@ -225,12 +206,6 @@ input[type="text"], input[type="email"] {
   background-color: $intro-text;
 }
 
-.twitter-timeline {
-  position: absolute;
-  top: 500px;
-  left: 1px;
-}
-
 #mapdiv {
   background-color: $dark-blue;
 }
@@ -263,9 +238,8 @@ input[type="text"], input[type="email"] {
   }
   .legend {
     position: absolute;
-    bottom: 28px;
-    left: -8px;
-    width: 175px;
+    bottom: 40px;
+    left: 8px;
   }
 
   .map-banner {
@@ -275,7 +249,7 @@ input[type="text"], input[type="email"] {
 
   .compassrose {
     position: absolute;
-    right: 0px;
+    bottom: 56px;
     height: 250px;
   }
 }

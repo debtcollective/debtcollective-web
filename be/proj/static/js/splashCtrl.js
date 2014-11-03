@@ -8,6 +8,7 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document, $time
     $scope.amount = null;
     $scope.showForm = false;
     $scope.formSubmitted = false;
+    $scope.focused = false;
 
     $scope.startShowingFormLoc = 4300;
 
@@ -33,15 +34,22 @@ app.controller('splashCtrl', function ($scope, $http, util_svc, $document, $time
     $scope.formVisible = function () {
         visible = ($scope.showForm || $scope.yLoc > $scope.startShowingFormLoc)
             && !$scope.forceClose && !$scope.formSubmitted;
-        if (visible) { $scope.emailFocus() };
+        if (visible) {
+        showForm();
+        }
         return visible
     }
 
-    $scope.emailFocus = function () {
+    function showForm() {
         $scope.showForm = true;
         $scope.forceClose = false;
         el = document.getElementById("email");
         el.placeholder =  'enter your email...';
+    }
+
+    $scope.emailFocus = function () {
+        showForm();
+        $scope.focused = true;
     }
 
     $scope.onSubmitClick = function () {

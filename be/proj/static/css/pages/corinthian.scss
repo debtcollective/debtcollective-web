@@ -9,12 +9,6 @@
     }
   }
 
-  .livestream {
-  }
-
-  .livestream {
-  }
-
   .wrapper {
     input[type="checkbox"], input[type="radio"] {
       display: inline-block;
@@ -52,6 +46,31 @@
     }
   }
 }
+
+.schedule {
+  max-width: 400px;
+  h3 {
+    margin-top: 15px;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+  }
+}
+
+.hearing {
+  position: relative;
+  height: 650px;
+  padding: 25px;
+
+  .livestream {
+    margin-bottom: 100px;
+    height: 200px;
+  }
+
+  .twitter-timeline {
+    width: 400px !important;
+  }
+}
+
 
 .splash.corinthian {
   color: $dark-text-color;
@@ -98,9 +117,6 @@
 }
 
 hr {
-  border-top: 4px solid #ccc;
-  width: 10%;
-  margin: 4em auto;
-  min-width: 100px;
-  max-width: 250px;
+  border-top: 1px solid $link-light-hover;
+  margin: 2px;
 }

@@ -2,6 +2,23 @@
 {% load humanize %}
 
 {% block body %}
+
+  <div class="header-links hidden-mobile">
+    <a href="/#scroll" du-scrollspy>home: life or debt? </a>
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+      <a  href="/#learn" ng-click="learnMore=true" du-scrollspy du-smooth-scroll>information </a>
+      &nbsp;&nbsp;  |  &nbsp;&nbsp;
+      <a du-scrollspy href="/corinthian/">corinthian students</a>
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+    <a href="http://blog.debtcollective.org" du-scrollspy>blog </a>
+  </div>
+
+  <div class="header-links mobile-only">
+    <a href="/#scroll" du-scrollspy>home: life or debt? </a><br>
+      <a du-scrollspy href="/corinthian/">corinthian students</a>
+
+  </div>
+
 <div scroll>
   <div id="scroll" ng-controller="splashCtrl"
     ng-class="{mainstate: yLoc >= amountToScroll}">
@@ -76,8 +93,8 @@
       <section id="learn">
         <div id="map" class="map-container" ng-controller="mapCtrl">
 
-          <img src="/static/img/legend.png" class="legend" />
-          <img src="/static/img/compassrose.png" class="compassrose" />
+          <img src="/static/img/dcnew_key.png" class="legend" />
+          <img src="/static/img/dcnew_compass.png" class="compassrose" />
 
           <img src="/static/img/map-title-banner.png" class="map-banner mobile-only" />
           <div id="mapdiv" style="width: 100%; height: 500px;"></div>

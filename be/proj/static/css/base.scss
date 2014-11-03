@@ -12,17 +12,6 @@
   color: $light-text-color;
 }
 
-button {
-  text-align: center;
-  &:hover {
-    opacity: .7;
-  }
-}
-
-button {
-  cursor: pointer;
-}
-
 
 body {
     background-color: $dark-blue;
@@ -49,6 +38,10 @@ p, .body-text {
   margin: 0px auto;
   line-height: 34px;
 
+  a.underline {
+    text-decoration: underline;
+  }
+
   ul {
     padding-left: 40px;
   }
@@ -70,6 +63,30 @@ p, .body-text {
   p {
     letter-spacing: 1.25px;
     margin-bottom: 22px;
+  }
+}
+
+.header-links {
+  padding: 4.5px 15px;
+  font-size: 16px;
+  float: right;
+  text-align: center;
+  z-index: 1000;
+  position: fixed;
+  height: $header-height;
+  width: 100%;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background-color: $dark-blue;
+  z-index: 9999999;
+  border-bottom: 1px solid $off-grey;
+
+  a {
+    color: rgb(134,133,148);
+    &:hover {
+      color: rgb(172,185,183);
+    }
   }
 }
 
@@ -109,7 +126,13 @@ h1 {
   color: #feffe8;
   font-weight: 100;
   letter-spacing: 5px;
-
+  .small {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  a {
+    text-decoration: underline;
+  }
 }
 
 .quote {
@@ -251,23 +274,42 @@ label {
   }
 }
 
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
 .tweet-btn {
   @extend %mono;
   @include round-corners(5);
   @include box-shadow(3px, 3px, 2px, 0px, $off-grey);
   @include transition();
+  max-width: 100%;
   padding: 10px;
   border: 2px solid $olive;
   margin-top: 10px;
   background-color: $light-background-color;
-
-  a {
-    color: $light-text-color;
-  }
+  color: $light-text-color;
 
   &:hover {
-    border-color: $pink-red;
-    cursor: pointer;
+    background-color: $dark-red;
+    color: $dark-text-color !important;
+  }
+
+  &.blue {
+    @extend %button;
+    background-color: $fb-blue;
+    color: $dark-text-color;
+    @include box-shadow(1px, 1px, 1px, 0px, $off-grey);
+  }
+
+  &.red {
+    @extend %button;
+    background-color: $dark-red;
+    color: $dark-text-color;
+    @include box-shadow(1px, 1px, 1px, 0px, $off-grey);
   }
 }
 
