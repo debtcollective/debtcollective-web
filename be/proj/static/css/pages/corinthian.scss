@@ -1,5 +1,13 @@
 #corinthian {
-  background-color: $dark-blue;
+  margin-top: 400px;
+  .intro {
+    background-color: $dark-blue;
+    padding: 2em;
+    color: $intro-text !important;
+    p {
+      margin: 44px 22px;
+    }
+  }
 
   .livestream {
   }
@@ -40,6 +48,10 @@
       list-style: none;
     }
   }
+}
+
+.splash.corinthian {
+  color: $dark-text-color;
 }
 
 .corinthian-title {

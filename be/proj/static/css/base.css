@@ -2,7 +2,7 @@
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-button, input[type="text"], input[type="email"], .nav-footer, .splash .splash-footer, .debt-total, body, .dropdown-menu {
+button, input[type="text"], input[type="email"], .nav-footer, .splash .splash-footer, .debt-total, body, .dropdown-menu, .tweet-btn {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -172,36 +172,37 @@ button {
     opacity: 0; }
   #scroll.mainstate .nav-footer {
     bottom: -200px; }
-  #scroll .images {
-    -webkit-transition: background-color 1s ease;
-    -moz-transition: background-color 1s ease;
-    -ms-transition: background-color 1s ease;
-    -o-transition: background-color 1s ease;
-    transition: background-color 1s ease;
-    height: 2900px;
-    margin: auto; }
-    #scroll .images.close .pane {
-      opacity: 0; }
-    #scroll .images div {
-      opacity: 0;
-      width: 100%;
-      text-align: center; }
-    #scroll .images .pane {
-      top: 50%;
-      width: 100%;
-      position: fixed;
-      opacity: .9;
-      margin: auto;
-      transform: translateY(-25%); }
-      #scroll .images .pane .splash-square {
-        opacity: 1;
-        width: 245px;
-        height: 245px;
-        margin: auto; }
-        #scroll .images .pane .splash-square.red {
-          background-color: #eb1020; }
-      #scroll .images .pane:nth-child(19), #scroll .images .pane:nth-child(20), #scroll .images .pane:nth-child(21), #scroll .images .pane:nth-child(22) {
-        border-bottom: #333 1px solid; }
+
+.images {
+  -webkit-transition: background-color 1s ease;
+  -moz-transition: background-color 1s ease;
+  -ms-transition: background-color 1s ease;
+  -o-transition: background-color 1s ease;
+  transition: background-color 1s ease;
+  height: 2900px;
+  margin: auto; }
+  .images.close .pane {
+    opacity: 0; }
+  .images div {
+    opacity: 0;
+    width: 100%;
+    text-align: center; }
+  .images .pane {
+    top: 50%;
+    width: 100%;
+    position: fixed;
+    opacity: .9;
+    margin: auto;
+    transform: translateY(-25%); }
+    .images .pane .splash-square {
+      opacity: 1;
+      width: 245px;
+      height: 245px;
+      margin: auto; }
+      .images .pane .splash-square.red {
+        background-color: #eb1020; }
+    .images .pane:nth-child(19), .images .pane:nth-child(20), .images .pane:nth-child(21), .images .pane:nth-child(22) {
+      border-bottom: #333 1px solid; }
 
 #scrollthing {
   -webkit-transition: all 0.25s ease-in-out;
@@ -266,7 +267,13 @@ button {
     width: 100%; }
 
 #corinthian {
-  background-color: #110d21; }
+  margin-top: 400px; }
+  #corinthian .intro {
+    background-color: #110d21;
+    padding: 2em;
+    color: #acb9b7 !important; }
+    #corinthian .intro p {
+      margin: 44px 22px; }
   #corinthian .wrapper input[type="checkbox"], #corinthian .wrapper input[type="radio"] {
     display: inline-block;
     margin-right: 0.5em;
@@ -286,6 +293,9 @@ button {
     padding-left: 2.75em;
     text-align: left;
     list-style: none; }
+
+.splash.corinthian {
+  color: #f1eee2; }
 
 .corinthian-title {
   padding-top: 44px; }
@@ -423,6 +433,12 @@ h3 {
   .wrapper.light {
     color: #39413f;
     background-color: #f1eee2; }
+  .wrapper h1 {
+    margin-top: 44px;
+    margin-bottom: 22px;
+    color: #39413f;
+    padding-bottom: 5px;
+    border-bottom: #39413f 1px solid; }
 
 div {
   max-width: 100%; }
@@ -491,6 +507,28 @@ label {
       background-color: rgba(2, 2, 2, 0.8);
       color: #ccaa2d;
       opacity: 1; }
+
+.tweet-btn {
+  border-radius: 5;
+  -moz-border-radius: 5;
+  -webkit-border-radius: 5;
+  -webkit-box-shadow: 3px 3px 2px 0px #39413f;
+  -moz-box-shadow: 3px 3px 2px 0px #39413f;
+  box-shadow: 3px 3px 2px 0px #39413f;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  padding: 10px;
+  border: 2px solid rgba(2, 2, 2, 0.8);
+  margin-top: 10px;
+  background-color: #f1eee2; }
+  .tweet-btn a {
+    color: #39413f; }
+  .tweet-btn:hover {
+    border-color: #eb1020;
+    cursor: pointer; }
 
 @media (min-width: 2500px) {
   .wrapper {

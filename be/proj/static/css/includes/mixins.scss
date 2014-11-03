@@ -14,6 +14,20 @@
   background-color: rgba(17,13,33,.7);
 }
 
+$default_rounded_amount: 5;
+
+@mixin round-corners($amount: $default_rounded_amount) {
+  border-radius: $amount;
+  -moz-border-radius: $amount;
+  -webkit-border-radius: $amount;
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+  -webkit-box-shadow:$top $left $blur $color #{$inset};
+  -moz-box-shadow:$top $left $blur $color #{$inset};
+  box-shadow:$top $left $blur $color #{$inset};
+}
+
 %sans {
     // font-family: "camingodos-web", sans-serif;
     font-family: "calluna-sans", sans-serif;

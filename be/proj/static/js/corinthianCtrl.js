@@ -32,6 +32,11 @@ app.controller('corinthianCtrl',
       return $scope.visible[i];
     }
 
+    $scope.scrollClick = function () {
+        var someElement = angular.element(document.getElementById('mapdiv'));
+        $document.scrollToElement(someElement, 0, 18000);
+    }
+
     $scope.updateVis = function () {
       $scope.visible = {}
       for(key in FAQ_ANSWERS) {

@@ -8,6 +8,7 @@ $light-yellow: #feffe8;
 $mauve: #d3d1c9;
 $olive: rgba(2,2,2,.8);
 $olive-yellow: #ccaa2d;
+$weird-mauve: #f1eee2;
 
 $link-light: #b6bea7;
 $link-light-hover: rgba(134,143,148, .8);
@@ -17,7 +18,8 @@ $linkblue:      #3d72a6;
 $maroon:        rgb(32,18,25);
 
 $dark-background-color: $off-grey;
-$light-background-color: #f1eee2;
+$dark-text-color: $weird-mauve;
+$light-background-color: $weird-mauve;
 $light-text-color: $off-grey;
 
 $dark-red:    #861800;

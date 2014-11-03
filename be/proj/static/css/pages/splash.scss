@@ -103,7 +103,6 @@ input[type="text"], input[type="email"] {
   text-align: center;
   height: 100%;
   background-color: #39413f;
-
   .splash-text {
     position: absolute;
     bottom: 10%;
@@ -173,50 +172,50 @@ input[type="text"], input[type="email"] {
       bottom: -200px;
     }
   }
-  .images {
-    @include transition(background-color, 1s, ease);
-    height: 2900px;
-    margin: auto;
+}
 
-    &.close {
-      .pane {
-        opacity: 0;
-      }
-    }
-    div {
-      opacity: 0;
-      width: 100%;
-      text-align: center;
-    }
+.images {
+  @include transition(background-color, 1s, ease);
+  height: 2900px;
+  margin: auto;
 
+  &.close {
     .pane {
-      top: 50%;
-      width: 100%;
-      position: fixed;
-      opacity: .9;
+      opacity: 0;
+    }
+  }
+  div {
+    opacity: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .pane {
+    top: 50%;
+    width: 100%;
+    position: fixed;
+    opacity: .9;
+    margin: auto;
+    transform: translateY(-25%);
+
+    .splash-square {
+      opacity: 1;
+      width: 245px;
+      height: 245px;
       margin: auto;
-      transform: translateY(-25%);
-
-      .splash-square {
-        opacity: 1;
-        width: 245px;
-        height: 245px;
-        margin: auto;
-        &.red {
-          background-color: $pink-red;
-        }
+      &.red {
+        background-color: $pink-red;
       }
+    }
 
-      &:nth-child(19),
-      &:nth-child(20),
-      &:nth-child(21),
-      &:nth-child(22) {
-        border-bottom: #333 1px solid;
-      }
+    &:nth-child(19),
+    &:nth-child(20),
+    &:nth-child(21),
+    &:nth-child(22) {
+      border-bottom: #333 1px solid;
     }
   }
 }
-
 #scrollthing {
   @include transition();
   position: fixed;

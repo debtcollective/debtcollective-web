@@ -1,32 +1,28 @@
 {% extends "proj/base_template.html" %}
 
 {% block body %}
-<div ng-controller="corinthianCtrl" id="corinthian">
-    <div class="wrapper light">
-        <div class="body-text">
-            <h2 class="corinthian-title">Corinthian at the DoE, November 4th</h2>
-
-            <p>The Debt Collective tech team created this page so that those of us who can't be in Anaheim in person can be there virtually. This website will go live an hour before the hearing with a livestream, chat, social media links, DoE twitter bomb and other virtual actions. Everyone who wants to support Corinthian students as they demand debt cancellation, meet here on Nov 4th: http://corinthian.debt.is </p>
-
-            <p>Scroll down for more information on how to fight your corinthian debt</p>
-
-            <p>By demanding justice for Everest students</p>
-            <p>Corinthian (CCI) sale = Students Sold Out</p>
-            <p>Demand the DoE to shut Everest Colleges down</p>
-
-            <div class="livestream">
-
-            </div>
+<div scroll ng-controller="corinthianCtrl">
+    <section class="splash corinthian" ng-class="{hidden : yLoc > 5}">
+        <div class="splash-text">
+            <h1>Corinthian Colleges are collapsing.</h1>
         </div>
-        <div class="body-text">
-            <h2 class="corinthian-title">
-            What you should know if you are or were an Everest, WYO Tech, or Heald student (of Corinthian Colleges) with federal or private student debt.
-            </h2>
-            <p>
-            Corinthian (Everest, Heald, and WyoTech) is collapsing. The school had relied on massive amounts of federal funding for years and is being accused of lying to and defrauding students to keep the money flowing in.
-            </p>
+        <section class="images">
+      <div class="pane">
+          <div class="splash-square red"></div>
+      </div>
+      </section>
+      <div class="splash-footer" ng-click="scrollClick()">
+        scroll to fight back
+      </div>
+    </section>
 
-            <h2>Who Is Profiting from Corinthian’s For-Profit Schools?</h2>
+    <div  id="corinthian">
+        <div class="intro">
+            <div class="body-text">
+                <h1> Corinthian Colleges are collapsing.</h1>
+                <p>The school had relied on massive amounts of federal funding for years and is being accused of lying to and defrauding students to keep the money flowing in.
+                </p>
+                <h1>Who Is Profiting from Corinthian’s For-Profit Schools?</h1>
             <p>
             <ul>
                 <li>Wells Fargo (Corinthian’s largest investor)</li>
@@ -36,13 +32,39 @@
                 <li>Debt collectors</li>
             </ul>
             </p>
-             <p>
-                Corinthian has been under investigation for years. These criminals should be held accountable. The Department of Education is refusing to do its job and protect students. The Corinthian Collective offers you both individual resources and a platform to come together to demand what is rightly yours: debt discharge and free education.
+            <p>
+                Corinthian has been under investigation for years. These criminals should be held accountable. The Department of Education is refusing to do its job and protect students.
             </p>
+            </div>
         </div>
-        <hr>
+    <div  class="wrapper light">
+        <div class="body-text">
+            <h1 class="corinthian-title">Corinthian at the DoE, November 4th</h1>
+
+            <p>The Debt Collective tech team created this page so that those of us who can't be in Anaheim in person can be there virtually. This website will go live an hour before the hearing with a livestream, chat, social media links, DoE twitter bomb and other virtual actions. Everyone who wants to support Corinthian students as they demand debt cancellation, meet here on Nov 4th: http://corinthian.debt.is </p>
+
+            <div class="livestream">
+
+            </div>
+              <h1>Lend a hand!</h1>
+                <p>Select a tweet and join our people's mic!</p>
+                <div class="tweet-btn">
+                    <a href="https://twitter.com/intent/tweet?text=When%20we%20demand%20justice%20for%20everest%20students%20we%20fight%20for%20all%20student%20debtors!%20%23nov4%20%40usedgov%20%23live%20in%20%23CA%20%26%20online%20debtcollective.org%2Fcorinthian%2f">
+                        When we demand justice for everest students we fight for all student debtors! #nov4 @usedgov #live in #CA & online debtcollective.org/corinthian/
+                    </a>
+                </div>
+
+                <div class="tweet-btn">
+                    <a href="https://twitter.com/intent/tweet?text=To%20the%20DoE%20I%27m%20just%20a%20number%3A%20________.%20We%20need%20to%20fight%20back%2C%20we%20are%20%23NotAoan%20http%2F%2Fdebtcollective.org">To the DoE I'm just a number: ________. We need to fight back, we are #NotAoan http//debtcollective.org</a>
+                </div>
+                <div class="tweet-btn">
+                    <a href="https://twitter.com/intent/tweet?text=So%2C%20%40USedgov%20could%20fund%20%23HigherEd%20for%20all%20using%20less%20than%201%25%20of%20the%20Federal%20Budget. http%3A%2F%2Fstrikedebt.org%2Fhow-far-to-free%2F">
+                     So, @USedgov could fund #HigherEd for all using less than 1% of the Federal Budget. http://strikedebt.org/how-far-to-free/
+                    </a>
+                </div>
+        </div>
         <div class="whatcanido body-text">
-            <h2>What can I do?</h2>
+            <h1>What can I do?</h1>
             <h2 class="step-heading">
                 <a href="http://www.consumerfinance.gov/complaint/#student-loan" target="blank">
                     Step 1: file a complaint
@@ -51,6 +73,9 @@
 
             <p>
             File a complaint with the Consumer Financial Protection Bureau if you have trouble paying your loans or if you have received harassing or threatening phone calls from a debt collection agency. The CFPB is suing Everest because of Genesis loans. If you have Genesis debt, you can help bring down a predatory lender by telling the CFPB about your experience. Every complaint will be read by someone at the agency.
+            <p>
+                <a href="http://www.consumerfinance.gov/complaint/#student-loan"  target="blank">Click here to file a complaint</a>
+            </p>
             </p>
 
             <h2 class="step-heading">Step 2: Do you have Genesis loans?</h2>
@@ -104,9 +129,8 @@
             <p>Are you a current or former student at a Corinthian college, including Everest, Heald or Wyotech? Together we can demand a full refund and free education. <a href="https://www.facebook.com/groups/833008023378824/"
                     target="_blank" >Join the Everest Avengers.</a></p>
         </div>
-        <hr>
         <form class="questions body-text">
-            <h2>FAQ</h2>
+            <h1>FAQ</h1>
             <p>Select any statements to only show answers that are relevant to you.</p>
             <ul>
                 <li><input type="checkbox" name="faq" ng-model="current" ng-change="updateVis()" value="false"> I am a current student at a Corinthian college.
