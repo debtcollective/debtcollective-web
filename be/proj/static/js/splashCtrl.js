@@ -1,4 +1,5 @@
-app.controller('splashCtrl', function ($scope, $http, util_svc, $document, $timeout) {
+app.controller('splashCtrl',
+    function ($scope, $http, util_svc, $document, $timeout, $window) {
 
     $scope.email = null;
     $scope.username = null;

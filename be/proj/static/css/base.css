@@ -291,6 +291,8 @@
     height: 200px; }
   .hearing .twitter-timeline {
     width: 400px !important; }
+  .hearing .twitter-stuff {
+    margin-top: 15px; }
 
 .splash.corinthian {
   color: #f1eee2; }
