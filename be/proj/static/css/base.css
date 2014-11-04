@@ -289,8 +289,9 @@
   .hearing .livestream {
     margin-bottom: 100px;
     height: 200px; }
-  .hearing .twitter-timeline {
-    width: 400px !important; }
+  .hearing .timeline, .hearing .twitter-timeline {
+    width: 400px !important;
+    height: 525px; }
   .hearing .twitter-stuff {
     margin-top: 15px; }
 

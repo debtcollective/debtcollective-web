@@ -1,5 +1,5 @@
 app.controller('corinthianCtrl',
-  function ($scope, $http, util_svc) {
+  function ($scope, $http, $document, util_svc) {
 
     $scope.visible = {};
 
@@ -33,11 +33,11 @@ app.controller('corinthianCtrl',
     }
 
     $scope.scrollClick = function () {
-        var someElement = angular.element(document.getElementById('mapdiv'));
-        $document.scrollToElement(someElement, 0, 18000);
+      var someElement = angular.element(document.getElementById('mapdiv'));
+      $document.scrollToElement(someElement, 0, 18000);
     }
 
-    $scope.updateVis = function () {
+    $scope.updateVis = function (cb) {
       $scope.visible = {}
       for(key in FAQ_ANSWERS) {
         if($scope[key]) {
@@ -48,6 +48,12 @@ app.controller('corinthianCtrl',
           }
         }
       }
+      cb()
     }
-    $scope.updateVis();
+    $scope.updateVis(scrollToNov4);
+
+    function scrollToNov4() {
+      var nov4 = angular.element(document.getElementById('profiteers'));
+      $document.scrollToElement(nov4, 500, 2000);
+    }
 });
