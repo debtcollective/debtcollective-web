@@ -363,6 +363,9 @@ p, .body-text {
   p p, .body-text p {
     letter-spacing: 1.25px;
     margin-bottom: 22px; }
+  p.wide, .body-text.wide {
+    min-width: 820px;
+    max-width: 950px; }
 
 .header-links {
   padding: 4.5px 15px;
@@ -596,6 +599,10 @@ label {
   display: none; }
 
 @media only screen and (max-width: 600px) {
+  .body-text.wide {
+    max-width: 100%;
+    min-width: 100%; }
+
   #corinthian .intro p {
     margin: 44px 0px; }
 

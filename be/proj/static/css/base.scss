@@ -64,6 +64,11 @@ p, .body-text {
     letter-spacing: 1.25px;
     margin-bottom: 22px;
   }
+
+  &.wide {
+    min-width: 820px;
+    max-width: 950px;
+  }
 }
 
 .header-links {

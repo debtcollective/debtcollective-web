@@ -42,6 +42,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .body-text.wide {
+    max-width: 100%;
+    min-width: 100%;
+  }
   #corinthian .intro p {
     margin: 44px 0px;
   }
