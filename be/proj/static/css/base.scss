@@ -307,6 +307,10 @@ label {
     @extend %button;
     background-color: $fb-blue;
     color: $dark-text-color;
+
+    &:hover {
+      background-color: $fb-blue;
+    }
     @include box-shadow(1px, 1px, 1px, 0px, $off-grey);
   }
 

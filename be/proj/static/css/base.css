@@ -564,6 +564,8 @@ label {
     -webkit-box-shadow: 1px 1px 1px 0px #39413f;
     -moz-box-shadow: 1px 1px 1px 0px #39413f;
     box-shadow: 1px 1px 1px 0px #39413f; }
+    .tweet-btn.blue:hover {
+      background-color: #3d72a6; }
   .tweet-btn.red {
     background-color: #861800;
     color: #f1eee2;
