@@ -46,6 +46,9 @@
     max-width: 100%;
     min-width: 100%;
   }
+  .body-text {
+
+  }
   #corinthian .intro p {
     margin: 44px 0px;
   }
@@ -60,6 +63,7 @@
 
     .timeline {
       float: left;
+      margin-bottom: 100px;
     }
   }
 
@@ -103,7 +107,7 @@
   .wrapper {
     max-width: 100%;
   }
-  .body-text {
+  .body-text:not(.wide) {
     padding: 0px 6px;
     width: 100%;
   }

@@ -614,7 +614,8 @@ label {
   .hearing .tweet-buttons {
     float: right; }
   .hearing .timeline {
-    float: left; }
+    float: left;
+    margin-bottom: 100px; }
 
   .button, button {
     margin: 0px; }
@@ -650,7 +651,7 @@ label {
   .wrapper {
     max-width: 100%; }
 
-  .body-text {
+  .body-text:not(.wide) {
     padding: 0px 6px;
     width: 100%; }
 
