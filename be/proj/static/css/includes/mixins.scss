@@ -69,6 +69,13 @@ $default_rounded_amount: 5;
 %button {
   @extend %input;
   color: $text;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 4px !important;
+
+  &:hover {
+    opacity: .7;
+  }
 
   &:hover {
     background-color: $dark-red;
@@ -82,8 +89,6 @@ $default_rounded_amount: 5;
   width: 100%;
   border: 0;
   text-decoration: none;
-  position: relative;
-  float: left;
 
   &:focus {
     outline: 0px;
