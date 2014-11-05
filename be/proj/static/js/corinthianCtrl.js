@@ -37,7 +37,7 @@ app.controller('corinthianCtrl',
       $document.scrollToElement(someElement, 0, 18000);
     }
 
-    $scope.updateVis = function (cb) {
+    $scope.updateVis = function () {
       $scope.visible = {}
       for(key in FAQ_ANSWERS) {
         if($scope[key]) {
@@ -48,12 +48,7 @@ app.controller('corinthianCtrl',
           }
         }
       }
-      cb()
     }
-    $scope.updateVis(scrollToNov4);
+    $scope.updateVis();
 
-    function scrollToNov4() {
-      var nov4 = angular.element(document.getElementById('profiteers'));
-      $document.scrollToElement(nov4, 500, 2000);
-    }
 });
