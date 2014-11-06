@@ -238,14 +238,8 @@
     bottom: 56px;
     height: 250px; }
 
-.lendyour {
-  text-align: center; }
-  .lendyour p {
-    text-align: center; }
-  .lendyour img {
-    width: 400px; }
-  .lendyour iframe {
-    width: 100%; }
+.sm-button {
+  padding-bottom: 50px; }
 
 #corinthian {
   margin-top: 400px; }
