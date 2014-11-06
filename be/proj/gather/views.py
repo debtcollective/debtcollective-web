@@ -23,7 +23,7 @@ def get_map_data():
   points = []
   for p in query:
     if p.sum_amount:
-    points.append(p.to_json())
+      points.append(p.to_json())
 
   # TODO: loading them and then dumping them again is
   # probably costing us performance (karissa)
