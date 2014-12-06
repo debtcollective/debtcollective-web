@@ -234,6 +234,7 @@ input[type="text"], input[type="email"] {
 
 .map-container {
   position: relative;
+
   img {
     z-index: 10000;
   }
@@ -257,5 +258,9 @@ input[type="text"], input[type="email"] {
 
 .sm-button {
   padding-bottom: 50px;
+}
+
+.splash-bottom-quote {
+  margin-top: -25px;
 }
 

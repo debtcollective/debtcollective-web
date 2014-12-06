@@ -241,6 +241,9 @@
 .sm-button {
   padding-bottom: 50px; }
 
+.splash-bottom-quote {
+  margin-top: -25px; }
+
 #corinthian {
   margin-top: 400px; }
   #corinthian .intro {
@@ -538,16 +541,11 @@ label {
   -webkit-box-shadow: 3px 3px 2px 0px #39413f;
   -moz-box-shadow: 3px 3px 2px 0px #39413f;
   box-shadow: 3px 3px 2px 0px #39413f;
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
   max-width: 100%;
   padding: 10px;
   border: 2px solid rgba(2, 2, 2, 0.8);
   margin-top: 10px;
-  background-color: #f1eee2;
+  background-color: white;
   color: #39413f; }
   .tweet-btn:hover {
     background-color: #861800;

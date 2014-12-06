@@ -103,3 +103,4 @@ STATICFILES_DIRS = (
 
 # Misc.
 AUTH_PROFILE_MODULE = 'gather.UserProfile'
+MAP_PASSWORD = ''

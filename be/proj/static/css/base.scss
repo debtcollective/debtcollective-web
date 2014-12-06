@@ -290,12 +290,11 @@ label {
   @extend %mono;
   @include round-corners(5);
   @include box-shadow(3px, 3px, 2px, 0px, $off-grey);
-  @include transition();
   max-width: 100%;
   padding: 10px;
   border: 2px solid $olive;
   margin-top: 10px;
-  background-color: $light-background-color;
+  background-color: white;
   color: $light-text-color;
 
   &:hover {

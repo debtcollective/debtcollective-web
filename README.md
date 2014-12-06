@@ -52,9 +52,16 @@ $ cat points-small.sql | python manage.py dbshell
 ## Running the app
 
 ```
+$ export SECRET_KEY='some-key'
 $ source venv/bin/activate
 (venv) $ cd be
 (venv) $ python manage.py runserver
+```
+
+## Watching Assets
+```
+$ cd be/static/css
+$ sass --watch base.scss
 ```
 
 ## Testing the app
