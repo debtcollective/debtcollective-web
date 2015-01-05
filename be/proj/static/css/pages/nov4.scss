@@ -1,0 +1,88 @@
+
+.schedule {
+  max-width: 400px;
+  h3 {
+    margin-top: 15px;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+  }
+}
+
+.hearing {
+  position: relative;
+  height: 650px;
+  padding: 25px;
+
+  .livestream {
+    margin-bottom: 100px;
+    height: 200px;
+  }
+
+  .timeline, .twitter-timeline {
+    width: 400px !important;
+    height: 525px;
+  }
+
+  .twitter-stuff {
+    margin-top: 15px;
+  }
+}
+
+
+#nov4 {
+  .questions {
+    p {
+      text-indent: 0;
+      margin-bottom: 1.25em;
+    }
+
+    h2 {
+
+    }
+
+    li {
+      background: #fff;
+      padding: 1em;
+      margin-bottom: 0.1em;
+      text-indent: -1.75em;
+      padding-left: 2.75em;
+      text-align: left;
+      list-style: none;
+    }
+  }
+}
+
+.letters {
+  margin: 1em auto;
+  text-align: center;
+
+  a {
+    border-bottom: none !important;
+  }
+
+  .half {
+    border: .15em solid #ddd;
+    width: 40%;
+    max-height: 400px;
+    padding: 2em;
+    margin: 10px;
+    display: inline-block;
+
+    h2 {
+      margin-top: 0px !important;
+    }
+
+    .california {
+      padding: 1em;
+    }
+
+    &:hover {
+      background-color: $link-light-hover;
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+
+}
