@@ -1,16 +1,363 @@
 {% extends "proj/base_template.html" %}
 
 {% block body %}
-<div ng-controller="novFourthCtrl" class="wrapper light">
-  <div class="body-text">
-    <h2 class="corinthian-title">Corinthian at the DoE, November 4th</h2>
+<div scroll ng-controller="corinthianFaqCtrl">
 
-    <p>Our tech team made it so that those of us who couldn't be there in person can be there virtually. This website will go live an hour before the hearing with a livestream, chat, social media links, DoE twitter bomb and other virtual actions. We'll meet here on Nov 4th, http://corinthian.debt.is</p>
-
-    <h2>
-      <a href="http://debtcollective.org/corinthian/">Click here for more information on how to combat corinthian.</a>
-    </h2>
-    <img src="/static/img/Nov4flyer.jpg" />
+  <div class="header-links hidden-mobile">
+      <a href="/#scroll" du-scrollspy><< back to debt collective</a>
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+      <a class="underline" href="#nov4" du-scrollspy du-smooth-scroll>#DebtTrap </a>
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+    <a href="http://blog.debtcollective.org" du-scrollspy>blog </a>
   </div>
+
+  <div class="header-links mobile-only centered">
+      <a href="/#scroll" du-scrollspy><< back to debt collective</a>
+      <hr>
+    <a href="http://www2.ed.gov/policy/highered/reg/hearulemaking/2015/index.html" target="_blank" du-scrollspy>the hearing</a>
+  </div>
+    <section class="splash corinthian" ng-class="{hidden : yLoc > 5}">
+        <div class="splash-text">
+            <h1>Corinthian Colleges are collapsing.</h1>
+        </div>
+        <section class="images">
+      <div class="pane">
+          <div class="splash-square red"></div>
+      </div>
+      </section>
+      <div class="splash-footer" ng-click="scrollClick()">
+        scroll to learn more
+      </div>
+    </section>
+
+    <div  id="corinthian">
+        <div class="intro">
+            <div class="body-text">
+                <h1> Corinthian Colleges are collapsing.</h1>
+                <p>The school had relied on massive amounts of federal funding for years and is being accused of lying to and defrauding students to keep the money flowing in.
+              </p>
+                <h1>Who Is Profiting from Corinthian’s For-Profit Schools?</h1>
+            <p>
+            <ul id="profiteers">
+                <li>Wells Fargo (Corinthian’s largest investor)</li>
+                <li>The Department of Education</li>
+                <li>Wealthy investors</li>
+                <li>Lenders like Genesis and ASFG</li>
+                <li>Debt collectors</li>
+            </ul>
+            </p>
+            <p>
+                Corinthian has been under investigation for years. These criminals should be held accountable. The Department of Education is refusing to do its job and protect students.
+            </p>
+
+            </div>
+        </div>
+        <div id="nov4" class="wrapper light">
+        <div class="body-text">
+            <h2 class="corinthian-title">
+              Debt collective @ the Department of Education Public Hearing, Nov 4th 2014
+            </h2>
+        </div>
+        <div class="hearing wide body-text">
+            <div class="livestream">
+                <div class="left centered">
+                    <h2>Video Excerpt</h2>
+                    <iframe class="hidden-mobile" width="360" height="235" src="//www.ustream.tv/embed/recorded/54928660/highlight/572338?v=3&amp;wmode=direct"  scrolling="no" frameborder="0" style="border: 0px none transparent;">   </iframe>
+
+                    <iframe class="mobile-only" width="260" height="185" src="//www.ustream.tv/embed/recorded/54928660/highlight/572338?v=3&amp;wmode=direct"  scrolling="no" frameborder="0" style="border: 0px none transparent;">   </iframe>
+                </div>
+                <div class="timeline right">
+                    <h2>Twitter Stream</h2>
+                    <a class="twitter-timeline" href="https://twitter.com/hashtag/n4doe" data-widget-id="528915290864631809">#n4doe Tweets</a>
+                </div>
+            </div>
+            <div class="twitter-stuff">
+                <div class="left tweet-buttons centered">
+                    <a href="https://twitter.com/intent/tweet?text=End%20the%20love%20affair%20with%20for-profit%20colleges.%20%40USedgov%2C%20break%20up%20with%20Everest%20and%20cancel%20student%20debt.%20%23debt">
+                        <div class="tweet-btn red">
+                            End the #debt love afair
+                        </div>
+                    </a>
+
+                    <a href="https://twitter.com/intent/tweet?text=Start%20funding%20education.%20Stop%20funding%20for-profit%20fraud.%20%40USedgov%2C%20We%E2%80%99re%20not%20anyone%E2%80%99s%20profit%20margin.%20End%20student%20debt.%20%HigherEd">
+                        <div class="tweet-btn red">
+                            Your Story #HigherEd
+                        </div>
+                    </a>
+
+                    <a href="https://twitter.com/intent/tweet?text=When%20we%20defend%20Everest%20students%2C%20we%20fight%20for%20all%20students.%20Debtors%20must%20act%20together.%20%40USedgov%20whose%20side%20are%20you%20on%3F%20%23DebtTrap">
+                        <div class="tweet-btn red">
+                            Tweet at @USedgov
+                        </div>
+                    </a>
+
+                    <a href="https://www.facebook.com/groups/everestavengers/" target="_blank">
+                        <div class="tweet-btn blue">
+                            Everest Avengers on Facebook
+                        </div>
+                    </a>
+
+                    <a href="https://www.facebook.com/groups/0debtzone/" target="_blank">
+                        <div class="tweet-btn blue">
+                            Debt Collective on Facebook
+                        </div>
+                    </a>
+
+                    <div class="createsend-button" style="height:27px;display:inline-block;" data-listid="j/0E/1C9/A3A/87D4E9F391A21159">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="body-text">
+            <h2>Twitter Bomb!</h2>
+             <a href="https://twitter.com/intent/tweet?text=
+            When%20we%20defend%20Everest%20students%2C%20we%20fight%20for%20all%20students.%20Debtors%20must%20act%20together.%20%40USedgov%20whose%20side%20are%20you%20on%3F%20%23Nov4%20%23DebtTrap">
+                <div class="tweet-btn">
+                    When we defend #Everest students, we fight for ALL students. Debtors must act together. @USedgov whose side are you on? #DebtTrap
+                </div>
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=To%20the%20DoE%20I%27m%20just%20a%20number%3A%20________.%20We%20need%20to%20fight%20back%2C%20we%20are%20all%20in%20the%20red.%20%23NotAoan%20http%2F%2Fdebtcollective.org">
+                <div class="tweet-btn">
+                To the DoE I'm just a number: ________. We need to fight back, we are ALL in the red.  #NotALoan </div>
+            </a>
+           <a href="https://twitter.com/intent/tweet?text=So%2C%20%40USedgov%20could%20fund%20%23HigherEd%20for%20all%20using%20less%20than%201%25%20of%20the%20Federal%20Budget. http%3A%2F%2Fstrikedebt.org%2Fhow-far-to-free%2F">
+                <div class="tweet-btn">
+                 So, @USedgov could fund #HigherEd for all using less than 1% of the Federal Budget.
+                </div>
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=End%20the%20love%20affair%20with%20for-profit%20colleges.%20%40USedgov%2C%20break%20up%20with%20Everest%20and%20cancel%20student%20debt.%20%23HigherEd">
+                <div class="tweet-btn">
+                 End the love affair with for-profit colleges. @USedgov, break up with Everest and cancel student debt.  #HigherEd
+                </div>
+            </a>
+            <h2> Change your Profile Picture</h2>
+            <p class="centered">
+                Put a red square in your social media profile picture.
+                <a class="underline" href="http://en.wikipedia.org/wiki/2012_Quebec_student_protests" target="_blank">What's the red square?</a>
+            </p>
+            <p class="centered">
+                <script src="//twibbon.com/embed/debt-collective" type="text/javascript">
+                </script>
+                <a href="https://twibbon.com/Support/debt-collective">
+                    <img src="/static/img/ange.jpg" width="200px"/>
+                </a>
+            </p>
+        </div>
+        <div class="whatcanido body-text">
+            <h1>What should I do if I'm a Corinthian student?</h1>
+            <h2>
+                <a href="http://www.consumerfinance.gov/complaint/#student-loan" target="blank">
+                    Step 1: file a complaint
+                </a>
+            </h2>
+
+            <p>
+            File a complaint with the Consumer Financial Protection Bureau if you have trouble paying your loans or if you have received harassing or threatening phone calls from a debt collection agency. The CFPB is suing Everest because of Genesis loans. If you have Genesis debt, you can help bring down a predatory lender by telling the CFPB about your experience. Every complaint will be read by someone at the agency.
+            <p>
+                <a class="underline" href="http://www.consumerfinance.gov/complaint/#student-loan"  target="blank">Click here to file a complaint</a>
+            </p>
+            </p>
+
+            <h2 class="step-heading">Step 2: Fight your genesis loans.</h2>
+            <p>
+            Is a debt collector contacting you about your Genesis loans? If so, fill in, print, and mail this form letter. This letter will force the debt collector to prove they own your loans, and get them off your back in the short term.
+            </p>
+            <p>
+                <a class="underline" href="https://www.dropbox.com/s/xu0p287uy6tioec/Genesis%20Dispute%20CALIFORNIA.doc?dl=0" target="_blank">
+                    <img height="16px" src="/static/img/word_document.png" /> Document for California</a>
+                </a><br>
+                <a class="underline" href="https://www.dropbox.com/s/xh056zamuy7jscg/GENESIS%20DISPUTE.doc?dl=0" target="_blank">
+                    <img height="16px"  src="/static/img/word_document.png" /> Document for Not California
+                </a>
+            </p>
+
+            <h2 class="step-heading">
+                <a href="https://www.dropbox.com/s/ii1xwijkf6v2f1q/Pell%20Dispute.doc?dl=0"
+                   target="_blank">
+                   Step 3: Demand your Pell Grant money.
+                </a>
+            </h2>
+            <p>
+                Has Everest withheld your stipend money? If so, you can demand it from them using this letter.
+            </p>
+            <p>
+                <a class="underline" href="https://www.dropbox.com/s/ii1xwijkf6v2f1q/Pell%20Dispute.doc?dl=0" target="_blank">
+                    <img height="16px"  src="/static/img/word_document.png" /> Document for All Student Debtors
+                </a>
+            </p>
+
+            <h2 class="step-heading"><a
+                href="https://docs.google.com/forms/d/1d5eaJ-zcJd6JImj7VG4RN-3Xbp5JLmavDnulXeOfLfU/viewform"
+                target="_blank">Step 4: Have questions? Need help? Please call.
+                </a>
+            </h2>
+            <p>
+            Call the Strike Debt Corinthian hotline to talk to someone about your debt, about possible legal options, and about how we’re planning to pressure the Department of Education to cancel ALL Everest debt.  Call us at (562) 450-DEBT or click the button below. If no one answers, <a href="https://docs.google.com/forms/d/1d5eaJ-zcJd6JImj7VG4RN-3Xbp5JLmavDnulXeOfLfU/viewform" target="_blank">fill out this form </a> and we will get back to you.
+            </p>
+            <br>
+            <p class="centered">
+                <object class="hidden-mobile" type="application/x-shockwave-flash" data="https://clients4.google.com/voice/embed/webCallButton" width="230" height="85"><param name="movie" value="https://clients4.google.com/voice/embed/webCallButton" /><param name="wmode" value="transparent" /><param name="FlashVars" value="id=5082332bfecef108f4feafe1c2f4b6ae2f57c47a&style=0" /></object>
+            </p>
+
+            <h2 class="step-heading"><a href="https://www.facebook.com/groups/833008023378824/"
+                    target="_blank" >
+                    Step 5: join the facebook group
+                </a>
+            </h2>
+            <p>Are you a current or former student at a Corinthian college, including Everest, Heald or Wyotech? Together we can demand a full refund and free education.</p>
+            <p>
+                <a class='underline' href="https://www.facebook.com/groups/833008023378824/"
+                        target="_blank">
+                     Everest Avengers Facebook Group.
+                </a>
+                <br>
+                <a class="underline" href="https://www.facebook.com/groups/0debtzone/"
+                        target="_blank" >
+                     Debt Collective Facebook Group.
+                </a>
+            </p>
+        </div>
+        <form class="questions body-text">
+            <h1>FAQ</h1>
+            <p>Select any statements to only show answers that are relevant to you.</p>
+            <ul>
+                <li><input type="checkbox" name="faq" ng-model="current" ng-change="updateVis()" value="false"> I am a current student at a Corinthian college.
+                </li>
+                <li><input type="checkbox" name="faq" ng-model="grad" ng-change="updateVis()" value="false"/> I graduated from a Corinthian college.
+                </li>
+
+                <li><input type="checkbox" name="faq" ng-model="attending" ng-change="updateVis()" value="false" /> I am thinking of attending a Corinthian college.
+                </li>
+
+                <li><input type="checkbox" name="faq" ng-model="value" ng-change="updateVis()" value="false"/>I have concerns about the value of a Corinthian degree.
+                </li>
+
+                <li><input type="checkbox" name="faq" ng-model="charges" ng-change="updateVis()" value="false" />I am confused about some charges I saw on my Everest/Heald/Wyotech student portal.
+                </li>
+
+                <li><input type="checkbox" name="faq" ng-model="status" ng-change="updateVis()" value="false" />I am confused about the status of my school.
+                </li>
+
+                <li><input type="checkbox" name="faq" ng-model="paying" ng-change="updateVis()" value="false"/>I am having trouble paying my student loans or have stopped paying them.
+                </li>
+
+                <li><input type="checkbox" name="faq" ng-model="genesis" ng-change="updateVis()" value="false">I have questions about my Genesis loans.</li>
+            </ul>
+        </form>
+        <article class="answers body-text">
+
+        <div id="1" ng-show="isVisible(1)" class="faq-answer">
+          <h3>Are degrees from Everest and other Corinthian colleges a good investment?</h3>
+          <p>
+          No. Research has shown that students who attend for-profit colleges make no more money, on average, than people who only completed high school. There may be cases in which graduates are able to get a high paying job with an Everest degree, but these are the exceptions and not the rule. Attending Everest &mdash; or any for-profit college &mdash; is not a good financial investment.
+          </p>
+        </div>
+
+        <div id="2" ng-show="isVisible(2)" class="faq-answer">
+            <h3>Why is Everest "estimating" room and board, transportation costs, and other miscellaneous fees into online students’ tuition bills?</h3>
+
+            <p>The figures that Corinthian gives to the government are an estimate of the total cost for attending each school. This is common practice. The estimated budget for room/board/transportation comes from an average of what it would cost to physically attend the school in that location. This information is requested by the government to get an overall picture of your finances. The final amount of your loans is determined by your income, which you report in your FASFA, as well as the cost of attendance reported by the school. The formula looks like this: Low income + High cost of attendance = Huge loans.</p>
+
+            <p>In instances where the figures are over-estimated, you end up with a credit on your school account. The school returns this money to you usually in the form of a “stipend.”  However, in many cases the stipend is not a grant or scholarship. It is actually money that you borrowed. Unless you are getting money from a source clearly described as a grant, the stipend is part of your loans and must be paid back to the lender with interest.</p>
+        </div>
+
+        <div id="3" ng-show="isVisible(3)" class="faq-answer">
+            <h3>Will there be a possibility for loan forgiveness for people who graduated but couldn’t find a job in their field?</h3>
+
+            <p>There may be some possibilities for loan forgiveness for former Everest students and graduates. The DOE has not made it clear in which circumstances this will be possible. The more students who join together to demand this relief, the more likely it will be available.That is why Strike Debt is committed to building a collective of debtors so that all of us can work together to force creditors to cancel illegitimate debts.</p>
+        </div>
+
+        <div id="4" ng-show="isVisible(4)" class="faq-answer">
+            <h3>I withdrew from Everest but they were still receiving tuition for me for several months after I withdrew. Is that normal?</h3>
+
+            <p>In some cases, it may be legal for Corinthian to hold on to your funds. There are different laws in each state about whether or not they can do this. If you have any concerns or questions about how Everest handled student loan funds in your name, you can <a href="https://studentaid.ed.gov/repay-loans/disputes/prepare/contact-ombudsman">file a complaint with the DOE public advocate</a>.</p>
+        </div>
+
+        <div id="5" ng-show="isVisible(5)" class="faq-answer">
+            <h3>How can I find out if my school is closing or has been sold?</h3>
+
+            <p>Check <a href="https://docs.google.com/spreadsheets/d/1o8qXKUmO-ee5xONCwAkbf0QtTsuatWV2dcvu_j_F-Bw/edit?usp=sharing">this spreadsheet</a> for updated information. Most campuses are due to be sold, not closed.</p>
+        </div>
+
+        <div id="6" ng-show="isVisible(6)" class="faq-answer">
+            <h3>What is a teach out?</h3>
+
+            <p>Arrangements are going to be put in place by the DOE and Corinthian officials to ensure that all currently enrolled students can either complete their course of study at their current school or transition to a new school. This is called a teach out. Only two Everest campuses have teach outs currently in place. Those schools are Everest Cross Lanes and Everest Eagan. There are currently no teach out plans in place for other Everest schools. We believe that, even if a teach out becomes available to you, it is not necessarily in your interest to participate in it. Students who participate in a teach out are forfeiting certain legal rights to have their loans discharged.</p>
+        </div>
+
+        <div id="7" ng-show="isVisible(7)" class="faq-answer">
+            <h3>Do I have to participate in a teach out?</h3>
+
+            <p>You can choose to withdraw or choose to finish your program. If you withdraw, you are not eligible for a discharge under current law. If you finish your program at your current school, you are agreeing to participate in what Corinthian is calling a “teach out.” In that case, you would not be eligible for debt relief.</p>
+
+            <p>If the teach out being offered to you is being taught by another school or is taught by Corinthian at a different campus, then you may choose not to participate and instead apply for a closed school discharge. In addition, if you begin to participate in this type of teach out, but do not complete it, you can also apply for discharge after you withdraw. That is why we believe that the best option for a discharge in the short term is for students to refuse to participate in a teach out that is taking place at a different campus or is taught by another school.</p>
+        </div>
+
+        <div id="8" ng-show="isVisible(8)" class="faq-answer">
+            <h3>Do I qualify for loan forgiveness?</h3>
+
+            <p>You may be eligible for loan forgiveness if your school closes while you're enrolled and you do not complete your program either at the closed school or at another school. (This is why it is important not to participate in a teach out if you want to be eligible for a discharge of your loans.) You may also qualify for discharge of your debt if you stopped attending your school within 120 days before it closed and you did not complete your program.</p>
+
+            <p>Because Corinthian colleges have been accused of violating a number of laws, it may be possible that other loan forgiveness options are available. The more pressure the Department of Education gets from students to provide clear options for loan forgiveness, the more likely it is to do so. Save any emails or other correspondence you receive from the college. It may be useful to you later.</p>
+        </div>
+
+        <div id="9" ng-show="isVisible(9)" class="faq-answer">
+            <h3>Should I apply for an official leave of absence?</h3>
+
+            <p>Yes. If you apply for and receive a leave, you would still be considered enrolled when and if the school closes or is sold. This may make it easier for you to eventually claim a discharge of your loans. We have heard reports that some Everest campuses are refusing students’ applications for a leave of absence even in the case of medical emergency. If you decide to apply for a leave, you should document the application process and let other students know how to improve their chances of receiving an approved leave of absence. We believe this is one of the best ways to improve your chances of getting a discharge. One idea for collective action is to get a group of Everest students to go together to campus and apply for a leave of absence all at the same time.</p>
+        </div>
+
+        <div id="10" ng-show="isVisible(10)" class="faq-answer">
+            <h3>I can’t pay my debt. What will happen to me?</h3>
+
+            <p>The consequences of default are severe. Your loans may be turned over to a collection agency, and you may receive harassing phone calls. Eventually, your wages may be garnished up to 15% of your take-home or “disposable” pay.  Your federal and state income tax refunds may be taken. The federal government may withhold part of your Social Security benefit payments. Your defaulted loans will appear on your credit history for up to seven years after the default claim is paid, making it difficult for you to obtain an auto loan, mortgage, or even credit cards.  If you had a cosigner on your loan (this is usually a parent or grandparent), they will be held legally responsible to pay back your loans. The penalties that apply to the person who took out the loan are also applied to cosigners who default. These draconian measure illustrate how all of the power is in creditors’ hands. At Strike Debt, we hope to support Corinthian students by making individualized legal advice available. But we know that, in the long run, we need to put mass pressure on creditors to get all predatory loans discharged.</p>
+        </div>
+
+        <div id="11" ng-show="isVisible(11)" class="faq-answer">
+            <h3>Should I stop paying on my student loans?</h3>
+
+            <p>Stopping your payments is a serious decision that shouldn’t be taken lightly. Every loan is different. Not paying on some loans will have bigger consequences than not paying on some other loans you may have. Many private loans do not include grace periods and require monthly payments even while a student is enrolled in a school.</p>
+
+            <p>In some cases, a default occurs as soon as you loan miss a payment.</p>
+
+            <p>Your federal loans are generally considered to be in default when you fail to make a payment for 270 days.</p>
+
+            <p>Student loans are generally considered to be delinquent when you are behind on your payments. The penalties for default are much more serious than for delinquency. For federal loans, if you want to avoid default, try to make at least one payment every 270 days.</p>
+
+            <p>If you default, your loans may be sold to a collection agency or the Department of Education may pay a private collection firm to try and collect from you.</p>
+
+            <p>Federal loans include options for deferment and forbearance, though these options will increase the amount of repayment.</p>
+
+            <p>Depending on your income, it can often be in your interest to obtain an <a href="https://studentaid.ed.gov/repay-loans/understand/plans/income-driven">Income-Based Repayment plan</a> rather than a deferment or forbearance once repayment on a federal loan begins. Income-based repayment is not a good solution for everyone. It provides a short-term fix at best. We believe that Corinthian students should not have to pay their debts at all. You can read more about debt resistance in the <a href="http://strikedebt.org/drom/chapter-four/">chapter on student debt</a> in the <a href="http://strikedebt.org/drom">Debt Resister’s Operations Manual</a>.</p>
+        </div>
+
+        <div id="12" ng-show="isVisible(12)" class="faq-answer">
+            <h3>Should I transfer to another college?</h3>
+
+            <p>If you transfer even one credit to the same or comparable program at another campus and completes your credential, then you will NOT be eligible for a closed school discharge of federal loans. We don’t believe you should transfer your Everest credits and complete a new program, especially if you intend to apply for a discharge of your loans.</p>
+        </div>
+
+        <div id="13" ng-show="isVisible(13)" class="faq-answer">
+            <h3>Should I drop out of Everest?</h3>
+
+            <p>If you would like to maintain your eligibility for a discharge of your student loans, we recommend that you delay your graduation or withdrawal as long as possible. One strategy is to file for an official Leave of Absence from Everest. If it is granted, your loans may still be dischargeable. If you transfer to another college and complete your program there, it is unlikely that you will be eligible for a discharge of loans you accrued while a student at a Corinthian campus.</p>
+
+            <p>There is a lot of uncertainty around the process for applying for a discharge. Much of the information we are providing comes from the Federal Student Aid website. We need to join together and demand that the federal government make it easier for students to apply for a complete discharge.</p>
+        </div>
+
+        <div id="14" ng-show="isVisible(14)" class="faq-answer">
+            <h3>Will all of my credits transfer to a reputable college?</h3>
+
+            <p>No. Since Corinthian is currently being investigated for fraud, it is highly unlikely that a reputable school will accept all your credits. If all your credits transfer, that is a good sign that the school you are transferring to is not a reputable college. Unfortunately, for most Corinthian students, getting an education means starting over from scratch.</p>
+        </div>
+
+        <div id="15" ng-show="isVisible(15)" class="faq-answer">
+            <h3> What is a Genesis loan and do I have to keep paying it?</h3>
+
+            <p>Genesis is a type of private loan issued to Everest students. Corinthian has a financial  interest in getting your to pay. They pay debt collectors to call students and harass them into repaying these loans. In September 2014, the Consumer Financial Protection Bureau announced a lawsuit against Corinthian because of Genesis and other types of private loans. This means there is a chance that you will not have to pay your Genesis loans. The lawsuit could take a long time. But if you are trying to decide whether or not to pay your Genesis loans, you may want to consider that the Federal government believes you were defrauded by the lender.</p>
+        </div>
+    </article>
+    </div>
 </div>
 {% endblock %}
