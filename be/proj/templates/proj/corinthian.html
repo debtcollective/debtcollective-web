@@ -4,103 +4,112 @@
 
 {% block body %}
 <div scroll ng-controller="corinthianCtrl">
-  <div class="header-links hidden-mobile">
-      <a href="/corinthian/" du-scrollspy>strike</a>
-      &nbsp;&nbsp; | &nbsp;&nbsp;
-      <a href="/#scroll" du-scrollspy>information</a>
-      &nbsp;&nbsp; | &nbsp;&nbsp;
-     <a href="http://blog.debtcollective.org" du-scrollspy>dispatch</a>
-      &nbsp;&nbsp; | &nbsp;&nbsp;
-    <a href="http://strategize.debtcollective.org">strategize</a>
-  </div>
+<div class="header-links hidden-mobile">
+<a href="/corinthian/" du-scrollspy>strike</a>
+&nbsp;&nbsp; | &nbsp;&nbsp;
+<a href="/#scroll" du-scrollspy>information</a>
+&nbsp;&nbsp; | &nbsp;&nbsp;
+<a href="http://blog.debtcollective.org" du-scrollspy>dispatch</a>
+&nbsp;&nbsp; | &nbsp;&nbsp;
+<a href="http://strategize.debtcollective.org">strategize</a>
+</div>
 
-    <section class="splash corinthian" ng-class="{hidden : yLoc > 5}">
-        <div class="splash-text">
-            <h1>Student debt strike in progress</h1>
-        </div>
-        <section class="images">
-      <div class="pane">
-          <div class="splash-square red"></div>
-      </div>
-      </section>
-      <div class="splash-footer" ng-click="scrollClick()">
-        scroll to learn more
-      </div>
-    </section>
-    <div id="corinthian">
-        <div class="intro">
-            <div class="body-text">
-                <h1>Student debt strike in progress</h1>
-                <p>
-Corinthian, the parent company of Everest, is being sued for fraud. We are stuck with degrees that did not lead to promised jobs. Campuses are closing or being sold. Soon, Everest will no longer exist. But our debts live on. We asked the Department of Education to cancel our Federal loans. They have refused to help. Instead the government is protecting the company that lied to us and put us in debt.</p>
-            </div>
-        </div>
-        <div class="wrapper light">
-            <div class="body-text">
-                <h2 class="corinthian-title">
-                    get involved
-                </h2>
-            <div class="tallies">
-                <h3>{$ debtors $} corinthians</h3>
-                <h3>${$ debt $} debt</h3>
-                <h3>${$ money $} pledged</h3>
-            </div>
+<section class="splash corinthian" ng-class="{hidden : yLoc > 5}">
+<div class="splash-text">
+<h1>Student debt strike in progress</h1>
+</div>
+<section class="images">
+<div class="pane">
+<div class="splash-square red"></div>
+</div>
+</section>
+<div class="splash-footer" ng-click="scrollClick()">
+scroll to learn more
+</div>
+</section>
+<div id="corinthian">
+<div class="intro">
+<div class="body-text">
+<h1>Student debt strike in progress</h1>
+<p>
+We can’t pay and we won’t pay our debt from Everest College. We demand that the Department of Education discharge our debts and the debts of every current and former student of Corinthian Colleges (Everest, Heald College, and Wyotech).
+</p>
+<p>
+Corinthian defrauded us. It is being sued for running a scam operation to make maximum profits from student loans issued by the Department of Education. Corinthian lied to students like us about the quality of education it offers. Yet, <a href="http://blog.debtcollective.org/students-speak-out-at-doe-hearing-to-demand-debt-cancellation-and-free-education/">when we asked the Department of Education to cancel our Federal loans, they refused to respond</a>.  As campuses are closing or being sold, Corinthian will soon no longer exist.  But its investors will continue to profit because the government has decided that, like the Wall Street banks, it is too big to fail  Their debts are being taken care of, while we are expected to keep on paying ours..  We refuse to do so.
+</p>
+<p>
+By declaring a strike, we fight for all student debtors and for the right to a free, quality education for all students.
+</p>
+</div>
+</div>
+<div class="wrapper light">
+<div class="body-text">
+<h2>We are the corinthian 10</h2>
 
 
-            </div>
+<div class="profiles">
+<div class="loading" ng-if="loading">Loading..</div>
+<div class="profile" ng-repeat="profile in profiles">
+<h3 class="title">{$ profile.name $}</h3>
+<div class="image">
+<img ng-src="{$ profile.image $}" />
+</div>
+<div>
+{$ profile.bio $}
+</div>
+</div>
+</div>
 
-            <div class="wide body-text">
-                <div class="livestream">
-                    <div class="left centered">
-                    </div>
-                    <div class=" right">
-                    </div>
-                </div>
-                <div class="twitter-stuff">
+<h2 class="corinthian-title">
+get involved
+</h2>
+<div class="tallies">
+<h3>{$ debtors $} corinthians</h3>
+<h3>${$ debt $} debt</h3>
+<h3>${$ money $} pledged</h3>
+</div>
+</div>
+<div>
+</div>
 
-                </div>
-            </div>
-
-            <div class="whatcanido body-text">
-                <h1>I'm not paying</h1>
-            </div>
-            <div class="whatcanido body-text">
-                <h1>How can I help?</h1>
-                <h2 class="step-heading">Twitter Bomb!</h2>
-                 <a href="https://twitter.com/intent/tweet?text=
-                When%20we%20defend%20Everest%20students%2C%20we%20fight%20for%20all%20students.%20Debtors%20must%20act%20together.%20%40USedgov%20whose%20side%20are%20you%20on%3F%20%23Nov4%20%23DebtTrap">
-                    <div class="tweet-btn">
-                        When we defend #Everest students, we fight for ALL students. Debtors must act together. @USedgov whose side are you on? #DebtTrap
-                    </div>
-                </a>
-                <a href="https://twitter.com/intent/tweet?text=To%20the%20DoE%20I%27m%20just%20a%20number%3A%20________.%20We%20need%20to%20fight%20back%2C%20we%20are%20all%20in%20the%20red.%20%23NotAoan%20http%2F%2Fdebtcollective.org">
-                    <div class="tweet-btn">
-                    To the DoE I'm just a number: ________. We need to fight back, we are ALL in the red.  #NotALoan </div>
-                </a>
-               <a href="https://twitter.com/intent/tweet?text=So%2C%20%40USedgov%20could%20fund%20%23HigherEd%20for%20all%20using%20less%20than%201%25%20of%20the%20Federal%20Budget. http%3A%2F%2Fstrikedebt.org%2Fhow-far-to-free%2F">
-                    <div class="tweet-btn">
-                     So, @USedgov could fund #HigherEd for all using less than 1% of the Federal Budget.
-                    </div>
-                </a>
-                <a href="https://twitter.com/intent/tweet?text=End%20the%20love%20affair%20with%20for-profit%20colleges.%20%40USedgov%2C%20break%20up%20with%20Everest%20and%20cancel%20student%20debt.%20%23HigherEd">
-                    <div class="tweet-btn">
-                     End the love affair with for-profit colleges. @USedgov, break up with Everest and cancel student debt.  #HigherEd
-                    </div>
-                </a>
-                <h2>Donate your account</h2>
-                <p class="centered">
-                    Put a red square in your social media profile picture.
-                </p>
-                <p class="centered">
-                    <script src="//twibbon.com/embed/debt-collective" type="text/javascript">
-                    </script>
-                    <a href="https://twibbon.com/Support/debt-collective">
-                        <img src="/static/img/ange.jpg" width="200px"/>
-                    </a>
-                </p>
-            </div>
-        </article>
-        </div>
-    </div>
+<div class="whatcanido body-text">
+<h1>I'm not paying</h1>
+</div>
+<div class="whatcanido body-text">
+<h1>How can I help?</h1>
+<h2 class="step-heading">Twitter Bomb!</h2>
+<a href="https://twitter.com/intent/tweet?text=
+When%20we%20defend%20Everest%20students%2C%20we%20fight%20for%20all%20students.%20Debtors%20must%20act%20together.%20%40USedgov%20whose%20side%20are%20you%20on%3F%20%23Nov4%20%23DebtTrap">
+<div class="tweet-btn">
+When we defend #Everest students, we fight for ALL students. Debtors must act together. @USedgov whose side are you on? #DebtTrap
+</div>
+</a>
+<a href="https://twitter.com/intent/tweet?text=To%20the%20DoE%20I%27m%20just%20a%20number%3A%20________.%20We%20need%20to%20fight%20back%2C%20we%20are%20all%20in%20the%20red.%20%23NotAoan%20http%2F%2Fdebtcollective.org">
+<div class="tweet-btn">
+To the DoE I'm just a number: ________. We need to fight back, we are ALL in the red.  #NotALoan </div>
+</a>
+<a href="https://twitter.com/intent/tweet?text=So%2C%20%40USedgov%20could%20fund%20%23HigherEd%20for%20all%20using%20less%20than%201%25%20of%20the%20Federal%20Budget. http%3A%2F%2Fstrikedebt.org%2Fhow-far-to-free%2F">
+<div class="tweet-btn">
+So, @USedgov could fund #HigherEd for all using less than 1% of the Federal Budget.
+</div>
+</a>
+<a href="https://twitter.com/intent/tweet?text=End%20the%20love%20affair%20with%20for-profit%20colleges.%20%40USedgov%2C%20break%20up%20with%20Everest%20and%20cancel%20student%20debt.%20%23HigherEd">
+<div class="tweet-btn">
+End the love affair with for-profit colleges. @USedgov, break up with Everest and cancel student debt.  #HigherEd
+</div>
+</a>
+<h2>Donate your account</h2>
+<p class="centered">
+Put a red square in your social media profile picture.
+</p>
+<p class="centered">
+<a href="https://twibbon.com/Support/debt-collective">
+<img src="/static/img/ange.jpg" width="200px"/>
+</a>
+</p>
+</div>
+</article>
+</div>
+</div>
 </div>
 {% endblock %}

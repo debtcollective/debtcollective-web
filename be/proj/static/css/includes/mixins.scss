@@ -1,3 +1,5 @@
+@import "variables";
+
 @mixin transition($prop: all, $duration: .25s, $ease: ease-in-out) {
     -webkit-transition: $prop $duration $ease;
     -moz-transition: $prop $duration $ease;
@@ -44,7 +46,6 @@ $default_rounded_amount: 5;
 
 %rale {
     font-family: "Raleway", sans-serif;
-    font-weight: 600;
 }
 
 %serif {

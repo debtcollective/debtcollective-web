@@ -1,3 +1,5 @@
+@import "../includes/variables";
+
 #corinthian {
   margin-top: 400px;
   .intro {
@@ -7,9 +9,12 @@
     p {
       margin: 44px 22px;
     }
+    a {
+      text-decoration: underline;
+      color: $intro-text !important;
+    }
   }
 }
-
 
 .splash.corinthian {
   color: $dark-text-color;

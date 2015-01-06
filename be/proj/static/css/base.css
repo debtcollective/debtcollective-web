@@ -9,8 +9,7 @@
   line-height: 20px; }
 
 .intro-text, p, .body-text, h1, h2, h3 {
-  font-family: "Raleway", sans-serif;
-  font-weight: 600; }
+  font-family: "Raleway", sans-serif; }
 
 .button, button, .tweet-btn.blue, .tweet-btn.red {
   color: #b6bea7;
@@ -252,72 +251,15 @@
     color: #acb9b7 !important; }
     #corinthian .intro p {
       margin: 44px 22px; }
-  #corinthian .wrapper input[type="checkbox"], #corinthian .wrapper input[type="radio"] {
-    display: inline-block;
-    margin-right: 0.5em;
-    vertical-align: middle;
-    height: 1em;
-    width: 1.25em; }
-  #corinthian .whatcanido .step-heading {
-    padding-top: 2em; }
-  #corinthian .questions p {
-    text-indent: 0;
-    margin-bottom: 1.25em; }
-  #corinthian .questions li {
-    background: #fff;
-    padding: 1em;
-    margin-bottom: 0.1em;
-    text-indent: -1.75em;
-    padding-left: 2.75em;
-    text-align: left;
-    list-style: none; }
-
-.schedule {
-  max-width: 400px; }
-  .schedule h3 {
-    margin-top: 15px;
-    margin-bottom: 2px;
-    text-transform: uppercase; }
-
-.hearing {
-  position: relative;
-  height: 650px;
-  padding: 25px; }
-  .hearing .livestream {
-    margin-bottom: 100px;
-    height: 200px; }
-  .hearing .timeline, .hearing .twitter-timeline {
-    width: 400px !important;
-    height: 525px; }
-  .hearing .twitter-stuff {
-    margin-top: 15px; }
+    #corinthian .intro a {
+      text-decoration: underline;
+      color: #acb9b7 !important; }
 
 .splash.corinthian {
   color: #f1eee2; }
 
 .corinthian-title {
   padding-top: 44px; }
-
-.letters {
-  margin: 1em auto;
-  text-align: center; }
-  .letters a {
-    border-bottom: none !important; }
-  .letters .half {
-    border: .15em solid #ddd;
-    width: 40%;
-    max-height: 400px;
-    padding: 2em;
-    margin: 10px;
-    display: inline-block; }
-    .letters .half h2 {
-      margin-top: 0px !important; }
-    .letters .half .california {
-      padding: 1em; }
-    .letters .half:hover {
-      background-color: rgba(134, 143, 148, 0.8); }
-  .letters p {
-    text-align: center; }
 
 hr {
   border-top: 1px solid rgba(134, 143, 148, 0.8);
