@@ -1,0 +1,14 @@
+<div class="carousel">
+<div class="loading" ng-if="loading">Loading..</div>
+<div class="prev" ng-click="prev()"></div>
+<div class="item">
+<h3 class="title">{$ data[selectionIndex].name $}</h3>
+<div class="image">
+<img ng-src="{$ data[selectionIndex].image $}" />
+</div>
+<div>
+{$ data[selectionIndex].bio $}
+</div>
+</div>
+<div class="next" ng-click="next()"></div>
+</div>

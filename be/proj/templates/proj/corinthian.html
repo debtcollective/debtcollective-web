@@ -46,19 +46,7 @@ By declaring a strike, we fight for all student debtors and for the right to a f
 <div class="body-text">
 <h2>We are the corinthian 10</h2>
 
-
-<div class="profiles">
-<div class="loading" ng-if="loading">Loading..</div>
-<div class="profile" ng-repeat="profile in profiles">
-<h3 class="title">{$ profile.name $}</h3>
-<div class="image">
-<img ng-src="{$ profile.image $}" />
-</div>
-<div>
-{$ profile.bio $}
-</div>
-</div>
-</div>
+<carousel data="data" class="profiles"></carousel>
 
 <h2 class="corinthian-title">
 get involved
