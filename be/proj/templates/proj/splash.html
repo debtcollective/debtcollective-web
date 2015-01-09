@@ -3,22 +3,6 @@
 
 {% block body %}
 
-  <div class="header-links hidden-mobile">
-    <a href="/corinthian/" du-scrollspy>strike</a>
-      &nbsp;&nbsp; | &nbsp;&nbsp;
-    <a  href="/#learn" ng-click="learnMore=true" du-scrollspy du-smooth-scroll>information</a>
-      &nbsp;&nbsp;  |  &nbsp;&nbsp;
-    <a href="http://blog.debtcollective.org" du-scrollspy>dispatch</a>
-      &nbsp;&nbsp; | &nbsp;&nbsp;
-    <a du-scrollspy href="http://strategize.debtcollective.org">strategize</a>
-  </div>
-
-  <div class="header-links mobile-only">
-    <a href="/#scroll" du-scrollspy>home: life or debt? </a><br>
-      <a du-scrollspy href="/corinthian/">corinthian students</a>
-
-  </div>
-
 <div scroll>
   <div id="scroll" ng-controller="splashCtrl"
     ng-class="{mainstate: yLoc >= amountToScroll}">

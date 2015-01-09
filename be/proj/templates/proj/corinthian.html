@@ -3,27 +3,37 @@
 
 {% block body %}
 <div scroll ng-controller="corinthianCtrl">
-<div class="header-links hidden-mobile">
-<a href="/studentstrike/" du-scrollspy>strike</a>
-&nbsp;&nbsp; | &nbsp;&nbsp;
-<a href="/#scroll" du-scrollspy>information</a>
-&nbsp;&nbsp; | &nbsp;&nbsp;
-<a href="http://blog.debtcollective.org" du-scrollspy>dispatch</a>
-&nbsp;&nbsp; | &nbsp;&nbsp;
-<a href="http://strategize.debtcollective.org">strategize</a>
+<div id="corinthian">
+<div class="wrapper light page">
+<div class="header-title">
+  <div class="splash-square red"></div>
+  <h1>THE DEBT COLLECTIVE</h1>
 </div>
 
-<div id="corinthian">
-<div class="wrapper light">
-<h1 class="corinthian-title">THE DEBT COLLECTIVE</h1>
-
 <div class="body-text">
-<h2 class="corinthian-title">STUDENT DEBT STRIKE IN PROGRESS</h2>
+<h2>STUDENT DEBT STRIKE IN PROGRESS</h2>
 
+<div class="progress-items">
+<div class="progress-item">{$ debtors $} corinthians</div>
+<div class="progress-item">${$ debt $} debt</div>
+<div class="progress-item">${$ money $} pledged</div>
+</div>
 <div class="loading" ng-show="loading">Loading..</div>
 <carousel ng-if="!loading" data="data" class="profiles"></carousel>
 
+        <button type="submit"
+          name="submit"
+          class="btn signup-button">I'm not paying</button>
+
+        <button type="submit"
+          name="submit"
+          class="btn signup-button">I'm having trouble paying</button>
+
+        <button type="submit"
+          name="submit"
+          class="btn signup-button">How can I help?</button>
 <div class="body-text">
+<h2>WE WON'T PAY</h2>
 <p>
 We can’t pay and we won’t pay our debt from Everest College. We demand that the Department of Education discharge our debts and the debts of every current and former student of Corinthian Colleges (Everest, Heald College, and Wyotech).
 </p>
@@ -34,24 +44,14 @@ Corinthian defrauded us. It is being sued for running a scam operation to make m
 By declaring a strike, we fight for all student debtors and for the right to a free, quality education for all students.
 </p>
 </div>
-<h2 class="corinthian-title">
-GET INVOLVED
-</h2>
-<div class="tallies">
-<h3>{$ debtors $} corinthians</h3>
-<h3>${$ debt $} debt</h3>
-<h3>${$ money $} pledged</h3>
-</div>
-</div>
-<div>
 </div>
 
 <div class="whatcanido body-text">
-<h2>I'm not paying</h2>
 </div>
 <div class="whatcanido body-text">
 <h2>How can I help?</h2>
-<h2 class="step-heading">Twitter Bomb!</h2>
+
+<h2 class="step-heading">Spread the word!</h2>
 <a href="https://twitter.com/intent/tweet?text=
 When%20we%20defend%20Everest%20students%2C%20we%20fight%20for%20all%20students.%20Debtors%20must%20act%20together.%20%40USedgov%20whose%20side%20are%20you%20on%3F%20%23Nov4%20%23DebtTrap">
 <div class="tweet-btn">

@@ -180,15 +180,6 @@ input[type="text"], input[type="email"] {
     margin: auto;
     transform: translateY(-25%);
 
-    .splash-square {
-      opacity: 1;
-      width: 245px;
-      height: 245px;
-      margin: auto;
-      &.red {
-        background-color: $pink-red;
-      }
-    }
 
     &:nth-child(19),
     &:nth-child(20),
@@ -196,6 +187,16 @@ input[type="text"], input[type="email"] {
     &:nth-child(22) {
       border-bottom: #333 1px solid;
     }
+  }
+}
+
+.splash-square {
+  opacity: 1;
+  width: 245px;
+  height: 245px;
+  margin: auto;
+  &.red {
+    background-color: $pink-red;
   }
 }
 #scrollthing {

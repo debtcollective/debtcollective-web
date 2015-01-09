@@ -13,7 +13,7 @@ app.controller('splashCtrl',
 
     $scope.startShowingFormLoc = 4300;
 
-    $http.get('/points/').then(function (resp) {
+    $http.get('/points').then(function (resp) {
         $scope.cities = resp.data
     });
 

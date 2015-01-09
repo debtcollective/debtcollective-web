@@ -180,6 +180,9 @@ h3 {
   background-color: $dark-background-color;
   position: relative;
   margin: 0 auto;
+  &.page {
+    padding-top: 40px;
+  }
 
   h1 {
     border-bottom: $dark-text-color 1px solid;
@@ -320,6 +323,17 @@ label {
     background-color: $dark-red;
     color: $dark-text-color;
     @include box-shadow(1px, 1px, 1px, 0px, $off-grey);
+  }
+}
+
+.header-title {
+  padding: 20px;
+
+  .splash-square {
+    margin-right: 40px;
+    float: left;
+    width: 145px;
+    height: 145px;
   }
 }
 

@@ -26,6 +26,23 @@
 
 </head>
 <body ng-app="myDebtIs">
+
+  <div class="header-links hidden-mobile">
+    <a href="/studentstrike/" du-scrollspy>strike</a>
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+    <a  href="/#learn" ng-click="learnMore=true" du-scrollspy du-smooth-scroll>information</a>
+      &nbsp;&nbsp;  |  &nbsp;&nbsp;
+    <a href="http://blog.debtcollective.org" du-scrollspy>dispatch</a>
+      &nbsp;&nbsp; | &nbsp;&nbsp;
+    <a du-scrollspy href="http://strategize.debtcollective.org">strategize</a>
+  </div>
+
+  <div class="header-links mobile-only">
+    <a href="/#scroll" du-scrollspy>home: life or debt? </a><br>
+      <a du-scrollspy href="/studentstrike/">strike</a>
+
+  </div>
+
   {% block body %}{% endblock %}
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   <script>
