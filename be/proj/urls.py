@@ -9,7 +9,7 @@ urlpatterns = patterns('',
 )
 
 def basic_url(name):
-  return url(r'^%s/' % name, name, name=name)
+  return url(r'^%s' % name, name, name=name)
 
 urlpatterns += patterns('proj.views',
   basic_url('map'),
@@ -26,4 +26,8 @@ urlpatterns += patterns('proj.gather.views',
   basic_url('points'),
   basic_url('map_data'),
   basic_url('generate_map_json')
+)
+
+urlpatterns += patterns('proj.arcs.corinthian',
+  basic_url('strikers'),
 )

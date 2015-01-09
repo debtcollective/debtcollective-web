@@ -13,23 +13,17 @@
 <a href="http://strategize.debtcollective.org">strategize</a>
 </div>
 
-<section class="splash corinthian" ng-class="{hidden : yLoc > 5}">
-<div class="splash-text">
-<h1>Student debt strike in progress</h1>
-</div>
-<section class="images">
-<div class="pane">
-<div class="splash-square red"></div>
-</div>
-</section>
-<div class="splash-footer" ng-click="scrollClick()">
-scroll to learn more
-</div>
-</section>
 <div id="corinthian">
-<div class="intro">
+<div class="wrapper light">
+<h1 class="corinthian-title">THE DEBT COLLECTIVE</h1>
+
 <div class="body-text">
-<h1>Student debt strike in progress</h1>
+<h2 class="corinthian-title">STUDENT DEBT STRIKE IN PROGRESS</h2>
+
+<div class="loading" ng-show="loading">Loading..</div>
+<carousel ng-if="!loading" data="data" class="profiles"></carousel>
+
+<div class="body-text">
 <p>
 We can’t pay and we won’t pay our debt from Everest College. We demand that the Department of Education discharge our debts and the debts of every current and former student of Corinthian Colleges (Everest, Heald College, and Wyotech).
 </p>
@@ -40,14 +34,6 @@ Corinthian defrauded us. It is being sued for running a scam operation to make m
 By declaring a strike, we fight for all student debtors and for the right to a free, quality education for all students.
 </p>
 </div>
-</div>
-<div class="wrapper light">
-<div class="body-text">
-<h1 class="corinthian-title">WE ARE NOT PAYING</h1>
-
-<div class="loading" ng-show="loading">Loading..</div>
-<carousel ng-if="!loading" data="data" class="profiles"></carousel>
-
 <h2 class="corinthian-title">
 GET INVOLVED
 </h2>

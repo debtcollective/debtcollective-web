@@ -243,17 +243,15 @@
 .splash-bottom-quote {
   margin-top: -25px; }
 
-#corinthian {
-  margin-top: 400px; }
-  #corinthian .intro {
-    background-color: #110d21;
-    padding: 2em;
+#corinthian .intro {
+  background-color: #110d21;
+  padding: 2em;
+  color: #acb9b7 !important; }
+  #corinthian .intro p {
+    margin: 44px 22px; }
+  #corinthian .intro a {
+    text-decoration: underline;
     color: #acb9b7 !important; }
-    #corinthian .intro p {
-      margin: 44px 22px; }
-    #corinthian .intro a {
-      text-decoration: underline;
-      color: #acb9b7 !important; }
 
 .splash.corinthian {
   color: #f1eee2; }
