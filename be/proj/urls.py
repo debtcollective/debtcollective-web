@@ -18,7 +18,8 @@ urlpatterns += patterns('proj.views',
   basic_url('thankyou'),
   basic_url('corinthian'),
   basic_url('nov_fourth'),
-  url(r'^$', 'splash', name='splash')
+  url(r'^$', 'splash', name='splash'),
+  url(r'^studentstrike', 'corinthian', name='studentstrike')
 )
 
 urlpatterns += patterns('proj.gather.views',
