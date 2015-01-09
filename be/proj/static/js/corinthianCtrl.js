@@ -1,28 +1,13 @@
 app.controller('corinthianCtrl',
-  function ($scope, $http, $document, $window, util_svc) {
+  function ($scope, $http) {
     $scope.debtors = 13415;
     $scope.debt = 354135;
     $scope.money = 24194;
-    $scope.profileIndex = 0;
-    $scope.data = [];
 
-    function populateStrikers() {
-      var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1JWrE9ca5aU9NbGHoioVIhsJJhY9r09T7TCQw220XhgM/pubhtml?gid=0&single=true'
-      $scope.loading = true;
+    $scope.loading = true;
 
-      if (!Tabletop) {
-        return populateStrikers()
-      }
-
-      Tabletop.init( { key: public_spreadsheet_url,
-                       callback: showInfo,
-                       simpleSheet: true } )
-    }
-
-    function showInfo(data) {
+    $http.get('/static/js/strikers.json').then(function (resp) {
       $scope.loading = false;
-      $scope.data = data;
-    }
-
-    populateStrikers();
+      $scope.data = resp.data;
+    });
 });
