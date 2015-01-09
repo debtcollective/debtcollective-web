@@ -44,12 +44,13 @@ By declaring a strike, we fight for all student debtors and for the right to a f
 </div>
 <div class="wrapper light">
 <div class="body-text">
-<h2>We are the corinthian 10</h2>
+<h1 class="corinthian-title">WE ARE NOT PAYING</h1>
 
-<carousel data="data" class="profiles"></carousel>
+<div class="loading" ng-show="loading">Loading..</div>
+<carousel ng-if="!loading" data="data" class="profiles"></carousel>
 
 <h2 class="corinthian-title">
-get involved
+GET INVOLVED
 </h2>
 <div class="tallies">
 <h3>{$ debtors $} corinthians</h3>
@@ -61,10 +62,10 @@ get involved
 </div>
 
 <div class="whatcanido body-text">
-<h1>I'm not paying</h1>
+<h2>I'm not paying</h2>
 </div>
 <div class="whatcanido body-text">
-<h1>How can I help?</h1>
+<h2>How can I help?</h2>
 <h2 class="step-heading">Twitter Bomb!</h2>
 <a href="https://twitter.com/intent/tweet?text=
 When%20we%20defend%20Everest%20students%2C%20we%20fight%20for%20all%20students.%20Debtors%20must%20act%20together.%20%40USedgov%20whose%20side%20are%20you%20on%3F%20%23Nov4%20%23DebtTrap">

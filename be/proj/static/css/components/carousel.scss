@@ -1,0 +1,68 @@
+/** carousel **/
+.carousel {
+
+  .title {
+    text-align: center;
+  }
+
+  .items {
+    position: relative;
+    height: 650px;
+  }
+
+  .count {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+  }
+
+  .item {
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    &.visible {
+      visibility: visible !important;
+    }
+  }
+  .turners {
+    position: relative;
+    z-index: 999;
+
+    .turner {
+      @include transition();
+      padding: 5px;
+      cursor: pointer;
+      width: 65px;
+      margin-right: 4px;
+      background-color: $weird-yellow;
+
+      &:hover {
+        background-color: $dark-red;
+        color: $dark-text-color;
+      }
+      &.prev {
+        float: left;
+      }
+      &.next {
+        float: right;
+        text-align: right;
+      }
+    }
+  }
+  .text {
+    p {
+      font-size: 13px;
+      line-height: 19px;
+    }
+    position: relative;
+    max-height: 600px;
+  }
+
+  .image {
+    float: left;
+    width: 60%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+}

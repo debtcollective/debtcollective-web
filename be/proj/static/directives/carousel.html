@@ -1,14 +1,22 @@
 <div class="carousel">
-<div class="loading" ng-if="loading">Loading..</div>
-<div class="prev" ng-click="prev()"></div>
-<div class="item">
-<h3 class="title">{$ data[selectionIndex].name $}</h3>
-<div class="image">
-<img ng-src="{$ data[selectionIndex].image $}" />
+<div class="items">
+  <div ng-repeat="item in data" class="item" ng-class="{visible: $index == selectionIndex}">
+    <h3 class="title">{$ item.name $}</h3>
+
+    <div class="image">
+    <img ng-src="{$ item.image $}" />
+    </div>
+
+    <div class="text">
+     <p>{$ item.bio $}</p>
+    </div>
+  </div>
+  <div class="count">{$ selectionIndex + 1 $} / {$ data.length $}</div>
 </div>
-<div>
-{$ data[selectionIndex].bio $}
+<div class="turners" ng-show="data.length > 1">
+  <div class="turner prev" ng-click="prev()"><< prev</div>
+  <div class="turner next" ng-click="next()">next >></div>
 </div>
+
 </div>
-<div class="next" ng-click="next()"></div>
-</div>
+

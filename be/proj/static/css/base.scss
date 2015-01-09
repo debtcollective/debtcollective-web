@@ -4,6 +4,8 @@
 @import "pages/splash";
 @import "pages/corinthian";
 
+@import "components/carousel";
+
 
 ::-webkit-input-placeholder,
 :-moz-placeholder,  /* Firefox 18- */
@@ -212,7 +214,7 @@ div {
 }
 
 /** angular-bootstrap compliance **/
-.nav, .pagination, .carousel, .panel-title a {
+.nav, .pagination, .panel-title a {
     cursor: pointer;
 }
 

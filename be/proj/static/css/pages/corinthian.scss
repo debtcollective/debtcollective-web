@@ -2,13 +2,16 @@
 
 #corinthian {
   margin-top: 400px;
+
   .intro {
     background-color: $dark-blue;
     padding: 2em;
     color: $intro-text !important;
+
     p {
       margin: 44px 22px;
     }
+
     a {
       text-decoration: underline;
       color: $intro-text !important;
@@ -22,6 +25,7 @@
 
 .corinthian-title {
   padding-top: 44px;
+  text-align: center;
 }
 
 hr {

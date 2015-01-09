@@ -46,9 +46,19 @@
     max-width: 100%;
     min-width: 100%;
   }
-  .body-text {
+  .carousel {
 
+    .items {
+      height: 900px;
+    }
+
+    .image {
+      width: 100%;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
   }
+
   #corinthian .intro p {
     margin: 44px 0px;
   }
