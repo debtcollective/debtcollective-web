@@ -4,76 +4,8 @@
 {% block body %}
 
 <div scroll>
-  <div id="scroll" ng-controller="splashCtrl"
-    ng-class="{mainstate: yLoc >= amountToScroll}">
-    <div id="scrollthing" ng-style="scrollThingStyle" style="max-height: 2000px">
-    </div>
-    <section id="splash" class="splash" ng-class="{hidden: yLoc > 5}">
-      <div class="splash-text">
-        <h1>Organize, Resist, Reimagine</h1>
-      </div>
-      <div class="splash-footer" ng-click="scrollClick()">
-        scroll to begin
-      </div>
-    </section>
-
-    <section class="images" ng-style="backgroundStyle" ng-class="{close: yLoc >= 2700}">
-        <!-- for each range, display the appropriate animation. change in directives.js -->
-        <div ng-class="{pane: yLoc == 0}">
-          <div class="splash-square red"></div>
-        </div>
-        <div ng-repeat="range in ranges"
-             ng-class="{pane: yLoc > range.yScroll && yLoc < range.yScrollEnd}">
-          <img class="splash-square" ng-src="/static/img/animation/transitional-support-{$range.num$}.png"/>
-        </div>
-    </section>
-
-    <div class="wrapper light">
-      <section class="intro-text">
-        <div class="body-text">
-          <div class="slide">
-            <span ng-class="{pane: yLoc > 0 && yLoc <= 600}">
-              Every month, we are forced into debt for basic necessities.
-            </span>
-            <span ng-class="{pane: yLoc > 200 && yLoc <= 600}">
-              We have no choice but to enter into contracts under unfair terms.
-            </span>
-            <span  ng-class="{pane: yLoc > 400 && yLoc <= 600}">
-              We have little power to bargain or negotiate.
-            </span>
-          </div>
-          <div class="slide">
-            <span ng-class="{pane: yLoc > 600 && yLoc <= 1200}">
-              Creditors are holding us hostage.
-            </span>
-            <span ng-class="{pane: yLoc > 800 && yLoc <= 1200}">
-              When we can’t meet the terms of the contract, we are harassed,
-            </span>
-            <span ng-class="{pane: yLoc > 1000 && yLoc <= 1200}">
-              we have our wages garnished, and some of us are even imprisoned.
-            </span>
-          </div>
-          <div class="slide">
-            <span ng-class="{pane: yLoc > 1200 && yLoc <= 1600}">
-              The goal of the Debt Collective is to fight back
-            </span>
-            <span ng-class="{pane: yLoc > 1400 && yLoc <= 1600}">
-              and transform the way we finance basic necessities, such as education, health care, and housing.
-            </span>
-          </div>
-          <div class="slide">
-            <span ng-class="{pane: yLoc > 1600 && yLoc <= 2800}">
-              If you owe the bank thousands of dollars, then the bank owns you.
-            </span>
-            <span ng-class="{pane: yLoc > 1800 && yLoc <= 2800}">
-              But if you owe the bank millions, then you own the bank.
-            </span>
-            <span ng-class="{pane: yLoc > 2000 && yLoc <= 2800}">
-              Collectively, we own the bank.
-            </span>
-          </div>
-        </div>
-      </section>
+  <div id="scroll" ng-controller="splashCtrl">
+  <div class="wrapper light">
       <section id="learn">
         <div id="map" class="map-container" ng-controller="mapCtrl">
 
