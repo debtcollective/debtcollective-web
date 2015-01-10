@@ -76,19 +76,31 @@ p, .body-text {
 .header-links {
   padding: 4.5px 15px;
   font-size: 16px;
-  float: right;
   text-align: center;
   z-index: 1000;
-  position: fixed;
-  height: $header-height;
   width: 100%;
-  top: 0;
-  right: 0;
   width: 100%;
-  background-color: $dark-blue;
   z-index: 9999999;
-  border-bottom: 1px solid $off-grey;
+  background-color: $off-grey;
 
+  .splash-square {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 10px;
+  }
+
+  &.scrolling {
+    position: fixed;
+    border-bottom: 1px solid #39413f;
+    top: 0;
+    right: 0;
+    height: 32px;
+
+    .header-title {
+      display: none;
+    }
+  }
   a {
     color: rgb(134,133,148);
     &:hover {
@@ -96,6 +108,7 @@ p, .body-text {
     }
   }
 }
+
 
 $banner-height: 32px;
 .banner {
@@ -133,12 +146,14 @@ h1 {
   color: #feffe8;
   font-weight: 100;
   letter-spacing: 5px;
+
   .small {
     font-size: 16px;
     line-height: 24px;
   }
   a {
-    text-decoration: underline;
+    color: #feffe8 !important;
+    text-decoration: none;
   }
 }
 

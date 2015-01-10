@@ -25,9 +25,17 @@
   <meta name="twitter:image" content="/static/img/socialmedia_reportersdescribe.png" />
 
 </head>
-<body ng-cloak ng-app="myDebtIs">
+<body ng-cloak scroll ng-app="myDebtIs">
 
-  <div class="header-links hidden-mobile">
+  <div ng-class="{scrolling: yLoc >= 5}"
+    class="header-links hidden-mobile">
+    <div class="header-title">
+      <h1><a href="/">
+        THE DEBT COLLECTIVE
+        </a>
+      </h1>
+    </div>
+    <a href="/"><div class="splash-square red"></div></a>
     <a href="/studentstrike/" du-scrollspy>strike</a>
       &nbsp;&nbsp; | &nbsp;&nbsp;
     <a  href="/#learn" ng-click="learnMore=true" du-scrollspy du-smooth-scroll>information</a>
@@ -40,10 +48,10 @@
   <div class="header-links mobile-only">
     <a href="/#scroll" du-scrollspy>home: life or debt? </a><br>
       <a du-scrollspy href="/studentstrike/">strike</a>
-
   </div>
-
+  <div class="body">
   {% block body %}{% endblock %}
+  </div>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   <script>
     window.fbAsyncInit = function() {

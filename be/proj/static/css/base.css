@@ -365,18 +365,25 @@ p, .body-text {
 .header-links {
   padding: 4.5px 15px;
   font-size: 16px;
-  float: right;
   text-align: center;
   z-index: 1000;
-  position: fixed;
-  height: 32px;
   width: 100%;
-  top: 0;
-  right: 0;
   width: 100%;
-  background-color: #110d21;
   z-index: 9999999;
-  border-bottom: 1px solid #39413f; }
+  background-color: #39413f; }
+  .header-links .splash-square {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 10px; }
+  .header-links.scrolling {
+    position: fixed;
+    border-bottom: 1px solid #39413f;
+    top: 0;
+    right: 0;
+    height: 32px; }
+    .header-links.scrolling .header-title {
+      display: none; }
   .header-links a {
     color: #868594; }
     .header-links a:hover {
@@ -411,7 +418,8 @@ h1 {
     font-size: 16px;
     line-height: 24px; }
   h1 a {
-    text-decoration: underline; }
+    color: #feffe8 !important;
+    text-decoration: none; }
 
 .quote {
   transform: translateY(-25%);
