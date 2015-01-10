@@ -21,8 +21,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
 
     map.pathToImages = "/static/js/vendor/ammap/images/";
     map.useHandCursorOnClickableOjects = true
-    map.backgroundAlpha = .8;
-    map.backgroundColor = "#feffe8";
+    map.backgroundAlpha = 0;
     map.mouseWheelZoomEnabled = false;
     map.panEventsEnabled = false;
 
