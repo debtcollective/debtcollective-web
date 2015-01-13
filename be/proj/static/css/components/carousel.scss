@@ -15,8 +15,19 @@
     position: absolute;
     right: 0;
   }
+  .content {
+    height: 500px;
+    background-size: 100%;
+    padding: 15px;
+    width: 100%;
+    p {
+      width: 50%;
+      float: right;
+    }
+  }
 
   .item {
+    width: 100%;
     position: absolute;
     top: 0;
     visibility: hidden;

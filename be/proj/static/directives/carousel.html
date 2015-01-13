@@ -1,20 +1,14 @@
 <div class="carousel">
-<div class="turners" ng-show="data.length > 1">
-  <div class="turner prev" ng-click="prev()"><< prev</div>
-  <div class="turner next" ng-click="next()">next >></div>
-</div>
 <div class="items">
   <div ng-repeat="item in data" class="item" ng-class="{visible: $index == selectionIndex}">
     <h3 class="title">{$ item.name $}</h3>
 
-    <div class="image">
-    <img ng-src="{$ item.image $}" />
-    </div>
+    <div class="content" style="background-image: url({$ item.image $})">
 
-    <div class="text">
-     <p>{$ item.bio $}</p>
+     <p>{$ item.shortBio $}</p>
     </div>
   </div>
+  <div class="turner next" ng-click="next()">next >></div>
 </div>
 
 </div>

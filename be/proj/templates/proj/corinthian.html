@@ -4,33 +4,27 @@
 {% block body %}
 <div scroll ng-controller="corinthianCtrl">
 <div id="corinthian">
+<div class="top-quote">
+<h1>
+ We can’t pay and we won’t pay our debt from Everest College.
+</h1>
+</div>
 <div class="wrapper light page">
 
-<div class="body-text">
 <h2>STUDENT DEBT STRIKE IN PROGRESS</h2>
 
 <div class="progress-items">
-<div class="progress-item">{$ debtors $} corinthians</div>
-<div class="progress-item">${$ debt $} debt</div>
-<div class="progress-item">${$ money $} pledged</div>
+<h2 ng-cloak class="progress-item">{$ debtors $} corinthians</h2>
+<h2 ng-cloak class="progress-item">${$ debt $} debt</h2>
 </div>
 <div class="loading" ng-show="loading">Loading..</div>
 <carousel ng-if="!loading" data="data" class="profiles"></carousel>
-
-        <button type="submit"
-          name="submit"
-          class="btn signup-button">I'm not paying</button>
-
-        <button type="submit"
-          name="submit"
-          class="btn signup-button">I'm having trouble paying</button>
-
-        <button type="submit"
-          name="submit"
-          class="btn signup-button">How can I help?</button>
+<div class="body-text">
+<div class="flex">
+<div class="half">
 <h2>WE WON'T PAY</h2>
 <p>
-We can’t pay and we won’t pay our debt from Everest College. We demand that the Department of Education discharge our debts and the debts of every current and former student of Corinthian Colleges (Everest, Heald College, and Wyotech).
+ We demand that the Department of Education discharge our debts and the debts of every current and former student of Corinthian Colleges (Everest, Heald College, and Wyotech).
 </p>
 <p>
 Corinthian defrauded us. It is being sued for running a scam operation to make maximum profits from student loans issued by the Department of Education. Corinthian lied to students like us about the quality of education it offers. Yet, <a href="http://blog.debtcollective.org/students-speak-out-at-doe-hearing-to-demand-debt-cancellation-and-free-education/">when we asked the Department of Education to cancel our Federal loans, they refused to respond</a>.  As campuses are closing or being sold, Corinthian will soon no longer exist.  But its investors will continue to profit because the government has decided that, like the Wall Street banks, it is too big to fail  Their debts are being taken care of, while we are expected to keep on paying ours..  We refuse to do so.
@@ -39,8 +33,17 @@ Corinthian defrauded us. It is being sued for running a scam operation to make m
 By declaring a strike, we fight for all student debtors and for the right to a free, quality education for all students.
 </p>
 </div>
+<div class="half">
+  <button type="submit"
+    name="submit"
+    class="btn signup-button">Can't/Won't Pay</button>
 
-<div class="whatcanido body-text">
+  <button type="submit"
+    name="submit"
+    class="btn signup-button">Can I help?</button>
+</div>
+</div>
+
 <h2>How can I help?</h2>
 
 <h2 class="step-heading">Spread the word!</h2>
@@ -74,7 +77,6 @@ Put a red square in your social media profile picture.
 </a>
 </p>
 </div>
-</article>
 </div>
 </div>
 </div>

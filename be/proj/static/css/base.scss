@@ -73,6 +73,10 @@ p, .body-text {
   }
 }
 
+
+.header-title {
+  padding: 20px;
+}
 .header-links {
   padding: 4.5px 15px;
   font-size: 16px;
@@ -82,7 +86,6 @@ p, .body-text {
   width: 100%;
   z-index: 9999999;
   background-color: $off-grey;
-
   .splash-square {
     position: absolute;
     height: 100px;
@@ -96,7 +99,10 @@ p, .body-text {
     top: 0;
     right: 0;
     height: 32px;
-
+    .splash-square {
+      height: 20px;
+      width: 20px;
+    }
     .header-title {
       display: none;
     }
@@ -155,6 +161,10 @@ h1 {
     color: #feffe8 !important;
     text-decoration: none;
   }
+}
+.top-quote {
+  padding: 2em;
+  text-align: center;
 }
 
 .quote {
@@ -306,6 +316,10 @@ label {
   float: right;
 }
 
+.half {
+  width: 49%;
+}
+
 .tweet-btn {
   @extend %mono;
   @include round-corners(5);
@@ -341,15 +355,9 @@ label {
   }
 }
 
-.header-title {
-  padding: 20px;
-
-  .splash-square {
-    margin-right: 40px;
-    float: left;
-    width: 145px;
-    height: 145px;
-  }
+.flex {
+  display: flex;
 }
+
 
 @import "includes/responsive";

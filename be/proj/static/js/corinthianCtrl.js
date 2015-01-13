@@ -8,6 +8,13 @@ app.controller('corinthianCtrl',
 
     $http.get('/static/js/strikers.json').then(function (resp) {
       $scope.loading = false;
-      $scope.data = resp.data;
+      var strikers = []
+      for (i in resp.data) {
+        var striker = resp.data[i]
+        striker.shortBio = striker.bio.slice(0, 240);
+        strikers.push(striker)
+      }
+      $scope.data = strikers
+
     });
 });
