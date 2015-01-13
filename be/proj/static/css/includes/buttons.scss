@@ -1,0 +1,68 @@
+%input {
+  @include transition();
+  @extend %mono;
+  margin: 8px;
+  width: 100%;
+  border: 0;
+  text-decoration: none;
+
+  &:focus {
+    outline: 0px;
+    outline-offset: 0px;
+  }
+}
+
+
+%button {
+  @extend %input;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 4px !important;
+
+  &:hover {
+    opacity: .7;
+  }
+
+}
+
+%button-lg {
+    @extend %button;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 1em 3em;
+    border-width: 0.2em;
+}
+
+
+.close-button {
+  float: right;
+  margin-right: 10px;
+  padding: 5px;
+  cursor: pointer;
+  display: none;
+  &.visible {
+    display: block;
+  }
+}
+
+.btn {
+  @extend %button;
+  min-width: 150px;
+
+  &.btn-red {
+    background-color: $dark-red;
+  }
+  &.btn-primary {
+    height: 70px;
+    color: $text;
+    background-color: $dark-red;
+  }
+}
+
+input[type="text"], input[type="email"] {
+  @extend %input;
+}
+
+.sm-button {
+  padding-bottom: 50px;
+}
