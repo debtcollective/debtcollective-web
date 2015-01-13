@@ -1,23 +1,5 @@
 @import "../includes/variables";
 
-.close-button {
-  float: right;
-  margin-right: 10px;
-  padding: 5px;
-  cursor: pointer;
-  display: none;
-  &.visible {
-    display: block;
-  }
-}
-
-.button, button {
-  @extend %button;
-  background-color: $dark-red;
-}
-input[type="text"], input[type="email"] {
-  @extend %input;
-}
 /** NAVIGATION **/
 .navigation {
     border-bottom: 1px solid black;
@@ -229,10 +211,6 @@ input[type="text"], input[type="email"] {
 }
 
 
-.signup-button {
-  height: 70px;
-}
-
 .map-container {
   position: relative;
 
@@ -255,10 +233,6 @@ input[type="text"], input[type="email"] {
     bottom: 56px;
     height: 250px;
   }
-}
-
-.sm-button {
-  padding-bottom: 50px;
 }
 
 .splash-bottom-quote {

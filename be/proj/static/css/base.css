@@ -2,7 +2,7 @@
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-.button, button, .tweet-btn.blue, .tweet-btn.red, input[type="text"], input[type="email"], .nav-footer, .splash .splash-footer, .debt-total, body, .dropdown-menu, .tweet-btn {
+.btn, .tweet-btn.blue, .tweet-btn.red, input[type="text"], input[type="email"], .nav-footer, .splash .splash-footer, .debt-total, body, .dropdown-menu, .tweet-btn {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -11,17 +11,7 @@
 .intro-text, p, .body-text, h1, h2, h3 {
   font-family: "Raleway", sans-serif; }
 
-.button, button, .tweet-btn.blue, .tweet-btn.red {
-  color: #b6bea7;
-  cursor: pointer;
-  text-align: center;
-  margin-top: 4px !important; }
-  .button:hover, button:hover, .tweet-btn.blue:hover, .tweet-btn.red:hover {
-    opacity: .7; }
-  .button:hover, button:hover, .tweet-btn.blue:hover, .tweet-btn.red:hover {
-    background-color: #861800; }
-
-.button, button, .tweet-btn.blue, .tweet-btn.red, input[type="text"], input[type="email"] {
+.btn, .tweet-btn.blue, .tweet-btn.red, input[type="text"], input[type="email"] {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -31,9 +21,16 @@
   width: 100%;
   border: 0;
   text-decoration: none; }
-  .button:focus, button:focus, .tweet-btn.blue:focus, .tweet-btn.red:focus, input[type="text"]:focus, input[type="email"]:focus {
+  .btn:focus, .tweet-btn.blue:focus, .tweet-btn.red:focus, input[type="text"]:focus, input[type="email"]:focus {
     outline: 0px;
     outline-offset: 0px; }
+
+.btn, .tweet-btn.blue, .tweet-btn.red {
+  cursor: pointer;
+  text-align: center;
+  margin-top: 4px !important; }
+  .btn:hover, .tweet-btn.blue:hover, .tweet-btn.red:hover {
+    opacity: .7; }
 
 .close-button {
   float: right;
@@ -44,8 +41,17 @@
   .close-button.visible {
     display: block; }
 
-.button, button {
-  background-color: #861800; }
+.btn {
+  min-width: 150px; }
+  .btn.btn-red {
+    background-color: #861800; }
+  .btn.btn-primary {
+    height: 70px;
+    color: #b6bea7;
+    background-color: #861800; }
+
+.sm-button {
+  padding-bottom: 50px; }
 
 /** NAVIGATION **/
 .navigation {
@@ -219,9 +225,6 @@
   left: 20;
   top: 200; }
 
-.signup-button {
-  height: 70px; }
-
 .map-container {
   position: relative; }
   .map-container img {
@@ -237,9 +240,6 @@
     position: absolute;
     bottom: 56px;
     height: 250px; }
-
-.sm-button {
-  padding-bottom: 50px; }
 
 .splash-bottom-quote {
   margin-top: -25px; }
