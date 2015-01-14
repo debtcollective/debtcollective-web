@@ -10,6 +10,15 @@
     padding: 10px;
 }
 
+form {
+  input {
+    color: $light-text-color;
+    text-align: left;
+    height: 44px;
+    border-bottom: 1px solid $light-text-color !important;
+    background-color: inherit !important;
+  }
+}
 .nav-footer {
   @extend %mono;
   @include frame-transition();
@@ -23,13 +32,6 @@
   color:  $light-text-color;
   background-color: $light-background-color;
 
-  input {
-    color: $light-text-color;
-    text-align: left;
-    height: 44px;
-    border-bottom: 1px solid $light-text-color !important;
-    background-color: inherit !important;
-  }
 
   &:not(.visible) .close-button {
     display: none;

@@ -72,6 +72,13 @@
 .nav-item {
   padding: 10px; }
 
+form input {
+  color: #39413f;
+  text-align: left;
+  height: 44px;
+  border-bottom: 1px solid #39413f !important;
+  background-color: inherit !important; }
+
 .nav-footer {
   -webkit-transition: all 0.75s ease;
   -moz-transition: all 0.75s ease;
@@ -87,12 +94,6 @@
   bottom: -202px;
   color: #39413f;
   background-color: #f1eee2; }
-  .nav-footer input {
-    color: #39413f;
-    text-align: left;
-    height: 44px;
-    border-bottom: 1px solid #39413f !important;
-    background-color: inherit !important; }
   .nav-footer:not(.visible) .close-button {
     display: none; }
   .nav-footer.visible {
@@ -266,6 +267,9 @@
   #corinthian .intro a {
     text-decoration: underline;
     color: #acb9b7 !important; }
+
+.student-form .close-button {
+  display: none !important; }
 
 .splash.corinthian {
   color: #f1eee2; }

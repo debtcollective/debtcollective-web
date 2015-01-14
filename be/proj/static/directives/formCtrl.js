@@ -3,6 +3,9 @@ app.directive('signupform', function () {
     restrict: 'E',
     templateUrl: '/static/directives/form.html',
     replace: true,
+    scope: {
+      visible: '='
+    },
     controller: function ($scope, $http, util_svc, $document, $timeout, $window) {
 
       $scope.email = null;
@@ -20,9 +23,14 @@ app.directive('signupform', function () {
       }
 
       $scope.formVisible = function () {
-        visible = $scope.showForm && !$scope.forceClose && !$scope.formSubmitted;
+        if ($scope.visible) {
+          visible = true
+        } else {
+          visible = $scope.showForm && !$scope.forceClose && !$scope.formSubmitted;
+        }
+
         if (visible) {
-        showForm();
+          showForm();
         }
         return visible
       }

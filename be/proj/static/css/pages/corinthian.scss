@@ -17,6 +17,12 @@
   }
 }
 
+.student-form {
+  .close-button {
+    display: none !important;
+  }
+}
+
 .splash.corinthian {
   color: $dark-text-color;
 }
