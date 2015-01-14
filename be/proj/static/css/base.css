@@ -28,9 +28,7 @@
 .btn, .tweet-btn.blue, .tweet-btn.red {
   cursor: pointer;
   text-align: center;
-  margin-top: 4px !important; }
-  .btn:hover, .tweet-btn.blue:hover, .tweet-btn.red:hover {
-    opacity: .7; }
+  margin-top: 4px; }
 
 .close-button {
   float: right;
@@ -41,8 +39,16 @@
   .close-button.visible {
     display: block; }
 
+.action-button {
+  padding: 20px;
+  margin-top: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px; }
+
 .btn {
-  min-width: 150px; }
+  min-width: 150px;
+  background-color: #C4C2B2; }
   .btn.btn-red {
     background-color: #861800; }
   .btn.btn-primary {
@@ -52,6 +58,11 @@
 
 .sm-button {
   padding-bottom: 50px; }
+
+.share-buttons {
+  float: right; }
+  .share-buttons div {
+    padding: 10px; }
 
 /** NAVIGATION **/
 .navigation {
@@ -270,12 +281,17 @@ hr {
   justify-content: space-around;
   padding-bottom: 18px; }
 
+.flex .manifesto {
+  width: 65%; }
+.flex .buttons {
+  width: 35%; }
+
 /** carousel **/
 .carousel .title {
   text-align: center; }
 .carousel .items {
   position: relative;
-  height: 650px; }
+  height: 600px; }
 .carousel .count {
   bottom: 0;
   position: absolute;
@@ -295,28 +311,17 @@ hr {
   visibility: hidden; }
   .carousel .item.visible {
     visibility: visible !important; }
-.carousel .turners {
-  position: relative;
-  z-index: 999; }
-  .carousel .turners .turner {
-    -webkit-transition: all 0.25s ease-in-out;
-    -moz-transition: all 0.25s ease-in-out;
-    -ms-transition: all 0.25s ease-in-out;
-    -o-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
-    padding: 5px;
-    cursor: pointer;
-    width: 65px;
-    margin-right: 4px;
-    background-color: #e0e0d5; }
-    .carousel .turners .turner:hover {
-      background-color: #861800;
-      color: #f1eee2; }
-    .carousel .turners .turner.prev {
-      float: left; }
-    .carousel .turners .turner.next {
-      float: right;
-      text-align: right; }
+.carousel .turner {
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  padding: 5px;
+  cursor: pointer;
+  width: 65px;
+  margin-right: 4px;
+  float: right; }
 .carousel .text {
   position: relative;
   max-height: 600px; }

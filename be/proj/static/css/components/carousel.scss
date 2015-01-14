@@ -7,7 +7,7 @@
 
   .items {
     position: relative;
-    height: 650px;
+    height: 600px;
   }
 
   .count {
@@ -35,31 +35,16 @@
       visibility: visible !important;
     }
   }
-  .turners {
-    position: relative;
-    z-index: 999;
 
-    .turner {
-      @include transition();
-      padding: 5px;
-      cursor: pointer;
-      width: 65px;
-      margin-right: 4px;
-      background-color: $weird-yellow;
-
-      &:hover {
-        background-color: $dark-red;
-        color: $dark-text-color;
-      }
-      &.prev {
-        float: left;
-      }
-      &.next {
-        float: right;
-        text-align: right;
-      }
-    }
+  .turner {
+    @include transition();
+    padding: 5px;
+    cursor: pointer;
+    width: 65px;
+    margin-right: 4px;
+    float: right;
   }
+
   .text {
     p {
       font-size: 13px;

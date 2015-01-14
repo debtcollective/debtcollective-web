@@ -17,10 +17,10 @@
   @extend %input;
   cursor: pointer;
   text-align: center;
-  margin-top: 4px !important;
+  margin-top: 4px;
 
   &:hover {
-    opacity: .7;
+
   }
 
 }
@@ -45,9 +45,21 @@
   }
 }
 
+.action-button {
+  padding: 20px;
+  margin-top: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  &.hover {
+
+  }
+}
+
 .btn {
   @extend %button;
   min-width: 150px;
+  background-color: $dark-mauve;
 
   &.btn-red {
     background-color: $dark-red;
@@ -65,4 +77,11 @@ input[type="text"], input[type="email"] {
 
 .sm-button {
   padding-bottom: 50px;
+}
+
+.share-buttons {
+  float: right;
+  div {
+    padding: 10px;
+  }
 }

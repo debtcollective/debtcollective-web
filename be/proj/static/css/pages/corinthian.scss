@@ -36,3 +36,12 @@ hr {
   justify-content: space-around;
   padding-bottom: 18px;
 }
+
+.flex {
+  .manifesto {
+    width: 65%;
+  }
+  .buttons {
+    width: 35%;
+  }
+}
