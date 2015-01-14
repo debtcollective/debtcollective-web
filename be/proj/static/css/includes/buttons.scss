@@ -39,10 +39,6 @@
   margin-right: 10px;
   padding: 5px;
   cursor: pointer;
-  display: none;
-  &.visible {
-    display: block;
-  }
 }
 
 .action-button {
@@ -52,7 +48,8 @@
   font-weight: bold;
   font-size: 20px;
   &.hover {
-
+    background-color: $dark-background-color;
+    color: $dark-text-color;
   }
 }
 

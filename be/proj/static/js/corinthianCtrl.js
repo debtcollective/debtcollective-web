@@ -17,4 +17,5 @@ app.controller('corinthianCtrl',
       $scope.data = strikers
 
     });
+    $scope.formVisible = function () { return true; }
 });

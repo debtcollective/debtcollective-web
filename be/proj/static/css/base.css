@@ -34,10 +34,7 @@
   float: right;
   margin-right: 10px;
   padding: 5px;
-  cursor: pointer;
-  display: none; }
-  .close-button.visible {
-    display: block; }
+  cursor: pointer; }
 
 .action-button {
   padding: 20px;
@@ -45,6 +42,9 @@
   text-transform: uppercase;
   font-weight: bold;
   font-size: 20px; }
+  .action-button.hover {
+    background-color: #39413f;
+    color: #f1eee2; }
 
 .btn {
   min-width: 150px;
@@ -83,8 +83,8 @@
   position: fixed;
   right: 0;
   width: 100%;
-  min-height: 266px;
-  bottom: -266px;
+  min-height: 202px;
+  bottom: -202px;
   color: #39413f;
   background-color: #f1eee2; }
   .nav-footer input {
@@ -93,6 +93,8 @@
     height: 44px;
     border-bottom: 1px solid #39413f !important;
     background-color: inherit !important; }
+  .nav-footer:not(.visible) .close-button {
+    display: none; }
   .nav-footer.visible {
     bottom: 0px !important; }
   .nav-footer .dc-input {
@@ -174,7 +176,7 @@
   #scroll.mainstate .social-media {
     opacity: 0; }
   #scroll.mainstate .nav-footer {
-    bottom: -200px; }
+    bottom: -136px; }
 
 .images {
   -webkit-transition: background-color 1s ease;
@@ -667,7 +669,7 @@ label {
     font-size: 23px; }
 
   .nav-footer.visible:not(.focused) {
-    bottom: -200px !important; }
+    bottom: -136px !important; }
 
   .close-button.visible:not(.focused) {
     display: none !important; }

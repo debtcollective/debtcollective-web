@@ -8,7 +8,7 @@ app.run(function run($http, $cookies){
     $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
 })
 
-app.value('duScrollDuration', 2000)
+app.value('duScrollDuration', 1000)
 app.value('duScrollOffset', 30)
 app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('{$');

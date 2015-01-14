@@ -31,6 +31,10 @@
     background-color: inherit !important;
   }
 
+  &:not(.visible) .close-button {
+    display: none;
+  }
+
   &.visible {
     bottom: 0px !important;
   }
