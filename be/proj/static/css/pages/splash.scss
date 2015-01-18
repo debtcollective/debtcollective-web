@@ -63,7 +63,17 @@ form {
   width: 100%;
   text-align: center;
   img {
+    width: 200px;
     margin: 10px;
+  }
+}
+
+.social-links {
+  text-align: center;
+
+  img {
+    width: 300px;
+    padding-left: 10px;
   }
 }
 
@@ -225,8 +235,8 @@ form {
   }
   .legend {
     position: absolute;
-    bottom: 40px;
-    left: 8px;
+    top: 10px;
+    right: 16px;
   }
 
   .map-banner {
@@ -236,8 +246,9 @@ form {
 
   .compassrose {
     position: absolute;
-    bottom: 56px;
+    bottom: 28%;
     height: 250px;
+
   }
 }
 

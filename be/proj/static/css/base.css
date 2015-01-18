@@ -2,7 +2,7 @@
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-.btn, .tweet-box .tweet-btn, input[type="text"], input[type="email"], .tweet-box .tweet-text, .nav-footer, .splash .splash-footer, .debt-total, body, .dropdown-menu {
+.btn, .tweet-box .tweet-btn, input[type="text"], input[type="email"], .tweet-box .tweet-text, .nav-footer, .splash .splash-footer, .debt-total, body, .top-quote h1, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -84,7 +84,7 @@
       opacity: 1; }
   .tweet-box .tweet-btn {
     padding: 10px;
-    opacity: .5;
+    opacity: 0;
     background-color: #f1eee2;
     color: #39413f;
     width: 80px;
@@ -144,7 +144,14 @@ form input {
   width: 100%;
   text-align: center; }
   .press-links img {
+    width: 200px;
     margin: 10px; }
+
+.social-links {
+  text-align: center; }
+  .social-links img {
+    width: 300px;
+    padding-left: 10px; }
 
 .splash {
   position: relative;
@@ -271,14 +278,14 @@ form input {
     z-index: 10000; }
   .map-container .legend {
     position: absolute;
-    bottom: 40px;
-    left: 8px; }
+    top: 10px;
+    right: 16px; }
   .map-container .map-banner {
     position: absolute;
     bottom: 0; }
   .map-container .compassrose {
     position: absolute;
-    bottom: 56px;
+    bottom: 28%;
     height: 250px; }
 
 .splash-bottom-quote {
@@ -419,15 +426,15 @@ p, .body-text {
   width: 100%;
   width: 100%;
   z-index: 9999999;
-  background-color: #39413f; }
+  background-color: #39413f;
+  border-bottom: 1px solid #313539; }
   .header-links .splash-square {
     position: absolute;
-    height: 100px;
-    width: 100px;
-    top: 10px; }
+    height: 92px;
+    width: 92px;
+    top: 16px; }
   .header-links.scrolling {
     position: fixed;
-    border-bottom: 1px solid #39413f;
     top: 0;
     right: 0;
     height: 32px; }
@@ -470,12 +477,17 @@ h1 {
     font-size: 16px;
     line-height: 24px; }
   h1 a {
-    color: #feffe8 !important;
+    color: #C4C2B2 !important;
     text-decoration: none; }
 
 .top-quote {
   padding: 4em;
   text-align: center; }
+  .top-quote h1 {
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #C4C2B2; }
 
 .quote {
   transform: translateY(-25%);
@@ -636,6 +648,9 @@ label {
     max-width: 100%;
     min-width: 100%; }
 
+  .press-links img {
+    width: initial; }
+
   .carousel .items {
     height: 900px; }
   .carousel .image {
@@ -696,7 +711,7 @@ label {
     width: 141px;
     height: initial; }
   .map-container .map-banner {
-    top: 50px; }
+    bottom: 25px; }
 
   .body-text.map-body {
     margin-top: 29px !important; }

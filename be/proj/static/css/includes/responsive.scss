@@ -46,6 +46,9 @@
     max-width: 100%;
     min-width: 100%;
   }
+  .press-links img {
+    width: initial;
+  }
   .carousel {
 
     .items {
@@ -127,7 +130,7 @@
       height: initial;
     }
     .map-banner {
-      top: 50px;
+      bottom: 25px;
     }
   }
   .body-text.map-body {

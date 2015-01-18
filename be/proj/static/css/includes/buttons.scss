@@ -112,7 +112,7 @@ input[type="text"], input[type="email"] {
   .tweet-btn {
     @extend %button;
     padding: 10px;
-    opacity: .5;
+    opacity: 0;
     background-color: $light-background-color;
     color: $light-text-color;
     width: 80px;

@@ -87,16 +87,17 @@ p, .body-text {
   width: 100%;
   z-index: 9999999;
   background-color: $off-grey;
+  border-bottom: 1px solid $dark-grey;
+
   .splash-square {
     position: absolute;
-    height: 100px;
-    width: 100px;
-    top: 10px;
+    height: 92px;
+    width: 92px;
+    top: 16px;
   }
 
   &.scrolling {
     position: fixed;
-    border-bottom: 1px solid #39413f;
     top: 0;
     right: 0;
     height: 32px;
@@ -159,13 +160,21 @@ h1 {
     line-height: 24px;
   }
   a {
-    color: #feffe8 !important;
+    color: $dark-mauve !important;
     text-decoration: none;
   }
 }
+
 .top-quote {
   padding: 4em;
   text-align: center;
+  h1 {
+    @extend %mono;
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: $dark-mauve;
+  }
 }
 
 .quote {
