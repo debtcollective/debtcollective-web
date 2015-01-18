@@ -164,7 +164,7 @@ h1 {
   }
 }
 .top-quote {
-  padding: 2em;
+  padding: 4em;
   text-align: center;
 }
 
@@ -321,40 +321,6 @@ label {
   width: 49%;
 }
 
-.tweet-btn {
-  @extend %mono;
-  @include round-corners(5);
-  @include box-shadow(3px, 3px, 2px, 0px, $off-grey);
-  max-width: 100%;
-  padding: 10px;
-  border: 2px solid $olive;
-  margin-top: 10px;
-  background-color: white;
-  color: $light-text-color;
-
-  &:hover {
-    background-color: $dark-red;
-    color: $dark-text-color !important;
-  }
-
-  &.blue {
-    @extend %button;
-    background-color: $fb-blue;
-    color: $dark-text-color;
-
-    &:hover {
-      background-color: $fb-blue;
-    }
-    @include box-shadow(1px, 1px, 1px, 0px, $off-grey);
-  }
-
-  &.red {
-    @extend %button;
-    background-color: $dark-red;
-    color: $dark-text-color;
-    @include box-shadow(1px, 1px, 1px, 0px, $off-grey);
-  }
-}
 
 .flex {
   display: flex;

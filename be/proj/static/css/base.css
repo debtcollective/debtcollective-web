@@ -2,7 +2,7 @@
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-.btn, .tweet-btn.blue, .tweet-btn.red, input[type="text"], input[type="email"], .nav-footer, .splash .splash-footer, .debt-total, body, .dropdown-menu, .tweet-btn {
+.btn, .tweet-box .tweet-btn, input[type="text"], input[type="email"], .tweet-box .tweet-text, .nav-footer, .splash .splash-footer, .debt-total, body, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -11,7 +11,7 @@
 .intro-text, p, .body-text, h1, h2, h3 {
   font-family: "Raleway", sans-serif; }
 
-.btn, .tweet-btn.blue, .tweet-btn.red, input[type="text"], input[type="email"] {
+.btn, .tweet-box .tweet-btn, input[type="text"], input[type="email"] {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -21,11 +21,11 @@
   width: 100%;
   border: 0;
   text-decoration: none; }
-  .btn:focus, .tweet-btn.blue:focus, .tweet-btn.red:focus, input[type="text"]:focus, input[type="email"]:focus {
+  .btn:focus, .tweet-box .tweet-btn:focus, input[type="text"]:focus, input[type="email"]:focus {
     outline: 0px;
     outline-offset: 0px; }
 
-.btn, .tweet-btn.blue, .tweet-btn.red {
+.btn, .tweet-box .tweet-btn {
   cursor: pointer;
   text-align: center;
   margin-top: 4px; }
@@ -63,6 +63,32 @@
   float: right; }
   .share-buttons div {
     padding: 10px; }
+
+.tweet-boxes .tweet-box {
+  width: 45%;
+  margin: 2.5%; }
+
+.tweet-box {
+  border-radius: 2;
+  -moz-border-radius: 2;
+  -webkit-border-radius: 2;
+  float: left; }
+  .tweet-box .tweet-text {
+    background-color: white;
+    color: black;
+    padding: 5px;
+    margin: 5px; }
+  .tweet-box:hover {
+    background-color: #861800; }
+    .tweet-box:hover .tweet-btn {
+      opacity: 1; }
+  .tweet-box .tweet-btn {
+    padding: 10px;
+    opacity: .5;
+    background-color: #f1eee2;
+    color: #39413f;
+    width: 80px;
+    float: right; }
 
 /** NAVIGATION **/
 .navigation {
@@ -448,7 +474,7 @@ h1 {
     text-decoration: none; }
 
 .top-quote {
-  padding: 2em;
+  padding: 4em;
   text-align: center; }
 
 .quote {
@@ -573,37 +599,6 @@ label {
 
 .half {
   width: 49%; }
-
-.tweet-btn {
-  border-radius: 5;
-  -moz-border-radius: 5;
-  -webkit-border-radius: 5;
-  -webkit-box-shadow: 3px 3px 2px 0px #39413f;
-  -moz-box-shadow: 3px 3px 2px 0px #39413f;
-  box-shadow: 3px 3px 2px 0px #39413f;
-  max-width: 100%;
-  padding: 10px;
-  border: 2px solid rgba(2, 2, 2, 0.8);
-  margin-top: 10px;
-  background-color: white;
-  color: #39413f; }
-  .tweet-btn:hover {
-    background-color: #861800;
-    color: #f1eee2 !important; }
-  .tweet-btn.blue {
-    background-color: #3d72a6;
-    color: #f1eee2;
-    -webkit-box-shadow: 1px 1px 1px 0px #39413f;
-    -moz-box-shadow: 1px 1px 1px 0px #39413f;
-    box-shadow: 1px 1px 1px 0px #39413f; }
-    .tweet-btn.blue:hover {
-      background-color: #3d72a6; }
-  .tweet-btn.red {
-    background-color: #861800;
-    color: #f1eee2;
-    -webkit-box-shadow: 1px 1px 1px 0px #39413f;
-    -moz-box-shadow: 1px 1px 1px 0px #39413f;
-    box-shadow: 1px 1px 1px 0px #39413f; }
 
 .flex {
   display: flex; }

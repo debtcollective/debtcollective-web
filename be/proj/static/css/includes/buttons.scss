@@ -82,3 +82,42 @@ input[type="text"], input[type="email"] {
     padding: 10px;
   }
 }
+
+.tweet-boxes {
+  .tweet-box {
+    width: 45%;
+    margin: 2.5%;
+  }
+}
+
+.tweet-box {
+  @include round-corners(2);
+  float: left;
+
+  .tweet-text {
+    @extend %mono;
+    background-color: white;
+    color: black;
+    padding: 5px;
+    margin: 5px;
+  }
+
+  &:hover {
+    background-color: $dark-red;
+    .tweet-btn {
+      opacity: 1;
+    }
+  }
+
+  .tweet-btn {
+    @extend %button;
+    padding: 10px;
+    opacity: .5;
+    background-color: $light-background-color;
+    color: $light-text-color;
+    width: 80px;
+    float:right;
+  }
+
+}
+
