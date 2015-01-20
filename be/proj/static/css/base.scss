@@ -41,6 +41,11 @@ p, .body-text {
   margin: 0px auto;
   line-height: 34px;
 
+  .centered-body-text-image {
+    text-align: center;
+    padding-bottom: 22px;
+  }
+
   a.underline {
     text-decoration: underline;
   }
