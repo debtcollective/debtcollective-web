@@ -14,6 +14,10 @@
   .body-text {
     max-width: 64%;
   }
+  .carousel {
+    max-width: 75%;
+    margin: auto;
+  }
 }
 
 // laptop and tablet landscape
@@ -21,6 +25,7 @@
   .wrapper {
     max-width: 100%;
   }
+
 
   .content-overlay-box {
     height: 75%;

@@ -11,7 +11,7 @@ app.controller('corinthianCtrl',
       var strikers = []
       for (i in resp.data) {
         var striker = resp.data[i]
-        striker.shortBio = striker.bio.slice(0, 240);
+        striker.shortBio = striker.bio.slice(0, 200);
         strikers.push(striker)
       }
       $scope.data = strikers

@@ -640,7 +640,11 @@ label {
     max-width: 93.75%; }
 
   .body-text {
-    max-width: 64%; } }
+    max-width: 64%; }
+
+  .carousel {
+    max-width: 75%;
+    margin: auto; } }
 @media (min-width: 768px) and (max-width: 1130px) {
   .wrapper {
     max-width: 100%; }
