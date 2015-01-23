@@ -77,7 +77,6 @@ input[type="text"], input[type="email"] {
 }
 
 .share-buttons {
-  float: right;
   div {
     padding: 10px;
   }
@@ -90,9 +89,12 @@ input[type="text"], input[type="email"] {
   }
 }
 
+$twitter-color: #E5F2F7;
+
 .tweet-box {
   @include round-corners(2);
   float: left;
+  background-color: $twitter-color;
 
   .tweet-text {
     @extend %mono;
@@ -103,20 +105,23 @@ input[type="text"], input[type="email"] {
   }
 
   &:hover {
-    background-color: $dark-red;
+    background-color: darken($twitter-color, 5%);
     .tweet-btn {
-      opacity: 1;
+      background: $twitter-color;
+      color: $light-text-color;
+      &:after { content: "Tweet"; }
     }
   }
 
   .tweet-btn {
     @extend %button;
     padding: 10px;
-    opacity: 0;
-    background-color: $light-background-color;
-    color: $light-text-color;
+    background: url(/static/img/Twitter_logo_white.png);
     width: 80px;
-    float:right;
+    height: 40px;
+    float: right;
+    background-size: 40px;
+    background-repeat: no-repeat;
   }
 
 }

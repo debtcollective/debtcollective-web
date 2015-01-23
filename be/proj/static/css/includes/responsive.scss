@@ -16,9 +16,14 @@
   }
 }
 
+// laptop and tablet landscape
 @media (min-width: 768px) and (max-width: 1130px) {
   .wrapper {
     max-width: 100%;
+  }
+
+  .content-overlay-box {
+    height: 75%;
   }
 
   .body-text {
@@ -26,10 +31,20 @@
   }
 }
 
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 768px) {
   .body-text {
     width: 473px;
     max-width: 100%;
+  }
+
+  .carousel {
+    .content-overlay-box {
+      height: 75% !important;
+    }
+
+    .person-info {
+      padding-top: 20px;
+    }
   }
 
   .social-media {
@@ -41,6 +56,7 @@
   display: none;
 }
 
+//phones
 @media only screen and (max-width: 600px) {
   .body-text.wide {
     max-width: 100%;
@@ -51,8 +67,12 @@
   }
   .carousel {
 
+    .content-overlay-box {
+      display: none;
+    }
+
     .items {
-      height: 900px;
+      height: 330px;
     }
 
     .image {

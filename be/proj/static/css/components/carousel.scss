@@ -7,7 +7,7 @@
 
   .items {
     position: relative;
-    height: 600px;
+    height: 520px;
   }
 
   .count {
@@ -15,15 +15,29 @@
     position: absolute;
     right: 0;
   }
+
+  .content-overlay-box {
+    background-color: black;
+    width: 50%;
+    height: 50%;
+    opacity: .5;
+    color: white;
+    float: right;
+    padding: 20px;
+    .person-info {
+      @extend %mono;
+    }
+    p {
+      padding-top: 5px;
+    }
+  }
+
   .content {
     height: 500px;
     background-size: 100%;
     padding: 15px;
     width: 100%;
-    p {
-      width: 50%;
-      float: right;
-    }
+    background-repeat: no-repeat;
   }
 
   .item {

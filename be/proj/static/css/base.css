@@ -2,7 +2,7 @@
   font-family: "calluna-sans", sans-serif;
   font-weight: 600; }
 
-.btn, .tweet-box .tweet-btn, input[type="text"], input[type="email"], .tweet-box .tweet-text, .nav-footer, .splash .splash-footer, .debt-total, body, .top-quote h1, .dropdown-menu {
+.btn, .tweet-box .tweet-btn, input[type="text"], input[type="email"], .tweet-box .tweet-text, .nav-footer, .splash .splash-footer, .debt-total, .carousel .content-overlay-box .person-info, body, .top-quote h1, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -59,10 +59,8 @@
 .sm-button {
   padding-bottom: 50px; }
 
-.share-buttons {
-  float: right; }
-  .share-buttons div {
-    padding: 10px; }
+.share-buttons div {
+  padding: 10px; }
 
 .tweet-boxes .tweet-box {
   width: 45%;
@@ -72,23 +70,28 @@
   border-radius: 2;
   -moz-border-radius: 2;
   -webkit-border-radius: 2;
-  float: left; }
+  float: left;
+  background-color: #E5F2F7; }
   .tweet-box .tweet-text {
     background-color: white;
     color: black;
     padding: 5px;
     margin: 5px; }
   .tweet-box:hover {
-    background-color: #861800; }
+    background-color: #d2e8f1; }
     .tweet-box:hover .tweet-btn {
-      opacity: 1; }
+      background: #E5F2F7;
+      color: #39413f; }
+      .tweet-box:hover .tweet-btn:after {
+        content: "Tweet"; }
   .tweet-box .tweet-btn {
     padding: 10px;
-    opacity: 0;
-    background-color: #f1eee2;
-    color: #39413f;
+    background: url(/static/img/Twitter_logo_white.png);
     width: 80px;
-    float: right; }
+    height: 40px;
+    float: right;
+    background-size: 40px;
+    background-repeat: no-repeat; }
 
 /** NAVIGATION **/
 .navigation {
@@ -330,19 +333,27 @@ hr {
   text-align: center; }
 .carousel .items {
   position: relative;
-  height: 600px; }
+  height: 520px; }
 .carousel .count {
   bottom: 0;
   position: absolute;
   right: 0; }
+.carousel .content-overlay-box {
+  background-color: black;
+  width: 50%;
+  height: 50%;
+  opacity: .5;
+  color: white;
+  float: right;
+  padding: 20px; }
+  .carousel .content-overlay-box p {
+    padding-top: 5px; }
 .carousel .content {
   height: 500px;
   background-size: 100%;
   padding: 15px;
-  width: 100%; }
-  .carousel .content p {
-    width: 50%;
-    float: right; }
+  width: 100%;
+  background-repeat: no-repeat; }
 .carousel .item {
   width: 100%;
   position: absolute;
@@ -509,8 +520,8 @@ h2 {
   margin-top: 44px;
   text-transform: uppercase;
   letter-spacing: 4.5px; }
-  h2:nth-child(0) {
-    margin-top: 0px; }
+  h2.first {
+    margin-top: 22px; }
 
 h3 {
   font-size: 20px;
@@ -524,7 +535,7 @@ h3 {
   position: relative;
   margin: 0 auto; }
   .wrapper.page {
-    padding-top: 40px; }
+    padding-top: 10px; }
   .wrapper h1 {
     border-bottom: #f1eee2 1px solid;
     margin-top: 44px;
@@ -634,12 +645,20 @@ label {
   .wrapper {
     max-width: 100%; }
 
+  .content-overlay-box {
+    height: 75%; }
+
   .body-text {
     max-width: 65.75%; } }
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 768px) {
   .body-text {
     width: 473px;
     max-width: 100%; }
+
+  .carousel .content-overlay-box {
+    height: 75% !important; }
+  .carousel .person-info {
+    padding-top: 20px; }
 
   .social-media {
     opacity: 0 !important; } }
@@ -654,8 +673,10 @@ label {
   .press-links img {
     width: initial; }
 
+  .carousel .content-overlay-box {
+    display: none; }
   .carousel .items {
-    height: 900px; }
+    height: 330px; }
   .carousel .image {
     width: 100%;
     margin-right: 10px;
