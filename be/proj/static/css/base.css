@@ -59,9 +59,6 @@
 .sm-button {
   padding-bottom: 50px; }
 
-.share-buttons div {
-  padding: 10px; }
-
 .tweet-boxes .tweet-box {
   width: 45%;
   margin: 2.5%; }
@@ -323,10 +320,17 @@ hr {
   justify-content: space-around;
   padding-bottom: 18px; }
 
-.flex .manifesto {
-  width: 65%; }
-.flex .buttons {
-  width: 35%; }
+.manifesto {
+  width: 100%;
+  text-align: justify;
+  margin-right: 20px; }
+
+.manifesto-buttons {
+  width: 30%;
+  max-width: 170px; }
+  .manifesto-buttons img {
+    margin-bottom: 20px;
+    margin-left: 20px; }
 
 /** carousel **/
 .carousel .title {
@@ -685,6 +689,16 @@ label {
     width: 100%;
     margin-right: 10px;
     margin-bottom: 10px; }
+
+  .manifesto {
+    width: 100%; }
+
+  .flex {
+    display: block; }
+
+  .manifesto-buttons {
+    width: 100%;
+    max-width: initial; }
 
   #corinthian .intro p {
     margin: 44px 0px; }

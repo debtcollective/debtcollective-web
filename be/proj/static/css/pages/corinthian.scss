@@ -43,11 +43,18 @@ hr {
   padding-bottom: 18px;
 }
 
-.flex {
-  .manifesto {
-    width: 65%;
-  }
-  .buttons {
-    width: 35%;
+.manifesto {
+  width: 100%;
+  text-align: justify;
+  margin-right: 20px;
+}
+
+.manifesto-buttons {
+  width: 30%;
+  max-width: 170px;
+  img {
+    margin-bottom: 20px;
+    margin-left: 20px;
   }
 }
+

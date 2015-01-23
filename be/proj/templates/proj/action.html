@@ -1,0 +1,84 @@
+{% extends "proj/base_template.html" %}
+{% load humanize %}
+
+{% block body %}
+<div scroll ng-controller="corinthianCtrl">
+<div id="corinthian">
+<div class="top-quote">
+<h1>
+ We can’t pay and we won’t pay our debt from Everest College.
+</h1>
+</div>
+<div class="wrapper light page">
+<h2 class="first">THE CORINTHIAN TEN</h2>
+<div class="loading" ng-show="loading">Loading..</div>
+<carousel ng-if="!loading" data="data" class="profiles"></carousel>
+
+<div class="body-text">
+  <div class="share-buttons">
+    <div class="fb-share-button" data-href="http://debtcollective.org" data-layout="button_count"></div>
+    <a class="twitter-share-button" data-url="http://debtcollective.org" text=""
+    data-related="strikedebt,rollingjubilee,0debtzone"  data-dnt="true"
+    data-text="Students are striking their student loans so they can get a full discharge and free education."
+      href="https://twitter.com/share">
+    Tweet
+    </a>
+  </div>
+    <h2>STUDENT DEBT STRIKE IN PROGRESS</h2>
+
+<div class="flex">
+  <div class="manifesto">
+    <p>
+    <b> We demand</b> that the Department of Education discharge our debts and the debts of every current and former student of Corinthian Colleges (Everest, Heald College, and Wyotech).
+    </p>
+    <p>
+    <b>By declaring a strike</b>, we fight for all student debtors and for the right to a free, quality education for all students.
+    </p>
+    <p>
+    <b>Corinthian defrauded us.</b> The company is being sued for running a scam operation to make maximum profits from student loans issued by the Department of Education. Corinthian lied to students like us about the quality of education it offers. Yet, <a href="http://blog.debtcollective.org/students-speak-out-at-doe-hearing-to-demand-debt-cancellation-and-free-education/">when we asked the Department of Education to cancel our Federal loans, they refused to respond</a>.  As campuses are closing or being sold, Corinthian will soon no longer exist.  But its investors will continue to profit because the government has decided that, like the Wall Street banks, it is too big to fail  Their debts are being taken care of, while we are expected to keep on paying ours. We refuse to do so.
+    </p>
+  </div>
+  <div class="manifesto-buttons">
+    <a du-smooth-scroll href="/corinthian">
+        <img src="/static/img/corinthian/DC-Striker_bttn1.gif">
+    </a>
+    <a du-smooth-scroll href="/">
+        <img src="/static/img/corinthian/DC-Striker_bttn2.gif">
+    </a>
+    <a du-smooth-scroll href="#help">
+        <img src="/static/img/corinthian/DC-Striker_bttn3.gif">
+    </a>
+  </div>
+</div>
+<h2 class="step-heading">Sign up for updates</h2>
+
+<div class="body-text">
+  <signupform visible='formVisible()' class="student-form"></signupform>
+</div>
+
+<h2 class="step-heading">Spread the word!</h2>
+
+<div class="tweet-boxes">
+<tweet-btn tweet-text="hello"></tweet-btn>
+<tweet-btn tweet-text="hello"></tweet-btn>
+<tweet-btn tweet-text="hello"></tweet-btn>
+<tweet-btn tweet-text="hello"></tweet-btn>
+</div>
+<!--When we defend #Everest students, we fight for ALL students. #DebtTrap-->
+
+<!--<tweet-btn text="To the DoE I'm just a number: ________. We are ALL in the red.  #NotALoan"></tweet-btn>-->
+<h2>Donate your account</h2>
+<p class="centered">
+Put a red square in your social media profile picture.
+</p>
+<p class="centered">
+<a href="https://twibbon.com/Support/debt-collective">
+<img src="/static/img/ange.jpg" width="200px"/>
+</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
