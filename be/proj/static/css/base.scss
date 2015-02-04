@@ -177,12 +177,13 @@ h1 {
 .top-quote {
   padding: 4em;
   text-align: center;
+
   h1 {
     @extend %mono;
     font-size: 22px;
     line-height: 24px;
     letter-spacing: 0px;
-    color: $dark-mauve;
+    color: $light-text-color;
   }
 }
 
