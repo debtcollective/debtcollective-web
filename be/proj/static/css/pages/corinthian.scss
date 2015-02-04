@@ -17,6 +17,77 @@
   }
 }
 
+.hud {
+  background-color: $light-background-color;
+  @include flexbox;
+  @include flex-direction(column);
+
+  .top {
+    height: 50%;
+  }
+
+  h1 {
+    line-height: 64px;
+  }
+  h1.large {
+    font-size: 70px;
+  }
+
+  div {
+    text-align: center;
+  }
+
+  .half {
+    background-color: $off-grey;
+    position: relative;
+    height: 100%;
+    width: 49.6%;
+
+    &:first-child {
+      margin-right: 5px;
+    }
+
+    h1 {
+      top: 50%;
+      transform: translateY(-80%);
+      position: relative;
+    }
+  }
+
+  .full {
+    padding: 20px;
+    background-color: $off-grey;
+    margin-top: 5px;
+    width: 100%;
+  }
+}
+.tabs {
+  @include flexbox;
+
+  .single-tab {
+    @extend h2;
+    width: 50%;
+    font-size: 32px;
+    padding: 10px;
+    text-transform: normal;
+  }
+
+  .front {
+    border-top: 1px solid $off-grey;
+  }
+
+  .back {
+    background-color: $off-grey;
+    a {
+      color: $link-color;
+      &:hover {
+        color: $link-hover;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 .student-form {
   .close-button {
     display: none !important;
@@ -38,7 +109,7 @@ hr {
 }
 
 .progress-items {
-  display: flex;
+  @include flexbox;
   justify-content: space-around;
   padding-bottom: 18px;
 }
@@ -58,3 +129,18 @@ hr {
   }
 }
 
+.item {
+  @include flexbox;
+
+  .img {
+    margin: auto;
+  }
+
+  .info {
+    h3 {
+      margin-top: 0px;
+    }
+    width: 65%;
+    padding: 10px;
+  }
+}

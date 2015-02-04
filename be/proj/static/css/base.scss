@@ -1,6 +1,7 @@
 @import "includes/variables";
 @import "includes/mixins";
 @import "includes/buttons";
+@import "includes/flex";
 
 @import "pages/splash";
 @import "pages/corinthian";
@@ -17,7 +18,7 @@
 
 
 body {
-    background-color: $off-grey;
+    background-color: $light-background-color;
     line-height: 1.6em;
     @extend %mono;
     font-size: 16px;
@@ -84,8 +85,9 @@ p, .body-text {
   padding: 20px;
 }
 .header-links {
-  padding: 4.5px 15px;
+  padding: 4px 15px;
   font-size: 16px;
+  text-transform: uppercase;
   text-align: center;
   z-index: 1000;
   width: 100%;
@@ -114,10 +116,12 @@ p, .body-text {
       display: none;
     }
   }
-  a {
-    color: rgb(134,133,148);
+
+  a.nav-link {
+    letter-spacing: 3px;
+    color: $link-color;
     &:hover {
-      color: rgb(172,185,183);
+      color: $link-hover;
     }
   }
 }
@@ -203,9 +207,6 @@ h2 {
   margin-top: 44px;
   text-transform: uppercase;
   letter-spacing: 4.5px;
-  &.first {
-    margin-top: 22px;
-  }
 }
 
 h3 {
@@ -337,7 +338,7 @@ label {
 
 
 .flex {
-  display: flex;
+  @include flexbox;
 }
 
 

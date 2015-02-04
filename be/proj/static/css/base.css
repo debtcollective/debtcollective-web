@@ -8,7 +8,7 @@
   font-size: 16px;
   line-height: 20px; }
 
-.intro-text, p, .body-text, h1, h2, h3 {
+.intro-text, p, .body-text, h1, h2, .tabs .single-tab, h3 {
   font-family: "Raleway", sans-serif; }
 
 .btn, .tweet-box .tweet-btn, input[type="text"], input[type="email"] {
@@ -301,6 +301,65 @@ form input {
     text-decoration: underline;
     color: #acb9b7 !important; }
 
+.hud {
+  background-color: #f1eee2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .hud .top {
+    height: 50%; }
+  .hud h1 {
+    line-height: 64px; }
+  .hud h1.large {
+    font-size: 70px; }
+  .hud div {
+    text-align: center; }
+  .hud .half {
+    background-color: #39413f;
+    position: relative;
+    height: 100%;
+    width: 49.6%; }
+    .hud .half:first-child {
+      margin-right: 5px; }
+    .hud .half h1 {
+      top: 50%;
+      transform: translateY(-80%);
+      position: relative; }
+  .hud .full {
+    padding: 20px;
+    background-color: #39413f;
+    margin-top: 5px;
+    width: 100%; }
+
+.tabs {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .tabs .single-tab {
+    width: 50%;
+    font-size: 32px;
+    padding: 10px;
+    text-transform: normal; }
+  .tabs .front {
+    border-top: 1px solid #39413f; }
+  .tabs .back {
+    background-color: #39413f; }
+    .tabs .back a {
+      color: #baafb3; }
+      .tabs .back a:hover {
+        color: #f7f7ed;
+        cursor: pointer; }
+
 .student-form .close-button {
   display: none !important; }
 
@@ -316,6 +375,10 @@ hr {
   margin: 2px; }
 
 .progress-items {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
   justify-content: space-around;
   padding-bottom: 18px; }
@@ -331,6 +394,20 @@ hr {
   .manifesto-buttons img {
     margin-bottom: 20px;
     margin-left: 20px; }
+
+.item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .item .img {
+    margin: auto; }
+  .item .info {
+    width: 65%;
+    padding: 10px; }
+    .item .info h3 {
+      margin-top: 0px; }
 
 /** carousel **/
 .carousel .title {
@@ -395,7 +472,7 @@ hr {
   color: #39413f; }
 
 body {
-  background-color: #39413f;
+  background-color: #f1eee2;
   line-height: 1.6em;
   font-size: 16px; }
 
@@ -437,8 +514,9 @@ p, .body-text {
   padding: 20px; }
 
 .header-links {
-  padding: 4.5px 15px;
+  padding: 4px 15px;
   font-size: 16px;
+  text-transform: uppercase;
   text-align: center;
   z-index: 1000;
   width: 100%;
@@ -461,10 +539,11 @@ p, .body-text {
       width: 20px; }
     .header-links.scrolling .header-title {
       display: none; }
-  .header-links a {
-    color: #868594; }
-    .header-links a:hover {
-      color: #acb9b7; }
+  .header-links a.nav-link {
+    letter-spacing: 3px;
+    color: #baafb3; }
+    .header-links a.nav-link:hover {
+      color: #f7f7ed; }
 
 .banner {
   z-index: 9999990;
@@ -516,7 +595,7 @@ h1 {
 .centered {
   text-align: center; }
 
-h2 {
+h2, .tabs .single-tab {
   font-size: 20px;
   line-height: 30px;
   text-align: center;
@@ -524,8 +603,6 @@ h2 {
   margin-top: 44px;
   text-transform: uppercase;
   letter-spacing: 4.5px; }
-  h2.first {
-    margin-top: 22px; }
 
 h3 {
   font-size: 20px;
@@ -631,6 +708,10 @@ label {
   width: 49%; }
 
 .flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex; }
 
 @media (min-width: 2500px) {
@@ -681,14 +762,12 @@ label {
   .press-links img {
     width: initial; }
 
-  .carousel .content-overlay-box {
-    display: none; }
-  .carousel .items {
-    height: 330px; }
-  .carousel .image {
-    width: 100%;
-    margin-right: 10px;
-    margin-bottom: 10px; }
+  .profiles .item {
+    display: block; }
+    .profiles .item .img {
+      text-align: center; }
+    .profiles .item .info {
+      width: 100%; }
 
   .manifesto {
     width: 100%; }

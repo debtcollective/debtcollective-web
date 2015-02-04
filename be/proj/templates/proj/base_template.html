@@ -1,7 +1,5 @@
 <head>
   <!-- DC kit -->
-  <script type="text/javascript" src="//use.typekit.net/fju1gby.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <link rel="stylesheet" href="/static/css/reset.css" />
   <link rel="stylesheet" href="/static/css/base.css" />
   <link href='//fonts.googleapis.com/css?family=Cutive+Mono|Raleway:300,100' rel='stylesheet' type='text/css'>
@@ -27,26 +25,24 @@
 </head>
 <body scroll ng-app="myDebtIs">
 
-  <div ng-class="{scrolling: yLoc >= 5}"
-    class="header-links hidden-mobile">
+  <div ng-class="{scrolling: yLoc >= 5}" class="header-links hidden-mobile">
     <div class="header-title">
       <h1><a href="/">
         THE DEBT COLLECTIVE
         </a>
       </h1>
     </div>
-    <a href="/"><div class="splash-square red"></div></a>
-    <a  href="/" du-scrollspy du-smooth-scroll>information</a>
+    <a class="nav-link" href="/" du-scrollspy du-smooth-scroll>information</a>
       &nbsp;&nbsp;  |  &nbsp;&nbsp;
-    <a href="/action" du-scrollspy>action</a>
+    <a class="nav-link" href="/action" du-scrollspy>action</a>
       &nbsp;&nbsp; | &nbsp;&nbsp;
-    <a href="http://blog.debtcollective.org" du-scrollspy>blog</a>
-      &nbsp;&nbsp; | &nbsp;&nbsp;
-    <a href="http://strategize.debtcollective.org">forum</a>
+    <a class="nav-link" href="http://blog.debtcollective.org" du-scrollspy>blog</a>
   </div>
 
   <div class="header-links mobile-only">
-      <a du-scrollspy href="/action">strike</a>
+    <a class="nav-link" href="/" du-scrollspy du-smooth-scroll>information</a>
+      &nbsp;&nbsp;  |  &nbsp;&nbsp;
+      <a du-scrollspy class="nav-link" href="/action">strike</a>
   </div>
   <div class="body">
   {% block body %}{% endblock %}

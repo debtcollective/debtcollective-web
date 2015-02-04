@@ -70,20 +70,15 @@
   .press-links img {
     width: initial;
   }
-  .carousel {
-
-    .content-overlay-box {
-      display: none;
-    }
-
-    .items {
-      height: 330px;
-    }
-
-    .image {
-      width: 100%;
-      margin-right: 10px;
-      margin-bottom: 10px;
+  .profiles {
+    .item {
+      display: block;
+      .img {
+        text-align: center;
+      }
+      .info {
+        width: 100%;
+      }
     }
   }
   .manifesto {
