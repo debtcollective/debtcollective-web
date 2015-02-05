@@ -744,11 +744,6 @@ label {
     width: 473px;
     max-width: 100%; }
 
-  .carousel .content-overlay-box {
-    height: 75% !important; }
-  .carousel .person-info {
-    padding-top: 20px; }
-
   .social-media {
     opacity: 0 !important; } }
 .mobile-only {
@@ -807,7 +802,7 @@ label {
     font-size: 23px; }
 
   .nav-footer.visible:not(.focused) {
-    bottom: -136px !important; }
+    top: 0px; }
 
   .close-button.visible:not(.focused) {
     display: none !important; }

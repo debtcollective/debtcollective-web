@@ -42,16 +42,6 @@
     max-width: 100%;
   }
 
-  .carousel {
-    .content-overlay-box {
-      height: 75% !important;
-    }
-
-    .person-info {
-      padding-top: 20px;
-    }
-  }
-
   .social-media {
     opacity: 0 !important;
   }
@@ -131,7 +121,7 @@
   }
 
   .nav-footer.visible:not(.focused) {
-    bottom: -($footer-open-height - $footer-height) !important;
+    top: 0px;
   }
 
   .close-button.visible:not(.focused) {
