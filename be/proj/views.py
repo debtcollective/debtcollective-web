@@ -19,8 +19,8 @@ def splash(request):
 def map(request):
   return render_to_response('proj/map.html')
 
-def action(request):
-  return render_to_response('proj/action.html')
+def studentstrike(request):
+  return render_to_response('proj/studentstrike.html')
 
 def corinthian(request):
   return render_to_response('proj/corinthian.html')
