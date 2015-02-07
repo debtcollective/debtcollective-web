@@ -10,12 +10,28 @@ app.directive('signupform', function () {
 
       $scope.email = null;
       $scope.username = null;
-      $scope.debtType = null;
+      $scope.debts = [];
       $scope.amount = null;
       $scope.showForm = false;
       $scope.formSubmitted = false;
       $scope.location = null;
       $scope.focused = false;
+
+      $http.get('/debt_choices').then(function (resp) {
+          $scope.debt_choices = resp.data
+      });
+
+      $http.get('/points').then(function (resp) {
+          $scope.cities = resp.data
+      });
+
+      $scope.addDebt = function () {
+        $scope.debts.push({
+          debtType: null,
+          amount: null
+        })
+      }
+      $scope.addDebt()
 
       $scope.formValid = function () {
         return $scope.location != null && $scope.email != null
@@ -59,7 +75,7 @@ app.directive('signupform', function () {
             'username': $scope.username,
             'password': $scope.email,
             'point': $scope.location.id,
-            //'kind': $scope.debtType.name,
+            'kind': $scope.debtType.id,
             'amount': amount
         }
 

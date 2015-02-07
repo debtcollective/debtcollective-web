@@ -1,3 +1,5 @@
+
+@import "vendor/bootstrap.css";
 @import "includes/variables";
 @import "includes/mixins";
 @import "includes/buttons";
@@ -18,7 +20,7 @@
 
 
 body {
-    background-color: $light-background-color;
+    background-color: $dark-background-color;
     line-height: 1.6em;
     @extend %mono;
     font-size: 16px;
@@ -31,6 +33,7 @@ body {
     visibility: visible;
   }
 }
+
 
 section {
   width: 100%;
@@ -247,9 +250,6 @@ h3 {
 
 }
 
-div {
-  max-width: 100%;
-}
 
 /** GENERAL **/
 .fixed {
@@ -294,6 +294,16 @@ label {
     text-transform: uppercase;
 }
 
+form {
+  input {
+    color: $light-text-color;
+    text-align: left;
+    height: 44px;
+    border-bottom: 1px solid $light-text-color !important;
+    background-color: inherit !important;
+  }
+}
+
 .dropdown-menu {
   @extend %mono;
   position: absolute;
@@ -312,11 +322,12 @@ label {
   background-clip: padding-box;
   text-align: left;
   max-width: 300px;
-  padding-left: 0px;
+  padding-left: 0px !important;
 
   li {
       padding: 5px;
       opacity: .7;
+      list-style: none;
       a {
         color: $olive-yellow;
       }
@@ -344,5 +355,8 @@ label {
   @include flexbox;
 }
 
+.footer {
+  background-color: $light-text-color;
+}
 
 @import "includes/responsive";

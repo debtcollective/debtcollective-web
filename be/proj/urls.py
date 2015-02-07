@@ -24,6 +24,8 @@ urlpatterns += patterns('proj.views',
 urlpatterns += patterns('proj.gather.views',
   basic_url('points'),
   basic_url('map_data'),
+  basic_url('debt_choices'),
+  basic_url('debt_total'),
   basic_url('generate_map_json')
 )
 

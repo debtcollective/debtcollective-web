@@ -5,98 +5,99 @@
 
 <div scroll>
   <div id="scroll" ng-controller="splashCtrl">
-    <div class="body-text top-quote">
-      <h1>
-        "If you owe the bank a thousand dollars, the bank owns you. If you owe the bank millions, you own the bank"
+    <section id="splash" class="splash">
+      <div class="wrapper light">
+        <signupform ></signupform>
+      </div>
+
+      <div class="manifesto body-text">
+
+        <p class="body-text">
+          Every month, we are forced into debt for basic necessities. We have no choice but to enter into contracts under unfair terms. We have little power to bargain or negotiate. Creditors are holding us hostage. When we can’t meet the terms of the contract, we are harassed, we have our wages garnished, and some of us are even imprisoned.
+        </p>
+
+        <div class="flex body-text">
+          <button class="btn" ng-click="agree()" type="submit">I agree</button>
+          <button class="btn" ng-click="disagree()" type="submit">I disgree</button>
+        </div>
+      </div>
+    </section>
+    <section id="page"  ng-class="{hidden: !showSite}">
+     <div ng-class="{scrolling: yLoc >= 5}" class="header-links hidden-mobile">
+      <div class="header-title">
+        <h1><a href="/">
+          THE DEBT COLLECTIVE
+        </a>
       </h1>
     </div>
-  <div class="wrapper light">
-      <section>
-        <div id="map" class="map-container" ng-controller="mapCtrl">
-
-          <img src="/static/img/dcnew_key.png" class="legend" />
-          <img src="/static/img/dcnew_compass.png" class="compassrose" />
-
-          <img src="/static/img/map-title-banner.png" class="map-banner mobile-only" />
-          <div id="mapdiv" style="width: 100%; height: 500px;"></div>
-          <!-- <a class="twitter-timeline"
-           data-chrome="noheader nofooter noborders noscrollbar transparent"
-           href="https://twitter.com/hashtag/notaloan"
-           data-link-color="#666" width="250px"
-           data-border-color="#333"
-           height="350px" data-widget-id="511729525797814272">
-            #notaloan Tweets
-           </a>-->
-        </div>
-        <div id="learn" class="body-text anchor map-body">
-          <div class="debt-total">${{total_amount|intcomma}}</div>
-          <div class="title-banner hidden-mobile">
-            <img src="/static/img/map-title-banner.png" class="map-banner" />
-          </div>
-          <p>Every month, we are forced into debt for basic necessities. We have no choice but to enter into contracts under unfair terms. We have little power to bargain or negotiate. Creditors are holding us hostage. When we can’t meet the terms of the contract, we are harassed, we have our wages garnished, and some of us are even imprisoned. The goal of the Debt Collective is to fight back and transform how basic necessities, such as education, health care, and housing are provided.
-          </p>
-            <h2>Why Join <span>the Debt Collective?</span></h2>
-            <p>Creditors profit from the data they have about our loans. We all owe, but we aren’t always sure who really profits from our loan payments. Who is at the end of that paper trail?
-            </p>
-
-            <p>
-            We can learn where our money goes and who is profiting from those payments. We can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.
-            </p>
-
-            <p>
-            You are not a loan. Join Us.
-            </p>
-            <h2>What can a Debt Collective Do?</h2>
-            <p>
-            The goal of the Debt Collective is to create a platform by debtors and for debtors for organization, advocacy, and resistance. Organizing collectively offers many possibilities for building power against creditors:
-            </p>
-            <div class="centered-body-text-image">
-              <img src="/static/img/whatcanaDCdo_graphic.gif" />
-            </div>
-            <p>
-            As we build membership, we can organize debtors into groups based on region, type of debt, or institution. These groups can bargain with creditors or even develop the power to threaten a debt strike. A debt collective can help create a positive vision for a sustainable economy in which credit would be used to benefit everyone and not to line the pockets of a few.
-            </p>
-        </div>
-        <section class="body-text" id="background">
-            <h2>Background: Who we are</h2>
-
-            <p>
-            We are the people behind the <a href="http://rollingjubilee.org" target="_blank">Rolling Jubilee debt cancellation initiative</a>. We operate according to the principle that individual debts are a burden, but when we stand together they make us powerful. The Debt Collective is the next step in making that vision a reality.
-            </p>
-
-            <p>
-              <div class="press-links">
-                  <a href="http://www.washingtonpost.com/news/storyline/wp/2014/09/17/how-one-student-got-burned-by-a-for-profit-college-and-bailed-out-by-occupy-wall-street/"  target="_blank">
-                    <img src="/static/img/press/wash-pressbtn.jpg" />
-                  </a>
-                  <a href="http://america.aljazeera.com/opinions/2014/9/strike-student-debt.html"  target="_blank">
-                    <img src="/static/img/press/AJ-pressbtn.jpg" />
-                  </a>
-                  <a href="http://www.theguardian.com/money/2014/sep/17/occupy-activists-student-debt-corinthian-colleges"  target="_blank">
-                    <img src="/static/img/press/guard-pressbtn.jpg" />
-                  </a>
-              </div>
-            </p>
-
-            <h2>Talk to us on social media</h2>
-            <div class="social-links">
-              <a href="https://www.facebook.com/DebtCollective" target="_blank">
-                <img class="sm-button" src="/static/img/dc_newfacebookbttn.png" />
-              </a>
-              <a href="http://www.twitter.com/0debtzone" target="_blank">
-                <img class="sm-button" src="/static/img/dc_twitterbttn.png" />
-              </a>
-            </div>
-        </section>
-      </section>
-
+    <a class="nav-link" href="/" du-scrollspy du-smooth-scroll>information</a>
+    &nbsp;&nbsp;  |  &nbsp;&nbsp;
+    <a class="nav-link" href="/studentstrike" du-scrollspy>students on strike</a>
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+    <a class="nav-link" href="http://blog.debtcollective.org" du-scrollspy>blog</a>
   </div>
-      <section class="splash splash-bottom-quote">
-        <h1 class="quote">
-          “Just as bosses are dependent on workers, so are lenders dependent on borrowers. If workers walk out, the enterprise stops. If borrowers refuse to pay their debts, the lenders could be in real trouble.” <br> <br>Francis Fox Piven
-        </h1>
-      </section>
-  <signupform  class="nav-footer" ></signupform>
-</div>
 
+  <div class="header-links mobile-only">
+    <a class="nav-link" href="/" du-scrollspy du-smooth-scroll>information</a>
+    &nbsp;&nbsp;  |  &nbsp;&nbsp;
+    <a du-scrollspy class="nav-link" href="/action">strike</a>
+  </div>
+
+  <section id="stats" class="container">
+    {% include "proj/stats.html" %}
+  </section>
+  <div class="wrapper light">
+    <div class="body-text">
+      <h2>What can a Debt Collective Do?</h2>
+      <p>
+        The goal of the Debt Collective is to create a platform by debtors and for debtors for organization, advocacy, and resistance. Organizing collectively offers many possibilities for building power against creditors:
+      </p>
+      <p>
+        As we build membership, we can organize debtors into groups based on region, type of debt, or institution. These groups can bargain with creditors or even develop the power to threaten a debt strike. A debt collective can help create a positive vision for a sustainable economy in which credit would be used to benefit everyone and not to line the pockets of a few.
+      </p>
+      <h2>Why Join the Debt Collective?</h2>
+        <p>Creditors profit from the data they have about our loans. We all owe, but we aren’t always sure who really profits from our loan payments. Who is at the end of that paper trail?
+        </p>
+
+        <p>
+        We can learn where our money goes and who is profiting from those payments. We can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.
+        </p>
+
+      <p>
+        You are not a loan. Join Us.
+      </p>
+    </div>
+
+      <div id="signup-form" class="body-text">
+        <signupform ></signupform>
+      </div>
+
+    <div id="map" class="map-container" ng-controller="mapCtrl">
+      <div id="mapdiv"></div>
+    </div>
+
+    <div id="learn" class="body-text anchor map-body">
+      <h2>We have collected</h2>
+        <div class="counter-container">
+          <div class="counter"></div>
+        </div>
+
+
+      <h2>Talk to us on social media</h2>
+      <div class="social-links">
+        <a href="https://www.facebook.com/DebtCollective" target="_blank">
+          <img class="sm-button" src="/static/img/dc_newfacebookbttn.png" />
+        </a>
+        <a href="http://www.twitter.com/0debtzone" target="_blank">
+          <img class="sm-button" src="/static/img/dc_twitterbttn.png" />
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="splash splash-bottom-quote">
+    <h1 class="quote">
+      “Just as bosses are dependent on workers, so are lenders dependent on borrowers. If workers walk out, the enterprise stops. If borrowers refuse to pay their debts, the lenders could be in real trouble.” <br> <br>Francis Fox Piven
+    </h1>
+  </section>
+</div>
 {% endblock %}

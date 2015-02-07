@@ -9,7 +9,6 @@ app.run(function run($http, $cookies){
 })
 
 app.value('duScrollDuration', 1000)
-app.value('duScrollOffset', 30)
 app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('{$');
     $interpolateProvider.endSymbol('$}');

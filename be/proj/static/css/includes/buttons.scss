@@ -57,9 +57,11 @@
   @extend %button;
   min-width: 150px;
   background-color: $dark-mauve;
+  color: $light-text-color;
 
   &.btn-red {
     background-color: $dark-red;
+    color: $text;
   }
   &.btn-primary {
     height: 70px;

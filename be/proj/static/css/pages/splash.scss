@@ -10,15 +10,6 @@
     padding: 10px;
 }
 
-form {
-  input {
-    color: $light-text-color;
-    text-align: left;
-    height: 44px;
-    border-bottom: 1px solid $light-text-color !important;
-    background-color: inherit !important;
-  }
-}
 .nav-footer {
   @extend %mono;
   @include frame-transition();
@@ -41,21 +32,22 @@ form {
     bottom: 0px !important;
   }
 
-  .dc-input {
+}
+
+.dc-input {
+  width: 100%;
+  font-size: 20px;
+
+  #receiver {
+    text-align: center;
+    padding: 10px;
+  }
+
+  form {
+    @include frame-transition();
+    max-width: 400px;
     width: 100%;
-    font-size: 20px;
-
-    #receiver {
-      text-align: center;
-      padding: 10px;
-    }
-
-    form {
-      @include frame-transition();
-      max-width: 400px;
-      width: 100%;
-      margin: 0 auto;
-    }
+    margin: 0 auto;
   }
 }
 
@@ -74,6 +66,15 @@ form {
   img {
     width: 300px;
     padding-left: 10px;
+  }
+}
+
+.manifesto {
+  text-align: left;
+  top: 50%;
+  transform: translateY(-50%);
+  .btn {
+    height: 70px;
   }
 }
 
@@ -141,7 +142,6 @@ form {
 
 
 #scroll {
-  @extend %sans;
   color: #fff;
 
   &.mainstate {
@@ -207,6 +207,8 @@ form {
 }
 
 #mapdiv {
+  width: 100%;
+  height: 250px;
   background-color: $map-background-color;
 }
 
@@ -229,30 +231,67 @@ form {
 
 .map-container {
   position: relative;
-
-  img {
-    z-index: 10000;
-  }
-  .legend {
-    position: absolute;
-    top: 10px;
-    right: 16px;
-  }
-
-  .map-banner {
-    position: absolute;
-    bottom: 0;
-  }
-
-  .compassrose {
-    position: absolute;
-    bottom: 28%;
-    height: 250px;
-
-  }
 }
 
 .splash-bottom-quote {
   margin-top: -25px;
+}
+
+
+
+/* stats section */
+
+#stats {
+  #number {
+    line-height: 130px;
+    img {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+    border-top: 1px dotted $light-background-color;
+    border-bottom: 1px dotted $light-background-color;
+  }
+  .vis {
+    border-right: 1px dotted $light-background-color;
+    margin: 20px 0;
+  }
+  .row .col-md-4:last-child .vis {
+    border: none;
+  }
+}
+
+/* jquery odometer counter */
+
+.counter-container {
+  height: 55px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid $light-background-color;
+  border-radius: 2px;
+  background-image: url('../img/jodometer-background.jpg');
+  background-repeat: repeat-x;
+  width: 288px;
+  margin: 0 auto;
+}
+
+.counter {
+  width: 100%;
+  height: 55px;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.counter-text {
+  font-size: 20px;
+  line-height: 1em;
+  font-weight: normal;
+  &.pre {
+    font-size: 40px;
+    margin: 50px 0 30px;
+  }
+  &.post {
+    margin: 20px 0 40px;
+  }
 }
 

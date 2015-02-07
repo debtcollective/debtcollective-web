@@ -13,8 +13,7 @@ import simplejson as json
 
 @ensure_csrf_cookie
 def splash(request):
-  total_amount = Debt.objects.all().aggregate(Sum('amount'))
-  return render_to_response('proj/splash.html', {'total_amount': total_amount['amount__sum']})
+  return render_to_response('proj/splash.html', {})
 
 def map(request):
   return render_to_response('proj/map.html')
@@ -71,11 +70,15 @@ def signup(request):
     point = Point.objects.get(id=point)
   data = UserProfile.objects.create(user=user, point=point)
 
-  kind = rq.get('kind')
-  amount = rq.get('amount')
-  last_payment = rq.get('last_payment')
-  if amount:
-    debt = Debt.objects.create(user=user, amount=amount,
-      kind=kind, last_payment=last_payment)
+  debts = rq.get('debts')
+  if debts:
+    import pdb; pdb.set_trace()
+    for debt in debts:
+      kind = debt.get('kind')
+      amount = debt.get('amount')
+      last_payment = debt.get('last_payment')
+      if amount:
+        debt = Debt.objects.create(user=user, amount=amount,
+          kind=kind, last_payment=last_payment)
 
   return json_response({'status': 'ok'}, 200)
