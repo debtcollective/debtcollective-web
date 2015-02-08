@@ -402,7 +402,12 @@ select {
 }
 
 .footer {
-  background-color: $light-text-color;
+  background-color: $dark-blue;
+  color: $dark-text-color;
+  padding-bottom: 20%;
+  a {
+    color: $link-light;
+  }
 }
 
 @import "includes/responsive";

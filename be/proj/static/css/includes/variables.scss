@@ -16,9 +16,8 @@ $link-hover: #f7f7ed;
 $link-light: #b6bea7;
 $link-light-hover: rgba(134,143,148, .8);
 
-$dark-blue:     rgb(17,13,33); //110d21
+$dark-blue:    #1a1b23;
 $linkblue:      #3d72a6;
-$maroon:        rgb(32,18,25);
 
 $map-background-color: $dark-mauve;
 $dark-background-color: $off-grey;
@@ -36,7 +35,7 @@ $intro-text: rgb(172,185,183);
 $header-height: 32px;
 
 $footer-height: 66px;
-$footer-open-height: 280px;
+$footer-open-height: 267px;
 
 $text:      $link-light;
 $rule:      desaturate(lighten($mid-grey, 20%), 30%);

@@ -1,5 +1,5 @@
 @import url(vendor/bootstrap.css);
-.btn, .tweet-box .tweet-btn, input[type="text"], input[type="email"], .tweet-box .tweet-text, .nav-footer, .splash .splash-footer, .intro-text p, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, body, .top-quote h1, .dropdown-menu {
+.btn, .tweet-box img, input[type="text"], input[type="email"], .tweet-box .tweet-text, .nav-footer, .splash .splash-footer, .intro-text p, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, body, .top-quote h1, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -8,7 +8,7 @@
 p, .body-text, h1, h2, .tabs .single-tab, h3 {
   font-family: "Raleway", sans-serif; }
 
-.btn, .tweet-box .tweet-btn, input[type="text"], input[type="email"] {
+.btn, .tweet-box img, input[type="text"], input[type="email"] {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -18,11 +18,11 @@ p, .body-text, h1, h2, .tabs .single-tab, h3 {
   width: 100%;
   border: 0;
   text-decoration: none; }
-  .btn:focus, .tweet-box .tweet-btn:focus, input[type="text"]:focus, input[type="email"]:focus {
+  .btn:focus, .tweet-box img:focus, input[type="text"]:focus, input[type="email"]:focus {
     outline: 0px;
     outline-offset: 0px; }
 
-.btn, .tweet-box .tweet-btn {
+.btn, .tweet-box img {
   cursor: pointer;
   text-align: center;
   margin-top: 4px; }
@@ -82,7 +82,7 @@ p, .body-text, h1, h2, .tabs .single-tab, h3 {
     border-color: #eb1020; }
     .tweet-box:hover .tweet-btn {
       color: #39413f; }
-  .tweet-box .tweet-btn {
+  .tweet-box img {
     width: 30px; }
 
 /** NAVIGATION **/
@@ -104,8 +104,8 @@ p, .body-text, h1, h2, .tabs .single-tab, h3 {
   position: fixed;
   right: 0;
   width: 100%;
-  min-height: 280px;
-  bottom: -280px;
+  min-height: 267px;
+  bottom: -267px;
   color: white;
   background-color: #39413f; }
   .nav-footer:not(.visible) .close-button {
@@ -187,7 +187,7 @@ p, .body-text, h1, h2, .tabs .single-tab, h3 {
 #scroll.mainstate .social-media {
   opacity: 0; }
 #scroll.mainstate .nav-footer {
-  bottom: -214px; }
+  bottom: -201px; }
 
 .images {
   -webkit-transition: background-color 1s ease;
@@ -307,7 +307,7 @@ p, .body-text, h1, h2, .tabs .single-tab, h3 {
     margin: 20px 0 40px; }
 
 #corinthian .intro {
-  background-color: #110d21;
+  background-color: #1a1b23;
   padding: 2em;
   color: #acb9b7 !important; }
   #corinthian .intro p {
@@ -830,7 +830,11 @@ select {
   display: flex; }
 
 .footer {
-  background-color: #39413f; }
+  background-color: #1a1b23;
+  color: #f1eee2;
+  padding-bottom: 20%; }
+  .footer a {
+    color: #b6bea7; }
 
 @media (min-width: 2500px) {
   .wrapper {
