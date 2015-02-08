@@ -1,4 +1,10 @@
 @import url(vendor/bootstrap.css);
+.footer {
+  font-family: "Cutive mono", serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px; }
+
 .btn, .tweet-box img, input[type="text"], input[type="email"], .tweet-box .tweet-text, .nav-footer, .splash .splash-footer, .intro-text p, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, body, .top-quote h1, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
@@ -834,7 +840,12 @@ select {
   color: #f1eee2;
   padding-bottom: 20%; }
   .footer a {
-    color: #b6bea7; }
+    color: #f1eee2;
+    text-decoration: underline !important; }
+    .footer a:hover {
+      color: #f7f7ed; }
+  .footer li {
+    margin-top: 10px; }
 
 @media (min-width: 2500px) {
   .wrapper {

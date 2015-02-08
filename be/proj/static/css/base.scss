@@ -402,11 +402,20 @@ select {
 }
 
 .footer {
+  @extend %captionmono;
   background-color: $dark-blue;
   color: $dark-text-color;
   padding-bottom: 20%;
+
   a {
-    color: $link-light;
+    color: $dark-text-color;
+    text-decoration: underline !important;
+    &:hover {
+      color: $link-hover;
+    }
+  }
+  li {
+    margin-top: 10px;
   }
 }
 
