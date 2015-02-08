@@ -2,8 +2,8 @@
 @import "vendor/bootstrap.css";
 @import "includes/variables";
 @import "includes/mixins";
-@import "includes/buttons";
 @import "includes/flex";
+@import "includes/buttons";
 
 @import "pages/splash";
 @import "pages/corinthian";
@@ -34,6 +34,17 @@ body {
   }
 }
 
+.arrow-down-steep {
+  background-image: url(/static/img/bg_arrow-down-steep.png);
+  background-position: center bottom;
+  padding-bottom: 210px;
+  margin-bottom: -120px;
+}
+.arrow-up {
+  background-image: url(/static/img/bg_arrow_up.png);
+  padding-bottom: 110px;
+  margin-top: -10px;
+}
 
 section {
   width: 100%;
@@ -41,7 +52,6 @@ section {
 
 p, .body-text {
   @extend %rale;
-  position: relative;
   margin: 0px auto;
   line-height: 34px;
 
@@ -84,12 +94,18 @@ p, .body-text {
 }
 
 
+.visible {
+  display: block;
+}
+
 .header-title {
   padding: 20px;
 }
+
 .header-links {
-  padding: 4px 15px;
+  padding: 5.5px 15px;
   font-size: 16px;
+  line-height: 21px;
   text-transform: uppercase;
   text-align: center;
   z-index: 1000;
@@ -161,8 +177,8 @@ $banner-height: 32px;
 
 h1 {
   @extend %rale;
-  font-size: 46px;
-  line-height: 46px;
+  font-size: 28px;
+  line-height: 28px;
   color: #feffe8;
   font-weight: 100;
   letter-spacing: 5px;
@@ -223,6 +239,7 @@ h3 {
 }
 
 .wrapper {
+  color: $light-text-color;
   background-color: $dark-background-color;
   position: relative;
   margin: 0 auto;
@@ -242,6 +259,7 @@ h3 {
   &.light {
     color:  $light-text-color;
     background-color: $light-background-color;
+
     h1 {
       color: $light-text-color;
       border-bottom: $light-text-color 1px solid;
@@ -273,7 +291,7 @@ h3 {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: #041a29;
   @include transition();
 

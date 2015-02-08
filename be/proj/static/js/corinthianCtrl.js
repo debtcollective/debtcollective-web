@@ -4,6 +4,7 @@ app.controller('corinthianCtrl',
     $scope.debt = 354135;
     $scope.money = 24194;
 
+    $scope.selectionIndex = null;
     $scope.loading = true;
 
     $http.get('/static/js/strikers.json').then(function (resp) {
@@ -17,5 +18,17 @@ app.controller('corinthianCtrl',
       $scope.data = strikers
 
     });
+
+    $scope.showStriker = function (index, $event) {
+      $scope.selectionIndex = index;
+      $event.stopPropagation()
+    }
+
+    $scope.closeStriker = function ($event) {
+      if ($scope.selectionIndex == null) return
+      $scope.selectionIndex = null;
+      $event.stopPropagation()
+    }
+
     $scope.formVisible = function () { return true; }
 });

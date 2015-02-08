@@ -88,24 +88,25 @@ input[type="text"], input[type="email"] {
 $twitter-color: #E5F2F7;
 
 .tweet-box {
+  @include flexbox();
   @include round-corners(2);
-  float: left;
-  background-color: $twitter-color;
+  border: 1px solid $light-background-color;
+  margin: 15px;
 
   .tweet-text {
     @extend %mono;
-    background-color: white;
-    color: black;
-    padding: 5px;
+    color: $dark-text-color;
+    padding: 5px 5px 5px 15px;
     margin: 5px;
+    width: 100%;
+    line-height: 30px;
   }
 
   &:hover {
-    background-color: darken($twitter-color, 5%);
+    cursor: pointer;
+    border-color: $pink-red;
     .tweet-btn {
-      background: $twitter-color;
       color: $light-text-color;
-      &:after { content: "Tweet"; }
     }
   }
 
@@ -115,8 +116,8 @@ $twitter-color: #E5F2F7;
     background: url(/static/img/Twitter_logo_white.png);
     width: 80px;
     height: 40px;
-    float: right;
     background-size: 40px;
+    background-position: right;
     background-repeat: no-repeat;
   }
 

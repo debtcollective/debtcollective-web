@@ -2,6 +2,7 @@ app.controller('splashCtrl',
     function ($scope, $http, util_svc, $document, $timeout, $window) {
 
     $scope.showSite = false;
+    $scope.showStats = false;
 
     $scope.bannerFadeInTimeout = false;
     $timeout(function () {
@@ -13,20 +14,20 @@ app.controller('splashCtrl',
         $document.scrollToElement(someElement, 150, 1000);
     }
 
-    showSite = function() {
+    function showSite() {
         $scope.showSite = true;
-        $scope.initMap()
     }
 
     $scope.agree = function () {
         showSite()
         $timeout(function () {
-            scrollToElement('signup-form')
+            scrollToElement('whyjoin')
         }, 500)
     }
 
     $scope.disagree = function () {
         showSite()
+        $scope.showStats = true;
         $timeout(function () {
             scrollToElement('stats')
         }, 500)

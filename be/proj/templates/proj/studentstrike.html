@@ -2,17 +2,53 @@
 {% load humanize %}
 
 {% block body %}
-<div scroll ng-controller="corinthianCtrl">
+    {% include "proj/header.html" %}
+<div scroll ng-controller="corinthianCtrl" >
+<div class="hud-display-background"  ng-click="closeStriker($event)" ng-class="{visible: selectionIndex != null}"></div>
+
 <div id="corinthian">
 <div class="top-graphic centered">
   <img class="hidden-mobile" src="/static/img/strikers/striker_top-graphic.gif" />
   <img class="mobile-only" src="/static/img/strikers/striker_top-graphic-small.gif" />
 </div>
 
-<div class="body-text">
-  <h2>WE WON'T PAY</h2>
+<div class="wrapper light">
 
-  <div class="manifesto">
+<div class="tabs">
+  <div class="single-tab front">THE CORINTHIAN TEN</div>
+  <div class="single-tab back"><a href="#likethestrike">Like the strike?</a></div>
+</div>
+
+<div class="loading" ng-show="loading">Loading..</div>
+<div class="container profiles">
+  <div class="row">
+    <div ng-repeat="item in data">
+      <div class="item col-md-3" ng-click="showStriker($index, $event)">
+        <div class="img">
+          <img class="hidden-mobile" ng-src="{$ item.image $}" />
+          <img class="mobile-only" ng-src="{$ item.mobileImage $}" />
+        </div>
+        <div class="info">
+          <p>{$ item.name $}<br> {$ item.location $}</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-repeat="item in data" ng-class="{visible: $index == selectionIndex}" class="hud-display body-text light">
+    <div class="info">
+      <div class="img">
+        <img   ng-click="closeStriker($event)"  ng-src="{$ item.largeImage $}" />
+        <h3>{$ item.name $}</h3>
+      </div>
+      <p>{$ item.bio $}</p>
+  </div>
+
+</div>
+<div class="body-text">
+    <h2>WE WON'T PAY</h2>
+
     <p>To the Department of Education, to the loan servicers, to the Genesis lending company, to Corinthian and ECMC, we have one thing to say: we owe you nothing.
     </p>
     <p>
@@ -28,29 +64,6 @@
     To all those who have stolen our futures, to all those who force students to pay at the barrel of a gun, we say: enough! We won’t pay, not one penny. We are the Corinthian ten.
     </p>
   </div>
-</div>
-
-<div class="tabs">
-  <div class="single-tab front">THE CORINTHIAN TEN</div>
-  <div class="single-tab back"><a href="#likethestrike">Like the strike?</a></div>
-</div>
-
-<div class="wrapper light page">
-
-<div class="loading" ng-show="loading">Loading..</div>
-<div class="profiles">
-  <div ng-repeat="item in data" class="item" ng-class="{visible: $index == selectionIndex}">
-    <div class="img">
-      <img ng-src="{$ item.image $}" />
-    </div>
-    <div class="info">
-      <h3>{$ item.name $}</h3>
-      <p>{$ item.bio $}</p>
-    </div>
-  </div>
-</div>
-
-<div class="body-text">
   <!--
   <div class="share-buttons">
     <div class="fb-share-button" data-href="http://debtcollective.org" data-layout="button_count"></div>
@@ -88,9 +101,7 @@ Put a red square in your social media profile picture.
 <a href="https://twibbon.com/Support/debt-collective">
 <img src="/static/img/ange.jpg" width="200px"/>
 </a>
-</p>-->
-</div>
-</div>
+</p>
 
 <div id="likethestrike" class="hud body-text">
   <div class="top">
@@ -109,5 +120,10 @@ Put a red square in your social media profile picture.
   </div>
 </div>
 </div>
+-->
+</div>
+</div>
+
+
 </div>
 {% endblock %}

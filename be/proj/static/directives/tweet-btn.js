@@ -3,12 +3,12 @@ app.directive('tweetBtn', function ($window) {
     restrict: 'E',
     replace: true,
     scope: {
-      'tweetText': '&'
+      'text': '='
     },
     templateUrl: '/static/directives/tweetBtn.html',
     controller: function ($scope, $element, $attrs) {
-      $scope.tweetText = $scope.text
-      //$scope.twitterText = encodeURIComponent($scope.text);
+      $scope.tweetText = $attrs.text
+      $scope.twitterText = encodeURIComponent($attrs.text);
     }
   }
 })

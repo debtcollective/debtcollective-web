@@ -71,11 +71,16 @@
 
 .manifesto {
   text-align: left;
-  top: 50%;
-  transform: translateY(-50%);
+  // top: 50%;
+  // transform: translateY(-50%);
+  // position: relative;
   .btn {
     height: 70px;
   }
+}
+
+.rest-of-splash-page {
+  display: none;
 }
 
 .splash {
@@ -109,37 +114,13 @@
 
 
 .intro-text {
-  @extend %rale;
-  color: $intro-text !important;
-  height: 100%;
-  margin: auto;
-  font-weight: 500 !important;
-  font-size: 20px;
-  line-height: 30px;
-  position: fixed;
-  top: 0;
-
-  .body-text {
-    padding-top: 88px;
-
-    .visible .pane {
-      opacity: .8 !important;
-    }
-
-    .slide {
-      position: absolute;
-      .pane {
-        opacity: .8;
-        top: 44px;
-        @include transition(opacity, 1s, ease);
-      }
-      span {
-        opacity: 0;
-      }
-    }
+  padding: 20px;
+  p {
+    @extend %mono;
+    padding: 10px;
+    text-align: center;
   }
 }
-
 
 #scroll {
   color: #fff;
@@ -208,7 +189,7 @@
 
 #mapdiv {
   width: 100%;
-  height: 250px;
+  height: 400px;
   background-color: $map-background-color;
 }
 
@@ -231,6 +212,14 @@
 
 .map-container {
   position: relative;
+
+  .legend {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    z-index: 999;
+    transform: translateX(-50%);
+  }
 }
 
 .splash-bottom-quote {
