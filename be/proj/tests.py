@@ -133,19 +133,16 @@ class TestSignup(TestCase):
       rs = self.client.post('/signup/',
           {'username': 'doingit',
            'password': 'testingpw',
-           'debts': [
-              {'kind': 'home',
-               'amount': 132200}
-            ],
+           'kind': 'home',
+           'amount': 132200,
            'point': p.id
            })
       self.assertEqual(rs.status_code, 200)
 
       user = User.objects.get(username='doingit')
-      debt = Debt.objects.filter(user=user)
-      self.assertEqual(len(debt), 1)
-      #self.assertEqual(debt.kind, 'home')
-      #self.assertEqual(debt.amount, 132200)
+      debt = Debt.objects.get(user=user)
+      self.assertEqual(debt.kind, 'home')
+      self.assertEqual(debt.amount, 132200)
 
       # TODO: add last_payment as a viable option
       # do we use ISO or unix time?

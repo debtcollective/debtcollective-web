@@ -70,19 +70,22 @@ app.directive('signupform', function () {
         // so that we can protect anonymity of our users.
         // campaign monitor handles mailing lists
 
-        amount = parseFloat($scope.amount.replace(',', ''));
-        data = {
-            'username': $scope.username,
-            'password': $scope.email,
-            'point': $scope.location.id,
-            'kind': $scope.debtType.id,
-            'amount': amount
+        for (i = 0; i < debts.length; i++) {
+          amount = parseFloat($scope.amount.replace(',', ''));
+          data = {
+              'username': $scope.username,
+              'password': $scope.email,
+              'point': $scope.location.id,
+              'kind': debt.debtType.id,
+              'amount': debt.amount
+          }
+          $http.post('/signup/', data).then(function (resp) {
+            console.log(resp)
+          });
         }
 
-        $http.post('/signup/', data).then(function (resp) {
-            $scope.formSubmitted = true;
-            $scope.showForm = true;
-        });
+        $scope.formSubmitted = true;
+        $scope.showForm = true;
       }
     }
   }

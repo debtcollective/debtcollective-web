@@ -7,7 +7,7 @@
       {% include "proj/header.html" %}
   <div id="scroll" ng-controller="splashCtrl" class="container">
       <div class="intro-text">
-        <p>The debt collective represents over</p>
+        <p>The debt collective represents</p>
         <div class="counter-container">
           <div class="counter"></div>
         </div>
@@ -22,49 +22,95 @@
         </div>
         <div class="manifesto body-text" ng-class="{hidden: showSite}">
           <div class="row">
-          <p>
-            Every month, we are forced into debt for basic necessities. We have no choice but to enter into contracts under unfair terms. We have little power to bargain or negotiate. Creditors are holding us hostage. When we can’t meet the terms of the contract, we are harassed, we have our wages garnished, and some of us are even imprisoned. We should fight back to transform how basic necessities such as education, health care, and housing are provided.
-          </p>
-          <div class="flex">
-            <button class="btn" ng-click="agree()" type="submit">I agree</button>
-            <button class="btn" ng-click="disagree()" type="submit">I disgree</button>
+            <div class="flex">
+              <button class="btn" ng-click="agree()" type="submit">I agree</button>
+              <button class="btn" ng-click="disagree()" type="submit">I disgree</button>
+            </div>
           </div>
         </div>
-      </div>
+        <div id="signup-form" class="body-text" ng-class="{hidden: !showSite || showStats}">
+          <signupform ></signupform>
+        </div>
     </div>
+
+
     <section id="page" class="rest-of-splash-page visible"><!-- ng-class="{visible: showSite}">-->
       <section id="stats" ng-class="{hidden: !showStats}" class="container">
         {% include "proj/stats.html" %}
+      <div class="wrapper arrow-down-steep">
+        <div class="body-text row">
+            <p>
+              Every month, we are forced into debt for basic necessities. We have no choice but to enter into contracts under unfair terms. We have little power to bargain or negotiate. Creditors are holding us hostage. When we can’t meet the terms of the contract, we are harassed, we have our wages garnished, and some of us are even imprisoned. We should fight back to transform how basic necessities such as education, health care, and housing are provided.
+            </p>
+          <h2>What can a Debt Collective Do?</h2>
+          <p>
+            The goal of the Debt Collective is to create a platform by debtors and for debtors for organization, advocacy, and resistance. Organizing collectively offers many possibilities for building power against creditors:
+          </p>
+          <p>
+            As we build membership, we can organize debtors into groups based on region, type of debt, or institution. These groups can bargain with creditors or even develop the power to threaten a debt strike. A debt collective can help create a positive vision for a sustainable economy in which credit would be used to benefit everyone and not to line the pockets of a few.
+          </p>
+          <h2>Why Join the Debt Collective?</h2>
+          <p>Creditors profit from the data they have about our loans. We all owe, but we aren’t always sure who really profits from our loan payments. Who is at the end of that paper trail?
+          </p>
+
+          <p>
+            We can learn where our money goes and who is profiting from those payments. We can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.
+          </p>
+
+        </div>
+        <div id="signup-form" class="body-text">
+          <signupform ></signupform>
+        </div>
+      </div>
       </section>
 
         <div id="spread">
           <h2>Spread the word</h2>
-          <div class="tweet-box">
-            <p class="tweet-text">We are all in the red. Do you agree? #0debt</p>
-            <a class="tweet-btn" href="https://twitter.com/intent/tweet?text=">
-            </a>
-          </div>
+          <a href="https://twitter.com/intent/tweet?text=">
+            <div class="tweet-box">
+              <p class="tweet-text">
 
-          <div class="tweet-box">
-            <div class="tweet-text">Strike Debt just abolished $14M in medical debt! 2,693 debtors in 45 states will no longer be harassed by creditors. http://rollingjubilee.org</div>
-            <a class="tweet-btn" href="https://twitter.com/intent/tweet?text=">
-            </a>
-          </div>
+              <img class="tweet-btn" src="/static/img/Twitter_logo_white.png">
+              Strike Debt just abolished $14M in medical debt! 2,693 debtors in 45 states will no longer be harassed by creditors. http://rollingjubilee.org</p>
+            </div>
+          </a>
 
-          <div class="tweet-box">
-            <div class="tweet-text">We are all in the red. Do you agree? #0debt</div>
-            <a class="tweet-btn" href="https://twitter.com/intent/tweet?text=">
-            </a>
-          </div>
+          <a href="https://twitter.com/intent/tweet?text=">
+            <div class="tweet-box">
+              <p class="tweet-text">
+
+              <img class="tweet-btn" src="/static/img/Twitter_logo_white.png">
+              Strike Debt just abolished $14M in medical debt! 2,693 debtors in 45 states will no longer be harassed by creditors. http://rollingjubilee.org</p>
+            </div>
+          </a>
+
+          <a href="https://twitter.com/intent/tweet?text=">
+            <div class="tweet-box">
+              <p class="tweet-text">
+
+              <img class="tweet-btn" src="/static/img/Twitter_logo_white.png">
+              Strike Debt just abolished $14M in medical debt! 2,693 debtors in 45 states will no longer be harassed by creditors. http://rollingjubilee.org</p>
+            </div>
+          </a>
         <h2>Pin a red square on yourself</h2>
         <p class="centered">
           <a target="_blank" href="https://twibbon.com/Support/debt-collective">
-          <img src="/static/img/ange.jpg" width="200px"/>
+            <img src="/static/img/ange.jpg" width="200px"/>
           </a>
         </p>
       </div>
+
+    <div class="wrapper arrow-up"></div>
+
+    <div class="wrapper arrow-down-steep">
+      <div class="body-text row">
+      <h2>Are you a current or former Everest student?</h2>
+      <p>You may apply for defense to repayment.</p>
+      </div>
+    </div>
+
       <div class="wrapper arrow-down-steep" id="faq">
-        <h1 class="centered">FAQ</h1>
+        <h2 class="centered">FAQ</h2>
         <div class="row">
           <div class="col-md-4">
             <h2>What is Strike Debt?</h2>
@@ -86,43 +132,14 @@
           </div>
         </div>
       </div>
-
-
-
-<!--
-      <div class="wrapper light">
-
-        <div id="signup-form" class="body-text">
-          <signupform ></signupform>
-        </div>
-          <h2>Talk to us on social media</h2>
-          <div class="social-links">
-            <a href="https://www.facebook.com/DebtCollective" target="_blank">
-              <img class="sm-button" src="/static/img/dc_newfacebookbttn.png" />
-            </a>
-            <a href="http://www.twitter.com/0debtzone" target="_blank">
-              <img class="sm-button" src="/static/img/dc_twitterbttn.png" />
-            </a>
+        <h2 class="centered">Resources</h2>
+        <div class="row">
+          <div class="col-md-4">
           </div>
-
-        <div class="body-text">
-          <h2>What can a Debt Collective Do?</h2>
-          <p>
-            The goal of the Debt Collective is to create a platform by debtors and for debtors for organization, advocacy, and resistance. Organizing collectively offers many possibilities for building power against creditors:
-          </p>
-          <p>
-            As we build membership, we can organize debtors into groups based on region, type of debt, or institution. These groups can bargain with creditors or even develop the power to threaten a debt strike. A debt collective can help create a positive vision for a sustainable economy in which credit would be used to benefit everyone and not to line the pockets of a few.
-          </p>
-          <h2>Why Join the Debt Collective?</h2>
-          <p>Creditors profit from the data they have about our loans. We all owe, but we aren’t always sure who really profits from our loan payments. Who is at the end of that paper trail?
-          </p>
-
-          <p>
-            We can learn where our money goes and who is profiting from those payments. We can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.
-          </p>
-
-        </div>
-          -->
+          <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
+          </div>
         </div>
       </section>
     </div>

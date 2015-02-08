@@ -11,7 +11,7 @@ app.controller('splashCtrl',
 
     function scrollToElement(id) {
         var someElement = angular.element(document.getElementById(id));
-        $document.scrollToElement(someElement, 150, 1000);
+        $document.scrollToElement(someElement, 150, 500);
     }
 
     function showSite() {
@@ -20,16 +20,13 @@ app.controller('splashCtrl',
 
     $scope.agree = function () {
         showSite()
-        $timeout(function () {
-            scrollToElement('whyjoin')
-        }, 500)
     }
 
     $scope.disagree = function () {
         showSite()
         $scope.showStats = true;
         $timeout(function () {
-            scrollToElement('stats')
+            scrollToElement('page')
         }, 500)
     }
 

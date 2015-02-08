@@ -41,6 +41,7 @@
   cursor: pointer;
 }
 
+
 .action-button {
   padding: 20px;
   margin-top: 25px;
@@ -78,14 +79,6 @@ input[type="text"], input[type="email"] {
   padding-bottom: 50px;
 }
 
-.tweet-boxes {
-  .tweet-box {
-    width: 45%;
-    margin: 2.5%;
-  }
-}
-
-$twitter-color: #E5F2F7;
 
 .tweet-box {
   @include flexbox();
@@ -96,10 +89,10 @@ $twitter-color: #E5F2F7;
   .tweet-text {
     @extend %mono;
     color: $dark-text-color;
-    padding: 5px 5px 5px 15px;
     margin: 5px;
     width: 100%;
     line-height: 30px;
+    letter-spacing: -3px;
   }
 
   &:hover {
@@ -112,13 +105,7 @@ $twitter-color: #E5F2F7;
 
   .tweet-btn {
     @extend %button;
-    padding: 10px;
-    background: url(/static/img/Twitter_logo_white.png);
-    width: 80px;
-    height: 40px;
-    background-size: 40px;
-    background-position: right;
-    background-repeat: no-repeat;
+    width: 20px;
   }
 
 }

@@ -115,15 +115,16 @@
 
 .intro-text {
   padding: 20px;
+  color: $dark-text-color;
   p {
     @extend %mono;
-    padding: 10px;
+    padding: 20px;
+    font-size: 24px;
     text-align: center;
   }
 }
 
 #scroll {
-  color: #fff;
 
   &.mainstate {
     .social-media {

@@ -34,12 +34,13 @@
         typeahead-on-select="onSelect($item, $model, $label)"
         typeahead="type as type.name for type in debt_choices | filter:{name:$viewValue}">
     </div>
-    <div ng-click="addDebt()">+</div>
+
+    <div class="add-debt" ng-click="addDebt()">+ MORE DEBT</div>
         <button type="submit"
           name="submit"
           ng-focus="showForm=true"
           ng-blur="showForm=false"
-          class="btn btn-primary">sign up for email updates</button>
+          class="btn btn-primary">join the collective</button>
     </form>
   </div>
 </div>

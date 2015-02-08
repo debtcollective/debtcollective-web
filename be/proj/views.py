@@ -56,6 +56,7 @@ def signup(request):
   if request.method != 'POST':
     raise Http404
 
+
   rq = get_POST_data(request)
   username = rq.get('username')
   password = rq.get('password')
@@ -70,15 +71,11 @@ def signup(request):
     point = Point.objects.get(id=point)
   data = UserProfile.objects.create(user=user, point=point)
 
-  debts = rq.get('debts')
-  if debts:
-    import pdb; pdb.set_trace()
-    for debt in debts:
-      kind = debt.get('kind')
-      amount = debt.get('amount')
-      last_payment = debt.get('last_payment')
-      if amount:
-        debt = Debt.objects.create(user=user, amount=amount,
-          kind=kind, last_payment=last_payment)
+  kind = rq.get('kind')
+  amount = rq.get('amount')
+  last_payment = rq.get('last_payment')
+  if amount:
+    debt = Debt.objects.create(user=user, amount=amount,
+      kind=kind, last_payment=last_payment)
 
   return json_response({'status': 'ok'}, 200)
