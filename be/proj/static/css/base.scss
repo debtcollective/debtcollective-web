@@ -18,7 +18,6 @@
   color: $light-text-color;
 }
 
-
 body {
     background-color: $dark-background-color;
     line-height: 1.6em;
@@ -45,13 +44,14 @@ body {
   background-position: center bottom;
   padding-bottom: 210px;
   margin-bottom: -50px !important;
+  background-color: $dark-background-color !important;
 }
 
 .arrow-up {
   background: transparent url(/static/img/bg_arrow-up.png) scroll no-repeat center top;
   z-index: 5;
   position: relative;
-  padding-bottom: 110px;
+  padding-bottom: 250px;
   margin-top: -10px;
 }
 
@@ -63,7 +63,7 @@ section {
 p, .body-text {
   @extend %rale;
   margin: 0px auto;
-  line-height: 34px;
+  line-height: 28px;
 
   .centered-body-text-image {
     text-align: center;
@@ -268,13 +268,6 @@ h3 {
     padding-top: 10px;
   }
 
-  h1 {
-    border-bottom: $dark-text-color 1px solid;
-    margin-top: 44px;
-    margin-bottom: 22px;
-    padding-bottom: 5px;
-    color: $dark-text-color;
-  }
 
   &.light {
     color:  $light-text-color;
@@ -335,10 +328,10 @@ label {
 
 form {
   input {
-    color: $light-text-color;
+    color: $dark-text-color;
     text-align: left;
     height: 44px;
-    border-bottom: 1px solid $light-text-color !important;
+    border-bottom: 1px solid $dark-text-color !important;
     background-color: inherit !important;
   }
 }

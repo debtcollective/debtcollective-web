@@ -41,7 +41,6 @@
   cursor: pointer;
 }
 
-
 .action-button {
   padding: 20px;
   margin-top: 25px;
@@ -81,18 +80,26 @@ input[type="text"], input[type="email"] {
 
 
 .tweet-box {
-  @include flexbox();
-  @include round-corners(2);
+  @include round-corners(6);
   border: 1px solid $light-background-color;
   margin: 15px;
+  padding: 10px;
+  background: transparent;
+  width: 100%;
+
+  h1 {
+    text-align: center;
+    margin: 22px 0px;
+  }
 
   .tweet-text {
     @extend %mono;
     color: $dark-text-color;
-    margin: 5px;
     width: 100%;
     line-height: 30px;
-    letter-spacing: -3px;
+    letter-spacing: 0px;
+    padding: 5px;
+    margin-bottom: 0px;
   }
 
   &:hover {
@@ -105,7 +112,7 @@ input[type="text"], input[type="email"] {
 
   .tweet-btn {
     @extend %button;
-    width: 20px;
+    width: 30px;
   }
 
 }

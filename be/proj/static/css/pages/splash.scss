@@ -13,16 +13,15 @@
 .nav-footer {
   @extend %mono;
   @include frame-transition();
-  border-top: 1px solid $light-text-color;
-  z-index: 99999;
+  border-top: 1px solid $dark-text-color;
+  z-index: $z-index-footer;
   position: fixed;
   right: 0;
   width: 100%;
   min-height: $footer-open-height;
   bottom: -$footer-open-height;
-  color:  $light-text-color;
-  background-color: $light-background-color;
-
+  color:  white;
+  background-color: $dark-background-color;
 
   &:not(.visible) .close-button {
     display: none;

@@ -36,7 +36,11 @@ $intro-text: rgb(172,185,183);
 $header-height: 32px;
 
 $footer-height: 66px;
-$footer-open-height: 202px;
+$footer-open-height: 280px;
 
 $text:      $link-light;
 $rule:      desaturate(lighten($mid-grey, 20%), 30%);
+
+$z-index-footer: 100;
+$z-index-hud-display: 102;
+$z-index-hud-display-background: 101;

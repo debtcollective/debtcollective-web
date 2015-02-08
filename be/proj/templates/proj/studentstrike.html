@@ -7,21 +7,25 @@
   <div class="hud-display-background"  ng-click="closeStriker($event)" ng-class="{visible: selectionIndex != null}"></div>
 
   <section id="corinthian">
+    <div class="container">
+
+      <div class="wrapper light">
     <div class="top-graphic centered">
       <img class="hidden-mobile" src="/static/img/strikers/striker_top-graphic.gif" />
       <img class="mobile-only" src="/static/img/strikers/striker_top-graphic-small.gif" />
     </div>
 
-    <div class="container">
-
-      <div class="wrapper light">
         <div class="tabs">
           <div class="single-tab front">THE CORINTHIAN TEN</div>
           <div class="single-tab back"><a href="#likethestrike">Like the strike?</a></div>
         </div>
       </div>
 
-      <div class="wrapper light">
+      <!-- profiles and statement -->
+      <div class="wrapper arrow-down-steep">
+        <div class="body-text">
+          <div class="testimonial-top">striker testimonials:</div>
+        </div>
         <div class="loading" ng-show="loading">Loading..</div>
         <div class="profiles">
           <div class="row">
@@ -51,7 +55,7 @@
         </div>
 
         <div class="body-text">
-          <h2>WE WON'T PAY</h2>
+          <div class="testimonial-top">striker statement:</div>
 
           <p>To the Department of Education, to the loan servicers, to the Genesis lending company, to Corinthian and ECMC, we have one thing to say: we owe you nothing.
           </p>
@@ -68,56 +72,41 @@
             To all those who have stolen our futures, to all those who force students to pay at the barrel of a gun, we say: enough! We won’t pay, not one penny. We are the Corinthian ten.
           </p>
         </div>
-
-        <div class="hidden-section">
-          <h1 class="floating-section-title">Back the Strikers</h1>
-          <h1 class="floating-section-title">Join the Corinthian Collective</h1>
-          <signupform ></signupform>
-        </div>
       </div>
 
-      <div id="lendyourvoice" >
-        <h2>Lend your voice</h2>
-          <a href="https://twitter.com/intent/tweet?text=">
-            <div class="tweet-box">
-              <p class="tweet-text">
+      <!-- support sections -->
+      <div class="wrapper ">
+        <div onclick="document.getElementById('email').focus();" class="tweet-box">
+          <h1>Join the Strike</h1>
+        </div>
 
-              <img class="tweet-btn" src="/static/img/Twitter_logo_white.png">
-              Strike Debt just abolished $14M in medical debt! 2,693 debtors in 45 states will no longer be harassed by creditors. http://rollingjubilee.org</p>
-              </a>
-            </div>
-          </a>
-
-          <a href="https://twitter.com/intent/tweet?text=">
-            <div class="tweet-box">
-              <p class="tweet-text">
-
-              <img class="tweet-btn" src="/static/img/Twitter_logo_white.png">
-              Strike Debt just abolished $14M in medical debt! 2,693 debtors in 45 states will no longer be harassed by creditors. http://rollingjubilee.org</p>
-              </a>
-            </div>
-          </a>
-          <a href="https://twitter.com/intent/tweet?text=">
-            <div class="tweet-box">
-              <p class="tweet-text">
-
-              <img class="tweet-btn" src="/static/img/Twitter_logo_white.png">
-              Strike Debt just abolished $14M in medical debt! 2,693 debtors in 45 states will no longer be harassed by creditors. http://rollingjubilee.org</p>
-              </a>
-            </div>
-          </a>
-
-        <div class="content">
-          <h2>Wear your red square</h2>
-          <p class="centered">
-            <a target="_blank" href="https://twibbon.com/Support/debt-collective">
-              <img src="/static/img/ange.jpg" width="200px"/>
+        <div class="tweet-box">
+          <h1>Support the Strikers</h1>
+        <!--  <p class="tweet-text">
+            Send your support with money lots of it! Funds will go to support the strikers in a way that they'd like to be supported!
+          </p>-->
+        </div>
+          <div id="lendyourvoice" >
+            <a href="https://twitter.com/intent/tweet?text=">
+              <div class="tweet-box">
+                <h1>
+                  Lend Your Voice &nbsp;<img class="tweet-btn" src="/static/img/Twitter_logo_white.png">
+                </h1>
+              </div>
             </a>
-          </p>
+
+          <div class="content">
+            <p class="centered">
+              <a target="_blank" href="https://twibbon.com/Support/debt-collective">
+                <img src="/static/img/ange.jpg" width="200px"/>
+              </a>
+            </p>
+          </div>
         </div>
       </div>
 
     </section>
+      <signupform ></signupform>
 
 <!--
 <h2 class="step-heading">Sign up for updates</h2>

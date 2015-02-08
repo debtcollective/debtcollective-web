@@ -1,46 +1,48 @@
-<div>
+<div class="nav-footer" ng-class="{focused: focused, visible: formVisible()}">
+  <div class="close-button" ng-class="{focused: focused, visible: formVisible()}"
+  ng-click="forceClose=true">x</div>
   <div class="dc-input">
     <form ng-show="!formSubmitted" class="form"
-      target="receiver"
-      action="//strikedebt.createsend.com/t/j/s/nskul/"
-      method="post" ng-submit="onSubmitClick()">
+    target="receiver"
+    action="//strikedebt.createsend.com/t/j/s/nskul/"
+    method="post" ng-submit="onSubmitClick()">
 
     <input type="text" class="hidden" name="cm-name" ng-model="username" />
 
     <input type="email" id="email" name="cm-nskul-nskul"  ng-model="email"
-        placeholder="enter your email..."
-        ng-focus="emailFocus()"
-        ng-blur="showForm=false"
-        required autocomplete="off" />
+    placeholder="enter your email..."
+    ng-focus="emailFocus()"
+    ng-blur="showForm=false"
+    required autocomplete="off" />
 
-      <input type="text"
-          ng-model="location"
-          ng-focus="showForm=true"
-          placeholder="where?"
-          typeahead-editable="false"
-          typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
+    <input type="text"
+    ng-model="location"
+    ng-focus="showForm=true"
+    placeholder="where?"
+    typeahead-editable="false"
+    typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
 
     <div ng-repeat="debt in debts">
       <input type="text"
-        ng-model="debt.amount"
-        ng-focus="showForm=true"
-        placeholder="how much debt?"
-        ng-model-options="{ updateOn: 'blur' }">
+      ng-model="debt.amount"
+      ng-focus="showForm=true"
+      placeholder="how much debt?"
+      ng-model-options="{ updateOn: 'blur' }">
 
       <input type="text" ng-model="debt.debtType" placeholder="what kind of debt?"
-        ng-model-options="{ updateOn: 'blur' }"
-        typeahead-editable="false"
-        typeahead-min-length="0"
-        typeahead-on-select="onSelect($item, $model, $label)"
-        typeahead="type as type.name for type in debt_choices | filter:{name:$viewValue}">
+      ng-model-options="{ updateOn: 'blur' }"
+      typeahead-editable="false"
+      typeahead-min-length="0"
+      typeahead-on-select="onSelect($item, $model, $label)"
+      typeahead="type as type.name for type in debt_choices | filter:{name:$viewValue}">
     </div>
 
     <div class="add-debt" ng-click="addDebt()">+ MORE DEBT</div>
-        <button type="submit"
-          name="submit"
-          ng-focus="showForm=true"
-          ng-blur="showForm=false"
-          class="btn btn-primary">join the collective</button>
-    </form>
-  </div>
+    <button type="submit"
+    name="submit"
+    ng-focus="showForm=true"
+    ng-blur="showForm=false"
+    class="tweet-box">join the collective</button>
+  </form>
+</div>
 </div>
