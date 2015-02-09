@@ -73,13 +73,10 @@ p, .body-text, h1, h2, .tabs .single-tab {
   padding: 10px;
   background: transparent;
   width: 100%; }
-  .tweet-box h1 {
-    text-align: center;
-    margin: 22px 0px; }
   .tweet-box .tweet-text {
     color: #f1eee2;
     width: 100%;
-    line-height: 30px;
+    text-align: center;
     letter-spacing: 0px;
     padding: 5px;
     margin-bottom: 0px; }
@@ -613,6 +610,12 @@ section {
     #resources li a:hover {
       color: #f7f7ed; }
 
+.caption {
+  padding-top: 40px;
+  margin-bottom: -50px !important;
+  text-align: center;
+  font-style: italic; }
+
 p, .body-text {
   margin: 0px auto;
   line-height: 28px; }
@@ -706,11 +709,8 @@ h1 {
   font-weight: 100;
   letter-spacing: 5px; }
   h1.floating-section-title {
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
-    padding: 20px !important; }
-    h1.floating-section-title:first-child {
-      border-top: #39413f 1px solid; }
+    margin-bottom: 44px;
+    text-align: center; }
   h1 .small {
     font-size: 16px;
     line-height: 24px; }

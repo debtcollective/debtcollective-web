@@ -78,7 +78,6 @@ input[type="text"], input[type="email"] {
   padding-bottom: 50px;
 }
 
-
 .tweet-box {
   @include round-corners(6);
   border: 1px solid $light-background-color;
@@ -87,16 +86,11 @@ input[type="text"], input[type="email"] {
   background: transparent;
   width: 100%;
 
-  h1 {
-    text-align: center;
-    margin: 22px 0px;
-  }
-
   .tweet-text {
     @extend %mono;
     color: $dark-text-color;
     width: 100%;
-    line-height: 30px;
+    text-align: center;
     letter-spacing: 0px;
     padding: 5px;
     margin-bottom: 0px;
