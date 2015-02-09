@@ -9,7 +9,7 @@
   <section id="corinthian">
     <div class="container">
 
-      <div class="wrapper light">
+    <div class="wrapper light">
     <div class="top-graphic centered">
       <img class="hidden-mobile" src="/static/img/strikers/striker_top-graphic.gif" />
       <img class="mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
@@ -25,9 +25,7 @@
       <div class="wrapper">
         <div class="loading" ng-show="loading">Loading..</div>
         <div class="profiles">
-          <div class="body-text">
-            <div class="testimonial-top">STRIKER TESTIMONIALS:</div>
-          </div>
+          <h2>To the Department of Education, to the loan servicers, to the Genesis lending company, to Corinthian and ECMC, we have one thing to say: we owe you nothing.</h2>
           <div class="row" ng-cloak>
             <div ng-repeat="item in data">
               <div class="item col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-click="showStriker($index, $event)">
@@ -37,7 +35,6 @@
                 </div>
                 <div class="info">
                   <p>{$ item.name $}<br> {$ item.location $}</p>
-
                 </div>
               </div>
             </div>
@@ -54,30 +51,38 @@
           </div>
         </div>
 
-        <div class="body-text">
-          <div class="testimonial-top light">STATEMENT TO THE DOE</div>
-        </div>
-        <div class="body-text paper">
-          <p>To the Department of Education, to the loan servicers, to the Genesis lending company, to Corinthian and ECMC, we have one thing to say: we owe you nothing.
-          </p>
-          <p>
-            Who are we? We are the first generation made poor by the business of education. Many of us are the first in our families to attend college. We are made of the struggles others endured before us.  We wanted an education because we were driven to learn and to achieve a better life for ourselves and for those who come after us. As we look now in outrage and disgust at the world we inherit, we say the lies end here.
-          </p>
-          <p>
-            Each month we are forced to make payments into an immoral system that profits from our dreams. We pay dearly for degrees that have led to unemployment or to jobs that don’t pay a living wage. Lenders and the Federal government offer us repayment plans that are presented as a helping hand. We say, we don’t accept your terms terms. We never agreed to them.
-          </p>
-          <p>
-            You should know that we are not alone. Millions of current and former students are in more debt than they can ever repay. These loans can’t be repaid, and they won’t be repaid. From Corinthian to NYU to the University of California, creditors make a killing off our dreams. The federal government gets a cut and guarantees that lenders will be repaid no matter what. In other words politicians protect you, not us. Higher education at every level is for profit.
-          </p>
-          <p>
-            To all those who have stolen our futures, to all those who force students to pay at the barrel of a gun, we say: enough! We won’t pay, not one penny. We are the Corinthian ten.
-          </p>
+        <div class="paper">
+          <div>
+            <img class="letter-header" src="/static/img/strikers/corinthian10_letterheader.png" />
+          </div>
+          <div class="body-text mono">
+            <h2 class="underline">OFFICIAL STATEMENT TO THE D.O.E.</h2><br>
+            <p>19 February, 2015</p><br>
+            <p>
+              Who are we? We are the first generation made poor by the business of education. Many of us are the first in our families to attend college. We are made of the struggles others endured before us.  We wanted an education because we were driven to learn and to achieve a better life for ourselves and for those who come after us. As we look now in outrage and disgust at the world we inherit, we say the lies end here.
+            </p>
+            <p>
+              Each month we are forced to make payments into an immoral system that profits from our dreams. We pay dearly for degrees that have led to unemployment or to jobs that don’t pay a living wage. Lenders and the Federal government offer us repayment plans that are presented as a helping hand. We say, we don’t accept your terms terms. We never agreed to them.
+            </p>
+            <p>
+              You should know that we are not alone. Millions of current and former students are in more debt than they can ever repay. These loans can’t be repaid, and they won’t be repaid. From Corinthian to NYU to the University of California, creditors make a killing off our dreams. The federal government gets a cut and guarantees that lenders will be repaid no matter what. In other words politicians protect you, not us. Higher education at every level is for profit.
+            </p>
+            <p>
+              To all those who have stolen our futures, to all those who force students to pay at the barrel of a gun, we say: enough! We won’t pay, not one penny. We are the Corinthian ten.
+            </p><br>
+            <p>
+            Sincerely,
+            </p>
+            <p>
+            THE CORINTHIAN TEN
+            </p>
+          </div>
         </div>
       </div>
 
       <!-- support sections -->
       <div class="wrapper">
-        <div class=""
+        <div class="">
         <div onclick="document.getElementById('email').focus();" class="tweet-box">
           <h1>Join the Strike</h1>
         </div>

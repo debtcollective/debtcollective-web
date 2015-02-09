@@ -43,8 +43,8 @@ body {
   background-image: url(/static/img/bg_arrow-down-steep.png);
   background-position: center bottom;
   padding-bottom: 210px;
-  margin-bottom: -50px !important;
   background-color: $dark-background-color !important;
+  z-index: $z-index-arrow-down-steep;
 }
 
 .arrow-up {
@@ -60,10 +60,31 @@ section {
   width: 100%;
 }
 
+#resources li {
+  padding-top: 15px;
+  line-height: 18px;
+
+  a {
+    text-decoration: underline !important;
+    color: $link-color;
+    &:hover {
+      color: $link-hover;
+    }
+  }
+}
+
 p, .body-text {
   @extend %rale;
   margin: 0px auto;
   line-height: 28px;
+
+  &.mono {
+    h1, h2, p {
+      @extend %mono;
+      font-family: 'Cousine', serif;
+      font-size: 13px;
+    }
+  }
 
   .centered-body-text-image {
     text-align: center;
@@ -77,7 +98,6 @@ p, .body-text {
   ul {
     padding-left: 40px;
   }
-
   li {
     list-style: initial;
   }
@@ -237,28 +257,17 @@ h1 {
   text-align: center;
 }
 
-.odometer.odometer-auto-theme .odometer-digit:last-child, .odometer.odometer-theme-car .odometer-digit:last-child {
-  -moz-box-shadow: inset 0 0 0.3em rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: inset 0 0 0.3em rgba(0, 0, 0, 0.8);
-  -o-box-shadow: inset 0 0 0.3em rgba(0, 0, 0, 0.8);
-  box-shadow: inset 0 0 0.3em rgba(0, 0, 0, 0.8);
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #333333), color-stop(40%, #333333), color-stop(60%, #101010), color-stop(80%, #333333), color-stop(100%, #333333));
-  background-image: -webkit-linear-gradient(top, #333333 0%, #333333 40%, #101010 60%, #333333 80%, #333333 100%);
-  background-image: -moz-linear-gradient(top, #333333 0%, #333333 40%, #101010 60%, #333333 80%, #333333 100%);
-  background-image: -o-linear-gradient(top, #333333 0%, #333333 40%, #101010 60%, #333333 80%, #333333 100%);
-  background-image: -ms-linear-gradient(top, #333333 0%, #333333 40%, #101010 60%, #333333 80%, #333333 100%);
-  background-image: linear-gradient(top, #333333 0%, #333333 40%, #101010 60%, #333333 80%, #333333 100%);
-  color: #eee0d3;
-}
-
 h2 {
   @extend %rale;
   font-size: 20px;
   line-height: 30px;
   text-align: center;
   margin-bottom: 22px;
-  margin-top: 44px;
   letter-spacing: 4.5px;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .wrapper {
@@ -271,6 +280,13 @@ h2 {
     padding-top: 10px;
   }
 
+  &.dark {
+    color: $dark-text-color;
+    a {
+      text-decoration: underline !important;
+      color: $link-color;
+    }
+  }
 
   &.light {
     color:  $light-text-color;
@@ -320,6 +336,11 @@ a {
     color: rgb(134,133,148);
     cursor: pointer;
   }
+}
+
+.big-link {
+  color: $pink-red !important;
+  text-decoration: underline !important;
 }
 
 /** FORMS **/
@@ -397,11 +418,6 @@ select {
 
 .half {
   width: 49%;
-}
-
-.paper {
-  padding: 20px 60px;
-  background: white;
 }
 
 .flex {

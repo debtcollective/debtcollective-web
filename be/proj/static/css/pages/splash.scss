@@ -124,7 +124,6 @@
 }
 
 #scroll {
-
   &.mainstate {
     .social-media {
       opacity: 0;
@@ -209,13 +208,22 @@
   top: 200;
 }
 
+#faq {
+  h2 {
+    margin-top: 44px;
+  }
+}
+
+#resources {
+  padding-bottom: 100px;
+}
 
 .map-container {
   position: relative;
 
   .legend {
     position: absolute;
-    top: 10px;
+    bottom: 10px;
     left: 50%;
     z-index: 999;
     transform: translateX(-50%);

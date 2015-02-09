@@ -35,7 +35,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     // get data
     var dataProvider = {
         map: "worldHigh",
-        zoomLevel: 3,
+        zoomLevel: 2,
         zoomLatitude: 39.096169,
         zoomLongitude: -98.198721
     };
@@ -56,6 +56,10 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         map.dataProvider = dataProvider;
         map.validateNow();
         map.write("mapdiv");
+
+        setTimeout(function () {
+            dataProvider.zoomLevel = 3
+        }, 1000)
     });
 
     var scale = d3.scale.linear()
