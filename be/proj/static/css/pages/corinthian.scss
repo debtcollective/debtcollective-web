@@ -67,6 +67,9 @@
   @extend %mono;
   font-size: 20px;
   padding: 25px 0px;
+  &.light {
+    color: $dark-text-color;
+  }
 }
 
 hr {
