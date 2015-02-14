@@ -22,19 +22,16 @@
     typeahead-editable="false"
     typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
 
-    <div ng-repeat="debt in debts">
+    <div ng-repeat="debt in debts" class="flex">
       <input type="text"
       ng-model="debt.amount"
       ng-focus="showForm=true"
       placeholder="how much debt?"
       ng-model-options="{ updateOn: 'blur' }">
-
-      <input type="text" ng-model="debt.debtType" placeholder="what kind of debt?"
-      ng-model-options="{ updateOn: 'blur' }"
-      typeahead-editable="false"
-      typeahead-min-length="0"
-      typeahead-on-select="onSelect($item, $model, $label)"
-      typeahead="type as type.name for type in debt_choices | filter:{name:$viewValue}">
+      <select class="debt-type-select"
+        ng-model="debt.debtType"
+        ng-options="item as item.name + ' debt' for item in debt_choices track by item.id"
+        required></select>
     </div>
 
     <div class="add-debt" ng-click="addDebt()">+ MORE DEBT</div>

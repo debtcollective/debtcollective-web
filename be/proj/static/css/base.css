@@ -200,7 +200,7 @@ p, .body-text, h1, h2, .tabs .single-tab {
 #scroll.mainstate .social-media {
   opacity: 0; }
 #scroll.mainstate .nav-footer {
-  bottom: -201px; }
+  bottom: -197px; }
 
 .images {
   -webkit-transition: background-color 1s ease;
@@ -842,7 +842,7 @@ label {
   font-weight: bold;
   text-transform: uppercase; }
 
-form input {
+form input, form select {
   color: #f1eee2;
   text-align: left;
   height: 44px;
@@ -854,9 +854,10 @@ form input {
   .add-debt:hover {
     pointer: cursor; }
 
-select {
-  color: #39413f;
-  background-color: inherit !important; }
+.debt-type-select {
+  width: 50%;
+  min-width: 120px;
+  max-width: 150px; }
 
 .dropdown-menu {
   position: absolute;
@@ -907,8 +908,8 @@ select {
 .footer {
   background-color: #1a1b23;
   color: #f1eee2;
-  padding-bottom: 66px;
-  padding-top: 50px; }
+  padding-bottom: 70px;
+  padding-top: 10px; }
   .footer a {
     color: #f1eee2;
     text-decoration: underline !important; }

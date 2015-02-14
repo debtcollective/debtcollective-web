@@ -384,7 +384,7 @@ label {
 }
 
 form {
-  input {
+  input, select {
     color: $dark-text-color;
     text-align: left;
     height: 44px;
@@ -400,10 +400,12 @@ form {
   }
 }
 
-select {
-  color: $light-text-color;
-  background-color: inherit !important;
+.debt-type-select {
+  width: 50%;
+  min-width: 120px;
+  max-width: 150px;
 }
+
 
 .dropdown-menu {
   @extend %mono;
@@ -462,7 +464,7 @@ select {
   background-color: $dark-blue;
   color: $dark-text-color;
   padding-bottom: $footer-height;
-  padding-top: 50px;
+  padding-top: 10px;
 
   a {
     color: $dark-text-color;
@@ -481,5 +483,6 @@ select {
   font-size: 12px;
   color: $link-color;
 }
+
 
 @import "includes/responsive";

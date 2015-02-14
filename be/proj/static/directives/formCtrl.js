@@ -12,13 +12,14 @@ app.directive('signupform', function () {
       $scope.username = null;
       $scope.debts = [];
       $scope.amount = null;
-      $scope.showForm = false;
+      $scope.showForm = true;
       $scope.formSubmitted = false;
       $scope.location = null;
       $scope.focused = false;
 
       $http.get('/debt_choices').then(function (resp) {
           $scope.debt_choices = resp.data
+          console.log(resp.data)
       });
 
       $http.get('/points').then(function (resp) {
