@@ -117,8 +117,8 @@ p, .body-text, h1, h2, .tabs .single-tab {
   position: fixed;
   right: 0;
   width: 100%;
-  min-height: 267px;
-  bottom: -267px;
+  min-height: 227px;
+  bottom: -227px;
   color: white;
   background-color: #39413f; }
   .nav-footer:not(.visible) .close-button {
@@ -200,7 +200,7 @@ p, .body-text, h1, h2, .tabs .single-tab {
 #scroll.mainstate .social-media {
   opacity: 0; }
 #scroll.mainstate .nav-footer {
-  bottom: -197px; }
+  bottom: -157px; }
 
 .images {
   -webkit-transition: background-color 1s ease;
@@ -848,6 +848,8 @@ form input, form select {
   height: 44px;
   border-bottom: 1px solid #f1eee2 !important;
   background-color: inherit !important; }
+form button {
+  padding: 20px; }
 
 .add-debt {
   float: right; }
