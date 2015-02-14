@@ -17,6 +17,13 @@
   }
 }
 
+.profile-intro-text {
+  text-align: left;
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding: 20px 12px 0px 12px;
+}
+
 .tabs {
   @include flexbox;
 
@@ -108,6 +115,7 @@ hr {
 .paper {
   padding: 20px 0px;
   margin-top: 30px;
+  margin-bottom: 100px;
   background: white;
 }
 
@@ -115,6 +123,7 @@ hr {
   width: 130px;
   margin-left: 60px;
   margin-bottom: 80px;
+  margin-top: 40px;
 }
 
 /** HUD **/
@@ -207,7 +216,7 @@ hr {
   @include flexbox;
   @include flex-direction(column);
   @include transition();
-  padding: 20px;
+  padding: 10px;
 
   &:hover {
     cursor: pointer;
@@ -219,6 +228,8 @@ hr {
   }
 
   .info {
+    margin-top: -25%;
+    color: white;
     font-weight: bold;
     padding: 10px;
     h3 {
