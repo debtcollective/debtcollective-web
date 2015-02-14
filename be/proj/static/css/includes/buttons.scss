@@ -78,19 +78,17 @@ input[type="text"], input[type="email"] {
   padding-bottom: 50px;
 }
 
-.tweet-box {
-  @include round-corners(6);
-  border: 1px solid $light-background-color;
+
+.button-box {
   margin: 15px;
   padding: 10px;
   background: transparent;
   width: 100%;
 
-  .tweet-text {
+  .box-text {
     @extend %mono;
     color: $dark-text-color;
     width: 100%;
-    text-align: center;
     letter-spacing: 0px;
     padding: 5px;
     margin-bottom: 0px;
@@ -98,16 +96,24 @@ input[type="text"], input[type="email"] {
 
   &:hover {
     cursor: pointer;
-    border-color: $pink-red;
-    .tweet-btn {
-      color: $light-text-color;
-    }
   }
-
-  img {
-    @extend %button;
-    width: 30px;
-  }
-
 }
 
+.tweet-box {
+  width: 400px;
+  background-image: url(/static/img/lendyourvoice_normal_bttn.png);
+  background-repeat: no-repeat;
+  background-position: left;
+
+  &:hover {
+    background-image: url(/static/img/lendyourvoice_overstate_bttn.png);
+  }
+}
+
+.fb-box {
+  @extend .tweet-box;
+  background-image: url(/static/img/lendyourvoice_fb_normal_bttn.png);
+  &:hover {
+    background-image: url(/static/img/lendyourvoice_fb_overstate_bttn.png);
+  }
+}

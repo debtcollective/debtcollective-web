@@ -45,11 +45,15 @@ body {
   padding-bottom: 210px;
   background-color: $dark-background-color !important;
   z-index: $z-index-arrow-down-steep;
+
+  h2:first-child {
+    margin-top: -20px !important;
+  }
 }
 
 .arrow-up {
   background: transparent url(/static/img/bg_arrow-up.png) scroll no-repeat center top;
-  z-index: 5;
+  z-index: -5;
   position: relative;
   padding-bottom: 250px;
   margin-top: -10px;
@@ -73,17 +77,34 @@ section {
   }
 }
 
+.mono {
+  @extend %mono;
+}
+
+strong {
+  font-weight: bold;
+}
+
 .caption {
   padding-top: 40px;
-  margin-bottom: -50px !important;
+  margin-bottom: -13px !important;
   text-align: center;
-  font-style: italic;
+
+  &.italic {
+    margin-bottom: -50px !important;
+    font-style: italic;
+  }
 }
 
 p, .body-text {
   @extend %rale;
   margin: 0px auto;
   line-height: 28px;
+
+  &.small {
+    line-height: 20px;
+    margin-top: 10px;
+  }
 
   &.mono {
     h1, h2, p {
@@ -222,7 +243,6 @@ h1 {
   letter-spacing: 5px;
 
   &.floating-section-title {
-    margin-bottom: 44px;
     text-align: center;
   }
 
@@ -260,6 +280,13 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: bold;
+  margin-top: 28px;
+}
+
 h2 {
   @extend %rale;
   font-size: 20px;
@@ -285,6 +312,9 @@ h2 {
 
   &.dark {
     color: $dark-text-color;
+    h3 {
+      color: $link-color;
+    }
     a {
       text-decoration: underline !important;
       color: $link-color;

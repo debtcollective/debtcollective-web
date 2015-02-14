@@ -8,7 +8,6 @@
   <div id="scroll" ng-controller="splashCtrl" class="container">
     <div class="wrapper arrow-down-steep">
       <div id="map" class="map-container" ng-controller="mapCtrl">
-
         <img src="/static/img/dcnew_key.png" class="legend" />
         <div id="mapdiv"></div>
       </div>
@@ -16,12 +15,15 @@
         <div class="col-md-10 col-md-offset-1" ng-class="{hidden: showSite}">
 
           <div class="body-text centered">
-            <div class="counter-container">
-              <div class="counter"></div>
-            </div>
-            <p>of collective debt</p>
-            <p>We operate according to the principle that individual debts are a burden, but when we stand together they make us powerful. The Debt Collective is the next step in making that vision a reality.</p>
-            <a class="big-link" onclick="document.getElementById('email').focus()"><h1>JOIN US</a></h1></a>
+            <h3 class="mono">DEBT COLLECTED:</h3>
+            <p>
+              <div class="counter-container">
+                <div class="counter"></div>
+              </div>
+            </p>
+          </div>
+          <div class="body-text caption">
+            <p>We operate according to the principle that individual debts are a burden, but when we stand together they make us powerful. The Debt Collective is the next step in making that vision a reality. <a class="big-link" onclick="document.getElementById('email').focus()">Join us.</a></p>
           </div>
 
         </div>
@@ -31,101 +33,100 @@
     <div id="spread">
       <h1 class="floating-section-title">SPREAD THE WORD</h1>
 
-      <a href="https://twitter.com/intent/tweet?text=">
-        <div class="tweet-box">
-          <p class="tweet-text">
-            Lend Your Voice &nbsp; <img src="/static/img/Twitter_logo_white.png" />
-          </p>
-        </div>
-      </a>
+      <div class="sm-boxes">
+        <a href="https://twitter.com/intent/tweet?text=">
+          <div class="tweet-box">
+            <p class="box-text">
+              Lend Your Voice
+            </p>
+          </div>
+        </a>
 
-      <a target="_blank" href="https://twibbon.com/Support/debt-collective">
-        <div class="tweet-box">
-          <p class="tweet-text">
-            Wear your Red Square &nbsp;
-            <img src="/static/img/ange.jpg"/>
-          </p>
-        </div>
-      </a>
+        <a target="_blank" href="https://twibbon.com/Support/debt-collective">
+          <div class="fb-box">
+            <p class="box-text">
+              Wear your Red Square &nbsp;
+            </p>
+          </div>
+        </a>
+      </div>
     </div>
 
     <div class="wrapper arrow-up"></div>
     <a href="/studentstrike">
-    <div class="wrapper arrow-down-steep centered">
+      <div class="wrapper arrow-down-steep centered">
         <h2>ACTION ALERT!</h2>
-        <img src="/static/img/strikers/splash-strikers.png" />
-        <div class="body-text centered">
-          <p>The Rolling Jubilee has just erased $13,384,642.14 million of student debt owed by 9,438 people across the United States and former students of Corinthian Colleges Inc have declared a debt strike. </p>
-          <h2 class="big-link">LEARN MORE</h2>
+        <img src="/static/img/strikers/splash-strikers.png">
+        <div class="body-text caption">
+          <p>The Rolling Jubilee has just erased $13,384,642.14 million of student debt owed by 9,438 people across the United States and former students of Corinthian Colleges Inc have <a href="/studentstrike">declared a debt strike.</a></p>
         </div>
       </div>
     </a>
 
     <div class="wrapper dark">
       <h2>DO YOU HAVE DEBT FROM EVEREST COLLEGE?</h2>
-      <h2>You can be involed in actions to fight to get your money back. <a href="/studentstrike">LEARN MORE</a></h2>
+      <h2 class="body-text">You can be involved in actions to fight to get your money back.  <a href="/studentstrike">LEARN HOW</a></h2>
     </div>
 
     <div class="wrapper arrow-up"></div>
     <div class="wrapper arrow-down-steep" id="faq">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
+          <h2>FAQ</h2>
           <div class="col-md-6 col-lg-6 col-sm-12">
-            <h2>WHAT'S THE RED SQUARE?</h2>
-            <p>The red square was first used as a symbol in <a href="http://en.wikipedia.org/wiki/2012_Quebec_student_protests">the student strikes in 2005 and again in 2012 in Quebec.</a> The Canadian government wanted to charge college students tuition and fees for the first time. Students walked out of class to protest, and the strikes lasted several months. Half of Quebec's student population was involved by 2012. Hundreds of thousands of people joined the students in support until the government halted the plan to impose tuition.
+            <h3>What's the red square?</h3>
+            <p class="small">The red square was first used as a symbol in <a href="http://en.wikipedia.org/wiki/2012_Quebec_student_protests">the student strikes in 2005 and again in 2012 in Quebec.</a> The Canadian government wanted to charge college students tuition and fees for the first time. Students walked out of class to protest, and the strikes lasted several months. Half of Quebec's student population was involved by 2012. Hundreds of thousands of people joined the students in support until the government halted the plan to impose tuition.
             </p>
           </div>
           <div class="col-md-6 col-lg-6 col-sm-12">
-            <h2>WHY JOIN A DEBT COLLECTIVE?</h2>
-            <p>Creditors profit from the data they have about our loans. We all owe, but we aren’t always sure who really profits from our loan payments. Who is at the end of that paper trail?
+            <h3>Why join a debt collective?</h3>
+            <p class="small">Creditors profit from the data they have about our loans. We all owe, but we aren’t always sure who really profits from our loan payments. Who is at the end of that paper trail?
             </p>
-
-            <p>
+            <p class="small">
               We can learn where our money goes and who is profiting from those payments. We can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.
             </p>
           </div>
         </div>
       </div>
-      <div class="body-text caption">
+      <div class="body-text caption italic">
         <p>To browse all of our FAQ's, info, or general support <a class="big-link" href="http://strategize.debtcollective.org">visit our community resource area.</a></p>
       </div>
     </div>
 
-   <div class="row" id="resources">
-    <h1 class="floating-section-title">RESOURCES</h1>
-
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <h2>Background</h2>
-      <ul>
-        <li><a href="http://www.theguardian.com/money/2014/sep/17/occupy-activists-student-debt-corinthian-colleges">Occupy activists abolish $3.4m student debt</a></li>
-        <li><a href="http://www.washingtonpost.com/news/storyline/wp/2014/09/17/how-one-student-got-burned-by-a-for-profit-college-and-bailed-out-by-occupy-wall-street/">How one student got burned by a for-profit college and bailed out by OWS</a></li>
-        <li><a href="http://america.aljazeera.com/opinions/2014/9/strike-student-debt.html">Strike student debt! -Al Jazeera</a></li>
-        <li><a href="http://blog.debtcollective.org/students-speak-out-at-doe-hearing-to-demand-debt-cancellation-and-free-education/">Students speak out at DOE Hearing</a></li>
-        <li><a href="http://blog.debtcollective.org/from-the-rolling-jubilee-to-the-debt-collective/">From Rolling Jubilee to the Debt Collective</a></li>
-      </ul>
+    <div class="wrapper dark" id="resources">
+      <h1 class="floating-section-title">RESOURCES</h1>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <h3>Background</h3>
+          <ul>
+            <li><a href="http://www.theguardian.com/money/2014/sep/17/occupy-activists-student-debt-corinthian-colleges">Occupy activists abolish $3.4m student debt</a></li>
+            <li><a href="http://www.washingtonpost.com/news/storyline/wp/2014/09/17/how-one-student-got-burned-by-a-for-profit-college-and-bailed-out-by-occupy-wall-street/">How one student got burned by a for-profit college and bailed out by OWS</a></li>
+            <li><a href="http://america.aljazeera.com/opinions/2014/9/strike-student-debt.html">Strike student debt! -Al Jazeera</a></li>
+            <li><a href="http://blog.debtcollective.org/students-speak-out-at-doe-hearing-to-demand-debt-cancellation-and-free-education/">Students speak out at DOE Hearing</a></li>
+            <li><a href="http://blog.debtcollective.org/from-the-rolling-jubilee-to-the-debt-collective/">From Rolling Jubilee to the Debt Collective</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <h3>Knowledge</h3>
+          <ul>
+            <li><a href="http://strikedebt.org/drom/">Debt Resistor's Operations Manual</a></li>
+            <li><a href="http://rollingjubilee.org">The Rolling Jubilee</a></li>
+            <li><a href="http://strikedebt.org">Strike Debt</a></li>
+            <li><a href="http://strikedebt.org/all-our-grievances-are-connected/">All our grievances are connected</a></li>
+            <li><a href="http://strikedebt.org/corinthiansale/">DOE Announces sale of 56 Corinthian Campuses</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <h3>Action</h3>
+          <ul>
+            <li><a href="http://strategize.debtcollective.org/t/tactics-to-fight-back/68/28">Tactics to Fight Back</a></li>
+            <li><a href="http://strategize.debtcollective.org/t/how-do-we-build-a-national-movement/67/10">How do we build a national movement?</a>
+            <li><a href="">Know Your Debt Kit</a></li>
+            <li><a href="">Defense to Repayment</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <h2>Knowledge</h2>
-      <ul>
-        <li><a href="http://strikedebt.org/drom/">Debt Resistor's Operations Manual</a></li>
-        <li><a href="http://rollingjubilee.org">The Rolling Jubilee</a></li>
-        <li><a href="http://strikedebt.org">Strike Debt</a></li>
-        <li><a href="http://strikedebt.org/all-our-grievances-are-connected/">All our grievances are connected</a></li>
-        <li><a href="http://strikedebt.org/corinthiansale/">DOE Announces sale of 56 Corinthian Campuses</a></li>
-      </ul>
-    </div>
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <h2>Action</h2>
-      <ul>
-        <li><a href="http://strategize.debtcollective.org/t/tactics-to-fight-back/68/28">Tactics to Fight Back</a></li>
-        <li><a href="http://strategize.debtcollective.org/t/how-do-we-build-a-national-movement/67/10">How do we build a national movement?</a>
-        <li><a href="">Know Your Debt Kit</a></li>
-        <li><a href="">Defense to Repayment</a></li>
-      </ul>
-    </div>
-  </div>
-
-
   </div>
   <signupform></signupform>
 

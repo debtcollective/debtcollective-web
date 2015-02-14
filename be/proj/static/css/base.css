@@ -5,7 +5,7 @@
   font-size: 14px;
   line-height: 16px; }
 
-.btn, .tweet-box img, input[type="text"], input[type="email"], .tweet-box .tweet-text, .nav-footer, .splash .splash-footer, .intro-text p, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, body, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono p, .top-quote h1, .dropdown-menu {
+.btn, input[type="text"], input[type="email"], .button-box .box-text, .nav-footer, .splash .splash-footer, .intro-text p, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, body, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono p, .top-quote h1, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -14,7 +14,7 @@
 p, .body-text, h1, h2, .tabs .single-tab {
   font-family: "Raleway", sans-serif; }
 
-.btn, .tweet-box img, input[type="text"], input[type="email"] {
+.btn, input[type="text"], input[type="email"] {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -24,11 +24,11 @@ p, .body-text, h1, h2, .tabs .single-tab {
   width: 100%;
   border: 0;
   text-decoration: none; }
-  .btn:focus, .tweet-box img:focus, input[type="text"]:focus, input[type="email"]:focus {
+  .btn:focus, input[type="text"]:focus, input[type="email"]:focus {
     outline: 0px;
     outline-offset: 0px; }
 
-.btn, .tweet-box img {
+.btn {
   cursor: pointer;
   text-align: center;
   margin-top: 4px; }
@@ -64,29 +64,32 @@ p, .body-text, h1, h2, .tabs .single-tab {
 .sm-button {
   padding-bottom: 50px; }
 
-.tweet-box {
-  border-radius: 6;
-  -moz-border-radius: 6;
-  -webkit-border-radius: 6;
-  border: 1px solid #f1eee2;
+.button-box {
   margin: 15px;
   padding: 10px;
   background: transparent;
   width: 100%; }
-  .tweet-box .tweet-text {
+  .button-box .box-text {
     color: #f1eee2;
     width: 100%;
-    text-align: center;
     letter-spacing: 0px;
     padding: 5px;
     margin-bottom: 0px; }
-  .tweet-box:hover {
-    cursor: pointer;
-    border-color: #eb1020; }
-    .tweet-box:hover .tweet-btn {
-      color: #39413f; }
-  .tweet-box img {
-    width: 30px; }
+  .button-box:hover {
+    cursor: pointer; }
+
+.tweet-box, .fb-box {
+  width: 400px;
+  background-image: url(/static/img/lendyourvoice_normal_bttn.png);
+  background-repeat: no-repeat;
+  background-position: left; }
+  .tweet-box:hover, .fb-box:hover {
+    background-image: url(/static/img/lendyourvoice_overstate_bttn.png); }
+
+.fb-box {
+  background-image: url(/static/img/lendyourvoice_fb_normal_bttn.png); }
+  .fb-box:hover {
+    background-image: url(/static/img/lendyourvoice_fb_overstate_bttn.png); }
 
 /** NAVIGATION **/
 .navigation {
@@ -253,9 +256,6 @@ p, .body-text, h1, h2, .tabs .single-tab {
   height: 150px;
   left: 20;
   top: 200; }
-
-#faq h2, #faq .tabs .single-tab, .tabs #faq .single-tab {
-  margin-top: 44px; }
 
 #resources {
   padding-bottom: 100px; }
@@ -498,7 +498,7 @@ hr {
   padding: 20px; }
   .item:hover {
     cursor: pointer;
-    background-color: #baafb3; }
+    background-color: #CEC7C9; }
   .item .img {
     margin: auto; }
   .item .info {
@@ -590,10 +590,12 @@ body {
   padding-bottom: 210px;
   background-color: #39413f !important;
   z-index: -5; }
+  .arrow-down-steep h2:first-child, .arrow-down-steep .tabs .single-tab:first-child, .tabs .arrow-down-steep .single-tab:first-child {
+    margin-top: -20px !important; }
 
 .arrow-up {
   background: transparent url(/static/img/bg_arrow-up.png) scroll no-repeat center top;
-  z-index: 5;
+  z-index: -5;
   position: relative;
   padding-bottom: 250px;
   margin-top: -10px; }
@@ -606,19 +608,27 @@ section {
   line-height: 18px; }
   #resources li a {
     text-decoration: underline !important;
-    color: #baafb3; }
+    color: #CEC7C9; }
     #resources li a:hover {
       color: #f7f7ed; }
 
+strong {
+  font-weight: bold; }
+
 .caption {
   padding-top: 40px;
-  margin-bottom: -50px !important;
-  text-align: center;
-  font-style: italic; }
+  margin-bottom: -13px !important;
+  text-align: center; }
+  .caption.italic {
+    margin-bottom: -50px !important;
+    font-style: italic; }
 
 p, .body-text {
   margin: 0px auto;
   line-height: 28px; }
+  p.small, .body-text.small {
+    line-height: 20px;
+    margin-top: 10px; }
   p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono p {
     font-family: 'Cousine', serif;
     font-size: 13px; }
@@ -661,7 +671,7 @@ p, .body-text {
   width: 100%;
   z-index: 9999999;
   background-color: #39413f;
-  border-bottom: 1px solid #baafb3; }
+  border-bottom: 1px solid #CEC7C9; }
   .header-links .splash-square {
     position: absolute;
     height: 92px;
@@ -679,7 +689,7 @@ p, .body-text {
       display: none; }
   .header-links a.nav-link {
     letter-spacing: 3px;
-    color: #baafb3; }
+    color: #CEC7C9; }
     .header-links a.nav-link:hover {
       color: #f7f7ed; }
 
@@ -709,7 +719,6 @@ h1 {
   font-weight: 100;
   letter-spacing: 5px; }
   h1.floating-section-title {
-    margin-bottom: 44px;
     text-align: center; }
   h1 .small {
     font-size: 16px;
@@ -736,6 +745,12 @@ h1 {
 .centered {
   text-align: center; }
 
+h3 {
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: bold;
+  margin-top: 28px; }
+
 h2, .tabs .single-tab {
   font-size: 20px;
   line-height: 30px;
@@ -755,9 +770,11 @@ h2, .tabs .single-tab {
     padding-top: 10px; }
   .wrapper.dark {
     color: #f1eee2; }
+    .wrapper.dark h3 {
+      color: #CEC7C9; }
     .wrapper.dark a {
       text-decoration: underline !important;
-      color: #baafb3; }
+      color: #CEC7C9; }
   .wrapper.light {
     color: #39413f;
     background-color: #f1eee2; }
