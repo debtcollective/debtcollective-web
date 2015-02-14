@@ -513,7 +513,8 @@ hr {
     margin-top: -25%;
     color: white;
     font-weight: bold;
-    padding: 10px; }
+    padding: 10px;
+    text-align: right; }
     .item .info h3 {
       margin-top: 0px; }
 
