@@ -461,7 +461,8 @@ select {
   @extend %captionmono;
   background-color: $dark-blue;
   color: $dark-text-color;
-  padding-bottom: 20%;
+  padding-bottom: $footer-height;
+  padding-top: 50px;
 
   a {
     color: $dark-text-color;
@@ -473,6 +474,12 @@ select {
   li {
     margin-top: 10px;
   }
+}
+
+.footer-copyright {
+  @extend %captionmono;
+  font-size: 12px;
+  color: $link-color;
 }
 
 @import "includes/responsive";

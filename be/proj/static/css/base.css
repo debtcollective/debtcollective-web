@@ -1,5 +1,5 @@
 @import url(vendor/bootstrap.css);
-.footer {
+.footer, .footer-copyright {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 14px;
@@ -64,16 +64,23 @@ p, .body-text, h1, h2, .tabs .single-tab {
 .sm-button {
   padding-bottom: 50px; }
 
+.sm-boxes {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 50px 0px; }
+
 .button-box, .tweet-box, .fb-box {
   margin: 15px;
-  padding: 10px;
   background: transparent;
   width: 100%; }
   .button-box .box-text, .tweet-box .box-text, .fb-box .box-text {
     color: #f1eee2;
     width: 100%;
     letter-spacing: 0px;
-    padding: 5px;
+    padding: 15px;
     margin-bottom: 0px; }
   .button-box:hover, .tweet-box:hover, .fb-box:hover {
     cursor: pointer; }
@@ -407,7 +414,6 @@ hr {
 .paper {
   padding: 20px 0px;
   margin-top: 30px;
-  margin-bottom: 100px;
   background: white; }
 
 .letter-header {
@@ -415,6 +421,9 @@ hr {
   margin-left: 60px;
   margin-bottom: 80px;
   margin-top: 40px; }
+
+.anchor {
+  padding-top: 100px; }
 
 /** HUD **/
 .hud {
@@ -513,8 +522,7 @@ hr {
     margin-top: -25%;
     color: white;
     font-weight: bold;
-    padding: 10px;
-    text-align: right; }
+    padding: 10px; }
     .item .info h3 {
       margin-top: 0px; }
 
@@ -899,7 +907,8 @@ select {
 .footer {
   background-color: #1a1b23;
   color: #f1eee2;
-  padding-bottom: 20%; }
+  padding-bottom: 66px;
+  padding-top: 50px; }
   .footer a {
     color: #f1eee2;
     text-decoration: underline !important; }
@@ -907,6 +916,10 @@ select {
       color: #f7f7ed; }
   .footer li {
     margin-top: 10px; }
+
+.footer-copyright {
+  font-size: 12px;
+  color: #CEC7C9; }
 
 @media (min-width: 2500px) {
   .wrapper {

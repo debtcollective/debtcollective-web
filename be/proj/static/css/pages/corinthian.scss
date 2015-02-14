@@ -115,7 +115,6 @@ hr {
 .paper {
   padding: 20px 0px;
   margin-top: 30px;
-  margin-bottom: 100px;
   background: white;
 }
 
@@ -124,6 +123,10 @@ hr {
   margin-left: 60px;
   margin-bottom: 80px;
   margin-top: 40px;
+}
+
+.anchor {
+  padding-top: 100px;
 }
 
 /** HUD **/
@@ -232,7 +235,6 @@ hr {
     color: white;
     font-weight: bold;
     padding: 10px;
-    text-align: right;
 
     h3 {
       margin-top: 0px;
