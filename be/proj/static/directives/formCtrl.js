@@ -12,7 +12,7 @@ app.directive('signupform', function () {
       $scope.username = null;
       $scope.debts = [];
       $scope.amount = null;
-      $scope.showForm = true;
+      $scope.showForm = false;
       $scope.formSubmitted = false;
       $scope.location = null;
       $scope.focused = false;

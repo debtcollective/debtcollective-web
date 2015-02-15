@@ -87,16 +87,16 @@ p, .body-text, h1, h2, .tabs .single-tab {
 
 .tweet-box, .fb-box {
   width: 400px;
-  background-image: url(/static/img/lendyourvoice_normal_bttn.png);
+  background-image: url(/static/img/02-2015_sm-norm-promo.gif);
   background-repeat: no-repeat;
   background-position: left; }
   .tweet-box:hover, .fb-box:hover {
-    background-image: url(/static/img/lendyourvoice_overstate_bttn.png); }
+    background-image: url(/static/img/02-2015_sm-promo.gif); }
 
 .fb-box {
-  background-image: url(/static/img/lendyourvoice_fb_normal_bttn.png); }
+  background-image: url(/static/img/02-2015_tw-norm-promo.gif); }
   .fb-box:hover {
-    background-image: url(/static/img/lendyourvoice_fb_overstate_bttn.png); }
+    background-image: url(/static/img/02-2015_tw-promo.gif); }
 
 /** NAVIGATION **/
 .navigation {
@@ -248,7 +248,8 @@ p, .body-text, h1, h2, .tabs .single-tab {
 
 #mapdiv {
   width: 100%;
-  height: 400px;
+  height: 325px;
+  z-index: 999999999;
   background-color: #C4C2B2; }
 
 .debt-total {
@@ -269,9 +270,15 @@ p, .body-text, h1, h2, .tabs .single-tab {
 
 .map-container {
   position: relative; }
+  .map-container .counter-container {
+    top: 20px;
+    position: absolute;
+    z-index: 99999;
+    left: 50%;
+    transform: translateX(-50%); }
   .map-container .legend {
     position: absolute;
-    bottom: 10px;
+    top: 6px;
     left: 50%;
     z-index: 999;
     transform: translateX(-50%); }

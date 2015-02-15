@@ -105,19 +105,19 @@ input[type="text"], input[type="email"] {
 .tweet-box {
   @extend .button-box;
   width: 400px;
-  background-image: url(/static/img/lendyourvoice_normal_bttn.png);
+  background-image: url(/static/img/02-2015_sm-norm-promo.gif);
   background-repeat: no-repeat;
   background-position: left;
 
   &:hover {
-    background-image: url(/static/img/lendyourvoice_overstate_bttn.png);
+    background-image: url(/static/img/02-2015_sm-promo.gif);
   }
 }
 
 .fb-box {
   @extend .tweet-box;
-  background-image: url(/static/img/lendyourvoice_fb_normal_bttn.png);
+  background-image: url(/static/img/02-2015_tw-norm-promo.gif);
   &:hover {
-    background-image: url(/static/img/lendyourvoice_fb_overstate_bttn.png);
+    background-image: url(/static/img/02-2015_tw-promo.gif);
   }
 }

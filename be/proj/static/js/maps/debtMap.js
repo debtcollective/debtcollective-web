@@ -58,7 +58,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         map.write("mapdiv");
 
         setTimeout(function () {
-            dataProvider.zoomLevel = 3
+            map.zoomIn();
         }, 1000)
     });
 
