@@ -20,7 +20,7 @@ p, .body-text, h1, h2, .tabs .single-tab {
   -ms-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
-  margin: 8px;
+  margin: 8px 0px;
   width: 100%;
   border: 0;
   text-decoration: none; }
@@ -100,10 +100,10 @@ p, .body-text, h1, h2, .tabs .single-tab {
     background-image: url(/static/img/02-2015_sm-promo.gif); }
 
 .fb-box {
-  background-image: url(/static/img/02-2015_tw-norm-promo.gif);
+  background-image: url(/static/img/02-2015_tw-norm-promo.png);
   padding: 10px; }
   .fb-box:hover {
-    background-image: url(/static/img/02-2015_tw-promo.gif); }
+    background-image: url(/static/img/02-2015_tw-overstate-promo.png); }
 
 /** NAVIGATION **/
 .navigation {
@@ -863,7 +863,8 @@ form input, form select {
   border-bottom: 1px solid #f1eee2 !important;
   background-color: inherit !important; }
 form button {
-  padding: 20px; }
+  padding: 20px 0px;
+  margin: 15px 0px !important; }
 
 .add-debt {
   float: right; }

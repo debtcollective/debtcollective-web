@@ -1,7 +1,7 @@
 %input {
   @include transition();
   @extend %mono;
-  margin: 8px;
+  margin: 8px 0px;
   width: 100%;
   border: 0;
   text-decoration: none;
@@ -120,10 +120,10 @@ input[type="text"], input[type="email"] {
 
 .fb-box {
   @extend .tweet-box;
-  background-image: url(/static/img/02-2015_tw-norm-promo.gif);
+  background-image: url(/static/img/02-2015_tw-norm-promo.png);
   padding: 10px;
 
   &:hover {
-    background-image: url(/static/img/02-2015_tw-promo.gif);
+    background-image: url(/static/img/02-2015_tw-overstate-promo.png);
   }
 }

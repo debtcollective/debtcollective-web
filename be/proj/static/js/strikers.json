@@ -1,34 +1,95 @@
 [
    {
-      "name":"Latonya Suggs",
+      "name": "Latonya Suggs",
       "location": "Cincinnati, OH",
-      "bio":"I’m from Cincinnati, Ohio. I was excited to attend Everest College online because they promised to help me find a well-paying career. But they lied to me and stole my money. Not only did the school fail me, but the Department of Education failed me because it is their responsibility to make sure that these schools provide a quality education at an affordable cost at a scam-free school. I took out $40,000 in loans so that I could make a better life for my infant son. I earned a criminal justice degree that most employers do not even recognize. After college, I took a job as a housekeeper making barely over minimum wage. I am completely lost and in debt. The only solution is for the Department of Education to discharge my loan so I can start over. I deserve free tuition for the time I wasted. In fact, all student debtors should join together to demand debt cancellation and free education. We are not going to stop fighting until we win. That’s what this strike is about.",
-      "image":"/static/img/strikers/striker-portraits_laytonya.gif",
-      "mobileImage":"/static/img/strikers/striker-portraits-latonya-small.png",
-      "largeImage":"/static/img/strikers/large/striker-portraits_laytonya.gif"
+      "bio": "I'm from Cincinnati, Ohio. I was excited to attend Everest College online because they promised to help me find a well-paying career. But they lied to me and stole my money. Not only did the school fail me, but the Department of Education failed me because it is their responsibility to make sure that these schools provide a quality education at an affordable cost at a scam-free school. I took out $40,000 in loans so that I could make a better life for my infant son. I earned a criminal justice degree that most employers do not even recognize. After college, I took a job as a housekeeper making barely over minimum wage. I am completely lost and in debt. The only solution is for the Department of Education to discharge my loan so I can start over. I deserve free tuition for the time I wasted. In fact, all student debtors should join together to demand debt cancellation and free education. We are not going to stop fighting until we win. That’s what this strike is about.",
+      "image": "/static/img/strikers/striker-portraits_latonya.gif",
+      "mobileImage": "/static/img/strikers/striker-portraits-latonya-small.png",
+      "largeImage": "/static/img/strikers/large/striker-portraits_latonya.gif"
    },
    {
-      "name":"Makenzie Vasquez",
+      "name": "Makenzie Vasquez",
       "location": "San Jose, CA",
-      "bio":"I was on my own when it came to understanding how the system works. This was supposed to be a chance to make something of myself and to one day provide for my own family. Corinthian (Everest’s parent company) did a great job making me believe that they cared. I trusted them, and why not? Why would education fail me? Education is supposed to lead to the American Dream. I studied hard and did everything right. But Everest stole all my Federal funding. They stole money from me that I didn’t even have, money that I can’t - and won’t - pay back. These debts are illegitimate because I never should have been charged that much to attend school in the first place. A school that sold me a Dream that turned out to be a Nightmare. But the Department of Education refuses to cancel my loans. They are continuing to allow these schools to collect this money for a bogus degree. Who should have to pay for Corinthian’s crimes? Not me. We (the people) are the victims here. Why are we allowing this company to have mores right than we do? How about Wells Fargo, Corinthian’s largest investor? Wells Fargo is a billion dollar corporation that profited from poverty. They should have to pay to cancel all Corinthian loans and fund free college for everyone led into this student debt trap. Let's make sure they are held accountable!",
-      "image":"/static/img/strikers/striker-portraits_mckenzie.gif",
-      "mobileImage":"/static/img/strikers/striker-portraits-mckenzie-small.png",
-      "largeImage":"/static/img/strikers/large/striker-portraits_mckenzie.gif"
+      "bio": "I was on my own when it came to understanding how the system works. This was supposed to be a chance to make something of myself and to one day provide for my own family. Corinthian (Everest’s parent company) did a great job making me believe that they cared. I trusted them, and why not? Why would education fail me? Education is supposed to lead to the American Dream. I studied hard and did everything right. But Everest stole all my Federal funding. They stole money from me that I didn’t even have, money that I can’t - and won’t - pay back. These debts are illegitimate because I never should have been charged that much to attend school in the first place. A school that sold me a Dream that turned out to be a Nightmare. But the Department of Education refuses to cancel my loans. They are continuing to allow these schools to collect this money for a bogus degree. Who should have to pay for Corinthian’s crimes? Not me. We (the people) are the victims here. Why are we allowing this company to have mores right than we do? How about Wells Fargo, Corinthian’s largest investor? Wells Fargo is a billion dollar corporation that profited from poverty. They should have to pay to cancel all Corinthian loans and fund free college for everyone led into this student debt trap. Let's make sure they are held accountable!",
+      "image": "/static/img/strikers/striker-portraits_makenzie.gif",
+      "mobileImage": "/static/img/strikers/striker-portraits-makenzie-small.png",
+      "largeImage": "/static/img/strikers/large/striker-portraits_makenzie.gif"
    },
    {
-      "name":"Nathan Hornes",
+      "name": "Nathan Hornes",
       "location": "Los Angeles, CA",
-      "bio":"I’m from Los Angeles, CA. I graduated from Everest with a Bachelor’s degree in Business and a 3.9 GPA. But today I work two minimum wage jobs. I often work 18-hour days, because I cannot afford to pay my loans. I owe $78,000 in student loan debt even though Everest is being sued for fraud. Still, the DoE has refused to cancel my debt. I want to know -- why is the Department of Education supporting a scam for-profit school instead of students? I am on strike because I deserve a full refund and a free education. I co-founded a group called the Everest Avengers where Corinthian students are planning a long-term battle against Corinthian and the Department of Ed. There are 40 million student debtors across the country. This is only the beginning. If we all join together, imagine how much power we would have to end student debt for good.",
-      "image":"/static/img/strikers/striker-portraits_nathan.gif",
-      "mobileImage":"/static/img/strikers/striker-portraits-nathan-small.png",
-      "largeImage":"/static/img/strikers/large/striker-portraits_nathan.gif"
+      "bio": "I’m from Los Angeles, CA. I graduated from Everest with a Bachelor’s degree in Business and a 3.9 GPA. But today I work two minimum wage jobs. I often work 18-hour days, because I cannot afford to pay my loans. I owe $78,000 in student loan debt even though Everest is being sued for fraud. Still, the DoE has refused to cancel my debt. I want to know -- why is the Department of Education supporting a scam for-profit school instead of students? I am on strike because I deserve a full refund and a free education. I co-founded a group called the Everest Avengers where Corinthian students are planning a long-term battle against Corinthian and the Department of Ed. There are 40 million student debtors across the country. This is only the beginning. If we all join together, imagine how much power we would have to end student debt for good.",
+      "image": "/static/img/strikers/striker-portraits_nathan.gif",
+      "mobileImage": "/static/img/strikers/striker-portraits-nathan-small.png",
+      "largeImage": "/static/img/strikers/large/striker-portraits_nathan.gif"
    },
    {
-      "name":"Ashlee Schmidt",
+      "name": "Ashlee Schmidt",
       "location": "Springhill FL",
-      "bio":"In 2009 I enrolled in Everest to earn a degree in Medical Billing and Coding. I believed in the American Dream and that education was the key to achieving it. I was the first person in my family to attend college. I wanted to make my family proud and be able to take care of my disabled father. I studied hard and earned a 4.0 grade point average at Everest. Today, however, I am unemployed and can't find a job. I believe that Everest defrauded me. I filled out a single FAFSA form, and they continually took out loans in my name without my knowledge. (The tuition at Everest was so high that I also had to take out private Genesis loans just to stay in school. Everest also tried to get my father to co-sign for even more loans, but I refused.) After graduation, I discovered that Everest took out as many as 13 loans in my name. I now owe $36,412. Now Corinthian is being sued for predatory lending. But the Department of Education has so far refused to cancel these debts. I am harassed by debt collectors on a regular basis. Corinthian and the investors who got rich off my Federal loans have suffered no consequences. Instead, the Department of Education is helping the company avoid punishment. I am on strike because the only way out of this debt is to join with others in my situation. I can't pay, and I won't pay. The Department of Education should cancel our debt and provide a quality, free education to everyone.",
-      "image":"/static/img/strikers/striker-portraits_ashlee.gif",
-      "mobileImage":"/static/img/strikers/striker-portraits-ashlee-small.png",
-      "largeImage":"/static/img/strikers/large/striker-portraits_ashlee.gif"
-   }
+      "bio": "In 2009 I enrolled in Everest to earn a degree in Medical Billing and Coding. I believed in the American Dream and that education was the key to achieving it. I was the first person in my family to attend college. I wanted to make my family proud and be able to take care of my disabled father. I studied hard and earned a 4.0 grade point average at Everest. Today, however, I am unemployed and can't find a job. I believe that Everest defrauded me. I filled out a single FAFSA form, and they continually took out loans in my name without my knowledge. (The tuition at Everest was so high that I also had to take out private Genesis loans just to stay in school. Everest also tried to get my father to co-sign for even more loans, but I refused.) After graduation, I discovered that Everest took out as many as 13 loans in my name. I now owe $36,412. Now Corinthian is being sued for predatory lending. But the Department of Education has so far refused to cancel these debts. I am harassed by debt collectors on a regular basis. Corinthian and the investors who got rich off my Federal loans have suffered no consequences. Instead, the Department of Education is helping the company avoid punishment. I am on strike because the only way out of this debt is to join with others in my situation. I can't pay, and I won't pay. The Department of Education should cancel our debt and provide a quality, free education to everyone.",
+      "image": "/static/img/strikers/striker-portraits_ashlee.gif",
+      "mobileImage": "/static/img/strikers/striker-portraits-ashlee-small.png",
+      "largeImage": "/static/img/strikers/large/striker-portraits_ashlee.gif"
+   },
+  {
+      "name": "Ann Bowers, Florida",
+      "bio": "Corinthian Colleges have been allowed to commit fraud and engage in predatory lending without consequences. Only the students have suffered the consequences. The Department of Education should have protected students from these criminals. All we have for our commitment to education is huge debt and a degree that is of questionable credibility, thanks to the fraudulent behavior of the Corinthian Corporation. We deserve to have all our debt erased and to get the quality education that we were promised. Furthermore, this education should be free! Many of us who attended Corinthian are in worse financial condition than before we started school. Corinthian and the investors who funded it should be paying our debts, and they should pay for us to get an education from a reputable college that is not-for-profit and that is regionally accredited. Corinthian officials and investors lined their pockets with our lifetime educational funding. Free quality education should be available to all people!",
+      "region": "",
+      "debt": ""
+  },
+  {
+      "name": "Rolanda, Delice, Miami, Florida",
+      "bio": "I attended Everest in to earn a degree in Business Management. I took classes online and at the Miami Gardens campus. When I first inquired about Everest, I began receiving lots of phone calls. Admissions officers pressured me into enrolling by telling me they would help me find a job, care for my family, and have a better life. While I was I school, I was pressured into taking out more loans. The whole purpose of my time at Everest was to get me to sign loan documents. My mother had to co-sign on one of my loans so I could finish the program. I was even pulled out of class and told I couldn't return unless I made a payment on my Genesis loan. In the end, Everest never provided the job placement assistance they promised. I was left with nothing but $40K in debt that I can't pay. It's time for all Corinthian students to take a stand and refuse to pay this unjust debt. Corinthian should be shutdown, and the Department of Education should cancel these loans. ",
+      "region": "",
+      "debt": ""
+  },
+  {
+      "name": "Natalie Cardinal, Salem, Oregon",
+      "bio": "Why is the Department of Education trying to steal from Corinthian students? Why are they trying to collect on our debts? Some of our private loans have already been cancelled. Everyone knows this company was scamming people. Everyone knows this debt is illegitimate. Yet, I am being harassed by collectors on a daily basis. Those collectors are working for the Department of Education who expect me to pay. The stress and anxiety is nearly unbearable. My Pell grant was stolen and paid out to investors who own Corinthian. This is a fraud, and it should be a scandal. When will we get justice?  \n",
+      "region": "",
+      "debt": ""
+  },
+  {
+    "name": "Hollie Chaffee, Kalamazoo, MIchigan",
+    "bio": "I was lied to and defrauded by Everest College. Now the Department of Education is acting like a debt collector and demanding that I pay my debt. Soon, Everest will no longer exist. The school has been purchased by a debt collection company.  ",
+    "region": "",
+    "debt": ""
+  },
+  {
+    "name": "Natasha Hornes, Columbia, MO",
+    "bio": "I attended Everest in California where I earned a Paralegal degree. I earned\nconsistently high grades and was on the Dean's list. But Everest won't\nrelease my diploma because I owe then $200 in fees. That is in addition to the $40,000 in student loans that I will never repay. I was never able to\nfind a job after college. I can't even afford the monthly interest payments,\nand even if could afford to pay, I was coerced into taking out\nthese loans. Some Everest students were pulled out of class and told they\ncould not return unless they signed loan paperwork. Other times, loan\nofficers came into class and made us stop what we were doing to sign\nfinancial aid forms. We were told that we had no choice. If we didn't sign,\nwe couldn't stay in school. No one who profited from the scam will be punished. I refuse to pay, and I know I am not alone. I am joining with others and calling on\nthe Department of Education to cancel this illegitimate debt and to offer\nall of us free tuition at a college of our choosing.",
+    "region": "",
+    "debt": ""
+  },
+  {
+    "name": "Jessica Madison, Clearwater, Florida",
+    "bio": "I started at Everest in 2005, when it was still called Florida Metropolitan. I had been out of high school for a while, and I was ready to start a new career as a Paralegal. Admissions officers at Everest promised that I would receive job placement. But after completing all my courses, the only help they gave me was to send me job ads that I could have found myself on Craigslist. After going $33,000 in debt, I was not able to officially graduate because I owed the school money. Still, I didn't give up. I moved to a new state to try and look for work in the Paralegal field. But I ended up worse off than I was before I went to Everest. My tax refund has been garnished by debt collectors for years. And my wages are now being garnished by a debt collection agency called Education Credit Management Corp. Later, I discovered that ECMC is the same company that is buying dozens of Everest Campuses. They way I see it, ECMC can't lose. They make money if I pay my loans, and they make money if I don't. The only people who lose are the students. The entire scam is supported by the Department of Education, which approved the sale of Corinthian to ECMC. I want to know why the Department thinks the same company who is garnishing my wages should be running schools. Instead of supporting predatory lenders, the Department of Education should cancel my debt and the debt of all Corinthian students. ",
+    "region": "",
+    "debt": ""
+  },
+  {
+    "name": "Lori Perkins, Allegan Michigan",
+    "bio": "I attended Everest to earn a Nursing degree. My teachers were great, and I don't blame them for my debt. I blame Corinthian and the Department of Education. The Department allowed the school to max out my Federal loans and then they failed to stop Corinthian from pressuring me and other students into taking out a private Genesis loan. Luckily, I was suspicious about Genesis from the start, and I refused. After I put my foot down, I was told that I would have to pay hundreds of dollars per month out of pocket if I wanted to finish my program. Now I'm $15,000 in the hole, and the Federal government refuses to cancel my debt, even though they are suing Corinthian for predatory lending. I will never get back the money that I have already paid to these crooks. This debt is a rock around my neck. I will do everything I can to make sure the Department of Education never gets a single penny from me.",
+    "image": "",
+    "region": "",
+    "debt": ""
+  },
+  {
+    "name": "Amanda Shaffer, Morganton, North Carolina ",
+    "bio": "Corinthian stole more than $10,000 of my Pell Grant money. They pressured me to enroll in a four-year program so they could keep taking out loans in my name for as long as possible. I was disabled in an accident a few years ago and enrolling in an online college was my only option to get the education I dreamed of. Two years later I have learned nothing, and my debts have skyrocketed to over $20,000. And my Pell Grant funds are gone forever. The Corinthian business model was a high-tech mugging operation. If I had my wallet stolen on the street, the criminals might have been caught by now and punished. But Corinthian drained my Federal aid money dry and left me with nothing. And the Department of Education is helping the muggers get away with it. They are even profiting from the scam. I say enough is enough. I will never pay these unjust debts.",
+    "region": "",
+    "debt": ""
+  },
+  {
+    "name": "DeAnda Wiley, Pilot Point, Texas",
+    "bio": "I was in my 40s by the time I graduated with a Bachelors in Paralegal Studies. Everest took advantage of my inexperience and the fact that I needed to finish school quickly so I could begin my career. College is supposed to be a place where students study and learn in a supportive and intellectually stimulating environment. Since my classes took place completely online, I was robbed of that opportunity. I never met a fellow student or teacher during my time as a student. Though I studied hard and took my education seriously, high grades seemed easy to come by. I began to wonder if the teachers were real or if getting money out of me was the real goal. Now I can't start over at a new school because I owe too much. The Department of Education should cancel my debt and the debt of all Corinthian students. We should also get free tuition at a real college paid for by the people who profited from us. Until our demands are met, I won't pay these unjust debts.",
+    "region": "",
+    "debt": ""
+  },
+  {
+    "name": "Dawn Thompson, Springfield, Illinois",
+    "bio": "As a mother of two children, I could not attend a regular college. Everest guilted me into enrolling in an online program by playing on my emotions. They called me several times per week to convince me that I would be better able to provide for my kids if I earned a degree from their school. \"Why wait?\" they said. After I filled out the FAFSA, they began taking out loans in my name. After I started taking classes, Everest officials told me that I would have to sign up for a high-interest Genesis loan to stay in the program. That first loan was followed by a second one a short time later. The loans kept piling up. By the time I realized I had been led into a trap, it was too late. I know that some people got rich off my Federal aid money, including big banks like Wells Fargo. I know that the Department of Education stood by and let it happen. Now I am striking my loans with other Corinthian students. To the Department of Education I say, cancel our Federal loans. It's the right thing to do. Why wait?",
+    "region": "",
+    "debt": ""
+  }
 ]

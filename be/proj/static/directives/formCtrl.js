@@ -65,25 +65,23 @@ app.directive('signupform', function () {
       }
 
       $scope.onSubmitClick = function () {
-        $scope.username = util_svc.generateUUID();
-
         // temporarily, email is the password
         // so that we can protect anonymity of our users.
         // campaign monitor handles mailing lists
+        $scope.username = util_svc.generateUUID();
 
-        for (i = 0; i < debts.length; i++) {
-          amount = parseFloat($scope.amount.replace(',', ''));
-          data = {
-              'username': $scope.username,
-              'password': $scope.email,
-              'point': $scope.location.id,
-              'kind': debt.debtType.id,
-              'amount': debt.amount
-          }
-          $http.post('/signup/', data).then(function (resp) {
-            console.log(resp)
-          });
+        // just store one debt type for now.
+        var debt = $scope.debts[0]
+        data = {
+            'username': $scope.username,
+            'password': $scope.email,
+            'point': $scope.location.id,
+            'kind': debt.debtType.id,
+            'amount': parseFloat(debt.amount.replace(',', ''))
         }
+        $http.post('/signup/', data).then(function (resp) {
+          console.log(resp)
+        });
 
         $scope.formSubmitted = true;
         $scope.showForm = true;

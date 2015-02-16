@@ -1,6 +1,4 @@
-<div class="nav-footer" ng-class="{focused: focused, visible: formVisible()}">
-  <div class="close-button" ng-class="{focused: focused, visible: formVisible()}"
-  ng-click="forceClose=true">x</div>
+
   <div class="dc-input">
     <form ng-show="!formSubmitted" class="form"
     target="receiver"
@@ -22,20 +20,22 @@
     typeahead-editable="false"
     typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
 
-    <div ng-repeat="debt in debts" class="flex">
+    <div ng-repeat="debt in debts">
       <input type="text"
       ng-model="debt.amount"
       ng-focus="showForm=true"
       placeholder="how much debt?"
       ng-model-options="{ updateOn: 'blur' }">
+      <h4>Debt Type
       <select class="debt-type-select"
         ng-model="debt.debtType"
+        placeholder="Debt type"
         ng-options="item as item.name + ' debt' for item in debt_choices track by item.id"
-        required></select>
-    </div>
+        required></select></h4>
 
-    <div class="add-debt" ng-click="addDebt()">+ MORE DEBT</div>
+    </div>
+    <div class="">
+    </div>
     <button type="submit" name="submit" ng-focus="showForm=true" ng-blur="showForm=false" class="button-box">join the collective</button>
   </form>
-</div>
 </div>

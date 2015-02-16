@@ -18,6 +18,9 @@ def splash(request):
 def map(request):
   return render_to_response('proj/map.html')
 
+def strikeform(request):
+  return render_to_response('proj/strikeform.html')
+
 def studentstrike(request):
   return render_to_response('proj/studentstrike.html')
 

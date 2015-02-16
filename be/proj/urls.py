@@ -19,7 +19,7 @@ urlpatterns += patterns('proj.views',
   basic_url('thankyou'),
   basic_url('corinthian'),
   basic_url('studentstrike'),
-  url(r'^/signup_page$', 'signup_page', name='signup_page'),
+  basic_url('strikeform'),
   url(r'^$', 'splash', name='splash'),
 )
 

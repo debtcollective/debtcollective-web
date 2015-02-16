@@ -13,6 +13,7 @@ app.controller('corinthianCtrl',
       for (i in resp.data) {
         var striker = resp.data[i]
         striker.shortBio = striker.bio.slice(0, 200);
+        striker.first_name = striker.name.split(' ')[0].toLowerCase()
         strikers.push(striker)
       }
       $scope.data = strikers
