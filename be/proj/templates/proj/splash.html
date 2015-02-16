@@ -6,9 +6,9 @@
 <div >
   {% include "proj/header.html" %}
   <div class="container">
-    <p class="body-text">
-      <h2 class="floating-section-title">"If you owe the bank a thousand dollars, the bank owns you. If you owe the bank a trillion dollars, you own the bank. Together, we own the bank."</h2>
-    </p>
+    <div class="body-text">
+      <h2 class="floating-section-title top-quote">"If you owe the bank a thousand dollars, the bank owns you. If you owe the bank a trillion dollars, you own the bank. Together, we own the bank."</h2>
+    </div>
   </div>
   <div id="map" class="map-container container" ng-controller="mapCtrl">
     <div class="wrapper">
@@ -58,15 +58,17 @@
     </div>
 
     <div class="wrapper arrow-up"></div>
-    <a href="/studentstrike">
-      <div class="wrapper arrow-down-steep centered">
-        <h2>ACTION ALERT!</h2>
-        <img src="/static/img/strikers/splash-strikers.png">
-        <div class="body-text caption">
-          <p>The Rolling Jubilee has just erased $13,384,642.14 million of student debt owed by 9,438 people across the United States and former students of Corinthian Colleges Inc have <span class="big-link">declared a debt strike.</span></p>
+    <div class="wrapper arrow-down-steep centered">
+      <div class="row">
+        <a href="/studentstrike">
+          <h2>ACTION ALERT!</h2>
+          <img src="/static/img/strikers/splash-strikers.png">
+          <div class="body-text caption">
+            <p>The Rolling Jubilee has just erased $13,384,642.14 million of student debt owed by 9,438 people across the United States and former students of Corinthian Colleges Inc have <span class="big-link">declared a debt strike.</span></p>
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
 
     <div class="wrapper dark">
       <h2>DO YOU HAVE DEBT FROM EVEREST COLLEGE?</h2>

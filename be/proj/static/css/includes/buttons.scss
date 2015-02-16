@@ -63,6 +63,9 @@
     background-color: $dark-red;
     color: $text;
   }
+  &.small {
+    width: 50%;
+  }
   &.btn-primary {
     height: 70px;
     color: $text;
@@ -80,6 +83,7 @@ input[type="text"], input[type="email"] {
 
 .sm-boxes {
   @include flexbox;
+  @include justify-content(space-around);
   margin: 50px 0px;
 }
 
@@ -104,7 +108,7 @@ input[type="text"], input[type="email"] {
 
 .tweet-box {
   @extend .button-box;
-  width: 400px;
+  width: 350px;
   background-image: url(/static/img/02-2015_sm-norm-promo.gif);
   background-repeat: no-repeat;
   background-position: left;
@@ -117,6 +121,8 @@ input[type="text"], input[type="email"] {
 .fb-box {
   @extend .tweet-box;
   background-image: url(/static/img/02-2015_tw-norm-promo.gif);
+  padding: 10px;
+
   &:hover {
     background-image: url(/static/img/02-2015_tw-promo.gif);
   }

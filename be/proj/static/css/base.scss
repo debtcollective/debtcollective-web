@@ -467,8 +467,8 @@ form {
   @extend %captionmono;
   background-color: $dark-blue;
   color: $dark-text-color;
-  padding-bottom: $footer-height;
-  padding-top: 10px;
+  padding: 10px 20px $footer-height 20px;
+  margin-bottom: 20px;
 
   a {
     color: $dark-text-color;

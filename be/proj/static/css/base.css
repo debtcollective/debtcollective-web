@@ -56,6 +56,8 @@ p, .body-text, h1, h2, .tabs .single-tab {
   .btn.btn-red {
     background-color: #861800;
     color: #b6bea7; }
+  .btn.small {
+    width: 50%; }
   .btn.btn-primary {
     height: 70px;
     color: #b6bea7;
@@ -70,6 +72,10 @@ p, .body-text, h1, h2, .tabs .single-tab {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  justify-content: space-around;
   margin: 50px 0px; }
 
 .button-box, .tweet-box, .fb-box {
@@ -86,7 +92,7 @@ p, .body-text, h1, h2, .tabs .single-tab {
     cursor: pointer; }
 
 .tweet-box, .fb-box {
-  width: 400px;
+  width: 350px;
   background-image: url(/static/img/02-2015_sm-norm-promo.gif);
   background-repeat: no-repeat;
   background-position: left; }
@@ -94,7 +100,8 @@ p, .body-text, h1, h2, .tabs .single-tab {
     background-image: url(/static/img/02-2015_sm-promo.gif); }
 
 .fb-box {
-  background-image: url(/static/img/02-2015_tw-norm-promo.gif); }
+  background-image: url(/static/img/02-2015_tw-norm-promo.gif);
+  padding: 10px; }
   .fb-box:hover {
     background-image: url(/static/img/02-2015_tw-promo.gif); }
 
@@ -917,8 +924,8 @@ form button {
 .footer {
   background-color: #1a1b23;
   color: #f1eee2;
-  padding-bottom: 70px;
-  padding-top: 10px; }
+  padding: 10px 20px 70px 20px;
+  margin-bottom: 20px; }
   .footer a {
     color: #f1eee2;
     text-decoration: underline !important; }
@@ -970,6 +977,9 @@ form button {
   .body-text.wide {
     max-width: 100%;
     min-width: 100%; }
+
+  .top-quote {
+    padding: 1em; }
 
   .press-links img {
     width: initial; }
