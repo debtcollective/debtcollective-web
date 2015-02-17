@@ -1,11 +1,12 @@
 app.controller('corinthianCtrl',
-  function ($scope, $http) {
+  function ($scope, $window, $http) {
     $scope.debtors = 13415;
     $scope.debt = 354135;
     $scope.money = 24194;
 
     $scope.selectionIndex = null;
     $scope.loading = true;
+    $scope.everest = false;
 
     $http.get('/static/js/strikers.json').then(function (resp) {
       $scope.loading = false;
@@ -19,6 +20,15 @@ app.controller('corinthianCtrl',
       $scope.data = strikers
 
     });
+
+    $scope.agreeButton = function () {
+      if ($scope.everest) {
+        $window.location.href = '/corinthiansignup'
+      }
+      else {
+        $scope.normalsignup = true
+      }
+    }
 
     $scope.showStriker = function (index, $event) {
       $scope.selectionIndex = index;

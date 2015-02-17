@@ -15,11 +15,9 @@ urlpatterns += patterns('proj.views',
   basic_url('map'),
   basic_url('login'),
   basic_url('signup'),
-  basic_url('signup_page'),
   basic_url('thankyou'),
-  basic_url('corinthian'),
   basic_url('studentstrike'),
-  basic_url('strikeform'),
+  basic_url('corinthiansignup'),
   url(r'^$', 'splash', name='splash'),
 )
 

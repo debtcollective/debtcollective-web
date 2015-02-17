@@ -18,14 +18,11 @@ def splash(request):
 def map(request):
   return render_to_response('proj/map.html')
 
-def strikeform(request):
+def corinthiansignup(request):
   return render_to_response('proj/strikeform.html')
 
 def studentstrike(request):
   return render_to_response('proj/studentstrike.html')
-
-def corinthian(request):
-  return render_to_response('proj/corinthian.html')
 
 def nov_fourth(request):
   return render_to_response('proj/nov4.html')

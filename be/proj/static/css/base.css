@@ -628,6 +628,7 @@ body {
 
 .arrow-up {
   background: transparent url(/static/img/bg_arrow-up.png) scroll no-repeat center top;
+  z-index: -5;
   position: relative;
   padding-bottom: 250px;
   margin-top: -10px; }
@@ -813,6 +814,9 @@ h2, .tabs .single-tab {
     .wrapper.light h1 {
       color: #39413f;
       border-bottom: #39413f 1px solid; }
+
+p a {
+  text-decoration: underline !important; }
 
 /** GENERAL **/
 .fixed {

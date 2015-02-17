@@ -66,7 +66,7 @@
             We trusted that education would lead to a better life. And we trusted you to ensure that the education system in this country would do so. But Corinthian took advantage of our dreams and targeted us to make a profit. You let it happen, and now you cash in.
             </p>
             <p>
-            Each month you force us to make payments into an immoral system that profits from our aspirations. We paid dearly for degrees that have led to unemployment or to jobs that don’t pay a living wage. We can’t and won’t pay any longer. Repayment plans presented as a helping hand simply aren’t good enough. The wrong done to us is deeper than that.
+            Each month you force us to make payments into an immoral system that profits from our aspirations. <h2 class="emphasis">We paid dearly for degrees that have led to unemployment or to jobs that don’t pay a living wage. We can’t and won’t pay any longer. Repayment plans presented as a helping hand simply aren’t good enough. The wrong done to us is deeper than that.</h2>
             </p>
             <p>
             We are not alone in this fight. Corinthian’s predatory empire pushed hundreds of thousands into a debt trap. But even beyond for-profit schools, tens of millions of students are in more debt than they can ever repay. And you are the debt collector, with powers beyond a payday lender’s wildest dreams.
@@ -81,12 +81,21 @@
             </p>
           </div>
         </div>
-        <div class="dc-input wrapper dark">
-          <form>
-            <input type="text" placeholder="Your name here" />
-            <input type="radio" value="false">I am a Corinthian student</input>
-            <button type="submit" name="submit" ng-focus="showForm=true" ng-blur="showForm=false" class="button-box">I agree</button>
-          </form>
+        <div class="dc-input wrapper dark" id="likethestrike">
+          <div ng-show="normalsignup">
+            <signupform></signupform>
+          </div>
+          <div ng-show="!normalsignup">
+            <form>
+              <input type="text" placeholder="Your name here" />
+              <p>
+              <input type="checkbox" ng-model="everest" value="false">I attended Everest, Heald or Wyotech</input>
+              </p>
+              <button type="submit" name="submit"
+                ng-click="agreeButton()"
+                class="btn btn-primary">I agree</button>
+            </form>
+          </div>
         </div>
       </div>
 
@@ -100,28 +109,6 @@
               </p>
               <button class="btn btn-primary small">Donate</button>
             </div>
-            </div>
-          </div>
-
-          <div id="spread">
-            <h1 class="floating-section-title">SPREAD THE WORD</h1>
-
-            <div class="sm-boxes">
-              <div class="tweet-box">
-                 <a href="https://twitter.com/intent/tweet?text=">
-                  <p class="box-text">
-                    Lend Your Voice
-                  </p>
-                </a>
-
-              </div>
-              <div class="fb-box">
-                <a target="_blank" href="https://twibbon.com/Support/debt-collective">
-                  <p class="box-text">
-                    Wear your Red Square &nbsp;
-                  </p>
-                </a>
-              </div>
             </div>
           </div>
         </div>
