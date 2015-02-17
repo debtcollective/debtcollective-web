@@ -18,17 +18,16 @@ app.directive('signupform', function () {
       $scope.focused = false;
 
       $http.get('/debt_choices').then(function (resp) {
-          $scope.debt_choices = resp.data
-          console.log(resp.data)
+        $scope.debt_choices = resp.data
       });
 
       $http.get('/points').then(function (resp) {
-          $scope.cities = resp.data
+        $scope.cities = resp.data
       });
 
       $scope.addDebt = function () {
         $scope.debts.push({
-          debtType: null,
+          debtType: 5,
           amount: null
         })
       }
@@ -79,6 +78,7 @@ app.directive('signupform', function () {
             'kind': debt.debtType.id,
             'amount': parseFloat(debt.amount.replace(',', ''))
         }
+        console.log(data)
         $http.post('/signup/', data).then(function (resp) {
           console.log(resp)
         });

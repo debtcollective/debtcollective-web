@@ -622,13 +622,12 @@ body {
   background-position: center bottom;
   padding-bottom: 210px;
   background-color: #39413f !important;
-  z-index: -5; }
+  z-index: 0; }
   .arrow-down-steep h2:first-child, .arrow-down-steep .tabs .single-tab:first-child, .tabs .arrow-down-steep .single-tab:first-child {
     margin-top: -20px !important; }
 
 .arrow-up {
   background: transparent url(/static/img/bg_arrow-up.png) scroll no-repeat center top;
-  z-index: -5;
   position: relative;
   padding-bottom: 250px;
   margin-top: -10px; }
