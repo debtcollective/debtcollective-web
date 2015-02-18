@@ -16,6 +16,7 @@ app.directive('signupform', function () {
       $scope.formSubmitted = false;
       $scope.location = null;
       $scope.focused = false;
+      $scope.corinthian = false;
 
       $http.get('/debt_choices').then(function (resp) {
         $scope.debt_choices = resp.data
@@ -63,7 +64,7 @@ app.directive('signupform', function () {
         $scope.focused = true;
       }
 
-      $scope.onSubmitClick = function () {
+      $scope.onSubmitClick = function ($event) {
         // temporarily, email is the password
         // so that we can protect anonymity of our users.
         // campaign monitor handles mailing lists
@@ -80,7 +81,10 @@ app.directive('signupform', function () {
         }
         console.log(data)
         $http.post('/signup/', data).then(function (resp) {
-          console.log(resp)
+          if ($scope.corinthian) {
+            $window.location.href = '/corinthiansignup'
+            $event.preventDefault()
+          }
         });
 
         $scope.formSubmitted = true;

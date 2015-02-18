@@ -6,7 +6,7 @@ app.controller('corinthianCtrl',
 
     $scope.selectionIndex = null;
     $scope.loading = true;
-    $scope.everest = false;
+    $scope.corinthian = false;
 
     $http.get('/static/js/strikers.json').then(function (resp) {
       $scope.loading = false;
@@ -22,7 +22,7 @@ app.controller('corinthianCtrl',
     });
 
     $scope.agreeButton = function () {
-      if ($scope.everest) {
+      if ($scope.corinthian) {
         $window.location.href = '/corinthiansignup'
       }
       else {
