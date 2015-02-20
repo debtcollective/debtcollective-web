@@ -3,213 +3,147 @@
 
 {% block body %}
 
-  <div class="header-links hidden-mobile">
-    <a href="/#scroll" du-scrollspy>story</a>
-      &nbsp;&nbsp; | &nbsp;&nbsp;
-    <a  href="/#learn" ng-click="learnMore=true" du-scrollspy du-smooth-scroll>information</a>
-      &nbsp;&nbsp;  |  &nbsp;&nbsp;
-    <a href="http://blog.debtcollective.org" du-scrollspy>dispatch</a>
-      &nbsp;&nbsp; | &nbsp;&nbsp;
-    <a du-scrollspy href="http://strategize.debtcollective.org">strategize</a>
-  </div>
-
-  <div class="header-links mobile-only">
-    <a href="/#scroll" du-scrollspy>home: life or debt? </a><br>
-      <a du-scrollspy href="/corinthian/">corinthian students</a>
-
-  </div>
-
-<div scroll>
-  <div id="scroll" ng-controller="splashCtrl"
-    ng-class="{mainstate: yLoc >= amountToScroll}">
-    <div id="scrollthing" ng-style="scrollThingStyle" style="max-height: 2000px">
+<div >
+  {% include "proj/header.html" %}
+  <div id="map" class="map-container container" ng-controller="mapCtrl">
+    <div class="wrapper">
+      <p>
+        <div class="counter-container">
+          <div class="counter"></div>
+        </div>
+      </p>
+      <img src="/static/img/dcnew_key.png" class="legend" />
+      <div id="mapdiv"></div>
     </div>
-    <section id="splash" class="splash" ng-class="{hidden: yLoc > 5}">
-      <div class="splash-text">
-        <h1>Organize, Resist, Reimagine</h1>
-      </div>
-      <div class="splash-footer" ng-click="scrollClick()">
-        scroll to begin
-      </div>
-    </section>
-
-    <section class="images" ng-style="backgroundStyle" ng-class="{close: yLoc >= 2700}">
-        <!-- for each range, display the appropriate animation. change in directives.js -->
-        <div ng-class="{pane: yLoc == 0}">
-          <div class="splash-square red"></div>
-        </div>
-        <div ng-repeat="range in ranges"
-             ng-class="{pane: yLoc > range.yScroll && yLoc < range.yScrollEnd}">
-          <img class="splash-square" ng-src="/static/img/animation/transitional-support-{$range.num$}.png"/>
-        </div>
-    </section>
-
-    <div class="wrapper light">
-      <section class="intro-text">
-        <div class="body-text">
-          <div class="slide">
-            <span ng-class="{pane: yLoc > 0 && yLoc <= 600}">
-              Every month, we are forced into debt for basic necessities.
-            </span>
-            <span ng-class="{pane: yLoc > 200 && yLoc <= 600}">
-              We have no choice but to enter into contracts under unfair terms.
-            </span>
-            <span  ng-class="{pane: yLoc > 400 && yLoc <= 600}">
-              We have little power to bargain or negotiate.
-            </span>
-          </div>
-          <div class="slide">
-            <span ng-class="{pane: yLoc > 600 && yLoc <= 1200}">
-              Creditors are holding us hostage.
-            </span>
-            <span ng-class="{pane: yLoc > 800 && yLoc <= 1200}">
-              When we can’t meet the terms of the contract, we are harassed,
-            </span>
-            <span ng-class="{pane: yLoc > 1000 && yLoc <= 1200}">
-              we have our wages garnished, and some of us are even imprisoned.
-            </span>
-          </div>
-          <div class="slide">
-            <span ng-class="{pane: yLoc > 1200 && yLoc <= 1600}">
-              The goal of the Debt Collective is to fight back
-            </span>
-            <span ng-class="{pane: yLoc > 1400 && yLoc <= 1600}">
-              and transform the way we finance basic necessities, such as education, health care, and housing.
-            </span>
-          </div>
-          <div class="slide">
-            <span ng-class="{pane: yLoc > 1600 && yLoc <= 2800}">
-              If you owe the bank thousands of dollars, then the bank owns you.
-            </span>
-            <span ng-class="{pane: yLoc > 1800 && yLoc <= 2800}">
-              But if you owe the bank millions, then you own the bank.
-            </span>
-            <span ng-class="{pane: yLoc > 2000 && yLoc <= 2800}">
-              Collectively, we own the bank.
-            </span>
-          </div>
-        </div>
-      </section>
-      <section id="learn">
-        <div id="map" class="map-container" ng-controller="mapCtrl">
-
-          <img src="/static/img/dcnew_key.png" class="legend" />
-          <img src="/static/img/dcnew_compass.png" class="compassrose" />
-
-          <img src="/static/img/map-title-banner.png" class="map-banner mobile-only" />
-          <div id="mapdiv" style="width: 100%; height: 500px;"></div>
-          <!-- <a class="twitter-timeline"
-           data-chrome="noheader nofooter noborders noscrollbar transparent"
-           href="https://twitter.com/hashtag/notaloan"
-           data-link-color="#666" width="250px"
-           data-border-color="#333"
-           height="350px" data-widget-id="511729525797814272">
-            #notaloan Tweets
-           </a>-->
-        </div>
-        <div class="body-text anchor map-body">
-          <div class="debt-total">${{total_amount|intcomma}}</div>
-          <div class="title-banner hidden-mobile">
-            <img src="/static/img/map-title-banner.png" class="map-banner" />
-          </div>
-          <p>Every month, we are forced into debt for basic necessities. We have no choice but to enter into contracts under unfair terms. We have little power to bargain or negotiate. Creditors are holding us hostage. When we can’t meet the terms of the contract, we are harassed, we have our wages garnished, and some of us are even imprisoned. The goal of the Debt Collective is to fight back and transform how basic necessities, such as education, health care, and housing are provided.
-          </p>
-            <h2>Why Join <span>the Debt Collective?</span></h2>
-            <p>Creditors profit from the data they have about our loans. We all owe, but we aren’t always sure who really profits from our loan payments. Who is at the end of that paper trail?
-            </p>
-
-            <p>
-            We can learn where our money goes and who is profiting from those payments. We can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.
-            </p>
-
-            <p>
-            You are not a loan. Join Us.
-            </p>
-            </p>
-            <h2>What can a Debt Collective Do?</h2>
-            <p>
-            The goal of the Debt Collective is to create a platform by debtors and for debtors for organization, advocacy, and resistance. Organizing collectively offers many possibilities for building power against creditors:
-            </p>
-            <p>
-            As we build membership, we can organize debtors into groups based on region, type of debt, or institution. These groups can bargain with creditors or even develop the power to threaten a debt strike. A debt collective can help create a positive vision for a sustainable economy in which credit would be used to benefit everyone and not to line the pockets of a few.
-            </p>
-        </div>
-        <section class="body-text" id="background">
-            <h2>Background: Who we are</h2>
-
-            <p>
-            We are the people behind the <a href="http://rollingjubilee.org" target="_blank">Rolling Jubilee debt cancellation initiative</a>. We operate according to the principle that individual debts are a burden, but when we stand together they make us powerful. The Debt Collective is the next step in making that vision a reality.
-            </p>
-
-            <p>
-              <div class="press-links">
-                  <a href="http://www.washingtonpost.com/news/storyline/wp/2014/09/17/how-one-student-got-burned-by-a-for-profit-college-and-bailed-out-by-occupy-wall-street/"  target="_blank">
-                    <img src="/static/img/press/wash-pressbtn.jpg" />
-                  </a>
-                  <a href="http://america.aljazeera.com/opinions/2014/9/strike-student-debt.html"  target="_blank">
-                    <img src="/static/img/press/AJ-pressbtn.jpg" />
-                  </a>
-                  <a href="http://www.theguardian.com/money/2014/sep/17/occupy-activists-student-debt-corinthian-colleges"  target="_blank">
-                    <img src="/static/img/press/guard-pressbtn.jpg" />
-                  </a>
-              </div>
-            </p>
-
-            <h2>Twitter Bomb!</h2>
-             <a href="https://twitter.com/intent/tweet?text=
-            When%20we%20defend%20Everest%20students%2C%20we%20fight%20for%20all%20students.%20Debtors%20must%20act%20together.%20%40USedgov%20whose%20side%20are%20you%20on%3F%20%23Nov4%20%23DebtTrap">
-                <div class="tweet-btn">
-                    When we defend #Everest students, we fight for ALL students. Debtors must act together. @USedgov whose side are you on? #DebtTrap
-                </div>
-            </a>
-            <a href="https://twitter.com/intent/tweet?text=To%20the%20DoE%20I%27m%20just%20a%20number%3A%20________.%20We%20need%20to%20fight%20back%2C%20we%20are%20all%20in%20the%20red.%20%23NotAoan%20http%2F%2Fdebtcollective.org">
-                <div class="tweet-btn">
-                To the DoE I'm just a number: ________. We need to fight back, we are ALL in the red.  #NotALoan </div>
-            </a>
-           <a href="https://twitter.com/intent/tweet?text=So%2C%20%40USedgov%20could%20fund%20%23HigherEd%20for%20all%20using%20less%20than%201%25%20of%20the%20Federal%20Budget. http%3A%2F%2Fstrikedebt.org%2Fhow-far-to-free%2F">
-                <div class="tweet-btn">
-                 So, @USedgov could fund #HigherEd for all using less than 1% of the Federal Budget.
-                </div>
-            </a>
-            <a href="https://twitter.com/intent/tweet?text=End%20the%20love%20affair%20with%20for-profit%20colleges.%20%40USedgov%2C%20break%20up%20with%20Everest%20and%20cancel%20student%20debt.%20%23HigherEd">
-                <div class="tweet-btn">
-                 End the love affair with for-profit colleges. @USedgov, break up with Everest and cancel student debt.  #HigherEd
-                </div>
-            </a>
-            </p>
-
-            <h2> Change your Profile Picture</h2>
-            <p class="centered">
-                Put a red square in your social media profile picture.
-                <a class="underline" href="http://en.wikipedia.org/wiki/2012_Quebec_student_protests" target="_blank">What's the red square?</a>
-            </p>
-            <p class="centered">
-                <script src="//twibbon.com/embed/debt-collective" type="text/javascript">
-                </script>
-                <a href="https://twibbon.com/Support/debt-collective">
-                    <img src="/static/img/ange.jpg" width="200px"/>
-                </a>
-            </p>
-            <h2>Find us on social media</h2>
-            <p class="centered">
-              <a href="https://www.facebook.com/DebtCollective" target="_blank">
-                <img class="sm-button" src="/static/img/dc_newfacebookbttn.png" />
-              </a>
-              <a href="http://www.twitter.com/0debtzone" target="_blank">
-                <img class="sm-button" src="/static/img/dc_twitterbttn.png" />
-              </a>
-            </p>
-
-        </section>
-      </section>
-
   </div>
-      <section class="splash splash-bottom-quote">
-        <h1 class="quote">
-          “Just as bosses are dependent on workers, so are lenders dependent on borrowers. If workers walk out, the enterprise stops. If borrowers refuse to pay their debts, the lenders could be in real trouble.” <br> <br>Francis Fox Piven
-        </h1>
-      </section>
-    {% include "proj/form.html" %}
-</div>
+  <div id="scroll" ng-controller="splashCtrl" class="container">
+    <div class="wrapper arrow-down-steep">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1" ng-class="{hidden: showSite}">
+          <div class="body-text intro">
+            <h1>If you owe the bank a thousand dollars, the bank owns you. If you owe the bank a trillion dollars, you own the bank. Together, we own the bank.</h1>
+          </div>
+          <h5 class="body-text caption italic">
+            <p>The debt collective is an organization that helps people join together to fight back against lenders.</p>
+          </h5>
+        </div>
+      </div>
+    </div>
+    <h2>JOIN THE DEBT COLLECTIVE</h2>
+    <signupform ></signupform>
+    <!--
+    <div id="spread">
+      <h1 class="floating-section-title">SPREAD THE WORD</h1>
+      <div class="sm-boxes">
+        <div class="tweet-box">
+           <a href="https://twitter.com/intent/tweet?text=">
+            <p class="box-text">
+              Lend Your Voice
+            </p>
+          </a>
 
+        </div>
+        <div class="fb-box">
+          <a target="_blank" href="https://twibbon.com/Support/debt-collective">
+            <p class="box-text">
+              Wear your Red Square &nbsp;
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+    -->
+
+    <div class="wrapper arrow-up"></div>
+    <div class="wrapper arrow-down-steep centered">
+      <div class="row">
+        <h2>ACTION ALERT!</h2>
+        <img src="/static/img/strikers/splash-strikers.png">
+        <div class="body-text caption">
+          <p>The Rolling Jubilee has just erased $13,384,642 million of student debt owed by 9,438 people across the United States and former students of Corinthian Colleges Inc have <a href="/studentstrike" class="big-link">declared a debt strike.</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper dark">
+      <h2>DO YOU HAVE DEBT FROM EVEREST COLLEGE?</h2>
+      <div class="body-text">
+        <h2>You can be involved in actions to fight to get your money back.  <a class="big-link" href="/corinthiansignup">LEARN HOW</a></h2>
+      </div>
+    </div>
+
+    <div class="wrapper arrow-up"></div>
+    <div class="wrapper arrow-down-steep" id="faq">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Q & A</h2>
+          <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-12">
+              <h3>What is the Debt Collective?</h3>
+              <p class="small">As part of our work in Strike Debt, we launched the Rolling Jubilee to promote public education about the injustice of requiring public goods, such as education and healthcare, to be personally debt-financed. Rolling Jubilee was intended to be a spark and not a solution, and our long-term aim has always been to transform personal grievances into collective political action by helping people realize that they are not “a loan.” Debt collectives, effectively debtors' unions, are the next stage. Only by organizing together, through the pursuit of collective bargaining and debt strikes, can debtors build power against... <a href="http://strategize.debtcollective.org/t/what-is-the-debt-collective/104">READ MORE</a></p>
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-12">
+              <h3>What's the red square?</h3>
+              <p class="small">The red square was first used as a symbol in <a href="http://en.wikipedia.org/wiki/2012_Quebec_student_protests">the student strikes in 2005 and again in 2012 in Quebec.</a> Tthe government in Quebec wanted to charge college students tuition and fees for the first time. Students walked out of class to protest, and the strikes lasted several months. Half of Quebec's student population was involved by 2012. Hundreds of thousands of people joined the students in support until the government halted the plan to impose tuition. Srike Debt adopted the red square as the general symbol of debt resistance in 2012, and it has been in widespread use since then.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-12">
+              <h3>Why join the Debt Collective?</h3>
+              <p class="small">Creditors profit from the data they have about our loans. We all owe, but we aren’t always sure who really profits from our loan payments. Who is at the end of that paper trail?
+              </p>
+              <p class="small">
+                We can learn where our money goes and who is profiting from those payments. We can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.
+              </p>
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-12">
+              <h3>What is the Corinthian Collective?</h3>
+              <p class="small">The Corinthian collective is a group of people who attended Corinthian College and a pilot project of the Debt Collective. Working together, organizers and students are demanding a full discharge of student loans held by Everest, Heald, and Wyotech students. In spring 2014, the Rolling Jubilee purchased and abolished $4 million in debt held by Everest students. Since then, Debt Collective organizers have continued to support students as they seek a full refund and demand tuition free education... <a href="http://strategize.debtcollective.org/t/what-is-the-corinthian-collective/105">READ MORE</a> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5 class="body-text caption">
+        <p>To browse all of our FAQ's, info, or general support <a class="big-link" href="http://strategize.debtcollective.org">visit our community resource area.</a></p>
+      </h5>
+    </div>
+
+    <div class="wrapper dark" id="resources">
+      <h1 class="floating-section-title">RESOURCES</h1>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <h3>Background</h3>
+          <ul>
+            <li><a href="http://www.theguardian.com/money/2014/sep/17/occupy-activists-student-debt-corinthian-colleges">Occupy activists abolish $3.4m student debt</a></li>
+            <li><a href="http://www.washingtonpost.com/news/storyline/wp/2014/09/17/how-one-student-got-burned-by-a-for-profit-college-and-bailed-out-by-occupy-wall-street/">How one student got burned by a for-profit college and bailed out by OWS</a></li>
+            <li><a href="http://america.aljazeera.com/opinions/2014/9/strike-student-debt.html">Strike student debt! -Al Jazeera</a></li>
+            <li><a href="http://blog.debtcollective.org/students-speak-out-at-doe-hearing-to-demand-debt-cancellation-and-free-education/">Students speak out at DOE Hearing</a></li>
+            <li><a href="http://blog.debtcollective.org/from-the-rolling-jubilee-to-the-debt-collective/">From Rolling Jubilee to the Debt Collective</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <h3>Knowledge</h3>
+          <ul>
+            <li><a href="http://strikedebt.org/drom/">Debt Resistor's Operations Manual</a></li>
+            <li><a href="http://rollingjubilee.org">The Rolling Jubilee</a></li>
+            <li><a href="http://strikedebt.org">Strike Debt</a></li>
+            <li><a href="http://strikedebt.org/all-our-grievances-are-connected/">All our grievances are connected</a></li>
+            <li><a href="http://strikedebt.org/corinthiansale/">DOE Announces sale of 56 Corinthian Campuses</a></li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <h3>Action</h3>
+          <ul>
+            <li><a href="http://strategize.debtcollective.org/t/tactics-to-fight-back/68/28">Tactics to Fight Back</a></li>
+            <li><a href="http://strategize.debtcollective.org/t/how-do-we-build-a-national-movement/67/10">How do we build a national movement?</a>
+            <li><a href="">Know Your Debt Kit</a></li>
+            <li><a href="">Defense to Repayment</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
 {% endblock %}

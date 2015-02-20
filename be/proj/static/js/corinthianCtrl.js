@@ -1,54 +1,45 @@
 app.controller('corinthianCtrl',
-  function ($scope, $http, $document, util_svc) {
+  function ($scope, $window, $http) {
+    $scope.debtors = 13415;
+    $scope.debt = 354135;
+    $scope.money = 24194;
 
-    $scope.visible = {};
+    $scope.selectionIndex = null;
+    $scope.loading = true;
+    $scope.corinthian = false;
 
-    $scope.all = true;
-    $scope.current = false;
-    $scope.grad = false;
-    $scope.attending = false;
-    $scope.concerns = false;
-    $scope.charges = false;
-    $scope.status = false;
-    $scope.paying = false;
-    $scope.genesis = false;
-
-    var FAQ_ANSWERS = {
-      "all" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-      "current": [1, 5, 6, 9, 12, 13, 14],
-      "grad": [3, 8, 10],
-      "attending": [1, 14],
-      "value": [1, 12, 13, 14],
-      "charges": [2, 4],
-      "status": [5, 6, 7],
-      "paying": [3, 8, 10, 11],
-      "genesis": [15]
-    }
-
-    $scope.isVisible = function (i) {
-      if($scope.visible[i] == undefined) {
-        return false;
+    $http.get('/static/js/strikers.json').then(function (resp) {
+      $scope.loading = false;
+      var strikers = []
+      for (i in resp.data) {
+        var striker = resp.data[i]
+        striker.shortBio = striker.bio.slice(0, 200);
+        striker.first_name = striker.name.split(' ')[0].toLowerCase()
+        strikers.push(striker)
       }
-      return $scope.visible[i];
-    }
+      $scope.data = strikers
 
-    $scope.scrollClick = function () {
-      var someElement = angular.element(document.getElementById('mapdiv'));
-      $document.scrollToElement(someElement, 0, 18000);
-    }
+    });
 
-    $scope.updateVis = function () {
-      $scope.visible = {}
-      for(key in FAQ_ANSWERS) {
-        if($scope[key]) {
-          for(idx in FAQ_ANSWERS[key]) {
-            $scope.all = false;
-            q = FAQ_ANSWERS[key][idx];
-            $scope.visible[q] = true;
-          }
-        }
+    $scope.agreeButton = function () {
+      if ($scope.corinthian) {
+        $window.location.href = '/corinthiansignup'
+      }
+      else {
+        $scope.normalsignup = true
       }
     }
-    $scope.updateVis();
 
+    $scope.showStriker = function (index, $event) {
+      $scope.selectionIndex = index;
+      $event.stopPropagation()
+    }
+
+    $scope.closeStriker = function ($event) {
+      if ($scope.selectionIndex == null) return
+      $scope.selectionIndex = null;
+      $event.stopPropagation()
+    }
+
+    $scope.formVisible = function () { return true; }
 });

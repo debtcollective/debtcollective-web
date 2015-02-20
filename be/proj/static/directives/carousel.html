@@ -1,0 +1,15 @@
+<div class="carousel">
+<div class="items">
+  <div ng-repeat="item in data" class="item" ng-class="{visible: $index == selectionIndex}">
+    <div class="content" style="background-image: url({$ item.image $})">
+      <div class="content-overlay-box">
+        <p>{$ item.shortBio $}</p>
+        <p class="person-info">{$ item.name $}</p>
+        <p>
+        <button class="btn turner " ng-click="next()">Next</button>
+        <button class="btn turner " ng-click="profile()">Profile</button>
+        </p>
+      </div>
+  </div>
+</div>
+</div>

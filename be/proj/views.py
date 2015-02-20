@@ -13,14 +13,16 @@ import simplejson as json
 
 @ensure_csrf_cookie
 def splash(request):
-  total_amount = Debt.objects.all().aggregate(Sum('amount'))
-  return render_to_response('proj/splash.html', {'total_amount': total_amount['amount__sum']})
+  return render_to_response('proj/splash.html', {})
 
 def map(request):
   return render_to_response('proj/map.html')
 
-def corinthian(request):
-  return render_to_response('proj/corinthian.html')
+def corinthiansignup(request):
+  return render_to_response('proj/strikeform.html')
+
+def studentstrike(request):
+  return render_to_response('proj/studentstrike.html')
 
 def nov_fourth(request):
   return render_to_response('proj/nov4.html')
@@ -53,6 +55,7 @@ def signup(request):
   """
   if request.method != 'POST':
     raise Http404
+
 
   rq = get_POST_data(request)
   username = rq.get('username')

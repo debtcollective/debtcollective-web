@@ -1,23 +1,5 @@
 @import "../includes/variables";
 
-.close-button {
-  float: right;
-  margin-right: 10px;
-  padding: 5px;
-  cursor: pointer;
-  display: none;
-  &.visible {
-    display: block;
-  }
-}
-
-.button, button {
-  @extend %button;
-  background-color: $dark-red;
-}
-input[type="text"], input[type="email"] {
-  @extend %input;
-}
 /** NAVIGATION **/
 .navigation {
     border-bottom: 1px solid black;
@@ -31,43 +13,40 @@ input[type="text"], input[type="email"] {
 .nav-footer {
   @extend %mono;
   @include frame-transition();
-  border-top: 1px solid $light-text-color;
-  z-index: 99999;
+  border-top: 1px solid $dark-text-color;
+  z-index: $z-index-footer;
   position: fixed;
   right: 0;
   width: 100%;
   min-height: $footer-open-height;
   bottom: -$footer-open-height;
-  color:  $light-text-color;
-  background-color: $light-background-color;
+  color:  white;
+  background-color: $dark-background-color;
 
-  input {
-    color: $light-text-color;
-    text-align: left;
-    height: 44px;
-    border-bottom: 1px solid $light-text-color !important;
-    background-color: inherit !important;
+  &:not(.visible) .close-button {
+    display: none;
   }
 
   &.visible {
     bottom: 0px !important;
   }
 
-  .dc-input {
+}
+
+.dc-input {
+  width: 100%;
+  font-size: 20px;
+
+  #receiver {
+    text-align: center;
+    padding: 10px;
+  }
+
+  form {
+    @include frame-transition();
+    max-width: 400px;
     width: 100%;
-    font-size: 20px;
-
-    #receiver {
-      text-align: center;
-      padding: 10px;
-    }
-
-    form {
-      @include frame-transition();
-      max-width: 400px;
-      width: 100%;
-      margin: 0 auto;
-    }
+    margin: 0 auto;
   }
 }
 
@@ -75,15 +54,39 @@ input[type="text"], input[type="email"] {
   width: 100%;
   text-align: center;
   img {
+    width: 200px;
     margin: 10px;
   }
+}
+
+.social-links {
+  text-align: center;
+
+  img {
+    width: 300px;
+    padding-left: 10px;
+  }
+}
+
+.manifesto {
+  text-align: left;
+  // top: 50%;
+  // transform: translateY(-50%);
+  // position: relative;
+  .btn {
+    height: 70px;
+  }
+}
+
+.rest-of-splash-page {
+  display: none;
 }
 
 .splash {
   position: relative;
   text-align: center;
   height: 100%;
-  background-color: #39413f;
+  background-color: $off-grey;
 
   .splash-text {
     position: absolute;
@@ -108,44 +111,12 @@ input[type="text"], input[type="email"] {
   }
 }
 
-
-.intro-text {
-  @extend %rale;
-  color: $intro-text !important;
-  height: 100%;
-  margin: auto;
-  font-weight: 500 !important;
-  font-size: 20px;
-  line-height: 30px;
-  position: fixed;
-  top: 0;
-
-  .body-text {
-    padding-top: 88px;
-
-    .visible .pane {
-      opacity: .8 !important;
-    }
-
-    .slide {
-      position: absolute;
-      .pane {
-        opacity: .8;
-        top: 44px;
-        @include transition(opacity, 1s, ease);
-      }
-      span {
-        opacity: 0;
-      }
-    }
-  }
+.intro {
+  padding: 90px 0px 30px 0px;
+  text-align: center;
 }
 
-
 #scroll {
-  @extend %sans;
-  color: #fff;
-
   &.mainstate {
     .social-media {
       opacity: 0;
@@ -155,6 +126,7 @@ input[type="text"], input[type="email"] {
     }
   }
 }
+
 
 .images {
   @include transition(background-color, 1s, ease);
@@ -180,22 +152,22 @@ input[type="text"], input[type="email"] {
     margin: auto;
     transform: translateY(-25%);
 
-    .splash-square {
-      opacity: 1;
-      width: 245px;
-      height: 245px;
-      margin: auto;
-      &.red {
-        background-color: $pink-red;
-      }
-    }
-
     &:nth-child(19),
     &:nth-child(20),
     &:nth-child(21),
     &:nth-child(22) {
       border-bottom: #333 1px solid;
     }
+  }
+}
+
+.splash-square {
+  opacity: 1;
+  width: 245px;
+  height: 245px;
+  margin: auto;
+  &.red {
+    background-color: $pink-red;
   }
 }
 #scrollthing {
@@ -208,7 +180,10 @@ input[type="text"], input[type="email"] {
 }
 
 #mapdiv {
-  background-color: $dark-blue;
+  width: 100%;
+  height: 325px;
+  z-index: 999999999;
+  background-color: $map-background-color;
 }
 
 .debt-total {
@@ -227,40 +202,87 @@ input[type="text"], input[type="email"] {
   top: 200;
 }
 
-
-.signup-button {
-  height: 70px;
+#resources {
+  padding-bottom: 100px;
 }
 
 .map-container {
   position: relative;
-
-  img {
-    z-index: 10000;
+  .counter-container {
+    bottom: -20px;
+    position: absolute;
+    z-index: 99999;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .legend {
     position: absolute;
     bottom: 40px;
-    left: 8px;
+    left: 50%;
+    z-index: 999;
+    transform: translateX(-50%);
   }
-
-  .map-banner {
-    position: absolute;
-    bottom: 0;
-  }
-
-  .compassrose {
-    position: absolute;
-    bottom: 56px;
-    height: 250px;
-  }
-}
-
-.sm-button {
-  padding-bottom: 50px;
 }
 
 .splash-bottom-quote {
   margin-top: -25px;
+}
+
+
+
+/* stats section */
+
+#stats {
+  #number {
+    line-height: 130px;
+    img {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+    border-top: 1px dotted $light-background-color;
+    border-bottom: 1px dotted $light-background-color;
+  }
+  .vis {
+    border-right: 1px dotted $light-background-color;
+    margin: 20px 0;
+  }
+  .row .col-md-4:last-child .vis {
+    border: none;
+  }
+}
+
+/* jquery odometer counter */
+
+.counter-container {
+  height: 55px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid $light-background-color;
+  border-radius: 2px;
+  background-image: url('../img/jodometer-background.jpg');
+  background-repeat: repeat-x;
+  width: 288px;
+  margin: 0 auto;
+}
+
+.counter {
+  width: 100%;
+  height: 55px;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+}
+
+.counter-text {
+  font-size: 20px;
+  line-height: 1em;
+  font-weight: normal;
+  &.pre {
+    font-size: 40px;
+    margin: 50px 0 30px;
+  }
+  &.post {
+    margin: 20px 0 40px;
+  }
 }
 

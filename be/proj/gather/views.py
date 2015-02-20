@@ -12,6 +12,16 @@ def points(request):
   data = [p.to_json() for p in Point.objects.all()]
   return json_response(data, 200)
 
+def debt_total(request):
+  total = Debt.objects.all().aggregate(Sum('amount'))
+  return json_response({'total': total['amount__sum']}, 200)
+
+def debt_choices(request):
+  choices = Debt.DEBT_CHOICES
+  choices = map(lambda c: {'id': c[0], 'name': c[1]}, choices)
+
+  return json_response(choices, 200)
+
 def get_map_data():
   total_amount = Debt.objects.all().aggregate(Sum('amount'))
 

@@ -1,77 +1,55 @@
 app.controller('splashCtrl',
     function ($scope, $http, util_svc, $document, $timeout, $window) {
 
-    $scope.email = null;
-    $scope.username = null;
-    $scope.location = null;
-    $scope.newsletter = true;
-    $scope.debtType = null;
-    $scope.amount = null;
-    $scope.showForm = false;
-    $scope.formSubmitted = false;
-    $scope.focused = false;
-
-    $scope.startShowingFormLoc = 4300;
-
-    $http.get('/points/').then(function (resp) {
-        $scope.cities = resp.data
-    });
+    $scope.showSite = false;
+    $scope.showStats = false;
 
     $scope.bannerFadeInTimeout = false;
     $timeout(function () {
         $scope.bannerFadeInTimeout = true;
     }, 500)
 
-    $scope.scrollClick = function () {
-        var someElement = angular.element(document.getElementById('mapdiv'));
-        $document.scrollToElement(someElement, 0, 18000);
+    function scrollToElement(id) {
+        var someElement = angular.element(document.getElementById(id));
+        $document.scrollToElement(someElement, 150, 500);
     }
 
-    $scope.formValid = function () {
-        return $scope.location != null && $scope.email != null
-            && $scope.amount != null;
+    function showSite() {
+        $scope.showSite = true;
     }
 
-    $scope.formVisible = function () {
-        visible = ($scope.showForm || $scope.yLoc > $scope.startShowingFormLoc)
-            && !$scope.forceClose && !$scope.formSubmitted;
-        if (visible) {
-        showForm();
-        }
-        return visible
+    $scope.agree = function () {
+        showSite()
     }
 
-    function showForm() {
-        $scope.showForm = true;
-        $scope.forceClose = false;
-        el = document.getElementById("email");
-        el.placeholder =  'enter your email...';
+    $scope.disagree = function () {
+        showSite()
+        $scope.showStats = true;
+        $timeout(function () {
+            scrollToElement('page')
+        }, 500)
     }
 
-    $scope.emailFocus = function () {
-        showForm();
-        $scope.focused = true;
+    // create counter
+    var counterOptions = {
+      increment: 30000,
+      delayTime: 500,
+      counterStart: 0,
+      counterEnd: 0,
+      numbersImage: 'http://rollingjubilee.org/assets/img/jodometer-numbers-24pt.png',
+      widthNumber: 32,
+      heightNumber: 54,
+      spaceNumbers: 0,
+      offsetRight: -14,
+      maxDigits: 14,
+      prefixChar: true
     }
 
-    $scope.onSubmitClick = function () {
-        $scope.username = util_svc.generateUUID();
+    $http.get('/static/js/map_data.json').then(function (resp) {
+        var total_amount = resp.data.total_amount;
+        counterOptions.counterEnd = total_amount;
+        counterOptions.counterStart = total_amount - 30000;
+        $('.counter').jOdometer(counterOptions);
+    });
 
-        // temporarily, email is the password
-        // so that we can protect anonymity of our users.
-        // campaign monitor handles mailing lists
-
-        amount = parseFloat($scope.amount.replace(',', ''));
-        data = {
-            'username': $scope.username,
-            'password': $scope.email,
-            'point': $scope.location.id,
-            //'kind': $scope.debtType.name,
-            'amount': amount
-        }
-
-        $http.post('/signup/', data).then(function (resp) {
-            $scope.formSubmitted = true;
-            $scope.showForm = true;
-        });
-    }
 });

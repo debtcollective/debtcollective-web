@@ -1,0 +1,129 @@
+%input {
+  @include transition();
+  @extend %mono;
+  margin: 8px 0px;
+  width: 100%;
+  border: 0;
+  text-decoration: none;
+
+  &:focus {
+    outline: 0px;
+    outline-offset: 0px;
+  }
+}
+
+
+%button {
+  @extend %input;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 4px;
+
+  &:hover {
+
+  }
+
+}
+
+%button-lg {
+    @extend %button;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 1em 3em;
+    border-width: 0.2em;
+}
+
+
+.close-button {
+  float: right;
+  margin-right: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.action-button {
+  padding: 20px;
+  margin-top: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  &.hover {
+    background-color: $dark-background-color;
+    color: $dark-text-color;
+  }
+}
+
+.btn {
+  @extend %button;
+  min-width: 150px;
+  background-color: $dark-mauve;
+  color: $light-text-color;
+
+  &.btn-red {
+    background-color: $dark-red;
+    color: $text;
+  }
+  &.small {
+    width: 50%;
+  }
+  &.btn-primary {
+    height: 70px;
+    color: $text;
+    background-color: $dark-red;
+  }
+}
+
+input[type="text"], input[type="email"] {
+  @extend %input;
+}
+
+.sm-button {
+  padding-bottom: 50px;
+}
+
+.sm-boxes {
+  @include flexbox;
+  @include justify-content(space-around);
+  margin: 50px 0px;
+}
+
+.button-box {
+  margin: 15px;
+  background: transparent;
+  width: 100%;
+
+  .box-text {
+    @extend %mono;
+    color: $dark-text-color;
+    width: 100%;
+    letter-spacing: 0px;
+    padding: 15px;
+    margin-bottom: 0px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.tweet-box {
+  @extend .button-box;
+  width: 350px;
+  background-image: url(/static/img/02-2015_sm-norm-promo.gif);
+  background-repeat: no-repeat;
+  background-position: left;
+
+  &:hover {
+    background-image: url(/static/img/02-2015_sm-promo.gif);
+  }
+}
+
+.fb-box {
+  @extend .tweet-box;
+  background-image: url(/static/img/02-2015_tw-norm-promo.png);
+  padding: 10px;
+
+  &:hover {
+    background-image: url(/static/img/02-2015_tw-overstate-promo.png);
+  }
+}

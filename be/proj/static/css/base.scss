@@ -1,8 +1,14 @@
+
+@import "vendor/bootstrap.css";
 @import "includes/variables";
 @import "includes/mixins";
+@import "includes/flex";
+@import "includes/buttons";
 
 @import "pages/splash";
 @import "pages/corinthian";
+
+@import "components/carousel";
 
 
 ::-webkit-input-placeholder,
@@ -12,12 +18,12 @@
   color: $light-text-color;
 }
 
-
 body {
-    background-color: $dark-blue;
+    background-color: $dark-background-color;
     line-height: 1.6em;
     @extend %mono;
     font-size: 16px;
+    color: $dark-text-color;
 }
 
 .form-rest {
@@ -28,24 +34,101 @@ body {
   }
 }
 
+.row {
+  margin-left: 0px;
+ margin-right: 0px;
+}
+
+.arrow-down-steep {
+  background-image: url(/static/img/bg_arrow-down-steep.png);
+  background-position: center bottom;
+  padding-bottom: 210px;
+  background-color: $dark-background-color !important;
+  z-index: $z-index-arrow-down-steep;
+  h2:first-child {
+    margin-top: -20px !important;
+  }
+}
+
+.arrow-up {
+  background: transparent url(/static/img/bg_arrow-up.png) scroll no-repeat center top;
+  z-index: -5;
+  position: relative;
+  padding-bottom: 250px;
+  margin-top: -10px;
+}
+
+
 section {
   width: 100%;
 }
 
+#resources li {
+  padding-top: 15px;
+
+  a {
+    text-decoration: underline !important;
+    color: $link-color;
+    &:hover {
+      color: $link-hover;
+    }
+  }
+}
+
+.mono {
+  @extend %mono;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.caption {
+  font-size: 10px;
+  line-height: 15px;
+  padding-top: 40px;
+  margin-bottom: -13px !important;
+  text-align: center;
+
+  &.italic {
+    margin-bottom: -50px !important;
+    font-style: italic;
+  }
+}
+.body-text {
+  p { margin-bottom: 22px; }
+}
 p, .body-text {
   @extend %rale;
-  position: relative;
   margin: 0px auto;
-  line-height: 34px;
+  font-size: 15.6px;
+  line-height: 24px;
+  letter-spacing: 1.25px;
 
-  a.underline {
-    text-decoration: underline;
+  &.special {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  &.small {
+    line-height: 20px;
+    margin-top: 10px;
+  }
+
+  &.mono {
+    h1, h2, p {
+      @extend %mono;
+      font-family: 'Cousine', serif;
+      font-size: 13px;
+    }
+  }
+
+  a {
+    text-decoration: underline !important;
   }
 
   ul {
     padding-left: 40px;
   }
-
   li {
     list-style: initial;
   }
@@ -60,40 +143,64 @@ p, .body-text {
     padding-bottom: 22px;
   }
 
-  p {
-    letter-spacing: 1.25px;
-    margin-bottom: 22px;
-  }
-
   &.wide {
     min-width: 820px;
     max-width: 950px;
   }
 }
 
+
+.visible {
+  display: block;
+}
+
+.header-title {
+  padding: 20px;
+}
+
 .header-links {
-  padding: 4.5px 15px;
-  font-size: 16px;
-  float: right;
+  padding: 5.5px 15px;
+  font-size: 13px;
+  line-height: 20px;
+  text-transform: uppercase;
   text-align: center;
   z-index: 1000;
-  position: fixed;
-  height: $header-height;
   width: 100%;
-  top: 0;
-  right: 0;
   width: 100%;
-  background-color: $dark-blue;
   z-index: 9999999;
-  border-bottom: 1px solid $off-grey;
+  background-color: $off-grey;
+  border-bottom: 1px solid $link-color;
 
-  a {
-    color: rgb(134,133,148);
+  .splash-square {
+    position: absolute;
+    height: 92px;
+    width: 92px;
+    top: 16px;
+  }
+
+  &.scrolling {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 32px;
+    .splash-square {
+      height: 20px;
+      width: 20px;
+    }
+    .header-title {
+      display: none;
+    }
+  }
+
+  a.nav-link {
+    letter-spacing: 3px;
+    color: $link-color;
     &:hover {
-      color: rgb(172,185,183);
+      color: $link-hover;
     }
   }
 }
+
 
 $banner-height: 32px;
 .banner {
@@ -124,19 +231,79 @@ $banner-height: 32px;
   }
 }
 
+
 h1 {
-  @extend %rale;
-  font-size: 46px;
-  line-height: 46px;
-  color: #feffe8;
+  @extend %mono;
+  font-size: 26px;
+  line-height: 30px;
   font-weight: 100;
-  letter-spacing: 5px;
+
+  &.floating-section-title {
+    text-align: center;
+  }
+
   .small {
     font-size: 16px;
     line-height: 24px;
   }
   a {
-    text-decoration: underline;
+    color: $dark-mauve !important;
+    text-decoration: none;
+  }
+}
+
+
+h2 {
+  @extend %rale;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 22px;
+  letter-spacing: 4.5px;
+}
+
+
+h3 {
+  @extend %rale;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: bold;
+  margin-top: 28px;
+}
+h4 {
+  @extend %rale;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+
+h5 {
+  @extend %rale;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  font-style: italic;
+}
+
+h6 {
+  @extend %rale;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 15px;
+}
+
+.top-quote {
+  padding: 4em;
+  text-align: center;
+
+  h1 {
+    @extend %mono;
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: $light-text-color;
   }
 }
 
@@ -151,55 +318,40 @@ h1 {
   text-align: center;
 }
 
-
-h2 {
-  @extend %rale;
-  font-size: 20px;
-  line-height: 30px;
-  text-align: center;
-  margin-bottom: 22px;
-  margin-top: 44px;
-  text-transform: uppercase;
-  letter-spacing: 4.5px;
-  &:nth-child(0){
-    margin-top: 0px;
-  }
+.underline {
+  text-decoration: underline;
 }
 
-h3 {
-  @extend %rale;
-  font-size: 20px;
-  line-height: 37px;
-  margin-bottom: 22px;
-  margin-top: 44px;
-  letter-spacing: 4.5px;
-}
 .wrapper {
+  color: $light-text-color;
   background-color: $dark-background-color;
   position: relative;
   margin: 0 auto;
 
-  h1 {
-    border-bottom: $dark-text-color 1px solid;
-    margin-top: 44px;
-    margin-bottom: 22px;
-    padding-bottom: 5px;
-    color: $dark-text-color;
+  &.page {
+    padding-top: 10px;
+  }
+
+  &.dark {
+    color: $dark-text-color !important;
+    h3 {
+      color: $link-color;
+    }
+    a {
+      color: $link-color;
+    }
   }
 
   &.light {
     color:  $light-text-color;
     background-color: $light-background-color;
+
     h1 {
       color: $light-text-color;
       border-bottom: $light-text-color 1px solid;
     }
   }
 
-}
-
-div {
-  max-width: 100%;
 }
 
 /** GENERAL **/
@@ -212,7 +364,7 @@ div {
 }
 
 /** angular-bootstrap compliance **/
-.nav, .pagination, .carousel, .panel-title a {
+.nav, .pagination, .panel-title a {
     cursor: pointer;
 }
 
@@ -224,7 +376,7 @@ div {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: #041a29;
   @include transition();
 
@@ -239,11 +391,46 @@ a {
   }
 }
 
+.big-link {
+  color: $pink-red !important;
+  text-decoration: underline !important;
+}
+
 /** FORMS **/
+
 label {
     font-weight: bold;
     text-transform: uppercase;
 }
+
+form {
+  input, select {
+    color: $dark-text-color;
+    text-align: left;
+    height: 44px;
+    border-bottom: 1px solid $dark-text-color !important;
+    background-color: inherit !important;
+  }
+
+  button {
+    padding: 20px 0px;
+    margin: 15px 0px !important;
+  }
+}
+
+.add-debt {
+  float: right;
+  &:hover {
+    pointer: cursor;
+  }
+}
+
+.debt-type-select {
+  width: 50%;
+  min-width: 120px;
+  max-width: 150px;
+}
+
 
 .dropdown-menu {
   @extend %mono;
@@ -263,11 +450,12 @@ label {
   background-clip: padding-box;
   text-align: left;
   max-width: 300px;
-  padding-left: 0px;
+  padding-left: 0px !important;
 
   li {
       padding: 5px;
       opacity: .7;
+      list-style: none;
       a {
         color: $olive-yellow;
       }
@@ -279,6 +467,8 @@ label {
   }
 }
 
+/** MISC **/
+
 .left {
   float: left;
 }
@@ -286,39 +476,38 @@ label {
   float: right;
 }
 
-.tweet-btn {
-  @extend %mono;
-  @include round-corners(5);
-  @include box-shadow(3px, 3px, 2px, 0px, $off-grey);
-  max-width: 100%;
-  padding: 10px;
-  border: 2px solid $olive;
-  margin-top: 10px;
-  background-color: white;
-  color: $light-text-color;
+.half {
+  width: 49%;
+}
 
-  &:hover {
-    background-color: $dark-red;
-    color: $dark-text-color !important;
-  }
+.flex {
+  @include flexbox;
+}
 
-  &.blue {
-    @extend %button;
-    background-color: $fb-blue;
+.footer {
+  @extend %captionmono;
+  background-color: $dark-blue;
+  color: $dark-text-color;
+  padding: 10px 20px $footer-height 20px;
+  margin-bottom: 20px;
+
+  a {
     color: $dark-text-color;
-
+    text-decoration: underline !important;
     &:hover {
-      background-color: $fb-blue;
+      color: $link-hover;
     }
-    @include box-shadow(1px, 1px, 1px, 0px, $off-grey);
   }
-
-  &.red {
-    @extend %button;
-    background-color: $dark-red;
-    color: $dark-text-color;
-    @include box-shadow(1px, 1px, 1px, 0px, $off-grey);
+  li {
+    margin-top: 10px;
   }
 }
+
+.footer-copyright {
+  @extend %captionmono;
+  font-size: 12px;
+  color: $link-color;
+}
+
 
 @import "includes/responsive";

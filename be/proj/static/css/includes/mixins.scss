@@ -1,3 +1,5 @@
+@import "variables";
+
 @mixin transition($prop: all, $duration: .25s, $ease: ease-in-out) {
     -webkit-transition: $prop $duration $ease;
     -moz-transition: $prop $duration $ease;
@@ -34,6 +36,12 @@ $default_rounded_amount: 5;
     font-weight: 600;
 }
 
+%captionmono {
+    font-family: "Cutive mono", serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+}
 
 %mono {
     font-family: "Cutive mono", serif;
@@ -44,7 +52,6 @@ $default_rounded_amount: 5;
 
 %rale {
     font-family: "Raleway", sans-serif;
-    font-weight: 600;
 }
 
 %serif {
@@ -52,46 +59,7 @@ $default_rounded_amount: 5;
     font-weight: 400;
 }
 
-%button-lg {
-    @extend %button;
-    font-size: 1.2em;
-    font-weight: 600;
-    padding: 1em 3em;
-    border-width: 0.2em;
-}
-
-
 %calluna {
     font-family: "calluna", serif;
     font-weight: 600;
-}
-
-%button {
-  @extend %input;
-  color: $text;
-  cursor: pointer;
-  text-align: center;
-  margin-top: 4px !important;
-
-  &:hover {
-    opacity: .7;
-  }
-
-  &:hover {
-    background-color: $dark-red;
-  }
-}
-
-%input {
-  @include transition();
-  @extend %mono;
-  margin: 8px;
-  width: 100%;
-  border: 0;
-  text-decoration: none;
-
-  &:focus {
-    outline: 0px;
-    outline-offset: 0px;
-  }
 }

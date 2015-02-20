@@ -21,8 +21,7 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
 
     map.pathToImages = "/static/js/vendor/ammap/images/";
     map.useHandCursorOnClickableOjects = true
-    map.backgroundAlpha = .8;
-    map.backgroundColor = "#feffe8";
+    map.backgroundAlpha = 0;
     map.mouseWheelZoomEnabled = false;
     map.panEventsEnabled = false;
 
@@ -36,16 +35,17 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
     // get data
     var dataProvider = {
         map: "worldHigh",
-        zoomLevel: 1,
+        zoomLevel: 2,
         zoomLatitude: 39.096169,
         zoomLongitude: -98.198721
     };
+
     $http.get('/static/js/map_data.json').then(function (resp) {
         var parsedImages = [];
         var total_amount = resp.data.total_amount;
         var points = resp.data.points;
-
         var point;
+
         for (idx in points) {
             point = createAmChartPoint(points[idx]);
             point['scale'] = getPointScale(parseFloat(point['sum_amount']/total_amount));
@@ -56,15 +56,10 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         map.dataProvider = dataProvider;
         map.validateNow();
         map.write("mapdiv");
-    });
 
-    var mapZoomed = false;
-
-    $scope.$watch('yLoc', function (newVal, oldVal) {
-        if(newVal >= 2800 && !mapZoomed) {
-            mapZoomed = true;
+        setTimeout(function () {
             map.zoomIn();
-        }
+        }, 1000)
     });
 
     var scale = d3.scale.linear()
@@ -109,12 +104,4 @@ app.controller('mapCtrl', function ($scope, $http, util_svc) {
         point['color'] = POINT_COLOR;
         return point
     }
-    // TODO: on map object click
-    map.addListener("clickMapObject", function (event) {
-        console.log(event);
-        if (event.mapObject.id != undefined && chartData[event.mapObject.id] != undefined) {
-            console.log(event.mapObject.id);
-        }
-    });
-
 });

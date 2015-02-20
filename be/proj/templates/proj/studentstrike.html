@@ -1,0 +1,145 @@
+{% extends "proj/base_template.html" %}
+{% load humanize %}
+
+{% block body %}
+{% include "proj/header.html" %}
+<div scroll ng-controller="corinthianCtrl" >
+  <div class="hud-display-background"  ng-click="closeStriker($event)" ng-class="{visible: selectionIndex != null}"></div>
+
+  <section id="corinthian">
+    <div class="container">
+
+    <div class="wrapper light">
+    <div class="top-graphic centered">
+      <img class="hidden-mobile" src="/static/img/strikers/striker_top-graphic.gif" />
+      <img class="mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
+    </div>
+
+        <div class="tabs">
+          <div class="single-tab front">THE CORINTHIAN 15</div>
+          <div class="single-tab back"><a href="#likethestrike">Like the strike?</a></div>
+        </div>
+      </div>
+
+      <!-- profiles and statement -->
+      <div class="wrapper">
+        <div class="loading" ng-show="loading">Loading..</div>
+        <div class="profiles">
+          <h2 class="profile-intro-text">To the Department of Education, to the loan servicers, to the Genesis lending company, to Corinthian and ECMC, we have one thing to say: we owe you nothing.</h2>
+          <div class="row" ng-cloak>
+            <div ng-repeat="item in data">
+              <div class="item col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-click="showStriker($index, $event)">
+                <div class="img">
+                  <img class="hidden-mobile" ng-src="/static/img/strikers/striker-portraits_{$ item.first_name $}.gif" />
+                  <img class="mobile-only" ng-src="/static/img/strikers/striker-portraits-{$ item.first_name $}-small.png" />
+                </div>
+                <div class="info">
+                  <p>{$ item.name $}<br> {$ item.location $}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div ng-repeat="item in data" ng-class="{visible: $index == selectionIndex}" class="hud-display body-text light">
+          <div class="info">
+            <div class="img">
+              <img ng-click="closeStriker($event)"
+                 ng-src="/static/img/strikers/large/striker-portraits_{$ item.first_name $}.gif" />
+              <h3>{$ item.name $}</h3>
+            </div>
+            <p>{$ item.bio $}</p>
+          </div>
+        </div>
+
+        <div class="paper">
+          <div>
+            <img class="letter-header" src="/static/img/strikers/corinthian10_letterheader.png" />
+          </div>
+          <div class="body-text mono">
+            <h2 class="underline">TO THE DEPARTMENT OF EDUCATION:</h2><br>
+            <p>19 February, 2015</p><br>
+            <p>
+            Who are we? We are the first generation made poor by the business of education. We are people living paycheck to paycheck, single mothers, and young people just starting out. We wanted an education because we were driven to learn and to achieve a better life for ourselves and for our families.
+            </p>
+            <p>
+            We trusted that education would lead to a better life. And we trusted you to ensure that the education system in this country would do so. But Corinthian took advantage of our dreams and targeted us to make a profit. You let it happen, and now you cash in.
+            </p>
+            <p>
+            Each month you force us to make payments into an immoral system that profits from our aspirations. <h2 class="emphasis">We paid dearly for degrees that have led to unemployment or to jobs that don’t pay a living wage. We can’t and won’t pay any longer. Repayment plans presented as a helping hand simply aren’t good enough. The wrong done to us is deeper than that.</h2>
+            </p>
+            <p>
+            We are not alone in this fight. Corinthian’s predatory empire pushed hundreds of thousands into a debt trap. But even beyond for-profit schools, tens of millions of students are in more debt than they can ever repay. And you are the debt collector, with powers beyond a payday lender’s wildest dreams.
+            </p>
+            <p>
+            To the Department of Education and to the lenders, servicers, and guaranty agencies who have stolen our futures, we say: enough! Erase these loans. To current and former college students across the country, we say: we stand with you to demand the end of a higher education system that profits from all our dreams. Join our fight.
+            </p>
+            <p id="likethestrike">
+            We won’t pay. We are the Corinthian Fourteen.
+            <p>
+            Ashlee Schmidt, Makenzie Vasquez, Natasha Hornes, Nathan Hornes II, Latonya Suggs, Ann Bowers, Hollie Chaffee, DeAnda Wiley, Rolanda Delice, Natalie Cardinal, Jessica Madison, Lori Perkins, Amanda Schaffer, Dawn Thompson
+            </p>
+          </div>
+        </div>
+        <div class="dc-input wrapper dark">
+          <div ng-show="normalsignup">
+            <signupform></signupform>
+          </div>
+          <div ng-show="!normalsignup">
+            <form>
+              <input type="text" placeholder="Your name here" />
+              <p>
+              <input type="checkbox" ng-model="corinthian" value="false">I attended Everest, Heald or Wyotech</input>
+              </p>
+              <button type="submit" name="submit"
+                ng-click="agreeButton()"
+                class="btn btn-primary">I agree</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+        <div class="wrapper arrow-up"></div>
+          <div class="wrapper arrow-down-steep centered">
+          <div class="row">
+            <div class="body-text">
+            <h2>SUPPORT THE STRIKERS</h2>
+              <p>
+                This action fund will be used to support Corinthian Strikers as they attend events, plan actions, and build a national movement to demand debt cancellation and free, quality education for all.
+              </p>
+              <button class="btn btn-primary small">Donate</button>
+            </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+<!--
+<h2 class="step-heading">Sign up for updates</h2>
+
+<div class="body-text">
+  <signupform visible='formVisible()' class="student-form"></signupform>
+</div>
+
+<h2 class="step-heading">Spread the word!</h2>
+
+<div id="likethestrike" class="hud body-text">
+  <div class="top">
+    <div class="half left">
+        <h1>Join the</h1> <h1 class="large">Strike</h1>
+    </div>
+    <div class="half right">
+        <h1 class="large">Support</h1> <h1>the Strikers</h1>
+    </div>
+  </div>
+  <div class="full">
+  <h1> Join the</h1> <h1 class="large">Corinthian Collective</h1>
+  </div>
+  <div class="full">
+    <h1>Build a</h1> <h1 class="large">Future Strike</h1>
+  </div>
+</div>
+</div>
+-->
+</div>
+{% endblock %}

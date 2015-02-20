@@ -12,13 +12,22 @@
   }
 
   .body-text {
-    max-width: 64%;
+    max-width: 72%;
+  }
+  .carousel {
+    max-width: 75%;
+    margin: auto;
   }
 }
 
+// laptop and tablet landscape
 @media (min-width: 768px) and (max-width: 1130px) {
   .wrapper {
     max-width: 100%;
+  }
+
+  .content-overlay-box {
+    height: 75%;
   }
 
   .body-text {
@@ -26,7 +35,7 @@
   }
 }
 
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 768px) {
   .body-text {
     width: 473px;
     max-width: 100%;
@@ -41,14 +50,46 @@
   display: none;
 }
 
+//phones
 @media only screen and (max-width: 600px) {
   .body-text.wide {
     max-width: 100%;
     min-width: 100%;
   }
-  .body-text {
-
+  .top-quote {
+    padding: 1em;
   }
+  .arrow-down-steep .row {
+    background-color: $light-background-color;
+  }
+  .press-links img {
+    width: initial;
+  }
+  .thankyou-background {
+    background-size: 100%;
+  }
+  .profiles {
+    .item {
+      display: block;
+      .img {
+        text-align: center;
+      }
+      .info {
+        width: 100%;
+      }
+    }
+  }
+  .manifesto {
+    width: 100%;
+  }
+  .flex {
+    display: block;
+  }
+  .manifesto-buttons {
+    width: 100%;
+    max-width: initial;
+  }
+
   #corinthian .intro p {
     margin: 44px 0px;
   }
@@ -85,7 +126,7 @@
   }
 
   .nav-footer.visible:not(.focused) {
-    bottom: -($footer-open-height - $footer-height) !important;
+    top: 0px;
   }
 
   .close-button.visible:not(.focused) {
@@ -108,7 +149,8 @@
     max-width: 100%;
   }
   .body-text:not(.wide) {
-    padding: 0px 6px;
+    padding-left: 6px;
+    padding-right: 6px;
     width: 100%;
   }
   .map-container {
@@ -117,7 +159,7 @@
       height: initial;
     }
     .map-banner {
-      top: 50px;
+      bottom: 25px;
     }
   }
   .body-text.map-body {
