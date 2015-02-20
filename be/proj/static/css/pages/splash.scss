@@ -111,16 +111,9 @@
   }
 }
 
-
-.intro-text {
-  padding: 20px;
-  color: $dark-text-color;
-  p {
-    @extend %mono;
-    padding: 20px;
-    font-size: 24px;
-    text-align: center;
-  }
+.intro {
+  padding: 90px 0px 30px 0px;
+  text-align: center;
 }
 
 #scroll {
@@ -215,7 +208,7 @@
 .map-container {
   position: relative;
   .counter-container {
-    top: 20px;
+    bottom: -20px;
     position: absolute;
     z-index: 99999;
     left: 50%;
@@ -223,7 +216,7 @@
   }
   .legend {
     position: absolute;
-    top: 6px;
+    bottom: 40px;
     left: 50%;
     z-index: 999;
     transform: translateX(-50%);

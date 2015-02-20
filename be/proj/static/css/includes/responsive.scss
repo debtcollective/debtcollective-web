@@ -12,7 +12,7 @@
   }
 
   .body-text {
-    max-width: 64%;
+    max-width: 72%;
   }
   .carousel {
     max-width: 75%;
@@ -58,6 +58,9 @@
   }
   .top-quote {
     padding: 1em;
+  }
+  .arrow-down-steep .row {
+    background-color: $light-background-color;
   }
   .press-links img {
     width: initial;
@@ -146,7 +149,8 @@
     max-width: 100%;
   }
   .body-text:not(.wide) {
-    padding: 0px 6px;
+    padding-left: 6px;
+    padding-right: 6px;
     width: 100%;
   }
   .map-container {

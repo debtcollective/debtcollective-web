@@ -5,11 +5,6 @@
 
 <div >
   {% include "proj/header.html" %}
-  <div class="container">
-    <div class="body-text">
-      <h2 class="floating-section-title top-quote">"If you owe the bank a thousand dollars, the bank owns you. If you owe the bank a trillion dollars, you own the bank. Together, we own the bank."</h2>
-    </div>
-  </div>
   <div id="map" class="map-container container" ng-controller="mapCtrl">
     <div class="wrapper">
       <p>
@@ -25,17 +20,18 @@
     <div class="wrapper arrow-down-steep">
       <div class="row">
         <div class="col-md-10 col-md-offset-1" ng-class="{hidden: showSite}">
-          <div class="body-text caption">
-            <p>The debt collective is an organization that helps people join together to fight back against lenders.
-            </p>
+          <div class="body-text intro">
+            <h1>If you owe the bank a thousand dollars, the bank owns you. If you owe the bank a trillion dollars, you own the bank. Together, we own the bank.</h1>
           </div>
-
+          <h5 class="body-text caption italic">
+            <p>The debt collective is an organization that helps people join together to fight back against lenders.</p>
+          </h5>
         </div>
       </div>
     </div>
     <h2>JOIN THE DEBT COLLECTIVE</h2>
     <signupform ></signupform>
-<!--
+    <!--
     <div id="spread">
       <h1 class="floating-section-title">SPREAD THE WORD</h1>
       <div class="sm-boxes">
@@ -106,9 +102,9 @@
           </div>
         </div>
       </div>
-      <div class="body-text caption italic">
+      <h5 class="body-text caption">
         <p>To browse all of our FAQ's, info, or general support <a class="big-link" href="http://strategize.debtcollective.org">visit our community resource area.</a></p>
-      </div>
+      </h5>
     </div>
 
     <div class="wrapper dark" id="resources">
