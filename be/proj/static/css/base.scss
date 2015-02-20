@@ -95,14 +95,15 @@ strong {
     font-style: italic;
   }
 }
-
+.body-text {
+  p { margin-bottom: 22px; }
+}
 p, .body-text {
   @extend %rale;
-  color: $light-text-color;
   margin: 0px auto;
   font-size: 15.6px;
   line-height: 24px;
-
+  letter-spacing: 1.25px;
 
   &.special {
     font-size: 13px;
@@ -121,8 +122,8 @@ p, .body-text {
     }
   }
 
-  a.underline {
-    text-decoration: underline;
+  a {
+    text-decoration: underline !important;
   }
 
   ul {
@@ -140,11 +141,6 @@ p, .body-text {
   .title-banner {
     text-align: center;
     padding-bottom: 22px;
-  }
-
-  p {
-    letter-spacing: 1.25px;
-    margin-bottom: 22px;
   }
 
   &.wide {
@@ -337,12 +333,11 @@ h6 {
   }
 
   &.dark {
-    color: $dark-text-color;
+    color: $dark-text-color !important;
     h3 {
       color: $link-color;
     }
     a {
-      text-decoration: underline !important;
       color: $link-color;
     }
   }
@@ -357,12 +352,6 @@ h6 {
     }
   }
 
-}
-
-p {
-  a {
-    text-decoration: underline !important;
-  }
 }
 
 /** GENERAL **/

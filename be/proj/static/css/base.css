@@ -653,11 +653,14 @@ strong {
     margin-bottom: -50px !important;
     font-style: italic; }
 
+.body-text p {
+  margin-bottom: 22px; }
+
 p, .body-text {
-  color: #39413f;
   margin: 0px auto;
   font-size: 15.6px;
-  line-height: 24px; }
+  line-height: 24px;
+  letter-spacing: 1.25px; }
   p.special, .body-text.special {
     font-size: 13px;
     line-height: 20px; }
@@ -667,8 +670,8 @@ p, .body-text {
   p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono p {
     font-family: 'Cousine', serif;
     font-size: 13px; }
-  p a.underline, .body-text a.underline {
-    text-decoration: underline; }
+  p a, .body-text a {
+    text-decoration: underline !important; }
   p ul, .body-text ul {
     padding-left: 40px; }
   p li, .body-text li {
@@ -679,9 +682,6 @@ p, .body-text {
   p .title-banner, .body-text .title-banner {
     text-align: center;
     padding-bottom: 22px; }
-  p p, .body-text p {
-    letter-spacing: 1.25px;
-    margin-bottom: 22px; }
   p.wide, .body-text.wide {
     min-width: 820px;
     max-width: 950px; }
@@ -816,11 +816,10 @@ h6 {
   .wrapper.page {
     padding-top: 10px; }
   .wrapper.dark {
-    color: #f1eee2; }
+    color: #f1eee2 !important; }
     .wrapper.dark h3 {
       color: #CEC7C9; }
     .wrapper.dark a {
-      text-decoration: underline !important;
       color: #CEC7C9; }
   .wrapper.light {
     color: #39413f;
@@ -828,9 +827,6 @@ h6 {
     .wrapper.light h1 {
       color: #39413f;
       border-bottom: #39413f 1px solid; }
-
-p a {
-  text-decoration: underline !important; }
 
 /** GENERAL **/
 .fixed {
