@@ -104,10 +104,10 @@
         $(this).append('<div style="position:absolute; width:' + settings.widthDot + 'px; ' +
                        'height:' + settings.heightNumber + 'px; '+
                        'background:url(' + settings.numbersImage + ') '+
-                       'no-repeat center bottom; ' +
+                       'no-repeat -20px -760px; ' +
                        'right:' + (i * settings.widthNumber + numberOfDecimals * settings.widthNumber +
                                   widthDot + commaExtraWidth + settings.offsetRight + numberOfDecimals *
-                                  settings.spaceNumbers + i * settings.spaceNumbers + settings.spaceNumbers) + 'px;' +
+                                  settings.spaceNumbers + i * settings.spaceNumbers + settings.spaceNumbers + 10) + 'px;' +
                        '" class="jodometer_dot"></div>');
         commaExtraWidth += settings.widthDot + settings.spaceNumbers;
       }
