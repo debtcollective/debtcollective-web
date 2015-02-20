@@ -1,4 +1,4 @@
-@import url(vendor/bootstrap.css);
+@import url(vendor/bootstrap.min.css);
 .footer, .footer-copyright {
   font-family: "Cutive mono", serif;
   font-weight: 600;
@@ -11,7 +11,7 @@
   font-size: 16px;
   line-height: 20px; }
 
-p, .body-text, h2, .tabs .single-tab, h3, h4, h5, h6 {
+p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
   font-family: "Raleway", sans-serif; }
 
 .btn, input[type="text"], input[type="email"] {
@@ -198,7 +198,9 @@ p, .body-text, h2, .tabs .single-tab, h3, h4, h5, h6 {
 
 .intro {
   padding: 90px 0px 30px 0px;
-  text-align: center; }
+  text-align: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black; }
 
 #scroll.mainstate .social-media {
   opacity: 0; }
@@ -621,6 +623,8 @@ body {
   z-index: 0; }
   .arrow-down-steep h2:first-child, .arrow-down-steep .tabs .single-tab:first-child, .tabs .arrow-down-steep .single-tab:first-child {
     margin-top: -20px !important; }
+  .arrow-down-steep img.full-width {
+    width: 100%; }
 
 .arrow-up {
   background: transparent url(/static/img/bg_arrow-up.png) scroll no-repeat center top;
@@ -628,6 +632,9 @@ body {
   position: relative;
   padding-bottom: 250px;
   margin-top: -10px; }
+
+.arrow-top-heading {
+  margin-bottom: 60px; }
 
 section {
   width: 100%; }
@@ -649,7 +656,14 @@ strong {
   padding-top: 40px;
   margin-bottom: -13px !important;
   text-align: center; }
-  .caption.italic {
+  .caption.main {
+    margin-top: 30px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 30px 0px; }
+    .caption.main p {
+      margin-bottom: 0px; }
+  .caption.sub {
     margin-bottom: -50px !important;
     font-style: italic; }
 
@@ -689,14 +703,10 @@ p, .body-text {
 .visible {
   display: block; }
 
-.header-title {
-  padding: 20px; }
-
 .header-links {
   padding: 5.5px 15px;
   font-size: 13px;
   line-height: 20px;
-  text-transform: uppercase;
   text-align: center;
   z-index: 1000;
   width: 100%;
@@ -781,10 +791,10 @@ h5 {
   line-height: 24px;
   font-style: italic; }
 
-h6 {
+.checkbox, h6 {
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 10px;
+  font-size: 13px;
   line-height: 15px; }
 
 .top-quote {
@@ -982,6 +992,9 @@ form button {
     width: 473px;
     max-width: 100%; }
 
+  .arrow-top-heading {
+    margin-top: -45px; }
+
   .social-media {
     opacity: 0 !important; } }
 .mobile-only {
@@ -991,6 +1004,9 @@ form button {
   .body-text.wide {
     max-width: 100%;
     min-width: 100%; }
+
+  .arrow-top-heading {
+    margin-top: -45px; }
 
   .top-quote {
     padding: 1em; }

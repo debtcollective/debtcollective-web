@@ -88,9 +88,12 @@
           <div ng-show="!normalsignup">
             <form>
               <input type="text" placeholder="Your name here" />
-              <p>
-              <input type="checkbox" ng-model="corinthian" value="false">I attended Everest, Heald or Wyotech</input>
-              </p>
+              <div class="checkbox">
+                <label>™
+                  <input type="checkbox" ng-model="corinthian" value="false">
+                  <div class="help-text">I attended Everest, Heald or Wyotech</div>
+                </label>
+              </div>
               <button type="submit" name="submit"
                 ng-click="agreeButton()"
                 class="btn btn-primary">I agree</button>
