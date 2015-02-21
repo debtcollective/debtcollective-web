@@ -190,6 +190,9 @@
   filter: alpha(opacity=30);
   opacity: 0.3; }
 
+.checkbox input[type=checkbox]:checked + .help-text {
+  opacity: 1; }
+
 .checkbox input[type=checkbox]:checked + .checkLabel:after {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: alpha(opacity=100);

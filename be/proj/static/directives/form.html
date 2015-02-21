@@ -1,6 +1,6 @@
-
-  <div class="dc-input">
-    <form ng-show="!formSubmitted" class="form"
+<div class="forms">
+  <div class="dc-input" ng-show="!corinthianStudent">
+    <form ng-show="!formSubmitted" class="form" id="everoneForm"
     target="receiver"
     action="//strikedebt.createsend.com/t/j/s/nskul/"
     method="post" ng-submit="onSubmitClick($event)">
@@ -10,9 +10,8 @@
     <div ng-repeat="debt in debts" class="flex">
       <input type="text"
         ng-model="debt.amount"
-        ng-focus="showForm=true"
-        placeholder="how much debt do you have?"
-        ng-model-options="{ updateOn: 'blur' }">
+        ng-focus="debtFocus()"
+        placeholder="how much debt do you have?">
 
       <select class="debt-type-select"
         ng-model="debt.debtType"
@@ -23,25 +22,55 @@
 
     <input type="email" id="email" name="cm-nskul-nskul"  ng-model="email"
       placeholder="enter your email..."
-      ng-blur="showForm=false"
+      ng-show="showForm"
       required autocomplete="off" />
 
     <input type="text"
       ng-model="location"
-      ng-focus="showForm=true"
       placeholder="what city do you live in?"
+      ng-show="showForm"
       typeahead-editable="false"
       typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 " required>
 
       <div class="checkbox">
         <label>
-          <input type="checkbox" id="everestcheck" ng-model="corinthian" value="false">
+          <input type="checkbox" id="everestcheck" ng-model="corinthianStudent">
           <label class="checkLabel" for="everestcheck"></label>
           <div class="help-text"><strong>I have student debt from Everest, Heald or Wyotech.</strong> I want to join the fight against these assholes.</div>
         </label>
       </div>
-    <button type="submit" name="submit" ng-focus="showForm=true"
-      ng-blur="showForm=false"
-      class="btn btn-primary">sign up for updates</button>
+    <button type="submit" name="submit" class="btn btn-primary">sign up for updates</button>
+  </form>
+  </div>
+
+  <div class="dc-input" ng-show="corinthianStudent">
+    <form ng-show="!formSubmitted" class="form" id="corinthianForm"
+    target="receiver"
+    action="//strikedebt.createsend.com/t/j/s/nuriti/"
+    method="post" ng-submit="onCorinthianSubmitClick($event)">
+
+
+    <div ng-repeat="debt in debts" class="flex">
+      <input type="text"
+        ng-model="debt.amount"
+        ng-focus="debtFocus()"
+        placeholder="how much debt do you have?"
+        ng-model-options="{ updateOn: 'blur' }">
+    </div>
+
+    <input type="email" id="email" name="cm-nuriti-nuriti"  ng-model="email"
+      placeholder="enter your email..."
+      ng-show="showForm"
+      required />
+
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="everestcheck" ng-model="corinthianStudent">
+          <label class="checkLabel" for="everestcheck"></label>
+          <div class="help-text"><strong>I have student debt from Everest, Heald or Wyotech.</strong> I want to join the fight against these assholes.</div>
+        </label>
+      </div>
+    <button type="submit" name="submit"
+      class="btn btn-primary">sign up to fight back</button>
   </form>
 </div>

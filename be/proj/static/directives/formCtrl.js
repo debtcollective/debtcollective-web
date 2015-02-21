@@ -6,7 +6,7 @@ app.directive('signupform', function () {
     scope: {
       visible: '='
     },
-    controller: function ($scope, $http, util_svc, $document, $timeout, $window) {
+    controller: function ($scope, $element, $http, util_svc, $document, $timeout, $window) {
 
       $scope.email = null;
       $scope.username = null;
@@ -16,7 +16,9 @@ app.directive('signupform', function () {
       $scope.formSubmitted = false;
       $scope.location = null;
       $scope.focused = false;
-      $scope.corinthian = false;
+      $scope.corinthianStudent = false;
+
+      var form = $element.find('form')[0]
 
       $http.get('/debt_choices').then(function (resp) {
         $scope.debt_choices = resp.data
@@ -34,34 +36,12 @@ app.directive('signupform', function () {
       }
       $scope.addDebt()
 
-      $scope.formValid = function () {
-        return $scope.location != null && $scope.email != null
-            && $scope.amount != null;
-      }
-
-      $scope.formVisible = function () {
-        if ($scope.visible) {
-          visible = true
-        } else {
-          visible = $scope.showForm && !$scope.forceClose && !$scope.formSubmitted;
-        }
-
-        if (visible) {
-          showForm();
-        }
-        return visible
-      }
-
-      function showForm() {
+      $scope.debtFocus = function () {
         $scope.showForm = true;
-        $scope.forceClose = false;
-        el = document.getElementById("email");
-        el.placeholder =  'enter your email...';
       }
 
-      $scope.emailFocus = function () {
-        showForm();
-        $scope.focused = true;
+      $scope.corinthianSubmitClick = function ($event) {
+        $scope.formSubmitted = true
       }
 
       $scope.onSubmitClick = function ($event) {
@@ -79,12 +59,9 @@ app.directive('signupform', function () {
             'kind': debt.debtType.id,
             'amount': parseFloat(debt.amount.replace(',', ''))
         }
-        console.log(data)
+
         $http.post('/signup/', data).then(function (resp) {
-          if ($scope.corinthian) {
-            $window.location.href = '/corinthiansignup'
-            $event.preventDefault()
-          }
+          console.log(resp)
         });
 
         $scope.formSubmitted = true;
