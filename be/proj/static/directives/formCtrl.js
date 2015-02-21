@@ -48,10 +48,6 @@ app.directive('signupform', function () {
             id: 'student',
             name: 'Student'
           }
-          form.setAttribute('action', '//strikedebt.createsend.com/t/j/s/nuriti/')
-        }
-        else {
-          form.setAttribute('action', '//strikedebt.createsend.com/t/j/s/nskul/')
         }
       })
 

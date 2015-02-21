@@ -184,9 +184,12 @@ p, .body-text {
   }
 }
 
-
-.visible {
-  display: block;
+.jumbotron {
+  font-size: 48px;
+  line-height: 50px;
+}
+.inside-container {
+  padding-top: 2em;
 }
 
 .header-links {
@@ -605,6 +608,11 @@ form {
   @extend %captionmono;
   font-size: 12px;
   color: $link-color;
+}
+
+
+.visible {
+  display: block;
 }
 
 

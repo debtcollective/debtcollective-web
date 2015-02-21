@@ -794,8 +794,12 @@ p, .body-text {
     min-width: 820px;
     max-width: 950px; }
 
-.visible {
-  display: block; }
+.jumbotron {
+  font-size: 48px;
+  line-height: 50px; }
+
+.inside-container {
+  padding-top: 2em; }
 
 .header-links {
   padding: 5.5px 15px;
@@ -1107,6 +1111,9 @@ form button {
 .footer-copyright {
   font-size: 12px;
   color: #CEC7C9; }
+
+.visible {
+  display: block; }
 
 .mobile-only {
   display: none; }
