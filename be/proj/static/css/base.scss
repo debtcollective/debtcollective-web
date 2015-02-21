@@ -72,14 +72,23 @@ section {
   width: 100%;
 }
 
-#resources li {
-  padding-top: 15px;
+#resources {
+  h6 {
+    color: #5d6961;
+    text-align: center;
+    padding-top: 30px;
+  }
 
-  a {
-    text-decoration: underline !important;
-    color: $link-color;
-    &:hover {
-      color: $link-hover;
+  li {
+    list-style: initial;
+    padding-top: 15px;
+
+    a {
+      @extend %rale;
+      color: $dark-text-color;
+      &:hover {
+        text-decoration: underline !important;
+      }
     }
   }
 }
@@ -490,12 +499,12 @@ form {
   padding-left: 0px !important;
 
   li {
-      padding: 5px;
-      opacity: .7;
-      list-style: none;
-      a {
-        color: $olive-yellow;
-      }
+    padding: 5px;
+    opacity: 1;
+    list-style: none;
+    a {
+      color: $link-color;
+    }
     &.active {
       background-color: $olive;
       color: $olive-yellow;

@@ -81,7 +81,7 @@
 
   &:hover {
     background-color: $dark-red;
-    color: $text;
+    color: white;
   }
 
   &.btn-primary {
@@ -161,6 +161,11 @@ input[type="text"], input[type="email"] {
 
 .checkbox .help-text {
   padding-left: 30px;
+  opacity: .8;
+  @include transition();
+  &:hover {
+    opacity: 1;
+  }
 }
 .checkbox .checkLabel {
   cursor: pointer;

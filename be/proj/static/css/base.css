@@ -11,7 +11,7 @@
   font-size: 16px;
   line-height: 20px; }
 
-p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
+#resources li a, p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
   font-family: "Raleway", sans-serif; }
 
 .btn, input[type="text"], input[type="email"] {
@@ -81,7 +81,7 @@ p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
     min-width: 0px; }
   .btn:hover {
     background-color: #861800;
-    color: #b6bea7; }
+    color: white; }
   .btn.btn-primary {
     height: 70px; }
 
@@ -138,7 +138,15 @@ p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
   padding-left: 0px; }
 
 .checkbox .help-text {
-  padding-left: 30px; }
+  padding-left: 30px;
+  opacity: .8;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out; }
+  .checkbox .help-text:hover {
+    opacity: 1; }
 
 .checkbox .checkLabel {
   cursor: pointer;
@@ -725,13 +733,17 @@ body {
 section {
   width: 100%; }
 
+#resources h6 {
+  color: #5d6961;
+  text-align: center;
+  padding-top: 30px; }
 #resources li {
+  list-style: initial;
   padding-top: 15px; }
   #resources li a {
-    text-decoration: underline !important;
-    color: #CEC7C9; }
+    color: #f1eee2; }
     #resources li a:hover {
-      color: #f7f7ed; }
+      text-decoration: underline !important; }
 
 strong {
   font-weight: bold; }
@@ -1024,10 +1036,10 @@ form button {
   padding-left: 0px !important; }
   .dropdown-menu li {
     padding: 5px;
-    opacity: .7;
+    opacity: 1;
     list-style: none; }
     .dropdown-menu li a {
-      color: #ccaa2d; }
+      color: #CEC7C9; }
     .dropdown-menu li.active {
       background-color: rgba(2, 2, 2, 0.8);
       color: #ccaa2d;
