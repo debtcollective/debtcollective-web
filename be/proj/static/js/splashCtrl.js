@@ -36,12 +36,13 @@ app.controller('splashCtrl',
       delayTime: 500,
       counterStart: 0,
       counterEnd: 0,
+      formatNumber: true,
       numbersImage: 'http://rollingjubilee.org/assets/img/jodometer-numbers-24pt.png',
       widthNumber: 32,
       heightNumber: 54,
       spaceNumbers: 0,
-      offsetRight: -14,
-      maxDigits: 14,
+      offsetRight: -9,
+      maxDigits: 9,
       prefixChar: true
     }
 
@@ -50,6 +51,7 @@ app.controller('splashCtrl',
         counterOptions.counterEnd = total_amount;
         counterOptions.counterStart = total_amount - 30000;
         $('.counter').jOdometer(counterOptions);
+        $('.counter .jodometer_dot').last().hide();
     });
 
 });
