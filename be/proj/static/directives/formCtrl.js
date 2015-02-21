@@ -17,6 +17,7 @@ app.directive('signupform', function () {
       $scope.location = null;
       $scope.focused = false;
       $scope.corinthianStudent = false;
+      $scope.cities = []
 
       var form = $element.find('form')[0]
 
@@ -36,9 +37,23 @@ app.directive('signupform', function () {
       }
       $scope.addDebt()
 
-      $scope.debtFocus = function () {
+      $scope.formFocus = function () {
         $scope.showForm = true;
       }
+
+      $scope.$watch('corinthianStudent', function (newVal, oldVal) {
+        if (newVal) {
+          $scope.showForm = true
+          $scope.debts[0].debtType = {
+            id: 'student',
+            name: 'Student'
+          }
+          form.setAttribute('action', '//strikedebt.createsend.com/t/j/s/nuriti/')
+        }
+        else {
+          form.setAttribute('action', '//strikedebt.createsend.com/t/j/s/nskul/')
+        }
+      })
 
       $scope.corinthianSubmitClick = function ($event) {
         $scope.formSubmitted = true

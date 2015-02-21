@@ -332,6 +332,11 @@ h5 {
   font-style: italic;
 }
 
+p.small {
+  font-size: 12px;
+  font-style: italic;
+}
+
 .checkbox, h6 {
   @extend %rale;
   text-transform: uppercase;
@@ -449,18 +454,65 @@ label {
     text-transform: uppercase;
 }
 
-form {
-  input, select {
-    color: $dark-text-color;
-    text-align: left;
-    height: 44px;
-    border-bottom: 1px solid $dark-text-color !important;
-    background-color: inherit !important;
+.dc-input {
+  width: 100%;
+  font-size: 20px;
+
+  #receiver {
+    text-align: center;
+    padding: 10px;
   }
 
+  form {
+    @include frame-transition();
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+form {
+  //important tags b/c bootstrap
+  input, select {
+    text-align: left;
+    height: 44px;
+    padding: 10px;
+  }
+
+  input[type="text"], input[type="email"], select {
+    @extend %input;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  input {
+    border: 1px solid $dark-red !important;
+    color: $dark-text-color;
+    background-color: $olive !important;
+  }
+
+  select {
+    border: 1px solid $olive;
+    color: $olive;
+    font-weight: bold;
+    background-color: rgb(53, 58, 56) !important;
+    background-image: url(/static/img/select-righthand.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+  select {
+    $amount: 0px;
+    border-radius: $amount !important;
+    -moz-border-radius: $amount !important;
+    -webkit-border-radius: $amount !important;
+    -webkit-appearance: none;
+  }
   button {
+    @extend h2;
     padding: 20px 0px;
     margin: 15px 0px !important;
+    text-transform: uppercase;
   }
 }
 
@@ -472,14 +524,14 @@ form {
 }
 
 .debt-type-select {
-  width: 50%;
-  min-width: 120px;
-  max-width: 150px;
+  width: 75%;
+  min-width: 165px;
 }
 
 
 .dropdown-menu {
-  @extend %mono;
+  @extend %rale;
+  text-transform: uppercase;
   position: absolute;
   top: 100%;
   left: 0;

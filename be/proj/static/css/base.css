@@ -5,16 +5,16 @@
   font-size: 14px;
   line-height: 16px; }
 
-.btn, input[type="text"], input[type="email"], .button-box .box-text, .tweet-box .box-text, .fb-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, body, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono h6, .body-text.mono p, h1, .top-quote h1, .dropdown-menu {
+.button-box .box-text, .tweet-box .box-text, .fb-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, body, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button, form p.mono button, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button, form .body-text.mono button, .body-text.mono h6, .body-text.mono p, h1, .top-quote h1 {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px; }
 
-#resources li a, p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
+.btn, form input[type="text"], form input[type="email"], form select, #resources li a, p, .body-text, h2, .tabs .single-tab, form button, h3, h4, h5, .checkbox, h6, .dropdown-menu {
   font-family: "Raleway", sans-serif; }
 
-.btn, input[type="text"], input[type="email"] {
+.btn, form input[type="text"], form input[type="email"], form select {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -27,7 +27,7 @@
   width: 100%;
   border: 0;
   text-decoration: none; }
-  .btn:focus, input[type="text"]:focus, input[type="email"]:focus {
+  .btn:focus, form input[type="text"]:focus, form input[type="email"]:focus, form select:focus {
     outline: 0px;
     outline-offset: 0px; }
 
@@ -77,7 +77,8 @@
   .btn.small {
     width: 50%; }
   .btn.tiny {
-    padding: 15px;
+    padding: 15px 0px;
+    width: 70px;
     min-width: 0px; }
   .btn:hover {
     background-color: #861800;
@@ -138,8 +139,9 @@
   padding-left: 0px; }
 
 .checkbox .help-text {
-  padding-left: 30px;
+  padding-left: 35px;
   opacity: .8;
+  z-index: -5;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -151,19 +153,12 @@
 .checkbox .checkLabel {
   cursor: pointer;
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   top: 0;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.4);
-  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.4);
-  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.4);
-  background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
-  background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
-  background: -o-linear-gradient(top, #222 0%, #45484d 100%);
-  background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
-  background: linear-gradient(top, #222 0%, #45484d 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 ); }
+  z-index: 5;
+  border: 1px solid #861800;
+  background-color: rgba(2, 2, 2, 0.8); }
 
 .checkbox .checkLabel:after {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -174,9 +169,10 @@
   width: 13px;
   height: 8px;
   background: transparent;
-  top: 4px;
-  left: 4px;
+  top: 5px;
+  left: 5px;
   border: 3px solid #fcfff4;
+  background-color: transparent;
   border-top: none;
   border-right: none;
   -webkit-transform: rotate(-45deg);
@@ -225,22 +221,6 @@
     display: none; }
   .nav-footer.visible {
     bottom: 0px !important; }
-
-.dc-input {
-  width: 100%;
-  font-size: 20px; }
-  .dc-input #receiver {
-    text-align: center;
-    padding: 10px; }
-  .dc-input form {
-    -webkit-transition: all 0.75s ease;
-    -moz-transition: all 0.75s ease;
-    -ms-transition: all 0.75s ease;
-    -o-transition: all 0.75s ease;
-    transition: all 0.75s ease;
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto; }
 
 .press-links {
   width: 100%;
@@ -502,13 +482,19 @@ hr {
   padding-bottom: 18px; }
 
 .paper {
-  padding: 20px 0px;
+  padding: 0px;
   margin-top: 30px;
   background: white;
   color: black; }
   .paper .signatures {
     font-weight: 700px;
+    font-size: 18px;
     text-transform: uppercase; }
+  .paper .bottom-form {
+    padding-top: 30px;
+    border-top: 1px solid black;
+    background-color: white;
+    padding-bottom: 30px; }
 
 .letter-header {
   width: 130px;
@@ -518,7 +504,7 @@ hr {
 
 .inter-text {
   padding: 15px 0px; }
-  .inter-text h2, .inter-text .tabs .single-tab, .tabs .inter-text .single-tab {
+  .inter-text h2, .inter-text .tabs .single-tab, .tabs .inter-text .single-tab, .inter-text form button, form .inter-text button {
     margin-top: 0px;
     font-weight: 700;
     text-transform: uppercase;
@@ -526,7 +512,7 @@ hr {
 
 .big-bottom {
   padding-top: 30px; }
-  .big-bottom h2, .big-bottom .tabs .single-tab, .tabs .big-bottom .single-tab {
+  .big-bottom h2, .big-bottom .tabs .single-tab, .tabs .big-bottom .single-tab, .big-bottom form button, form .big-bottom button {
     font-size: 38px;
     line-height: 48px; }
 
@@ -718,7 +704,7 @@ body {
   padding-bottom: 210px;
   background-color: #39413f !important;
   z-index: 0; }
-  .arrow-down-steep h2.first, .arrow-down-steep .tabs .first.single-tab, .tabs .arrow-down-steep .first.single-tab {
+  .arrow-down-steep h2.first, .arrow-down-steep .tabs .first.single-tab, .tabs .arrow-down-steep .first.single-tab, .arrow-down-steep form button.first, form .arrow-down-steep button.first {
     margin-top: -20px !important; }
   .arrow-down-steep img.full-width {
     width: 100%; }
@@ -782,7 +768,7 @@ p, .body-text {
   p.small, .body-text.small {
     line-height: 20px;
     margin-top: 10px; }
-  p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono h6, .body-text.mono p {
+  p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button, form p.mono button, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button, form .body-text.mono button, .body-text.mono h6, .body-text.mono p {
     font-family: 'Cousine', serif; }
   p.mono h6, .body-text.mono h6 {
     margin-top: 6px;
@@ -887,7 +873,7 @@ h1 {
     color: #C4C2B2 !important;
     text-decoration: none; }
 
-h2, .tabs .single-tab {
+h2, .tabs .single-tab, form button {
   font-size: 20px;
   line-height: 30px;
   text-align: center;
@@ -909,6 +895,10 @@ h5 {
   font-weight: bold;
   font-size: 16px;
   line-height: 24px;
+  font-style: italic; }
+
+p.small {
+  font-size: 12px;
   font-style: italic; }
 
 .checkbox, h6 {
@@ -999,15 +989,51 @@ label {
   font-weight: bold;
   text-transform: uppercase; }
 
+.dc-input {
+  width: 100%;
+  font-size: 20px; }
+  .dc-input #receiver {
+    text-align: center;
+    padding: 10px; }
+  .dc-input form {
+    -webkit-transition: all 0.75s ease;
+    -moz-transition: all 0.75s ease;
+    -ms-transition: all 0.75s ease;
+    -o-transition: all 0.75s ease;
+    transition: all 0.75s ease;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto; }
+
 form input, form select {
-  color: #f1eee2;
   text-align: left;
   height: 44px;
-  border-bottom: 1px solid #f1eee2 !important;
-  background-color: inherit !important; }
+  padding: 10px; }
+form input[type="text"], form input[type="email"], form select {
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px; }
+form input {
+  border: 1px solid #861800 !important;
+  color: #f1eee2;
+  background-color: rgba(2, 2, 2, 0.8) !important; }
+form select {
+  border: 1px solid rgba(2, 2, 2, 0.8);
+  color: rgba(2, 2, 2, 0.8);
+  font-weight: bold;
+  background-color: #353a38 !important;
+  background-image: url(/static/img/select-righthand.png);
+  background-repeat: no-repeat;
+  background-position: right center; }
+form select {
+  border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  -webkit-border-radius: 0px !important;
+  -webkit-appearance: none; }
 form button {
   padding: 20px 0px;
-  margin: 15px 0px !important; }
+  margin: 15px 0px !important;
+  text-transform: uppercase; }
 
 .add-debt {
   float: right; }
@@ -1015,11 +1041,11 @@ form button {
     pointer: cursor; }
 
 .debt-type-select {
-  width: 50%;
-  min-width: 120px;
-  max-width: 150px; }
+  width: 75%;
+  min-width: 165px; }
 
 .dropdown-menu {
+  text-transform: uppercase;
   position: absolute;
   top: 100%;
   left: 0;
@@ -1127,6 +1153,9 @@ form button {
   .body-text.wide {
     max-width: 100%;
     min-width: 100%; }
+
+  .debt-type-select {
+    width: 100%; }
 
   .arrow-top-heading {
     margin-top: -45px; }

@@ -33,23 +33,6 @@
 
 }
 
-.dc-input {
-  width: 100%;
-  font-size: 20px;
-
-  #receiver {
-    text-align: center;
-    padding: 10px;
-  }
-
-  form {
-    @include frame-transition();
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto;
-  }
-}
-
 .press-links {
   width: 100%;
   text-align: center;

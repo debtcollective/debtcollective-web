@@ -29,12 +29,7 @@ app.controller('corinthianCtrl',
     });
 
     $scope.agreeButton = function () {
-      if ($scope.corinthian) {
-        $window.location.href = '/corinthiansignup'
-      }
-      else {
-        $scope.normalsignup = true
-      }
+      $scope.normalsignup = true
     }
 
     $scope.showStriker = function (striker, $event) {
