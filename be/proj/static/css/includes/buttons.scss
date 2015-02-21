@@ -53,19 +53,38 @@
   }
 }
 
+/** striker **/
+.donate-buttons {
+  @include flexbox;
+  .donate-button { padding: 15px 15px 0px 15px; }
+}
+
 .btn {
   @extend %button;
   min-width: 150px;
   background-color: $dark-mauve;
   color: $light-text-color;
 
-  &.btn-red {
+  &.red {
     background-color: $dark-red;
-    color: $text;
+    color: $dark-text-color;
   }
+
   &.small {
     width: 50%;
   }
+
+  &.tiny {
+    padding: 15px;
+    border: 1px solid $dark-red;
+    min-width: 0px;
+  }
+
+  &:hover {
+    background-color: $dark-red;
+    color: $text;
+  }
+
   &.btn-primary {
     height: 70px;
     color: $text;

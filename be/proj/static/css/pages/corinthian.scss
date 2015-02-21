@@ -116,6 +116,7 @@ hr {
   padding: 20px 0px;
   margin-top: 30px;
   background: white;
+  color: black;
 }
 
 
@@ -212,6 +213,7 @@ hr {
     overflow-y: auto;
     height: 100%;
     position: absolute;
+    color: $light-text-color;
   }
 }
 

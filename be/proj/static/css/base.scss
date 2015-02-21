@@ -63,7 +63,7 @@ body {
 }
 
 .arrow-top-heading {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 
@@ -170,9 +170,6 @@ p, .body-text {
   display: block;
 }
 
-.header-title {
-}
-
 .header-links {
   padding: 5.5px 15px;
   font-size: 13px;
@@ -184,6 +181,22 @@ p, .body-text {
   z-index: 9999999;
   background-color: $off-grey;
   border-bottom: 1px solid $link-color;
+
+  &.inside-header {
+    text-align: left;
+    padding: 0px;
+    .nav-link {
+      line-height: 30px;
+      padding-left: 15px;
+    }
+    .title {
+      text-align: left;
+      margin: 0px;
+      padding-left: 15px;
+      margin-left: 15px;
+      border-left: 1px solid $light-background-color;
+     }
+  }
 
   .splash-square {
     position: absolute;
@@ -502,8 +515,8 @@ form {
   @extend %captionmono;
   background-color: $dark-blue;
   color: $dark-text-color;
-  padding: 10px 20px $footer-height 20px;
-  margin-bottom: 20px;
+  padding: 30px;
+  margin-top: 60px;
 
   a {
     color: $dark-text-color;

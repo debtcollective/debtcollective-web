@@ -2,9 +2,10 @@
 {% load humanize %}
 
 {% block body %}
+
+{% include "proj/insideHeader.html" with title='CORINTHIAN COLLECTIVE' %}
 <div class="container">
     <div class="wrapper dark">
-      <div class="body-text">
         <h1 class="floating-section-title">Did you attend Everest, Heald, or Wyotech? Join the Corinthian Collective to fight back against Corinthian and the Department of Education
         </h1><br>
         <h2>
@@ -17,11 +18,8 @@
         Corinthian students and debt collective organizers are working together with lawyers, web designers, education experts, and others to finalize a powerful series of strategies that past and present Corinthian students can use to fight back. Sign up below to join the Corinthian Collective. Starting in March, we will be providing all members with an opportunity to join together with others to demand cancellation of their federal loans.
         </p>
       </div>
-    </div>
 
-    <div class="body-text" id="strikeform">
       <iframe src="https://docs.google.com/forms/d/1RDOUi6lvkwdFFJ7arxFR4GlhPMvKEqPOmDG8hJ_Cxvs/viewform?embedded=true" width="760" height="1200px" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-    </div>
     <div class="wrapper arrow-up"></div>
     <div class="wrapper arrow-down-steep">
       <div class="row">
@@ -75,12 +73,6 @@
         </div>
       </div>
     </div>
-
-  <div class="wrapper dark">
-    <h2 class="floating-section-title">
-      <a class="left big-link" href="/"><< BACK TO THE DEBT COLLECTIVE</a>
-    </h2>
-  </div>
 </div>
 
 {% endblock %}

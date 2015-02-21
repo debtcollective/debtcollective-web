@@ -1,3 +1,8 @@
+.mobile-only {
+  display: none;
+}
+
+
 @media (min-width: 2500px) {
   .wrapper {
     max-width: 56.5%;
@@ -47,12 +52,10 @@
   .social-media {
     opacity: 0 !important;
   }
+  .arrow-down-steep .row {
+    background-color: $light-background-color;
+  }
 }
-
-.mobile-only {
-  display: none;
-}
-
 //phones
 @media only screen and (max-width: 600px) {
   .body-text.wide {
@@ -113,7 +116,9 @@
       margin-bottom: 100px;
     }
   }
-
+  .btn.tiny {
+    padding: 15px 5px;
+  }
   .button, button {
     margin: 0px;
   }

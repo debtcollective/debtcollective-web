@@ -4,16 +4,16 @@
 {% block body %}
 {% include "proj/header.html" %}
 <div scroll ng-controller="corinthianCtrl" >
-  <div class="hud-display-background"  ng-click="closeStriker($event)" ng-class="{visible: selectionIndex != null}"></div>
+  <div class="hud-display-background"  ng-click="closeStriker(null, $event)" ng-class="{visible: selectedStriker != null}"></div>
 
   <section id="corinthian">
     <div class="container">
 
     <div class="wrapper light">
-    <div class="top-graphic centered">
-      <img class="hidden-mobile" src="/static/img/strikers/striker_top-graphic.gif" />
-      <img class="mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
-    </div>
+      <div class="top-graphic centered">
+        <img class="hidden-mobile" src="/static/img/strikers/striker_top-graphic.gif" />
+        <img class="mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
+      </div>
 
         <div class="tabs">
           <div class="single-tab front">THE CORINTHIAN 15</div>
@@ -22,36 +22,40 @@
       </div>
 
       <!-- profiles and statement -->
-      <div class="wrapper">
+      <div class="wrapper arrow-down-steep">
         <div class="loading" ng-show="loading">Loading..</div>
-        <div class="profiles">
-          <h2 class="profile-intro-text">To the Department of Education, to the loan servicers, to the Genesis lending company, to Corinthian and ECMC, we have one thing to say: we owe you nothing.</h2>
-          <div class="row" ng-cloak>
-            <div ng-repeat="item in data">
-              <div class="item col-xs-12 col-sm-6 col-md-3 col-lg-3" ng-click="showStriker($index, $event)">
-                <div class="img">
-                  <img class="hidden-mobile" ng-src="/static/img/strikers/striker-portraits_{$ item.first_name $}.gif" />
-                  <img class="mobile-only" ng-src="/static/img/strikers/striker-portraits-{$ item.first_name $}-small.png" />
-                </div>
-                <div class="info">
-                  <p>{$ item.name $}<br> {$ item.location $}</p>
-                </div>
-              </div>
+        <div class="row" ng-cloak>
+          <div class="body-text centered">
+            <h1>
+              To the Department of Education,
+            </h1>
+            <h1>to the loan servicers,<h1>
+            <div ng-repeat="striker in strikerChunks[0]">
+                {% include "proj/strikers.html" %}
             </div>
+            <h1>To the genesis lending company,</h1>
+            <h1>To corinthian and ECMC,</h1>
+            <div ng-repeat="striker in strikerChunks[1]">
+                {% include "proj/strikers.html" %}
+            </div>
+            <h1>We have one thing to say</h1>
+            <div ng-repeat="striker in strikerChunks[2]">
+                {% include "proj/strikers.html" %}
+            </div>
+            <h1 class="big-link">WE OWE YOU NOTHING</h1>
           </div>
         </div>
-
-        <div ng-repeat="item in data" ng-class="{visible: $index == selectionIndex}" class="hud-display body-text light">
+      </div>
+        <div ng-repeat="striker in strikers" ng-class="{visible: striker.visible}" class="hud-display body-text light">
           <div class="info">
             <div class="img">
-              <img ng-click="closeStriker($event)"
-                 ng-src="/static/img/strikers/large/striker-portraits_{$ item.first_name $}.gif" />
-              <h3>{$ item.name $}</h3>
+              <img ng-click="closeStriker(striker, $event)"
+                 ng-src="/static/img/strikers/large/striker-portraits_{$ striker.first_name $}.gif" />
+              <h3>{$ striker.name $}</h3>
             </div>
-            <p>{$ item.bio $}</p>
+            <p>{$ striker.bio $}</p>
           </div>
         </div>
-
         <div class="paper">
           <div>
             <img class="letter-header" src="/static/img/strikers/corinthian10_letterheader.png" />
@@ -79,7 +83,6 @@
             <p>
             Ashlee Schmidt, Makenzie Vasquez, Natasha Hornes, Nathan Hornes II, Latonya Suggs, Ann Bowers, Hollie Chaffee, DeAnda Wiley, Rolanda Delice, Natalie Cardinal, Jessica Madison, Lori Perkins, Amanda Schaffer, Dawn Thompson
             </p>
-          </div>
         </div>
         <div class="dc-input wrapper dark">
           <div ng-show="normalsignup">
@@ -89,7 +92,7 @@
             <form>
               <input type="text" placeholder="Your name here" />
               <div class="checkbox">
-                <label>™
+                <label>
                   <input type="checkbox" ng-model="corinthian" value="false">
                   <div class="help-text">I attended Everest, Heald or Wyotech</div>
                 </label>
@@ -101,24 +104,8 @@
           </div>
         </div>
       </div>
+    {% include "proj/strikedonate.html" %}
 
-        <div class="wrapper arrow-up"></div>
-          <div class="wrapper arrow-down-steep centered">
-          <div class="row">
-            <div class="body-text">
-            <h2>SUPPORT THE STRIKERS</h2>
-              <p>
-                This action fund will be used to support Corinthian Strikers as they attend events, plan actions, and build a national movement to demand debt cancellation and free, quality education for all.
-              </p>
-              <donate-button amount="10">$10</donate-button>
-              <donate-button amount="20">$20</donate-button>
-              <donate-button amount="50">$50</donate-button>
-              <donate-button amount="100">$100</donate-button>
-              <donate-button flexible="true">Other</donate-button>
-            </div>
-            </div>
-          </div>
-        </div>
     </section>
 
 <!--

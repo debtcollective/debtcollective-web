@@ -49,15 +49,32 @@ p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
     background-color: #39413f;
     color: #f1eee2; }
 
+/** striker **/
+.donate-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .donate-buttons .donate-button {
+    padding: 15px 15px 0px 15px; }
+
 .btn {
   min-width: 150px;
   background-color: #C4C2B2;
   color: #39413f; }
-  .btn.btn-red {
+  .btn.red {
     background-color: #861800;
-    color: #b6bea7; }
+    color: #f1eee2; }
   .btn.small {
     width: 50%; }
+  .btn.tiny {
+    padding: 15px;
+    border: 1px solid #861800;
+    min-width: 0px; }
+  .btn:hover {
+    background-color: #861800;
+    color: #b6bea7; }
   .btn.btn-primary {
     height: 70px;
     color: #b6bea7;
@@ -197,7 +214,7 @@ p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
       opacity: .45; }
 
 .intro {
-  padding: 90px 0px 30px 0px;
+  padding: 45px 0px 30px 0px;
   text-align: center;
   border-top: 1px solid black;
   border-bottom: 1px solid black; }
@@ -269,9 +286,6 @@ p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
   height: 150px;
   left: 20;
   top: 200; }
-
-#resources {
-  padding-bottom: 100px; }
 
 .map-container {
   position: relative; }
@@ -426,7 +440,8 @@ hr {
 .paper {
   padding: 20px 0px;
   margin-top: 30px;
-  background: white; }
+  background: white;
+  color: black; }
 
 .letter-header {
   width: 130px;
@@ -505,7 +520,8 @@ hr {
   .hud-display .info {
     overflow-y: auto;
     height: 100%;
-    position: absolute; }
+    position: absolute;
+    color: #39413f; }
 
 .item {
   display: -webkit-box;
@@ -634,7 +650,7 @@ body {
   margin-top: -10px; }
 
 .arrow-top-heading {
-  margin-bottom: 60px; }
+  margin-bottom: 30px; }
 
 section {
   width: 100%; }
@@ -714,6 +730,18 @@ p, .body-text {
   z-index: 9999999;
   background-color: #39413f;
   border-bottom: 1px solid #CEC7C9; }
+  .header-links.inside-header {
+    text-align: left;
+    padding: 0px; }
+    .header-links.inside-header .nav-link {
+      line-height: 30px;
+      padding-left: 15px; }
+    .header-links.inside-header .title {
+      text-align: left;
+      margin: 0px;
+      padding-left: 15px;
+      margin-left: 15px;
+      border-left: 1px solid #f1eee2; }
   .header-links .splash-square {
     position: absolute;
     height: 92px;
@@ -948,8 +976,8 @@ form button {
 .footer {
   background-color: #1a1b23;
   color: #f1eee2;
-  padding: 10px 20px 70px 20px;
-  margin-bottom: 20px; }
+  padding: 30px;
+  margin-top: 60px; }
   .footer a {
     color: #f1eee2;
     text-decoration: underline !important; }
@@ -961,6 +989,9 @@ form button {
 .footer-copyright {
   font-size: 12px;
   color: #CEC7C9; }
+
+.mobile-only {
+  display: none; }
 
 @media (min-width: 2500px) {
   .wrapper {
@@ -996,10 +1027,10 @@ form button {
     margin-top: -45px; }
 
   .social-media {
-    opacity: 0 !important; } }
-.mobile-only {
-  display: none; }
+    opacity: 0 !important; }
 
+  .arrow-down-steep .row {
+    background-color: #f1eee2; } }
 @media only screen and (max-width: 600px) {
   .body-text.wide {
     max-width: 100%;
@@ -1047,6 +1078,9 @@ form button {
   .hearing .timeline {
     float: left;
     margin-bottom: 100px; }
+
+  .btn.tiny {
+    padding: 15px 5px; }
 
   .button, button {
     margin: 0px; }

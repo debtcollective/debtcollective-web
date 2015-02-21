@@ -15,21 +15,20 @@ app.directive('donateButton', function ($window) {
 
       $scope.flexible = !!$attrs.flexible
       $scope.form = {
-        flexibleAmount: 10
+        flexibleAmount: ''
       }
 
-      var name = 'Donate'
       var panel = 'Donate'
 
       $element.find('button').on('click', function(e) {
         if ($scope.flexible) $scope.amount = $scope.form.flexibleAmount
-        var description = "$" + $scope.amount + " to the strike fund!"
 
         handler.open({
-          name: name,
-          description: description,
+          name: 'Debt Collective',
+          description: "$" + $scope.amount + " to the strike fund!",
           amount: $scope.amount * 100,
-          panelLabel: panel
+          panelLabel: panel,
+          allowRememberMe: false
         });
         e.preventDefault();
       });

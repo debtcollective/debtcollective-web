@@ -11,6 +11,8 @@ urlpatterns = patterns('',
 def basic_url(name):
   return url(r'^%s' % name, name, name=name)
 
+
+## TODO: Move corinthian specific stuff to arcs.corinthian..
 urlpatterns += patterns('proj.views',
   basic_url('map'),
   basic_url('login'),
@@ -18,6 +20,8 @@ urlpatterns += patterns('proj.views',
   basic_url('thankyou'),
   basic_url('studentstrike'),
   basic_url('corinthiansignup'),
+  basic_url('corinthiansolidarity'),
+  basic_url('knowyourstudentdebt'),
   url(r'^$', 'splash', name='splash'),
 )
 

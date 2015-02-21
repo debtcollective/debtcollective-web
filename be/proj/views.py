@@ -21,6 +21,12 @@ def map(request):
 def corinthiansignup(request):
   return render_to_response('proj/strikeform.html')
 
+def corinthiansolidarity(request):
+  return render_to_response('proj/corinthiansolidarity.html')
+
+def knowyourstudentdebt(request):
+  return render_to_response('proj/knowyourstudentdebt.html')
+
 def studentstrike(request):
   return render_to_response('proj/studentstrike.html')
 
