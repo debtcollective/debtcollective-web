@@ -5,7 +5,7 @@
   font-size: 14px;
   line-height: 16px; }
 
-.btn, input[type="text"], input[type="email"], .button-box .box-text, .tweet-box .box-text, .fb-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, body, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono p, h1, .top-quote h1, .dropdown-menu {
+.btn, input[type="text"], input[type="email"], .button-box .box-text, .tweet-box .box-text, .fb-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, body, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono h6, .body-text.mono p, h1, .top-quote h1, .dropdown-menu {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -435,6 +435,9 @@ hr {
   margin-top: 30px;
   background: white;
   color: black; }
+  .paper .signatures {
+    font-weight: 700px;
+    text-transform: uppercase; }
 
 .letter-header {
   width: 130px;
@@ -704,9 +707,16 @@ p, .body-text {
   p.small, .body-text.small {
     line-height: 20px;
     margin-top: 10px; }
-  p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono p {
-    font-family: 'Cousine', serif;
-    font-size: 13px; }
+  p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono h6, .body-text.mono p {
+    font-family: 'Cousine', serif; }
+  p.mono h6, .body-text.mono h6 {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    line-height: 24px;
+    text-transform: none; }
+  p.mono p, .body-text.mono p {
+    font-size: 13px;
+    line-height: 24px; }
   p a, .body-text a {
     text-decoration: underline !important; }
   p ul, .body-text ul {

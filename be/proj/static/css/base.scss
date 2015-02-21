@@ -132,10 +132,19 @@ p, .body-text {
   }
 
   &.mono {
-    h1, h2, p {
+    h1, h2, h6, p {
       @extend %mono;
       font-family: 'Cousine', serif;
+    }
+    h6 {
+      margin-top: 6px;
+      margin-bottom: 12px;
+      line-height: 24px;
+      text-transform: none;
+    }
+    p {
       font-size: 13px;
+      line-height: 24px;
     }
   }
 
