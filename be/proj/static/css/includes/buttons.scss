@@ -53,7 +53,10 @@
 .donate-buttons {
   @include flexbox;
   @include justify-content(space-around);
-  .donate-button { padding: 15px 15px 0px 15px; }
+  margin-bottom: 15px;
+  .donate-button {
+    padding: 15px 15px 0px 15px;
+  }
 }
 
 .btn {

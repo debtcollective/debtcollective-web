@@ -122,7 +122,10 @@ hr {
 }
 .big-bottom {
   padding-top: 30px;
-  h2 { font-size: 38px; }
+  h2 {
+    font-size: 38px;
+    line-height: 48px;
+  }
 }
 
 .anchor {

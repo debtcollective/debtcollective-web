@@ -62,7 +62,8 @@ p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
   -ms-flex-pack: distribute;
   -webkit-justify-content: space-around;
   -moz-justify-content: space-around;
-  justify-content: space-around; }
+  justify-content: space-around;
+  margin-bottom: 15px; }
   .donate-buttons .donate-button {
     padding: 15px 15px 0px 15px; }
 
@@ -452,7 +453,8 @@ hr {
 .big-bottom {
   padding-top: 30px; }
   .big-bottom h2, .big-bottom .tabs .single-tab, .tabs .big-bottom .single-tab {
-    font-size: 38px; }
+    font-size: 38px;
+    line-height: 48px; }
 
 .anchor {
   padding-top: 100px; }
