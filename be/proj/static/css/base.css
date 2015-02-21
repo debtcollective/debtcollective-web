@@ -350,7 +350,8 @@
     position: absolute;
     z-index: 99999;
     left: 50%;
-    transform: translateX(-50%); }
+    transform: translateX(-50%);
+    width: 384px; }
   .map-container .legend {
     position: absolute;
     bottom: 40px;

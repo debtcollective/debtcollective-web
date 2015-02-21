@@ -38,16 +38,16 @@ app.controller('splashCtrl',
       counterEnd: 0,
       formatNumber: true,
       numbersImage: 'http://rollingjubilee.org/assets/img/jodometer-numbers-24pt.png',
-      widthNumber: 32,
+      widthNumber: 30,
       heightNumber: 54,
       spaceNumbers: 0,
-      offsetRight: -9,
-      maxDigits: 9,
+      offsetRight: -11,
+      maxDigits: 11,
       prefixChar: true
     }
 
     $http.get('/static/js/map_data.json').then(function (resp) {
-        var total_amount = resp.data.total_amount;
+        var total_amount = 132333455;
         counterOptions.counterEnd = total_amount;
         counterOptions.counterStart = total_amount - 30000;
         $('.counter').jOdometer(counterOptions);
