@@ -38,15 +38,12 @@ app.controller('corinthianCtrl',
     }
 
     $scope.showStriker = function (striker, $event) {
-      striker.visible = true
-      $scope.selectedStriker = striker
+      $scope.currentStriker = striker
       $event.stopPropagation()
     }
 
-    $scope.closeStriker = function (striker, $event) {
-      $scope.selectedStriker = null
-      if (striker) striker.visible = false
-      else $scope.strikers.forEach(function (striker) { striker.visible = false })
+    $scope.closeStriker = function ($event) {
+      $scope.currentStriker = null
       $event.stopPropagation()
     }
 

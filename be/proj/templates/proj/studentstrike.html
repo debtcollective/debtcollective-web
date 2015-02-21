@@ -4,7 +4,7 @@
 {% block body %}
 {% include "proj/header.html" %}
 <div scroll ng-controller="corinthianCtrl" >
-  <div class="hud-display-background"  ng-click="closeStriker(null, $event)" ng-class="{visible: selectedStriker != null}"></div>
+  <div class="hud-display-background"  ng-click="closeStriker($event)" ng-class="{visible: currentStriker != null}"></div>
 
   <section id="corinthian">
     <div class="container">
@@ -46,14 +46,14 @@
           </div>
         </div>
       </div>
-        <div ng-repeat="striker in strikers" ng-class="{visible: striker.visible}" class="hud-display body-text light">
+        <div ng-class="{visible: currentStriker != null}" class="hud-display body-text light">
           <div class="info">
             <div class="img">
-              <img ng-click="closeStriker(striker, $event)"
-                 ng-src="/static/img/strikers/large/striker-portraits_{$ striker.first_name $}.gif" />
-              <h3>{$ striker.name $}</h3>
+              <img ng-click="closeStriker($event)"
+                 ng-src="/static/img/strikers/large/striker-portraits_{$ currentStriker.first_name $}.gif" />
+              <h3>{$ currentStriker.name $}</h3>
             </div>
-            <p>{$ striker.bio $}</p>
+            <p>{$ currentStriker.bio $}</p>
           </div>
         </div>
         <div class="paper">
