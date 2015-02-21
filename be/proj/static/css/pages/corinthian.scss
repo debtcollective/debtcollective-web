@@ -97,21 +97,6 @@ hr {
   padding-bottom: 18px;
 }
 
-.manifesto {
-  width: 100%;
-  text-align: justify;
-  margin-right: 20px;
-}
-
-.manifesto-buttons {
-  width: 30%;
-  max-width: 170px;
-  img {
-    margin-bottom: 20px;
-    margin-left: 20px;
-  }
-}
-
 .paper {
   padding: 20px 0px;
   margin-top: 30px;
@@ -119,12 +104,25 @@ hr {
   color: black;
 }
 
-
 .letter-header {
   width: 130px;
   margin-left: 60px;
   margin-bottom: 80px;
   margin-top: 40px;
+}
+
+.inter-text {
+  padding: 15px 0px;
+  h2 {
+    margin-top: 0px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0px
+  }
+}
+.big-bottom {
+  padding-top: 30px;
+  h2 { font-size: 38px; }
 }
 
 .anchor {

@@ -20,6 +20,9 @@ p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
   -ms-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
   margin: 8px 0px;
   width: 100%;
   border: 0;
@@ -55,7 +58,11 @@ p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -ms-flex-pack: distribute;
+  -webkit-justify-content: space-around;
+  -moz-justify-content: space-around;
+  justify-content: space-around; }
   .donate-buttons .donate-button {
     padding: 15px 15px 0px 15px; }
 
@@ -63,22 +70,19 @@ p, .body-text, h2, .tabs .single-tab, h3, h4, h5, .checkbox, h6 {
   min-width: 150px;
   background-color: #C4C2B2;
   color: #39413f; }
-  .btn.red {
+  .btn.red, .btn.btn-primary {
     background-color: #861800;
     color: #f1eee2; }
   .btn.small {
     width: 50%; }
   .btn.tiny {
     padding: 15px;
-    border: 1px solid #861800;
     min-width: 0px; }
   .btn:hover {
     background-color: #861800;
     color: #b6bea7; }
   .btn.btn-primary {
-    height: 70px;
-    color: #b6bea7;
-    background-color: #861800; }
+    height: 70px; }
 
 .sm-button {
   padding-bottom: 50px; }
@@ -425,18 +429,6 @@ hr {
   justify-content: space-around;
   padding-bottom: 18px; }
 
-.manifesto {
-  width: 100%;
-  text-align: justify;
-  margin-right: 20px; }
-
-.manifesto-buttons {
-  width: 30%;
-  max-width: 170px; }
-  .manifesto-buttons img {
-    margin-bottom: 20px;
-    margin-left: 20px; }
-
 .paper {
   padding: 20px 0px;
   margin-top: 30px;
@@ -448,6 +440,19 @@ hr {
   margin-left: 60px;
   margin-bottom: 80px;
   margin-top: 40px; }
+
+.inter-text {
+  padding: 15px 0px; }
+  .inter-text h2, .inter-text .tabs .single-tab, .tabs .inter-text .single-tab {
+    margin-top: 0px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0px; }
+
+.big-bottom {
+  padding-top: 30px; }
+  .big-bottom h2, .big-bottom .tabs .single-tab, .tabs .big-bottom .single-tab {
+    font-size: 38px; }
 
 .anchor {
   padding-top: 100px; }
@@ -637,7 +642,7 @@ body {
   padding-bottom: 210px;
   background-color: #39413f !important;
   z-index: 0; }
-  .arrow-down-steep h2:first-child, .arrow-down-steep .tabs .single-tab:first-child, .tabs .arrow-down-steep .single-tab:first-child {
+  .arrow-down-steep h2.first, .arrow-down-steep .tabs .first.single-tab, .tabs .arrow-down-steep .first.single-tab {
     margin-top: -20px !important; }
   .arrow-down-steep img.full-width {
     width: 100%; }
@@ -847,14 +852,14 @@ h5 {
   text-decoration: underline; }
 
 .wrapper {
-  color: #39413f;
-  background-color: #39413f;
   position: relative;
-  margin: 0 auto; }
+  margin: 0 auto;
+  color: #39413f; }
   .wrapper.page {
     padding-top: 10px; }
   .wrapper.dark {
-    color: #f1eee2 !important; }
+    color: #f1eee2 !important;
+    background-color: #39413f; }
     .wrapper.dark h3 {
       color: #CEC7C9; }
     .wrapper.dark a {

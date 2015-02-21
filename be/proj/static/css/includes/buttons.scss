@@ -1,6 +1,7 @@
 %input {
   @include transition();
   @extend %mono;
+  @include round-corners(0px);
   margin: 8px 0px;
   width: 100%;
   border: 0;
@@ -18,11 +19,6 @@
   cursor: pointer;
   text-align: center;
   margin-top: 4px;
-
-  &:hover {
-
-  }
-
 }
 
 %button-lg {
@@ -56,6 +52,7 @@
 /** striker **/
 .donate-buttons {
   @include flexbox;
+  @include justify-content(space-around);
   .donate-button { padding: 15px 15px 0px 15px; }
 }
 
@@ -76,7 +73,6 @@
 
   &.tiny {
     padding: 15px;
-    border: 1px solid $dark-red;
     min-width: 0px;
   }
 
@@ -86,9 +82,8 @@
   }
 
   &.btn-primary {
+    @extend .btn.red;
     height: 70px;
-    color: $text;
-    background-color: $dark-red;
   }
 }
 

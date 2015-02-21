@@ -45,7 +45,8 @@ body {
   padding-bottom: 210px;
   background-color: $dark-background-color !important;
   z-index: $z-index-arrow-down-steep;
-  h2:first-child {
+
+  h2.first {
     margin-top: -20px !important;
   }
 
@@ -350,10 +351,9 @@ h5 {
 }
 
 .wrapper {
-  color: $light-text-color;
-  background-color: $dark-background-color;
   position: relative;
   margin: 0 auto;
+  color: $light-text-color;
 
   &.page {
     padding-top: 10px;
@@ -361,6 +361,7 @@ h5 {
 
   &.dark {
     color: $dark-text-color !important;
+    background-color: $dark-background-color;
     h3 {
       color: $link-color;
     }

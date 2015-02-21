@@ -26,23 +26,37 @@
         <div class="loading" ng-show="loading">Loading..</div>
         <div class="row" ng-cloak>
           <div class="body-text centered">
-            <h1>
-              To the Department of Education,
-            </h1>
-            <h1>to the loan servicers,<h1>
-            <div ng-repeat="striker in strikerChunks[0]">
-                {% include "proj/strikers.html" %}
+            <div class="inter-text">
+              <h2>
+                To the Department of Education,
+              </h2>
+              <h2>to the loan servicers,<h2>
             </div>
-            <h1>To the genesis lending company,</h1>
-            <h1>To corinthian and ECMC,</h1>
-            <div ng-repeat="striker in strikerChunks[1]">
-                {% include "proj/strikers.html" %}
+            <div class="row">
+              <div ng-repeat="striker in strikerChunks[0]">
+                  {% include "proj/strikers.html" %}
+              </div>
             </div>
-            <h1>We have one thing to say</h1>
-            <div ng-repeat="striker in strikerChunks[2]">
-                {% include "proj/strikers.html" %}
+            <div class="inter-text">
+              <h2>To the genesis lending company,</h2>
+              <h2>To corinthian and ECMC,</h2>
             </div>
-            <h1 class="big-link">WE OWE YOU NOTHING</h1>
+            <div class="row">
+              <div ng-repeat="striker in strikerChunks[1]">
+                  {% include "proj/strikers.html" %}
+              </div>
+            </div>
+            <div class="inter-text">
+              <h2>We have one thing to say</h2>
+            </div>
+            <div class="row">
+              <div ng-repeat="striker in strikerChunks[2]">
+                  {% include "proj/strikers.html" %}
+              </div>
+            </div>
+            <div class="inter-text big-bottom">
+              <h2 class="big-link">WE OWE YOU NOTHING</h2>
+            </div>
           </div>
         </div>
       </div>
@@ -50,7 +64,7 @@
           <div class="info">
             <div class="img">
               <img ng-click="closeStriker($event)"
-                 ng-src="/static/img/strikers/large/striker-portraits_{$ currentStriker.first_name $}.gif" />
+                 ng-src="/static/img/strikers/striker-portraits_{$ currentStriker.first_name $}.png" />
               <h3>{$ currentStriker.name $}</h3>
             </div>
             <p>{$ currentStriker.bio $}</p>
@@ -84,7 +98,7 @@
             Ashlee Schmidt, Makenzie Vasquez, Natasha Hornes, Nathan Hornes II, Latonya Suggs, Ann Bowers, Hollie Chaffee, DeAnda Wiley, Rolanda Delice, Natalie Cardinal, Jessica Madison, Lori Perkins, Amanda Schaffer, Dawn Thompson
             </p>
         </div>
-        <div class="dc-input wrapper dark">
+        <div class="dc-input wrapper">
           <div ng-show="normalsignup">
             <signupform></signupform>
           </div>
