@@ -21,7 +21,7 @@
 body {
     background-color: $dark-background-color;
     line-height: 1.6em;
-    @extend %mono;
+    @extend %rale;
     font-size: 16px;
     color: $dark-text-color;
 }
@@ -71,28 +71,6 @@ body {
 section {
   width: 100%;
 }
-
-#resources {
-  h6 {
-    color: #5d6961;
-    text-align: center;
-    padding-top: 30px;
-  }
-
-  li {
-    list-style: initial;
-    padding-top: 15px;
-
-    a {
-      @extend %rale;
-      color: $dark-text-color;
-      &:hover {
-        text-decoration: underline !important;
-      }
-    }
-  }
-}
-
 .mono {
   @extend %mono;
 }
@@ -158,7 +136,7 @@ p, .body-text {
   }
 
   a {
-    text-decoration: underline !important;
+    text-decoration: underline;
   }
 
   ul {
@@ -585,7 +563,6 @@ form {
 }
 
 .footer {
-  @extend %captionmono;
   background-color: $dark-blue;
   color: $dark-text-color;
   padding: 30px;

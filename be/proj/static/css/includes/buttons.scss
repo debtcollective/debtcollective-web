@@ -49,7 +49,15 @@
   }
 }
 
-/** striker **/
+.sm-button {
+  width: 45px;
+  padding: 5px;
+  vertical-align: initial;
+  &:hover {
+    background-color: $dark-background-color;
+  }
+}
+
 .donate-buttons {
   @include flexbox;
   @include justify-content(space-around);
@@ -91,10 +99,6 @@
   }
 }
 
-
-.sm-button {
-  padding-bottom: 50px;
-}
 
 .sm-boxes {
   @include flexbox;

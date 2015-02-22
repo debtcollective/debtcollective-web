@@ -1,17 +1,17 @@
 @import url(vendor/bootstrap.min.css);
-.footer, .footer-copyright {
+.footer-copyright {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 14px;
   line-height: 16px; }
 
-.button-box .box-text, .tweet-box .box-text, .fb-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, body, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button, form p.mono button, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button, form .body-text.mono button, .body-text.mono h6, .body-text.mono p, h1, .top-quote h1 {
+.button-box .box-text, .tweet-box .box-text, .fb-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button, form p.mono button, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button, form .body-text.mono button, .body-text.mono h6, .body-text.mono p, h1, .top-quote h1 {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px; }
 
-.btn, form input[type="text"], form input[type="email"], form select, #resources li a, p, .body-text, h2, .tabs .single-tab, form button, h3, h4, h5, .checkbox, h6, .dropdown-menu {
+.btn, form input[type="text"], form input[type="email"], form select, #resources li a, body, p, .body-text, h2, .tabs .single-tab, form button, h3, h4, h5, .checkbox, h6, .dropdown-menu {
   font-family: "Raleway", sans-serif; }
 
 .btn, form input[type="text"], form input[type="email"], form select {
@@ -52,7 +52,13 @@
     background-color: #39413f;
     color: #f1eee2; }
 
-/** striker **/
+.sm-button {
+  width: 45px;
+  padding: 5px;
+  vertical-align: initial; }
+  .sm-button:hover {
+    background-color: #39413f; }
+
 .donate-buttons {
   display: -webkit-box;
   display: -webkit-flex;
@@ -85,9 +91,6 @@
     color: white; }
   .btn.btn-primary {
     height: 70px; }
-
-.sm-button {
-  padding-bottom: 50px; }
 
 .sm-boxes {
   display: -webkit-box;
@@ -201,6 +204,18 @@
 
 .nav-item {
   padding: 10px; }
+
+#resources h6 {
+  color: #5d6961;
+  text-align: center;
+  padding-top: 30px; }
+#resources li {
+  list-style: initial;
+  padding-top: 15px; }
+  #resources li a {
+    color: #f1eee2; }
+    #resources li a:hover {
+      text-decoration: underline !important; }
 
 .nav-footer {
   -webkit-transition: all 0.75s ease;
@@ -345,6 +360,8 @@
 
 .map-container {
   position: relative; }
+  .map-container a {
+    display: none !important; }
   .map-container .counter-container {
     bottom: -20px;
     position: absolute;
@@ -723,18 +740,6 @@ body {
 section {
   width: 100%; }
 
-#resources h6 {
-  color: #5d6961;
-  text-align: center;
-  padding-top: 30px; }
-#resources li {
-  list-style: initial;
-  padding-top: 15px; }
-  #resources li a {
-    color: #f1eee2; }
-    #resources li a:hover {
-      text-decoration: underline !important; }
-
 strong {
   font-weight: bold; }
 
@@ -780,7 +785,7 @@ p, .body-text {
     font-size: 13px;
     line-height: 24px; }
   p a, .body-text a {
-    text-decoration: underline !important; }
+    text-decoration: underline; }
   p ul, .body-text ul {
     padding-left: 40px; }
   p li, .body-text li {

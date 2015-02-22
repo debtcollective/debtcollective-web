@@ -10,6 +10,28 @@
     padding: 10px;
 }
 
+
+#resources {
+  h6 {
+    color: #5d6961;
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  li {
+    list-style: initial;
+    padding-top: 15px;
+
+    a {
+      @extend %rale;
+      color: $dark-text-color;
+      &:hover {
+        text-decoration: underline !important;
+      }
+    }
+  }
+}
+
 .nav-footer {
   @extend %mono;
   @include frame-transition();
@@ -189,6 +211,9 @@
 
 .map-container {
   position: relative;
+  a {
+    display: none !important;
+  }
   .counter-container {
     bottom: -20px;
     position: absolute;
