@@ -13,6 +13,7 @@ app.controller('corinthianCtrl',
     $scope.debt = 354135;
     $scope.money = 24194;
 
+    $scope.showCorinthianLetter = true;
     $scope.selectedStriker = null;
     $scope.loading = true;
     $scope.corinthian = false;

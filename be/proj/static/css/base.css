@@ -55,7 +55,8 @@
 .sm-button {
   width: 45px;
   padding: 5px;
-  vertical-align: initial; }
+  vertical-align: initial;
+  text-decoration: none !important; }
   .sm-button:hover {
     background-color: #e9e4d1; }
 
@@ -378,7 +379,7 @@
   .map-container a {
     display: none !important; }
   .map-container .counter-container {
-    bottom: -20px;
+    bottom: -27.5px;
     position: absolute;
     z-index: 99999;
     left: 50%;
@@ -386,7 +387,7 @@
     width: 384px; }
   .map-container .legend {
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
     left: 50%;
     z-index: 999;
     transform: translateX(-50%); }
@@ -453,30 +454,6 @@
   letter-spacing: 2px;
   padding: 20px 12px 0px 12px; }
 
-.tabs {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex; }
-  .tabs .single-tab {
-    width: 50%;
-    font-size: 32px;
-    padding: 10px;
-    margin-top: 0px !important;
-    text-transform: normal; }
-  .tabs .front {
-    border-top: 1px solid #39413f;
-    border-right: 1px solid #39413f; }
-  .tabs .back {
-    border-bottom: 1px solid #39413f;
-    background-color: #888; }
-    .tabs .back a {
-      color: #f1eee2; }
-      .tabs .back a:hover {
-        color: #39413f;
-        cursor: pointer; }
-
 .student-form .close-button {
   display: none !important; }
 
@@ -513,27 +490,6 @@ hr {
   -moz-justify-content: space-around;
   justify-content: space-around;
   padding-bottom: 18px; }
-
-.paper {
-  padding: 0px;
-  margin-top: 30px;
-  background: white;
-  color: black; }
-  .paper .signatures {
-    font-weight: 700px;
-    font-size: 18px;
-    text-transform: uppercase; }
-  .paper .bottom-form {
-    padding-top: 30px;
-    border-top: 1px solid black;
-    background-color: white;
-    padding-bottom: 30px; }
-
-.letter-header {
-  width: 130px;
-  margin-left: 60px;
-  margin-bottom: 80px;
-  margin-top: 40px; }
 
 .inter-text {
   padding: 15px 0px; }
@@ -995,6 +951,54 @@ p.small {
     .wrapper.light h1 {
       color: #39413f;
       border-bottom: #39413f 1px solid; }
+
+/** TABS **/
+.tabs {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .tabs .single-tab {
+    width: 50%;
+    background-color: #f1eee2;
+    color: #39413f;
+    padding: 10px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    text-transform: normal;
+    border-top: 1px solid #39413f;
+    border-right: 1px solid #39413f; }
+    .tabs .single-tab:hover {
+      cursor: pointer; }
+  .tabs .active {
+    border-bottom: 1px solid #39413f;
+    background-color: #888; }
+    .tabs .active a {
+      color: #f1eee2; }
+      .tabs .active a:hover {
+        color: #39413f;
+        cursor: pointer; }
+
+.paper {
+  padding: 0px;
+  background: white;
+  color: black; }
+  .paper .signatures {
+    font-weight: 700px;
+    font-size: 18px;
+    text-transform: uppercase; }
+  .paper .bottom-form {
+    padding-top: 30px;
+    border-top: 1px solid black;
+    background-color: white;
+    padding-bottom: 30px; }
+
+.letter-header {
+  width: 130px;
+  margin-left: 60px;
+  margin-bottom: 80px;
+  margin-top: 40px; }
 
 /** GENERAL **/
 .fixed {

@@ -53,6 +53,7 @@
   width: 45px;
   padding: 5px;
   vertical-align: initial;
+  text-decoration: none !important;
   &:hover {
     background-color: darken($light-background-color, 5%);
   }

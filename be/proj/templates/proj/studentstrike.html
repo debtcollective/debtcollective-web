@@ -9,56 +9,55 @@
   <section id="corinthian">
     <div class="container">
 
-    <div class="wrapper light">
-      <div class="top-graphic centered">
-        <img class="hidden-mobile" src="/static/img/strikers/striker_headerimage.gif" />
-        <img class="mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
-      </div>
+      <div class="wrapper light">
+        <div class="top-graphic centered">
+          <img class="hidden-mobile" src="/static/img/strikers/striker_headerimage.gif" />
+          <img class="mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
+        </div>
 
-      <div class="tabs">
-        <div class="single-tab front">THE CORINTHIAN 15</div>
-        <div class="single-tab back"><a href="#likethestrike" du-smooth-scroll>Like the strike?</a></div>
+        <div class="tabs">
+          <div class="single-tab">THE CORINTHIAN 15</div>
+          <div class="single-tab active"><a href="#likethestrike" du-smooth-scroll>Like the strike?</a></div>
+        </div>
       </div>
-    </div>
 
       <!-- profiles and statement -->
       <div class="wrapper arrow-down-steep">
         <div class="loading" ng-show="loading">Loading..</div>
         <div class="row" ng-cloak>
           <div class="body-text centered">
-          <h1>STUDENTS ON STRIKE</h1>
-            <div class="inter-text">
-              <h2>
-                To the Department of Education,
-              </h2>
-              <h2>to the loan servicers,<h2>
+          <div class="spacer"></div>
+          <p>Former students of Corinthian Colleges have <strong>declared a debt strike</strong> by refusing to pay their federal loans. <strong>Click on a striker to read their story.</strong></p>
+          <div class="inter-text">
+            <h2>
+              To the Department of Education, <br class="hidden-mobile">to the loan servicers,
+            </h2>
+          </div>
+          <div class="row">
+            <div ng-repeat="striker in strikerChunks[0]">
+                {% include "proj/strikers.html" %}
             </div>
-            <div class="row">
-              <div ng-repeat="striker in strikerChunks[0]">
-                  {% include "proj/strikers.html" %}
-              </div>
+          </div>
+          <div class="inter-text">
+            <h2>To the genesis lending company,<br class="hidden-mobile">
+            To corinthian and ECMC,</h2>
+          </div>
+          <div class="row">
+            <div ng-repeat="striker in strikerChunks[1]">
+                {% include "proj/strikers.html" %}
             </div>
-            <div class="inter-text">
-              <h2>To the genesis lending company,</h2>
-              <h2>To corinthian and ECMC,</h2>
+          </div>
+          <div class="inter-text">
+            <h2>We have one thing to say</h2>
+          </div>
+          <div class="row">
+            <div ng-repeat="striker in strikerChunks[2]">
+                {% include "proj/strikers.html" %}
             </div>
-            <div class="row">
-              <h6 class="striker-tooltip">click a striker for their story</h6>
-              <div ng-repeat="striker in strikerChunks[1]">
-                  {% include "proj/strikers.html" %}
-              </div>
-            </div>
-            <div class="inter-text">
-              <h2>We have one thing to say</h2>
-            </div>
-            <div class="row">
-              <div ng-repeat="striker in strikerChunks[2]">
-                  {% include "proj/strikers.html" %}
-              </div>
-            </div>
-            <div class="inter-text big-bottom">
-              <h2 class="big-link">WE OWE YOU NOTHING</h2>
-            </div>
+          </div>
+          <div class="inter-text big-bottom">
+            <h2 class="big-link">WE OWE YOU NOTHING</h2>
+          </div>
 
           <div class="body-text caption sub">
              <a href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
@@ -69,72 +68,34 @@
               <img class="sm-button" src="/static/img/twitter.png">
             </a>
           </div>
-          </div>
         </div>
       </div>
-        <div ng-class="{visible: currentStriker != null}" class="hud-display body-text light">
-          <div class="info">
-            <div class="img">
-              <img ng-click="closeStriker($event)"
-                 ng-src="/static/img/strikers/striker-portraits_{$ currentStriker.first_name $}.png" />
-              <h3>{$ currentStriker.name $}</h3>
-            </div>
-            <p>{$ currentStriker.bio $}</p>
+    </div>
+      <div ng-class="{visible: currentStriker != null}" class="hud-display body-text light">
+        <div class="info">
+          <div class="img">
+            <img ng-click="closeStriker($event)"
+               ng-src="/static/img/strikers/striker-portraits_{$ currentStriker.first_name $}.png" />
+            <h3>{$ currentStriker.name $}</h3>
           </div>
-        </div>
-        <div class="paper">
-          <div>
-            <img class="letter-header" src="/static/img/strikers/CorinthianDC-Logo+Type_WhiteMatte.png" />
-          </div>
-          <div class="body-text mono">
-            <h2 class="underline">TO THE DEPARTMENT OF EDUCATION:</h2><br>
-            <p>19 February, 2015</p><br>
-
-             <h6 class="emphasis">Who are we? We are the first generation made poor by the business of education.</h6>
-
-             <p> We are people living paycheck to paycheck, single mothers, and young people just starting out. We wanted an education because we were driven to learn and to achieve a better life for ourselves and for our families.
-            </p>
-            <p>
-            We trusted that education would lead to a better life. And we trusted you to ensure that the education system in this country would do so. But Corinthian took advantage of our dreams and targeted us to make a profit. You let it happen, and now you cash in.
-            </p>
-            <h6>
-            Each month you force us to make payments into an immoral system that profits from our aspirations.
-            </h6>
-
-            <p>We paid dearly for degrees that have led to unemployment or to jobs that don’t pay a living wage. We can’t and won't pay any longer.
-            </p>
-
-            <div class="sm-buttons-right">
-             <a href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
-              <img class="sm-button" src="/static/img/fb.png">
-             </a>
-              <a href="https://twitter.com/intent/tweet?text=Repayment%20plans%20presented%20as%20a%20helping%20hand%20simply%20aren%E2%80%99t%20good%20enough.%20The%20wrong%20done%20to%20us%20is%20deeper%20than%20that%20%23CorinthianStrike%20%400debtzone" target="_blank">
-                <img class="sm-button" src="/static/img/twitter.png">
-              </a>
-            </div>
-            <h6>Repayment plans presented as a helping hand simply aren’t good enough. The wrong done to us is deeper than that. </h6>
-
-            <p>We are not alone in this fight.  Corinthian’s predatory empire pushed hundreds of thousands into a debt trap. But even beyond for-profit schools, tens of millions of students are in more debt than they can ever repay. And you are the debt collector, with powers beyond a payday lender’s wildest dreams.
-            </p>
-            <h6>To the Department of Education and to the lenders, servicers, and guarantee agencies who have stolen our futures, we say: enough! Erase these loans.</h6>
-            <p>
-             To current and former college students across the country, we say: we stand with you to demand the end of a higher education system that profits from all our dreams. Join our fight.
-            </p>
-            <h6 id="likethestrike">
-            We won’t pay. We are the Corinthian Fifteen.
-            </h6>
-            <div class="row signatures">
-
-              <div ng-repeat="chunk in strikerChunks" class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
-              <p>
-              <span class="striker-signature" ng-repeat="striker in chunk">{$ striker.first_name $}<br>
-              </p>
-              </div>
-
-            </div>
+          <p>{$ currentStriker.bio $}</p>
         </div>
       </div>
+      <div class="tabs">
+        <div class="single-tab" ng-class="{'active': !showCorinthianLetter}"
+          ng-click="showCorinthianLetter = true">FROM THE CORINTHIANS</div>
+        <div class="single-tab" ng-class="{'active': showCorinthianLetter}"
+          ng-click="showCorinthianLetter = false">FROM SUPPORTERS</div>
+      </div>
+
+      <div ng-show="showCorinthianLetter">
+      {% include "proj/corinthian15Letter.html" %}
+      </div>
+
+      <div ng-show="!showCorinthianLetter">
+      {% include "proj/solidarityLetter.html" %}
+      </div>
+
       <div class="spacer"></div>
       <div class="wrapper dark">
         <div class="body-text">
@@ -142,17 +103,16 @@
             <signupform></signupform>
         </div>
       </div>
-    <div id="donate"></div>
+      <div id="donate"></div>
+      {% include "proj/donateBox.html" with title="Support the Strike" %}
 
-    {% include "proj/donateBox.html" with title="Support the Strike" %}
-
-    <div class="wrapper dark">
-      <h2>DO YOU HAVE DEBT FROM EVEREST COLLEGE?</h2>
-      <div class="body-text">
-        <h2>You can be involved in actions to fight to get your money back.  <a class="big-link" href="/corinthiansignup">LEARN HOW</a></h2>
+      <div class="wrapper dark">
+        <h2>DO YOU HAVE DEBT FROM EVEREST COLLEGE?</h2>
+        <div class="body-text">
+          <h2>You can be involved in actions to fight to get your money back.  <a class="big-link" href="/corinthiansignup">LEARN HOW</a></h2>
+        </div>
       </div>
     </div>
-    </section>
-
+  </section>
 </div>
 {% endblock %}
