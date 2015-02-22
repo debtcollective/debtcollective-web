@@ -24,53 +24,62 @@
       <!-- profiles and statement -->
       <div class="wrapper arrow-down-steep">
         <div class="loading" ng-show="loading">Loading..</div>
-        <div class="row" ng-cloak>
+        <div class="row light" ng-cloak>
           <div class="body-text centered">
-          <div class="spacer"></div>
-          <p>Former students of Corinthian Colleges have <strong>declared a debt strike</strong> by refusing to pay their federal loans. <strong>Click on a striker to read their story.</strong></p>
-          <div class="inter-text">
-            <h2>
-              To the Department of Education, <br class="hidden-mobile">to the loan servicers,
-            </h2>
+            <div class="spacer"></div>
+            <p>Former students of Corinthian Colleges have <strong>declared a debt strike</strong> by refusing to pay their federal loans. <strong>Click on a striker to read their story.</strong></p>
           </div>
-          <div class="row">
-            <div ng-repeat="striker in strikerChunks[0]">
-                {% include "proj/strikers.html" %}
+        </div>
+        <div class="row">
+          <div class="body-text centered">
+            <div class="inter-text">
+              <h2>
+                To the Department of Education, <br class="hidden-mobile">to the loan servicers,
+              </h2>
             </div>
-          </div>
-          <div class="inter-text">
-            <h2>To the genesis lending company,<br class="hidden-mobile">
-            To corinthian and ECMC,</h2>
-          </div>
-          <div class="row">
-            <div ng-repeat="striker in strikerChunks[1]">
-                {% include "proj/strikers.html" %}
+            <div class="row">
+              <div ng-repeat="striker in strikerChunks[0]">
+                  {% include "proj/strikers.html" %}
+              </div>
             </div>
-          </div>
-          <div class="inter-text">
-            <h2>We have one thing to say</h2>
-          </div>
-          <div class="row">
-            <div ng-repeat="striker in strikerChunks[2]">
-                {% include "proj/strikers.html" %}
+            <div class="inter-text">
+              <h2>To the genesis lending company,<br class="hidden-mobile">
+              To corinthian and ECMC,</h2>
             </div>
-          </div>
-          <div class="inter-text big-bottom">
-            <h2 class="big-link">WE OWE YOU NOTHING</h2>
-          </div>
+            <div class="row">
+              <div ng-repeat="striker in strikerChunks[1]">
+                  {% include "proj/strikers.html" %}
+              </div>
+            </div>
+            <div class="row">
+              <div ng-repeat="striker in strikerChunks[2]">
+                  {% include "proj/strikers.html" %}
+              </div>
+            </div>
+            <div class="inter-text">
+              <h2>We have one thing to say</h2>
+            </div>
+            <div class="row">
+              <div ng-repeat="striker in strikerChunks[3]">
+                  {% include "proj/strikers.html" %}
+              </div>
+            </div>
+            <div class="inter-text big-bottom">
+              <h2 class="big-link">WE OWE YOU NOTHING</h2>
+            </div>
 
-          <div class="body-text caption sub">
-             <a href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
-              <img class="sm-button" src="/static/img/fb.png">
-            </a>
-            <a href="http://twitter.com/intent/tweet?text=TO%20THE%20DEPARTMENT%20OF%20ED%2C%20TO%20THE%20GENESIS%20LENDING%20COMPANY%2C%20WE%20HAVE%20ONE%20THING%20TO%20SAY%3A%20WE%20OWE%20YOU%20NOTHING%20debtcollective.org%2Fstudentstrike%20%23debtstrike" target="_blank">
-              <img class="sm-button" src="/static/img/twitter.png">
-            </a>
+            <div class="body-text caption sub">
+               <a href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
+    'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
+                <img class="sm-button" src="/static/img/fb.png">
+              </a>
+              <a href="http://twitter.com/intent/tweet?text=TO%20THE%20DEPARTMENT%20OF%20ED%2C%20TO%20THE%20GENESIS%20LENDING%20COMPANY%2C%20WE%20HAVE%20ONE%20THING%20TO%20SAY%3A%20WE%20OWE%20YOU%20NOTHING%20debtcollective.org%2Fstudentstrike%20%23debtstrike" target="_blank">
+                <img class="sm-button" src="/static/img/twitter.png">
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
       <div ng-class="{visible: currentStriker != null}" class="hud-display body-text light">
         <div class="info">
           <div class="img">

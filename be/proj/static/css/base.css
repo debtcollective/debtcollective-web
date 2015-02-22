@@ -695,6 +695,8 @@ body {
   z-index: 0; }
   .arrow-down-steep h2.first, .arrow-down-steep .tabs .first.single-tab, .tabs .arrow-down-steep .first.single-tab, .arrow-down-steep form button.first[type=submit], form .arrow-down-steep button.first[type=submit] {
     margin-top: -20px !important; }
+  .arrow-down-steep .row.light {
+    background-color: #f1eee2; }
   .arrow-down-steep img.full-width {
     width: 100%; }
 

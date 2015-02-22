@@ -49,7 +49,9 @@ body {
   h2.first {
     margin-top: -20px !important;
   }
-
+  .row.light {
+    background-color: $light-background-color;
+  }
   img.full-width {
     width: 100%;
   }
