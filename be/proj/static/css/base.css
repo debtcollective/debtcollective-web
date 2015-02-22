@@ -305,6 +305,8 @@
   text-align: center;
   border-top: 1px solid black;
   border-bottom: 1px solid black; }
+  .intro h1 {
+    letter-spacing: -3px; }
 
 #scroll.mainstate .social-media {
   opacity: 0; }
