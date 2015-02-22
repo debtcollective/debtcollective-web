@@ -224,6 +224,7 @@ p, .body-text {
   }
 
   a.nav-link {
+    @extend %mono;
     letter-spacing: 3px;
     color: $link-color;
     &:hover {
@@ -262,6 +263,28 @@ $banner-height: 32px;
   }
 }
 
+.triangle-topright {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 120px 120px 0;
+  border-color: transparent #ff0000 transparent transparent;
+}
+.action-banner {
+  float: right;
+  color: $dark-text-color;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+}
+.action-banner-text {
+  text-align: left;
+  position: absolute;
+  top: 10;
+  right: 0;
+  width: 80px;
+}
 
 h1 {
   @extend %mono;
@@ -318,7 +341,7 @@ h5 {
 }
 
 p.small {
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .checkbox, h6 {

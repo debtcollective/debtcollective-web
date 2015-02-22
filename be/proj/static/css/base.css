@@ -5,7 +5,7 @@
   font-size: 14px;
   line-height: 16px; }
 
-.button-box .box-text, .tweet-box .box-text, .fb-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button[type=submit], form p.mono button[type=submit], p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button[type=submit], form .body-text.mono button[type=submit], .body-text.mono h6, .body-text.mono p, h1, .top-quote h1 {
+.button-box .box-text, .tweet-box .box-text, .fb-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button[type=submit], form p.mono button[type=submit], p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button[type=submit], form .body-text.mono button[type=submit], .body-text.mono h6, .body-text.mono p, .header-links a.nav-link, h1, .top-quote h1 {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -888,6 +888,27 @@ p, .body-text {
   .banner a {
     color: #ccaa2d; }
 
+.triangle-topright {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 120px 120px 0;
+  border-color: transparent #ff0000 transparent transparent; }
+
+.action-banner {
+  float: right;
+  color: #f1eee2;
+  position: absolute;
+  top: 0;
+  right: 0; }
+
+.action-banner-text {
+  text-align: left;
+  position: absolute;
+  top: 10;
+  right: 0;
+  width: 80px; }
+
 h1 {
   font-size: 26px;
   line-height: 30px;
@@ -926,7 +947,7 @@ h5 {
   font-style: italic; }
 
 p.small {
-  font-size: 12px; }
+  font-size: 13px; }
 
 .checkbox, h6 {
   text-transform: uppercase;
