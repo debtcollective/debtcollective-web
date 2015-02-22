@@ -54,7 +54,7 @@
   padding: 5px;
   vertical-align: initial;
   &:hover {
-    background-color: $dark-background-color;
+    background-color: darken($light-background-color, 5%);
   }
 }
 

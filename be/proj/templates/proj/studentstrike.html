@@ -43,6 +43,7 @@
               <h2>To corinthian and ECMC,</h2>
             </div>
             <div class="row">
+              <h6 class="striker-tooltip">click a striker for their story</h6>
               <div ng-repeat="striker in strikerChunks[1]">
                   {% include "proj/strikers.html" %}
               </div>
@@ -143,7 +144,7 @@
       </div>
     <div id="donate"></div>
 
-    {% include "proj/strikeDonate.html" %}
+    {% include "proj/donateBox.html" with title="Support the Strike" %}
 
     <div class="wrapper dark">
       <h2>DO YOU HAVE DEBT FROM EVEREST COLLEGE?</h2>
