@@ -59,6 +59,9 @@
 }
 //phones
 @media only screen and (max-width: 600px) {
+  .container {
+    padding: 0px;
+  }
   .body-text.wide {
     max-width: 100%;
     min-width: 100%;
@@ -122,6 +125,7 @@
   }
   .btn.tiny {
     padding: 15px 5px;
+    width: 100%;
   }
   .button, button {
     margin: 0px;

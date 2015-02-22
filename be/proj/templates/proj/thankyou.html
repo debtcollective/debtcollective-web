@@ -2,8 +2,22 @@
 
 {% block body %}
 
-<div class="thankyou-background hidden-mobile" style="background: url(/static/img/thankyou.png); height: 100%;">
+<div class="flex">
+  <img src="/static/img/thankyou.png" />
+  <div class="wrapper dark">
+    <h2>
+      TAKE ACTION
+    </h2>
+    <p>
+      Do you have debt from:
+      <ul>
+        <li>Sallie Mae?</li>
+        <li>ITT Tech?</li>
+        <li>Navient?</li>
+      </ul>
+    </p>
+  </div>
 </div>
-<img class="mobile-only" src="/static/img/thankyou.png" />
+
 
 {% endblock %}
