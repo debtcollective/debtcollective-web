@@ -7,7 +7,7 @@ app.directive('donateButton', function ($window) {
     },
     transclude: true,
     replace: true,
-    templateUrl: '/static/directives/donatebutton.html',
+    templateUrl: '/static/directives/donateButton.html',
     controller: function ($scope, $element, $attrs) {
       var handler = StripeCheckout.configure({
         key: 'pk_test_SLHYKUBbqjnPFTXYcNrYaNAc'
