@@ -2,6 +2,7 @@ from django.conf import settings
 from django.shortcuts import render_to_response
 from django.db.models import Count, Sum
 
+from django.contrib.auth.models import User
 from proj.gather.models import UserProfile, Point, Debt
 from proj.utils import json_response, get_POST_data
 
@@ -25,6 +26,7 @@ def debt_choices(request):
 def get_map_data():
   total_amount = Debt.objects.all().aggregate(Sum('amount'))
 
+  total_users = User.objects.count()
   query = Point.objects.annotate(
       num_users=Count('userprofile'),
       sum_amount=Sum('userprofile__user__debt__amount') # o fuck
@@ -38,6 +40,7 @@ def get_map_data():
   # TODO: loading them and then dumping them again is
   # probably costing us performance (karissa)
   return {
+    'total_users': total_users,
     'total_amount': total_amount['amount__sum'],
     'points': points
   }
