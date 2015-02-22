@@ -60,7 +60,7 @@ app.directive('signupform', function () {
         // so that we can protect anonymity of our users.
         // campaign monitor handles mailing lists
         $scope.username = util_svc.generateUUID();
-
+        debugger
         // just store one debt type for now.
         var debt = $scope.debts[0]
         data = {
