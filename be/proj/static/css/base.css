@@ -815,6 +815,9 @@ p, .body-text {
     min-width: 820px;
     max-width: 950px; }
 
+.spacer {
+  padding-top: 30px; }
+
 .jumbotron {
   font-size: 48px;
   line-height: 50px; }
