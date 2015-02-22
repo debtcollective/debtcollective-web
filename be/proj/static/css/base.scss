@@ -451,47 +451,47 @@ label {
   }
 }
 
+//important tags b/c bootstrap
+input, select {
+  text-align: left;
+  height: 44px;
+  padding: 10px;
+}
+
+input[type="text"], input[type="email"], select {
+  @extend %input;
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+input {
+  border: 1px solid $dark-red !important;
+  color: $dark-text-color;
+  background-color: $olive !important;
+}
+
+select {
+  border: 1px solid $olive;
+  color: $olive;
+  font-weight: bold;
+  background-color: rgb(53, 58, 56) !important;
+  background-image: url(/static/img/select-righthand.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+select {
+  $amount: 0px;
+  border-radius: $amount !important;
+  -moz-border-radius: $amount !important;
+  -webkit-border-radius: $amount !important;
+  -webkit-appearance: none;
+}
 form {
-  //important tags b/c bootstrap
-  input, select {
-    text-align: left;
-    height: 44px;
-    padding: 10px;
-  }
-
-  input[type="text"], input[type="email"], select {
-    @extend %input;
-    text-transform: uppercase;
-    font-size: 16px;
-    letter-spacing: 2px;
-  }
-
-  input {
-    border: 1px solid $dark-red !important;
-    color: $dark-text-color;
-    background-color: $olive !important;
-  }
-
-  select {
-    border: 1px solid $olive;
-    color: $olive;
-    font-weight: bold;
-    background-color: rgb(53, 58, 56) !important;
-    background-image: url(/static/img/select-righthand.png);
-    background-repeat: no-repeat;
-    background-position: right center;
-  }
-  select {
-    $amount: 0px;
-    border-radius: $amount !important;
-    -moz-border-radius: $amount !important;
-    -webkit-border-radius: $amount !important;
-    -webkit-appearance: none;
-  }
-  button {
+  button[type=submit] {
     @extend h2;
     padding: 20px 0px;
-    margin: 15px 0px !important;
+    margin: 15px 0px;
     text-transform: uppercase;
   }
 }

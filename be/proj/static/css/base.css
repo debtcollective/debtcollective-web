@@ -5,16 +5,16 @@
   font-size: 14px;
   line-height: 16px; }
 
-.button-box .box-text, .tweet-box .box-text, .fb-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button, form p.mono button, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button, form .body-text.mono button, .body-text.mono h6, .body-text.mono p, h1, .top-quote h1 {
+.button-box .box-text, .tweet-box .box-text, .fb-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button[type=submit], form p.mono button[type=submit], p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button[type=submit], form .body-text.mono button[type=submit], .body-text.mono h6, .body-text.mono p, h1, .top-quote h1 {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px; }
 
-.btn, form input[type="text"], form input[type="email"], form select, #resources li a, body, p, .body-text, h2, .tabs .single-tab, form button, h3, h4, h5, .checkbox, h6, .dropdown-menu {
+.btn, input[type="text"], input[type="email"], select, #resources li a, body, p, .body-text, h2, .tabs .single-tab, form button[type=submit], h3, h4, h5, .checkbox, h6, .dropdown-menu {
   font-family: "Raleway", sans-serif; }
 
-.btn, form input[type="text"], form input[type="email"], form select {
+.btn, input[type="text"], input[type="email"], select {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -27,7 +27,7 @@
   width: 100%;
   border: 0;
   text-decoration: none; }
-  .btn:focus, form input[type="text"]:focus, form input[type="email"]:focus, form select:focus {
+  .btn:focus, input[type="text"]:focus, input[type="email"]:focus, select:focus {
     outline: 0px;
     outline-offset: 0px; }
 
@@ -73,19 +73,34 @@
   .donate-buttons .donate-button {
     padding: 15px 15px 0px 15px; }
 
+.sm-buttons-right {
+  float: right;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
 .btn {
   min-width: 150px;
   background-color: #C4C2B2;
-  color: #39413f; }
+  color: #39413f;
+  margin: 8px 0px; }
   .btn.red, .btn.btn-primary {
     background-color: #861800;
     color: #f1eee2; }
   .btn.small {
     width: 50%; }
   .btn.tiny {
-    padding: 15px 0px;
     width: 70px;
-    min-width: 0px; }
+    min-width: 0px;
+    height: 44px; }
   .btn:hover {
     background-color: #861800;
     color: white; }
@@ -522,7 +537,7 @@ hr {
 
 .inter-text {
   padding: 15px 0px; }
-  .inter-text h2, .inter-text .tabs .single-tab, .tabs .inter-text .single-tab, .inter-text form button, form .inter-text button {
+  .inter-text h2, .inter-text .tabs .single-tab, .tabs .inter-text .single-tab, .inter-text form button[type=submit], form .inter-text button[type=submit] {
     margin-top: 0px;
     font-weight: 700;
     text-transform: uppercase;
@@ -530,7 +545,7 @@ hr {
 
 .big-bottom {
   padding-top: 30px; }
-  .big-bottom h2, .big-bottom .tabs .single-tab, .tabs .big-bottom .single-tab, .big-bottom form button, form .big-bottom button {
+  .big-bottom h2, .big-bottom .tabs .single-tab, .tabs .big-bottom .single-tab, .big-bottom form button[type=submit], form .big-bottom button[type=submit] {
     font-size: 38px;
     line-height: 48px; }
 
@@ -722,7 +737,7 @@ body {
   padding-bottom: 210px;
   background-color: #39413f !important;
   z-index: 0; }
-  .arrow-down-steep h2.first, .arrow-down-steep .tabs .first.single-tab, .tabs .arrow-down-steep .first.single-tab, .arrow-down-steep form button.first, form .arrow-down-steep button.first {
+  .arrow-down-steep h2.first, .arrow-down-steep .tabs .first.single-tab, .tabs .arrow-down-steep .first.single-tab, .arrow-down-steep form button.first[type=submit], form .arrow-down-steep button.first[type=submit] {
     margin-top: -20px !important; }
   .arrow-down-steep img.full-width {
     width: 100%; }
@@ -774,7 +789,7 @@ p, .body-text {
   p.small, .body-text.small {
     line-height: 20px;
     margin-top: 10px; }
-  p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button, form p.mono button, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button, form .body-text.mono button, .body-text.mono h6, .body-text.mono p {
+  p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button[type=submit], form p.mono button[type=submit], p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button[type=submit], form .body-text.mono button[type=submit], .body-text.mono h6, .body-text.mono p {
     font-family: 'Cousine', serif; }
   p.mono h6, .body-text.mono h6 {
     margin-top: 6px;
@@ -883,7 +898,7 @@ h1 {
     color: #C4C2B2 !important;
     text-decoration: none; }
 
-h2, .tabs .single-tab, form button {
+h2, .tabs .single-tab, form button[type=submit] {
   font-size: 20px;
   line-height: 30px;
   text-align: center;
@@ -1014,19 +1029,22 @@ label {
     width: 100%;
     margin: 0 auto; }
 
-form input, form select {
+input, select {
   text-align: left;
   height: 44px;
   padding: 10px; }
-form input[type="text"], form input[type="email"], form select {
+
+input[type="text"], input[type="email"], select {
   text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 2px; }
-form input {
+
+input {
   border: 1px solid #861800 !important;
   color: #f1eee2;
   background-color: rgba(2, 2, 2, 0.8) !important; }
-form select {
+
+select {
   border: 1px solid rgba(2, 2, 2, 0.8);
   color: rgba(2, 2, 2, 0.8);
   font-weight: bold;
@@ -1034,14 +1052,16 @@ form select {
   background-image: url(/static/img/select-righthand.png);
   background-repeat: no-repeat;
   background-position: right center; }
-form select {
+
+select {
   border-radius: 0px !important;
   -moz-border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
   -webkit-appearance: none; }
-form button {
+
+form button[type=submit] {
   padding: 20px 0px;
-  margin: 15px 0px !important;
+  margin: 15px 0px;
   text-transform: uppercase; }
 
 .add-debt {
