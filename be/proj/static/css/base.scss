@@ -235,6 +235,12 @@ p, .body-text {
   }
 }
 
+.forum-box {
+  padding: 20px;
+  border: 1px solid $dark-background-color;
+  background-color: $light-background-color;
+  color: $light-text-color;
+}
 
 $banner-height: 32px;
 .banner {
@@ -683,7 +689,7 @@ form {
 
 
 .thankyou-background {
-  background: url(/static/img/thankyou.png) no-repeat;
+  background: url(/static/img/thankyou.png);
   height: 100%;
 }
 

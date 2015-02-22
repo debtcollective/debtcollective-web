@@ -306,7 +306,7 @@
   border-top: 1px solid black;
   border-bottom: 1px solid black; }
   .intro h1 {
-    letter-spacing: -3px; }
+    letter-spacing: -2px; }
 
 #scroll.mainstate .social-media {
   opacity: 0; }
@@ -829,6 +829,12 @@ p, .body-text {
     .header-links a.nav-link:hover {
       color: #f7f7ed; }
 
+.forum-box {
+  padding: 20px;
+  border: 1px solid #39413f;
+  background-color: #f1eee2;
+  color: #39413f; }
+
 .banner {
   z-index: 9999990;
   font-family: "Cutive mono";
@@ -1172,7 +1178,7 @@ form button[type=submit] {
   display: block; }
 
 .thankyou-background {
-  background: url(/static/img/thankyou.png) no-repeat;
+  background: url(/static/img/thankyou.png);
   height: 100%; }
 
 .mobile-only {
