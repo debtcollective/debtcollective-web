@@ -415,7 +415,7 @@
   position: relative;
   border: 1px solid #f1eee2;
   border-radius: 2px;
-  background-image: url("../img/jodometer-background.jpg");
+  background-image: url("../img/jodometer-background2.png");
   background-repeat: repeat-x;
   width: 288px;
   margin: 0 auto; }
@@ -1014,7 +1014,6 @@ p.small {
   margin: auto; }
 
 a {
-  text-decoration: none !important;
   color: #041a29;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
