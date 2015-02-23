@@ -1,24 +1,30 @@
 app.controller('splashCtrl',
  function ($scope, $http, util_svc, $document, $timeout, $window) {
-    var ds = new Miso.Dataset({
-      importer : Miso.Dataset.Importers.GoogleSpreadsheet,
-      parser : Miso.Dataset.Parsers.GoogleSpreadsheet,
-      key : "1WuTX0sbw9AatpVWwSOV9Obc9k4iiIO6Xyz8mzy3a-Q8",
-      worksheet : "1"
-    });
-    var CURRENT_CORINTHIANS = 830;
-    var CURRENT_SALLIEMAE = 500;
-    $scope.salliemae = 0;
-    $scope.corinthian = 0;
-    ds.fetch({
-      success: function () {
-        $scope.salliemae = this.sum('salliemae') + CURRENT_SALLIEMAE;
-        $scope.corinthian = this.sum('corinthian') + CURRENT_CORINTHIANS;
-      },
-      error : function() {
-        console.log("Are you sure you are connected to the internet?");
-      }
-    })
+    var retries = 5;
+    fetchTallies()
+    function fetchTallies() {
+      if (retries == 0) { return; }
+      else retries -= 1;
+      var ds = new Miso.Dataset({
+          importer : Miso.Dataset.Importers.GoogleSpreadsheet,
+          parser : Miso.Dataset.Parsers.GoogleSpreadsheet,
+          key : "1WuTX0sbw9AatpVWwSOV9Obc9k4iiIO6Xyz8mzy3a-Q8",
+          worksheet : "1"
+        });
+        $scope.salliemae = 500;
+        $scope.corinthian = 830;
+        ds.fetch({
+          success: function () {
+            $scope.salliemae += this.sum('salliemae');
+            $scope.corinthian += this.sum('corinthian');
+          },
+          error : function() {
+            console.log("Are you sure you are connected to the internet?");
+            setTimeout(fetchTallies, 500)
+          }
+        })
+    }
+
     $scope.showSite = false;
     $scope.showStats = false;
 
