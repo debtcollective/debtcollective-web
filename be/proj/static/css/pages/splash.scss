@@ -158,8 +158,7 @@
     position: fixed;
     opacity: .9;
     margin: auto;
-    transform: translateY(-25%);
-
+    @include transform(translateY(-25%));
     &:nth-child(19),
     &:nth-child(20),
     &:nth-child(21),
@@ -220,7 +219,7 @@
     position: absolute;
     z-index: 99999;
     left: 50%;
-    transform: translateX(-50%);
+    @include transform(translateX(-50%));
     width: 384px;
   }
   .legend {
@@ -228,7 +227,7 @@
     bottom: 30px;
     left: 50%;
     z-index: 999;
-    transform: translateX(-50%);
+    @include transform(translateX(-50%));
   }
 }
 

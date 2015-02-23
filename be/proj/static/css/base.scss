@@ -2,6 +2,7 @@
 @import "vendor/bootstrap.min.css";
 @import "includes/variables";
 @import "includes/mixins";
+@import "includes/css3-mixins";
 @import "includes/flex";
 @import "includes/buttons";
 
@@ -384,7 +385,7 @@ p.small {
 }
 
 .quote {
-  transform: translateY(-25%);
+  @include transform(translateY(-25%));
   top: 25%;
   position: absolute;
   padding: 2em;
@@ -514,7 +515,7 @@ p.small {
 .vertical-center {
     position: relative;
     top: 25%;
-    transform: translateY(-50%);
+    @include transform(translateY(-50%));
     margin: auto;
 }
 
