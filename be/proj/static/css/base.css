@@ -610,6 +610,8 @@ hr {
     background-color: #fefefe; }
   .item .img {
     margin: auto; }
+    .item .img img {
+      width: 100%; }
   .item .info {
     margin-top: -25%;
     color: white;
