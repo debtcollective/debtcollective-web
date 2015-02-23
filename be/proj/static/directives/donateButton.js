@@ -10,7 +10,7 @@ app.directive('donateButton', function ($window) {
     templateUrl: '/static/directives/donateButton.html',
     controller: function ($scope, $element, $attrs) {
       var handler = StripeCheckout.configure({
-        key: 'pk_test_SLHYKUBbqjnPFTXYcNrYaNAc'
+        key: 'pk_live_7W0RkZvaAs7dMs3vGkdSLTJh'
       });
 
       $scope.flexible = !!$attrs.flexible
