@@ -1,6 +1,6 @@
 <div class="item col-xs-6 col-sm-2 col-md-2 col-lg-2" ng-click="showStriker(striker, $event)">
   <div class="img">
-    <img class="hidden-mobile" ng-if="striker.first_name" ng-src="/static/img/strikers/striker-portraits_{$ striker.first_name $}.png" />
+    <img ng-if="striker.first_name" ng-src="/static/img/strikers/striker-portraits_{$ striker.first_name $}.png" />
   </div>
 <!--  <div class="info">
     <p>{$ item.name $}<br> {$ item.location $}</p>
