@@ -7,11 +7,12 @@ app.controller('splashCtrl',
       worksheet : "1"
     });
     var CURRENT_CORINTHIANS = 830;
+    var CURRENT_SALLIEMAE = 500;
     $scope.salliemae = 0;
     $scope.corinthian = 0;
     ds.fetch({
       success: function () {
-        $scope.salliemae = this.sum('salliemae')
+        $scope.salliemae = this.sum('salliemae') + CURRENT_SALLIEMAE;
         $scope.corinthian = this.sum('corinthian') + CURRENT_CORINTHIANS;
       },
       error : function() {
