@@ -201,7 +201,7 @@ hr {
   }
 }
 
-/** cc form **/
+/** ccform **/
 .ss-q-title {
   margin-top: 30px;
 }
@@ -217,6 +217,10 @@ hr {
 .ss-q-title, .ss-choice-label {
   font-size: 13px;
   font-weight: bold;
+  &.big {
+    font-size: 28px;
+    line-height: 34px;
+  }
 }
 input[type="radio"] {
   vertical-align: middle;

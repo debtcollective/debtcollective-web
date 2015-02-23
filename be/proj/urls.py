@@ -1,6 +1,9 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
+from django.conf.urls import handler404
+handler404 = 'proj.views.not_found'
+
 import os
 admin.autodiscover()
 

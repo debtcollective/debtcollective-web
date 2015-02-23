@@ -36,6 +36,9 @@ def nov_fourth(request):
 def thankyou(request):
   return render_to_response('proj/thankyou.html')
 
+def not_found(request):
+  return render_to_response('proj/404.html')
+
 def login(request):
   """
   POST /login
