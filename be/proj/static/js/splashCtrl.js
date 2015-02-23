@@ -1,6 +1,23 @@
 app.controller('splashCtrl',
-    function ($scope, $http, util_svc, $document, $timeout, $window) {
-
+ function ($scope, $http, util_svc, $document, $timeout, $window) {
+    var ds = new Miso.Dataset({
+      importer : Miso.Dataset.Importers.GoogleSpreadsheet,
+      parser : Miso.Dataset.Parsers.GoogleSpreadsheet,
+      key : "1WuTX0sbw9AatpVWwSOV9Obc9k4iiIO6Xyz8mzy3a-Q8",
+      worksheet : "1"
+    });
+    var CURRENT_CORINTHIANS = 830;
+    $scope.salliemae = 0;
+    $scope.corinthian = 0;
+    ds.fetch({
+      success: function () {
+        $scope.salliemae = this.sum('salliemae')
+        $scope.corinthian = this.sum('corinthian') + CURRENT_CORINTHIANS;
+      },
+      error : function() {
+        console.log("Are you sure you are connected to the internet?");
+      }
+    })
     $scope.showSite = false;
     $scope.showStats = false;
 

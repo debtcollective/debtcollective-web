@@ -329,6 +329,9 @@ h2 {
   text-align: center;
   margin-bottom: 22px;
   letter-spacing: 4.5px;
+  &.dark {
+    color: $dark-background-color;
+  }
 }
 
 
@@ -482,7 +485,7 @@ p.small {
 }
 .paper-bottom-form {
   border-top: 1px solid black;
-  padding-top: 60px;
+  padding-top: 30px;
   background-color: white;
   padding-bottom: 60px;
 }
@@ -705,4 +708,27 @@ form {
   height: 100%;
 }
 
+$counter-color: #001f28;
+
+.counters {
+  @include flexbox;
+}
+.counter-box {
+  border: 1px solid $dark-background-color;
+  background-color: $light-background-color;
+  width: 50%;
+  margin: 5px;
+  img {
+    padding: 20px;
+  }
+}
+.counter-box-header {
+  background-color: $counter-color;
+}
+
+.ticker-amount {
+  color: white;
+  margin-top: 0px;
+  padding: 5px;
+}
 @import "includes/responsive";

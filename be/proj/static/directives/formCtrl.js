@@ -7,7 +7,6 @@ app.directive('signupform', function () {
       visible: '='
     },
     controller: function ($scope, $element, $http, util_svc, $document, $timeout, $window) {
-
       $scope.email = null;
       $scope.username = null;
       $scope.debts = [];
@@ -23,6 +22,7 @@ app.directive('signupform', function () {
 
       $http.get('/debt_choices').then(function (resp) {
         $scope.debt_choices = resp.data
+        console.log(resp.data)
       });
 
       $http.get('/points').then(function (resp) {
@@ -31,7 +31,7 @@ app.directive('signupform', function () {
 
       $scope.addDebt = function () {
         $scope.debts.push({
-          debtType: 5,
+          debtType: 'none',
           amount: null
         })
       }
@@ -42,7 +42,7 @@ app.directive('signupform', function () {
       }
 
       $scope.$watch('corinthianStudent', function (newVal, oldVal) {
-        if (newVal) {
+        if (newVal && ($scope.debts[0].debtType.id != 'student')) {
           $scope.showForm = true
           $scope.debts[0].debtType = {
             id: 'student',
@@ -59,24 +59,49 @@ app.directive('signupform', function () {
         // temporarily, email is the password
         // so that we can protect anonymity of our users.
         // campaign monitor handles mailing lists
-        $scope.username = util_svc.generateUUID();
         // just store one debt type for now.
-        var debt = $scope.debts[0]
-        data = {
-            'username': $scope.username,
-            'password': $scope.email,
-            'point': $scope.location.id,
-            'kind': debt.debtType.id,
-            'amount': parseFloat(debt.amount.replace(',', ''))
-        }
-
-        $http.post('/signup/', data).then(function (resp) {
-          console.log(resp)
-        });
-
         $scope.formSubmitted = true;
         $scope.showForm = true;
+        sendToBackend(function () {
+          sendToGdocs()
+        })
       }
+
+      function sendToGdocs(cb) {
+        var googleForm = $(window).jqGoogleForms({"formKey": "1Vk1WIqyyj4-tHetXZIqCvuoLDmPoDL6QTPQTZ4disUY"});
+        var salliemae = 0
+        if ($scope.salliemae == 'option1') {
+          salliemae = 1
+        }
+
+        var corinthian = 0
+        if ($scope.corinthianStudent) {
+          corinthian = 1
+        }
+
+        var data = {
+          'entry.71652265': salliemae,
+          'entry.256870148': corinthian
+        }
+        googleForm.sendFormData(data)
+      }
+
+      function sendToBackend(cb) {
+        $scope.username = util_svc.generateUUID();
+        var debt = $scope.debts[0]
+        var backend_data = {
+          'username': $scope.username,
+          'password': $scope.email,
+          'point': $scope.location.id,
+          'kind': debt.debtType.id,
+          'amount': parseFloat(debt.amount.replace(',', ''))
+        }
+        $http.post('/signup/', backend_data).then(function (resp) {
+          console.log(resp)
+          cb()
+        });
+      }
+
     }
   }
 })

@@ -638,7 +638,8 @@ hr {
     line-height: 34px; }
 
 input[type="radio"] {
-  vertical-align: middle; }
+  vertical-align: middle;
+  height: inherit; }
 
 label {
   margin-bottom: 0px; }
@@ -936,6 +937,8 @@ h2, .tabs .single-tab, form button[type=submit] {
   text-align: center;
   margin-bottom: 22px;
   letter-spacing: 4.5px; }
+  h2.dark, .tabs .dark.single-tab, form button.dark[type=submit] {
+    color: #39413f; }
 
 h3 {
   font-size: 20px;
@@ -1046,7 +1049,7 @@ p.small {
 
 .paper-bottom-form {
   border-top: 1px solid black;
-  padding-top: 60px;
+  padding-top: 30px;
   background-color: white;
   padding-bottom: 60px; }
 
@@ -1226,6 +1229,29 @@ form button[type=submit] {
 .thankyou-background {
   background: url(/static/img/thankyou.png);
   height: 100%; }
+
+.counters {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.counter-box {
+  border: 1px solid #39413f;
+  background-color: #f1eee2;
+  width: 50%;
+  margin: 5px; }
+  .counter-box img {
+    padding: 20px; }
+
+.counter-box-header {
+  background-color: #001f28; }
+
+.ticker-amount {
+  color: white;
+  margin-top: 0px;
+  padding: 5px; }
 
 .mobile-only {
   display: none; }
