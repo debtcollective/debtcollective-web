@@ -132,7 +132,7 @@ p, .body-text {
       text-transform: none;
     }
     p {
-      font-size: 13px;
+      font-size: 15px;
       line-height: 24px;
     }
   }
@@ -300,6 +300,13 @@ h1 {
   line-height: 30px;
   font-weight: 100;
 
+  &.emphasis {
+    font-family: "Cutive mono", serif !important;
+    font-size: 26px !important;
+    line-height: 30px !important;
+    font-weight: 100 !important;
+  }
+
   &.floating-section-title {
     text-align: center;
   }
@@ -436,14 +443,19 @@ p.small {
     text-transform: normal;
     border-top: 1px solid $off-grey;
     border-right: 1px solid $off-grey;
+
     &:hover {
       cursor: pointer;
+    }
+
+    &.white {
+      background-color: white;
     }
   }
 
   .active {
     border-bottom: 1px solid $off-grey;
-    background-color: #888;
+    background-color: #888 !important;
 
     a {
       color: $dark-text-color;
@@ -461,19 +473,19 @@ p.small {
   color: black;
 
   .signatures {
-    font-weight: 700px;
     font-size: 18px;
+    padding-top: 30px;
+    font-weight: bold;
     text-transform: uppercase;
   }
 
-  .bottom-form {
-    padding-top: 30px;
-    border-top: 1px solid black;
-    background-color: white;
-    padding-bottom: 30px;
-  }
 }
-
+.paper-bottom-form {
+  border-top: 1px solid black;
+  padding-top: 60px;
+  background-color: white;
+  padding-bottom: 60px;
+}
 .letter-header {
   width: 130px;
   margin-left: 60px;
@@ -554,14 +566,14 @@ input, select {
   padding: 10px;
 }
 
-input[type="text"], input[type="email"], select {
+input[type="text"], input[type="email"], select, textarea {
   @extend %input;
   text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 2px;
 }
 
-input {
+input, textarea {
   border: 1px solid $dark-red !important;
   color: $dark-text-color;
   background-color: $olive !important;

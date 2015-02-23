@@ -35,7 +35,7 @@ class Debt(models.Model):
 
   DEBT_CHOICES = (
     (AUTO, 'Auto'),
-    (HOME, 'Household'),
+    (HOME, 'Home'),
     (STUDENT, 'Student'),
     (CREDIT, 'Credit'),
     (MEDICAL, 'Medical'),

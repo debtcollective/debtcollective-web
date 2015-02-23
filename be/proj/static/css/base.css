@@ -11,10 +11,10 @@
   font-size: 16px;
   line-height: 20px; }
 
-.btn, input[type="text"], input[type="email"], select, #resources li a, body, p, .body-text, h2, .tabs .single-tab, form button[type=submit], h3, h4, h5, .checkbox, h6, .dropdown-menu {
+.btn, input[type="text"], input[type="email"], select, textarea, #resources li a, body, p, .body-text, h2, .tabs .single-tab, form button[type=submit], h3, h4, h5, .checkbox, h6, .dropdown-menu {
   font-family: "Raleway", sans-serif; }
 
-.btn, input[type="text"], input[type="email"], select {
+.btn, input[type="text"], input[type="email"], select, textarea {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -27,7 +27,7 @@
   width: 100%;
   border: 0;
   text-decoration: none; }
-  .btn:focus, input[type="text"]:focus, input[type="email"]:focus, select:focus {
+  .btn:focus, input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
     outline: 0px;
     outline-offset: 0px; }
 
@@ -74,8 +74,7 @@
   .donate-buttons .donate-button {
     padding: 15px 15px 0px 15px; }
 
-.sm-buttons-right {
-  float: right;
+.sm-buttons, .sm-buttons-left, .sm-buttons-right {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
@@ -87,6 +86,13 @@
   -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column; }
+
+.sm-buttons-left {
+  float: left;
+  padding-right: 10px; }
+
+.sm-buttons-right {
+  float: right; }
 
 .btn {
   min-width: 150px;
@@ -222,7 +228,7 @@
   padding: 10px; }
 
 #resources h6 {
-  color: #5d6961;
+  color: #39413f;
   text-align: center;
   padding-top: 30px; }
 #resources li {
@@ -612,6 +618,32 @@ hr {
     .item .info h3 {
       margin-top: 0px; }
 
+/** cc form **/
+.ss-q-title {
+  margin-top: 30px; }
+
+.ss-choice-item {
+  list-style: none !important; }
+
+.ss-form-question {
+  text-align: left; }
+
+.ss-q-title, .ss-choice-label {
+  font-size: 13px;
+  font-weight: bold; }
+
+input[type="radio"] {
+  vertical-align: middle; }
+
+label {
+  margin-bottom: 0px; }
+
+.ss-secondary-text {
+  text-transform: none;
+  font-size: 13px; }
+  .ss-secondary-text ul li {
+    padding: 10px 0px; }
+
 /** carousel **/
 .carousel .title {
   text-align: center; }
@@ -757,7 +789,7 @@ p, .body-text {
     line-height: 24px;
     text-transform: none; }
   p.mono p, .body-text.mono p {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 24px; }
   p a, .body-text a {
     text-decoration: underline; }
@@ -879,6 +911,11 @@ h1 {
   font-size: 26px;
   line-height: 30px;
   font-weight: 100; }
+  h1.emphasis {
+    font-family: "Cutive mono", serif !important;
+    font-size: 26px !important;
+    line-height: 30px !important;
+    font-weight: 100 !important; }
   h1.floating-section-title {
     text-align: center; }
   h1 .small {
@@ -981,9 +1018,11 @@ p.small {
     border-right: 1px solid #39413f; }
     .tabs .single-tab:hover {
       cursor: pointer; }
+    .tabs .single-tab.white {
+      background-color: white; }
   .tabs .active {
     border-bottom: 1px solid #39413f;
-    background-color: #888; }
+    background-color: #888 !important; }
     .tabs .active a {
       color: #f1eee2; }
       .tabs .active a:hover {
@@ -995,14 +1034,16 @@ p.small {
   background: white;
   color: black; }
   .paper .signatures {
-    font-weight: 700px;
     font-size: 18px;
-    text-transform: uppercase; }
-  .paper .bottom-form {
     padding-top: 30px;
-    border-top: 1px solid black;
-    background-color: white;
-    padding-bottom: 30px; }
+    font-weight: bold;
+    text-transform: uppercase; }
+
+.paper-bottom-form {
+  border-top: 1px solid black;
+  padding-top: 60px;
+  background-color: white;
+  padding-bottom: 60px; }
 
 .letter-header {
   width: 130px;
@@ -1071,12 +1112,12 @@ input, select {
   height: 44px;
   padding: 10px; }
 
-input[type="text"], input[type="email"], select {
+input[type="text"], input[type="email"], select, textarea {
   text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 2px; }
 
-input {
+input, textarea {
   border: 1px solid #861800 !important;
   color: #f1eee2;
   background-color: rgba(2, 2, 2, 0.8) !important; }

@@ -67,11 +67,19 @@
     padding: 15px 15px 0px 15px;
   }
 }
-
-.sm-buttons-right {
-  float: right;
+.sm-buttons {
   @include flexbox;
   @include flex-direction(column);
+}
+
+.sm-buttons-left {
+  float: left;
+  @extend .sm-buttons;
+  padding-right: 10px;
+}
+.sm-buttons-right {
+  @extend .sm-buttons;
+  float: right;
 }
 
 .btn {

@@ -200,3 +200,37 @@ hr {
     }
   }
 }
+
+/** cc form **/
+.ss-q-title {
+  margin-top: 30px;
+}
+
+.ss-choice-item {
+  list-style: none !important;
+}
+
+.ss-form-question {
+  text-align: left;
+}
+
+.ss-q-title, .ss-choice-label {
+  font-size: 13px;
+  font-weight: bold;
+}
+input[type="radio"] {
+  vertical-align: middle;
+}
+
+label {
+  margin-bottom: 0px;
+}
+
+
+.ss-secondary-text {
+  text-transform: none;
+  font-size: 13px;
+  ul li {
+    padding: 10px 0px;
+  }
+}

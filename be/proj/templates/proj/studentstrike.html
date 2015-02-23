@@ -32,18 +32,13 @@
         </div>
         <div class="row">
           <div class="body-text centered">
-            <div class="row">
-              <div ng-repeat="striker in strikerChunks[0]">
-                  {% include "proj/strikers.html" %}
-              </div>
-            </div>
             <div class="inter-text">
               <h2>
                 To the Department of Education, <br class="hidden-mobile">to the loan servicers,
               </h2>
             </div>
             <div class="row">
-              <div ng-repeat="striker in strikerChunks[1]">
+              <div ng-repeat="striker in strikerChunks[0]">
                   {% include "proj/strikers.html" %}
               </div>
             </div>
@@ -52,7 +47,7 @@
               To corinthian and ECMC,</h2>
             </div>
             <div class="row">
-              <div ng-repeat="striker in strikerChunks[2]">
+              <div ng-repeat="striker in strikerChunks[1]">
                   {% include "proj/strikers.html" %}
               </div>
             </div>
@@ -60,7 +55,7 @@
               <h2>We have one thing to say</h2>
             </div>
             <div class="row">
-              <div ng-repeat="striker in strikerChunks[3]">
+              <div ng-repeat="striker in strikerChunks[2]">
                   {% include "proj/strikers.html" %}
               </div>
             </div>
@@ -91,9 +86,9 @@
         </div>
       </div>
       <div class="tabs">
-        <div class="single-tab" ng-class="{'active': !showCorinthianLetter}"
+        <div class="single-tab white" ng-class="{'active': !showCorinthianLetter}"
           ng-click="showCorinthianLetter = true">FROM THE CORINTHIANS</div>
-        <div class="single-tab" ng-class="{'active': showCorinthianLetter}"
+        <div class="single-tab white" ng-class="{'active': showCorinthianLetter}"
           ng-click="showCorinthianLetter = false">FROM SUPPORTERS</div>
       </div>
 
@@ -104,12 +99,14 @@
       <div ng-show="!showCorinthianLetter">
       {% include "proj/solidarityLetter.html" %}
       </div>
-
-      <div class="spacer"></div>
-      <div class="wrapper dark">
-        <div class="body-text">
-          <h2 class="floating-header-title">Like the strike?</h2>
-            <signupform></signupform>
+      <div class="paper-bottom-form">
+        <div class="dc-input">
+          <div class="body-text">
+            <form action="/corinthiansignup" method="GET">
+              <input type="text" placeholder="your name here" />
+              <button type="submit" class="btn btn-primary">sign on</button>
+            </form>
+          </div>
         </div>
       </div>
       <div id="donate"></div>

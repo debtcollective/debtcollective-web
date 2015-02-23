@@ -26,7 +26,7 @@ app.controller('corinthianCtrl',
         striker.first_name = striker.name.split(' ')[0].toLowerCase()
         $scope.strikers.push(striker)
       }
-      $scope.strikerChunks = $scope.strikers.chunk(4)
+      $scope.strikerChunks = $scope.strikers.chunk(5)
     });
 
     $scope.agreeButton = function () {
