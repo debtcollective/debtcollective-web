@@ -17,7 +17,9 @@
 
         <div class="tabs">
           <div class="single-tab">THE CORINTHIAN 15</div>
-          <div class="single-tab active"><a href="#likethestrike" du-smooth-scroll>Like the strike?</a></div>
+          <div class="single-tab active">
+            <a href="#likethestrike" du-smooth-scroll>Like the strike?</a>
+          </div>
         </div>
       </div>
 
@@ -75,7 +77,8 @@
           </div>
         </div>
       </div>
-      <div ng-class="{visible: currentStriker != null}" class="hud-display body-text light">
+      <div ng-class="{visible: currentStriker != null}"
+        class="hud-display body-text light">
         <div class="info">
           <div class="img">
             <img ng-click="closeStriker($event)"
@@ -99,7 +102,8 @@
       <div ng-show="!showCorinthianLetter">
       {% include "proj/solidarityLetter.html" %}
       </div>
-      <div class="paper-bottom-form">
+
+      <div class="paper-bottom-form" id="likethestrike">
         <div class="dc-input">
           <div class="body-text">
             <form action="/corinthiansignup" method="GET">
