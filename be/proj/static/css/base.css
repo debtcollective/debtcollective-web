@@ -1249,7 +1249,7 @@ input, textarea {
 
 select {
   border: 1px solid rgba(2, 2, 2, 0.8);
-  color: rgba(2, 2, 2, 0.8);
+  color: #f1eee2;
   font-weight: bold;
   background-color: #353a38 !important;
   background-image: url(/static/img/select-righthand.png);
