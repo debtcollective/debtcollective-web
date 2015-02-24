@@ -34,7 +34,11 @@ module.exports = function(grunt) {
         ],
         dest: [
           'templates/proj/base_template.html',
-        ]
+        ],
+      },
+      options: {
+        fileNameFormat: '${name}.${ext}?v${hash}',
+        renameFiles: false
       }
     },
     watch: {

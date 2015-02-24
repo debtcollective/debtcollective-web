@@ -54,8 +54,8 @@ app.controller('mapCtrl', function ($scope, $rootScope, $http, util_svc) {
 
         dataProvider['images'] = parsedImages;
         map.dataProvider = dataProvider;
-        map.validateNow();
-        map.write("mapdiv");
+        //map.validateNow();
+        //map.write("mapdiv");
     });
 
     var scale = d3.scale.linear()
