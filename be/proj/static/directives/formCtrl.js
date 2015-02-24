@@ -22,7 +22,6 @@ app.directive('signupform', function () {
 
       $http.get('/debt_choices').then(function (resp) {
         $scope.debt_choices = resp.data
-        console.log(resp.data)
       });
 
       $http.get('/points').then(function (resp) {
