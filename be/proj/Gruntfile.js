@@ -45,7 +45,7 @@ module.exports = function(grunt) {
     imageEmbed: {
       dist: {
         src: ['static/css/base.css'],
-        dest: 'static/dist/base.css',
+        dest: 'static/css/base.dist.css',
         options: {
           deleteAfterEncoding : false,
           target: ['**/*.png'],
