@@ -21,7 +21,17 @@
       </select>
     </div>
 
-     <div class="radio-group" ng-show="debts[0].debtType.id === 'student'">
+    <input type="email" id="email" name="cm-nskul-nskul"  ng-model="email"
+      placeholder="enter your email..."
+      required autocomplete="off" />
+
+    <input type="text"
+      ng-model="location"
+      placeholder="what city do you live in?"
+      typeahead-editable="false"
+      typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 ">
+
+     <div class="radio-group">
         <h6>I HAVE STUDENT DEBT FROM AN EVEREST, WYOTECH, OR HEALD COLLEGE</h6>
         <div class="radio">
           <label class="ss-choice-label">
@@ -39,7 +49,7 @@
         </div>
       </div>
 
-     <div class="radio-group" ng-show="debts[0].debtType.id === 'student'">
+     <div class="radio-group">
         <h6>I HAVE STUDENT DEBT ASSOCIATED WITH SALLIE MAE/ NAVIENT</h6>
         <div class="radio">
           <label class="ss-choice-label">
@@ -56,16 +66,6 @@
           </label>
         </div>
       </div>
-
-    <input type="email" id="email" name="cm-nskul-nskul"  ng-model="email"
-      placeholder="enter your email..."
-      required autocomplete="off" />
-
-    <input type="text"
-      ng-model="location"
-      placeholder="what city do you live in?"
-      typeahead-editable="false"
-      typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 ">
 
       <button type="submit" name="submit" class="btn btn-primary">sign up for updates</button>
     </form>
@@ -92,7 +92,18 @@
         </select>
     </div>
 
-     <div class="radio-group" ng-show="debts[0].debtType.id === 'student'">
+
+    <input type="email" id="email" name="cm-nuriti-nuriti"  ng-model="email"
+      placeholder="enter your email..."
+      required />
+
+    <input type="text"
+      ng-model="location"
+      placeholder="what city do you live in?"
+      typeahead-editable="false"
+      typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 ">
+
+     <div class="radio-group">
         <h6>I HAVE STUDENT DEBT FROM AN EVEREST, WYOTECH, OR HEALD COLLEGE</h6>
         <div class="radio">
           <label class="ss-choice-label">
@@ -110,7 +121,7 @@
         </div>
       </div>
 
-     <div class="radio-group" ng-show="debts[0].debtType.id === 'student'">
+     <div class="radio-group">
         <h6>I HAVE STUDENT DEBT ASSOCIATED WITH SALLIE MAE/ NAVIENT</h6>
         <div class="radio">
           <label class="ss-choice-label">
@@ -127,17 +138,6 @@
           </label>
         </div>
       </div>
-
-
-    <input type="email" id="email" name="cm-nuriti-nuriti"  ng-model="email"
-      placeholder="enter your email..."
-      required />
-
-    <input type="text"
-      ng-model="location"
-      placeholder="what city do you live in?"
-      typeahead-editable="false"
-      typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 ">
 
     <button type="submit" name="submit"
       class="btn btn-primary">sign up for updates</button>
