@@ -51,9 +51,9 @@ def stripe_endpoint(request):
     print rq
     try:
       stripe.Charge.create(
-        amount=rq['amount'],
+        amount=int(rq['amount']) * 100,
         currency='usd',
-        source=rq['stripeToken'],
+        source=rq['stripeToken']['id'],
         description="donation from"
       )
     except stripe.CardError, e:
