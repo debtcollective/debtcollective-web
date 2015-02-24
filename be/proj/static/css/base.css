@@ -1092,6 +1092,9 @@ p.small {
 .centered {
   text-align: center; }
 
+.justified {
+  text-align: justify; }
+
 .underline {
   text-decoration: underline; }
 
@@ -1160,7 +1163,6 @@ p.small {
 .paper-bottom-form {
   border-top: 1px solid black;
   padding-top: 30px;
-  background-color: white;
   padding-bottom: 60px; }
 
 .letter-header {
@@ -1342,7 +1344,7 @@ form button[type=submit] {
   display: block; }
 
 .thankyou-background {
-  background: url(/static/img/thankyou.png);
+  background: url(/static/img/blogbackground2.gif);
   height: 100%; }
 
 .counters {
