@@ -27,6 +27,16 @@ module.exports = function(grunt) {
         dest: 'static/dist/<%= pkg.name %>.js'
       }
     },
+    hashres: {
+      assets: {
+        src: [
+          'static/dist/dc.js', 'static/css/base.css'
+        ],
+        dest: [
+          'templates/proj/base_template.html',
+        ]
+      }
+    },
     watch: {
       files: ['static/js/**/*.js'],
       tasks: ['concat']
@@ -35,7 +45,8 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-hashres');
 
-  grunt.registerTask('default', ['concat']);
+  grunt.registerTask('default', ['concat', 'hashres']);
 
 };

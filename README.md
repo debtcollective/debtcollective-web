@@ -64,6 +64,11 @@ $ cd be/static/css
 $ sass --watch base.scss
 ```
 
+```
+$ cd be/proj
+$ grunt watch
+```
+
 ## Testing the app
 
 Create the postgresql user and databases debtis

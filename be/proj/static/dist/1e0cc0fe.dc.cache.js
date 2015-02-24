@@ -2415,7 +2415,7 @@ app.directive('scrollOnClick', function() {
     // get data
     var dataProvider = {
         map: "worldHigh",
-        zoomLevel: 2,
+        zoomLevel: 3,
         zoomLatitude: 39.096169,
         zoomLongitude: -98.198721
     };
