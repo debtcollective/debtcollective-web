@@ -1,7 +1,6 @@
 var app = angular.module('myDebtIs', [
     'ngCookies',
-    'duScroll',
-    'ui.bootstrap'
+    'duScroll'
 ]);
 
 app.run(function run($http, $cookies){
