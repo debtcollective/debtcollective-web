@@ -102,16 +102,23 @@
       <div ng-show="!showCorinthianLetter">
       {% include "proj/solidarityLetter.html" %}
       </div>
-
+ <div class="tabs">
+        <div class="single-tab" ng-class="{'active': !showCorinthianLetter}"
+          ng-click="showCorinthianLetter = true">CORINTHIAN 15</div>
+        <div class="single-tab" ng-class="{'active': showCorinthianLetter}"
+          ng-click="showCorinthianLetter = false">C15 ENDORSERS</div>
+      </div>
       <div class="paper-bottom-form" id="likethestrike">
         <div class="dc-input">
-          <div class="body-text">
+          <div class="body-text" ng-show="showCorinthianLetter">
             <h2 class="dark">Corinthian student?</h2>
             <form action="/corinthiansignup" method="GET">
               <input type="text" placeholder="your name here" />
               <button type="submit" class="btn btn-primary">sign on</button>
             </form>
           </div>
+
+          <signupform ng-show="!showCorinthianLetter"></signupform>
         </div>
       </div>
       </div>
