@@ -2426,26 +2426,16 @@ app.directive('scrollOnClick', function() {
         var points = resp.data.points;
         var point;
 
-        var num_users = 0;
-
         for (idx in points) {
             point = createAmChartPoint(points[idx]);
-            if (typeof point['num_users'] === 'number') {
-                num_users += point['num_users']
-            }
             point['scale'] = getPointScale(parseFloat(point['sum_amount']/total_amount));
             parsedImages.push(point);
         }
 
-        $rootScope.num_users = num_users
         dataProvider['images'] = parsedImages;
         map.dataProvider = dataProvider;
         map.validateNow();
         map.write("mapdiv");
-
-        setTimeout(function () {
-            map.zoomIn();
-        }, 1000)
     });
 
     var scale = d3.scale.linear()
