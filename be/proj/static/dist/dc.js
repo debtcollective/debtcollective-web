@@ -2434,8 +2434,11 @@ app.directive('scrollOnClick', function() {
 
         dataProvider['images'] = parsedImages;
         map.dataProvider = dataProvider;
-        //map.validateNow();
-        //map.write("mapdiv");
+
+        map.validateNow();
+        map.write("mapdiv");
+        document.getElementById("mapdiv").classList.remove('map-loading');
+
     });
 
     var scale = d3.scale.linear()

@@ -198,7 +198,9 @@
   height: 325px;
   z-index: 999999999;
   background-color: $map-background-color;
-  background-image: url(/static/img/mapbackground.png)
+  &.map-loading{
+    background: url(/static/img/mapbackground.png) center no-repeat;
+  }
 }
 
 .debt-total {
