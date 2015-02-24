@@ -199,7 +199,7 @@
   z-index: 999999999;
   background-color: $map-background-color;
   &.map-loading{
-    background: url(/static/img/mapbackground.png) center no-repeat;
+    background: url(../img/mapbackground.png) center no-repeat;
   }
 }
 

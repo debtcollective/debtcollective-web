@@ -5,7 +5,7 @@
   font-size: 14px;
   line-height: 16px; }
 
-.button-box .box-text, .tweet-box .box-text, .fb-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button[type=submit], form p.mono button[type=submit], p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button[type=submit], form .body-text.mono button[type=submit], .body-text.mono h6, .body-text.mono p, .header-links a.nav-link, h1, .top-quote h1 {
+.button-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button[type=submit], form p.mono button[type=submit], p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button[type=submit], form .body-text.mono button[type=submit], .body-text.mono h6, .body-text.mono p, .header-links a.nav-link, h1, .top-quote h1 {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -200,32 +200,18 @@
   justify-content: space-around;
   margin: 50px 0px; }
 
-.button-box, .tweet-box, .fb-box {
+.button-box {
   margin: 15px;
   background: transparent;
   width: 100%; }
-  .button-box .box-text, .tweet-box .box-text, .fb-box .box-text {
+  .button-box .box-text {
     color: #f1eee2;
     width: 100%;
     letter-spacing: 0px;
     padding: 15px;
     margin-bottom: 0px; }
-  .button-box:hover, .tweet-box:hover, .fb-box:hover {
+  .button-box:hover {
     cursor: pointer; }
-
-.tweet-box, .fb-box {
-  width: 350px;
-  background-image: url(/static/img/02-2015_sm-norm-promo.gif);
-  background-repeat: no-repeat;
-  background-position: left; }
-  .tweet-box:hover, .fb-box:hover {
-    background-image: url(/static/img/02-2015_sm-promo.gif); }
-
-.fb-box {
-  background-image: url(/static/img/02-2015_tw-norm-promo.png);
-  padding: 10px; }
-  .fb-box:hover {
-    background-image: url(/static/img/02-2015_tw-overstate-promo.png); }
 
 /* SQUARED THREE */
 .checkbox {
@@ -453,7 +439,7 @@
   z-index: 999999999;
   background-color: #C4C2B2; }
   #mapdiv.map-loading {
-    background: url(/static/img/mapbackground.png) center no-repeat; }
+    background: url(../img/mapbackground.png) center no-repeat; }
 
 .debt-total {
   text-align: center;
@@ -824,7 +810,7 @@ body {
   margin-right: 0px; }
 
 .arrow-down-steep {
-  background-image: url(/static/img/bg_arrow-down-steep.png);
+  background-image: url(../img/bg_arrow-down-steep.png);
   background-position: center bottom;
   padding-bottom: 210px;
   background-color: #39413f !important;
@@ -837,7 +823,7 @@ body {
     width: 100%; }
 
 .arrow-up {
-  background: transparent url(/static/img/bg_arrow-up.png) scroll no-repeat center top;
+  background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
   z-index: -5;
   position: relative;
   padding-bottom: 250px;
@@ -1254,7 +1240,7 @@ select {
   color: #f1eee2;
   font-weight: bold;
   background-color: #353a38 !important;
-  background-image: url(/static/img/select-righthand.png);
+  background-image: url(../img/select-righthand.png);
   background-repeat: no-repeat;
   background-position: right center; }
 
@@ -1346,7 +1332,7 @@ form button[type=submit] {
   display: block; }
 
 .thankyou-background {
-  background: url(/static/img/blogbackground2.gif);
+  background: url(../img/blogbackground2.gif);
   height: 100%; }
 
 .counters {

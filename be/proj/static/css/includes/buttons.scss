@@ -141,28 +141,6 @@
   }
 }
 
-.tweet-box {
-  @extend .button-box;
-  width: 350px;
-  background-image: url(/static/img/02-2015_sm-norm-promo.gif);
-  background-repeat: no-repeat;
-  background-position: left;
-
-  &:hover {
-    background-image: url(/static/img/02-2015_sm-promo.gif);
-  }
-}
-
-.fb-box {
-  @extend .tweet-box;
-  background-image: url(/static/img/02-2015_tw-norm-promo.png);
-  padding: 10px;
-
-  &:hover {
-    background-image: url(/static/img/02-2015_tw-overstate-promo.png);
-  }
-}
-
 
 /* SQUARED THREE */
 .checkbox {

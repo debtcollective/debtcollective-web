@@ -41,13 +41,24 @@ module.exports = function(grunt) {
     watch: {
       files: ['static/js/**/*.js'],
       tasks: ['concat']
+    },
+    imageEmbed: {
+      dist: {
+        src: ['static/css/base.css'],
+        dest: 'static/dist/base.css',
+        options: {
+          deleteAfterEncoding : false,
+          target: ['**/*.png'],
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-hashres');
+  grunt.loadNpmTasks("grunt-image-embed");
 
-  grunt.registerTask('default', ['concat', 'hashres']);
+  grunt.registerTask('default', ['concat', 'hashres', 'imageEmbed']);
 
 };

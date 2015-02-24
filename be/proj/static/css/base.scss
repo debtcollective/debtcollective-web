@@ -41,7 +41,7 @@ body {
 }
 
 .arrow-down-steep {
-  background-image: url(/static/img/bg_arrow-down-steep.png);
+  background-image: url(../img/bg_arrow-down-steep.png);
   background-position: center bottom;
   padding-bottom: 210px;
   background-color: $dark-background-color !important;
@@ -59,7 +59,7 @@ body {
 }
 
 .arrow-up {
-  background: transparent url(/static/img/bg_arrow-up.png) scroll no-repeat center top;
+  background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
   z-index: -5;
   position: relative;
   padding-bottom: 250px;
@@ -607,7 +607,7 @@ select {
   color: $light-background-color;
   font-weight: bold;
   background-color: rgb(53, 58, 56) !important;
-  background-image: url(/static/img/select-righthand.png);
+  background-image: url(../img/select-righthand.png);
   background-repeat: no-repeat;
   background-position: right center;
 }
@@ -724,7 +724,7 @@ form {
 
 
 .thankyou-background {
-  background: url(/static/img/blogbackground2.gif);
+  background: url(../img/blogbackground2.gif);
   height: 100%;
 }
 
