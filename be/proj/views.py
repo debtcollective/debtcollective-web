@@ -11,6 +11,9 @@ from proj.gather.models import Debt, UserProfile, Point
 
 import simplejson as json
 
+import settings
+import stripe
+
 @ensure_csrf_cookie
 def splash(request):
   return render_to_response('proj/splash.html', {})
@@ -38,6 +41,25 @@ def thankyou(request):
 
 def not_found(request):
   return render_to_response('proj/404.html')
+
+
+def stripe_endpoint(request):
+  stripe.api_key = settings.STRIPE_KEY
+
+  if request.method == 'POST':
+    rq = get_POST_data(request)
+    print rq
+    try:
+      stripe.Charge.create(
+        amount=rq['amount'],
+        currency='usd',
+        source=rq['stripeToken'],
+        description="donation from"
+      )
+    except stripe.CardError, e:
+      pass
+
+  return json_response({'status': 'ok'}, 200)
 
 def login(request):
   """

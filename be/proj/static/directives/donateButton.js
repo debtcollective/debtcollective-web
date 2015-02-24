@@ -1,4 +1,4 @@
-app.directive('donateButton', function ($window) {
+app.directive('donateButton', function ($window, $http) {
   return {
     restrict: 'E',
     scope: {
@@ -10,7 +10,14 @@ app.directive('donateButton', function ($window) {
     templateUrl: '/static/directives/donateButton.html',
     controller: function ($scope, $element, $attrs) {
       var handler = StripeCheckout.configure({
-        key: 'pk_live_7W0RkZvaAs7dMs3vGkdSLTJh'
+        key: 'pk_live_7W0RkZvaAs7dMs3vGkdSLTJh',
+        token: function (token) {
+          $http.post('/stripe_endpoint', {
+            amount: $scope.amount,
+            stripeToken: token
+          })
+        }
+
       });
 
       $scope.flexible = !!$attrs.flexible
