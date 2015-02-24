@@ -6,6 +6,12 @@
   display: none;
 }
 
+.striker-row.col-lg-2,
+.striker-row.col-sm-2,
+.striker-row.col-md-2 {
+  width: 19.666667%;
+}
+
 @media (min-width: 2500px) {
   .wrapper {
     max-width: 56.5%;

@@ -49,13 +49,12 @@ def stripe_endpoint(request):
 
   if request.method == 'POST':
     rq = get_POST_data(request)
-    print rq
     try:
       stripe.Charge.create(
         amount=int(rq['amount']) * 100,
         currency='usd',
         source=rq['stripeToken']['id'],
-        description="donation from"
+        description="donation"
       )
     except stripe.CardError, e:
       pass
