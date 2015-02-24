@@ -14,13 +14,6 @@
           <img class="hidden-mobile" src="/static/img/strikers/striker_headerimage.gif" />
           <img class="mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
         </div>
-
-        <div class="tabs">
-          <div class="single-tab">THE CORINTHIAN 15</div>
-          <div class="single-tab active">
-            <a href="#likethestrike" du-smooth-scroll>Like the strike?</a>
-          </div>
-        </div>
       </div>
 
       <!-- profiles and statement -->
@@ -29,11 +22,11 @@
         <div class="row light" ng-cloak>
           <div class="body-text centered">
             <div class="spacer"></div>
-            <p>Former students of Corinthian Colleges have <strong>declared a debt strike</strong> by refusing to pay their federal loans. <strong>Click on a striker to read their story.</strong></p>
+            <h5>Students of Corinthian Colleges have declared a debt strike by refusing to pay their federal loans. <strong>Click on a striker to read their story.</strong></h5>
           </div>
         </div>
         <div class="row">
-          <div class="body-text centered">
+          <div class="body-text main caption centered">
             <div class="inter-text">
               <h2>
                 To the Department of Education, <br class="hidden-mobile">to the loan servicers,
@@ -64,19 +57,14 @@
             <div class="inter-text big-bottom">
               <h2 class="big-link">WE OWE YOU NOTHING</h2>
             </div>
-
-            <div class="body-text caption sub">
-               <a href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
-    'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
-                <img class="sm-button" src="/static/img/fb.png">
-              </a>
-              <a href="http://twitter.com/intent/tweet?text=TO%20THE%20DEPARTMENT%20OF%20ED%2C%20TO%20THE%20GENESIS%20LENDING%20COMPANY%2C%20WE%20HAVE%20ONE%20THING%20TO%20SAY%3A%20WE%20OWE%20YOU%20NOTHING%20debtcollective.org%2Fstudentstrike%20%23debtstrike" target="_blank">
-                <img class="sm-button" src="/static/img/twitter.png">
-              </a>
-            </div>
+          </div>
+          <div class="body-text caption sub"><p>Sign a statement if you are a <a href="" class="big-link">a Corinthian student</a> or a
+          <a href="" class="big-link">general supporter</a></p>
+          <p>Stand with the Corinthian 15!</p>
           </div>
         </div>
       </div>
+
       <div ng-class="{visible: currentStriker != null}"
         class="hud-display body-text light">
         <div class="info">
@@ -88,11 +76,23 @@
           <p>{$ currentStriker.bio $}</p>
         </div>
       </div>
+
+      <div class="wrapper dark">
+        <div class="body-text centered spaced">
+        <a href="#donate" du-smooth-scroll><h2>Like the Strike?</h2>
+          <h5>click here, back the strikers!</h5>
+          </a>
+        </div>
+      </div>
+      <div class="spacer"></div>
+
+      <div class="wrapper arrow-down-steep">
+      <div class="row light">
       <div class="tabs">
-        <div class="single-tab white" ng-class="{'active': !showCorinthianLetter}"
-          ng-click="showCorinthianLetter = true">FROM THE CORINTHIANS</div>
-        <div class="single-tab white" ng-class="{'active': showCorinthianLetter}"
-          ng-click="showCorinthianLetter = false">FROM SUPPORTERS</div>
+        <div class="single-tab" ng-class="{'active': !showCorinthianLetter}"
+          ng-click="showCorinthianLetter = true">CORINTHIAN 15</div>
+        <div class="single-tab" ng-class="{'active': showCorinthianLetter}"
+          ng-click="showCorinthianLetter = false">C15 ENDORSERS</div>
       </div>
 
       <div ng-show="showCorinthianLetter">
@@ -114,6 +114,17 @@
           </div>
         </div>
       </div>
+      </div>
+       <div class="body-text caption sub">
+          <p>Help spread the word, lend your voice over <fb-button class="big-link">facebook</fb-button> and <a href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" class="big-link" target="_blank">twitter</a>!</p>
+        <fb-button>
+          <img class="sm-button" src="/static/img/fb.gif">
+        </fb-button>
+        <a href="http://twitter.com/intent/tweet?text=TO%20THE%20DEPARTMENT%20OF%20ED%2C%20TO%20THE%20GENESIS%20LENDING%20COMPANY%2C%20WE%20HAVE%20ONE%20THING%20TO%20SAY%3A%20WE%20OWE%20YOU%20NOTHING%20debtcollective.org%2Fstudentstrike%20%23debtstrike" target="_blank">
+          <img class="sm-button" src="/static/img/twitter.gif">
+        </a>
+      </div>
+    </div>
 
       <div id="donate"></div>
       {% include "proj/donateBox.html" with title="Support the Strike" %}

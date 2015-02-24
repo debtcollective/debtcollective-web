@@ -22,12 +22,11 @@
             </p>
 
             <div class="sm-buttons-left">
-             <a href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
-              <img class="sm-button" src="/static/img/fb.png">
-             </a>
+             <fb-button>
+              <img class="sm-button" src="/static/img/fb.gif">
+             </fb-button>
               <a href="https://twitter.com/intent/tweet?text=Repayment%20plans%20presented%20as%20a%20helping%20hand%20simply%20aren%E2%80%99t%20good%20enough.%20The%20wrong%20done%20to%20us%20is%20deeper%20than%20that%20%23CorinthianStrike%20%400debtzone" target="_blank">
-                <img class="sm-button" src="/static/img/twitter.png">
+                <img class="sm-button" src="/static/img/twitter.gif">
               </a>
             </div>
             <h1 class="emphasis">Repayment plans presented as a helping hand simply aren’t good enough. The wrong done to us is deeper than that. </h1>
@@ -43,7 +42,7 @@
             </h6>
             <div class="row signatures">
 
-              <div ng-repeat="chunk in strikerChunks" class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+              <div ng-repeat="chunk in strikerChunks" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
               <p>
               <span class="striker-signature" ng-repeat="striker in chunk">{$ striker.first_name $}<br>
               </p>

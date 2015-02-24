@@ -388,6 +388,11 @@
   .intro h1 {
     letter-spacing: -2px; }
 
+.intro-caption {
+  margin: 30px 0px; }
+  .intro-caption h2, .intro-caption .tabs .single-tab, .tabs .intro-caption .single-tab, .intro-caption form button[type=submit], form .intro-caption button[type=submit] {
+    margin-bottom: 0px; }
+
 #scroll.mainstate .social-media {
   opacity: 0; }
 #scroll.mainstate .nav-footer {
@@ -865,6 +870,10 @@ strong {
 .body-text p {
   margin-bottom: 22px; }
 
+hr {
+  margin: 15px;
+  border-top: 1px solid black; }
+
 p, .body-text {
   margin: 0px auto;
   font-size: 15.6px;
@@ -876,6 +885,12 @@ p, .body-text {
   p.small, .body-text.small {
     line-height: 20px;
     margin-top: 10px; }
+  p.spaced, .body-text.spaced {
+    padding-bottom: 60px; }
+    p.spaced a, .body-text.spaced a {
+      text-decoration: none !important; }
+      p.spaced a h2, p.spaced a .tabs .single-tab, .tabs p.spaced a .single-tab, p.spaced a form button[type=submit], form p.spaced a button[type=submit], .body-text.spaced a h2, .body-text.spaced a .tabs .single-tab, .tabs .body-text.spaced a .single-tab, .body-text.spaced a form button[type=submit], form .body-text.spaced a button[type=submit] {
+        margin-bottom: 0px; }
   p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button[type=submit], form p.mono button[type=submit], p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button[type=submit], form .body-text.mono button[type=submit], .body-text.mono h6, .body-text.mono p {
     font-family: 'Cousine', serif; }
   p.mono h6, .body-text.mono h6 {
@@ -885,7 +900,7 @@ p, .body-text {
     text-transform: none; }
   p.mono p, .body-text.mono p {
     font-size: 15px;
-    line-height: 24px; }
+    line-height: 20px; }
   p a, .body-text a {
     text-decoration: underline; }
   p ul, .body-text ul {
@@ -1041,7 +1056,6 @@ h4 {
   line-height: 24px; }
 
 h5 {
-  font-weight: bold;
   font-size: 16px;
   line-height: 24px;
   font-style: italic; }
@@ -1134,7 +1148,9 @@ p.small {
 .paper {
   padding: 0px;
   background: white;
-  color: black; }
+  color: black;
+  margin: 30px;
+  border: 1px solid black; }
   .paper .signatures {
     font-size: 18px;
     padding-top: 30px;
@@ -1355,12 +1371,18 @@ form button[type=submit] {
 .mobile-only {
   display: none; }
 
+.desktop-only {
+  display: none; }
+
 @media (min-width: 2500px) {
   .wrapper {
     max-width: 56.5%; }
 
   .body-text {
-    max-width: 39.4%; } }
+    max-width: 39.4%; }
+
+  .desktop-only {
+    display: block !important; } }
 @media (min-width: 1130px) and (max-width: 2500px) {
   .wrapper {
     max-width: 93.75%; }
@@ -1370,7 +1392,10 @@ form button[type=submit] {
 
   .carousel {
     max-width: 75%;
-    margin: auto; } }
+    margin: auto; }
+
+  .desktop-only {
+    display: block !important; } }
 @media (min-width: 768px) and (max-width: 1130px) {
   .wrapper {
     max-width: 100%; }

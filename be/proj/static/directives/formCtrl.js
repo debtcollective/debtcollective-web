@@ -41,16 +41,6 @@ app.directive('signupform', function () {
         $scope.showForm = true;
       }
 
-      $scope.$watch('corinthianStudent', function (newVal, oldVal) {
-        if (newVal && ($scope.debts[0].debtType.id != 'student')) {
-          $scope.showForm = true
-          $scope.debts[0].debtType = {
-            id: 'student',
-            name: 'Student'
-          }
-        }
-      })
-
       $scope.corinthianSubmitClick = function ($event) {
         $scope.formSubmitted = true
       }
@@ -75,7 +65,7 @@ app.directive('signupform', function () {
         }
 
         var corinthian = 0
-        if ($scope.corinthianStudent) {
+        if ($scope.corinthianStudent == 'option1') {
           corinthian = 1
         }
 

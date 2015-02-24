@@ -124,6 +124,13 @@
   border-bottom: 1px solid black
 }
 
+.intro-caption {
+  h2 {
+    margin-bottom: 0px;
+  }
+  margin: 30px 0px;
+}
+
 #scroll {
   &.mainstate {
     .social-media {

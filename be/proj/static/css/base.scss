@@ -105,6 +105,11 @@ strong {
 .body-text {
   p { margin-bottom: 22px; }
 }
+
+hr {
+  margin: 15px;
+  border-top: 1px solid black;
+}
 p, .body-text {
   @extend %rale;
   margin: 0px auto;
@@ -121,6 +126,16 @@ p, .body-text {
     margin-top: 10px;
   }
 
+  &.spaced {
+    padding-bottom: 60px;
+    a {
+      h2 {
+        margin-bottom: 0px;
+      }
+      text-decoration: none !important;
+    }
+  }
+
   &.mono {
     h1, h2, h6, p {
       @extend %mono;
@@ -134,7 +149,7 @@ p, .body-text {
     }
     p {
       font-size: 15px;
-      line-height: 24px;
+      line-height: 20px;
     }
   }
 
@@ -353,7 +368,6 @@ h4 {
 
 h5 {
   @extend %rale;
-  font-weight: bold;
   font-size: 16px;
   line-height: 24px;
   font-style: italic;
@@ -475,6 +489,8 @@ p.small {
   padding: 0px;
   background: white;
   color: black;
+  margin: 30px;
+  border: 1px solid black;
 
   .signatures {
     font-size: 18px;

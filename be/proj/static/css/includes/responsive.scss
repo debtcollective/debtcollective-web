@@ -2,6 +2,9 @@
   display: none;
 }
 
+.desktop-only {
+  display: none;
+}
 
 @media (min-width: 2500px) {
   .wrapper {
@@ -9,6 +12,9 @@
   }
   .body-text {
     max-width: 39.4%;
+  }
+  .desktop-only {
+    display: block !important;
   }
 }
 @media (min-width: 1130px) and (max-width: 2500px) {
@@ -22,6 +28,9 @@
   .carousel {
     max-width: 75%;
     margin: auto;
+  }
+  .desktop-only {
+    display: block !important;
   }
 }
 

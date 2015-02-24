@@ -20,8 +20,27 @@
         <option value="">select debt type</option>
       </select>
     </div>
-     <div class="salliemae" ng-show="debts[0].debtType.id === 'student'">
-        <h6>Do you have sallie mae/navient debt?</h6>
+
+     <div class="radio-group" ng-show="debts[0].debtType.id === 'student'">
+        <h6>I HAVE STUDENT DEBT FROM AN EVEREST, WYOTECH, OR HEALD COLLEGE</h6>
+        <div class="radio">
+          <label class="ss-choice-label">
+            <input ng-model="corinthianStudent" type="radio" name="optionsRadios"
+              value="option1">
+              <span class="ss-choice-label">Yes</span>
+          </label>
+        </div>
+        <div class="radio">
+          <label >
+            <input ng-model="corinthianStudent" type="radio" name="optionsRadios"
+              value="option2">
+              <span class="ss-choice-label">No</span>
+          </label>
+        </div>
+      </div>
+
+     <div class="radio-group" ng-show="debts[0].debtType.id === 'student'">
+        <h6>I HAVE STUDENT DEBT ASSOCIATED WITH SALLIE MAE/ NAVIENT</h6>
         <div class="radio">
           <label class="ss-choice-label">
             <input ng-model="salliemae" type="radio" name="optionsRadios"
@@ -37,6 +56,7 @@
           </label>
         </div>
       </div>
+
     <input type="email" id="email" name="cm-nskul-nskul"  ng-model="email"
       placeholder="enter your email..."
       required autocomplete="off" />
@@ -47,13 +67,6 @@
       typeahead-editable="false"
       typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 ">
 
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="everestcheck" ng-model="corinthianStudent">
-          <label class="checkLabel" for="everestcheck"></label>
-          <div class="help-text"><strong>I have student debt from Everest, Heald or Wyotech.</strong> I want to join the fight to get our debts cancelled.</div>
-        </label>
-      </div>
       <button type="submit" name="submit" class="btn btn-primary">sign up for updates</button>
     </form>
   </div>
@@ -78,8 +91,27 @@
         <option value="">select debt type</option>
         </select>
     </div>
-     <div class="salliemae" ng-show="debts[0].debtType.id === 'student'">
-        <h6>Do you have sallie mae/navient debt?</h6>
+
+     <div class="radio-group" ng-show="debts[0].debtType.id === 'student'">
+        <h6>I HAVE STUDENT DEBT FROM AN EVEREST, WYOTECH, OR HEALD COLLEGE</h6>
+        <div class="radio">
+          <label class="ss-choice-label">
+            <input ng-model="corinthianStudent" type="radio" name="optionsRadios"
+              value="option1">
+              <span class="ss-choice-label">Yes</span>
+          </label>
+        </div>
+        <div class="radio">
+          <label >
+            <input ng-model="corinthianStudent" type="radio" name="optionsRadios"
+              value="option2">
+              <span class="ss-choice-label">No</span>
+          </label>
+        </div>
+      </div>
+
+     <div class="radio-group" ng-show="debts[0].debtType.id === 'student'">
+        <h6>I HAVE STUDENT DEBT ASSOCIATED WITH SALLIE MAE/ NAVIENT</h6>
         <div class="radio">
           <label class="ss-choice-label">
             <input ng-model="salliemae" type="radio" name="optionsRadios"
@@ -107,14 +139,6 @@
       typeahead-editable="false"
       typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 ">
 
-
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="everestcheck" ng-model="corinthianStudent">
-          <label class="checkLabel" for="everestcheck"></label>
-          <div class="help-text"><strong>I have student debt from Everest, Heald or Wyotech.</strong> I want to join the fight to get our debts cancelled.</div>
-        </label>
-      </div>
     <button type="submit" name="submit"
       class="btn btn-primary">sign up</button>
   </form>
