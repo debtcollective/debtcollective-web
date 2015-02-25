@@ -18,6 +18,7 @@ module.exports = function(grunt) {
         'static/vendor/jquery.jodometer.js',
         'static/vendor/ammap/ammap.js',
         'static/vendor/ammap/maps/js/worldHigh.js',
+        '/static/js/vendor/jquery.jqgoogleforms.min.js',
         'static/js/debtis.js',
         'static/js/**/*.js',
         'static/directives/**/*.js'],
