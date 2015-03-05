@@ -6,7 +6,7 @@ app.directive('signupform', function () {
     scope: {
       visible: '='
     },
-    controller: function ($scope, $element, $http, util_svc, $document, $timeout, $window) {
+    controller: function ($scope, $element, $http, $document, $timeout, $window, users) {
       $scope.email = null;
       $scope.username = null;
       $scope.debts = [];
@@ -51,46 +51,30 @@ app.directive('signupform', function () {
         // just store one debt type for now.
         $scope.formSubmitted = true;
         $scope.showForm = true;
-        sendToBackend(function () {
-          sendToGdocs()
-        })
-      }
 
-      function sendToGdocs(cb) {
-        var googleForm = $(window).jqGoogleForms({"formKey": "1Vk1WIqyyj4-tHetXZIqCvuoLDmPoDL6QTPQTZ4disUY"});
-        var salliemae = 0
-        if ($scope.salliemae == 'option1') {
-          salliemae = 1
-        }
-
-        var corinthian = 0
-        if ($scope.corinthianStudent == 'option1') {
-          corinthian = 1
-        }
-
-        var data = {
-          'entry.71652265': salliemae,
-          'entry.256870148': corinthian
-        }
-        googleForm.sendFormData(data)
-      }
-
-      function sendToBackend(cb) {
-        $scope.username = util_svc.generateUUID();
         var debt = $scope.debts[0]
-        var backend_data = {
-          'username': $scope.username,
-          'password': $scope.email,
+        var userData = {
+          'email': $scope.email,
           'point': $scope.location.id,
           'kind': debt.debtType.id,
           'amount': parseFloat(debt.amount.replace(',', ''))
         }
-        $http.post('/signup/', backend_data).then(function (resp) {
-          console.log(resp)
-          cb()
-        });
-      }
 
+        users.createAnonymousUser(userData, function () {
+
+          var salliemae = 0
+          if ($scope.salliemae == 'option1') {
+            salliemae = 1
+          }
+
+          var corinthian = 0
+          if ($scope.corinthianStudent == 'option1') {
+            corinthian = 1
+          }
+
+          users.gDocsCollectiveCounter(salliemae, corinthian)
+        })
+      }
     }
   }
 })

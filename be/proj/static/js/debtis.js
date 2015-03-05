@@ -4,7 +4,7 @@ var app = angular.module('myDebtIs', [
     'ui.bootstrap'
 ]);
 
-app.run(function run($http, $cookies){
+app.run(function run($http, $cookies) {
     $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
 })
 

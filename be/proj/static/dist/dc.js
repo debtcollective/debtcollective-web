@@ -2099,7 +2099,7 @@ AmCharts.maps.worldHigh={
     'ui.bootstrap'
 ]);
 
-app.run(function run($http, $cookies){
+app.run(function run($http, $cookies) {
     $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
 })
 
@@ -2559,7 +2559,37 @@ app.directive('scrollOnClick', function() {
     });
 
 });
-;app.service('util_svc', function () {
+;app.service('users', function (util_svc, $http) {
+  var self = this
+
+  this.createAnonymousUser = function (userData, cb) {
+    userData.username = util_svc.generateUUID()
+    userData.password = userData.email
+    self.create(userData, cb)
+  }
+
+  this.create = function (userData, cb) {
+    console.log('creating user', userData)
+    $http.post('/signup/', userData).then(function (resp) {
+      console.log(resp)
+      cb(resp)
+    });
+  }
+
+  this.gDocsCollectiveCounter = function (salliemae, corinthian) {
+    /**
+      Add a row (a user) to the collectives that are displayed on the front page.
+      salliemae, corinthian are either 1 or 0
+    **/
+    var googleForm = $(window).jqGoogleForms({"formKey": "1Vk1WIqyyj4-tHetXZIqCvuoLDmPoDL6QTPQTZ4disUY"});
+    var data = {
+      'entry.71652265': salliemae,
+      'entry.256870148': corinthian
+    }
+    googleForm.sendFormData(data)
+  };
+
+});;app.service('util_svc', function () {
 
   this.generateUUID = function () {
       // unique ID generator modified to create ids 30 characters long
@@ -2602,7 +2632,31 @@ app.directive('scrollOnClick', function() {
     }
   }
 })
-;app.directive('donateButton', function ($window, $http) {
+;app.directive('corinthianSignupForm', function () {
+  return {
+    restrict: 'E',
+    templateUrl: '/static/directives/ccform.html',
+    replace: true,
+    controller: function ($scope, $element, $window, users) {
+
+      $scope.submitForm = function () {
+        var userData = {
+          'email': $scope.email,
+          'point': undefined,
+          'kind': 'student',
+          'amount': parseFloat($scope.debtAmount.replace(',', ''))
+        }
+
+        users.createAnonymousUser(userData, function () {
+          var salliemae = 0
+          var corinthian = 1
+          users.gDocsCollectiveCounter(salliemae, corinthian)
+          $window.location.href = '/thankyou'
+        })
+      }
+    }
+  }
+});app.directive('donateButton', function ($window, $http) {
   return {
     restrict: 'E',
     scope: {
@@ -2668,7 +2722,7 @@ app.directive('scrollOnClick', function() {
     scope: {
       visible: '='
     },
-    controller: function ($scope, $element, $http, util_svc, $document, $timeout, $window) {
+    controller: function ($scope, $element, $http, $document, $timeout, $window, users) {
       $scope.email = null;
       $scope.username = null;
       $scope.debts = [];
@@ -2688,7 +2742,6 @@ app.directive('scrollOnClick', function() {
 
       $http.get('/points').then(function (resp) {
         $scope.cities = resp.data
-        console.log($scope.cities)
       });
 
       $scope.addDebt = function () {
@@ -2714,46 +2767,30 @@ app.directive('scrollOnClick', function() {
         // just store one debt type for now.
         $scope.formSubmitted = true;
         $scope.showForm = true;
-        sendToBackend(function () {
-          sendToGdocs()
-        })
-      }
 
-      function sendToGdocs(cb) {
-        var googleForm = $(window).jqGoogleForms({"formKey": "1Vk1WIqyyj4-tHetXZIqCvuoLDmPoDL6QTPQTZ4disUY"});
-        var salliemae = 0
-        if ($scope.salliemae == 'option1') {
-          salliemae = 1
-        }
-
-        var corinthian = 0
-        if ($scope.corinthianStudent == 'option1') {
-          corinthian = 1
-        }
-
-        var data = {
-          'entry.71652265': salliemae,
-          'entry.256870148': corinthian
-        }
-        googleForm.sendFormData(data)
-      }
-
-      function sendToBackend(cb) {
-        $scope.username = util_svc.generateUUID();
         var debt = $scope.debts[0]
-        var backend_data = {
-          'username': $scope.username,
-          'password': $scope.email,
+        var userData = {
+          'email': $scope.email,
           'point': $scope.location.id,
           'kind': debt.debtType.id,
           'amount': parseFloat(debt.amount.replace(',', ''))
         }
-        $http.post('/signup/', backend_data).then(function (resp) {
-          console.log(resp)
-          cb()
-        });
-      }
 
+        users.createAnonymousUser(userData, function () {
+
+          var salliemae = 0
+          if ($scope.salliemae == 'option1') {
+            salliemae = 1
+          }
+
+          var corinthian = 0
+          if ($scope.corinthianStudent == 'option1') {
+            corinthian = 1
+          }
+
+          users.gDocsCollectiveCounter(salliemae, corinthian)
+        })
+      }
     }
   }
 });app.directive('tweetBtn', function ($window) {
