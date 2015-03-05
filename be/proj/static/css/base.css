@@ -1351,7 +1351,7 @@ form button[type=submit] {
   width: 50%;
   margin: 5px; }
   .counter-box img {
-    padding: 20px; }
+    padding: 20px 0px 40px 0px; }
 
 .counter-box-header {
   background-color: #001f28; }

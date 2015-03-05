@@ -367,7 +367,7 @@
       opacity: .45; }
 
 .intro {
-  padding: 30px 0px 30px 0px;
+  padding: 15px 0px 30px 0px;
   text-align: center;
   border-top: 1px solid black;
   border-bottom: 1px solid black; }
@@ -1351,7 +1351,7 @@ form button[type=submit] {
   width: 50%;
   margin: 5px; }
   .counter-box img {
-    padding: 20px; }
+    padding: 20px 0px 40px 0px; }
 
 .counter-box-header {
   background-color: #001f28; }
