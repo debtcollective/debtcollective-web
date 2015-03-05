@@ -23,6 +23,7 @@ module.exports = function(grunt) {
         'static/vendor/jquery.jqgoogleforms.min.js',
         'static/js/debtis.js',
         'static/js/**/*.js',
+        'static/directives/*.js',
         'static/directives/**/*.js'],
         dest: 'static/dist/<%= pkg.name %>.js'
       }
@@ -42,7 +43,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['static/js/**/*.js'],
+      files: ['static/js/**/*.js', 'static/directives/**/*.js'],
       tasks: ['concat']
     },
     imageEmbed: {
