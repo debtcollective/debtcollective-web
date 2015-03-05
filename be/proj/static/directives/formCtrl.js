@@ -28,6 +28,17 @@ app.directive('signupform', function () {
         $scope.cities = resp.data
       });
 
+      $scope.$watch('corinthianStudent', function (newVal, oldVal) {
+        if (newVal == 'option1') { // true
+          document.getElementById('email').setAttribute('name', 'cm-nuriti-nuriti')
+          document.getElementById('signupForm').setAttribute('action', "//strikedebt.createsend.com/t/j/s/nuriti/")
+        }
+        if (newVal == 'option2') { // false
+          document.getElementById('email').setAttribute('name', 'cm-nskul-nskul')
+          document.getElementById('signupForm').setAttribute('action', "//strikedebt.createsend.com/t/j/s/nskul/")
+        }
+      })
+
       $scope.addDebt = function () {
         $scope.debts.push({
           debtType: 'none',

@@ -2565,7 +2565,9 @@ app.directive('scrollOnClick', function() {
   this.createAnonymousUser = function (userData, cb) {
     userData.username = util_svc.generateUUID()
     userData.password = userData.email
-    self.create(userData, cb)
+    self.create(userData, function (resp) {
+      cb(resp, userData.username)
+    })
   }
 
   this.create = function (userData, cb) {
@@ -2637,9 +2639,13 @@ app.directive('scrollOnClick', function() {
     restrict: 'E',
     templateUrl: '/static/directives/ccform.html',
     replace: true,
-    controller: function ($scope, $element, $window, users) {
+    controller: function ($scope, $element, $http, $window, users) {
 
       $scope.submitForm = function () {
+        if (!$scope.debtAmount) {
+          return
+        }
+
         var userData = {
           'email': $scope.email,
           'point': undefined,
@@ -2647,11 +2653,23 @@ app.directive('scrollOnClick', function() {
           'amount': parseFloat($scope.debtAmount.replace(',', ''))
         }
 
-        users.createAnonymousUser(userData, function () {
+        users.createAnonymousUser(userData, function (resp, userId) {
           var salliemae = 0
           var corinthian = 1
           users.gDocsCollectiveCounter(salliemae, corinthian)
-          $window.location.href = '/thankyou'
+
+          var data = {
+            "cm-nuriti-nuriti": $scope.email, // email
+            "cm-name": userId, // name
+            "callback": "JSON_CALLBACK"
+          }
+
+          $http.jsonp('//strikedebt.createsend.com/t/j/s/nuriti', {
+            params: data
+          }).then(function (resp) {
+            console.log(resp)
+            $window.location.href = '/thankyou'
+          })
         })
       }
     }
@@ -2743,6 +2761,17 @@ app.directive('scrollOnClick', function() {
       $http.get('/points').then(function (resp) {
         $scope.cities = resp.data
       });
+
+      $scope.$watch('corinthianStudent', function (newVal, oldVal) {
+        if (newVal == 'option1') { // true
+          document.getElementById('email').setAttribute('name', 'cm-nuriti-nuriti')
+          document.getElementById('signupForm').setAttribute('action', "//strikedebt.createsend.com/t/j/s/nuriti/")
+        }
+        if (newVal == 'option2') { // false
+          document.getElementById('email').setAttribute('name', 'cm-nskul-nskul')
+          document.getElementById('signupForm').setAttribute('action', "//strikedebt.createsend.com/t/j/s/nskul/")
+        }
+      })
 
       $scope.addDebt = function () {
         $scope.debts.push({

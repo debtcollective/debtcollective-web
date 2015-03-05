@@ -4,7 +4,9 @@ app.service('users', function (util_svc, $http) {
   this.createAnonymousUser = function (userData, cb) {
     userData.username = util_svc.generateUUID()
     userData.password = userData.email
-    self.create(userData, cb)
+    self.create(userData, function (resp) {
+      cb(resp, userData.username)
+    })
   }
 
   this.create = function (userData, cb) {
