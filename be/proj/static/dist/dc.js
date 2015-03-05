@@ -2169,12 +2169,12 @@ app.controller('myDebtIsCtrl', function ($scope) {
 }
 
 app.controller('corinthianCtrl',
-  function ($scope, $window, $http) {
+  function ($scope, $window, $http, $document) {
     $scope.debtors = 13415;
     $scope.debt = 354135;
     $scope.money = 24194;
 
-    $scope.showCorinthianLetter = true;
+    $scope.corinthianLetterVisible = true;
     $scope.currentStriker = null;
     $scope.loading = true;
     $scope.corinthian = false;
@@ -2203,6 +2203,22 @@ app.controller('corinthianCtrl',
     $scope.closeStriker = function ($event) {
       $scope.currentStriker = null
       if ($event) $event.stopPropagation()
+    }
+
+    $scope.showCorinthianLetter = function () {
+      $scope.corinthianLetterVisible = true
+      setTimeout(function () {
+        var elem = angular.element(document.getElementById('corinthianLetter'))
+        $document.scrollToElementAnimated(elem)
+      }, 100)
+    }
+
+    $scope.showSolidarityLetter = function () {
+      $scope.corinthianLetterVisible = false
+      setTimeout(function () {
+        var elem = angular.element(document.getElementById('solidarityLetter'))
+        $document.scrollToElementAnimated(elem)
+      }, 100)
     }
 
     $window.addEventListener('popstate', function () {

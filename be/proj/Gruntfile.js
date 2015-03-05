@@ -43,7 +43,9 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['static/js/**/*.js', 'static/directives/**/*.js'],
+      files: [
+        'static/js/**/*.js',
+        'static/directives/**/*.js'],
       tasks: ['concat']
     },
     imageEmbed: {

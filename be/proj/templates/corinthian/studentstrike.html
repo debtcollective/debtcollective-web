@@ -34,7 +34,7 @@
             </div>
             <div class="row">
               <div ng-repeat="striker in strikerChunks[0]">
-                  {% include "proj/strikers.html" %}
+                  {% include "corinthian/strikers.html" %}
               </div>
             </div>
             <div class="inter-text">
@@ -43,7 +43,7 @@
             </div>
             <div class="row">
               <div ng-repeat="striker in strikerChunks[1]">
-                  {% include "proj/strikers.html" %}
+                  {% include "corinthian/strikers.html" %}
               </div>
             </div>
             <div class="inter-text">
@@ -51,7 +51,7 @@
             </div>
             <div class="row">
               <div ng-repeat="striker in strikerChunks[2]">
-                  {% include "proj/strikers.html" %}
+                  {% include "corinthian/strikers.html" %}
               </div>
             </div>
             <div class="inter-text big-bottom">
@@ -89,28 +89,29 @@
       <div id="letter" class="wrapper arrow-down-steep">
       <div class="row light">
       <div class="tabs">
-        <div class="single-tab" ng-class="{'active': !showCorinthianLetter}"
-          ng-click="showCorinthianLetter = true">CORINTHIAN 15</div>
-        <div class="single-tab" ng-class="{'active': showCorinthianLetter}"
-          ng-click="showCorinthianLetter = false">C15 ENDORSERS</div>
+        <div class="single-tab" ng-class="{'active': !corinthianLetterVisible}"
+          ng-click="showCorinthianLetter()">
+            CORINTHIAN 15</div>
+        <div class="single-tab" ng-class="{'active': corinthianLetterVisible}"
+          ng-click="showSolidarityLetter()">C15 SUPPORTERS</div>
       </div>
 
-      <div ng-show="showCorinthianLetter">
-      {% include "proj/corinthian15Letter.html" %}
+      <div id="corinthianLetter" ng-show="corinthianLetterVisible">
+        {% include "corinthian/corinthian15Letter.html" %}
       </div>
 
-      <div ng-show="!showCorinthianLetter">
-      {% include "proj/solidarityLetter.html" %}
+      <div id="solidarityLetter" ng-show="!corinthianLetterVisible">
+        {% include "corinthian/solidarityLetter.html" %}
       </div>
  <div class="tabs">
-        <div class="single-tab" ng-class="{'active': !showCorinthianLetter}"
-          ng-click="showCorinthianLetter = true">CORINTHIAN 15</div>
-        <div class="single-tab" ng-class="{'active': showCorinthianLetter}"
-          ng-click="showCorinthianLetter = false">C15 ENDORSERS</div>
+        <div class="single-tab" ng-class="{'active': !corinthianLetterVisible}"
+          ng-click="showCorinthianLetter()">STUDENTS</div>
+        <div class="single-tab" ng-class="{'active': corinthianLetterVisible}"
+          ng-click="showSolidarityLetter()">SUPPORTERS</div>
       </div>
       <div class="paper-bottom-form" id="likethestrike">
         <div class="dc-input">
-          <div class="body-text" ng-show="showCorinthianLetter">
+          <div class="body-text" ng-show="corinthianLetterVisible">
             <h2 class="dark">Corinthian student?</h2>
             <form action="/corinthiansignup" method="GET">
               <input type="text" placeholder="your name here" />
@@ -118,7 +119,7 @@
             </form>
           </div>
 
-          <signupform ng-show="!showCorinthianLetter"></signupform>
+          <signupform ng-show="!corinthianLetterVisible"></signupform>
         </div>
       </div>
       </div>

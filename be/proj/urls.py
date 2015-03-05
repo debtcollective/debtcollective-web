@@ -22,10 +22,6 @@ urlpatterns += patterns('proj.views',
   basic_url('signup'),
   basic_url('thankyou'),
   basic_url('stripe_endpoint'),
-  basic_url('studentstrike'),
-  basic_url('corinthiansignup'),
-  basic_url('corinthiansolidarity'),
-  basic_url('knowyourstudentdebt'),
   url(r'^$', 'splash', name='splash'),
 )
 
@@ -39,5 +35,10 @@ urlpatterns += patterns('proj.gather.views',
 )
 
 urlpatterns += patterns('proj.arcs.corinthian',
-  basic_url('strikers'),
+  basic_url('dtr_generate'),
+  basic_url('dtr_view'),
+  basic_url('knowyourstudentdebt'),
+  basic_url('signup'),
+  basic_url('studentstrike'),
+  basic_url('solidarity')
 )
