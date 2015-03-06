@@ -46,8 +46,8 @@ app.controller('mapCtrl', function ($scope, $rootScope, $http, util_svc) {
         var points = resp.data.points;
         var point;
 
-        for (idx in points) {
-            point = createAmChartPoint(points[idx]);
+        for (var i = 0; i < points.length; i++) {
+            point = createAmChartPoint(points[i]);
             point['scale'] = getPointScale(parseFloat(point['sum_amount']/total_amount));
             parsedImages.push(point);
         }
