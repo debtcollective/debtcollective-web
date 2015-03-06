@@ -1031,7 +1031,7 @@ h2, .tabs .single-tab, form button[type=submit] {
   line-height: 30px;
   text-align: center;
   margin-bottom: 22px;
-  letter-spacing: 4.5px; }
+  letter-spacing: 2px; }
   h2.dark, .tabs .dark.single-tab, form button.dark[type=submit] {
     color: #39413f; }
 
