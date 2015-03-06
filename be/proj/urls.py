@@ -38,7 +38,7 @@ urlpatterns += patterns('proj.arcs.corinthian',
   basic_url('dtr_generate'),
   basic_url('dtr_view'),
   basic_url('knowyourstudentdebt'),
-  basic_url('signup'),
+  basic_url('corinthiansignup'),
   basic_url('studentstrike'),
-  basic_url('solidarity')
+  basic_url('corinthiansolidarity')
 )
