@@ -33,7 +33,7 @@
               </h2>
             </div>
             <div class="row">
-              <div ng-repeat="striker in strikerChunks[0]">
+              <div ng-repeat="striker in corinthian15Chunks[0]">
                   {% include "corinthian/strikers.html" %}
               </div>
             </div>
@@ -42,7 +42,7 @@
               To corinthian and ECMC,</h2>
             </div>
             <div class="row">
-              <div ng-repeat="striker in strikerChunks[1]">
+              <div ng-repeat="striker in corinthian15Chunks[1]">
                   {% include "corinthian/strikers.html" %}
               </div>
             </div>
@@ -50,7 +50,7 @@
               <h2>We have one thing to say</h2>
             </div>
             <div class="row">
-              <div ng-repeat="striker in strikerChunks[2]">
+              <div ng-repeat="striker in corinthian15Chunks[2]">
                   {% include "corinthian/strikers.html" %}
               </div>
             </div>
@@ -62,18 +62,6 @@
           <a href="#letter" class="big-link">general supporter</a></p>
           <p>Stand with the Corinthian 15!</p>
           </div>
-        </div>
-      </div>
-
-      <div ng-class="{visible: currentStriker != null}"
-        class="hud-display body-text light">
-        <div class="info">
-          <div class="img">
-            <img ng-click="closeStriker($event)"
-               ng-src="/static/img/strikers/striker-portraits_{$ currentStriker.first_name $}.png" />
-            <h3>{$ currentStriker.name $}</h3>
-          </div>
-          <p>{$ currentStriker.bio $}</p>
         </div>
       </div>
 
@@ -144,7 +132,35 @@
         </div>
       </div>
 
+
+    <div class="wrapper arrow-up"></div>
+    <div class="wrapper light arrow-down-steep">
+      <div class="row light">
+      <h2>MORE CORINTHIANS</h2>
+        <div ng-repeat="striker in strikeTeam | filter: striker.hasImage" >
+          <div class="item striker-row col-xs-6 col-sm-2 col-md-2 col-lg-2" ng-click="showStriker(striker, $event)">
+            <div class="img">
+              <img ng-src="{$ striker.image $}" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- hud display -->
+    <div ng-class="{visible: currentStriker != null}"
+      class="hud-display body-text light">
+      <div class="info">
+        <div class="img">
+          <img ng-click="closeStriker($event)"
+             ng-src="/static/img/strikers/striker-portraits_{$ currentStriker.first_name $}.png" />
+          <h3>{$ currentStriker.name $}</h3>
+        </div>
+        <p>{$ currentStriker.bio $}</p>
+      </div>
+    </div>
+    </div>
+
   </section>
 </div>
 {% endblock %}

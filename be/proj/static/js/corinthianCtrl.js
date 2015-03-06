@@ -17,16 +17,35 @@ app.controller('corinthianCtrl',
     $scope.currentStriker = null;
     $scope.loading = true;
     $scope.corinthian = false;
-    $scope.strikers = []
+    $scope.corinthian15 = []
+    $scope.strikeTeam = []
 
     $http.get('/static/js/strikers.json').then(function (resp) {
       $scope.loading = false;
       for (i in resp.data) {
         var striker = resp.data[i]
         striker.first_name = striker.name.split(' ')[0].toLowerCase()
-        $scope.strikers.push(striker)
+        $scope.corinthian15.push(striker)
       }
-      $scope.strikerChunks = $scope.strikers.chunk(5)
+      $scope.corinthian15Chunks = $scope.corinthian15.chunk(5)
+    });
+
+
+    $http.get('/static/js/new_strikers.json').then(function (resp) {
+      $scope.loading = false;
+      for (i in resp.data) {
+        var striker = resp.data[i]
+        striker.name = striker["Name"]
+        striker.bio = striker["Striker Bio"]
+        striker.image = striker["Photo URL"]
+        if (!striker.image || striker.image.indexOf('imgur.com') < 0) {
+          striker.hasImage = false
+        }
+        else {
+          striker.hasImage = true
+        }
+        $scope.strikeTeam.push(striker)
+      }
     });
 
     $scope.agreeButton = function () {
