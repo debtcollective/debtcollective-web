@@ -14,6 +14,7 @@ app.controller('corinthianCtrl',
     $scope.money = 24194;
 
     $scope.corinthianLetterVisible = true;
+    $scope.showCorinthians = false;
     $scope.currentStriker = null;
     $scope.loading = true;
     $scope.corinthian = false;
@@ -25,6 +26,8 @@ app.controller('corinthianCtrl',
       for (i in resp.data) {
         var striker = resp.data[i]
         striker.first_name = striker.name.split(' ')[0].toLowerCase()
+        striker.image = "/static/img/strikers/striker-portraits_" + striker.first_name + ".png"
+        striker.bigImage = striker.image
         $scope.corinthian15.push(striker)
       }
       $scope.corinthian15Chunks = $scope.corinthian15.chunk(5)
@@ -37,12 +40,14 @@ app.controller('corinthianCtrl',
         var striker = resp.data[i]
         striker.name = striker["Name"]
         striker.bio = striker["Striker Bio"]
-        striker.image = striker["Photo URL"]
-        if (!striker.image || striker.image.indexOf('imgur.com') < 0) {
+        var photo = striker["Photo URL"]
+        if (!photo || photo.indexOf('imgur.com') < 0) {
           striker.hasImage = false
         }
         else {
           striker.hasImage = true
+          striker.image = photo.replace('.jpg', 'b.jpg')
+          striker.bigImage = photo.replace('.jpg', 'm.jpg')
         }
         $scope.strikeTeam.push(striker)
       }

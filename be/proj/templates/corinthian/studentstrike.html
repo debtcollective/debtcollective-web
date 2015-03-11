@@ -136,11 +136,13 @@
     <div class="wrapper arrow-up"></div>
     <div class="wrapper light arrow-down-steep">
       <div class="row light">
-      <h2>MORE CORINTHIANS</h2>
-        <div ng-repeat="striker in strikeTeam | filter: striker.hasImage" >
-          <div class="item striker-row col-xs-6 col-sm-2 col-md-2 col-lg-2" ng-click="showStriker(striker, $event)">
-            <div class="img">
-              <img ng-src="{$ striker.image $}" />
+      <h2><a class='big-link' ng-click="showCorinthians = true">MORE CORINTHIANS</a></h2>
+        <div ng-class="{ '' : !showCorinthians }">
+          <div ng-repeat="striker in strikeTeam | filter: striker.hasImage" >
+            <div class="item striker-row col-xs-6 col-sm-2 col-md-2 col-lg-2" ng-click="showStriker(striker, $event)">
+              <div class="img">
+                <img ng-src="{$ striker.image $}" />
+              </div>
             </div>
           </div>
         </div>
@@ -153,9 +155,9 @@
       <div class="info">
         <div class="img">
           <img ng-click="closeStriker($event)"
-             ng-src="/static/img/strikers/striker-portraits_{$ currentStriker.first_name $}.png" />
-          <h3>{$ currentStriker.name $}</h3>
+             ng-src="{$ currentStriker.bigImage $}" />
         </div>
+        <h3 class="centered">{$ currentStriker.name $}</h3>
         <p>{$ currentStriker.bio $}</p>
       </div>
     </div>

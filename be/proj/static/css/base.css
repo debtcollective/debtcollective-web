@@ -665,7 +665,9 @@ hr {
   .hud-display p {
     padding: 20px; }
   .hud-display .img {
-    text-align: center; }
+    text-align: center;
+    max-height: 500px;
+    min-height: 300px; }
   .hud-display .info {
     overflow-y: auto;
     height: 100%;
