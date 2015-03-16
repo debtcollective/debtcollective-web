@@ -3,11 +3,15 @@ from django.shortcuts import render_to_response
 from django.db.models import Count, Sum
 
 from django.contrib.auth.models import User
-from proj.gather.models import UserProfile, Point, Debt
+from proj.gather.models import UserProfile, Point, Debt, States
 from proj.utils import json_response, get_POST_data
 
 import simplejson as json
 import os
+
+def states(request):
+  data = [s.to_json() for s in States.objects.all()]
+  return json_response(data, 200)
 
 def points(request):
   data = [p.to_json() for p in Point.objects.all()]

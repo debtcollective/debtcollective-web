@@ -21,6 +21,12 @@ class States(models.Model):
   state = models.CharField(max_length='22')
   state_code = models.CharField(max_length='2', primary_key=True)
 
+  def to_json(self):
+    data = {
+      'state': self.state,
+      'state_code': self.state_code
+    }
+    return data
 
 class UserProfile(models.Model):
   user = models.OneToOneField(User, unique=True)
