@@ -17,10 +17,16 @@ class Point(models.Model):
     del data['_state']
     return data
 
+class States(models.Model):
+  state = models.CharField(max_length='22')
+  state_code = models.CharField(max_length='2', primary_key=True)
+
+
 class UserProfile(models.Model):
   user = models.OneToOneField(User, unique=True)
   created_at = models.DateTimeField(default=datetime.now)
   point = models.ForeignKey(Point, null=True)
+  state = models.ForeignKey(States, null=True)
 
 class Debt(models.Model):
   AUTO = 'auto'
