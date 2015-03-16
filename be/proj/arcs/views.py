@@ -1,19 +1,15 @@
 from django.shortcuts import render
-from fdfgen import forge_fdf
+import dtr
+from proj.utils import json_response, get_POST_data
 
 def strikers(request):
   data = [p.to_json() for p in Point.objects.all()]
   return json_response(data, 200)
 
 def dtr_generate(request):
-  fields = [('name','John Smith'),('telephone','555-1234')]
-  fdf = forge_fdf("",fields,[],[],[])
-  fdf_file = open("data.fdf","w")
-  fdf_file.write(fdf)
-  fdf_file.close()
-
-def dtr_view(request):
-
+  values = get_POST_data(request)
+  dtr.generate(values)
+  return render_to_response
 
 def corinthiansignup(request):
   return render_to_response('proj/strikeform.html')

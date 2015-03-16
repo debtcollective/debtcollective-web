@@ -1,5 +1,4 @@
 from django.test.client import Client
-from django.utils import unittest
 from django.test import TestCase
 from django.contrib.auth.models import User
 from proj.gather.models import UserProfile, Debt, Point

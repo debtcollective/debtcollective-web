@@ -105,3 +105,5 @@ STATICFILES_DIRS = (
 AUTH_PROFILE_MODULE = 'gather.UserProfile'
 MAP_PASSWORD = os.environ.get('MAP_PASSWORD', '')
 STRIPE_KEY= os.environ.get('STRIPE_KEY','')
+AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY', '')
+AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY', '')

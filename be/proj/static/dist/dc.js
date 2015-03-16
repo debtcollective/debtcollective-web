@@ -2699,14 +2699,13 @@ app.directive('scrollOnClick', function() {
           users.gDocsCollectiveCounter(salliemae, corinthian)
 
           var data = {
-            "cm-nuriti-nuriti": $scope.email, // email
-            "cm-name": userId, // name
-            "callback": "JSON_CALLBACK"
+            "email": $scope.email,
+            "name": userId,
+            "list": "RUDSi1E892892XdpjO763892Zxq892hw"
           }
 
-          $http.jsonp('//strikedebt.createsend.com/t/j/s/nuriti', {
-            params: data
-          }).then(function (resp) {
+          $http.post('//mail.debtcollective.org/subscribe', data)
+          .then(function (resp) {
             console.log(resp)
             $window.location.href = '/thankyou'
           })
@@ -2804,12 +2803,10 @@ app.directive('scrollOnClick', function() {
 
       $scope.$watch('corinthianStudent', function (newVal, oldVal) {
         if (newVal == 'option1') { // true
-          document.getElementById('email').setAttribute('name', 'cm-nuriti-nuriti')
-          document.getElementById('signupForm').setAttribute('action', "//strikedebt.createsend.com/t/j/s/nuriti/")
+          document.getElementById('list').setAttribute('name', 'RUDSi1E892892XdpjO763892Zxq892hw')
         }
         if (newVal == 'option2') { // false
-          document.getElementById('email').setAttribute('name', 'cm-nskul-nskul')
-          document.getElementById('signupForm').setAttribute('action', "//strikedebt.createsend.com/t/j/s/nskul/")
+          document.getElementById('list').setAttribute('name', '8CaVcsDmVe41wdpl194UlQ')
         }
       })
 

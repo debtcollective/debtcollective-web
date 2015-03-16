@@ -1,6 +1,9 @@
 from django.http import HttpResponse, Http404
 from django.core.serializers.json import Serializer, DjangoJSONEncoder
+from boto.s3.connection import S3Connection
+
 import json
+import settings
 
 def get_POST_data(request):
   """
@@ -21,3 +24,8 @@ def json_response(response_data, status_code):
   rs = HttpResponse(response_data, content_type="application/json")
   rs.status_code = status_code
   return rs
+
+
+def get_s3_conn():
+  conn = S3Connection(settings.AWS_ACCESS_KEY, settings.AWS_SECRET_KEY)
+  return conn

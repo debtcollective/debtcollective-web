@@ -2,10 +2,13 @@
   <div class="dc-input">
     <form ng-show="!formSubmitted" class="form" id="signupForm"
     target="receiver"
-    action="//strikedebt.createsend.com/t/j/s/nskul/"
+    action="//mail.debtcollective.org/subscribe"
     method="post" ng-submit="onSubmitClick($event)">
 
     <input type="text" class="hidden" name="cm-name" ng-model="username" />
+
+    <!-- for lack of campaign monitor -->
+    <input type="hidden" name="list" value="8CaVcsDmVe41wdpl194UlQ"/>
 
     <div ng-repeat="debt in debts" class="flex">
       <input type="text"

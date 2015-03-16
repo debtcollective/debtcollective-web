@@ -23,14 +23,13 @@ app.directive('corinthianSignupForm', function () {
           users.gDocsCollectiveCounter(salliemae, corinthian)
 
           var data = {
-            "cm-nuriti-nuriti": $scope.email, // email
-            "cm-name": userId, // name
-            "callback": "JSON_CALLBACK"
+            "email": $scope.email,
+            "name": userId,
+            "list": "RUDSi1E892892XdpjO763892Zxq892hw"
           }
 
-          $http.jsonp('//strikedebt.createsend.com/t/j/s/nuriti', {
-            params: data
-          }).then(function (resp) {
+          $http.post('//mail.debtcollective.org/subscribe', data)
+          .then(function (resp) {
             console.log(resp)
             $window.location.href = '/thankyou'
           })
