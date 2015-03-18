@@ -19,6 +19,7 @@ def basic_url(name):
 urlpatterns += patterns('proj.views',
   basic_url('map'),
   basic_url('login'),
+  basic_url('logout'),
   basic_url('signup'),
   basic_url('thankyou'),
   basic_url('stripe_endpoint'),
@@ -31,7 +32,6 @@ urlpatterns += patterns('proj.gather.views',
   basic_url('map_data'),
   basic_url('debt_choices'),
   basic_url('debt_total'),
-  basic_url('users_total'),
   basic_url('generate_map_json')
 )
 
@@ -43,3 +43,9 @@ urlpatterns += patterns('proj.arcs.corinthian',
   basic_url('studentstrike'),
   basic_url('corinthiansolidarity')
 )
+
+urlpatterns += patterns('proj.arcs.views',
+  basic_url('portal')
+)
+
+

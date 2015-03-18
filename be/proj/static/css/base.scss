@@ -589,7 +589,11 @@ input, select {
   padding: 10px;
 }
 
-input[type="text"], input[type="email"], select, textarea {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
   @extend %input;
   text-transform: uppercase;
   font-size: 16px;

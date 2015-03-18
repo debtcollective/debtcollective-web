@@ -1,18 +1,16 @@
-from django.shortcuts import render
-import dtr
+from django.shortcuts import redirect, render, render_to_response
 from proj.utils import json_response, get_POST_data
+from django.contrib.auth.decorators import login_required
 
-def strikers(request):
-  data = [p.to_json() for p in Point.objects.all()]
-  return json_response(data, 200)
+import dtr
 
 def dtr_generate(request):
   values = get_POST_data(request)
-  dtr.generate(values)
-  return render_to_response
+  key = dtr.generate(values)
+  return json_response({'key': key}, 200)
 
-def corinthiansignup(request):
-  return render_to_response('proj/strikeform.html')
+def portal(request):
+  if not request.user.is_authenticated():
+    return redirect('/login')
 
-def corinthiansolidarity(request):
-  return render_to_response('proj/corinthiansolidarity.html')
+  return render_to_response('portal/dashboard.html', {'user': request.user})

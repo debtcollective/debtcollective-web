@@ -47,6 +47,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+)
+
 ROOT_URLCONF = 'proj.urls'
 # XXX: unsure why 'be' needs to be left out of the initial path (karissa)
 WSGI_APPLICATION = 'proj.wsgi.application'

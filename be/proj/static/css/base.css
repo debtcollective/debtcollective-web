@@ -11,7 +11,11 @@
   font-size: 16px;
   line-height: 20px; }
 
-.btn, input[type="text"], input[type="email"], select, textarea, #resources li a, body, p, .body-text, h2, .tabs .single-tab, form button[type=submit], h3, h4, h5, .checkbox, h6, .dropdown-menu {
+.btn, input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea, #resources li a, body, p, .body-text, h2, .tabs .single-tab, form button[type=submit], h3, h4, h5, .checkbox, h6, .dropdown-menu {
   font-family: "Raleway", sans-serif; }
 
 /* -------------------------------------------------------------
@@ -88,7 +92,11 @@
 /* TRIPLE BORDERS */
 /* KEYFRAMES */
 /* ANIMATION */
-.btn, input[type="text"], input[type="email"], select, textarea {
+.btn, input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -101,7 +109,11 @@
   width: 100%;
   border: 0;
   text-decoration: none; }
-  .btn:focus, input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+  .btn:focus, input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  select:focus,
+  textarea:focus {
     outline: 0px;
     outline-offset: 0px; }
 
@@ -1230,7 +1242,11 @@ input, select {
   height: 44px;
   padding: 10px; }
 
-input[type="text"], input[type="email"], select, textarea {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
   text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 2px; }
