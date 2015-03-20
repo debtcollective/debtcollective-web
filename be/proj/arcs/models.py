@@ -68,8 +68,5 @@ class DTRUserProfile(models.Model):
 
   SENSITIVE_FIELDS = ["ssn_1", "ssn_2", "ssn_3"]
 
-  # True if field is required
-
-
 with open(DTR_FIELDS_FILE, 'rb') as fp:
   DTRUserProfile.FIELDS = json.loads(fp.read())

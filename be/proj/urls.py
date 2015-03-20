@@ -11,8 +11,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 )
 
-def basic_url(name):
-  return url(r'^%s' % name, name, name=name)
+def basic_url(name, prefix=""):
+  return url('^' + prefix + '%s' % name, name, name=name)
 
 
 ## TODO: Move corinthian specific stuff to arcs.corinthian..
@@ -35,15 +35,19 @@ urlpatterns += patterns('proj.gather.views',
   basic_url('generate_map_json')
 )
 
+def corinthian_url(name):
+  return basic_url(name, prefix="corinthian/")
+
 urlpatterns += patterns('proj.arcs.corinthian',
-  basic_url('dtr_generate'),
-  basic_url('dtr_stats'),
-  basic_url('dtr_download'),
-  basic_url('dtr_view'),
-  basic_url('knowyourstudentdebt'),
-  basic_url('corinthiansignup'),
-  basic_url('studentstrike'),
-  basic_url('corinthiansolidarity')
+  corinthian_url('dtr_generate'),
+  corinthian_url('dtr_stats'),
+  corinthian_url('dtr_download'),
+  corinthian_url('dtr_view'),
+  corinthian_url('dtr_wizard'),
+  corinthian_url('knowyourstudentdebt'),
+  corinthian_url('corinthiansignup'),
+  corinthian_url('studentstrike'),
+  corinthian_url('corinthiansolidarity')
 )
 
 urlpatterns += patterns('proj.arcs.views',

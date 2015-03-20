@@ -1,4 +1,5 @@
 from django.shortcuts import render_to_response, redirect
+from django.core.exceptions import ObjectDoesNotExist
 from proj.arcs.models import DTRUserProfile
 from django.http import Http404
 from proj.utils import json_response, get_POST_data
@@ -32,7 +33,11 @@ def dtr_view(request):
     return redirect('/login')
 
   user = request.user
-  dtrprofile = DTRUserProfile.objects.get(user=user)
+  try:
+    dtrprofile = DTRUserProfile.objects.get(user=user)
+  except ObjectDoesNotExist:
+    return redirect('/corinthian/dtr_wizard')
+
   return dtr_view_handler(user, dtrprofile)
 
 def dtr_view_handler(user, dtrprofile):
@@ -42,6 +47,9 @@ def dtr_view_handler(user, dtrprofile):
     's3_link': dtrprofile.s3_link()
   })
   return render_to_response('corinthian/dtrview.html', c)
+
+def dtr_wizard(request):
+  return render_to_response('corinthian/wizard.html')
 
 def corinthiansignup(request):
   return render_to_response('corinthian/signup.html')
