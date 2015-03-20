@@ -44,10 +44,10 @@ urlpatterns += patterns('proj.arcs.corinthian',
   corinthian_url('dtr_download'),
   corinthian_url('dtr_view'),
   corinthian_url('dtr_wizard'),
-  corinthian_url('knowyourstudentdebt'),
-  corinthian_url('corinthiansignup'),
-  corinthian_url('studentstrike'),
-  corinthian_url('corinthiansolidarity')
+  basic_url('knowyourstudentdebt'),
+  basic_url('corinthiansignup'),
+  basic_url('studentstrike'),
+  basic_url('corinthiansolidarity')
 )
 
 urlpatterns += patterns('proj.arcs.views',
