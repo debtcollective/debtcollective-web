@@ -1,4 +1,5 @@
 from django.db import models
+from boto.s3.key import Key
 from proj.utils import get_s3_conn, store_in_s3, generate_pdf
 from django.contrib.auth.models import User
 from jsonfield import JSONField
@@ -17,7 +18,8 @@ if settings.DEBUG:
 conn = get_s3_conn()
 
 TMP_FILE_DIR = '/tmp'
-SOURCE_FILE = os.path.join(os.path.dirname(os.getcwd()), 'dc_defense_form_1-3.pdf')
+SOURCE_FILE = os.path.join(os.path.dirname(__file__), 'dc_defense_form_1-3.pdf')
+DTR_FIELDS_FILE = os.path.join(os.path.dirname(__file__), 'dtr_fields.json')
 
 def fdf_filename(key):
   return os.path.join(TMP_FILE_DIR, str(key) + '_data.fdf')
@@ -40,6 +42,13 @@ class DTRUserProfile(models.Model):
     del data['_state']
     return data
 
+  def pdf_link(self, expires_in=3000):
+    bucket = conn.get_bucket(S3_BUCKET_NAME)
+    key = Key(bucket)
+    key.key = self.s3_key()
+    url = key.generate_url(expires_in=expires_in)
+    return url
+
   @classmethod
   def generate_for_user(cls, user, values):
     fdf_file = fdf_filename(user.id)
@@ -60,47 +69,7 @@ class DTRUserProfile(models.Model):
   SENSITIVE_FIELDS = ["ssn_1", "ssn_2", "ssn_3"]
 
   # True if field is required
-  FIELDS = {
-    "ssn_1": True,
-    "ssn_2": True,
-    "ssn_3": True,
-    "name": True,
-    "address": True,
-    "email": True,
-    "servicer": True,
-    "city": True,
-    "state": True,
-    "employed": True,
-    "in_field": True,
-    "out_of_field": True,
-    "unemployed": True,
-    "zip": True,
-    "phone_primary_1": True,
-    "phone_primary_2": True,
-    "phone_primary_3": True,
-    "phone_alt_1": None,
-    "phone_alt_2": None,
-    "phone_alt_3": None,
-    "associates": None,
-    "completed": None,
-    "misleading_job_stats_check": None,
-    "misleading_job_assistance_check": None,
-    "misleading_job_other_check": None,
-    "misleading_pass_rate_check": None,
-    "misleading_accreditation_check": None,
-    "certificate": None,
-    "withdrew": None,
-    "program_name": None,
-    "school_address": None,
-    "attendance_from": None,
-    "school_address 2": None,
-    "misleading_job_stats": None,
-    "misleading_job_assistance": None,
-    "misleading_job_other": None,
-    "misleading_pass_rate": None,
-    "misleading_accreditation": None,
-    "school_name": None,
-    "school_name 2": None,
-    "school_name 3": None,
-    "school_name 4": None
-  }
+
+
+with open(DTR_FIELDS_FILE, 'rb') as fp:
+  DTRUserProfile.FIELDS = json.loads(fp.read())

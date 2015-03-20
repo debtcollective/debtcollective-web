@@ -31,6 +31,8 @@ class TestDTR(TestCase):
       user_data = dtrprofile.data
       self.assertEqual(user_data['user_id'], user.id)
       self.assertEqual(user_data['name'], 'this is awesome')
+
+      # make sure sensitive data is removed before database storage
       for field in DTRUserProfile.SENSITIVE_FIELDS:
         self.assertEqual(user_data.get(field), None)
 
@@ -39,6 +41,10 @@ class TestDTR(TestCase):
       # contents exist
       contents = s3_key.get_contents_as_string()
       self.assertTrue(len(contents) > 0)
+
+      # url works
+      url = dtrprofile.pdf_link()
+      self.assertTrue(type(url), str)
 
       # name metadata exists
       name = s3_key.get_metadata('name')
