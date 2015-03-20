@@ -31,12 +31,12 @@ class TestSignup(TestCase):
       # bad password
       rs = self.client.post('/login/',
         {'username': username, 'password': 'this is a bad password'})
-      self.assertEqual(rs.status_code, 500)
+      self.assertEqual(rs.status_code, 200)
 
       # successful password
       rs = self.client.post('/login/',
         {'username': username, 'password': password})
-      self.assertEqual(rs.status_code, 200)
+      self.assertEqual(rs.status_code, 302)
 
     def test_points(self):
       Point.objects.create(latitude=12.23, longitude=-34.35, name="Albuquerque")

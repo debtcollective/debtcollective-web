@@ -1,18 +1,15 @@
 from django.shortcuts import render_to_response
 from fdfgen import forge_fdf
-
 from proj.utils import json_response, get_POST_data
+from proj.gather.models import Debt, UserProfile, Point
+
+import proj.arcs.dtr as dtr
 
 def dtr_generate(request):
-  rq = get_POST_data(request)
+  values = get_POST_data(request)
+  key = dtr.generate(values)
 
-  fdf = forge_fdf("",fields,[],[],[])
-  fdf_file = open("data.fdf","w")
-  fdf_file.write(fdf)
-  fdf_file.close()
-
-def dtr_view(request):
-  asdf
+  return json_response({'key': key}, 200)
 
 def corinthiansignup(request):
   return render_to_response('corinthian/signup.html')

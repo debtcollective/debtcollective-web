@@ -2,8 +2,7 @@ from django.test import TestCase
 from proj.utils import get_s3_conn
 from boto.s3.key import Key
 from django.contrib.auth.models import User
-
-import proj.arcs.dtr as dtr
+from proj.arcs.models import DTRUserProfile
 
 TEST_BUCKET = 'corinthiandtr.dev'
 conn = get_s3_conn()
@@ -20,11 +19,20 @@ class TestDTR(TestCase):
       user = User.objects.get(username='test')
       self.assertEqual('test', user.username)
 
-      key = dtr.generate_for_user(user, {
-        'name': 'this is awesome'
+      dtrprofile = DTRUserProfile.generate_for_user(user, {
+        'name': 'this is awesome',
+        'ssn_1': '234',
+        'ssn_2': '555',
+        'ssn_3': '123'
       })
 
-      self.assertEqual(key, user.id)
+      key = dtrprofile.s3_key()
+
+      user_data = dtrprofile.data
+      self.assertEqual(user_data['user_id'], user.id)
+      self.assertEqual(user_data['name'], 'this is awesome')
+      for field in DTRUserProfile.SENSITIVE_FIELDS:
+        self.assertEqual(user_data.get(field), None)
 
       s3_key = bucket.get_key(key)
 
@@ -53,16 +61,19 @@ class TestDTR(TestCase):
       user_two = User.objects.get(username='test2')
       self.assertEqual('test2', user_two.username)
 
-      key = dtr.generate_for_user(user, {
+      dtrprofile = DTRUserProfile.generate_for_user(user, {
         'name': 'i am the first user'
       })
 
-      key_two = dtr.generate_for_user(user_two, {
+      dtrprofile_two = DTRUserProfile.generate_for_user(user_two, {
         'name': 'i am a second user'
       })
 
-      self.assertEqual(key, user.id)
-      self.assertEqual(key_two, user_two.id)
+      self.assertEqual(dtrprofile.user.id, user.id)
+      self.assertEqual(dtrprofile_two.user.id, user_two.id)
+
+      key = dtrprofile.s3_key()
+      key_two = dtrprofile_two.s3_key()
 
       s3_key = bucket.get_key(key)
       s3_key_two = bucket.get_key(key_two)
@@ -88,3 +99,4 @@ class TestDTR(TestCase):
       # cleanup
       bucket.delete_key(key)
       bucket.delete_key(key_two)
+
