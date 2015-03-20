@@ -23,7 +23,8 @@ class TestDTR(TestCase):
         'name': 'this is awesome',
         'ssn_1': '234',
         'ssn_2': '555',
-        'ssn_3': '123'
+        'ssn_3': '123',
+        'misleading_job_stats_check': True
       })
 
       key = dtrprofile.s3_key()
