@@ -30,6 +30,13 @@
 }
 
 
+a.btn, button[type=submit] {
+  @extend h2;
+  padding: 20px 0px;
+  margin: 15px 0px;
+  text-transform: uppercase;
+}
+
 .close-button {
   float: right;
   margin-right: 10px;

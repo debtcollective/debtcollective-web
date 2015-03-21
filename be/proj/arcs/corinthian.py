@@ -4,11 +4,13 @@ from proj.arcs.models import DTRUserProfile
 from django.http import Http404
 from proj.utils import json_response, get_POST_data
 from proj.gather.models import Debt, UserProfile, Point
+from django.views.decorators.csrf import csrf_exempt
 
 import proj.arcs.dtr as dtr
 
 def dtr_download(request):
-  # turn into zip file
+  if not request.user.is_superuser:
+    return redirect('/login')
   return json_response({'status': 'ok'}, 200)
 
 def dtr_stats(request):
@@ -16,39 +18,39 @@ def dtr_stats(request):
   data = [profile.to_json() for p in profiles]
   return json_response(data, 200)
 
+@csrf_exempt
 def dtr_generate(request):
-  if request.method != 'POST':
+  if request.method != "POST":
     return dtr_view(request)
 
   rq = get_POST_data(request)
   values = rq['values']
 
-  user = User.objects.get(username=rq['username'])
-  dtrprofile = DTRUserProfile.generate_for_user(user, values)
+  dtrprofile = DTRUserProfile.generate(values)
+  return redirect('/corinthian/dtr/view/' + dtrprofile.id)
 
-  return dtr_view_handler(user, dtrprofile)
-
-def dtr_view(request):
-  if not request.user.is_authenticated():
+def dtr_view(request, id):
+  if not request.user.is_superuser:
     return redirect('/login')
 
-  user = request.user
-  try:
-    dtrprofile = DTRUserProfile.objects.get(user=user)
-  except ObjectDoesNotExist:
-    return redirect('/corinthian/dtr_wizard')
+  c = {
+    'dtrprofile': DTRUserProfile.objects.get(id=id)
+  }
 
-  return dtr_view_handler(user, dtrprofile)
-
-def dtr_view_handler(user, dtrprofile):
-  c = {}
-  c.update({
-    'key': user.id,
-    's3_link': dtrprofile.s3_link()
-  })
   return render_to_response('corinthian/dtrview.html', c)
 
-def dtr_wizard(request):
+def admin(request):
+  if not request.user.is_superuser:
+    return redirect('/login')
+
+  c = {
+    'all_dtrs': DTRUserProfile.objects.all(),
+    'dtr_total': DTRUserProfile.objects.count()
+  }
+
+  return render_to_response('corinthian/admin.html', c)
+
+def dtr(request):
   return render_to_response('corinthian/wizard.html')
 
 def corinthiansignup(request):

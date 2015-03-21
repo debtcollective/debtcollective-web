@@ -12,7 +12,7 @@ urlpatterns = patterns('',
 )
 
 def basic_url(name, prefix=""):
-  return url('^' + prefix + '%s' % name, name, name=name)
+  return url('^' + prefix + '%s$' % name, name, name=name)
 
 
 ## TODO: Move corinthian specific stuff to arcs.corinthian..
@@ -42,8 +42,9 @@ urlpatterns += patterns('proj.arcs.corinthian',
   corinthian_url('dtr_generate'),
   corinthian_url('dtr_stats'),
   corinthian_url('dtr_download'),
-  corinthian_url('dtr_view'),
-  corinthian_url('dtr_wizard'),
+  corinthian_url('dtr'),
+  corinthian_url('admin'),
+  url('^corinthian/dtr/view/(\d)$', 'dtr_view', name='dtr_view'),
   basic_url('knowyourstudentdebt'),
   basic_url('corinthiansignup'),
   basic_url('studentstrike'),

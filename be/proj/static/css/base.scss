@@ -622,15 +622,6 @@ select {
   -webkit-border-radius: $amount !important;
   -webkit-appearance: none;
 }
-form {
-  button[type=submit] {
-    @extend h2;
-    padding: 20px 0px;
-    margin: 15px 0px;
-    text-transform: uppercase;
-  }
-}
-
 .add-debt {
   float: right;
   &:hover {

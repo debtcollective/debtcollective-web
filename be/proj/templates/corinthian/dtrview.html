@@ -1,0 +1,16 @@
+{% extends "proj/base_template.html" %}
+
+{% block body %}
+
+{% include "proj/insideHeader.html" with title='PORTAL' %}
+
+<div class="container inside-container">
+  <div class="wrapper dark">
+  <h2>DTR FORM</h2>
+  {{dtrprofile.data.name}}
+
+  <iframe width="100%" height="500px" src="{{dtrprofile.pdf_link}}"></iframe>
+  </div>
+</div>
+
+{% endblock %}

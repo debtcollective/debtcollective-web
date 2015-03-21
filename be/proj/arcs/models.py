@@ -28,14 +28,13 @@ def output_filename(key):
   return os.path.join(TMP_FILE_DIR, str(key) + '_output.pdf')
 
 class DTRUserProfile(models.Model):
-  user = models.OneToOneField(User, unique=True, primary_key=True)
   data = JSONField()
 
   def __unicode__(self):
     return self.user.username
 
   def s3_key(self):
-    return self.user.id
+    return self.id
 
   def to_json(self):
     data = self.__dict__.copy()
@@ -46,25 +45,32 @@ class DTRUserProfile(models.Model):
     bucket = conn.get_bucket(S3_BUCKET_NAME)
     key = Key(bucket)
     key.key = self.s3_key()
-    url = key.generate_url(expires_in=expires_in)
+    url = key.generate_url(expires_in=expires_in, force_http=True)
     return url
 
   @classmethod
-  def generate_for_user(cls, user, values):
-    fdf_file = fdf_filename(user.id)
-    output_file = output_filename(user.id)
+  def generate(cls, values):
+    obj = cls.objects.create()
+    key = obj.id
 
+    fdf_file = fdf_filename(key)
+    output_file = output_filename(key)
     generate_pdf(cls.FIELDS, values, SOURCE_FILE, fdf_file, output_file)
+
     metadata = {
-      'name': values['name']
+      'name': values['name'],
+      'version': 1
     }
-    store_in_s3(conn, S3_BUCKET_NAME, user.id, output_file, metadata)
+    store_in_s3(conn, S3_BUCKET_NAME, key, output_file, metadata)
+
     for field in cls.SENSITIVE_FIELDS:
       if values.get(field):
         del values[field]
+    values['key'] = key
+    obj.data = values
+    obj.save()
 
-    values['user_id'] = user.id
-    return cls.objects.create(user=user, data=values)
+    return obj
 
   SENSITIVE_FIELDS = ["ssn_1", "ssn_2", "ssn_3"]
 

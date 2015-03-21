@@ -61,7 +61,7 @@ module.exports = function(grunt) {
           'static/css/**/*.scss'
         ],
         tasks: [
-          'sass', 'imgedEmbed'
+          'sass', 'imageEmbed'
         ]
       }
     },

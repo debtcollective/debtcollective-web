@@ -5,7 +5,7 @@
   font-size: 14px;
   line-height: 16px; }
 
-.button-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button[type=submit], form p.mono button[type=submit], p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button[type=submit], form .body-text.mono button[type=submit], .body-text.mono h6, .body-text.mono p, .header-links a.nav-link, h1, .top-quote h1 {
+.button-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, .mono, p.mono h1, p.mono h2, p.mono a.btn, p.mono button[type=submit], p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono a.btn, .body-text.mono button[type=submit], .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono h6, .body-text.mono p, .header-links a.nav-link, h1, .top-quote h1 {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -15,7 +15,7 @@
 input[type="email"],
 input[type="password"],
 select,
-textarea, #resources li a, body, p, .body-text, h2, .tabs .single-tab, form button[type=submit], h3, h4, h5, .checkbox, h6, .dropdown-menu {
+textarea, #resources li a, body, p, .body-text, h2, a.btn, button[type=submit], .tabs .single-tab, h3, h4, h5, .checkbox, h6, .dropdown-menu {
   font-family: "Raleway", sans-serif; }
 
 /* -------------------------------------------------------------
@@ -121,6 +121,11 @@ textarea {
   cursor: pointer;
   text-align: center;
   margin-top: 4px; }
+
+a.btn, button[type=submit] {
+  padding: 20px 0px;
+  margin: 15px 0px;
+  text-transform: uppercase; }
 
 .close-button {
   float: right;
@@ -388,7 +393,7 @@ textarea {
 
 .intro-caption {
   margin: 30px 0px; }
-  .intro-caption h2, .intro-caption .tabs .single-tab, .tabs .intro-caption .single-tab, .intro-caption form button[type=submit], form .intro-caption button[type=submit] {
+  .intro-caption h2, .intro-caption a.btn, .intro-caption button[type=submit], .intro-caption .tabs .single-tab, .tabs .intro-caption .single-tab {
     margin-bottom: 0px; }
 
 #scroll.mainstate .social-media {
@@ -598,7 +603,7 @@ hr {
 
 .inter-text {
   padding: 15px 0px; }
-  .inter-text h2, .inter-text .tabs .single-tab, .tabs .inter-text .single-tab, .inter-text form button[type=submit], form .inter-text button[type=submit] {
+  .inter-text h2, .inter-text a.btn, .inter-text button[type=submit], .inter-text .tabs .single-tab, .tabs .inter-text .single-tab {
     margin-top: 0px;
     font-weight: 700;
     text-transform: uppercase;
@@ -606,7 +611,7 @@ hr {
 
 .big-bottom {
   padding-top: 30px; }
-  .big-bottom h2, .big-bottom .tabs .single-tab, .tabs .big-bottom .single-tab, .big-bottom form button[type=submit], form .big-bottom button[type=submit] {
+  .big-bottom h2, .big-bottom a.btn, .big-bottom button[type=submit], .big-bottom .tabs .single-tab, .tabs .big-bottom .single-tab {
     font-size: 38px;
     line-height: 48px; }
 
@@ -749,6 +754,9 @@ label {
   .ss-secondary-text ul li {
     padding: 10px 0px; }
 
+.large-text {
+  font-size: 72px; }
+
 /** carousel **/
 .carousel .title {
   text-align: center; }
@@ -832,7 +840,7 @@ body {
   padding-bottom: 210px;
   background-color: #39413f !important;
   z-index: 0; }
-  .arrow-down-steep h2.first, .arrow-down-steep .tabs .first.single-tab, .tabs .arrow-down-steep .first.single-tab, .arrow-down-steep form button.first[type=submit], form .arrow-down-steep button.first[type=submit] {
+  .arrow-down-steep h2.first, .arrow-down-steep a.first.btn, .arrow-down-steep button.first[type=submit], .arrow-down-steep .tabs .first.single-tab, .tabs .arrow-down-steep .first.single-tab {
     margin-top: -20px !important; }
   .arrow-down-steep .row.light {
     background-color: #f1eee2; }
@@ -894,9 +902,9 @@ p, .body-text {
     padding-bottom: 60px; }
     p.spaced a, .body-text.spaced a {
       text-decoration: none !important; }
-      p.spaced a h2, p.spaced a .tabs .single-tab, .tabs p.spaced a .single-tab, p.spaced a form button[type=submit], form p.spaced a button[type=submit], .body-text.spaced a h2, .body-text.spaced a .tabs .single-tab, .tabs .body-text.spaced a .single-tab, .body-text.spaced a form button[type=submit], form .body-text.spaced a button[type=submit] {
+      p.spaced a h2, p.spaced a a.btn, p.spaced a button[type=submit], p.spaced a .tabs .single-tab, .tabs p.spaced a .single-tab, .body-text.spaced a h2, .body-text.spaced a a.btn, .body-text.spaced a button[type=submit], .body-text.spaced a .tabs .single-tab, .tabs .body-text.spaced a .single-tab {
         margin-bottom: 0px; }
-  p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button[type=submit], form p.mono button[type=submit], p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button[type=submit], form .body-text.mono button[type=submit], .body-text.mono h6, .body-text.mono p {
+  p.mono h1, p.mono h2, p.mono a.btn, p.mono button[type=submit], p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono a.btn, .body-text.mono button[type=submit], .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono h6, .body-text.mono p {
     font-family: 'Cousine', serif; }
   p.mono h6, .body-text.mono h6 {
     margin-top: 6px;
@@ -1040,13 +1048,13 @@ h1 {
     color: #fefefe !important;
     text-decoration: none; }
 
-h2, .tabs .single-tab, form button[type=submit] {
+h2, a.btn, button[type=submit], .tabs .single-tab {
   font-size: 20px;
   line-height: 30px;
   text-align: center;
   margin-bottom: 22px;
   letter-spacing: 2px; }
-  h2.dark, .tabs .dark.single-tab, form button.dark[type=submit] {
+  h2.dark, a.dark.btn, button.dark[type=submit], .tabs .dark.single-tab {
     color: #39413f; }
 
 h3 {
@@ -1270,11 +1278,6 @@ select {
   -moz-border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
   -webkit-appearance: none; }
-
-form button[type=submit] {
-  padding: 20px 0px;
-  margin: 15px 0px;
-  text-transform: uppercase; }
 
 .add-debt {
   float: right; }

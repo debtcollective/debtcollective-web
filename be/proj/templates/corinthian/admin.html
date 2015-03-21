@@ -1,0 +1,23 @@
+{% extends "proj/base_template.html" %}
+
+{% block body %}
+
+{% include "proj/insideHeader.html" with title='DTR ADMIN' %}
+
+
+<div class="flex">
+  <div class="container inside-container">
+    <div class="wrapper arrow-up"></div>
+    <div class="wrapper light arrow-down-steep centered">
+      <div class="row">
+        <h2 class="large-text">{{dtr_total}} forms</h2>
+        <div class="dc-input">
+          <a class="btn btn-primary" href="/corinthian/dtr_download"><h2>DOWNLOAD ALL FORMS</h2></a>
+          <a class="btn btn-primary" href="/corinthian/dtr_stats"><h2>EXPORT METADATA AS CSV</h2></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
