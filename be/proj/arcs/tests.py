@@ -19,7 +19,7 @@ class TestDTR(TestCase):
         'misleading_job_stats_check': True
       })
 
-      key = dtrprofile.s3_key()
+      key = dtrprofile.s3_key().key
 
       user_data = dtrprofile.data
       self.assertEqual(user_data['key'], dtrprofile.id)
@@ -55,8 +55,8 @@ class TestDTR(TestCase):
         'name': 'i am a second user'
       })
 
-      key = dtrprofile.s3_key()
-      key_two = dtrprofile_two.s3_key()
+      key = dtrprofile.s3_key().key
+      key_two = dtrprofile_two.s3_key().key
 
       s3_key = bucket.get_key(key)
       s3_key_two = bucket.get_key(key_two)

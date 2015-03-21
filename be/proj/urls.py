@@ -40,7 +40,7 @@ def corinthian_url(name):
 
 urlpatterns += patterns('proj.arcs.corinthian',
   corinthian_url('dtr_generate'),
-  corinthian_url('dtr_stats'),
+  corinthian_url('dtr_csv'),
   corinthian_url('dtr_download'),
   corinthian_url('dtr'),
   corinthian_url('admin'),

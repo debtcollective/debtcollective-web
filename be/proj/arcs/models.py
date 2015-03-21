@@ -34,7 +34,10 @@ class DTRUserProfile(models.Model):
     return self.user.username
 
   def s3_key(self):
-    return self.id
+    bucket = conn.get_bucket(S3_BUCKET_NAME)
+    key = Key(bucket)
+    key.key = self.id
+    return key
 
   def to_json(self):
     data = self.__dict__.copy()
@@ -42,9 +45,7 @@ class DTRUserProfile(models.Model):
     return data
 
   def pdf_link(self, expires_in=3000):
-    bucket = conn.get_bucket(S3_BUCKET_NAME)
-    key = Key(bucket)
-    key.key = self.s3_key()
+    key = self.s3_key()
     url = key.generate_url(expires_in=expires_in, force_http=True)
     return url
 

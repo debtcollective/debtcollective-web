@@ -2625,7 +2625,7 @@ app.directive('scrollOnClick', function() {
 
   this.create = function (userData, cb) {
     console.log('creating user', userData)
-    $http.post('/signup/', userData).then(function (resp) {
+    $http.post('/signup', userData).then(function (resp) {
       console.log(resp)
       cb(resp)
     });
