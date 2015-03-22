@@ -4,3 +4,4 @@ venv
 *.css.map
 staticfiles
 .sass-cache
+node_modules
