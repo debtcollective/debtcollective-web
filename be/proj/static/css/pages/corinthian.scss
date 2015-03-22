@@ -167,6 +167,8 @@ hr {
   }
   .img {
     text-align: center;
+    max-height: 500px;
+    min-height: 300px;
   }
 
   .info {
@@ -245,4 +247,8 @@ label {
   ul li {
     padding: 10px 0px;
   }
+}
+
+.large-text {
+  font-size: 72px;
 }

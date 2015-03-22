@@ -1,4 +1,4 @@
-<div class="donate-button" ng-class="{'flex': flexible}">
-  <input placeholder="$000,000" ng-if="flexible" type="text" ng-model="form.flexibleAmount" class="centered">
-  <button class="btn red tiny" ng-transclude> </button>
-</div>
+<form class="donate-button">
+  <input placeholder="ENTER AN AMOUNT" ng-if="flexible" type="text" ng-model="form.flexibleAmount" class="centered">
+  <button type="submit" class="btn btn-primary" ng-transclude> </button>
+</form>

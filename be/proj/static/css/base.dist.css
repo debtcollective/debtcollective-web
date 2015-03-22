@@ -367,7 +367,7 @@
       opacity: .45; }
 
 .intro {
-  padding: 45px 0px 30px 0px;
+  padding: 15px 0px 30px 0px;
   text-align: center;
   border-top: 1px solid black;
   border-bottom: 1px solid black; }
@@ -538,6 +538,9 @@
     text-decoration: underline;
     color: #acb9b7 !important; }
 
+#ccform input {
+  margin-top: 0px !important; }
+
 .profile-intro-text {
   text-align: left;
   font-size: 16px;
@@ -662,7 +665,9 @@ hr {
   .hud-display p {
     padding: 20px; }
   .hud-display .img {
-    text-align: center; }
+    text-align: center;
+    max-height: 500px;
+    min-height: 300px; }
   .hud-display .info {
     overflow-y: auto;
     height: 100%;
@@ -1028,7 +1033,7 @@ h2, .tabs .single-tab, form button[type=submit] {
   line-height: 30px;
   text-align: center;
   margin-bottom: 22px;
-  letter-spacing: 4.5px; }
+  letter-spacing: 2px; }
   h2.dark, .tabs .dark.single-tab, form button.dark[type=submit] {
     color: #39413f; }
 
@@ -1144,7 +1149,7 @@ p.small {
   border: 1px solid black; }
   .paper .signatures {
     font-size: 18px;
-    padding-top: 30px;
+    padding-top: 15px;
     font-weight: bold;
     text-transform: uppercase; }
 
@@ -1348,7 +1353,7 @@ form button[type=submit] {
   width: 50%;
   margin: 5px; }
   .counter-box img {
-    padding: 20px; }
+    padding: 20px 0px 40px 0px; }
 
 .counter-box-header {
   background-color: #001f28; }

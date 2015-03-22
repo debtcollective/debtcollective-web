@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'proj',
     'proj.gather',
+    'proj.arcs',
     'south'
 )
 MIDDLEWARE_CLASSES = (
@@ -47,6 +48,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+)
+
 ROOT_URLCONF = 'proj.urls'
 # XXX: unsure why 'be' needs to be left out of the initial path (karissa)
 WSGI_APPLICATION = 'proj.wsgi.application'
@@ -93,15 +99,19 @@ ALLOWED_HOSTS = [
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.environ.get('STATIC_ROOT', 'staticfiles')
+
 STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates').replace('\\','/'),
 )
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'templates/debtcollective-wizard/assets')
 )
 
 # Misc.
 AUTH_PROFILE_MODULE = 'gather.UserProfile'
 MAP_PASSWORD = os.environ.get('MAP_PASSWORD', '')
 STRIPE_KEY= os.environ.get('STRIPE_KEY','')
+AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY', '')
+AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY', '')

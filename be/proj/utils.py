@@ -1,6 +1,12 @@
 from django.http import HttpResponse, Http404
+from fdfgen import forge_fdf
+from boto.s3.key import Key
 from django.core.serializers.json import Serializer, DjangoJSONEncoder
+from boto.s3.connection import S3Connection
+
 import json
+import settings
+import subprocess
 
 def get_POST_data(request):
   """
@@ -21,3 +27,30 @@ def json_response(response_data, status_code):
   rs = HttpResponse(response_data, content_type="application/json")
   rs.status_code = status_code
   return rs
+
+def get_s3_conn():
+  conn = S3Connection(settings.AWS_ACCESS_KEY, settings.AWS_SECRET_KEY)
+  return conn
+
+def store_in_s3(conn, bucket_name, key, output_file, metadata=None):
+  if not metadata:
+    metadata = {}
+  bucket = conn.get_bucket(bucket_name)
+  k = Key(bucket)
+  k.key = key
+  for key, value in metadata.iteritems():
+    k.set_metadata(key, value)
+  k.set_contents_from_filename(output_file)
+
+def generate_pdf(fields, values, source_filename, fdf_filename, output_filename):
+  fdf_fields = []
+  for fieldname, value in fields.iteritems():
+    fdf_fields.append((fieldname, values.get(fieldname, 'N/A')))
+
+  fdf = forge_fdf("", fdf_fields, [], [], [])
+
+  fdf_file = open(fdf_filename, "w")
+  fdf_file.write(fdf)
+  fdf_file.close()
+
+  subprocess.call(['pdftk', source_filename ,'fill_form', fdf_filename, 'output', output_filename])

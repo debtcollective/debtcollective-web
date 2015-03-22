@@ -344,7 +344,7 @@ h2 {
   line-height: 30px;
   text-align: center;
   margin-bottom: 22px;
-  letter-spacing: 4.5px;
+  letter-spacing: 2px;
   &.dark {
     color: $dark-background-color;
   }
@@ -498,7 +498,7 @@ p.small {
 
   .signatures {
     font-size: 18px;
-    padding-top: 30px;
+    padding-top: 15px;
     font-weight: bold;
     text-transform: uppercase;
   }
@@ -589,7 +589,11 @@ input, select {
   padding: 10px;
 }
 
-input[type="text"], input[type="email"], select, textarea {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
   @extend %input;
   text-transform: uppercase;
   font-size: 16px;
@@ -618,15 +622,6 @@ select {
   -webkit-border-radius: $amount !important;
   -webkit-appearance: none;
 }
-form {
-  button[type=submit] {
-    @extend h2;
-    padding: 20px 0px;
-    margin: 15px 0px;
-    text-transform: uppercase;
-  }
-}
-
 .add-debt {
   float: right;
   &:hover {
@@ -739,7 +734,7 @@ $counter-color: #001f28;
   width: 50%;
   margin: 5px;
   img {
-    padding: 20px;
+    padding: 20px 0px 40px 0px;
   }
 }
 .counter-box-header {

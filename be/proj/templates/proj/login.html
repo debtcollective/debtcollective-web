@@ -1,0 +1,24 @@
+{% extends "proj/base_template.html" %}
+
+{% block body %}
+
+{% include "proj/insideHeader.html" with title='LOGIN' %}
+
+<div class="flex thankyou-background">
+  <div class="wrapper dark">
+    <h2>Login yo</h2>
+    <form action="/login" method="POST">
+      <div class="dc-input">
+        {% csrf_token %}
+        {% if bad_auth %}
+        <p class="help-text">Username and password do not match.</p>
+        {% endif %}
+        <input type="text" name="username" placeholder="username" required />
+        <input type="password" name="password" placeholder="password" required />
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

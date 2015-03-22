@@ -46,7 +46,7 @@ $ python manage.py syncdb
 This loads the points (world cities) into the database. This small set is just for testing. There's a larger file that has the full list to be used in production.
 
 ```
-$ cat points-small.sql | python manage.py dbshell
+$ cat lib/points-small.sql | python manage.py dbshell
 ```
 
 ## Running the app

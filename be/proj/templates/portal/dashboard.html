@@ -1,0 +1,31 @@
+{% extends "proj/base_template.html" %}
+
+{% block body %}
+
+{% include "proj/insideHeader.html" with title='PORTAL' %}
+
+<div class="flex">
+  <div class="container inside-container">
+    <div class="wrapper dark">
+      <h2>
+      Hello {{ user.username }}, your email is {{ user.email }}
+      </h2>
+      <h3><a href="/logout">Logout</a></h3>
+    </div>
+
+    <div class="wrapper arrow-up"></div>
+    <div class="wrapper light arrow-down-steep centered">
+      <div class="row arrow-top-heading">
+          <h2 class="first ">ONGOING INITIATIVES</h2>
+      </div>
+      <div class="row">
+        {% if user.is_superuser %}
+          <a href="/corinthian/admin">Corinthian Defense to Repayment</a>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

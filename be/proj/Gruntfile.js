@@ -9,6 +9,7 @@ module.exports = function(grunt) {
       dist: {
         src: ['static/vendor/angular.min.js',
         'static/vendor/angular-cookies.min.js',
+        'static/vendor/angular-route.min.js',
         'static/vendor/angular-scroll.min.js',
         'static/vendor/miso.ds.deps.min.0.2.2.js',
         'static/vendor/miso.ds.min.0.4.1.js',
@@ -41,14 +42,33 @@ module.exports = function(grunt) {
         renameFiles: false
       }
     },
+    sass: {
+      dist: {
+        files: {
+          'static/css/base.css' : 'static/css/base.scss'
+        }
+      }
+    },
     watch: {
-      files: ['static/js/**/*.js', 'static/directives/**/*.js'],
-      tasks: ['concat']
+      scripts: {
+        files: [
+          'static/js/**/*.js',
+          'static/directives/**/*.js'],
+        tasks: ['concat']
+      },
+      styles: {
+        files: [
+          'static/css/**/*.scss'
+        ],
+        tasks: [
+          'sass', 'imageEmbed'
+        ]
+      }
     },
     imageEmbed: {
       dist: {
         src: ['static/css/base.css'],
-        dest: 'static/css/base.dist.css',
+        dest: 'static/css/base.css',
         options: {
           deleteAfterEncoding : false,
           target: ['**/*.png'],
@@ -58,6 +78,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-hashres');
   grunt.loadNpmTasks("grunt-image-embed");

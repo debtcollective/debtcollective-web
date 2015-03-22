@@ -30,12 +30,10 @@ app.directive('signupform', function () {
 
       $scope.$watch('corinthianStudent', function (newVal, oldVal) {
         if (newVal == 'option1') { // true
-          document.getElementById('email').setAttribute('name', 'cm-nuriti-nuriti')
-          document.getElementById('signupForm').setAttribute('action', "//strikedebt.createsend.com/t/j/s/nuriti/")
+          document.getElementById('list').setAttribute('name', 'RUDSi1E892892XdpjO763892Zxq892hw')
         }
         if (newVal == 'option2') { // false
-          document.getElementById('email').setAttribute('name', 'cm-nskul-nskul')
-          document.getElementById('signupForm').setAttribute('action', "//strikedebt.createsend.com/t/j/s/nskul/")
+          document.getElementById('list').setAttribute('name', '8CaVcsDmVe41wdpl194UlQ')
         }
       })
 

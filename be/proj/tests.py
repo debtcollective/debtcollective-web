@@ -1,9 +1,9 @@
 from django.test.client import Client
-from django.utils import unittest
 from django.test import TestCase
 from django.contrib.auth.models import User
 from proj.gather.models import UserProfile, Debt, Point
 
+import proj.settings as settings
 import json
 
 
@@ -11,7 +11,7 @@ class TestSignup(TestCase):
 
     def test_simple(self):
       # it can create a user from the frontend
-      rs = self.client.post('/signup/',
+      rs = self.client.post('/signup',
           {'username': 'test', 'password': 'anoyther'})
       self.assertEqual(rs.status_code, 200)
 
@@ -22,7 +22,7 @@ class TestSignup(TestCase):
       # it can login a user from the frontend
       username = 'testuser'
       password = 'testingpassword'
-      rs = self.client.post('/signup/',
+      rs = self.client.post('/signup',
           {'username': username, 'password': password})
       self.assertEqual(rs.status_code, 200)
 
@@ -30,14 +30,14 @@ class TestSignup(TestCase):
       self.assertEqual(username, user.username)
 
       # bad password
-      rs = self.client.post('/login/',
+      rs = self.client.post('/login',
         {'username': username, 'password': 'this is a bad password'})
-      self.assertEqual(rs.status_code, 500)
+      self.assertEqual(rs.status_code, 200)
 
       # successful password
-      rs = self.client.post('/login/',
+      rs = self.client.post('/login',
         {'username': username, 'password': password})
-      self.assertEqual(rs.status_code, 200)
+      self.assertEqual(rs.status_code, 302)
 
     def test_points(self):
       Point.objects.create(latitude=12.23, longitude=-34.35, name="Albuquerque")
@@ -45,7 +45,7 @@ class TestSignup(TestCase):
       Point.objects.create(latitude=42.23, longitude=-34.35, name="Newark")
       Point.objects.create(latitude=12.23, longitude=-31.25, name="San Francisco")
 
-      rs = self.client.post('/points/')
+      rs = self.client.post('/points')
       self.assertEqual(rs.status_code, 200)
 
       resp = json.loads(rs.content)
@@ -61,7 +61,7 @@ class TestSignup(TestCase):
       Point.objects.create(latitude=42.23, longitude=-34.35, name="Newark")
       p1 = Point.objects.create(latitude=12.23, longitude=-31.25, name="San Francisco")
 
-      rs = self.client.post('/signup/',
+      rs = self.client.post('/signup',
           {'username': 'doingit',
            'password': 'testingpw',
            'kind': 'home',
@@ -70,7 +70,7 @@ class TestSignup(TestCase):
            })
       self.assertEqual(rs.status_code, 200)
 
-      rs = self.client.post('/signup/',
+      rs = self.client.post('/signup',
           {'username': 'doingit2',
            'password': 'testingpw',
            'kind': 'home',
@@ -79,7 +79,7 @@ class TestSignup(TestCase):
            })
       self.assertEqual(rs.status_code, 200)
 
-      def test_map_data(rs):
+      def test(rs):
         self.assertEqual(rs.status_code, 200)
         data = json.loads(rs.content)
 
@@ -91,18 +91,16 @@ class TestSignup(TestCase):
         self.assertEqual(sf['num_users'], 2)
 
       rs = self.client.get('/map_data')
-      test_map_data(rs)
+      test(rs)
 
       rs = self.client.get('/generate_map_json')
       self.assertEqual(rs.status_code, 500)
 
-      rs = self.client.get('/generate_map_json?password=Bailoutthepeople')
-      test_map_data(rs)
 
     def test_location(self):
       # it can store and retrieve point from the frontend
       p = Point.objects.create(latitude=12.23, longitude=-34.35, name="Albuquerque")
-      rs = self.client.post('/signup/',
+      rs = self.client.post('/signup',
           {'username': 'testingloc',
            'password': 'testingpw',
            'point':  p.id})
@@ -116,7 +114,7 @@ class TestSignup(TestCase):
 
       # it turns numeric data into character
       p = Point.objects.create(latitude=12.23, longitude=-32.35, name="New York")
-      rs = self.client.post('/signup/',
+      rs = self.client.post('/signup',
           {'username': 'testingloc2',
            'password': 'testingpw',
            'point': p.id})
@@ -130,7 +128,7 @@ class TestSignup(TestCase):
 
     def test_debt(self):
       p = Point.objects.create(latitude=12.23, longitude=-32.35, name="New York")
-      rs = self.client.post('/signup/',
+      rs = self.client.post('/signup',
           {'username': 'doingit',
            'password': 'testingpw',
            'kind': 'home',

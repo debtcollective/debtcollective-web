@@ -1,6 +1,6 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib import auth
 from django.http import HttpResponse, Http404
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
@@ -17,22 +17,10 @@ import stripe
 
 @ensure_csrf_cookie
 def splash(request):
-  return render_to_response('proj/splash.html', {})
+  return render_to_response('proj/splash.html')
 
 def map(request):
   return render_to_response('proj/map.html')
-
-def corinthiansignup(request):
-  return render_to_response('proj/strikeform.html')
-
-def corinthiansolidarity(request):
-  return render_to_response('proj/corinthiansolidarity.html')
-
-def knowyourstudentdebt(request):
-  return render_to_response('proj/knowyourstudentdebt.html')
-
-def studentstrike(request):
-  return render_to_response('proj/studentstrike.html')
 
 def nov_fourth(request):
   return render_to_response('proj/nov4.html')
@@ -61,20 +49,30 @@ def stripe_endpoint(request):
 
   return json_response({'status': 'ok'}, 200)
 
+def logout(request):
+  """
+  GET /logout
+  """
+  auth.logout(request)
+  return redirect('/login')
+
 def login(request):
   """
+  GET /login
   POST /login
   """
-  if request.method != 'POST':
-    raise Http404
+  c = {}
+  c.update(csrf(request))
+  if request.method == 'POST':
+    rq = get_POST_data(request)
+    user = auth.authenticate(username=rq['username'], password=rq['password'])
+    if user is not None:
+      auth.login(request, user)
+      return redirect('/portal')
+    else:
+      c.update({"bad_auth": True})
 
-  rq = get_POST_data(request)
-  user = authenticate(username=rq['username'], password=rq['password'])
-  if user is not None:
-    return json_response({'status': 'ok'}, 200)
-  else:
-    return json_response({'status': 'error',
-      'message': 'Those credentials could not be authenticated.'}, 500)
+  return render_to_response('proj/login.html', c)
 
 @csrf_exempt
 def signup(request):

@@ -11,33 +11,48 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 )
 
-def basic_url(name):
-  return url(r'^%s' % name, name, name=name)
+def basic_url(name, prefix=""):
+  return url('^' + prefix + '%s$' % name, name, name=name)
 
 
 ## TODO: Move corinthian specific stuff to arcs.corinthian..
 urlpatterns += patterns('proj.views',
   basic_url('map'),
   basic_url('login'),
+  basic_url('logout'),
   basic_url('signup'),
   basic_url('thankyou'),
   basic_url('stripe_endpoint'),
-  basic_url('studentstrike'),
-  basic_url('corinthiansignup'),
-  basic_url('corinthiansolidarity'),
-  basic_url('knowyourstudentdebt'),
   url(r'^$', 'splash', name='splash'),
 )
 
 urlpatterns += patterns('proj.gather.views',
   basic_url('points'),
+  basic_url('states'),
   basic_url('map_data'),
   basic_url('debt_choices'),
   basic_url('debt_total'),
-  basic_url('users_total'),
   basic_url('generate_map_json')
 )
 
+def corinthian_url(name):
+  return basic_url(name, prefix="corinthian/")
+
 urlpatterns += patterns('proj.arcs.corinthian',
-  basic_url('strikers'),
+  corinthian_url('dtr_generate'),
+  corinthian_url('dtr_csv'),
+  corinthian_url('dtr_download'),
+  corinthian_url('admin'),
+  url('^corinthian/dtr/view/(\d)$', 'dtr_view', name='dtr_view'),
+  basic_url('knowyourstudentdebt'),
+  basic_url('corinthiandtr'),
+  basic_url('corinthiansignup'),
+  basic_url('studentstrike'),
+  basic_url('corinthiansolidarity')
 )
+
+urlpatterns += patterns('proj.arcs.views',
+  basic_url('portal')
+)
+
+

@@ -5,13 +5,17 @@
   font-size: 14px;
   line-height: 16px; }
 
-.button-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, .mono, p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button[type=submit], form p.mono button[type=submit], p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button[type=submit], form .body-text.mono button[type=submit], .body-text.mono h6, .body-text.mono p, .header-links a.nav-link, h1, .top-quote h1 {
+.button-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, .mono, p.mono h1, p.mono h2, p.mono a.btn, p.mono button[type=submit], p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono a.btn, .body-text.mono button[type=submit], .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono h6, .body-text.mono p, .header-links a.nav-link, h1, .top-quote h1 {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 20px; }
 
-.btn, input[type="text"], input[type="email"], select, textarea, #resources li a, body, p, .body-text, h2, .tabs .single-tab, form button[type=submit], h3, h4, h5, .checkbox, h6, .dropdown-menu {
+.btn, input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea, #resources li a, body, p, .body-text, h2, a.btn, button[type=submit], .tabs .single-tab, h3, h4, h5, .checkbox, h6, .dropdown-menu {
   font-family: "Raleway", sans-serif; }
 
 /* -------------------------------------------------------------
@@ -88,7 +92,11 @@
 /* TRIPLE BORDERS */
 /* KEYFRAMES */
 /* ANIMATION */
-.btn, input[type="text"], input[type="email"], select, textarea {
+.btn, input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
   -ms-transition: all 0.25s ease-in-out;
@@ -101,7 +109,11 @@
   width: 100%;
   border: 0;
   text-decoration: none; }
-  .btn:focus, input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+  .btn:focus, input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  select:focus,
+  textarea:focus {
     outline: 0px;
     outline-offset: 0px; }
 
@@ -109,6 +121,11 @@
   cursor: pointer;
   text-align: center;
   margin-top: 4px; }
+
+a.btn, button[type=submit] {
+  padding: 20px 0px;
+  margin: 15px 0px;
+  text-transform: uppercase; }
 
 .close-button {
   float: right;
@@ -367,7 +384,7 @@
       opacity: .45; }
 
 .intro {
-  padding: 45px 0px 30px 0px;
+  padding: 15px 0px 30px 0px;
   text-align: center;
   border-top: 1px solid black;
   border-bottom: 1px solid black; }
@@ -376,7 +393,7 @@
 
 .intro-caption {
   margin: 30px 0px; }
-  .intro-caption h2, .intro-caption .tabs .single-tab, .tabs .intro-caption .single-tab, .intro-caption form button[type=submit], form .intro-caption button[type=submit] {
+  .intro-caption h2, .intro-caption a.btn, .intro-caption button[type=submit], .intro-caption .tabs .single-tab, .tabs .intro-caption .single-tab {
     margin-bottom: 0px; }
 
 #scroll.mainstate .social-media {
@@ -506,7 +523,7 @@
   position: relative;
   border: 1px solid #f1eee2;
   border-radius: 2px;
-  background-image: url("../img/jodometer-background2.png");
+  background-image: url(data:image/png;base64,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);
   background-repeat: repeat-x;
   width: 288px;
   margin: 0 auto; }
@@ -537,6 +554,9 @@
   #corinthian .intro a {
     text-decoration: underline;
     color: #acb9b7 !important; }
+
+#ccform input {
+  margin-top: 0px !important; }
 
 .profile-intro-text {
   text-align: left;
@@ -583,7 +603,7 @@ hr {
 
 .inter-text {
   padding: 15px 0px; }
-  .inter-text h2, .inter-text .tabs .single-tab, .tabs .inter-text .single-tab, .inter-text form button[type=submit], form .inter-text button[type=submit] {
+  .inter-text h2, .inter-text a.btn, .inter-text button[type=submit], .inter-text .tabs .single-tab, .tabs .inter-text .single-tab {
     margin-top: 0px;
     font-weight: 700;
     text-transform: uppercase;
@@ -591,7 +611,7 @@ hr {
 
 .big-bottom {
   padding-top: 30px; }
-  .big-bottom h2, .big-bottom .tabs .single-tab, .tabs .big-bottom .single-tab, .big-bottom form button[type=submit], form .big-bottom button[type=submit] {
+  .big-bottom h2, .big-bottom a.btn, .big-bottom button[type=submit], .big-bottom .tabs .single-tab, .tabs .big-bottom .single-tab {
     font-size: 38px;
     line-height: 48px; }
 
@@ -662,7 +682,9 @@ hr {
   .hud-display p {
     padding: 20px; }
   .hud-display .img {
-    text-align: center; }
+    text-align: center;
+    max-height: 500px;
+    min-height: 300px; }
   .hud-display .info {
     overflow-y: auto;
     height: 100%;
@@ -731,6 +753,9 @@ label {
   font-size: 13px; }
   .ss-secondary-text ul li {
     padding: 10px 0px; }
+
+.large-text {
+  font-size: 72px; }
 
 /** carousel **/
 .carousel .title {
@@ -815,7 +840,7 @@ body {
   padding-bottom: 210px;
   background-color: #39413f !important;
   z-index: 0; }
-  .arrow-down-steep h2.first, .arrow-down-steep .tabs .first.single-tab, .tabs .arrow-down-steep .first.single-tab, .arrow-down-steep form button.first[type=submit], form .arrow-down-steep button.first[type=submit] {
+  .arrow-down-steep h2.first, .arrow-down-steep a.first.btn, .arrow-down-steep button.first[type=submit], .arrow-down-steep .tabs .first.single-tab, .tabs .arrow-down-steep .first.single-tab {
     margin-top: -20px !important; }
   .arrow-down-steep .row.light {
     background-color: #f1eee2; }
@@ -877,9 +902,9 @@ p, .body-text {
     padding-bottom: 60px; }
     p.spaced a, .body-text.spaced a {
       text-decoration: none !important; }
-      p.spaced a h2, p.spaced a .tabs .single-tab, .tabs p.spaced a .single-tab, p.spaced a form button[type=submit], form p.spaced a button[type=submit], .body-text.spaced a h2, .body-text.spaced a .tabs .single-tab, .tabs .body-text.spaced a .single-tab, .body-text.spaced a form button[type=submit], form .body-text.spaced a button[type=submit] {
+      p.spaced a h2, p.spaced a a.btn, p.spaced a button[type=submit], p.spaced a .tabs .single-tab, .tabs p.spaced a .single-tab, .body-text.spaced a h2, .body-text.spaced a a.btn, .body-text.spaced a button[type=submit], .body-text.spaced a .tabs .single-tab, .tabs .body-text.spaced a .single-tab {
         margin-bottom: 0px; }
-  p.mono h1, p.mono h2, p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono form button[type=submit], form p.mono button[type=submit], p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono form button[type=submit], form .body-text.mono button[type=submit], .body-text.mono h6, .body-text.mono p {
+  p.mono h1, p.mono h2, p.mono a.btn, p.mono button[type=submit], p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono a.btn, .body-text.mono button[type=submit], .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono h6, .body-text.mono p {
     font-family: 'Cousine', serif; }
   p.mono h6, .body-text.mono h6 {
     margin-top: 6px;
@@ -1023,13 +1048,13 @@ h1 {
     color: #fefefe !important;
     text-decoration: none; }
 
-h2, .tabs .single-tab, form button[type=submit] {
+h2, a.btn, button[type=submit], .tabs .single-tab {
   font-size: 20px;
   line-height: 30px;
   text-align: center;
   margin-bottom: 22px;
-  letter-spacing: 4.5px; }
-  h2.dark, .tabs .dark.single-tab, form button.dark[type=submit] {
+  letter-spacing: 2px; }
+  h2.dark, a.dark.btn, button.dark[type=submit], .tabs .dark.single-tab {
     color: #39413f; }
 
 h3 {
@@ -1144,7 +1169,7 @@ p.small {
   border: 1px solid black; }
   .paper .signatures {
     font-size: 18px;
-    padding-top: 30px;
+    padding-top: 15px;
     font-weight: bold;
     text-transform: uppercase; }
 
@@ -1225,7 +1250,11 @@ input, select {
   height: 44px;
   padding: 10px; }
 
-input[type="text"], input[type="email"], select, textarea {
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
   text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 2px; }
@@ -1240,7 +1269,7 @@ select {
   color: #f1eee2;
   font-weight: bold;
   background-color: #353a38 !important;
-  background-image: url(../img/select-righthand.png);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAYAAAD6S912AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAB1WlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyI+CiAgICAgICAgIDx0aWZmOkNvbXByZXNzaW9uPjE8L3RpZmY6Q29tcHJlc3Npb24+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgICAgIDx0aWZmOlBob3RvbWV0cmljSW50ZXJwcmV0YXRpb24+MjwvdGlmZjpQaG90b21ldHJpY0ludGVycHJldGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KAtiABQAAAGtJREFUOBFjYBgFuEKAT8PwPwjjkoeJM8IY+Gh0gz7dOI9THxM+g8iRw2kTzDB018HEcbkSr4G4DMNnKNW9DLNslCY/BAZ/LON1IcjjuNIiWQkbFpLohuIyDKR+4BI2yJXoLoX5YJQe5CEAAIl4Haer2iTsAAAAAElFTkSuQmCC);
   background-repeat: no-repeat;
   background-position: right center; }
 
@@ -1249,11 +1278,6 @@ select {
   -moz-border-radius: 0px !important;
   -webkit-border-radius: 0px !important;
   -webkit-appearance: none; }
-
-form button[type=submit] {
-  padding: 20px 0px;
-  margin: 15px 0px;
-  text-transform: uppercase; }
 
 .add-debt {
   float: right; }
@@ -1348,7 +1372,7 @@ form button[type=submit] {
   width: 50%;
   margin: 5px; }
   .counter-box img {
-    padding: 20px; }
+    padding: 20px 0px 40px 0px; }
 
 .counter-box-header {
   background-color: #001f28; }

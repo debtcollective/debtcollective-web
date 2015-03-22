@@ -1,0 +1,27 @@
+{% extends "proj/base_template.html" %}
+{% load humanize %}
+
+{% block body %}
+{% include "proj/insideHeader.html" with title='SOLIDARITY WITH THE CORINTHIAN 15' %}
+
+<div class="container">
+  <div class="wrapper">
+    {% include "proj/solidarityLetter.html" %}
+    <div class="spacer"></div>
+    <div class="dc-input wrapper dark">
+      <h2>BECOME A MEMBER
+      <p class="small">We will contact you to help plan actions in the future.</p></h2>
+      <signupform></signupform>
+    </div>
+
+    {% include "proj/donateBox.html" with title="Support the Strike" %}
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
