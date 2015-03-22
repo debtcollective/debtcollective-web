@@ -4,20 +4,24 @@ from boto.s3.key import Key
 from django.contrib.auth.models import User
 from proj.arcs.models import DTRUserProfile
 
+import json
+
 TEST_BUCKET = 'corinthiandtr.dev'
 conn = get_s3_conn()
 bucket = conn.get_bucket(TEST_BUCKET)
 
+
+TEST_DATA = {
+  'name': 'this is awesome',
+  'ssn_1': '234',
+  'ssn_2': '555',
+  'ssn_3': '123',
+  'misleading_job_stats_check': True
+}
 class TestDTR(TestCase):
 
     def test_generate(self):
-      dtrprofile = DTRUserProfile.generate({
-        'name': 'this is awesome',
-        'ssn_1': '234',
-        'ssn_2': '555',
-        'ssn_3': '123',
-        'misleading_job_stats_check': True
-      })
+      dtrprofile = DTRUserProfile.generate(TEST_DATA)
 
       key = dtrprofile.s3_key().key
 
@@ -45,6 +49,17 @@ class TestDTR(TestCase):
 
       #cleanup
       bucket.delete_key(key)
+
+    def test_generate_post(self):
+      rs = self.client.post('/corinthian/dtr_generate', TEST_DATA)
+      self.assertEqual(rs.status_code, 200)
+
+      resp = json.loads(rs.content)
+
+      dtrprofile = DTRUserProfile.objects.get(id=resp['id'])
+      self.assertEqual(resp['id'], dtrprofile.id)
+      self.assertTrue(resp['pdf_link'])
+
 
     def test_generate_two_users(self):
       dtrprofile = DTRUserProfile.generate({

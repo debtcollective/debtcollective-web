@@ -18,7 +18,7 @@ if settings.DEBUG:
 conn = get_s3_conn()
 
 TMP_FILE_DIR = '/tmp'
-SOURCE_FILE = os.path.join(os.path.dirname(__file__), 'dc_defense_form_1-3.pdf')
+SOURCE_FILE = os.path.join(os.path.dirname(__file__), 'borrower_defense_to_repayment.pdf')
 DTR_FIELDS_FILE = os.path.join(os.path.dirname(__file__), 'dtr_fields.json')
 
 def fdf_filename(key):

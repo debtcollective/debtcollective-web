@@ -60,13 +60,16 @@ def dtr_csv(request):
 @csrf_exempt
 def dtr_generate(request):
   if request.method != "POST":
-    return dtr_view(request)
+    raise Http404
 
   rq = get_POST_data(request)
-  values = rq['values']
 
-  dtrprofile = DTRUserProfile.generate(values)
-  return redirect('/corinthian/dtr/view/' + dtrprofile.id)
+  dtrprofile = DTRUserProfile.generate(rq)
+  return json_response({
+    'id': dtrprofile.id,
+    'pdf_link': dtrprofile.pdf_link(),
+  }, 200)
+  #return redirect('/corinthian/dtr/view/' + dtrprofile.id)
 
 def dtr_view(request, id):
   if not request.user.is_superuser:
