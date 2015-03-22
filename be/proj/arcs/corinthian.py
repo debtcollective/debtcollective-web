@@ -89,8 +89,8 @@ def admin(request):
 
   return render_to_response('corinthian/admin.html', c)
 
-def dtr(request):
-  return render_to_response('corinthian/wizard.html')
+def corinthiandtr(request):
+  return render_to_response('debtcollective-wizard/index.html')
 
 def corinthiansignup(request):
   return render_to_response('corinthian/signup.html')

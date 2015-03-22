@@ -106,6 +106,7 @@ TEMPLATE_DIRS = (
 )
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'templates/debtcollective-wizard/assets')
 )
 
 # Misc.
