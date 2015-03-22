@@ -58,12 +58,6 @@ $ source venv/bin/activate
 (venv) $ python manage.py runserver
 ```
 
-## Watching Assets
-```
-$ cd be/static/css
-$ sass --watch base.scss
-```
-
 ```
 $ cd be/proj
 $ grunt watch
@@ -92,14 +86,19 @@ http://localhost:8000/generate_map_json/?password=MAGIC_PASSWORD
 ```
 
 
-## Compiling JS assets
+## Compiling static assets
 
-When you change the JS files, please run grunt to update the minified file so when deployed, the CDN can grab the correct one.
+When you change the CSS/JS files, please run grunt to update the minified file so when deployed, the CDN can grab the correct one.
 
 **Setup** **(only do once)**
 ```
 npm install -g grunt-cli
 npm install
+```
+
+**Watch**
+```
+grunt watch
 ```
 
 **Deploy**
