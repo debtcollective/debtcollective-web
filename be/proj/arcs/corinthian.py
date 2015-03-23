@@ -67,14 +67,14 @@ def dtr_generate(request):
   rq = get_POST_data(request)
 
   # school_name_2 .. 13
-  school_name = rq['school_name']
+  school_name = rq.get('school_name', 'Unknown')
   i = 2
-  while i < 14
+  while i < 14:
     rq['school_name_%s' % i] = school_name
     i += 1
 
-  rq['name_2'] = rq['name']
-  rq['state_2'] = rq['state']
+  rq['name_2'] = rq.get('name', 'NA')
+  rq['state_2'] = rq.get('state', 'NA')
 
   dtrprofile = DTRUserProfile.generate(rq)
   return json_response({
