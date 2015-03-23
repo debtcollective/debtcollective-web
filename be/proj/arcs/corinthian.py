@@ -26,9 +26,11 @@ def dtr_download(request):
     key = profile.s3_key()
     try:
       contents = key.get_contents_as_string()
-      zf.writestr("dtr_forms/%s/%s_%s.pdf" % (profile.data.get('servicer', 'NA'), profile.data['name'], profile.id), contents)
+      servicer = profile.data.get('servicer', 'NA')
+      name = profile.data.get('name', 'NA')
+      filename = "dtr_forms/%s/%s_%s.pdf" % (servicer, name, profile.id)
+      zf.writestr(filename, contents)
     except S3ResponseError:
-
       pass
 
   zf.close()
@@ -63,6 +65,16 @@ def dtr_generate(request):
     raise Http404
 
   rq = get_POST_data(request)
+
+  # school_name_2 .. 13
+  school_name = rq['school_name']
+  i = 2
+  while i < 14
+    rq['school_name_%s' % i] = school_name
+    i += 1
+
+  rq['name_2'] = rq['name']
+  rq['state_2'] = rq['state']
 
   dtrprofile = DTRUserProfile.generate(rq)
   return json_response({
