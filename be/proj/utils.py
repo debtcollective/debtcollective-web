@@ -42,10 +42,13 @@ def store_in_s3(conn, bucket_name, key, output_file, metadata=None):
     k.set_metadata(key, value)
   k.set_contents_from_filename(output_file)
 
-def generate_pdf(fields, values, source_filename, fdf_filename, output_filename):
+def generate_pdf(values, source_filename, fdf_filename, output_filename):
+  # values: dictionary of fieldname, value
   fdf_fields = []
-  for fieldname, value in fields.iteritems():
-    fdf_fields.append((fieldname, values.get(fieldname, 'N/A')))
+
+  for fieldname, value in values.iteritems():
+    fdf_fields.append((fieldname, value))
+
 
   fdf = forge_fdf("", fdf_fields, [], [], [])
 

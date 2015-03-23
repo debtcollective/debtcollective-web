@@ -56,7 +56,7 @@ class DTRUserProfile(models.Model):
 
     fdf_file = fdf_filename(key)
     output_file = output_filename(key)
-    generate_pdf(cls.FIELDS, values, SOURCE_FILE, fdf_file, output_file)
+    generate_pdf(values, SOURCE_FILE, fdf_file, output_file)
 
     metadata = {
       'name': values['name'],
