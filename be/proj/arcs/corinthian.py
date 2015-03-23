@@ -1,11 +1,14 @@
 from django.shortcuts import render_to_response, redirect
 from django.core.exceptions import ObjectDoesNotExist
-from proj.arcs.models import DTRUserProfile
+from django.template import loader
 from django.http import Http404, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from proj.arcs.models import DTRUserProfile
 from proj.utils import json_response, get_POST_data
 from proj.gather.models import Debt, UserProfile, Point
-from django.views.decorators.csrf import csrf_exempt
 from boto.exception import S3ResponseError
+
+import proj.settings as settings
 
 import os
 import zipfile
@@ -105,7 +108,11 @@ def admin(request):
   return render_to_response('corinthian/admin.html', c)
 
 def corinthiandtr(request):
-  return render_to_response('debtcollective-wizard/index.html')
+  basepath = settings.TEMPLATE_DIRS[0]
+  template_path = os.path.join(basepath, 'debtcollective-wizard/index.html')
+  with open(template_path) as fp:
+    template = fp.read()
+    return HttpResponse(template)
 
 def corinthiansignup(request):
   return render_to_response('corinthian/signup.html')
