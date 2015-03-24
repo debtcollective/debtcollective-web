@@ -12,11 +12,13 @@ bucket = conn.get_bucket(TEST_BUCKET)
 
 
 TEST_DATA = {
-  'name': 'this is awesome',
+  'name': 'this is awesome TEST!',
   'ssn_1': '234',
   'ssn_2': '555',
   'ssn_3': '123',
-  'misleading_job_stats_check': True
+  'misleading_job_stats_check': True,
+  'credential': 1,
+  'attendance_to_month': 10
 }
 class TestDTR(TestCase):
 
@@ -27,7 +29,7 @@ class TestDTR(TestCase):
 
       user_data = dtrprofile.data
       self.assertEqual(user_data['key'], dtrprofile.id)
-      self.assertEqual(user_data['name'], 'this is awesome')
+      self.assertEqual(user_data['name'], TEST_DATA['name'])
 
       # make sure sensitive data is removed before database storage
       for field in DTRUserProfile.SENSITIVE_FIELDS:
@@ -45,7 +47,7 @@ class TestDTR(TestCase):
 
       # name metadata exists
       name = s3_key.get_metadata('name')
-      self.assertEqual(name, 'this is awesome')
+      self.assertEqual(name, TEST_DATA['name'])
 
       #cleanup
       bucket.delete_key(key)

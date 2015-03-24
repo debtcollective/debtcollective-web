@@ -18,7 +18,8 @@ if settings.DEBUG:
 conn = get_s3_conn()
 
 TMP_FILE_DIR = '/tmp'
-SOURCE_FILE = os.path.join(os.path.dirname(__file__), 'borrower_defense_to_repayment.pdf')
+basepath = settings.TEMPLATE_DIRS[0]
+SOURCE_FILE = os.path.join(basepath, 'debtcollective-wizard/borrower_defense_to_repayment.pdf')
 DTR_FIELDS_FILE = os.path.join(os.path.dirname(__file__), 'dtr_fields.json')
 
 def fdf_filename(key):
