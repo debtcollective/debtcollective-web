@@ -16,6 +16,12 @@ I trust you can figure it out
 *Windows*
 Good luck
 
+Grab your submodule initially:
+```
+$ git clone ...
+$ git submodule update --init --recursive
+```
+
 On the terminal:
 ```
 $ createdb debtis
@@ -104,4 +110,28 @@ grunt watch
 **Deploy**
 ```
 grunt
+```
+
+
+## Deploying to heroku
+Add these to your .git/config in debtcollective-web:
+
+```
+[remote "heroku-staging"]
+  url = git@heroku.com:debt-is-staging.git
+  fetch = +refs/heads/*:refs/remotes/heroku-staging/*
+[remote "heroku"]
+  url = git@heroku.com:debt-is.git
+  fetch = +refs/heads/*:refs/remotes/heroku/*
+```
+
+### To update the wizard & push:
+```
+cd be/proj/templates/debtcollective-wizard
+git pull
+cd ..
+git commit -am "updating debtcollective-wizard"
+git push origin master
+git push heroku-staging master
+git push heroku-master
 ```
