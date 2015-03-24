@@ -16,6 +16,7 @@ module.exports = function(grunt) {
         'static/vendor/d3.min.js',
         'static/vendor/jquery.min.js',
         'static/vendor/jquery.jodometer.js',
+        'static/vendor/flipclock.min.js',
         'static/vendor/ammap/ammap.js',
         'static/vendor/ui-bootstrap-custom-0.10.0.min.js',
         'static/vendor/ui-bootstrap-custom-tpls-0.10.0.min.js',

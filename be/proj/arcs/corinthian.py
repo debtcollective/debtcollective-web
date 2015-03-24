@@ -117,6 +117,9 @@ def corinthiandtr(request):
 def corinthiansignup(request):
   return render_to_response('corinthian/signup.html')
 
+def corinthiancollective(request):
+  return render_to_response('corinthian/signup.html')
+
 def corinthiansolidarity(request):
   return render_to_response('corinthian/solidarity.html')
 

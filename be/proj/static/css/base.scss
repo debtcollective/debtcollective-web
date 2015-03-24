@@ -1,4 +1,5 @@
-
+@import "vendor/odometer-theme-car.css";
+@import "vendor/flipclock.css";
 @import "vendor/bootstrap.min.css";
 @import "includes/variables";
 @import "includes/mixins";
@@ -750,5 +751,12 @@ $counter-color: #001f28;
   color: white;
   margin-top: 0px;
   padding: 5px;
+}
+
+.dtr-clock {
+  margin: 3em;
+}
+.flip li {
+ list-style: none;
 }
 @import "includes/responsive";
