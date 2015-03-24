@@ -61,7 +61,7 @@ def dtr_csv(request):
     if type(data) == dict:
       for key, value in data.iteritems():
         row.append(value)
-      writer.writerow(row)
+      writer.writerow(row.encode('utf-8'))
 
   return response
 
