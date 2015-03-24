@@ -37,7 +37,6 @@ class UserProfile(models.Model):
   user = models.OneToOneField(User, unique=True)
   created_at = models.DateTimeField(default=datetime.now)
   point = models.ForeignKey(Point, null=True)
-  state = models.ForeignKey(States, null=True)
 
 
 class Debt(models.Model):
