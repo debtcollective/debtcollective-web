@@ -2816,10 +2816,12 @@ app.directive('scrollOnClick', function() {
 
       $scope.$watch('corinthianStudent', function (newVal, oldVal) {
         if (newVal == 'option1') { // true
-          document.getElementById('list').setAttribute('name', 'RUDSi1E892892XdpjO763892Zxq892hw')
+          document.getElementById('email').setAttribute('name', 'cm-nuriti-nuriti')
+          document.getElementById('signupForm').setAttribute('action', "//strikedebt.createsend.com/t/j/s/nuriti/")
         }
         if (newVal == 'option2') { // false
-          document.getElementById('list').setAttribute('name', '8CaVcsDmVe41wdpl194UlQ')
+          document.getElementById('email').setAttribute('name', 'cm-nskul-nskul')
+          document.getElementById('signupForm').setAttribute('action', "//strikedebt.createsend.com/t/j/s/nskul/")
         }
       })
 
