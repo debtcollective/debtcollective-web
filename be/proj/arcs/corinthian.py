@@ -29,6 +29,9 @@ def dtr_download(request):
     key = profile.s3_key()
     try:
       contents = key.get_contents_as_string()
+      if type(profile.data) != dict:
+        continue
+
       servicer = profile.data.get('servicer', 'NA')
       name = profile.data.get('name', 'NA')
       filename = "dtr_forms/%s/%s_%s.pdf" % (servicer, name, profile.id)
