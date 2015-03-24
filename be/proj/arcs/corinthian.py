@@ -1,11 +1,14 @@
 from django.shortcuts import render_to_response, redirect
 from django.core.exceptions import ObjectDoesNotExist
-from proj.arcs.models import DTRUserProfile
+from django.template import loader
 from django.http import Http404, HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from proj.arcs.models import DTRUserProfile
 from proj.utils import json_response, get_POST_data
 from proj.gather.models import Debt, UserProfile, Point
-from django.views.decorators.csrf import csrf_exempt
 from boto.exception import S3ResponseError
+
+import proj.settings as settings
 
 import os
 import zipfile
@@ -26,9 +29,14 @@ def dtr_download(request):
     key = profile.s3_key()
     try:
       contents = key.get_contents_as_string()
-      zf.writestr("dtr_forms/%s/%s_%s.pdf" % (profile.data.get('servicer', 'NA'), profile.data['name'], profile.id), contents)
-    except S3ResponseError:
+      if type(profile.data) != dict:
+        continue
 
+      servicer = profile.data.get('servicer', 'NA')
+      name = profile.data.get('name', 'NA')
+      filename = "dtr_forms/%s/%s_%s.pdf" % (servicer, name, profile.id)
+      zf.writestr(filename, contents)
+    except S3ResponseError:
       pass
 
   zf.close()
@@ -52,6 +60,8 @@ def dtr_csv(request):
 
     if type(data) == dict:
       for key, value in data.iteritems():
+        if type(value) == unicode:
+          value = value.encode('utf-8')
         row.append(value)
       writer.writerow(row)
 
@@ -63,6 +73,16 @@ def dtr_generate(request):
     raise Http404
 
   rq = get_POST_data(request)
+
+  # school_name_2 .. 13
+  school_name = rq.get('school_name', 'Unknown')
+  i = 2
+  while i < 14:
+    rq['school_name_%s' % i] = school_name
+    i += 1
+
+  rq['name_2'] = rq.get('name', 'NA')
+  rq['state_2'] = rq.get('state', 'NA')
 
   dtrprofile = DTRUserProfile.generate(rq)
   return json_response({
@@ -93,9 +113,16 @@ def admin(request):
   return render_to_response('corinthian/admin.html', c)
 
 def corinthiandtr(request):
-  return render_to_response('debtcollective-wizard/index.html')
+  basepath = settings.TEMPLATE_DIRS[0]
+  template_path = os.path.join(basepath, 'debtcollective-wizard/index.html')
+  with open(template_path) as fp:
+    template = fp.read()
+    return HttpResponse(template)
 
 def corinthiansignup(request):
+  return render_to_response('corinthian/signup.html')
+
+def corinthiancollective(request):
   return render_to_response('corinthian/signup.html')
 
 def corinthiansolidarity(request):

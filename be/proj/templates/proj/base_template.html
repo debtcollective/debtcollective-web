@@ -4,7 +4,6 @@
   <link rel="stylesheet" href="/static/css/base.css?vbe42a2b4" />
   <link href='//fonts.googleapis.com/css?family=Cousine|Cutive+Mono|Raleway:700,300,100' rel='stylesheet' type='text/css'>
   <link rel="icon" type="image/png" href="/static/img/RedSquare_favicon.png">
-  <link rel="stylesheet" href="http://github.hubspot.com/odometer/themes/odometer-theme-car.css" />
 
   <meta charset="UTF-8">
   <title>The Debt Collective</title>
@@ -51,6 +50,7 @@
        js.src = "//connect.facebook.net/en_US/sdk.js";
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
+
   </script>
   <!-- Google Analytics -->
   <script>
@@ -81,6 +81,16 @@
 <script type="text/javascript">(function () { var e = document.createElement('script'); e.type = 'text/javascript'; e.async = true; e.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://btn.createsend1.com/js/sb.min.js?v=3'; e.className = 'createsend-script'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s); })();</script>
   <script src="https://checkout.stripe.com/checkout.js"></script>
     <script type="text/javascript" src="/static/dist/dc.js?v9eb42d63"></script>
+    <script type="text/javascript">
+      var dtr = new Date("3/31/2015")
+      var now = new Date()
+      var seconds = Math.abs((dtr.getTime() - now.getTime())) / 1000
+
+      var clock = $('.dtr-clock').FlipClock(seconds, {
+        countdown: true,
+        clockFace: 'DailyCounter',
+      });
+    </script>
   <!--
   <script src="/static/vendor/angular.min.js"></script>
   <script src="/static/vendor/angular-cookies.min.js"></script>

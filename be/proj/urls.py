@@ -47,6 +47,7 @@ urlpatterns += patterns('proj.arcs.corinthian',
   basic_url('knowyourstudentdebt'),
   basic_url('corinthiandtr'),
   basic_url('corinthiansignup'),
+  basic_url('corinthiancollective'),
   basic_url('studentstrike'),
   basic_url('corinthiansolidarity')
 )

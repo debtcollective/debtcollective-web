@@ -1,4 +1,5 @@
-
+@import "vendor/odometer-theme-car.css";
+@import "vendor/flipclock.css";
 @import "vendor/bootstrap.min.css";
 @import "includes/variables";
 @import "includes/mixins";
@@ -80,6 +81,11 @@ section {
 
 strong {
   font-weight: bold;
+}
+
+.small-italic-caption {
+  margin-top: 20px;
+  font-style: italic;
 }
 
 .caption {
@@ -382,7 +388,7 @@ p.small {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 13px;
-  line-height: 15px;
+  line-height: 19px;
 }
 
 .top-quote {
@@ -723,27 +729,8 @@ select {
   height: 100%;
 }
 
-$counter-color: #001f28;
-
-.counters {
-  @include flexbox;
-}
-.counter-box {
-  border: 1px solid $dark-background-color;
-  background-color: $light-background-color;
-  width: 50%;
-  margin: 5px;
-  img {
-    padding: 20px 0px 40px 0px;
-  }
-}
-.counter-box-header {
-  background-color: $counter-color;
-}
-
-.ticker-amount {
-  color: white;
-  margin-top: 0px;
-  padding: 5px;
+.smaller-logo {
+  width: 90px;
+  margin: 10px;
 }
 @import "includes/responsive";

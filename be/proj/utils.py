@@ -16,7 +16,7 @@ def get_POST_data(request):
   to use ajax POST requests but don't have it encoded as form data.
   """
   if len(request.POST.keys()) > 0:
-    return request.POST
+    return request.POST.copy()
   else:
     # assuming request.body contains json data which is UTF-8 encoded
     return json.loads(request.body, encoding='utf-8')
@@ -42,10 +42,13 @@ def store_in_s3(conn, bucket_name, key, output_file, metadata=None):
     k.set_metadata(key, value)
   k.set_contents_from_filename(output_file)
 
-def generate_pdf(fields, values, source_filename, fdf_filename, output_filename):
+def generate_pdf(values, source_filename, fdf_filename, output_filename):
+  # values: dictionary of fieldname, value
   fdf_fields = []
-  for fieldname, value in fields.iteritems():
-    fdf_fields.append((fieldname, values.get(fieldname, 'N/A')))
+
+  for fieldname, value in values.iteritems():
+    fdf_fields.append((fieldname, value))
+
 
   fdf = forge_fdf("", fdf_fields, [], [], [])
 

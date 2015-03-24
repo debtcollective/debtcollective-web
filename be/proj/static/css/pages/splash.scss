@@ -303,3 +303,31 @@
   }
 }
 
+
+
+$counter-color: #001f28;
+
+.counters {
+  @include flexbox;
+}
+.counter-box {
+  border: 1px solid $dark-background-color;
+  background-color: $light-background-color;
+  width: 50%;
+  margin: 5px;
+  img {
+    padding: 20px 0px 40px 0px;
+  }
+}
+.counter-box-header {
+  background-color: $counter-color;
+}
+
+.ticker-amount {
+  color: white;
+  margin-top: 0px;
+  padding: 5px;
+  a {
+    text-decoration: none !important;
+  }
+}
