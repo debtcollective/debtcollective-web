@@ -60,8 +60,10 @@ def dtr_csv(request):
 
     if type(data) == dict:
       for key, value in data.iteritems():
+        if type(value) == unicode:
+          value = value.encode('utf-8')
         row.append(value)
-      writer.writerow(row.encode('utf-8'))
+      writer.writerow(row)
 
   return response
 
