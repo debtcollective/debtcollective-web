@@ -547,6 +547,31 @@ a.btn, button[type=submit] {
   .counter-text.post {
     margin: 20px 0 40px; }
 
+.counters {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.counter-box {
+  border: 1px solid #39413f;
+  background-color: #f1eee2;
+  width: 50%;
+  margin: 5px; }
+  .counter-box img {
+    padding: 20px 0px 40px 0px; }
+
+.counter-box-header {
+  background-color: #001f28; }
+
+.ticker-amount {
+  color: white;
+  margin-top: 0px;
+  padding: 5px; }
+  .ticker-amount a {
+    text-decoration: none !important; }
+
 #corinthian .intro {
   background-color: #1a1b23;
   padding: 2em;
@@ -758,6 +783,16 @@ label {
 
 .large-text {
   font-size: 72px; }
+
+.dtr-clock {
+  margin: 3em; }
+
+.flip li {
+  list-style: none; }
+
+.flip-clock-wrapper {
+  margin: auto;
+  width: 630px; }
 
 /** carousel **/
 .carousel .title {
@@ -1364,35 +1399,6 @@ select {
 .thankyou-background {
   background: url(../img/blogbackground2.gif);
   height: 100%; }
-
-.counters {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex; }
-
-.counter-box {
-  border: 1px solid #39413f;
-  background-color: #f1eee2;
-  width: 50%;
-  margin: 5px; }
-  .counter-box img {
-    padding: 20px 0px 40px 0px; }
-
-.counter-box-header {
-  background-color: #001f28; }
-
-.ticker-amount {
-  color: white;
-  margin-top: 0px;
-  padding: 5px; }
-
-.dtr-clock {
-  margin: 3em; }
-
-.flip li {
-  list-style: none; }
 
 .mobile-only {
   display: none; }

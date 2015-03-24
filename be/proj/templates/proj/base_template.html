@@ -82,9 +82,9 @@
   <script src="https://checkout.stripe.com/checkout.js"></script>
     <script type="text/javascript" src="/static/dist/dc.js?v9eb42d63"></script>
     <script type="text/javascript">
-      var dtr = new Date(2015, 03, 31, 0, 0, 0, 0)
+      var dtr = new Date("3/31/2015")
       var now = new Date()
-      var seconds = Math.abs((dtr.getTime() - now) / 1000)
+      var seconds = Math.abs((dtr.getTime() - now.getTime())) / 1000
 
       var clock = $('.dtr-clock').FlipClock(seconds, {
         countdown: true,
