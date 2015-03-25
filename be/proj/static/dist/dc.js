@@ -2594,7 +2594,7 @@ app.directive('scrollOnClick', function() {
       counterStart: 0,
       counterEnd: 0,
       formatNumber: true,
-      numbersImage: 'http://rollingjubilee.org/assets/img/jodometer-numbers-24pt.png',
+      numbersImage: '/static/img/jodometer-numbers-24pt.png',
       widthNumber: 30,
       heightNumber: 54,
       spaceNumbers: 0,
