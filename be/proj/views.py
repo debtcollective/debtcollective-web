@@ -39,7 +39,7 @@ def stripe_endpoint(request):
     rq = get_POST_data(request)
     try:
       stripe.Charge.create(
-        amount=int(rq['amount']) * 100,
+        amount=float(rq['amount']) * 100,
         currency='usd',
         source=rq['stripeToken']['id'],
         description="donation"
