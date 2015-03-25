@@ -2485,7 +2485,6 @@ app.directive('scrollOnClick', function() {
         map.validateNow();
         map.write("mapdiv");
         document.getElementById("mapdiv").classList.remove('map-loading');
-
     });
 
     var scale = d3.scale.linear()
@@ -2602,15 +2601,12 @@ app.directive('scrollOnClick', function() {
       maxDigits: 11,
       prefixChar: true
     }
-
-    $http.get('/static/js/map_data.json').then(function (resp) {
-        var total_amount = resp.data.total_amount;
-        var total_users = 0;
-        counterOptions.counterEnd = total_amount;
-        counterOptions.counterStart = total_amount - 30000;
-        $('.counter').jOdometer(counterOptions);
-        $('.counter .jodometer_dot').last().hide();
-    });
+      var total_amount = 182170071;
+      var total_users = 0;
+      counterOptions.counterEnd = total_amount;
+      counterOptions.counterStart = total_amount - 30000;
+      $('.counter').jOdometer(counterOptions);
+      $('.counter .jodometer_dot').last().hide();
 
 });
 ;app.service('users', function (util_svc, $http) {

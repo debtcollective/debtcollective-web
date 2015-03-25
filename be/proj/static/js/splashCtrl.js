@@ -69,14 +69,11 @@ app.controller('splashCtrl',
       maxDigits: 11,
       prefixChar: true
     }
-
-    $http.get('/static/js/map_data.json').then(function (resp) {
-        var total_amount = resp.data.total_amount;
-        var total_users = 0;
-        counterOptions.counterEnd = total_amount;
-        counterOptions.counterStart = total_amount - 30000;
-        $('.counter').jOdometer(counterOptions);
-        $('.counter .jodometer_dot').last().hide();
-    });
+      var total_amount = 182170071;
+      var total_users = 0;
+      counterOptions.counterEnd = total_amount;
+      counterOptions.counterStart = total_amount - 30000;
+      $('.counter').jOdometer(counterOptions);
+      $('.counter .jodometer_dot').last().hide();
 
 });
