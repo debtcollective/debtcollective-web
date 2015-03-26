@@ -58,7 +58,6 @@ app.controller('mapCtrl', function ($scope, $rootScope, $http, util_svc) {
         map.validateNow();
         map.write("mapdiv");
         document.getElementById("mapdiv").classList.remove('map-loading');
-
     });
 
     var scale = d3.scale.linear()

@@ -1,0 +1,45 @@
+{% extends "proj/base_template.html" %}
+{% load humanize %}
+
+{% block body %}
+{% include "proj/insideHeader.html" with title='MY STUDENT DEBT CALCULATOR' %}
+    <div ng-controller="calculatorCtrl" class="container inside-container">
+        <div class="row">
+            <div class="col-md-3">
+                <h1>My debt is...</h1>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" ng-model="debtType" value="salliemae" data-toggle="radio">
+                                Sallie Mae
+                            </input>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" ng-model="debtType" value="federal" data-toggle="radio">
+                                Federal
+                            </input>
+                        </label>
+                    </div>
+                <div class="dc-input">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <input type="text" ng-model="debt"></input>
+                            <button ng-click="submit()" type="submit" name="Submit" class="btn btn-primary" >Calculate</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feedback" ng-show="showValues">
+                    <h1>All payments:</h1>
+                    <p> ${$ total | humanize $} over {$ ESTIMATED_YEARS $} Years</p>
+                    <h1>Total Interest Paid:</h1>
+                    <p> ${$ totalInterest | humanize $}</p>
+                    <h1>A debt buyer would pay:</h1>
+                    <p> ${$ secondaryMarketDebt | humanize $}</p>
+                </div>
+            </div>
+        </div>
+{% endblock %}

@@ -22,6 +22,9 @@ def splash(request):
 def map(request):
   return render_to_response('proj/map.html')
 
+def calculator(request):
+  return render_to_response('proj/calculator.html')
+
 def nov_fourth(request):
   return render_to_response('proj/nov4.html')
 
