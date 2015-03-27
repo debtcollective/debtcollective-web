@@ -2690,6 +2690,7 @@ app.directive('scrollOnClick', function() {
     templateUrl: '/static/directives/ccform.html',
     replace: true,
     controller: function ($scope, $element, $http, $window, users) {
+      $scope.strikeFormSubmitted = false
 
       $scope.submitForm = function () {
         if (!$scope.debtAmount) {
@@ -2709,15 +2710,16 @@ app.directive('scrollOnClick', function() {
           users.gDocsCollectiveCounter(salliemae, corinthian)
 
           var data = {
-            "email": $scope.email,
-            "name": userId,
-            "list": "RUDSi1E892892XdpjO763892Zxq892hw"
+            "cm-nuriti-nuriti": $scope.email, // email
+            "cm-name": userId, // name
+            "callback": "JSON_CALLBACK"
           }
 
-          $http.post('//mail.debtcollective.org/subscribe', data)
-          .then(function (resp) {
+          $http.jsonp('//strikedebt.createsend.com/t/j/s/nuriti', {
+            params: data
+          }).then(function (resp) {
             console.log(resp)
-            $window.location.href = '/thankyou'
+            $scope.strikeFormSubmitted = true
           })
         })
       }
