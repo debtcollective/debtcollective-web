@@ -53,17 +53,21 @@ def dtr_csv(request):
   response = HttpResponse(content_type='text/csv')
   response['Content-Disposition'] = 'attachment; filename="all_dtr.csv"'
 
-  writer = csv.writer(response)
-  for profile in DTRUserProfile.objects.all():
-    row = []
+
+  profiles = DTRUserProfile.objects.all()
+  writer = csv.DictWriter(response, fieldnames=DTRUserProfile.FIELDS, extrasaction='ignore')
+  writer.writeheader()
+  for profile in profiles:
+    row = {}
     data = profile.data
 
     if type(data) == dict:
       for key, value in data.iteritems():
         if type(value) == unicode:
-          value = value.encode('utf-8')
-        row.append(value)
-      writer.writerow(row)
+          profile.data[key] = value.encode('utf-8')
+
+      writer.writerow(data)
+
 
   return response
 
