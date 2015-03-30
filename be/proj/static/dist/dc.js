@@ -2213,9 +2213,11 @@ app.controller('corinthianCtrl',
       for (i in resp.data) {
         var striker = resp.data[i]
         striker.first_name = striker.name.split(' ')[0].toLowerCase()
-        striker.image = "/static/img/strikers/striker-portraits_" + striker.first_name + ".png"
-        striker.bigImage = striker.image
-        $scope.corinthian15.push(striker)
+        if (striker.first_name) {
+          striker.image = "/static/img/strikers/striker-portraits_" + striker.first_name + ".png"
+          striker.bigImage = striker.image
+          $scope.corinthian15.push(striker)
+        }
       }
       $scope.corinthian15Chunks = $scope.corinthian15.chunk(5)
     });
@@ -2229,10 +2231,10 @@ app.controller('corinthianCtrl',
         striker.bio = striker["Striker Bio"]
         var photo = striker["Photo URL"]
         if (!photo || photo.indexOf('imgur.com') < 0) {
-          striker.hasImage = false
+          striker.image = "/static/img/strikers/anon-striker.png"
+          striker.bigImage = "/static/img/strikers/anon-striker.png"
         }
         else {
-          striker.hasImage = true
           if (!photo.endsWith('.jpg')) {
             photo = photo + '.jpg'
           }
