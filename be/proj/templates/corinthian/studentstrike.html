@@ -24,7 +24,7 @@
             <h5>Students of Corinthian Colleges have declared a debt strike by refusing to pay their federal loans. <strong>Click on a striker to read their story.</strong></h5>
             </div>
         </div>
-        <div class="row">
+        <div class="row light">
           <div class="body-text main caption centered">
             <div class="inter-text">
               <h2>
@@ -56,7 +56,20 @@
             <div class="inter-text big-bottom">
               <h2 class="big-link">WE OWE YOU NOTHING</h2>
             </div>
+
+          <h2><a class='big-link' ng-show="!showCorinthians" ng-click="showCorinthians = true">SEE ALL 107 STRIKERS</a></h2>
+          <div ng-class="{ 'hidden' : !showCorinthians }">
+            <div ng-repeat="striker in strikeTeam | filter: striker.hasImage" >
+              <div class="item striker-row row light col-xs-6 col-sm-2 col-md-2 col-lg-2" ng-click="showStriker(striker, $event)">
+                <div class="img">
+                  <img ng-src="{$ striker.image $}" />
+                </div>
+              </div>
+            </div>
           </div>
+          </div>
+          </div>
+          <div class="row">
           <div class="body-text caption sub">
           <p>Help spread the word, lend your voice over <fb-button class="big-link">facebook</fb-button> and <a href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" class="big-link" target="_blank">twitter</a>!</p>
         <a href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
@@ -140,21 +153,6 @@
       <div id="donate"></div>
       {% include "proj/donateBox.html" with title="DONATE" %}
 
-    <div class="wrapper arrow-up"></div>
-    <div class="wrapper light arrow-down-steep">
-      <div class="row light">
-      <h2><a class='big-link' ng-click="showCorinthians = true">MORE CORINTHIANS</a></h2>
-        <div ng-class="{ '' : !showCorinthians }">
-          <div ng-repeat="striker in strikeTeam | filter: striker.hasImage" >
-            <div class="item striker-row col-xs-6 col-sm-2 col-md-2 col-lg-2" ng-click="showStriker(striker, $event)">
-              <div class="img">
-                <img ng-src="{$ striker.image $}" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- hud display -->
     <div ng-class="{visible: currentStriker != null}"
       class="hud-display body-text light">

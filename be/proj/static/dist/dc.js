@@ -2182,6 +2182,18 @@ app.config(function($interpolateProvider, $routeProvider) {
     );
 }
 
+if (!String.prototype.endsWith) {
+  String.prototype.endsWith = function(searchString, position) {
+      var subjectString = this.toString();
+      if (position === undefined || position > subjectString.length) {
+        position = subjectString.length;
+      }
+      position -= searchString.length;
+      var lastIndex = subjectString.indexOf(searchString, position);
+      return lastIndex !== -1 && lastIndex === position;
+  };
+}
+
 app.controller('corinthianCtrl',
   function ($scope, $window, $http, $document) {
     $scope.debtors = 13415;
@@ -2221,6 +2233,9 @@ app.controller('corinthianCtrl',
         }
         else {
           striker.hasImage = true
+          if (!photo.endsWith('.jpg')) {
+            photo = photo + '.jpg'
+          }
           striker.image = photo.replace('.jpg', 'b.jpg')
           striker.bigImage = photo.replace('.jpg', 'm.jpg')
         }
