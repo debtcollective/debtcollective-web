@@ -87,8 +87,13 @@ def dtr_generate(request):
 
   rq['name_2'] = rq.get('name', 'NA')
   rq['state_2'] = rq.get('state', 'NA')
+  if (rq.get('pk', None)):
+    dtrprofile = DTRUserProfile.objects.get(id=rq['pk'])
+    dtrprofile.data = rq
+    dtrprofile.save()
+  else:
+    dtrprofile = DTRUserProfile.generate(rq)
 
-  dtrprofile = DTRUserProfile.generate(rq)
   return json_response({
     'id': dtrprofile.id,
     'pdf_link': dtrprofile.pdf_link(),
