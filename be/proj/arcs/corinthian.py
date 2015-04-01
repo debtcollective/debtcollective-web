@@ -71,6 +71,17 @@ def dtr_csv(request):
 
   return response
 
+def dtr_restore(request, id):
+  profile = DTRUserProfile.objects.get(id=id)
+
+  profile.generate_pdf()
+
+  return json_response({
+    'id': profile.id,
+    'pdf_link': profile.pdf_link(),
+  }, 200)
+
+
 @csrf_exempt
 def dtr_generate(request):
   if request.method != "POST":
@@ -87,12 +98,7 @@ def dtr_generate(request):
 
   rq['name_2'] = rq.get('name', 'NA')
   rq['state_2'] = rq.get('state', 'NA')
-  if (rq.get('pk', None)):
-    dtrprofile = DTRUserProfile.objects.get(id=rq['pk'])
-    dtrprofile.data = rq
-    dtrprofile.save()
-  else:
-    dtrprofile = DTRUserProfile.generate(rq)
+  dtrprofile = DTRUserProfile.generate(rq)
 
   return json_response({
     'id': dtrprofile.id,

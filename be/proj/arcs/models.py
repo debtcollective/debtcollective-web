@@ -50,14 +50,20 @@ class DTRUserProfile(models.Model):
     url = key.generate_url(expires_in=expires_in, force_http=True)
     return url
 
-  @classmethod
-  def generate(cls, values):
-    obj = cls.objects.create()
-    key = obj.id
+  def generate_pdf(self, values=None):
+    key = self.id
+    if not values:
+      values = self.data
 
     fdf_file = fdf_filename(key)
     output_file = output_filename(key)
     generate_pdf(values, SOURCE_FILE, fdf_file, output_file)
+    return output_file
+
+  @classmethod
+  def generate(cls, values):
+    profile = cls.objects.create()
+    profile.generate_pdf(values)
 
     metadata = {
       'name': values['name'],
@@ -69,10 +75,10 @@ class DTRUserProfile(models.Model):
       if values.get(field):
         del values[field]
     values['key'] = key
-    obj.data = values
-    obj.save()
+    profile.data = values
+    profile.save()
 
-    return obj
+    return profile
 
   SENSITIVE_FIELDS = ["ssn_1", "ssn_2", "ssn_3"]
 

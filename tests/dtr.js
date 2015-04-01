@@ -1,8 +1,8 @@
 var request = require('request')
 
 var CLIENTS = process.argv[2] == undefined ? 1 : parseInt(process.argv[2])
-//var HOST = 'http://localhost:8000'
-var HOST = 'http://stage.debtcollective.org'
+var HOST = 'http://localhost:8000'
+//var HOST = 'http://stage.debtcollective.org'
 var PATH = '/corinthian/dtr_generate'
 
 function sendOne(cb) {
