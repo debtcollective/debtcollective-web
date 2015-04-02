@@ -16,6 +16,13 @@ import StringIO
 import csv
 import json
 
+def remove_dupes(profiles):
+  finished = {}
+  for profile in profiles:
+    duped_key = json.dumps(profile.data)
+    finished[duped_key] = profile
+  return finished.values()
+
 def dtr_download(request, f, to):
   if not request.user.is_superuser:
     return redirect('/login')

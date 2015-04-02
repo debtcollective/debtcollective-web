@@ -3,6 +3,7 @@ from proj.utils import get_s3_conn
 from boto.s3.key import Key
 from django.contrib.auth.models import User
 from proj.arcs.models import DTRUserProfile
+from proj.arcs import corinthian
 
 import json
 
@@ -51,6 +52,44 @@ class TestDTR(TestCase):
 
       #cleanup
       bucket.delete_key(key)
+
+    def test_duplicate(self):
+      dupe = {
+        'name': 'i am the duplicate user',
+        'phone_primary_1': 111,
+        'phone_primary_2': 333,
+        'phone_primary_3': 222,
+        'servicer': 'navient',
+        'misleading_job_stats_check': True,
+        'certificate': 'associates',
+        'attendance_to_month': 10,
+        'misleading_quality_other': 'there were a bunch of things that were wrong'
+      }
+
+      dtrprofile = DTRUserProfile.generate(dupe)
+      dtrprofile_dupe = DTRUserProfile.generate(dupe)
+
+      dtrprofile_one = DTRUserProfile.generate({
+        'name': 'i am the first user',
+        'servicer': 'Great Lakes/Navient'
+
+      })
+
+      dtrprofile_two = DTRUserProfile.generate({
+        'name': 'i am a second user',
+        'servicer': 'Great Lakes'
+
+      })
+
+      all_forms = DTRUserProfile.objects.all()
+      self.assertEqual(dtrprofile.data, dtrprofile_dupe.data)
+
+      no_dupes = corinthian.remove_dupes(all_forms)
+
+      for form in no_dupes:
+        for form_two in no_dupes:
+          if form.id != form_two.id:
+            self.assertNotEqual(form.data, form_two.data)
 
     def test_generate_post(self):
       rs = self.client.post('/corinthian/dtr_generate', TEST_DATA)
