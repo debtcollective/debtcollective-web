@@ -11,11 +11,10 @@ function sendOne(id, cb) {
     method: 'GET',
     uri: HOST + PATH + id,
   }
-  console.log(params)
   request(params, cb)
 }
 
-for (var i = 0; i < 3; i++) {
+for (var i = 167; i < forms.length; i++) {
   var pk = forms[i]['pk']
 
   sendOne(pk, function (err, resp, body) {

@@ -58,18 +58,19 @@ class DTRUserProfile(models.Model):
     fdf_file = fdf_filename(key)
     output_file = output_filename(key)
     generate_pdf(values, SOURCE_FILE, fdf_file, output_file)
-    return output_file
-
-  @classmethod
-  def generate(cls, values):
-    profile = cls.objects.create()
-    profile.generate_pdf(values)
 
     metadata = {
       'name': values['name'],
       'version': 1
     }
     store_in_s3(conn, S3_BUCKET_NAME, key, output_file, metadata)
+
+    return output_file
+
+  @classmethod
+  def generate(cls, values):
+    profile = cls.objects.create()
+    profile.generate_pdf(values)
 
     for field in cls.SENSITIVE_FIELDS:
       if values.get(field):
