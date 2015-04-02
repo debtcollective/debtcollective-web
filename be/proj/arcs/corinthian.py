@@ -16,7 +16,7 @@ import StringIO
 import csv
 import json
 
-def dtr_download(request):
+def dtr_download(request, f, to):
   if not request.user.is_superuser:
     return redirect('/login')
 
@@ -24,7 +24,12 @@ def dtr_download(request):
   s = StringIO.StringIO()
   zf = zipfile.ZipFile(s, "w")
 
-  profiles = DTRUserProfile.objects.all()
+  profiles = DTRUserProfile.objects.filter(
+    id__gte=f
+  ).filter(
+    id__lte=to
+  )
+
   for profile in profiles:
     key = profile.s3_key()
     try:
