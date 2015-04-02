@@ -19,6 +19,7 @@ import json
 def remove_dupes(profiles):
   finished = {}
   for profile in profiles:
+    del profile.data['key']
     duped_key = json.dumps(profile.data)
     finished[duped_key] = profile
   return finished.values()
@@ -37,7 +38,7 @@ def dtr_download(request, f, to):
     id__lte=to
   )
 
-  for profile in profiles:
+  for profile in remove_dupes(profiles):
     key = profile.s3_key()
     try:
       contents = key.get_contents_as_string()
@@ -69,7 +70,7 @@ def dtr_csv(request):
   profiles = DTRUserProfile.objects.all()
   writer = csv.DictWriter(response, fieldnames=DTRUserProfile.FIELDS, extrasaction='ignore')
   writer.writeheader()
-  for profile in profiles:
+  for profile in remove_dupes(profiles):
     row = {}
     data = profile.data
 
