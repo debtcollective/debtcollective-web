@@ -50,7 +50,7 @@ class DTRUserProfile(models.Model):
     url = key.generate_url(expires_in=expires_in, force_http=True)
     return url
 
-  def generate_pdf(self, values=None):
+  def make_a_pdf(self, values=None):
     key = self.id
     if not values:
       values = self.data
@@ -70,12 +70,12 @@ class DTRUserProfile(models.Model):
   @classmethod
   def generate(cls, values):
     profile = cls.objects.create()
-    profile.generate_pdf(values)
+    profile.make_a_pdf(values)
 
     for field in cls.SENSITIVE_FIELDS:
       if values.get(field):
         del values[field]
-    values['key'] = key
+    values['key'] = profile.id
     profile.data = values
     profile.save()
 

@@ -74,7 +74,7 @@ def dtr_csv(request):
 def dtr_restore(request, id):
   profile = DTRUserProfile.objects.get(id=id)
 
-  profile.generate_pdf()
+  profile.make_a_pdf()
 
   return json_response({
     'id': profile.id,
