@@ -19,9 +19,10 @@ import json
 def remove_dupes(profiles):
   finished = {}
   for profile in profiles:
-    del profile.data['key']
-    duped_key = json.dumps(profile.data)
-    finished[duped_key] = profile
+    if type(profile.data) == dict:
+      del profile.data['key']
+      duped_key = json.dumps(profile.data)
+      finished[duped_key] = profile
   return finished.values()
 
 def dtr_download(request, f, to):
