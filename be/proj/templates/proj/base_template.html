@@ -84,9 +84,8 @@
   <script type="text/javascript">
     var dtr = new Date("3/31/2015")
     var now = new Date()
-    var seconds = Math.abs((dtr.getTime() - now.getTime())) / 1000
 
-    var clock = $('.dtr-clock').FlipClock(seconds, {
+    var clock = $('.dtr-clock').FlipClock(0, {
       countdown: true,
       clockFace: 'DailyCounter',
     });
