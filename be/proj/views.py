@@ -22,6 +22,9 @@ def splash(request):
 def map(request):
   return render_to_response('proj/map.html')
 
+def solidarity(request):
+  return redirect('https://docs.google.com/forms/d/1hSUX05lrF6g28pdqBkiJnd3AyBmoZwunhBTZQ3W2eQA/viewform')
+
 def calculator(request):
   return render_to_response('proj/calculator.html')
 
