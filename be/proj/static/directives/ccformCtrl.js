@@ -3,7 +3,7 @@ app.directive('corinthianSignupForm', function () {
     restrict: 'E',
     templateUrl: '/static/directives/ccform.html',
     replace: true,
-    controller: function ($scope, $element, $http, $window, users) {
+    controller: function ($scope, $element, $document, $http, $window, users) {
       $scope.strikeFormSubmitted = false
 
       $scope.submitForm = function () {
@@ -18,23 +18,23 @@ app.directive('corinthianSignupForm', function () {
           'amount': parseFloat($scope.debtAmount.replace(',', ''))
         }
 
-        users.createAnonymousUser(userData, function (resp, userId) {
-          var salliemae = 0
-          var corinthian = 1
-          users.gDocsCollectiveCounter(salliemae, corinthian)
+        var salliemae = 0
+        var corinthian = 1
+        users.gDocsCollectiveCounter(salliemae, corinthian)
 
-          var data = {
-            "cm-nuriti-nuriti": $scope.email, // email
-            "cm-name": userId, // name
-            "callback": "JSON_CALLBACK"
-          }
+        var data = {
+          "cm-nuriti-nuriti": $scope.email, // email
+          "cm-name": null, // name
+          "callback": "JSON_CALLBACK"
+        }
 
-          $http.jsonp('//strikedebt.createsend.com/t/j/s/nuriti', {
-            params: data
-          }).then(function (resp) {
-            console.log(resp)
-            $scope.strikeFormSubmitted = true
-          })
+        $http.jsonp('//strikedebt.createsend.com/t/j/s/nuriti', {
+          params: data
+        }).then(function (resp) {
+          console.log(resp)
+          $scope.strikeFormSubmitted = true
+          var someElement = angular.element(document.getElementById('signup-prompt'));
+          $document.scrollToElement(someElement, 150, 500);
         })
       }
     }

@@ -53,9 +53,9 @@
         </a>
       </div>
     </div>
-    <div class="wrapper dark">
+    <div class="wrapper dark" id="signup-prompt">
       <h2>BECOME A MEMBER OF THE CORINTHIAN COLLECTIVE</h2>
-      <h2><a  ng-click="corithianSignupFormShown = true" class="big-link">Join the strike and be involved in future actions.</a> We'll call you!</h2>
+      <h2><a ng-show="!corithianSignupFormShown" ng-click="corithianSignupFormShown = true" class="big-link">Join the strike and be involved in future actions.</a> We'll call you!</h2>
     </div>
     <div ng-if="corithianSignupFormShown" class="frame-container centered" id="signup">
       <corinthian-signup-form></corinthian-signup-form>
