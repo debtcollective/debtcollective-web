@@ -145,13 +145,12 @@ a.btn, button[type=submit] {
     background-color: #39413f;
     color: #f1eee2; }
 
-.sm-button {
-  width: 45px;
-  padding: 5px;
-  vertical-align: initial;
+a.sm-button {
   text-decoration: none !important; }
-  .sm-button:hover {
-    background-color: #e9e4d1; }
+  a.sm-button img {
+    width: 45px;
+    padding: 5px;
+    vertical-align: initial; }
 
 .donate-buttons {
   display: -webkit-box;
