@@ -162,3 +162,9 @@ def studentstrike(request):
 
 def knowyourstudentdebt(request):
   return render_to_response('corinthian/knowyourstudentdebt.html')
+
+def solidaritystrike(request):
+  return render_to_response('corinthian/solidaritystrike.html')
+
+def solidaritystrikeform(request):
+  return render_to_response('corinthian/solidaritystrikeform.html')
