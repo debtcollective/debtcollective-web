@@ -38,7 +38,9 @@
         </a>
       </div>
     </div>
-
+    <div class="wrapper dark" ng-show="!doneLoading">
+      <h2>Loading names of strikers...</h2>
+    </div>
     <div ng-class="{'visible': doneLoading}"  class="wrapper dark" style="display: none;">
       <h2>We know that a victory for the Corinthian strikers will bring us closer to ending student debt and making higher education free and accessible to all.</h2>
       <div class="slider">
@@ -68,6 +70,7 @@
       </div>
 
     </div>
+    </div>
     <div class="row centered">
       <div class="col-md-2">
         <button class="btn btn-transparent" ng-click="lastChunk()"><h6> < BACK </h6> </button>
@@ -79,7 +82,6 @@
       <div class="col-md-2">
         <button ng-click="nextChunk()" class="btn btn-transparent"><h6> NEXT > </h6></button>
       </div>
-    </div>
     </div>
 
 
@@ -137,7 +139,6 @@
           </div>
       <div class="body-text centered">
         <hr>
-
           <p>Help spread the word, lend your voice over <fb-button >facebook</fb-button> and <a href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" class="big-link" target="_blank">twitter</a>!</p>
         <a  class="sm-button" href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
