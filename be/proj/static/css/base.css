@@ -194,6 +194,11 @@ a.sm-button {
   .btn.red, .btn.btn-primary {
     background-color: #861800;
     color: #f1eee2; }
+  .btn.btn-transparent {
+    background-color: transparent;
+    color: #f1eee2;
+    width: 100px;
+    opacity: .4; }
   .btn.small {
     width: 50%; }
   .btn.tiny {
@@ -595,6 +600,16 @@ a.sm-button {
 
 .splash.corinthian {
   color: #f1eee2; }
+
+.name-text {
+  font-size: 105%; }
+
+.memorial-box {
+  height: 80px; }
+  .memorial-box p {
+    height: 50px;
+    overflow: hidden;
+    text-overflow: clip; }
 
 .corinthian-title {
   padding-top: 44px;
@@ -1071,9 +1086,10 @@ p, .body-text {
   width: 80px; }
 
 h1 {
-  font-size: 26px;
+  font-size: 24px;
   line-height: 30px;
-  font-weight: 100; }
+  font-weight: 100;
+  letter-spacing: -1px; }
   h1.emphasis {
     font-family: "Cutive mono", serif !important;
     font-size: 26px !important;
@@ -1096,6 +1112,8 @@ h2, a.btn, button[type=submit], .tabs .single-tab {
   letter-spacing: 2px; }
   h2.dark, a.dark.btn, button.dark[type=submit], .tabs .dark.single-tab {
     color: #39413f; }
+  h2.big, a.big.btn, button.big[type=submit], .tabs .big.single-tab {
+    font-size: 40px; }
 
 h3 {
   font-size: 20px;

@@ -100,6 +100,13 @@ a.sm-button {
     color: $dark-text-color;
   }
 
+  &.btn-transparent {
+    background-color: transparent;
+    color: $dark-text-color;
+    width: 100px;
+    opacity: .4;
+  }
+
   &.small {
     width: 50%;
   }

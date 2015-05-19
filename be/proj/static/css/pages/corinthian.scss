@@ -38,6 +38,19 @@
   color: $dark-text-color;
 }
 
+.name-text {
+  font-size: 105%;
+}
+
+.memorial-box {
+  height: 80px;
+  p {
+    height: 50px;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+}
+
 .corinthian-title {
   padding-top: 44px;
   text-align: center;

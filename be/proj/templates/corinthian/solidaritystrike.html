@@ -27,7 +27,8 @@
           <hr>
         </div>
       </div>
-      <div class="body-text caption sub">
+      <div class="body-text centered">
+          <p>Help spread the word, lend your voice over <fb-button >facebook</fb-button> and <a href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" class="big-link" target="_blank">twitter</a>!</p>
         <a  class="sm-button" href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
           <img src="/static/img/fb.gif">
@@ -43,43 +44,65 @@
       <div class="slider">
       <div class="row">
         <div ng-repeat="striker in solidarityStrikers[currentChunk]">
-          <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-            <h2>{$ striker.name $}</h2>
-            <p class="memorial-text">{$ striker.school $}</p>
+          <div class="memorial-box col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <span class="name-text">{$ striker.name $}</span>
+            <p>{$ striker.school $}</p>
           </div>
         </div>
       </div>
       <div class="row">
         <div ng-repeat="striker in solidarityStrikers[currentChunk + 1]">
-          <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-            <h2>{$ striker.name $}</h2>
-            <p class="memorial-text">{$ striker.school $}</p>
+          <div class="memorial-box col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <span class="name-text">{$ striker.name $}</span>
+            <p>{$ striker.school $}</p>
           </div>
         </div>
       </div>
       <div class="row">
         <div ng-repeat="striker in solidarityStrikers[currentChunk + 2]">
-          <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-            <h2>{$ striker.name $}</h2>
-            <p class="memorial-text">{$ striker.school $}</p>
+          <div class="memorial-box col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <span class="name-text">{$ striker.name $}</span>
+            <p>{$ striker.school $}</p>
           </div>
         </div>
       </div>
 
     </div>
-    <div class="row">
-      <h2>
-       <button class="left-button" ng-click="lastChunk()"><--</button>
-       12 of {$ num $} strikers.
-        <button ng-click="nextChunk()" class="right-button">--></button>
-      </h2>
+    <div class="row centered">
+      <div class="col-md-2">
+        <button class="btn btn-transparent" ng-click="lastChunk()"><h6> < BACK </h6> </button>
+      </div>
+      <div class="col-md-8">
+        <h2 class="big">#{$ currentChunk + 1 + (currentChunk * 3)  $}-{$  currentChunk + 1 +(currentChunk * 3) + 12 $} of {$ num $}</h2>
+        <h1>Solidarity Student Debt Strikers</h1>
+      </div>
+      <div class="col-md-2">
+        <button ng-click="nextChunk()" class="btn btn-transparent"><h6> NEXT > </h6></button>
+      </div>
     </div>
 
 
     <div class="wrapper light arrow-down-steep">
-      <h1 class="centered">Our Pledge of Solidarity with the Corinthian Student Debt Strikers.</h1>
-
       <div class="row light">
+          <div class="body-text">
+
+          <form action="https://docs.google.com/forms/d/1hSUX05lrF6g28pdqBkiJnd3AyBmoZwunhBTZQ3W2eQA/formResponse"
+          method="POST" id="ss-form" target="_self" onsubmit="">
+            <div class="dc-input">
+
+              <input type="text" id="entry.1335457259" name="entry.1335457259"
+                placeholder="Full Name"
+                required autocomplete="off" />
+
+              <input type="text" id="school" name="entry.338339004" value=""  id="entry_338339004"
+                placeholder="The Title of the University you Attended"
+                required autocomplete="off" />
+
+              <button type="submit" class="btn btn-primary">Sign & Join the Solidarity Strike!</button>
+            </div>
+          </form>
+          </div>
+          <h1 class="centered">Our Pledge of Solidarity with the Corinthian Student Debt Strikers.</h1>
         <hr>
 
         <div class="body-text">
@@ -104,7 +127,7 @@
 
           <li>Lower credit score</li>
           </ul>
-
+          <br>
             <p>
             If you would like more information about these consequences and how to minimize them, you can read more at myeddebt.com and in Chapter Four of the Debt Resister’s Operations Manual.</p>
 
@@ -115,7 +138,7 @@
            <hr>
             <h1 class="centered">You can view a summary of your student loans by logging in to the National Student Loan Database.</h1>
 
-            <p>Once you have logged into the Federal Student Aid website, you can download a text file with all of your loan data. If you would like to speak to a Debt Collective volunteer who can help you better understand your data sheet, please email us.</p>
+            <p>Once you have logged into the Federal Student Aid website, you can download a text file with all of your loan data. If you would like to speak to a Debt Collective volunteer who can help you better understand your data sheet, please email us at <a class="big-link" href="mailto:support@debtcollective.org">support[at]debtcollective.org</a>.</p>
 
             <strong>HOW TO LOG IN:</strong>
               <p>1. Go to the Federal Student Aid website (click the black “log in” box in the top right corner).<br>

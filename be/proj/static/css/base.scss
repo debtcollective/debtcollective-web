@@ -318,9 +318,10 @@ $banner-height: 32px;
 
 h1 {
   @extend %mono;
-  font-size: 26px;
+  font-size: 24px;
   line-height: 30px;
   font-weight: 100;
+  letter-spacing: -1px;
 
   &.emphasis {
     font-family: "Cutive mono", serif !important;
@@ -353,6 +354,9 @@ h2 {
   letter-spacing: 2px;
   &.dark {
     color: $dark-background-color;
+  }
+  &.big {
+    font-size: 40px;
   }
 }
 
