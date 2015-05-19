@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 Array.prototype.chunk = function(chunkSize) {
     var array=this;
     return [].concat.apply([],
@@ -37,36 +35,13 @@ app.controller('solidarityStrikeCtrl',
           var json = this.toJSON();
           $scope.num = json.length;
           $scope.solidarityStrikers = json.chunk(4)
-          $scope.doneLoading = true;
-          $scope.$digest();
         },
         error : function() {
-          console.error("Are you sure you are connected to the internet?");
+          console.log("Are you sure you are connected to the internet?");
           setTimeout(fetchTallies, 500)
         }
       })
     }
 
-    fetchTallies()
-=======
-app.controller('solidarityStrikeCtrl',
-  function ($scope, $window, $http, $document) {
-    $scope.solidarityStrikers = []
-
-    var ds = new Miso.Dataset({
-      importer : Miso.Dataset.Importers.GoogleSpreadsheet,
-      parser : Miso.Dataset.Parsers.GoogleSpreadsheet,
-      key : "1r4ZVySodsuZnFqabsSUezJ4CysEs1RwVX9jZj-AjzKQ",
-      worksheet : "2"
-    });
-    ds.fetch({
-      success: function () {
-        $scope.solidarityStrikers = this.toJSON()
-      },
-      error : function() {
-        console.log("Are you sure you are connected to the internet?");
-        setTimeout(fetchTallies, 500)
-      }
-    })
->>>>>>> add solidarity strike
+   fetchTallies()
 })
