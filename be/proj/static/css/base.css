@@ -1410,7 +1410,7 @@ select {
   color: #fefefe; }
 
 .visible {
-  display: block; }
+  display: block !important; }
 
 .thankyou-background {
   background: url(../img/blogbackground2.gif);
