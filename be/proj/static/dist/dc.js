@@ -2185,63 +2185,6 @@ app.config(function($interpolateProvider, $routeProvider) {
         }
     };
 });
-;app.controller('carouselCtrl', function ($scope, $http, $interval) {
-  var items = $('.carousel-item')
-  var navItems = $('.carousel-nav-item')
-
-  var autoAdvance = true
-  var i = 0
-
-  function scrollItems () {
-    if (!autoAdvance) return
-    nextItem(i)
-  }
-  $interval(scrollItems, 5000)
-
-  function nextItem () {
-    if (i >= (items.length - 1)) i = 0
-    else i += 1
-    activateItem(i)
-  }
-
-  function previousItem () {
-    if (i === 0) i = items.length - 1
-    else i -= 1
-    activateItem(i)
-  }
-
-  function activateItem (i) {
-    items.each(function (index, item) {
-      $(item).removeClass('active')
-    })
-
-    var item = items[i]
-    $(item).addClass('active')
-
-    navItems.each(function (index, item) {
-      $(item).removeClass('active')
-    })
-
-    var navItem = navItems[i]
-    $(navItem).addClass('active')
-  }
-
-  $scope.nextItemButton = function () {
-    nextItem()
-    autoAdvance = false
-  }
-
-  $scope.prevItemButton = function () {
-    previousItem()
-    autoAdvance = false
-  }
-
-  $scope.chooseItemButton = function (i) {
-    activateItem(i)
-    autoAdvance = false
-  }
-
-})
 ;Array.prototype.chunk = function(chunkSize) {
     var array=this;
     return [].concat.apply([],
@@ -2616,7 +2559,8 @@ app.directive('scrollOnClick', function() {
         return point
     }
 });
-;
+;<<<<<<< HEAD
+
 Array.prototype.chunk = function(chunkSize) {
     var array=this;
     return [].concat.apply([],
@@ -2665,6 +2609,27 @@ app.controller('solidarityStrikeCtrl',
     }
 
     fetchTallies()
+=======
+app.controller('solidarityStrikeCtrl',
+  function ($scope, $window, $http, $document) {
+    $scope.solidarityStrikers = []
+
+    var ds = new Miso.Dataset({
+      importer : Miso.Dataset.Importers.GoogleSpreadsheet,
+      parser : Miso.Dataset.Parsers.GoogleSpreadsheet,
+      key : "1r4ZVySodsuZnFqabsSUezJ4CysEs1RwVX9jZj-AjzKQ",
+      worksheet : "2"
+    });
+    ds.fetch({
+      success: function () {
+        $scope.solidarityStrikers = this.toJSON()
+      },
+      error : function() {
+        console.log("Are you sure you are connected to the internet?");
+        setTimeout(fetchTallies, 500)
+      }
+    })
+>>>>>>> add solidarity strike
 });app.controller('splashCtrl',
  function ($scope, $http, util_svc, $document, $timeout, $window) {
     var retries = 5;
@@ -2736,12 +2701,12 @@ app.controller('solidarityStrikeCtrl',
       maxDigits: 11,
       prefixChar: true
     }
-      var total_amount = 182170071;
-      var total_users = 0;
-      counterOptions.counterEnd = total_amount;
-      counterOptions.counterStart = total_amount - 30000;
-      $('.counter').jOdometer(counterOptions);
-      $('.counter .jodometer_dot').last().hide();
+    var total_amount = 182170071;
+    var total_users = 0;
+    counterOptions.counterEnd = total_amount;
+    counterOptions.counterStart = total_amount - 30000;
+    $('.counter').jOdometer(counterOptions);
+    $('.counter .jodometer_dot').last().hide();
 
 });
 ;app.service('users', function (util_svc, $http) {

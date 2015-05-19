@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 Array.prototype.chunk = function(chunkSize) {
     var array=this;
@@ -47,4 +48,25 @@ app.controller('solidarityStrikeCtrl',
     }
 
     fetchTallies()
+=======
+app.controller('solidarityStrikeCtrl',
+  function ($scope, $window, $http, $document) {
+    $scope.solidarityStrikers = []
+
+    var ds = new Miso.Dataset({
+      importer : Miso.Dataset.Importers.GoogleSpreadsheet,
+      parser : Miso.Dataset.Parsers.GoogleSpreadsheet,
+      key : "1r4ZVySodsuZnFqabsSUezJ4CysEs1RwVX9jZj-AjzKQ",
+      worksheet : "2"
+    });
+    ds.fetch({
+      success: function () {
+        $scope.solidarityStrikers = this.toJSON()
+      },
+      error : function() {
+        console.log("Are you sure you are connected to the internet?");
+        setTimeout(fetchTallies, 500)
+      }
+    })
+>>>>>>> add solidarity strike
 })

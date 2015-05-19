@@ -1193,8 +1193,7 @@ p.small {
     color: #39413f;
     background-color: #f1eee2; }
     .wrapper.light h1 {
-      color: #39413f;
-      border-bottom: #39413f 1px solid; }
+      color: #39413f; }
 
 /** TABS **/
 .tabs {
