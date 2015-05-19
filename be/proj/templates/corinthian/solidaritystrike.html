@@ -1,0 +1,138 @@
+{% extends "proj/base_template.html" %}
+{% load humanize %}
+
+{% block body %}
+{% include "proj/header.html" %}
+<div scroll ng-controller="solidarityStrikeCtrl">
+  <div class="container"  ng-click="closeStriker($event)">
+      <div class="wrapper light">
+        <div class="top-graphic centered">
+          <img src="/static/img/strikers/Natasha_SolidarityStrike.jpg" />
+        </div>
+      </div>
+    <div class="wrapper arrow-down-steep">
+      <div class="row arrow-top-heading body-text centered">
+        <h1>Our Pledge of Solidarity with the Corinthian Student Debt Strikers.</h1>
+      </div>
+
+      <div class="row">
+        <div class="body-text">
+          <p>
+          <strong>We are prepared to stop paying our federal student loans in support of Corinthian students.</strong> We did not all attend a Corinthian college. We are current and former students from other schools, public and private, for-proft and non-proft; we are young and old; some of us grew up in low-income families, while others had more privileges and opportunities; we are from everywhere. </p>
+          <p>We are outraged that, like the Corinthian students, we have been forced to mortgage our futures and the futures of our families for education, and that we have had to do so in a country where a tiny minority controls the vast majority of the wealth.</p>
+
+<p>Most of us already fnd our degrees worthless, our jobs non-existent, our prospects bleak, our debts unpayable, and our bank accounts drained by the Department of Education’s brutal collection tactics. But even those of us who don’t yet face these circumstances have <a class="big-link" href="">chosen to stand now in solidarity</a> with the <a class="big-link" href="/studentstrike">Corinthian strikers.</a></p>
+
+<p>To the Department of Education, we say: Cancel all Corinthian students’ federal loans. Doing so will demonstrate your commitment to your job as a regulator.</p>
+          <hr>
+        </div>
+      </div>
+      <div class="body-text caption sub">
+        <a  class="sm-button" href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
+          <img src="/static/img/fb.gif">
+        </a>
+        <a class="sm-button"  href="When%20will%20%40usedgov%20respond%20to%20Corinthian%20students\'%20Defense%20to%20Repayment%20claim%3F%20We%20demand%20debt%20cancellation!%20%23highered%20%23edchat%20%23debt" target="_blank">
+          <img src="/static/img/twitter.gif">
+        </a>
+      </div>
+    </div>
+
+    <div class="wrapper dark">
+      <h2>We know that a victory for the Corinthian strikers will bring us closer to ending student debt and making higher education free and accessible to all.</h2>
+      <div class="slider">
+      <div class="row">
+        <div ng-repeat="striker in solidarityStrikers[currentChunk]">
+          <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <h2>{$ striker.name $}</h2>
+            <p class="memorial-text">{$ striker.school $}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div ng-repeat="striker in solidarityStrikers[currentChunk + 1]">
+          <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <h2>{$ striker.name $}</h2>
+            <p class="memorial-text">{$ striker.school $}</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div ng-repeat="striker in solidarityStrikers[currentChunk + 2]">
+          <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+            <h2>{$ striker.name $}</h2>
+            <p class="memorial-text">{$ striker.school $}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <h2>
+       <button class="left-button" ng-click="lastChunk()"><--</button>
+       12 of {$ num $} strikers.
+        <button ng-click="nextChunk()" class="right-button">--></button>
+      </h2>
+    </div>
+
+
+    <div class="wrapper light arrow-down-steep">
+      <h1 class="centered">Our Pledge of Solidarity with the Corinthian Student Debt Strikers.</h1>
+
+      <div class="row light">
+        <hr>
+
+        <div class="body-text">
+        <h1 class="centered">Our solidarity comes with a commitment to action. If the Corinthians’ demands are not met, we are prepared to stop payments on our own federal loans.</h1>
+
+          <p>Those of us not yet in default will sign up for deferments, forbearances and zero dollar income-based repayment plans. Many of us can move from program to program and avoid paying for years. We know that non-payment comes with serious consequences. But many of us already know the consequences too well. The rest of us are prepared, in the end, to default on our federal student loans rather than voluntarily allow your corrupt agency, your lenders and your guarantors to extract one cent from us. </p>
+          <p> To the Department of Education, we say: Cancel all Corinthian students’ federal loans. Doing so will demonstrate your commitment to your job as a regulator. Continue to avoid your responsibility, and you will face the consequences of the reality you helped create: millions of us have been crushed by debts from the education that was supposed to enable our future. We say: enough is enough!</p>
+           <hr>
+          <h1 class="centered">Can’t Pay, Won’t Pay — Consequences</h1>
+
+          <p>By supporting Corinthian strikers, you are joining a campaign to fight back against creditors. A debt strike threat is the first step. We will contact you to invite you to help plan what comes next.</p>
+
+          <p>In the meantime, we want to make sure that everyone is informed that the laws governing student loans are extremely favorable to creditors. For that reason, there are consequences for not paying your loans. We are listing some of those possible consequences below, though many of you are no doubt already aware of them.</p>
+          <ul>
+           <li>Wage garnishment</li>
+
+           <li>Tax return garnishment</li>
+
+          <li>Disability garnishment</li>
+
+          <li>Social Security garnishment</li>
+
+          <li>Lower credit score</li>
+          </ul>
+
+            <p>
+            If you would like more information about these consequences and how to minimize them, you can read more at myeddebt.com and in Chapter Four of the Debt Resister’s Operations Manual.</p>
+
+            </div>
+          </div>
+          <div class="row">
+          <div class="body-text">
+           <hr>
+            <h1 class="centered">You can view a summary of your student loans by logging in to the National Student Loan Database.</h1>
+
+            <p>Once you have logged into the Federal Student Aid website, you can download a text file with all of your loan data. If you would like to speak to a Debt Collective volunteer who can help you better understand your data sheet, please email us.</p>
+
+            <strong>HOW TO LOG IN:</strong>
+              <p>1. Go to the Federal Student Aid website (click the black “log in” box in the top right corner).<br>
+              2. Enter your personal details. If you don’t remember your PIN, go here to reset your PIN.</p>
+            </ul>
+            </p>
+          </div>
+        </div>
+        </div>
+    </div>
+    <section id="corinthian">
+      <div class="container">
+        <div id="donate"></div>
+        {% include "proj/donateBox.html" with title="DONATE" %}
+      </div>
+    </section>
+
+  </div>
+</div>
+{% endblock %}
