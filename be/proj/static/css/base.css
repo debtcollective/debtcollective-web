@@ -602,16 +602,6 @@ a.sm-button {
 .splash.corinthian {
   color: #f1eee2; }
 
-.name-text {
-  font-size: 105%; }
-
-.memorial-box {
-  height: 80px; }
-  .memorial-box p {
-    height: 50px;
-    overflow: hidden;
-    text-overflow: clip; }
-
 .corinthian-title {
   padding-top: 44px;
   text-align: center; }
@@ -698,6 +688,22 @@ hr {
     background-color: #39413f;
     margin-top: 5px;
     width: 100%; }
+
+.slider {
+  padding: 40px 0px; }
+  .slider .row {
+    padding: 10px; }
+
+.name-text {
+  font-size: 105%; }
+
+.memorial-box {
+  height: 80px; }
+  .memorial-box p {
+    height: 50px;
+    overflow: hidden;
+    text-overflow: clip;
+    font-size: 13px; }
 
 .hud-display-background {
   position: fixed;

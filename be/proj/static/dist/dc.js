@@ -2642,7 +2642,8 @@ app.controller('solidarityStrikeCtrl',
           var json = this.toJSON();
           $scope.num = json.length;
           $scope.solidarityStrikers = json.chunk(4)
-          $scope.doneLoading = true
+          $scope.doneLoading = true;
+          $scope.$digest();
         },
         error : function() {
           console.log("Are you sure you are connected to the internet?");
