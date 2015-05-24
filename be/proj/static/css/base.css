@@ -7,7 +7,7 @@
   font-size: 14px;
   line-height: 16px; }
 
-.button-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .carousel .content-overlay-box .person-info, .mono, p.mono h1, p.mono h2, p.mono a.btn, p.mono button[type=submit], p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono a.btn, .body-text.mono button[type=submit], .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono h6, .body-text.mono p, .header-links a.nav-link, h1, .top-quote h1 {
+.button-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .mono, p.mono h1, p.mono h2, p.mono a.btn, p.mono button[type=submit], p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono a.btn, .body-text.mono button[type=submit], .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono h6, .body-text.mono p, .header-links a.nav-link, h1, .top-quote h1 {
   font-family: "Cutive mono", serif;
   font-weight: 600;
   font-size: 16px;
@@ -816,38 +816,11 @@ label {
   width: 630px; }
 
 /** carousel **/
-.carousel .title {
-  text-align: center; }
-.carousel .items {
-  position: relative;
-  height: 520px; }
-.carousel .count {
-  bottom: 0;
-  position: absolute;
-  right: 0; }
-.carousel .content-overlay-box {
-  background-color: black;
-  width: 50%;
-  height: 50%;
-  opacity: .5;
-  color: white;
-  float: right;
-  padding: 20px; }
-  .carousel .content-overlay-box p {
-    padding-top: 5px; }
-.carousel .content {
-  height: 500px;
-  background-size: 100%;
-  padding: 15px;
+.carousel .carousel-item {
   width: 100%;
-  background-repeat: no-repeat; }
-.carousel .item {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  visibility: hidden; }
-  .carousel .item.visible {
-    visibility: visible !important; }
+  display: none; }
+  .carousel .carousel-item.active {
+    display: block !important; }
 .carousel .turner {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
@@ -859,17 +832,6 @@ label {
   width: 65px;
   margin-right: 4px;
   float: right; }
-.carousel .text {
-  position: relative;
-  max-height: 600px; }
-  .carousel .text p {
-    font-size: 13px;
-    line-height: 19px; }
-.carousel .image {
-  float: left;
-  width: 60%;
-  margin-right: 10px;
-  margin-bottom: 10px; }
 
 ::-webkit-input-placeholder,
 :-moz-placeholder,
