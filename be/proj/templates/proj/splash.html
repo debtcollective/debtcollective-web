@@ -30,10 +30,10 @@
           </p>
           </div>
           <hr>
-          <div class="caption sub">
-            <fb-button>
+          <div class="body-text caption sub">
+            <a class="sm-button" href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
               <img src="/static/img/fb.gif">
-            </fb-button>
+            </a>
             <a class="sm-button" href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" target="_blank">
               <img src="/static/img/twitter.gif">
             </a>
@@ -58,11 +58,11 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
 
-          <div class="carousel">
+          <div class="carousel" ng-controller="carouselCtrl">
             <div class="items">
               <div class="carousel-item active">
                 <div class="row arrow-top-heading">
-                  <h1>March 31st, 2015: Defense to Repayment</h1>
+                  <h6>March 31st, 2015: Defense to Repayment</h6>
                 </div>
 
                 <div class="row">
@@ -81,15 +81,6 @@
                     </p>
                   </div>
                 </div>
-                <div class="body-text caption sub">
-                  <a  class="sm-button" href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
-          'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
-                    <img src="/static/img/fb.gif">
-                  </a>
-                  <a class="sm-button"  href="When%20will%20%40usedgov%20respond%20to%20Corinthian%20students\'%20Defense%20to%20Repayment%20claim%3F%20We%20demand%20debt%20cancellation!%20%23highered%20%23edchat%20%23debt" target="_blank">
-                    <img src="/static/img/twitter.gif">
-                  </a>
-                </div>
               </div>
 
               <div class="carousel-item">
@@ -107,36 +98,38 @@
                   <a href="/studentstrike">
                     <img class="full-width mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
                   </a>
-                  <div class="body-text main caption">
+                  <div class="body-text caption">
                     <p>On February 23rd, <a href="http://rollingjubilee.org">The Rolling Jubilee</a> erased <strong>$13 million ($13,384,642.14) of student debt</strong> owed by 9,438 people across the United States, while former <strong>students of Corinthian Colleges</strong> <a href="/studentstrike" class="big-link">declared a debt strike</a> by refusing to pay their federal loans.</p>
                   </div>
-                </div>
-                <div class="body-text caption">
-                  <a href="/studentstrike"><img src="/static/img/strikers/CorinthianDC-Logo-NoType_BeigeMatte.png" /></a>
-                </div>
-                <div class="body-text caption sub">
-                  <a class="sm-button"  href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
-          'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
-                    <img src="/static/img/fb.gif">
-                  </a>
-                  <a class="sm-button" href="http://twitter.com/intent/tweet?text=The%20Rolling%20Jubilee%20has%20erased%20%2413%20million%20of%20student%20debt%20while%20%23Corinthian%20students%20have%20declared%20a%20debt%20strike%20debtcollective.org" target="_blank">
-                    <img src="/static/img/twitter.gif">
-                  </a>
                 </div>
               </div>
 
               <div class="carousel-item">
-                <div class="wrapper light">
-                  <h1>FIGHT SALLIE MAE AND NAVIENT</h1>
+                <div class="wrapper ">
+                  <h6>FIGHT SALLIE MAE AND NAVIENT</h6>
                   <div class="body-text">
                     <h2>Inspired by the Corinthian student debt strike? Imagine what we could build if everyone with Sallie Mae and Navient loans joined forces. <a class="big-link" href="http://strategize.debtcollective.org/c/fight-sallie-mae-and-navient">JOIN THE CONVERSATION</a></h2>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="carousel-nav centered row">
+              <div class="carousel-nav-item active" ng-click="chooseItemButton(0)"></div>
+              <div class="carousel-nav-item" ng-click="chooseItemButton(1)"></div>
+              <div class="carousel-nav-item" ng-click="chooseItemButton(2)"></div>
+            </div>
           </div>
-
-          <div class="carousel-nav">
+          <hr>
+          <div class="row">
+            <div class="body-text caption sub">
+              <a class="sm-button"  href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
+      'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
+                <img src="/static/img/fb.gif">
+              </a>
+              <a class="sm-button" href="http://twitter.com/intent/tweet?text=The%20Rolling%20Jubilee%20has%20erased%20%2413%20million%20of%20student%20debt%20while%20%23Corinthian%20students%20have%20declared%20a%20debt%20strike%20debtcollective.org" target="_blank">
+                <img src="/static/img/twitter.gif">
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -144,7 +137,6 @@
 
     <div id="donate"></div>
     {% include "proj/donateBox.html" with title="DONATE" %}
-
 
     <div class="wrapper arrow-up"></div>
     <div class="wrapper arrow-down-steep" id="faq">
@@ -189,7 +181,3 @@
 
 </div>
 {% endblock %}
-
-<script type="text/javascript">
-$('.')
-</script>
