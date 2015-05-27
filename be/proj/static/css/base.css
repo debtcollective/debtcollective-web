@@ -830,6 +830,9 @@ label {
   .carousel .carousel-nav-item.active {
     border-color: #861800;
     background-color: #861800; }
+  .carousel .carousel-nav-item:hover {
+    cursor: pointer;
+    background-color: #eb1020; }
 .carousel .carousel-nav {
   margin: 30px auto 0px auto;
   width: 90px; }

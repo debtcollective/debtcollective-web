@@ -23,6 +23,11 @@
       border-color: $dark-red;
       background-color: $dark-red;
     }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $pink-red;
+    }
   }
 
   .carousel-nav {
