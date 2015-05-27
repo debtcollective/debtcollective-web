@@ -21,9 +21,9 @@
           <strong>We are prepared to stop paying our federal student loans in support of Corinthian students.</strong> We did not all attend a Corinthian college. We are current and former students from other schools, public and private, for-proft and non-proft; we are young and old; some of us grew up in low-income families, while others had more privileges and opportunities; we are from everywhere. </p>
           <p>We are outraged that, like the Corinthian students, we have been forced to mortgage our futures and the futures of our families for education, and that we have had to do so in a country where a tiny minority controls the vast majority of the wealth.</p>
 
-<p>Most of us already fnd our degrees worthless, our jobs non-existent, our prospects bleak, our debts unpayable, and our bank accounts drained by the Department of Education’s brutal collection tactics. But even those of us who don’t yet face these circumstances have <a class="big-link" href="">chosen to stand now in solidarity</a> with the <a class="big-link" href="/studentstrike">Corinthian strikers.</a></p>
+          <p>Most of us already fnd our degrees worthless, our jobs non-existent, our prospects bleak, our debts unpayable, and our bank accounts drained by the Department of Education’s brutal collection tactics. But even those of us who don’t yet face these circumstances have <a class="big-link" href="">chosen to stand now in solidarity</a> with the <a class="big-link" href="/studentstrike">Corinthian strikers.</a></p>
 
-<p>To the Department of Education, we say: Cancel all Corinthian students’ federal loans. Doing so will demonstrate your commitment to your job as a regulator.</p>
+          <p>To the Department of Education, we say: Cancel all Corinthian students’ federal loans. Doing so will demonstrate your commitment to your job as a regulator.</p>
           <hr>
         </div>
       </div>
@@ -46,26 +46,17 @@
       <div class="slider">
       <div class="row">
         <div ng-repeat="striker in solidarityStrikers[currentChunk]">
-          <div class="memorial-box col-xs-6 col-sm-3 col-md-3 col-lg-3">
-            <span class="name-text">{$ striker.name $}</span>
-            <p>{$ striker.school $}</p>
-          </div>
+          {% include 'corinthian/memorialStudent.html' %}
         </div>
       </div>
       <div class="row">
         <div ng-repeat="striker in solidarityStrikers[currentChunk + 1]">
-          <div class="memorial-box col-xs-6 col-sm-3 col-md-3 col-lg-3">
-            <span class="name-text">{$ striker.name $}</span>
-            <p>{$ striker.school $}</p>
-          </div>
+          {% include 'corinthian/memorialStudent.html' %}
         </div>
       </div>
       <div class="row">
         <div ng-repeat="striker in solidarityStrikers[currentChunk + 2]">
-          <div class="memorial-box col-xs-6 col-sm-3 col-md-3 col-lg-3">
-            <span class="name-text">{$ striker.name $}</span>
-            <p>{$ striker.school $}</p>
-          </div>
+          {% include 'corinthian/memorialStudent.html' %}
         </div>
       </div>
 
@@ -83,7 +74,6 @@
         <button ng-click="nextChunk()" class="btn btn-transparent"><h6> NEXT > </h6></button>
       </div>
     </div>
-
 
     <div class="wrapper light arrow-down-steep">
       <div class="row light">
