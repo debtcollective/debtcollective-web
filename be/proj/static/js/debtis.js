@@ -1,6 +1,7 @@
 var app = angular.module('myDebtIs', [
     'ngRoute',
     'ngCookies',
+    'ngTouch',
     'duScroll',
     'ui.bootstrap'
 ]);

@@ -25,7 +25,6 @@ app.controller('solidarityStrikeCtrl',
     }
 
     function fetchTallies () {
-
       var ds = new Miso.Dataset({
         importer : Miso.Dataset.Importers.GoogleSpreadsheet,
         parser : Miso.Dataset.Parsers.GoogleSpreadsheet,

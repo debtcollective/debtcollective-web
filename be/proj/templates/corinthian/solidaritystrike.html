@@ -41,84 +41,62 @@
     <div class="wrapper dark" ng-show="!doneLoading">
       <h2>Loading names of strikers...</h2>
     </div>
-    <div ng-class="{'visible': doneLoading}"  class="wrapper dark" style="display: none;">
+    <div ng-class="{'visible': doneLoading}"  class="wrapper dark" style="display: none;"  ng-swipe-right="nextChunk()" ng-swipe-left="lastChunk()">
       <h2>We know that a victory for the Corinthian strikers will bring us closer to ending student debt and making higher education free and accessible to all.</h2>
       <div class="slider">
-      <div class="row">
-        <div ng-repeat="striker in solidarityStrikers[currentChunk]">
-          {% include 'corinthian/memorialStudent.html' %}
+        <div class="row">
+          <div ng-repeat="striker in solidarityStrikers[currentChunk]">
+            {% include 'corinthian/memorialStudent.html' %}
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div ng-repeat="striker in solidarityStrikers[currentChunk + 1]">
-          {% include 'corinthian/memorialStudent.html' %}
+        <div class="row">
+          <div ng-repeat="striker in solidarityStrikers[currentChunk + 1]">
+            {% include 'corinthian/memorialStudent.html' %}
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div ng-repeat="striker in solidarityStrikers[currentChunk + 2]">
-          {% include 'corinthian/memorialStudent.html' %}
+        <div class="row">
+          <div ng-repeat="striker in solidarityStrikers[currentChunk + 2]">
+            {% include 'corinthian/memorialStudent.html' %}
+          </div>
         </div>
-      </div>
-
-    </div>
     </div>
     <div class="row centered">
       <div class="col-md-2">
-        <button class="btn btn-transparent" ng-click="lastChunk()"><h6> < BACK </h6> </button>
+        <button class="btn btn-transparent" ng-click="lastChunk()"><p> < BACK </p> </button>
       </div>
       <div class="col-md-8">
         <h2 class="big">#{$ currentChunk + 1 + (currentChunk * 3)  $}-{$  currentChunk + 1 +(currentChunk * 3) + 12 $} of {$ num $}</h2>
         <h1>Solidarity Student Debt Strikers</h1>
       </div>
       <div class="col-md-2">
-        <button ng-click="nextChunk()" class="btn btn-transparent"><h6> NEXT > </h6></button>
+        <button ng-click="nextChunk()" class="btn btn-transparent"><p> NEXT > </p></button>
       </div>
+    </div>
     </div>
 
     <div class="wrapper light arrow-down-steep">
       <div class="row light">
           <div class="body-text">
           <br>
-          <iframe src="/solidaritystrikeform" width="100%" height="295px"
-            style="overflow:hidden;" scrolling="no">
+          <iframe src="/solidaritystrikeform" width="100%" height="310px" class="solidarity-strike-form" scrolling="no">
           </iframe>
           </div>
-          <h1 class="centered">Our Pledge of Solidarity with the Corinthian Student Debt Strikers.</h1>
         <hr>
-
         <div class="body-text">
-        <h1 id='terms' class="centered">Our solidarity comes with a commitment to action. If the Corinthians’ demands are not met, we are prepared to stop payments on our own federal loans.</h1>
+        <p>
+          <h6>Our Pledge of Solidarity with the Corinthian Student Debt Strikers</h6>
+        </p>
+        <p id='terms'><em>Our solidarity comes with a commitment to action. If the Corinthians’ demands are not met, we are prepared to stop payments on our own federal loans.</em></p>
 
           <p>Those of us not yet in default will sign up for deferments, forbearances and zero dollar income-based repayment plans. Many of us can move from program to program and avoid paying for years. We know that non-payment comes with serious consequences. But many of us already know the consequences too well. The rest of us are prepared, in the end, to default on our federal student loans rather than voluntarily allow your corrupt agency, your lenders and your guarantors to extract one cent from us. </p>
           <p> To the Department of Education, we say: Cancel all Corinthian students’ federal loans. Doing so will demonstrate your commitment to your job as a regulator. Continue to avoid your responsibility, and you will face the consequences of the reality you helped create: millions of us have been crushed by debts from the education that was supposed to enable our future. We say: enough is enough!</p>
-           <hr>
-          <h1 class="centered">Can't Pay, Won't Pay — Consequences</h1>
-
-          <p>By supporting Corinthian strikers, you are joining a campaign to fight back against creditors. A debt strike threat is the first step. We will contact you to invite you to help plan what comes next.</p>
-
-          <p>In the meantime, we want to make sure that everyone is informed that the laws governing student loans are extremely favorable to creditors. For that reason, there are consequences for not paying your loans. We are listing some of those possible consequences below, though many of you are no doubt already aware of them.</p>
-          <ul>
-           <li>Wage garnishment</li>
-
-           <li>Tax return garnishment</li>
-
-          <li>Disability garnishment</li>
-
-          <li>Social Security garnishment</li>
-
-          <li>Lower credit score</li>
-          </ul>
-          <br>
-            <p>
-            If you would like more information about these consequences and how to minimize them, you can read more at <a class="big-link" href="myeddebt.com">myeddebt.com</a> and in <a class="big-link" href="http://strikedebt.org/drom/chapter-four/">Chapter Four of the Debt Resister’s Operations Manual.</a></p>
-
-            </div>
           </div>
           <div class="row">
           <div class="body-text">
            <hr>
-            <h1 class="centered">You can view a summary of your student loans by logging in to the National Student Loan Database.</h1>
-
+            <p>
+              <h6>You can view a summary of your student loans by logging in to the National Student Loan Database.</h6>
+            </p>
             <p>Once you have logged into the Federal Student Aid website, you can download a text file with all of your loan data. If you would like to speak to a Debt Collective volunteer who can help you better understand your data sheet, please email us at <a class="big-link" href="mailto:support@debtcollective.org">support[at]debtcollective.org</a>.</p>
 
             <strong>HOW TO LOG IN:</strong>

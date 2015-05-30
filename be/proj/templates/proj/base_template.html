@@ -35,14 +35,6 @@
 <!--  {% include "proj/footer.html" %} -->
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '1483700951894498',
-        xfbml      : true,
-        version    : 'v2.1'
-      });
-    };
-
     (function(d, s, id){
        var js, fjs = d.getElementsByTagName(s)[0];
        if (d.getElementById(id)) {return;}
@@ -51,6 +43,13 @@
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
 
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1483700951894498',
+        xfbml      : true,
+        version    : 'v2.1'
+      });
+    };
   </script>
   <!-- Google Analytics -->
   <script>
@@ -65,65 +64,21 @@
   </script>
   <!-- End Google Analytics -->
   <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1483700951894498&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<!-- end facebook sdk -->
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1483700951894498&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- end facebook sdk -->
 
-<!-- twitter widgets -->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <!-- twitter widgets -->
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-<!-- create send (campagin monitor) -->
-<script type="text/javascript">(function () { var e = document.createElement('script'); e.type = 'text/javascript'; e.async = true; e.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://btn.createsend1.com/js/sb.min.js?v=3'; e.className = 'createsend-script'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s); })();</script>
+  <!-- create send (campagin monitor) -->
+  <script type="text/javascript">(function () { var e = document.createElement('script'); e.type = 'text/javascript'; e.async = true; e.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://btn.createsend1.com/js/sb.min.js?v=3'; e.className = 'createsend-script'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s); })();
+  </script>
   <script src="//checkout.stripe.com/checkout.js"></script>
   <script type="text/javascript" src="/static/dist/dc.js?v965a0de2"></script>
-  <script type="text/javascript">
-    var dtr = new Date("3/31/2015")
-    var now = new Date()
-
-    var clock = $('.dtr-clock').FlipClock(0, {
-      countdown: true,
-      clockFace: 'DailyCounter',
-    });
-  </script>
-  <!--
-  <script src="/static/vendor/angular.min.js"></script>
-  <script src="/static/vendor/angular-cookies.min.js"></script>
-  <script src="/static/vendor/angular-animate.min.js"></script>
-  <script src="/static/vendor/angular-scroll.min.js"></script>
-  <script src="/static/vendor/miso.ds.deps.min.0.2.2.js"></script>
-  <script src="/static/vendor/miso.ds.min.0.4.1.js"></script>
-  <script src="/static/vendor/d3.min.js"></script>
-  <script src="/static/vendor/checkout.js"></script>
-  <script src="/static/vendor/ui-bootstrap-custom-0.10.0.min.js"
-    type="text/javascript"></script>
-  <script src="/static/vendor/ui-bootstrap-custom-tpls-0.10.0.min.js"
-  type="text/javascript"></script>
-
-  <script src="/static/vendor/jquery.min.js" type="text/javascript"></script>
-  <script src="/static/vendor/jquery.jodometer.js" type="text/javascript"></script>
-
-  <script src="/static/vendor/ammap/ammap.js"></script>
-  <script src="/static/vendor/ammap/maps/js/worldHigh.js" type="text/javascript"></script>
-
-
-  <script src="/static/js/debtis.js" type="text/javascript"></script>
-  <script src="/static/js/util.js" type="text/javascript"></script>
-  <script src="/static/js/directives.js" type="text/javascript"></script>
-  <script src="/static/js/filters.js" type="text/javascript"></script>
-
-  <script src="/static/js/corinthianCtrl.js" type="text/javascript"></script>
-  <script src="/static/js/splashCtrl.js" type="text/javascript"></script>
-
-  <script src="/static/directives/fbButton.js" type="text/javascript"></script>
-  <script src="/static/directives/donateButton.js?v2" type="text/javascript"></script>
-  <script src="/static/directives/formCtrl.js" type="text/javascript"></script>
-
-  <script type="text/javascript" src="/static/js/vendor/jquery.jqgoogleforms.min.js"></script>
-  <script src="/static/js/maps/debtMap.js" type="text/javascript"></script>
-  -->
 </body>
