@@ -121,7 +121,7 @@ p, .body-text {
   margin: 0px auto;
   font-size: 15.6px;
   line-height: 24px;
-  letter-spacing: 1.25px;
+  letter-spacing: 0.25px;
 
   &.special {
     font-size: 13px;
@@ -318,9 +318,10 @@ $banner-height: 32px;
 
 h1 {
   @extend %mono;
-  font-size: 26px;
+  font-size: 24px;
   line-height: 30px;
   font-weight: 100;
+  letter-spacing: -1px;
 
   &.emphasis {
     font-family: "Cutive mono", serif !important;
@@ -353,6 +354,9 @@ h2 {
   letter-spacing: 2px;
   &.dark {
     color: $dark-background-color;
+  }
+  &.big {
+    font-size: 40px;
   }
 }
 
@@ -600,7 +604,6 @@ input[type="password"],
 select,
 textarea {
   @extend %input;
-  text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 2px;
 }
@@ -719,7 +722,7 @@ select {
 
 
 .visible {
-  display: block;
+  display: block !important;
 }
 
 

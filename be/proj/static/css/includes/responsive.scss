@@ -53,6 +53,9 @@
   .body-text {
     max-width: 65.75%;
   }
+  .solidarity-strike-form {
+    height: 340px
+  }
 
 }
 
@@ -71,6 +74,11 @@
   .arrow-down-steep .row {
     background-color: $light-background-color;
   }
+
+  .solidarity-strike-form {
+    height: 390px
+  }
+
 }
 //phones
 @media only screen and (max-width: 600px) {
@@ -163,12 +171,18 @@
 
   h1 {
     font-size: 23px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .nav-footer.visible:not(.focused) {
     top: 0px;
   }
-
+  .memorial-box {
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 90px;
+  }
   .close-button.visible:not(.focused) {
     display: none !important;
   }
@@ -179,18 +193,22 @@
   .header-links {
     height: initial;
   }
-  .slide {
-    padding: 3px;
+  .slider {
+    padding: 0px;
   }
   .images .pane {
     top: 65%;
   }
   .wrapper {
     max-width: 100%;
+    &.dark {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
   .body-text:not(.wide) {
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
     width: 100%;
   }
   .map-container {
