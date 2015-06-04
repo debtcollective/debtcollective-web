@@ -953,7 +953,7 @@ p, .body-text {
   margin: 0px auto;
   font-size: 15.6px;
   line-height: 24px;
-  letter-spacing: .25px; }
+  letter-spacing: 0.25px; }
   p.special, .body-text.special {
     font-size: 13px;
     line-height: 20px; }
