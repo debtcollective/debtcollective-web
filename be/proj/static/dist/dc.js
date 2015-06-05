@@ -2656,7 +2656,7 @@ app.controller('solidarityStrikeCtrl',
           $scope.doneLoading = true;
         },
         error : function() {
-          console.log("Are you sure you are connected to the internet?");
+          console.error("Are you sure you are connected to the internet?");
           setTimeout(fetchTallies, 500)
         }
       })
