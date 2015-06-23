@@ -1,4 +1,3 @@
-
 Array.prototype.chunk = function(chunkSize) {
     var array=this;
     return [].concat.apply([],
@@ -37,7 +36,6 @@ app.controller('solidarityStrikeCtrl',
           $scope.num = json.length;
           $scope.solidarityStrikers = json.chunk(4)
           $scope.doneLoading = true;
-          $scope.$digest();
         },
         error : function() {
           console.error("Are you sure you are connected to the internet?");
@@ -46,5 +44,5 @@ app.controller('solidarityStrikeCtrl',
       })
     }
 
-    fetchTallies()
+   fetchTallies()
 })

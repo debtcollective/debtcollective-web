@@ -11,61 +11,25 @@
       <input type="text"
         ng-model="debt.amount"
         ng-focus="formFocus()"
-        placeholder="Debt amount">
+        placeholder="DEBT AMOUNT">
 
       <select class="debt-type-select"
         ng-model="debt.debtType"
         ng-options="item as item.name for item in debt_choices track by item.id"
         required>
-        <option value="">select debt type</option>
+        <option value="">SELECT DEBT TYPE</option>
       </select>
     </div>
 
     <input type="email" id="email" name="cm-nskul-nskul"  ng-model="email"
-      placeholder="enter your email..."
+      placeholder="ENTER YOUR EMAIL..."
       required autocomplete="off" />
 
     <input type="text"
       ng-model="location"
-      placeholder="what city do you live in?"
+      placeholder="WHAT CITY DO YOU LIVE IN?"
       typeahead-editable="false"
       typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 ">
-
-     <div class="radio-group">
-        <h6>I HAVE STUDENT DEBT FROM AN EVEREST, WYOTECH, OR HEALD COLLEGE</h6>
-        <div class="radio">
-          <label class="ss-choice-label">
-            <input ng-model="corinthianStudent" type="radio" name="optionsRadios"
-              value="option1">
-              <span class="ss-choice-label">Yes</span>
-          </label>
-        </div>
-        <div class="radio">
-          <label >
-            <input ng-model="corinthianStudent" type="radio" name="optionsRadios"
-              value="option2">
-              <span class="ss-choice-label">No</span>
-          </label>
-        </div>
-      </div>
-
-     <div class="radio-group">
-        <h6>I HAVE STUDENT DEBT ASSOCIATED WITH SALLIE MAE/ NAVIENT</h6>
-        <div class="radio">
-          <label class="ss-choice-label">
-            <input ng-model="salliemae" type="radio" name="salliemaeRadios"
-              value="option1">
-              <span class="ss-choice-label">Yes</span>
-          </label>
-        </div>
-        <div class="radio">
-          <label >
-            <input ng-model="salliemae" type="radio" name="salliemaeRadios"
-              value="option2">
-              <span class="ss-choice-label">No</span>
-          </label>
-        </div>
-      </div>
 
       <button type="submit" name="submit" class="btn btn-primary">sign up for updates</button>
     </form>
