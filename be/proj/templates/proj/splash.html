@@ -21,7 +21,7 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <div class="intro">
-          <div class="small-italic-caption">dollars of debt <a href="/#signup" class="big-link">pledged.</a></div>
+          <div class="small-italic-caption">total member <a href="/#signup" class="big-link">debt</a></div>
             <h1>If you owe the bank a thousand dollars, the bank owns you.<br class="desktop-only"> If you owe the bank a trillion dollars, you own the bank. <br class="desktop-only">Together, we own the bank.</h1>
           </div>
           <div class="centered intro-caption">
@@ -30,10 +30,10 @@
           </p>
           </div>
           <hr>
-          <div class="caption sub">
-            <fb-button>
+          <div class="body-text caption sub">
+            <a class="sm-button" href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
               <img src="/static/img/fb.gif">
-            </fb-button>
+            </a>
             <a class="sm-button" href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" target="_blank">
               <img src="/static/img/twitter.gif">
             </a>
@@ -44,113 +44,100 @@
 
     <div class="spacer"></div>
     <div class="body-text centered">
-      <h2>As we grow, we will work to resist our debts, together.</h2>
-      <div class="counters">
-        <div class="sallie-mae-counter counter-box">
-          <div class="counter-box-header">
-            <h1 class="ticker-amount" ng-cloak>
-              <a du-smooth-scroll href="/#signup">{$ salliemae $} MEMBERS</a>
-            </h1>
-          </div>
-          <a du-smooth-scroll href="/#signup"><img src="/static/img/dc_smn_tkr.png" ></a>
-
-          </div>
-        <div class="corinthian-counter counter-box">
-          <div class="counter-box-header">
-            <h1 class="ticker-amount" ng-cloak>
-             <a href="/corinthiancollective"> {$ corinthian $} MEMBERS</a>
-            </h1>
-          </div>
-          <a href="/corinthiancollective"><img src="/static/img/dc_cc_tkr.png" ></a>
-        </div>
-      </div>
+      <h2>Become a member. As we grow, we will work to resist our debts, together.</h2>
     </div>
 
     <div class="body-text">
       <signupform></signupform>
-      <!--<p class="small italic centered">{$ num_users | humanize $} debtors have signed up so far.</p>-->
     </div>
-
-
 
     <div id="actionalert"></div>
     <div class="wrapper arrow-up"></div>
     <div class="wrapper arrow-down-steep centered">
-      <div class="row arrow-top-heading">
-        <h1>March 31st, 2015: Defense to Repayment</h1>
-      </div>
-
       <div class="row">
-         <!-- <a href="/studentstrike">
-              <div class="hidden-mobile dtr-clock"></div>
-          </a>-->
-          <img src="/static/img/defensetorepayment.jpg" width="400px" />
-        <div class="body-text caption">
-          <p>
-          On March 31st, members of the <a href="/studentstrike">Corinthian strike team</a> submited Defense to Repayment letters to the Department of Education in Washington DC asking them to cancel the debt of all Corinthian students. <a href="http://blog.debtcollective.org/corinthian-100-demanding-debt-cancellation-in-washington-dc/">Read what happened here.</a>
-          </p>
-          <p>
-          <form action="/corinthiandtr" class="dc-input">
-            <button type="submit" class="btn btn-primary">DISPUTE YOUR DEBT</button>
-          </form>
-          </p>
+        <div class="col-md-12">
+
+          <div class="carousel" ng-controller="carouselCtrl">
+            <div class="items">
+              <div class="carousel-item active">
+                <div class="row arrow-top-heading">
+                  <h6>March 31st, 2015: Defense to Repayment</h6>
+                </div>
+
+                <div class="row">
+                   <!-- <a href="/studentstrike">
+                        <div class="hidden-mobile dtr-clock"></div>
+                    </a>-->
+                    <img src="/static/img/defensetorepayment.jpg" />
+                  <div class="body-text caption">
+                    <p>
+                    On March 31st, members of the <a href="/studentstrike">Corinthian strike team</a> submited Defense to Repayment letters to the Department of Education in Washington DC asking them to cancel the debt of all Corinthian students. <a href="http://blog.debtcollective.org/corinthian-100-demanding-debt-cancellation-in-washington-dc/">Read what happened here.</a>
+                    </p>
+                    <p>
+                    <form action="/corinthiandtr" class="dc-input">
+                      <button type="submit" class="btn btn-primary">DISPUTE YOUR DEBT</button>
+                    </form>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+                <div class="row arrow-top-heading">
+                  <h6>February 23rd, 2015: Corinthian Student Strike</h6>
+                  <a href="/studentstrike">
+                    <img src="/static/img/strikers/CorinthianDC-LogoType-Only_BeigeMatte.png" />
+                  </a>
+                </div>
+
+                <div class="row">
+                  <a href="/studentstrike">
+                    <img class="full-width hidden-mobile" src="/static/img/strikers/striker_headerimage.gif" />
+                  </a>
+                  <a href="/studentstrike">
+                    <img class="full-width mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
+                  </a>
+                  <div class="body-text caption">
+                    <p>On February 23rd, <a href="http://rollingjubilee.org">The Rolling Jubilee</a> erased <strong>$13 million ($13,384,642.14) of student debt</strong> owed by 9,438 people across the United States, while former <strong>students of Corinthian Colleges</strong> <a href="/studentstrike" class="big-link">declared a debt strike</a> by refusing to pay their federal loans.</p>
+                  </div>
+                </div>
+              </div>
+<!--
+              <div class="carousel-item">
+                <div class="wrapper ">
+                  <h6>FIGHT SALLIE MAE AND NAVIENT</h6>
+                  <div class="body-text">
+                    <h2>Inspired by the Corinthian student debt strike? Imagine what we could build if everyone with Sallie Mae and Navient loans joined forces. <a class="big-link" href="http://strategize.debtcollective.org/c/fight-sallie-mae-and-navient">JOIN THE CONVERSATION</a></h2>
+                  </div>
+                </div>
+              </div>
+              -->
+            </div>
+            <div class="carousel-nav centered row">
+              <div class="carousel-nav-item active" ng-click="chooseItemButton(0)"></div>
+              <div class="carousel-nav-item" ng-click="chooseItemButton(1)"></div>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="body-text caption sub">
+              <a class="sm-button"  href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
+      'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
+                <img src="/static/img/fb.gif">
+              </a>
+              <a class="sm-button" href="http://twitter.com/intent/tweet?text=The%20Rolling%20Jubilee%20has%20erased%20%2413%20million%20of%20student%20debt%20while%20%23Corinthian%20students%20have%20declared%20a%20debt%20strike%20debtcollective.org" target="_blank">
+                <img src="/static/img/twitter.gif">
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="body-text caption sub">
-        <a  class="sm-button" href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
-          <img src="/static/img/fb.gif">
-        </a>
-        <a class="sm-button"  href="When%20will%20%40usedgov%20respond%20to%20Corinthian%20students\'%20Defense%20to%20Repayment%20claim%3F%20We%20demand%20debt%20cancellation!%20%23highered%20%23edchat%20%23debt" target="_blank">
-          <img src="/static/img/twitter.gif">
-        </a>
       </div>
     </div>
 
-
-      <div class="wrapper dark">
-        <h2>FIGHT SALLIE MAE AND NAVIENT</h2>
-        <div class="body-text">
-          <h2>Inspired by the Corinthian student debt strike? Imagine what we could build if everyone with Sallie Mae and Navient loans joined forces. <a class="big-link" href="http://strategize.debtcollective.org/c/fight-sallie-mae-and-navient">JOIN THE CONVERSATION</a></h2>
-        </div>
-      </div>
-
-
-    <div id="actionalert"></div>
-    <div class="wrapper arrow-up"></div>
-    <div class="wrapper arrow-down-steep centered">
-      <div class="row arrow-top-heading">
-        <h6>February 23rd, 2015</h6>
-        <a href="/studentstrike">
-          <img src="/static/img/strikers/CorinthianDC-LogoType-Only_BeigeMatte.png" />
-        </a>
-      </div>
-
-      <div class="row">
-        <a href="/studentstrike">
-          <img class="full-width hidden-mobile" src="/static/img/strikers/striker_headerimage.gif" />
-        </a>
-        <a href="/studentstrike">
-          <img class="full-width mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
-        </a>
-        <div class="body-text main caption">
-          <p>On February 23rd, <a href="http://rollingjubilee.org">The Rolling Jubilee</a> erased <strong>$13 million ($13,384,642.14) of student debt</strong> owed by 9,438 people across the United States, while former <strong>students of Corinthian Colleges</strong> <a href="/studentstrike" class="big-link">declared a debt strike</a> by refusing to pay their federal loans.</p>
-        </div>
-      </div>
-      <div class="body-text caption">
-        <a href="/studentstrike"><img src="/static/img/strikers/CorinthianDC-Logo-NoType_BeigeMatte.png" /></a>
-      </div>
-      <div class="body-text caption sub">
-        <a class="sm-button"  href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
-          <img src="/static/img/fb.gif">
-        </a>
-        <a class="sm-button" href="http://twitter.com/intent/tweet?text=The%20Rolling%20Jubilee%20has%20erased%20%2413%20million%20of%20student%20debt%20while%20%23Corinthian%20students%20have%20declared%20a%20debt%20strike%20debtcollective.org" target="_blank">
-          <img src="/static/img/twitter.gif">
-        </a>
-      </div>
+    <div id="donate"></div>
+    <div class="body-text">
+      {% include "proj/donateBox.html" with title="DONATE" %}
     </div>
-
 
     <div class="wrapper arrow-up"></div>
     <div class="wrapper arrow-down-steep" id="faq">
@@ -189,10 +176,6 @@
         <p>To browse all of our FAQ's, get more info, or for general debt support <a class="big-link" href="http://strategize.debtcollective.org">visit our community resource area.</a></p>
       </h5>
     </div>
-
-    <div id="donate"></div>
-    {% include "proj/donateBox.html" with title="DONATE" %}
-
 
 
   </div>

@@ -1,5 +1,4 @@
 @import "vendor/odometer-theme-car.css";
-@import "vendor/flipclock.css";
 @import "vendor/bootstrap.min.css";
 @import "includes/variables";
 @import "includes/mixins";
@@ -11,7 +10,6 @@
 @import "pages/corinthian";
 
 @import "components/carousel";
-
 
 ::-webkit-input-placeholder,
 :-moz-placeholder,  /* Firefox 18- */
@@ -453,7 +451,6 @@ p.small {
 
     h1 {
       color: $light-text-color;
-      border-bottom: $light-text-color 1px solid;
     }
   }
 

@@ -69,11 +69,11 @@ app.controller('splashCtrl',
       maxDigits: 11,
       prefixChar: true
     }
-      var total_amount = 182170071;
-      var total_users = 0;
-      counterOptions.counterEnd = total_amount;
-      counterOptions.counterStart = total_amount - 30000;
-      $('.counter').jOdometer(counterOptions);
-      $('.counter .jodometer_dot').last().hide();
+    var total_amount = 182170071;
+    var total_users = 0;
+    counterOptions.counterEnd = total_amount;
+    counterOptions.counterStart = total_amount - 30000;
+    $('.counter').jOdometer(counterOptions);
+    $('.counter .jodometer_dot').last().hide();
 
 });

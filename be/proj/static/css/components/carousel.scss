@@ -1,53 +1,38 @@
+@import "../includes/variables";
+
 /** carousel **/
 .carousel {
 
-  .title {
-    text-align: center;
-  }
-
-  .items {
-    position: relative;
-    height: 520px;
-  }
-
-  .count {
-    bottom: 0;
-    position: absolute;
-    right: 0;
-  }
-
-  .content-overlay-box {
-    background-color: black;
-    width: 50%;
-    height: 50%;
-    opacity: .5;
-    color: white;
-    float: right;
-    padding: 20px;
-    .person-info {
-      @extend %mono;
-    }
-    p {
-      padding-top: 5px;
-    }
-  }
-
-  .content {
-    height: 500px;
-    background-size: 100%;
-    padding: 15px;
+  .carousel-item {
     width: 100%;
-    background-repeat: no-repeat;
+    display: none;
+    &.active {
+      display: block !important;
+    }
   }
 
-  .item {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    visibility: hidden;
-    &.visible {
-      visibility: visible !important;
+  .carousel-nav-item {
+    border: 1px solid $dark-grey;
+    border-radius: 15px;
+    height: 20px;
+    width: 20px;
+    float: left;
+    margin: 5px;
+
+    &.active {
+      border-color: $dark-red;
+      background-color: $dark-red;
     }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $pink-red;
+    }
+  }
+
+  .carousel-nav {
+    margin: 30px auto 0px auto;
+    width: 90px;
   }
 
   .turner {
@@ -57,22 +42,6 @@
     width: 65px;
     margin-right: 4px;
     float: right;
-  }
-
-  .text {
-    p {
-      font-size: 13px;
-      line-height: 19px;
-    }
-    position: relative;
-    max-height: 600px;
-  }
-
-  .image {
-    float: left;
-    width: 60%;
-    margin-right: 10px;
-    margin-bottom: 10px;
   }
 
 }
