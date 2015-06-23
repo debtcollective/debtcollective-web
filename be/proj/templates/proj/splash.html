@@ -44,7 +44,7 @@
 
     <div class="spacer"></div>
     <div class="body-text centered">
-      <h2>Become a member: as we grow, we will work to resist our debts, together.</h2>
+      <h2>Become a member. As we grow, we will work to resist our debts, together.</h2>
     </div>
 
     <div class="body-text">
@@ -68,7 +68,7 @@
                    <!-- <a href="/studentstrike">
                         <div class="hidden-mobile dtr-clock"></div>
                     </a>-->
-                    <img src="/static/img/defensetorepayment.jpg" width="400px" />
+                    <img src="/static/img/defensetorepayment.jpg" />
                   <div class="body-text caption">
                     <p>
                     On March 31st, members of the <a href="/studentstrike">Corinthian strike team</a> submited Defense to Repayment letters to the Department of Education in Washington DC asking them to cancel the debt of all Corinthian students. <a href="http://blog.debtcollective.org/corinthian-100-demanding-debt-cancellation-in-washington-dc/">Read what happened here.</a>
@@ -102,7 +102,7 @@
                   </div>
                 </div>
               </div>
-
+<!--
               <div class="carousel-item">
                 <div class="wrapper ">
                   <h6>FIGHT SALLIE MAE AND NAVIENT</h6>
@@ -111,11 +111,11 @@
                   </div>
                 </div>
               </div>
+              -->
             </div>
             <div class="carousel-nav centered row">
               <div class="carousel-nav-item active" ng-click="chooseItemButton(0)"></div>
               <div class="carousel-nav-item" ng-click="chooseItemButton(1)"></div>
-              <div class="carousel-nav-item" ng-click="chooseItemButton(2)"></div>
             </div>
           </div>
           <hr>
@@ -135,7 +135,9 @@
     </div>
 
     <div id="donate"></div>
-    {% include "proj/donateBox.html" with title="DONATE" %}
+    <div class="body-text">
+      {% include "proj/donateBox.html" with title="DONATE" %}
+    </div>
 
     <div class="wrapper arrow-up"></div>
     <div class="wrapper arrow-down-steep" id="faq">
