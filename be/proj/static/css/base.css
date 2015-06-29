@@ -310,17 +310,19 @@ a.sm-button {
 .nav-item {
   padding: 10px; }
 
-#resources h6 {
-  color: #39413f;
-  text-align: center;
-  padding-top: 30px; }
-#resources li {
-  list-style: initial;
-  padding-top: 15px; }
-  #resources li a {
-    color: #f1eee2; }
-    #resources li a:hover {
-      text-decoration: underline !important; }
+#resources {
+  padding-top: 60px; }
+  #resources h6 {
+    color: #39413f;
+    text-align: center;
+    padding-top: 30px; }
+  #resources li {
+    list-style: initial;
+    padding-top: 15px; }
+    #resources li a {
+      color: #f1eee2; }
+      #resources li a:hover {
+        text-decoration: underline !important; }
 
 .nav-footer {
   -webkit-transition: all 0.75s ease;
