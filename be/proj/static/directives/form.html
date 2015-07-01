@@ -3,6 +3,7 @@
     <form ng-show="!formSubmitted" class="form" id="signupForm"
     action="//mail.debtcollective.org/subscribe"
     accept-charset="utf-8"
+    target="receiver"
     method="post" ng-submit="onSubmitClick($event)">
 
     <input type="text" class="hidden" name="name" ng-model="username" />
