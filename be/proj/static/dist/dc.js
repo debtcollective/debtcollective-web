@@ -2918,17 +2918,6 @@ app.controller('solidarityStrikeCtrl',
         $scope.cities = resp.data
       });
 
-      $scope.$watch('corinthianStudent', function (newVal, oldVal) {
-        if (newVal == 'option1') { // true
-          document.getElementById('email').setAttribute('name', 'cm-nuriti-nuriti')
-          document.getElementById('signupForm').setAttribute('action', "//strikedebt.createsend.com/t/j/s/nuriti/")
-        }
-        if (newVal == 'option2') { // false
-          document.getElementById('email').setAttribute('name', 'cm-nskul-nskul')
-          document.getElementById('signupForm').setAttribute('action', "//strikedebt.createsend.com/t/j/s/nskul/")
-        }
-      })
-
       $scope.addDebt = function () {
         $scope.debts.push({
           debtType: 'none',
@@ -2948,7 +2937,6 @@ app.controller('solidarityStrikeCtrl',
       $scope.onSubmitClick = function ($event) {
         // temporarily, email is the password
         // so that we can protect anonymity of our users.
-        // campaign monitor handles mailing lists
         // just store one debt type for now.
         $scope.formSubmitted = true;
         $scope.showForm = true;
@@ -2956,24 +2944,14 @@ app.controller('solidarityStrikeCtrl',
         var debt = $scope.debts[0]
         var userData = {
           'email': $scope.email,
-          'point': $scope.location.id,
+          'point': $scope.location ? $scope.location.id : null,
           'kind': debt.debtType.id,
           'amount': parseFloat(debt.amount.replace(',', ''))
         }
 
-        users.createAnonymousUser(userData, function () {
-
-          var salliemae = 0
-          if ($scope.salliemae == 'option1') {
-            salliemae = 1
-          }
-
-          var corinthian = 0
-          if ($scope.corinthianStudent == 'option1') {
-            corinthian = 1
-          }
-
-          users.gDocsCollectiveCounter(salliemae, corinthian)
+        users.createAnonymousUser(userData, function (resp, username) {
+          console.log(resp)
+          console.log('created user', username)
         })
       }
     }

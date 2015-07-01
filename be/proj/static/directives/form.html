@@ -1,12 +1,12 @@
 <div class="forms">
   <div class="dc-input">
     <form ng-show="!formSubmitted" class="form" id="signupForm"
-    target="receiver"
-    action="//strikedebt.createsend.com/t/j/s/nskul/"
+    action="//mail.debtcollective.org/subscribe"
+    accept-charset="utf-8"
     method="post" ng-submit="onSubmitClick($event)">
 
-    <input type="text" class="hidden" name="cm-name" ng-model="username" />
-
+    <input type="text" class="hidden" name="name" ng-model="username" />
+    <input type="text" class="hidden" name="list" value='8CaVcsDmVe41wdpl194UlQ' />
     <div ng-repeat="debt in debts" class="flex">
       <input type="text"
         ng-model="debt.amount"
@@ -21,7 +21,7 @@
       </select>
     </div>
 
-    <input type="email" id="email" name="cm-nskul-nskul"  ng-model="email"
+    <input type="email" id="email" name="email"  ng-model="email"
       placeholder="ENTER YOUR EMAIL..."
       required autocomplete="off" />
 
@@ -33,5 +33,6 @@
 
       <button type="submit" name="submit" class="btn btn-primary">sign up for updates</button>
     </form>
+    <h2 ng-show="formSubmitted">Thanks for submitting!</h2>
   </div>
 </div>
