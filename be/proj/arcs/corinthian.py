@@ -133,7 +133,7 @@ def dtr_email(dtrprofile):
       'track_opens': True,
       'track_clicks': True,
       'headers': {'Reply-To': user_data['email']},
-      'to': { 'email': 'krmckelv@gmail.com'},
+      'to': [{ 'email': 'krmckelv@gmail.com'}],
       'text': 'DTR is here: ' + dtrprofile.pdf_link(),
       'subject': 'Example subject',
       'return_path_domain': None,
