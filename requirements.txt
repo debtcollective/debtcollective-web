@@ -16,3 +16,4 @@ simplejson==3.6.3
 static3==0.5.1
 stripe==1.21.0
 wsgiref==0.1.2
+mandrill==1.0.57

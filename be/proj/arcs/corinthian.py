@@ -8,6 +8,7 @@ from proj.utils import json_response, get_POST_data
 from proj.gather.models import Debt, UserProfile, Point
 from boto.exception import S3ResponseError
 
+import mandrill
 import proj.settings as settings
 
 import os
@@ -15,6 +16,8 @@ import zipfile
 import StringIO
 import csv
 import json
+
+mandrill_client = mandrill.Mandrill(settings.MANDRILL_API_KEY)
 
 def remove_dupes(profiles):
   finished = {}
@@ -114,11 +117,31 @@ def dtr_generate(request):
   rq['state_2'] = rq.get('state', 'NA')
   dtrprofile = DTRUserProfile.generate(rq)
 
+  dtr_email(dtrprofile)
+
   return json_response({
     'id': dtrprofile.id,
     'pdf_link': dtrprofile.pdf_link(),
   }, 200)
-  #return redirect('/corinthian/dtr/view/' + dtrprofile.id)
+
+def dtr_email(dtrprofile):
+  try:
+    user_data = dict(dtrprofile.data)
+    message = {
+      'noreply': 'noreply@debtcollective.org',
+      'from_name': 'Debt Collective',
+      'track_opens': True,
+      'track_clicks': True,
+      'headers': {'Reply-To': user_data['email']},
+      'to': { 'email': 'krmckelv@gmail.com'},
+      'text': 'DTR is here: ' + dtrprofile.pdf_link(),
+      'subject': 'Example subject',
+      'return_path_domain': None,
+      'signing_domain': None,
+    }
+    result = mandrill_client.messages.send(message=message, async=False)
+  except mandrill.Error, e:
+    print 'A mandrill error occurred: %s - %s' % (e.__class__, e)
 
 def dtr_view(request, id):
   if not request.user.is_superuser:
