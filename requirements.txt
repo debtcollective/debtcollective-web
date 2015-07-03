@@ -17,3 +17,6 @@ static3==0.5.1
 stripe==1.21.0
 wsgiref==0.1.2
 mandrill==1.0.57
+pyOpenSSL==0.15.1
+ndg-httpsclient==0.4.0
+pyasn1==0.1.8

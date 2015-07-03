@@ -23,8 +23,11 @@ TEMPLATE_DEBUG = True
 
 from envconfig import get_envconfig
 get_envconfig(globals())
-
 # Override the above with environment keys generated on the production server
+
+# pyopenssl
+import urllib3.contrib.pyopenssl
+urllib3.contrib.pyopenssl.inject_into_urllib3()
 
 # Application definition
 INSTALLED_APPS = (
