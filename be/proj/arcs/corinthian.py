@@ -40,7 +40,7 @@ def dtr_email(dtrprofile):
   msg.attach(MIMEText("""
 To whom it may concern:
 
-Attached find yet another application for Defense to Repayment. We hope you soon realize that doing this on an individual basis is the wrong decision for all parties.
+Attached find yet another application for Defense to Repayment. We hope you soon realize that doing this on an individual basis is a bad arrangement for all parties.
 
 Best,
 
