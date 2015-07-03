@@ -140,8 +140,8 @@ def dtr_email(dtrprofile):
       'signing_domain': None,
     }
     result = mandrill_client.messages.send(message=message, async=False)
-  except mandrill.Error, e:
-    print 'A mandrill error occurred: %s - %s' % (e.__class__, e)
+  except Exception, e:
+    print 'An error occurred: %s - %s' % (e.__class__, e)
 
 def dtr_view(request, id):
   if not request.user.is_superuser:
