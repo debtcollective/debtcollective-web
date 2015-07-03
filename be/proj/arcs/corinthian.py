@@ -8,7 +8,14 @@ from proj.utils import json_response, get_POST_data
 from proj.gather.models import Debt, UserProfile, Point
 from boto.exception import S3ResponseError
 
-import mandrill
+import smtplib
+
+# Import the email modules we'll need
+from email.MIMEText import MIMEText
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEBase import MIMEBase
+from email import Encoders
+
 import proj.settings as settings
 
 import os
@@ -17,7 +24,41 @@ import StringIO
 import csv
 import json
 
-mandrill_client = mandrill.Mandrill(settings.MANDRILL_API_KEY)
+def dtr_email(dtrprofile):
+  mailserver = smtplib.SMTP('smtp.mandrillapp.com', 587)
+  mailserver.set_debuglevel(1)
+  mailserver.login('noreply@debtcollective.org', settings.MANDRILL_API_KEY)
+
+  user_data = dict(dtrprofile.data)
+  from_email = 'noreply@debtcollective.org'
+  to = settings.DTR_RECIPIENT
+
+  msg = MIMEMultipart()
+  msg['Subject'] = 'Defense to Repayment'
+  msg['To'] = to
+  msg['From'] = from_email
+  msg.attach(MIMEText("""
+To whom it may concern:
+
+Attached find yet another application for Defense to Repayment. We hope you soon realize that doing this on an individual basis is the wrong decision for all parties.
+
+Best,
+
+The Debt Collective
+"""))
+  fp = open(dtrprofile.output_file, 'rb')
+  part = MIMEBase('application', "octet-stream")
+  part.set_payload(fp.read())
+  Encoders.encode_base64(part)
+  filename = "{0}.pdf".format(''.join(user_data['name']))
+  part.add_header('Content-Disposition', 'attachment; filename="{0}"'.format(filename))
+  msg.attach(part)
+  fp.close()
+
+  msg.add_header('X-MC-Track', 'opens, clicks')
+  mailserver.sendmail(from_email, [to], msg.as_string())
+
+  mailserver.quit()
 
 def remove_dupes(profiles):
   finished = {}
@@ -85,7 +126,6 @@ def dtr_csv(request):
 
       writer.writerow(data)
 
-
   return response
 
 def dtr_restore(request, id):
@@ -97,7 +137,6 @@ def dtr_restore(request, id):
     'id': profile.id,
     'pdf_link': profile.pdf_link(),
   }, 200)
-
 
 @csrf_exempt
 def dtr_generate(request):
@@ -123,25 +162,6 @@ def dtr_generate(request):
     'id': dtrprofile.id,
     'pdf_link': dtrprofile.pdf_link(),
   }, 200)
-
-def dtr_email(dtrprofile):
-  try:
-    user_data = dict(dtrprofile.data)
-    message = {
-      'noreply': 'noreply@debtcollective.org',
-      'from_name': 'Debt Collective',
-      'track_opens': True,
-      'track_clicks': True,
-      'headers': {'Reply-To': user_data['email']},
-      'to': [{ 'email': 'krmckelv@gmail.com'}],
-      'text': 'DTR is here: ' + dtrprofile.pdf_link(),
-      'subject': 'Example subject',
-      'return_path_domain': None,
-      'signing_domain': None,
-    }
-    result = mandrill_client.messages.send(message=message, async=False)
-  except mandrill.Error, e:
-    print 'A mandrill error occurred: %s - %s' % (e.__class__, e)
 
 def dtr_view(request, id):
   if not request.user.is_superuser:
