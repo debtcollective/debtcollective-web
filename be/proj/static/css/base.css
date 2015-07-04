@@ -822,22 +822,6 @@ label {
   display: none; }
   .carousel .carousel-item.active {
     display: block !important; }
-.carousel .carousel-nav-item {
-  border: 1px solid #313539;
-  border-radius: 15px;
-  height: 20px;
-  width: 20px;
-  float: left;
-  margin: 5px; }
-  .carousel .carousel-nav-item.active {
-    border-color: #861800;
-    background-color: #861800; }
-  .carousel .carousel-nav-item:hover {
-    cursor: pointer;
-    background-color: #eb1020; }
-.carousel .carousel-nav {
-  margin: 30px auto 0px auto;
-  width: 90px; }
 .carousel .turner {
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
@@ -849,6 +833,24 @@ label {
   width: 65px;
   margin-right: 4px;
   float: right; }
+
+.carousel-nav {
+  margin: 30px auto 0px auto;
+  width: 60px; }
+
+.carousel-nav-item {
+  border: 1px solid #313539;
+  border-radius: 15px;
+  height: 20px;
+  width: 20px;
+  float: left;
+  margin: 5px; }
+  .carousel-nav-item.active {
+    border-color: #861800;
+    background-color: #861800; }
+  .carousel-nav-item:hover {
+    cursor: pointer;
+    background-color: #313539; }
 
 ::-webkit-input-placeholder,
 :-moz-placeholder,

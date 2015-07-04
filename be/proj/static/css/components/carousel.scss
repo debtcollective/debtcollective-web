@@ -11,30 +11,6 @@
     }
   }
 
-  .carousel-nav-item {
-    border: 1px solid $dark-grey;
-    border-radius: 15px;
-    height: 20px;
-    width: 20px;
-    float: left;
-    margin: 5px;
-
-    &.active {
-      border-color: $dark-red;
-      background-color: $dark-red;
-    }
-
-    &:hover {
-      cursor: pointer;
-      background-color: $pink-red;
-    }
-  }
-
-  .carousel-nav {
-    margin: 30px auto 0px auto;
-    width: 90px;
-  }
-
   .turner {
     @include transition();
     padding: 5px;
@@ -43,5 +19,28 @@
     margin-right: 4px;
     float: right;
   }
+}
 
+.carousel-nav {
+  margin: 30px auto 0px auto;
+  width: 60px;
+}
+
+.carousel-nav-item {
+  border: 1px solid $dark-grey;
+  border-radius: 15px;
+  height: 20px;
+  width: 20px;
+  float: left;
+  margin: 5px;
+
+  &.active {
+    border-color: $dark-red;
+    background-color: $dark-red;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $dark-grey;
+  }
 }

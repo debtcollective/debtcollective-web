@@ -111,7 +111,6 @@ def dtr_csv(request):
   response = HttpResponse(content_type='text/csv')
   response['Content-Disposition'] = 'attachment; filename="all_dtr.csv"'
 
-
   profiles = DTRUserProfile.objects.all()
   writer = csv.DictWriter(response, fieldnames=DTRUserProfile.FIELDS, extrasaction='ignore')
   writer.writeheader()
