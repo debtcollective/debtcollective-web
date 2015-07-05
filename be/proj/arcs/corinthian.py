@@ -34,7 +34,7 @@ def dtr_email(dtrprofile):
   to = settings.DTR_RECIPIENT
 
   msg = MIMEMultipart()
-  msg['Subject'] = 'Defense to Repayment'
+  msg['Subject'] = '{0} at {1}'.format(''.join(user_data['name']), ''.join(user_data['school_name']))
   msg['To'] = to
   msg['From'] = from_email
   msg.attach(MIMEText("""
