@@ -2,6 +2,7 @@
 
 /** carousel **/
 .carousel {
+  max-height: 775px;
 
   .carousel-item {
     width: 100%;
@@ -18,6 +19,10 @@
     width: 65px;
     margin-right: 4px;
     float: right;
+  }
+
+  .carousel-img {
+    max-height: 485px
   }
 }
 

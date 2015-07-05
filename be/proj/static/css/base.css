@@ -401,8 +401,9 @@ a.sm-button {
 
 .intro-caption {
   margin: 30px 0px; }
-  .intro-caption h2, .intro-caption a.btn, .intro-caption button[type=submit], .intro-caption .tabs .single-tab, .tabs .intro-caption .single-tab {
-    margin-bottom: 0px; }
+  .intro-caption .body-text {
+    margin-top: 30px;
+    margin-bottom: -50px; }
 
 #scroll.mainstate .social-media {
   opacity: 0; }
@@ -817,22 +818,26 @@ label {
   width: 630px; }
 
 /** carousel **/
-.carousel .carousel-item {
-  width: 100%;
-  display: none; }
-  .carousel .carousel-item.active {
-    display: block !important; }
-.carousel .turner {
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-  padding: 5px;
-  cursor: pointer;
-  width: 65px;
-  margin-right: 4px;
-  float: right; }
+.carousel {
+  max-height: 775px; }
+  .carousel .carousel-item {
+    width: 100%;
+    display: none; }
+    .carousel .carousel-item.active {
+      display: block !important; }
+  .carousel .turner {
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    padding: 5px;
+    cursor: pointer;
+    width: 65px;
+    margin-right: 4px;
+    float: right; }
+  .carousel .carousel-img {
+    max-height: 485px; }
 
 .carousel-nav {
   margin: 30px auto 0px auto;

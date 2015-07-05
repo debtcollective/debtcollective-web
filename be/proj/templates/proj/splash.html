@@ -21,18 +21,10 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <div class="centered intro-caption">
-          <div class="small-italic-caption">total <a href="/#signup" class="big-link">debt pledged</a></div>
-          <p>A membership organization that leverages collective power by offering debtors a shared platform for organization, advocacy, and direct action. Alone, our debts are a burden; together, they make us powerful.</p>
-          </div>
-          <hr>
-          <div class="body-text caption sub">
-            <p>Lend your voice over <a class="big-link" href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">facebook</a> and <a class="big-link" href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike">twitter</a>!</p>
-            <a class="sm-button" href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
-              <img src="/static/img/fb.gif">
-            </a>
-            <a class="sm-button" href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" target="_blank">
-              <img src="/static/img/twitter.gif">
-            </a>
+            <div class="small-italic-caption">total <a href="/#signup" class="big-link">debt pledged</a></div>
+            <div class="body-text">
+            <p>A membership organization that leverages collective power by offering debtors a shared platform for organization, advocacy, and direct action. Alone, our debts are a burden; together, they make us powerful.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -52,23 +44,18 @@
     <div class="wrapper arrow-down-steep centered">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-
           <div class="carousel" ng-controller="carouselCtrl">
             <div class="items">
               <div class="carousel-item active">
                 <div class="row arrow-top-heading">
                   <h6>March 31st, 2015: Defense to Repayment</h6>
                 </div>
-
                 <div class="row">
-                   <!-- <a href="/studentstrike">
-                        <div class="hidden-mobile dtr-clock"></div>
-                    </a>-->
-                    <img src="/static/img/defensetorepayment.jpg" />
+                  <img class="carousel-img" src="/static/img/defensetorepayment.jpg" />
                   <div class="body-text caption">
-                    <p>
+                    <h2>
                     On March 31st, members of the <a href="/studentstrike">Corinthian strike team</a> submited Defense to Repayment letters to the Department of Education in Washington DC <a href="http://blog.debtcollective.org/corinthian-100-demanding-debt-cancellation-in-washington-dc/">asking them to cancel</a> the debt of all Corinthian students.
-                    </p>
+                    </h2>
                     <form action="/corinthiandtr" class="dc-input">
                       <button type="submit" class="btn btn-primary">DISPUTE YOUR DEBT</button>
                     </form>
@@ -79,40 +66,29 @@
               <div class="carousel-item">
                 <div class="row arrow-top-heading">
                   <h6>February 23rd, 2015: Corinthian Student Strike</h6>
-                  <a href="/studentstrike">
-                    <img src="/static/img/strikers/CorinthianDC-LogoType-Only_BeigeMatte.png" />
-                  </a>
                 </div>
-
                 <div class="row">
                   <a href="/studentstrike">
-                    <img class="full-width hidden-mobile" src="/static/img/strikers/striker_headerimage.gif" />
+                    <img class="carousel-img hidden-mobile" src="/static/img/strikers/striker_headerimage.gif" />
                   </a>
                   <a href="/studentstrike">
-                    <img class="full-width mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
+                    <img class="carousel-img mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
                   </a>
                   <div class="body-text caption">
-                    <p>On February 23rd, <a href="http://rollingjubilee.org">The Rolling Jubilee</a> erased <strong>$13 million ($13,384,642.14) of student debt</strong> owed by 9,438 people across the United States, while former <strong>students of Corinthian Colleges</strong> <a href="/studentstrike" class="big-link">declared a debt strike</a> by refusing to pay their federal loans.</p>
+                    <h2>On February 23rd, <a href="http://rollingjubilee.org">The Rolling Jubilee</a> erased $13 million ($13,384,642.14) of student debt owed by 9,438 people, while former students of Corinthian Colleges <a href="/studentstrike">declared a debt strike</a>, refusing to pay their loans.</h2>
+                    <form action="/studentstrike" class="dc-input">
+                      <button type="submit" class="btn btn-primary">SEE ALL STRIKERS</button>
+                    </form>
                   </div>
                 </div>
               </div>
-<!--
-              <div class="carousel-item">
-                <div class="wrapper ">
-                  <h6>FIGHT SALLIE MAE AND NAVIENT</h6>
-                  <div class="body-text">
-                    <h2>Inspired by the Corinthian student debt strike? Imagine what we could build if everyone with Sallie Mae and Navient loans joined forces. <a class="big-link" href="http://strategize.debtcollective.org/c/fight-sallie-mae-and-navient">JOIN THE CONVERSATION</a></h2>
-                  </div>
-                </div>
-              </div>
-              -->
             </div>
+          <div class="body-text centered caption sub carousel-nav">
+          <hr>
+              <div class="carousel-nav-item active" ng-click="chooseItemButton(0)"></div>
+              <div class="carousel-nav-item" ng-click="chooseItemButton(1)"></div>
           </div>
-            <hr>
-            <div class="body-text centered caption sub carousel-nav">
-                <div class="carousel-nav-item active" ng-click="chooseItemButton(0)"></div>
-                <div class="carousel-nav-item" ng-click="chooseItemButton(1)"></div>
-            </div>
+          </div>
         </div>
       </div>
     </div>
