@@ -58,7 +58,7 @@
             </div>
 
           <h2>
-            <button type="submit" class="btn btn-primary" ng-show="!showCorinthians" ng-click="showCorinthians = true">SEE ALL 100 STRIKERS</button>
+            <button type="submit" class="btn btn-primary" ng-show="!showCorinthians" ng-click="showCorinthians = true">SEE ALL 200 STRIKERS</button>
           </h2>
           <div ng-class="{ 'hidden' : !showCorinthians }">
             <div ng-repeat="striker in strikeTeam | filter: striker.hasImage" >
@@ -68,6 +68,9 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="row col-md-6 col-offset-md-2" ng-class="{ 'hidden' : !showCorinthians }">
+            <span ng-repeat="striker in strikeTeamNames">{$ striker $}, </span>
           </div>
           </div>
           </div>

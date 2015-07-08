@@ -47,6 +47,9 @@ app.controller('corinthianCtrl',
       $scope.corinthian15Chunks = $scope.corinthian15.chunk(5)
     });
 
+    $http.get('/static/js/name_only_strikers.csv').then(function (resp) {
+      $scope.strikeTeamNames = resp.data.split('\n')
+    })
 
     $http.get('/static/js/new_strikers.json').then(function (resp) {
       $scope.loading = false;
