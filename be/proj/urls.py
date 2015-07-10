@@ -22,6 +22,7 @@ urlpatterns += patterns('proj.views',
   basic_url('logout'),
   basic_url('signup'),
   basic_url('thankyou'),
+  basic_url('profile'),
   basic_url('solidarity'),
   basic_url('calculator'),
   basic_url('stripe_endpoint'),
@@ -56,9 +57,4 @@ urlpatterns += patterns('proj.arcs.corinthian',
   basic_url('solidaritystrikeform'),
   basic_url('corinthiansolidarity')
 )
-
-urlpatterns += patterns('proj.arcs.views',
-  basic_url('portal')
-)
-
 

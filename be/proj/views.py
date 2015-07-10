@@ -55,6 +55,19 @@ def stripe_endpoint(request):
 
   return json_response({'status': 'ok'}, 200)
 
+def profile(request):
+  """
+  GET /profile
+  """
+  c = {}
+
+  if not request.user.is_authenticated():
+    return redirect('/login')
+
+  c.update({'user': request.user})
+
+  return render_to_response('proj/profile.html', c)
+
 def logout(request):
   """
   GET /logout
@@ -74,7 +87,7 @@ def login(request):
     user = auth.authenticate(username=rq['username'], password=rq['password'])
     if user is not None:
       auth.login(request, user)
-      return redirect('/portal')
+      return redirect('/profile')
     else:
       c.update({"bad_auth": True})
 
