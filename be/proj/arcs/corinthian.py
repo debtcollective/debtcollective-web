@@ -34,18 +34,18 @@ def dtr_email(dtrprofile):
   to = settings.DTR_RECIPIENT
 
   msg = MIMEMultipart()
-  msg['Subject'] = '{0} at {1}'.format(''.join(user_data['name']), ''.join(user_data['school_name']))
+  name = ''.join(user_data['name'])
+  msg['Subject'] = '{0} at {1}'.format(name, ''.join(user_data['school_name']))
   msg['To'] = to
+  msg['cc'] = ''.join(user_data['email'])
   msg['From'] = from_email
   msg.attach(MIMEText("""
 To whom it may concern:
 
-Attached find yet another application for Defense to Repayment. We hope you soon realize that doing this on an individual basis is a bad arrangement for all parties.
+Attached find my application for Defense to Repayment.
 
-Best,
-
-The Debt Collective
-"""))
+Best, %s
+""" % (name)))
   fp = open(dtrprofile.output_file, 'rb')
   part = MIMEBase('application', "octet-stream")
   part.set_payload(fp.read())
