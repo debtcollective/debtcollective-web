@@ -16,13 +16,21 @@
     <div class="wrapper arrow-up"></div>
     <div class="wrapper light arrow-down-steep centered">
       <div class="row arrow-top-heading">
-          <h2 class="first ">ONGOING INITIATIVES</h2>
+        <h2 class="first">COLLECTIVES</h2>
       </div>
       <div class="row">
         {% if user.is_superuser %}
           <a href="/corinthian/admin">Corinthian Defense to Repayment</a>
         {% endif %}
-
+        {% for membership in memberships %}
+          <a href="/collectives/{{membership.collective.slug}}">
+            <h2>{{membership.collective.name}}<h2>
+          </a>
+            <p>{{membership.pretty_status}}</p>
+          {% for action in membership.collective.actions.all %}
+            <p><a href="/action/{{action.slug}}">{{action.name}}</a></p>
+          {% endfor %}
+        {% endfor %}
       </div>
     </div>
   </div>

@@ -32,7 +32,7 @@ class DTRUserProfile(models.Model):
   data = JSONField()
 
   def __unicode__(self):
-    return self.user.username
+    return self.data['email']
 
   def s3_key(self):
     bucket = conn.get_bucket(S3_BUCKET_NAME)

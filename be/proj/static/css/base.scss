@@ -7,6 +7,7 @@
 @import "includes/buttons";
 
 @import "pages/splash";
+@import "pages/collectives";
 @import "pages/corinthian";
 
 @import "components/carousel";
@@ -36,7 +37,12 @@ body {
 
 .row {
   margin-left: 0px;
- margin-right: 0px;
+  margin-right: 0px;
+}
+
+.row.light {
+  background-color: $light-background-color;
+  color: black !important;
 }
 
 .arrow-down-steep {
@@ -48,9 +54,6 @@ body {
 
   h2.first {
     margin-top: -20px !important;
-  }
-  .row.light {
-    background-color: $light-background-color;
   }
   img.full-width {
     width: 100%;
@@ -429,6 +432,12 @@ p.small {
   position: relative;
   margin: 0 auto;
   color: $light-text-color;
+
+  &.floating {
+    padding: 20px;
+    margin: 20px;
+    h2 { margin-bottom: 0px; }
+  }
 
   &.page {
     padding-top: 10px;

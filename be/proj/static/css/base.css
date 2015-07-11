@@ -579,6 +579,21 @@ a.sm-button {
   .ticker-amount a {
     text-decoration: none !important; }
 
+.action-card {
+  padding: 0px 10px 10px 10px; }
+  .action-card .action-card-content {
+    margin: 5px;
+    padding: 10px; }
+    .action-card .action-card-content a {
+      color: white; }
+    .action-card .action-card-content h3 {
+      margin-top: 5px; }
+    .action-card .action-card-content p.small {
+      margin-top: 0px; }
+  .action-card img {
+    width: 350px;
+    height: 200px; }
+
 #corinthian .intro {
   background-color: #1a1b23;
   padding: 2em;
@@ -878,6 +893,10 @@ body {
   margin-left: 0px;
   margin-right: 0px; }
 
+.row.light {
+  background-color: #f1eee2;
+  color: black !important; }
+
 .arrow-down-steep {
   background-image: url(../img/bg_arrow-down-steep.png);
   background-position: center bottom;
@@ -886,8 +905,6 @@ body {
   z-index: 0; }
   .arrow-down-steep h2.first, .arrow-down-steep a.first.btn, .arrow-down-steep button.first[type=submit], .arrow-down-steep .tabs .first.single-tab, .tabs .arrow-down-steep .first.single-tab {
     margin-top: -20px !important; }
-  .arrow-down-steep .row.light {
-    background-color: #f1eee2; }
   .arrow-down-steep img.full-width {
     width: 100%; }
 
@@ -1166,6 +1183,11 @@ p.small {
   position: relative;
   margin: 0 auto;
   color: #39413f; }
+  .wrapper.floating {
+    padding: 20px;
+    margin: 20px; }
+    .wrapper.floating h2, .wrapper.floating a.btn, .wrapper.floating button[type=submit], .wrapper.floating .tabs .single-tab, .tabs .wrapper.floating .single-tab {
+      margin-bottom: 0px; }
   .wrapper.page {
     padding-top: 10px; }
   .wrapper.dark {

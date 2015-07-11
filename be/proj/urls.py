@@ -14,6 +14,11 @@ urlpatterns = patterns('',
 def basic_url(name, prefix=""):
   return url('^' + prefix + '%s$' % name, name, name=name)
 
+urlpatterns += patterns('proj.collectives.views',
+  url('^collectives/([\w-]+)$', 'collective', name='view_collective'),
+  url('^actions/([\w-]+)$', 'action', name='view_action'),
+  url('^actions', 'all_actions', name='view_actions')
+)
 
 ## TODO: Move corinthian specific stuff to arcs.corinthian..
 urlpatterns += patterns('proj.views',

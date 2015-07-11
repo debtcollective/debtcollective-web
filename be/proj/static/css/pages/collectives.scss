@@ -1,0 +1,18 @@
+@import "../includes/variables";
+
+.action-card {
+  padding: 0px 10px 10px 10px;
+
+  .action-card-content {
+    margin: 5px;
+    padding: 10px;
+    a { color: white; }
+    h3 { margin-top: 5px; }
+    p.small { margin-top: 0px; }
+  }
+
+  img {
+    width: 350px;
+    height: 200px;
+  }
+}

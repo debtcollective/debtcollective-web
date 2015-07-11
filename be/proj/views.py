@@ -9,6 +9,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 
 from proj.utils import json_response, get_POST_data
 from proj.gather.models import Debt, UserProfile, Point
+from proj.collectives.models import Collective, UserAction, CollectiveMember
 
 import simplejson as json
 
@@ -64,7 +65,10 @@ def profile(request):
   if not request.user.is_authenticated():
     return redirect('/login')
 
-  c.update({'user': request.user})
+  c['user'] = User.objects.get(username=request.user.username)
+  c['debts'] = Debt.objects.filter(user=c['user'])
+  c['actions'] = UserAction.objects.filter(user=c['user'])
+  c['memberships'] = CollectiveMember.objects.filter(user=c['user'])
 
   return render_to_response('proj/profile.html', c)
 
