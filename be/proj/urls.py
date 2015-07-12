@@ -14,11 +14,8 @@ urlpatterns = patterns('',
 def basic_url(name, prefix=""):
   return url('^' + prefix + '%s$' % name, name, name=name)
 
-urlpatterns += patterns('proj.collectives.views',
-  url('^collectives/([\w-]+)$', 'collective', name='view_collective'),
-  url('^actions/([\w-]+)$', 'action', name='view_action')
-)
 
+## TODO: Move corinthian specific stuff to arcs.corinthian..
 urlpatterns += patterns('proj.views',
   basic_url('map'),
   basic_url('login'),
@@ -43,7 +40,6 @@ urlpatterns += patterns('proj.gather.views',
 def corinthian_url(name):
   return basic_url(name, prefix="corinthian/")
 
-## TODO: Move corinthian specific stuff to collectives..
 urlpatterns += patterns('proj.arcs.corinthian',
   corinthian_url('dtr_generate'),
   corinthian_url('dtr_csv'),

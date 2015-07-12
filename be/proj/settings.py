@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'proj',
     'proj.gather',
     'proj.arcs',
-    'proj.collectives',
     'south'
 )
 MIDDLEWARE_CLASSES = (
