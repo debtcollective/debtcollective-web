@@ -108,6 +108,8 @@ def dtr_download(request, f, to):
 
 def dtr_csv(request):
   # get dtrs as csv
+  if not request.user.is_superuser:
+    return redirect('/login')
   response = HttpResponse(content_type='text/csv')
   response['Content-Disposition'] = 'attachment; filename="all_dtr.csv"'
 
