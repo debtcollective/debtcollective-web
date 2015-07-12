@@ -7,9 +7,10 @@
 <div class="flex">
   <div class="container inside-container">
     <div class="wrapper dark">
-      <h2>
-      Hello {{ user.username }}, your email is {{ user.email }}
-      </h2>
+      <h2>First name: {{user.first_name}}</h2>
+      <h2>Last name: {{user.last_name}}</h2>
+      <h2>Email: {{user.email}}</h2>
+      <h2>Location: {{user.profile.point}}
       <h3><a href="/logout">Logout</a></h3>
     </div>
 

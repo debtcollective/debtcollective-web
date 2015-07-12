@@ -65,7 +65,8 @@ def profile(request):
   if not request.user.is_authenticated():
     return redirect('/login')
 
-  c['user'] = User.objects.get(username=request.user.username)
+  c['user'] = request.user
+  c['user']['profile'] = request.user.get_profile()
   c['debts'] = Debt.objects.filter(user=c['user'])
   c['actions'] = UserAction.objects.filter(user=c['user'])
   c['memberships'] = CollectiveMember.objects.filter(user=c['user'])
@@ -121,7 +122,10 @@ def signup(request):
   point = rq.get('point')
   if point:
     point = Point.objects.get(id=point)
-  data = UserProfile.objects.create(user=user, point=point)
+
+  userprofile = UserProfile.objects.get(user=user)
+  userprofile.point = point
+  userprofile.save()
 
   kind = rq.get('kind')
   amount = rq.get('amount')
