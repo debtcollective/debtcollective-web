@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib import admin
 from django.contrib.auth.models import User
 from jsonfield import JSONField
+from django.db.models.signals import pre_save
 
 class Action(models.Model):
   slug = models.SlugField(max_length=40, unique=True)
@@ -10,6 +11,7 @@ class Action(models.Model):
   byline = models.CharField(max_length=90, blank=True)
   link = models.CharField(max_length=150, null=True, blank=True)
   image = models.CharField(max_length=150, null=True, blank=True)
+  active = models.BooleanField(default=True)
 
   def __unicode__(self):
     return self.name
@@ -20,9 +22,19 @@ class Collective(models.Model):
   description = models.TextField()
   actions = models.ManyToManyField(Action)
   image = models.CharField(max_length=150, null=True, blank=True)
+  link = models.CharField(max_length=150, null=True, blank=True)
 
   def __unicode__(self):
     return self.name
+
+def gen_link(path):
+  def pre_save(sender, instance, **kwargs):
+    if not instance.link:
+      instance.link = '/%s/%s' % (path, instance.slug)
+  return pre_save
+
+pre_save.connect(gen_link('collectives'), sender=Collective)
+pre_save.connect(gen_link('actions'), sender=Action)
 
 class CollectiveMember(models.Model):
   MEMBER = 1

@@ -4,7 +4,7 @@ app.directive('corinthianSignupForm', function () {
     templateUrl: '/static/directives/ccform.html',
     replace: true,
     controller: function ($scope, $element, $document, $http, $window, users) {
-      $scope.strikeFormSubmitted = false
+      $scope.formSubmitted = false
 
       $scope.submitForm = function () {
         if (!$scope.debtAmount) {

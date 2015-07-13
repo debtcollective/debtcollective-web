@@ -2,7 +2,7 @@
 {% load humanize %}
 
 {% block body %}
-{% include "proj/header.html" %}
+{% include "proj/insideHeader.html" with title='GENERAL STUDENT DEBT STRIKE' %}
 <div scroll ng-controller="solidarityStrikeCtrl" ng-cloak>
   <div class="container"  ng-click="closeStriker($event)">
       <div class="wrapper light">
@@ -18,11 +18,12 @@
       <div class="row">
         <div class="body-text">
           <p>
-          <strong>We are prepared to stop paying our federal student loans in support of Corinthian students.</strong> We did not all attend a Corinthian college. We are current and former students from other schools, public and private, for-proft and non-proft; we are young and old; some of us grew up in low-income families, while others had more privileges and opportunities; we are from everywhere. </p>
-          <p>We are outraged that, like the Corinthian students, we have been forced to mortgage our futures and the futures of our families for education, and that we have had to do so in a country where a tiny minority controls the vast majority of the wealth.</p>
+            <strong>We are prepared to stop paying our federal student loans in support of Corinthian students.</strong> We did not all attend a Corinthian college. We are current and former students from other schools, public and private, for-proft and non-proft; we are young and old; some of us grew up in low-income families, while others had more privileges and opportunities; we are from everywhere. </p>
+            <p>We are outraged that, like the Corinthian students, we have been forced to mortgage our futures and the futures of our families for education, and that we have had to do so in a country where a tiny minority controls the vast majority of the wealth.</p>
 
-          <p>Most of us already find our degrees worthless, our jobs non-existent, our prospects bleak, our debts unpayable, and our bank accounts drained by the Department of Education’s brutal collection tactics. But even those of us who don’t yet face these circumstances have chosen to stand now in solidarity with the <a class="big-link" href="/studentstrike">Corinthian strikers.</a></p>
-          <p>To the Department of Education, we say: Cancel all Corinthian students’ federal loans. Doing so will demonstrate your commitment to your job as a regulator.</p>
+            <p>Most of us already find our degrees worthless, our jobs non-existent, our prospects bleak, our debts unpayable, and our bank accounts drained by the Department of Education’s brutal collection tactics. But even those of us who don’t yet face these circumstances have chosen to stand now in solidarity with the <a class="big-link" href="/studentstrike">Corinthian strikers.</a></p>
+            <p>To the Department of Education, we say: Cancel all Corinthian students’ federal loans. Doing so will demonstrate your commitment to your job as a regulator.
+          </p>
           <hr>
         </div>
       </div>

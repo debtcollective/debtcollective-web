@@ -21,83 +21,22 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <div class="centered intro-caption">
-            <div class="small-italic-caption">total <a href="/#signup" class="big-link">debt pledged</a></div>
+            <div class="small-italic-caption" id="signup">total <a href="/#signup" class="big-link">debt pledged</a></div>
             <div class="body-text">
-            <p>A membership organization that leverages collective power by offering debtors a shared platform for organization, advocacy, and direct action. Alone, our debts are a burden; together, they make us powerful.</p>
+              <p>A membership organization that leverages collective power by offering debtors a shared platform for organization, advocacy, and direct action. Alone, our debts are a burden; together, they make us powerful.</p>
+              <signupform ></signupform>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="spacer"  id="signup"></div>
-    <div class="body-text centered">
-      <h2>Become a member. As we grow, we will work to resist our debts, together.</h2>
-    </div>
-
-    <div class="body-text" >
-      <signupform></signupform>
     </div>
 
     <div id="actionalert"></div>
-    <div class="wrapper arrow-up"></div>
-    <div class="wrapper arrow-down-steep centered">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <div class="carousel" ng-controller="carouselCtrl">
-            <div class="items">
-              <div class="carousel-item active">
-                <div class="row arrow-top-heading">
-                  <h6>March 31st, 2015: Defense to Repayment</h6>
-                </div>
-                <div class="row">
-                  <img class="carousel-img" src="/static/img/forms.jpg" />
-                  <div class="body-text caption">
-                    <h2>
-                    On March 31st, members of the <a href="/studentstrike">Corinthian strike team</a> submited Defense to Repayment letters to the Department of Education in Washington DC <a href="http://blog.debtcollective.org/corinthian-100-demanding-debt-cancellation-in-washington-dc/">asking them to cancel</a> the debt of all Corinthian students.
-                    </h2>
-                    <form action="/corinthiandtr" class="dc-input">
-                      <button type="submit" class="btn btn-primary">DISPUTE YOUR DEBT</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
+      <h2>CURRENT ACTIONS</h2>
+      {% include "collectives/action_cards.html" with actions=actions %}
+  </div>
 
-              <div class="carousel-item">
-                <div class="row arrow-top-heading">
-                  <h6>February 23rd, 2015: Corinthian Student Strike</h6>
-                </div>
-                <div class="row">
-                  <a href="/studentstrike">
-                    <img class="carousel-img hidden-mobile" src="/static/img/strikers/striker_headerimage.gif" />
-                  </a>
-                  <a href="/studentstrike">
-                    <img class="carousel-img mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
-                  </a>
-                  <div class="body-text caption">
-                    <h2>On February 23rd, <a href="http://rollingjubilee.org">The Rolling Jubilee</a> erased $13 million ($13,384,642.14) of student debt owed by 9,438 people, while former students of Corinthian Colleges <a href="/studentstrike">declared a debt strike</a>, refusing to pay their loans.</h2>
-                    <form action="/studentstrike" class="dc-input">
-                      <button type="submit" class="btn btn-primary">SEE ALL STRIKERS</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <div class="body-text centered caption sub carousel-nav">
-          <hr>
-              <div class="carousel-nav-item active" ng-click="chooseItemButton(0)"></div>
-              <div class="carousel-nav-item" ng-click="chooseItemButton(1)"></div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="donate"></div>
-    <div class="body-text">
-      {% include "proj/donateBox.html" with title="DONATE" %}
-    </div>
-
+  <div class="container">
     <div class="wrapper arrow-up"></div>
     <div class="wrapper arrow-down-steep" id="faq">
       <div class="row">
@@ -130,7 +69,6 @@
             </div>
           </div>
 
-        <hr>
       <div class="body-text caption sub">
         <h5 class="body-text">
           <p>To browse all of our FAQ's, get more info, or for general debt support <a class="big-link" href="http://strategize.debtcollective.org">visit our community resource area.</a></p>

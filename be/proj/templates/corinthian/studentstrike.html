@@ -2,7 +2,7 @@
 {% load humanize %}
 
 {% block body %}
-{% include "proj/header.html" %}
+{% include "proj/insideHeader.html" with title='CORINTHIAN DEBT STRIKE' %}
 <div scroll ng-controller="corinthianCtrl">
   <div class="hud-display-background"  ng-click="closeStriker($event)" ng-class="{visible: currentStriker != null}"></div>
 
@@ -87,17 +87,6 @@
       </div>
         </div>
       </div>
-      <div class="wrapper dark">
-        <h2>DO YOU HAVE DEBT FROM A CORINTHIAN COLLEGE?</h2>
-        <div class="body-text centered">
-          <p>You can be involved in actions to fight to get your money back.
-          Members of the Corinthian strike team will submit Defense to Repayment letters to the Department of Education in Washington DC asking them to cancel the debt of all Corinthian students.
-          </p>
-          <form action="/corinthiandtr" class="dc-input">
-            <button type="submit" class="btn btn-primary">DISPUTE YOUR DEBT</button>
-          </form>
-        </div>
-      </div>
       <div class="spacer"></div>
 
       <div id="letter" class="wrapper arrow-down-steep">
@@ -149,9 +138,14 @@
     </div>
 
       <div class="wrapper dark">
-        <h2>NOT A CORINTHIAN STUDENT BUT WANT TO BE INVOLVED?</h2>
-        <div class="body-text">
-          <h2> You can <a href="#donate">donate</a>, <a href="/#signup">sign up for email updates</a> and join strategy conversations in our <a  href="http://strategize.debtcollective.org"> community forums</a></h2></h2>
+        <h2>DO YOU HAVE DEBT FROM A CORINTHIAN COLLEGE?</h2>
+        <div class="body-text centered">
+          <p>You can be involved in actions to fight to get your money back.
+          Members of the Corinthian strike team will submit Defense to Repayment letters to the Department of Education in Washington DC asking them to cancel the debt of all Corinthian students.
+          </p>
+          <form action="/corinthiandtr" class="dc-input">
+            <button type="submit" class="btn btn-primary">DISPUTE YOUR DEBT</button>
+          </form>
         </div>
       </div>
 

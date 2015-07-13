@@ -1,12 +1,11 @@
 {% for action in actions %}
-  <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4 action-card">
-    <div class="action-card-content">
-      <a href="{{action.link}}">
-        <img src="{{action.image}}" />
-        <h3>{{action.name}}</h3>
-        <p class="small">{{action.byline}}</p>
-      </a>
-    </div>
-
+<div class="col-xs-12 col-sm-6 col-md-3 col-lg-4 action-card">
+  <div class="action-card-content">
+    <a href="{{action.link}}">
+      <img src="{{action.image}}" />
+      <h3>{{action.name}}</h3>
+      <p class="small">{{action.byline}}</p>
+    </a>
   </div>
+</div>
 {% endfor %}

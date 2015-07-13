@@ -9,7 +9,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 
 from proj.utils import json_response, get_POST_data
 from proj.gather.models import Debt, UserProfile, Point
-from proj.collectives.models import Collective, UserAction, CollectiveMember
+from proj.collectives.models import Collective, UserAction, CollectiveMember, Action
 
 import simplejson as json
 
@@ -18,7 +18,8 @@ import stripe
 
 @ensure_csrf_cookie
 def splash(request):
-  return render_to_response('proj/splash.html')
+  c = {"actions": Action.objects.filter(active=True)}
+  return render_to_response('proj/splash.html', c)
 
 def map(request):
   return render_to_response('proj/map.html')
@@ -109,15 +110,16 @@ def signup(request):
   if request.method != 'POST':
     raise Http404
 
-
   rq = get_POST_data(request)
   username = rq.get('username')
+  email = rq.get('email')
   password = rq.get('password')
+  if email and not username:
+    username = email
   if not username or not password:
-    return json_response({'status': 'error',
-      'message': 'Those credentials could not be authenticated.'}, 500)
+    return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
 
-  user = User.objects.create_user(username, password=password, email=None)
+  user = User.objects.create_user(username, password=password, email=email)
 
   point = rq.get('point')
   if point:

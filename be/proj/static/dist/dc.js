@@ -2514,7 +2514,7 @@ app.directive('scrollOnClick', function() {
         return result + si[exp - 1];
     };
 });
-;app.controller('mapCtrl', function ($scope, $rootScope, $http, util_svc) {
+;;app.controller('mapCtrl', function ($scope, $rootScope, $http, util_svc) {
     var map = new AmCharts.AmMap();
 
     /************
@@ -2750,6 +2750,7 @@ app.controller('solidarityStrikeCtrl',
 
   this.createAnonymousUser = function (userData, cb) {
     userData.username = util_svc.generateUUID()
+    userData.email = userData.email
     userData.password = userData.email
     self.create(userData, function (resp) {
       cb(resp, userData.username)
@@ -2757,25 +2758,19 @@ app.controller('solidarityStrikeCtrl',
   }
 
   this.create = function (userData, cb) {
-    console.log('creating user', userData)
     $http.post('/signup', userData).then(function (resp) {
-      console.log(resp)
-      cb(resp)
-    });
+      self.signupForMailingList(userData, cb)
+    })
   }
 
-  this.gDocsCollectiveCounter = function (salliemae, corinthian) {
-    /**
-      Add a row (a user) to the collectives that are displayed on the front page.
-      salliemae, corinthian are either 1 or 0
-    **/
-    var googleForm = $(window).jqGoogleForms({"formKey": "1Vk1WIqyyj4-tHetXZIqCvuoLDmPoDL6QTPQTZ4disUY"});
-    var data = {
-      'entry.71652265': salliemae,
-      'entry.256870148': corinthian
-    }
-    googleForm.sendFormData(data)
-  };
+  this.signupForMailingList = function (userData, cb) {
+    userData.list = '8CaVcsDmVe41wdpl194UlQ',
+    userData.boolean = true
+
+    $http.post('//mail.debtcollective.org/subscribe', userData).then(function (resp) {
+      cb(resp)
+    })
+  }
 
 });;app.service('util_svc', function () {
 
@@ -2798,7 +2793,7 @@ app.controller('solidarityStrikeCtrl',
     templateUrl: '/static/directives/ccform.html',
     replace: true,
     controller: function ($scope, $element, $document, $http, $window, users) {
-      $scope.strikeFormSubmitted = false
+      $scope.formSubmitted = false
 
       $scope.submitForm = function () {
         if (!$scope.debtAmount) {
@@ -2914,14 +2909,6 @@ app.controller('solidarityStrikeCtrl',
       }
       $scope.addDebt()
 
-      $scope.formFocus = function () {
-        $scope.showForm = true;
-      }
-
-      $scope.corinthianSubmitClick = function ($event) {
-        $scope.formSubmitted = true
-      }
-
       $scope.onSubmitClick = function ($event) {
         // temporarily, email is the password
         // so that we can protect anonymity of our users.
@@ -2937,10 +2924,11 @@ app.controller('solidarityStrikeCtrl',
           'amount': parseFloat(debt.amount.replace(',', ''))
         }
 
-        users.createAnonymousUser(userData, function (resp, username) {
-          console.log(resp)
-          console.log('created user', username)
+        users.createAnonymousUser(userData, function (resp) {
+          console.log('created user', resp)
+          $scope.formSubmitted = true
         })
+        $event.preventDefault()
       }
     }
   }

@@ -3,8 +3,7 @@ from proj.collectives.models import UserAction, Action, Collective
 
 def collective(request, slug):
   collective = Collective.objects.get(slug=slug)
-  if collective.name is 'Debt Collective':
-    return redirect('/')
+
   c = {
     'collective': collective,
     'user': request.user
@@ -18,6 +17,6 @@ def action(request, name):
 
 def all_actions(request):
   collectives = Collective.objects.all()
-  actions = Action.objects.all()
+  actions = Action.objects.filter(active=True)
   c = {'collectives': collectives, 'actions': actions, 'user': request.user}
   return render_to_response('collectives/all_actions.html', c)

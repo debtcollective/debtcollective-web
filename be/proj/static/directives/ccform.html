@@ -1,4 +1,4 @@
-<div class="wrapper dark" id="ccform">
+<div id="ccform">
 <div class="row">
 <div class="body-text">
 <div class="dc-input">
@@ -6,12 +6,15 @@
 <iframe name="hidden_iframe" id="hidden_iframe"
 style="display:none;"></iframe>
 
-<div ng-show="strikeFormSubmitted">
+<div ng-show="formSubmitted">
   <h2>Thanks for submitting the form!</h2>
 </div>
 
+<div ng-show="!formSubmitted">
+  <h2>Join the Strike!</h2>
+</div>
 <form action="https://docs.google.com/forms/d/1RDOUi6lvkwdFFJ7arxFR4GlhPMvKEqPOmDG8hJ_Cxvs/formResponse"
-  method="POST" target="hidden_iframe" ng-show="!strikeFormSubmitted">
+  method="POST" target="hidden_iframe" ng-show="!formSubmitted">
 
 <ol role="list" class="ss-question-list">
 <div class="ss-form-question errorbox-good" role="listitem">

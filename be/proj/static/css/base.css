@@ -580,7 +580,8 @@ a.sm-button {
     text-decoration: none !important; }
 
 .action-card {
-  padding: 0px 10px 10px 10px; }
+  padding: 0px 10px 10px 10px;
+  text-shadow: 0.1em 0.1em #333; }
   .action-card .action-card-content {
     margin: 5px;
     padding: 10px; }
@@ -1185,7 +1186,10 @@ p.small {
   color: #39413f; }
   .wrapper.floating {
     padding: 20px;
-    margin: 20px; }
+    margin: 20px;
+    box-shadow: 2px 2px 6px 8px #3C3C3C;
+    -moz-box-shadow: 2px 2px 6px 8px #3C3C3C;
+    -webkit-box-shadow: 2px 2px 6px 8px #3C3C3C; }
     .wrapper.floating h2, .wrapper.floating a.btn, .wrapper.floating button[type=submit], .wrapper.floating .tabs .single-tab, .tabs .wrapper.floating .single-tab {
       margin-bottom: 0px; }
   .wrapper.page {
