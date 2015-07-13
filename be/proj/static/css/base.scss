@@ -427,7 +427,11 @@ p.small {
 .underline {
   text-decoration: underline;
 }
-
+.floating {
+  box-shadow: 2px 2px 6px 8px #3C3C3C;
+  -moz-box-shadow: 2px 2px 6px 8px #3C3C3C;
+  -webkit-box-shadow: 2px 2px 6px 8px #3C3C3C;
+}
 .wrapper {
   position: relative;
   margin: 0 auto;
@@ -436,9 +440,6 @@ p.small {
   &.floating {
     padding: 20px;
     margin: 20px;
-    box-shadow: 2px 2px 6px 8px #3C3C3C;
-    -moz-box-shadow: 2px 2px 6px 8px #3C3C3C;
-    -webkit-box-shadow: 2px 2px 6px 8px #3C3C3C;
     h2 { margin-bottom: 0px; }
   }
 

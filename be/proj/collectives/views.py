@@ -3,7 +3,6 @@ from proj.collectives.models import UserAction, Action, Collective
 
 def collective(request, slug):
   collective = Collective.objects.get(slug=slug)
-
   c = {
     'collective': collective,
     'user': request.user
