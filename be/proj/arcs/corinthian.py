@@ -42,7 +42,7 @@ def dtr_migrate_email(request, id):
   key = dtr.key()
 
   BASE_URL = 'https://debtcollective.org'
-  migrate_url = BASE_URL + '/corinthian/dtr/migrate?email=' + dtr.data.email '&key=' + key
+  migrate_url = BASE_URL + '/corinthian/dtr/migrate?email=' + dtr.data.email + '&key=' + key
 
 def dtr_migrate(request, id):
   email = request.GET.get('email')
