@@ -20,9 +20,9 @@
 }
 
 body {
-    @extend %rale;
-    background-color: $dark-background-color;
-    color: $dark-text-color;
+  @extend %rale;
+  background-color: $dark-background-color;
+  color: $dark-text-color;
 }
 
 .form-rest {
@@ -46,11 +46,11 @@ body {
   background-image: url(../img/bg_arrow-down-steep.png);
   background-position: center bottom;
   padding-bottom: 210px;
-  margin-top: -5px !important;
-  background-color: $dark-background-color !important;
+  margin-top: -10px !important;
   z-index: $z-index-arrow-down-steep;
 
-  h1{
+  h1.header {
+    text-align: center;
     margin-top: -61px !important;
     margin-bottom: 80px;
   }
@@ -63,7 +63,7 @@ body {
   background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
   z-index: -5;
   position: relative;
-  padding-bottom: 245px;
+  padding-bottom: 250px;
 }
 
 section {
@@ -145,7 +145,7 @@ p, .body-text {
   width: 100%;
   z-index: 9999999;
   background-color: $off-grey;
-  border-bottom: 1px solid $link-color;
+  border-bottom: 1px solid $white-text-color;
 
   &.inside-header {
     text-align: left;
@@ -187,7 +187,7 @@ p, .body-text {
   a.nav-link {
     @extend %mono;
     letter-spacing: 3px;
-    color: $link-color;
+    color: $white-text-color;
     &:hover {
       color: $link-hover;
     }
@@ -259,7 +259,7 @@ h1 {
   line-height: 38px;
   font-weight: 100;
   letter-spacing: -1px;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
 
   &.emphasis {
     font-size: 26px !important;
@@ -276,7 +276,7 @@ h1 {
     line-height: 24px;
   }
   a {
-    color: $link-color !important;
+    color: $white-text-color !important;
     text-decoration: none;
   }
 }
@@ -288,7 +288,9 @@ h2 {
   line-height: 28px;
   margin-bottom: 22px;
   letter-spacing: 2px;
-
+  a {
+    color: $link-color !important;
+  }
   &.dark {
     color: $dark-background-color;
   }
@@ -303,6 +305,9 @@ h3 {
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;
+  a {
+    color: $link-color !important;
+  }
 }
 
 h4 {
@@ -360,20 +365,22 @@ p.small {
 .underline {
   text-decoration: underline;
 }
+
 .floating {
   box-shadow: 2px 2px 6px 8px #3C3C3C;
   -moz-box-shadow: 2px 2px 6px 8px #3C3C3C;
   -webkit-box-shadow: 2px 2px 6px 8px #3C3C3C;
 }
+
 .wrapper {
   position: relative;
   margin: 0 auto;
   color: $light-text-color;
 
   &.floating {
-    padding: 20px;
-    margin: 20px;
-    h2 { margin-bottom: 0px; }
+    padding: 60px 0px;
+    .body-text { max-width: 85%; }
+    h3 { text-align: center; }
   }
 
   &.page {
@@ -384,10 +391,11 @@ p.small {
     color: $dark-text-color !important;
     background-color: $dark-background-color;
     h3 {
-      color: $link-color;
+      color: $white-text-color;
+      margin-bottom: 22px;
     }
     a {
-      color: $link-color;
+      color: $white-text-color;
     }
   }
 
@@ -612,7 +620,7 @@ select {
     opacity: 1;
     list-style: none;
     a {
-      color: $link-color;
+      color: $white-text-color;
     }
     &.active {
       background-color: $olive;
@@ -660,7 +668,7 @@ select {
 .footer-copyright {
   @extend %captionmono;
   font-size: 12px;
-  color: $link-color;
+  color: $white-text-color;
 }
 
 

@@ -24,9 +24,11 @@
       <div class="intro-caption">
         <div class="body-text">
           <h2>The Debt Collective helps people organize with eachother to challenge creditors. We believe no one should have to go into debt for basic needs like education, housing, or healthcare. When the indebted join together they can build power to create a just society.</h2>
-          <signupform ></signupform>
         </div>
       </div>
+    </div>
+    <div class="row">
+      <signupform ></signupform>
     </div>
     <div class="row caption">
       <h3>Alone our debts are a burden, together they make us powerful.</h3>
@@ -38,16 +40,22 @@
   <div class="wrapper dark">
     <div class="row centered">
       <h1>Action Alert!</h1>
-      <h3>View current Debt Collectives and all collective actions on the Action page.</h3>
+      <h3>View current Debt Collectives and all collective actions on <a href="/actions">the Actions page.</a></h3>
     </div>
     <div class="row">
-      {% include "collectives/action_cards.html" with actions=actions %}
+      <div class="row body-text">
+        {% for action in actions %}
+          <div class="col-md-6 col-lg-6 col-sm-12 action-card">
+          {% include "collectives/action_card.html" %}
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
   <div class="wrapper arrow-up"></div>
   <div class="wrapper arrow-down-steep" id="faq">
     <div class="row centered">
-      <h1>FAQ</h1>
+      <h1 class="header">FAQ</h1>
     </div>
     <div class="row body-text">
       <div class="col-md-6 col-lg-6 col-sm-12">

@@ -5,22 +5,29 @@
 {% include "proj/header.html" %}
 <div class="container">
   <div class="row">
-    {% include "collectives/action_cards.html" with actions=collectives %}
+    {% for collective in collectives %}
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 collective-card" background-image="url({{collective.image}})" />
+      <h1>{{collective.name}}</h1>
+      </div>
+    {% endfor %}
   </div>
-  <div class="body-text centered">
-    <div class="wrapper floating light">
-        <h2>
-        Welcome to the Debt Collective actions page where you will find a list of all past and present debt resistance campaigns and actions. Click to learn more about each collective and how to join.
-        </h2>
+  <div class="wrapper light floating ">
+    <div class="body-text">
+      <h2>
+      The Debt Collective helps people organize with eachother to challenge creditors. We believe no one should have to go into debt for basic needs like education, housing, or healthcare. When the indebted join together they can build power to create a just society. As we grow we will work together to resist our debts.
+      </h2>
+      <h3>Alone, our debts are a burden. Together, they make us powerful.</h3>
     </div>
   </div>
-  <div class="row">
-    {% include "collectives/action_cards.html" with actions=actions %}
-  </div>
-    <div id="donate"></div>
-    <div class="wrapper arrow-up"></div>
-    <div class="wrapper arrow-down-steep">
-        {% include "proj/donateBox.html" %}
+  <div class="wrapper dark">
+    <div class="row">
+      {% include "collectives/action_cards.html" with actions=actions %}
     </div>
+  </div>
+  <div id="donate"></div>
+  <div class="wrapper arrow-up"></div>
+  <div class="wrapper arrow-down-steep">
+      {% include "proj/donateBox.html" %}
+  </div>
 </div>
 {% endblock %}

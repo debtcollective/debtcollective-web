@@ -91,7 +91,7 @@
 
       <div id="letter" class="wrapper arrow-down-steep">
       <div class="row light">
-      <div class="tabs">
+      <div class="tabs centered">
         <div class="single-tab" ng-class="{'active': !corinthianLetterVisible}"
           ng-click="showCorinthianLetter()">
             CORINTHIAN 15</div>
@@ -106,7 +106,7 @@
       <div id="solidarityLetter" ng-show="!corinthianLetterVisible">
         {% include "corinthian/solidarityLetter.html" %}
       </div>
- <div class="tabs">
+     <div class="tabs centered">
         <div class="single-tab" ng-class="{'active': !corinthianLetterVisible}"
           ng-click="showCorinthianLetter()">STUDENTS</div>
         <div class="single-tab" ng-class="{'active': corinthianLetterVisible}"
@@ -114,7 +114,7 @@
       </div>
       <div class="paper-bottom-form" id="likethestrike">
         <div class="dc-input">
-          <div class="body-text" ng-show="corinthianLetterVisible">
+          <div class="body-text centered" ng-show="corinthianLetterVisible">
             <h2 class="dark">Corinthian student?</h2>
             <form action="/corinthiansignup" method="GET">
               <input type="text" placeholder="your name here" />
@@ -137,12 +137,9 @@
       </div>
     </div>
 
-      <div class="wrapper dark">
+      <div class="wrapper dark centered">
         <h2>DO YOU HAVE DEBT FROM A CORINTHIAN COLLEGE?</h2>
-        <div class="body-text centered">
-          <p>You can be involved in actions to fight to get your money back.
-          Members of the Corinthian strike team will submit Defense to Repayment letters to the Department of Education in Washington DC asking them to cancel the debt of all Corinthian students.
-          </p>
+        <div class="body-text">
           <form action="/corinthiandtr" class="dc-input">
             <button type="submit" class="btn btn-primary">DISPUTE YOUR DEBT</button>
           </form>

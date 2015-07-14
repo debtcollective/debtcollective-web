@@ -123,7 +123,7 @@ def signup(request):
 
 @ensure_csrf_cookie
 def splash(request):
-  c = {"actions": Action.objects.filter(active=True)}
+  c = {"actions": Action.objects.filter(active=True)[:2]}
   return render_to_response('proj/splash.html', c)
 
 def map(request):

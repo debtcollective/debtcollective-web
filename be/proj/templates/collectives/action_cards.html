@@ -1,11 +1,5 @@
 {% for action in actions %}
 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 action-card">
-  <div class="action-card-content">
-    <a href="{{action.link}}">
-      <img src="{{action.image}}" />
-      <h3>{{action.name}}</h3>
-      <p class="small">{{action.byline}}</p>
-    </a>
-  </div>
+  {% include "collectives/action_card.html" %}
 </div>
 {% endfor %}
