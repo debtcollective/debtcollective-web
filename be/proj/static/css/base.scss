@@ -20,10 +20,8 @@
 }
 
 body {
-    background-color: $dark-background-color;
-    line-height: 1.6em;
     @extend %rale;
-    font-size: 16px;
+    background-color: $dark-background-color;
     color: $dark-text-color;
 }
 
@@ -38,22 +36,23 @@ body {
 .row {
   margin-left: 0px;
   margin-right: 0px;
-}
-
-.row.light {
-  background-color: $light-background-color;
-  color: black !important;
+ &.light {
+    background-color: $light-background-color;
+    color: black !important;
+  }
 }
 
 .arrow-down-steep {
   background-image: url(../img/bg_arrow-down-steep.png);
   background-position: center bottom;
   padding-bottom: 210px;
+  margin-top: -5px !important;
   background-color: $dark-background-color !important;
   z-index: $z-index-arrow-down-steep;
 
-  h2.first {
-    margin-top: -20px !important;
+  h1{
+    margin-top: -61px !important;
+    margin-bottom: 80px;
   }
   img.full-width {
     width: 100%;
@@ -64,20 +63,11 @@ body {
   background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
   z-index: -5;
   position: relative;
-  padding-bottom: 250px;
-  margin-top: -10px;
+  padding-bottom: 245px;
 }
-
-.arrow-top-heading {
-  margin-bottom: 30px;
-}
-
 
 section {
   width: 100%;
-}
-.mono {
-  @extend %mono;
 }
 
 strong {
@@ -90,44 +80,33 @@ strong {
 }
 
 .caption {
-  font-size: 10px;
-  line-height: 15px;
-  padding-top: 40px;
-  margin-bottom: -13px !important;
+  margin-bottom: -30px !important;
   text-align: center;
-  &.main {
-    margin-top: 30px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 30px 0px;
-    p {
-      margin-bottom: 0px;
-    }
-  }
-  &.sub {
-    margin-bottom: -50px !important;
-    font-style: italic;
-  }
 }
+
 .body-text {
-  p { margin-bottom: 22px; }
+  p {
+    margin-top: 22px;
+    margin-bottom: 22px;
+  }
 }
 
 hr {
   margin: 15px;
   border-top: 1px solid black;
 }
+
 p, .body-text {
   @extend %rale;
   margin: 0px auto;
-  font-size: 15.6px;
-  line-height: 24px;
-  letter-spacing: 0.25px;
+  font-size: 16px;
+  line-height: 20px;
 
   &.special {
     font-size: 13px;
     line-height: 20px;
   }
+
   &.small {
     line-height: 20px;
     margin-top: 10px;
@@ -141,49 +120,6 @@ p, .body-text {
       }
       text-decoration: none !important;
     }
-  }
-
-  &.mono {
-    h1, h2, h6, p {
-      @extend %mono;
-      font-family: 'Cousine', serif;
-    }
-    h6 {
-      margin-top: 6px;
-      margin-bottom: 12px;
-      line-height: 24px;
-      text-transform: none;
-    }
-    p {
-      font-size: 15px;
-      line-height: 20px;
-    }
-  }
-
-  a {
-    text-decoration: underline;
-  }
-
-  ul {
-    padding-left: 40px;
-  }
-  li {
-    list-style: initial;
-  }
-
-  &.map-body {
-    margin-top: -78px;
-    padding-top: 0;
-  }
-
-  .title-banner {
-    text-align: center;
-    padding-bottom: 22px;
-  }
-
-  &.wide {
-    min-width: 820px;
-    max-width: 950px;
   }
 }
 
@@ -319,13 +255,13 @@ $banner-height: 32px;
 
 h1 {
   @extend %mono;
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 38px;
+  line-height: 38px;
   font-weight: 100;
   letter-spacing: -1px;
+  margin-bottom: 0px;
 
   &.emphasis {
-    font-family: "Cutive mono", serif !important;
     font-size: 26px !important;
     line-height: 30px !important;
     font-weight: 100 !important;
@@ -349,10 +285,10 @@ h1 {
 h2 {
   @extend %rale;
   font-size: 20px;
-  line-height: 30px;
-  text-align: center;
+  line-height: 28px;
   margin-bottom: 22px;
   letter-spacing: 2px;
+
   &.dark {
     color: $dark-background-color;
   }
@@ -364,18 +300,15 @@ h2 {
 
 h3 {
   @extend %rale;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   font-weight: bold;
-  margin-top: 28px;
-}
-h4 {
-  @extend %rale;
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 24px;
 }
 
+h4 {
+  @extend %mono;
+  font-size: 13px;
+}
 
 h5 {
   @extend %rale;

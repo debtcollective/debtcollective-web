@@ -6,17 +6,15 @@
   font-size: 14px;
   line-height: 16px; }
 
-.button-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .mono, p.mono h1, p.mono h2, p.mono a.btn, p.mono button[type=submit], p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono a.btn, .body-text.mono button[type=submit], .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono h6, .body-text.mono p, .header-links a.nav-link, h1, .top-quote h1 {
+.button-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .header-links a.nav-link, h1, h4, .top-quote h1 {
   font-family: "Cutive mono", serif;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 20px; }
+  font-weight: 600; }
 
 .btn, input[type="text"],
 input[type="email"],
 input[type="password"],
 select,
-textarea, #resources li a, body, p, .body-text, h2, a.btn, button[type=submit], .tabs .single-tab, h3, h4, h5, .checkbox, h6, .dropdown-menu {
+textarea, #resources li a, body, p, .body-text, h2, a.btn, button[type=submit], .tabs .single-tab, h3, h5, .checkbox, h6, .dropdown-menu {
   font-family: "Raleway", sans-serif; }
 
 /* -------------------------------------------------------------
@@ -401,9 +399,6 @@ a.sm-button {
 
 .intro-caption {
   margin: 30px 0px; }
-  .intro-caption .body-text {
-    margin-top: 30px;
-    margin-bottom: -50px; }
 
 #scroll.mainstate .social-media {
   opacity: 0; }
@@ -592,8 +587,8 @@ a.sm-button {
     .action-card .action-card-content p.small {
       margin-top: 0px; }
   .action-card img {
-    width: 350px;
-    height: 200px; }
+    width: 100%;
+    max-height: 200px; }
 
 #corinthian .intro {
   background-color: #1a1b23;
@@ -881,8 +876,6 @@ label {
 
 body {
   background-color: #39413f;
-  line-height: 1.6em;
-  font-size: 16px;
   color: #f1eee2; }
 
 .form-rest {
@@ -893,19 +886,20 @@ body {
 .row {
   margin-left: 0px;
   margin-right: 0px; }
-
-.row.light {
-  background-color: #f1eee2;
-  color: black !important; }
+  .row.light {
+    background-color: #f1eee2;
+    color: black !important; }
 
 .arrow-down-steep {
   background-image: url(../img/bg_arrow-down-steep.png);
   background-position: center bottom;
   padding-bottom: 210px;
+  margin-top: -5px !important;
   background-color: #39413f !important;
   z-index: 0; }
-  .arrow-down-steep h2.first, .arrow-down-steep a.first.btn, .arrow-down-steep button.first[type=submit], .arrow-down-steep .tabs .first.single-tab, .tabs .arrow-down-steep .first.single-tab {
-    margin-top: -20px !important; }
+  .arrow-down-steep h1 {
+    margin-top: -61px !important;
+    margin-bottom: 80px; }
   .arrow-down-steep img.full-width {
     width: 100%; }
 
@@ -913,11 +907,7 @@ body {
   background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
   z-index: -5;
   position: relative;
-  padding-bottom: 250px;
-  margin-top: -10px; }
-
-.arrow-top-heading {
-  margin-bottom: 30px; }
+  padding-bottom: 245px; }
 
 section {
   width: 100%; }
@@ -930,23 +920,11 @@ strong {
   font-style: italic; }
 
 .caption {
-  font-size: 10px;
-  line-height: 15px;
-  padding-top: 40px;
-  margin-bottom: -13px !important;
+  margin-bottom: -30px !important;
   text-align: center; }
-  .caption.main {
-    margin-top: 30px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 30px 0px; }
-    .caption.main p {
-      margin-bottom: 0px; }
-  .caption.sub {
-    margin-bottom: -50px !important;
-    font-style: italic; }
 
 .body-text p {
+  margin-top: 22px;
   margin-bottom: 22px; }
 
 hr {
@@ -955,9 +933,8 @@ hr {
 
 p, .body-text {
   margin: 0px auto;
-  font-size: 15.6px;
-  line-height: 24px;
-  letter-spacing: 0.25px; }
+  font-size: 16px;
+  line-height: 20px; }
   p.special, .body-text.special {
     font-size: 13px;
     line-height: 20px; }
@@ -970,31 +947,6 @@ p, .body-text {
       text-decoration: none !important; }
       p.spaced a h2, p.spaced a a.btn, p.spaced a button[type=submit], p.spaced a .tabs .single-tab, .tabs p.spaced a .single-tab, .body-text.spaced a h2, .body-text.spaced a a.btn, .body-text.spaced a button[type=submit], .body-text.spaced a .tabs .single-tab, .tabs .body-text.spaced a .single-tab {
         margin-bottom: 0px; }
-  p.mono h1, p.mono h2, p.mono a.btn, p.mono button[type=submit], p.mono .tabs .single-tab, .tabs p.mono .single-tab, p.mono h6, p.mono p, .body-text.mono h1, .body-text.mono h2, .body-text.mono a.btn, .body-text.mono button[type=submit], .body-text.mono .tabs .single-tab, .tabs .body-text.mono .single-tab, .body-text.mono h6, .body-text.mono p {
-    font-family: 'Cousine', serif; }
-  p.mono h6, .body-text.mono h6 {
-    margin-top: 6px;
-    margin-bottom: 12px;
-    line-height: 24px;
-    text-transform: none; }
-  p.mono p, .body-text.mono p {
-    font-size: 15px;
-    line-height: 20px; }
-  p a, .body-text a {
-    text-decoration: underline; }
-  p ul, .body-text ul {
-    padding-left: 40px; }
-  p li, .body-text li {
-    list-style: initial; }
-  p.map-body, .body-text.map-body {
-    margin-top: -78px;
-    padding-top: 0; }
-  p .title-banner, .body-text .title-banner {
-    text-align: center;
-    padding-bottom: 22px; }
-  p.wide, .body-text.wide {
-    min-width: 820px;
-    max-width: 950px; }
 
 .spacer {
   padding-top: 30px; }
@@ -1097,12 +1049,12 @@ p, .body-text {
   width: 80px; }
 
 h1 {
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 38px;
+  line-height: 38px;
   font-weight: 100;
-  letter-spacing: -1px; }
+  letter-spacing: -1px;
+  margin-bottom: 0px; }
   h1.emphasis {
-    font-family: "Cutive mono", serif !important;
     font-size: 26px !important;
     line-height: 30px !important;
     font-weight: 100 !important; }
@@ -1117,8 +1069,7 @@ h1 {
 
 h2, a.btn, button[type=submit], .tabs .single-tab {
   font-size: 20px;
-  line-height: 30px;
-  text-align: center;
+  line-height: 28px;
   margin-bottom: 22px;
   letter-spacing: 2px; }
   h2.dark, a.dark.btn, button.dark[type=submit], .tabs .dark.single-tab {
@@ -1127,15 +1078,12 @@ h2, a.btn, button[type=submit], .tabs .single-tab {
     font-size: 40px; }
 
 h3 {
-  font-size: 20px;
-  line-height: 24px;
-  font-weight: bold;
-  margin-top: 28px; }
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold; }
 
 h4 {
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 24px; }
+  font-size: 13px; }
 
 h5 {
   font-size: 16px;
