@@ -591,7 +591,7 @@ a.sm-button {
     border-radius: 9px 9px 0px 0px;
     /* future proofing */
     width: 100%;
-    max-height: 200px; }
+    max-height: 185px; }
 
 #corinthian .intro {
   background-color: #1a1b23;
@@ -1145,7 +1145,8 @@ p.small {
   margin: 0 auto;
   color: #39413f; }
   .wrapper.floating {
-    padding: 60px 0px; }
+    padding: 60px 0px;
+    margin: 60px auto; }
     .wrapper.floating .body-text {
       max-width: 85%; }
     .wrapper.floating h3 {
