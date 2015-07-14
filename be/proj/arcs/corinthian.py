@@ -4,14 +4,12 @@ from django.template import loader
 from django.http import Http404, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from proj.arcs.models import DTRUserProfile
-from proj.utils import json_response, get_POST_data
+from proj.utils import json_response, get_POST_data, send_email
 from django.contrib.auth.models import User
 from django.contrib import auth
 from proj.gather.models import Debt, UserProfile, Point
 from proj.collectives.models import UserAction, CollectiveMember, Action
 from boto.exception import S3ResponseError
-
-import smtplib
 
 # Import the email modules we'll need
 from email.MIMEText import MIMEText
@@ -27,50 +25,65 @@ import StringIO
 import csv
 import json
 
-def dtr_migrate(request, id):
-  dtr_profile = DTRUserProfile.objects.get(id=id)
-  email = request.GET.get('email')
-  dtr_data = dtr_profile.data
+def get_dtr(id):
+  try:
+    dtr = DTRUserProfile.objects.get(id=id)
+  except:
+    return None
+
+  dtr_data = dtr.data
   if not dtr_data:
-    return json_response({'error': 'Could not find your DTR. Please contact support@debtcollective.org'})
+    return None
+
+  return dtr
+
+def dtr_migrate_email(request, id):
+  dtr = get_dtr(id)
+  key = dtr.key()
+
+  BASE_URL = 'https://debtcollective.org'
+  migrate_url = BASE_URL + '/corinthian/dtr/migrate?email=' + dtr.data.email '&key=' + key
+
+def dtr_migrate(request, id):
+  email = request.GET.get('email')
+  key = request.GET.get('key')
+  dtr = get_dtr(id)
+
+  if not dtr:
+    return json_response({'error': 'Could not find your DTR. Please contact support@debtcollective.org'}, 500)
   if dtr_data['email'] != email:
     return json_response({'error': 'Email does not match original. Please provide a valid email address'}, 500)
 
   dtr_action = Action.objects.get(name='Defense to Repayment')
 
-  email = email.lower()
-  users = User.objects.filter(email=email)
-  if users:
-    user = users[0]
-  else:
-    user = User.objects.create_user(email, password=email, email=email)
+  username = email
+  password = email.lower()
+  users = User.objects.filter(username=username)
+  if not users:
+    User.objects.create_user(username, password=password, email=email)
 
-  user = auth.authenticate(username=user.username, password=email)
+  user = auth.authenticate(username=username, password=password)
+  if not user:
+    return redirect('/login')
   auth.login(request, user)
 
   useraction, created = UserAction.objects.get_or_create(user=user, action=dtr_action)
   if created:
-    useraction.data = dtr_profile.data
+    useraction.data = dtr.data
     useraction.status = UserAction.COMPLETED
     return redirect('/change_password')
   else:
     return redirect('/profile')
 
-def dtr_email(dtr_profile):
-  mailserver = smtplib.SMTP('smtp.mandrillapp.com', 587)
-  mailserver.set_debuglevel(1)
-  mailserver.login('noreply@debtcollective.org', settings.MANDRILL_API_KEY)
-
-  user_data = dict(dtr_profile.data)
-  from_email = 'noreply@debtcollective.org'
+def dtr_email(dtr):
+  user_data = dict(dtr.data)
   to = settings.DTR_RECIPIENT
-
   msg = MIMEMultipart()
+
   name = ''.join(user_data['name'])
   msg['Subject'] = '{0} at {1}'.format(name, ''.join(user_data['school_name']))
   msg['To'] = to
   msg['cc'] = ''.join(user_data['email'])
-  msg['From'] = from_email
   msg.attach(MIMEText("""
 To whom it may concern:
 
@@ -78,7 +91,7 @@ Attached find my application for Defense to Repayment.
 
 Best, %s
 """ % (name)))
-  fp = open(dtr_profile.output_file, 'rb')
+  fp = open(dtr.output_file, 'rb')
   part = MIMEBase('application', "octet-stream")
   part.set_payload(fp.read())
   Encoders.encode_base64(part)
@@ -87,10 +100,7 @@ Best, %s
   msg.attach(part)
   fp.close()
 
-  msg.add_header('X-MC-Track', 'opens, clicks')
-  mailserver.sendmail(from_email, [to], msg.as_string())
-
-  mailserver.quit()
+  send_email(msg)
 
 def remove_dupes(profiles):
   finished = {}
@@ -187,13 +197,13 @@ def dtr_generate(request):
 
   rq['name_2'] = rq.get('name', 'NA')
   rq['state_2'] = rq.get('state', 'NA')
-  dtr_profile = DTRUserProfile.generate(rq)
+  dtr = DTRUserProfile.generate(rq)
 
-  dtr_email(dtr_profile)
+  dtr_email(dtr)
 
   return json_response({
-    'id': dtr_profile.id,
-    'pdf_link': dtr_profile.pdf_link(),
+    'id': dtr.id,
+    'pdf_link': dtr.pdf_link(),
   }, 200)
 
 def dtr_view(request, id):

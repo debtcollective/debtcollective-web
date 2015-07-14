@@ -2,9 +2,9 @@
 {% load humanize %}
 
 {% block body %}
+{% include "proj/header.html" %}
 
 <div>
-  {% include "proj/header.html" %}
   <div id="map" class="map-container container" ng-controller="mapCtrl">
     <div class="wrapper">
       <p>

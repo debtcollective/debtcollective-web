@@ -8,8 +8,7 @@ import os
 admin.autodiscover()
 
 urlpatterns = patterns('',
-  url(r'^admin/', include(admin.site.urls)),
-  url('^change_password/done', auth_views.password_change_done, name='password_change_done')
+  url(r'^admin/', include(admin.site.urls))
 )
 
 def basic_url(name, prefix=""):

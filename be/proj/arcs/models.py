@@ -69,6 +69,9 @@ class DTRUserProfile(models.Model):
 
     return output_file
 
+  def unique_key(self):
+    return ahashfunction(self.data)
+
   @classmethod
   def generate(cls, values):
     profile = cls.objects.create()

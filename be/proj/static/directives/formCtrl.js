@@ -45,7 +45,7 @@ app.directive('signupform', function () {
 
         var debt = $scope.debts[0]
         var userData = {
-          'email': $scope.email,
+          'email': $scope.email.toLowerCase(),
           'point': $scope.location ? $scope.location.id : null,
           'kind': debt.debtType.id,
           'amount': parseFloat(debt.amount.replace(',', ''))
