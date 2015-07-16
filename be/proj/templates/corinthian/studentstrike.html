@@ -155,11 +155,9 @@
         </div>
       </div>
 
-    <div id="donate"></div>
-    <div class="wrapper arrow-up"></div>
-    <div class="wrapper arrow-down-steep">
-        {% include "proj/donateBox.html" %}
-    </div>
+      <div id="donate"></div>
+      {% include "proj/donateBox.html" with title="DONATE" %}
+
     <!-- hud display -->
     <div ng-class="{visible: currentStriker != null}"
       class="hud-display body-text light">

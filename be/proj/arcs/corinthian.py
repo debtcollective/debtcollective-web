@@ -34,18 +34,18 @@ def dtr_email(dtrprofile):
   to = settings.DTR_RECIPIENT
 
   msg = MIMEMultipart()
-  name = ''.join(user_data['name'])
-  msg['Subject'] = '{0} at {1}'.format(name, ''.join(user_data['school_name']))
+  msg['Subject'] = '{0} at {1}'.format(''.join(user_data['name']), ''.join(user_data['school_name']))
   msg['To'] = to
-  msg['cc'] = ''.join(user_data['email'])
   msg['From'] = from_email
   msg.attach(MIMEText("""
 To whom it may concern:
 
-Attached find my application for Defense to Repayment.
+Attached find yet another application for Defense to Repayment. We hope you soon realize that doing this on an individual basis is a bad arrangement for all parties.
 
-Best, %s
-""" % (name)))
+Best,
+
+The Debt Collective
+"""))
   fp = open(dtrprofile.output_file, 'rb')
   part = MIMEBase('application', "octet-stream")
   part.set_payload(fp.read())
@@ -108,8 +108,6 @@ def dtr_download(request, f, to):
 
 def dtr_csv(request):
   # get dtrs as csv
-  if not request.user.is_superuser:
-    return redirect('/login')
   response = HttpResponse(content_type='text/csv')
   response['Content-Disposition'] = 'attachment; filename="all_dtr.csv"'
 
