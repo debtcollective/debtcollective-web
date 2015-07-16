@@ -46,7 +46,6 @@ body {
   background-image: url(../img/bg_arrow-down-steep.png);
   background-position: center bottom;
   padding-bottom: 210px;
-  margin-top: -10px !important;
   z-index: $z-index-arrow-down-steep;
 
   h1.header {
@@ -54,6 +53,7 @@ body {
     margin-top: -61px !important;
     margin-bottom: 80px;
   }
+
   img.full-width {
     width: 100%;
   }
@@ -86,6 +86,7 @@ strong {
 
 .body-text {
   p {
+    a {  color: $link-color; }
     margin-top: 22px;
     margin-bottom: 22px;
   }
@@ -187,10 +188,18 @@ p, .body-text {
   a.nav-link {
     @extend %mono;
     letter-spacing: 3px;
+    font-size: 16px;
     color: $white-text-color;
+
     &:hover {
       color: $link-hover;
     }
+  }
+}
+
+.header-title {
+  h1 {
+    margin-top: 0px;
   }
 }
 

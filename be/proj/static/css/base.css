@@ -566,6 +566,25 @@ a.sm-button {
   .ticker-amount a {
     text-decoration: none !important; }
 
+.collective-card a:hover {
+  text-decoration: none; }
+.collective-card .collective-card-content {
+  height: 250px;
+  width: 250px;
+  background-repeat: no-repeat;
+  margin: 40px auto 5px auto;
+  position: relative; }
+  .collective-card .collective-card-content img {
+    max-width: 100%; }
+  .collective-card .collective-card-content .shade {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(http://1x1px.me/000000-0.8.png); }
+.collective-card h3 {
+  text-align: center;
+  color: black; }
+
 .action-card {
   padding: 0px 10px 10px 10px; }
   .action-card .action-card-content {
@@ -591,7 +610,8 @@ a.sm-button {
     border-radius: 9px 9px 0px 0px;
     /* future proofing */
     width: 100%;
-    max-height: 185px; }
+    max-height: 185px;
+    border: 1px solid #f1eee2; }
 
 #corinthian .intro {
   background-color: #1a1b23;
@@ -897,7 +917,6 @@ body {
   background-image: url(../img/bg_arrow-down-steep.png);
   background-position: center bottom;
   padding-bottom: 210px;
-  margin-top: -10px !important;
   z-index: 0; }
   .arrow-down-steep h1.header {
     text-align: center;
@@ -929,6 +948,8 @@ strong {
 .body-text p {
   margin-top: 22px;
   margin-bottom: 22px; }
+  .body-text p a {
+    color: #e84949; }
 
 hr {
   margin: 15px;
@@ -1001,9 +1022,13 @@ p, .body-text {
       display: none; }
   .header-links a.nav-link {
     letter-spacing: 3px;
+    font-size: 16px;
     color: #fefefe; }
     .header-links a.nav-link:hover {
       color: #f7f7ed; }
+
+.header-title h1 {
+  margin-top: 0px; }
 
 .forum-box {
   padding: 20px;

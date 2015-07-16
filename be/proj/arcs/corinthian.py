@@ -8,7 +8,7 @@ from proj.utils import json_response, get_POST_data, send_email
 from django.contrib.auth.models import User
 from django.contrib import auth
 from proj.gather.models import Debt, UserProfile, Point
-from proj.collectives.models import UserAction, CollectiveMember, Action
+from proj.collectives.models import UserAction, CollectiveMember, Action, Collective
 from boto.exception import S3ResponseError
 
 # Import the email modules we'll need
@@ -235,7 +235,12 @@ def corinthiandtr(request):
     return HttpResponse(template)
 
 def corinthiansignup(request):
-  return render_to_response('corinthian/signup.html')
+  collective = Collective.objects.get(name='Corinthian Collective')
+  c = {
+    "collective": collective,
+    "actions": Action.objects.filter(collective=collective)
+  }
+  return render_to_response('corinthian/signup.html', c)
 
 def corinthiancollective(request):
   return render_to_response('corinthian/signup.html')

@@ -2,7 +2,6 @@
 {% load humanize %}
 
 {% block body %}
-
 {% include "proj/header.html" %}
 
 <div class="container">
@@ -31,52 +30,25 @@
       </div>
     </div>
   </div>
+
   <div class="wrapper dark">
-    <div class="body-text centered">
-      <p>
-        <img src="http://blog.debtcollective.org/content/images/2015/04/group.jpg" />
-      </p>
-      <h2>STRIKE TEAM IN WASHINGTON</h2>
-      <p>
-      Members of the <a href="/studentstrike">Corinthian strike team</a> submited Defense to Repayment letters to the Department of Education in Washington DC asking them to cancel the debt of all Corinthian students. <a href="http://blog.debtcollective.org/corinthian-100-demanding-debt-cancellation-in-washington-dc/">Read what happened here.</a> You can still dispute your debt if you went to Everest, Heald, or Wyotech.
-      </p>
-      <p>
-      <form action="/corinthiandtr" class="dc-input">
-        <button type="submit" class="btn btn-primary">DISPUTE YOUR DEBT HERE</button>
-      </form>
-      </p>
+    <div class="row">
+      {% include "collectives/action_cards.html" with actions=actions %}
     </div>
   </div>
 
-
     <div class="wrapper arrow-up" id="whathappens"></div>
     <div class="wrapper arrow-down-steep">
-      <div class="row arrow-top-heading">
-          <h2 class="first hidden-mobile">Questions & Answers</h2>
-          <h2 class="first mobile-only">Q & A</h2>
+      <div class="row centered">
+        <h1 class="header">FAQ</h1>
       </div>
       <div class="row">
-        <div class="body-text">
-        <h3>What happens next?</h3>
-
-          <p>
-         Right now we have three campaigns in the works to challenge your Federal, Private, and Genesis debts.
-          </p>
-          <p>
-          <ul>
-          <li><strong>Genesis stop payment campaign.</strong> We are advising all Genesis debtors that, due to the recent settlement between ECMC and CFPB, it is ok to stop paying your Genesis loans. Genesis will not sue you. We will support you by challenging these debts and offering legal support to Genesis debtors.</li>
-          <li><strong>A ‘Defense to Repayment’ initiative.</strong> This involves collecting your information and writing legal claims to loan servicers and the Dept of Ed to demand the cancellation of these debts.
-          <a href="/corinthiandtr">Fill out the form here</a>.</li>
-          <li><strong>Strike. </strong>Some Corinthian students are <a href="/studentstrike">choosing to go public</a> about their decision to stop paying their federal student loans. This decision can be risky, so we want to talk with every student individually about whether this choice makes sense for them.</li>
-          </ul>
-          </p>
-          </div>
         <div class="body-text">
         <h3 >What is a strike?</h3>
           <p>
             <a href="/studentstrike">Corinthian students are currently involved in a student debt strike</a>. A student debt strike is a collective commitment to not pay student loans. The goal of the strike is to join together to put pressure on lenders and the Department of Education to cancel your loans. Corinthian students are in a particularly good position to demand debt relief since their school has been accused of fraud and predatory lending.
           </p>
-          <p><a ng-click="corithianSignupFormShown = true" class="big-link">Want to join the strike?</a></p>
+          <p><a ng-click="corithianSignupFormShown = true">Join the strike.</a></p>
         </div>
         <div class="body-text">
         <h3>Is there a lawsuit?</h3>
