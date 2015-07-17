@@ -42,7 +42,13 @@ $footer-open-height: 227px;
 $text:      $link-light;
 $rule:      desaturate(lighten($mid-grey, 20%), 30%);
 
-$z-index-footer: 100;
-$z-index-hud-display: 102;
-$z-index-hud-display-background: 101;
+$z-index-arrow-up: -5;
 $z-index-arrow-down-steep: 0;
+$z-index-splash: 99;
+$z-index-splash-counter: 100;
+$z-index-footer: 100;
+$z-index-dropdown: 100;
+$z-index-header: 101;
+$z-index-hud-display-background: 102;
+$z-index-hud-display: 103;
+$z-index-close-button: 104;

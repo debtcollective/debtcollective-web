@@ -61,7 +61,7 @@ body {
 
 .arrow-up {
   background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
-  z-index: -5;
+  z-index: $z-index-arrow-up;
   position: relative;
   padding-bottom: 250px;
 }
@@ -138,10 +138,9 @@ p, .body-text {
   font-size: 12px;
   line-height: 20px;
   text-align: center;
-  z-index: 1000;
   width: 100%;
   width: 100%;
-  z-index: 9999999;
+  z-index: $z-index-header;
   background-color: $off-grey;
   border-bottom: 1px solid $white-text-color;
 
@@ -180,6 +179,12 @@ p, .body-text {
     .header-title {
       display: none;
     }
+    .logo {
+      display: none;
+    }
+    a.nav-link .logo {
+      display: inline-block !important;
+    }
   }
 
   a.nav-link {
@@ -187,19 +192,39 @@ p, .body-text {
     letter-spacing: 3px;
     font-size: 16px;
     color: $white-text-color;
-
+    .logo {
+      margin-right: 10px;
+      display: none;
+      &:hover { text-decoration: none; }
+    }
     &:hover {
       color: $link-hover;
     }
   }
 }
 
+.close-button {
+  position: absolute;
+  top: 10;
+  right: 10;
+  z-index: $z-index-close-button;
+  @extend h1;
+  color: white !important;
+  background-color: $dark-background-color;
+  &:hover {
+    text-decoration: none !important;
+  }
+}
 .header-title {
+  text-align: center;
+  overflow: auto;
   h1 {
+    font-weight: normal;
+    font-size: 28px;
+    letter-spacing: 2px;
     margin-top: 0px;
   }
 }
-
 .forum-box {
   padding: 20px;
   border: 1px solid $dark-background-color;
@@ -213,7 +238,7 @@ p, .body-text {
 
 
 h1 {
-  @extend %mono;
+  @extend %rale;
   font-size: 38px;
   line-height: 38px;
   font-weight: 100;
@@ -352,6 +377,7 @@ p.small {
     background-color: $dark-background-color;
     h3 {
       color: $white-text-color;
+      margin-top: 10px;
       margin-bottom: 22px;
     }
     a {
@@ -567,7 +593,7 @@ select {
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 1000;
+  z-index: $z-index-dropdown;
   display: none;
   min-width: 160px;
   margin: 2px 0 0;
@@ -653,4 +679,119 @@ select {
   width: 90px;
   margin: 10px;
 }
+
+
+/** HUD **/
+
+.hud {
+  background-color: $light-background-color;
+  @include flexbox;
+  @include flex-direction(column);
+
+  .top {
+    height: 50%;
+  }
+
+  h1 {
+    line-height: 64px;
+  }
+  h1.large {
+    font-size: 70px;
+  }
+
+  div {
+    text-align: center;
+  }
+
+  .half {
+    background-color: $off-grey;
+    position: relative;
+    height: 100%;
+    width: 49.6%;
+
+    &:first-child {
+      margin-right: 5px;
+    }
+
+    h1 {
+      top: 50%;
+      transform: translateY(-80%);
+      position: relative;
+    }
+  }
+
+  .full {
+    padding: 20px;
+    background-color: $off-grey;
+    margin-top: 5px;
+    width: 100%;
+  }
+}
+
+.slider {
+  padding: 40px 0px;
+  .row {
+    padding: 10px;
+  }
+}
+
+.name-text {
+  font-size: 105%;
+}
+
+.memorial-box {
+  height: 80px;
+  p {
+    height: 50px;
+    overflow: hidden;
+    text-overflow: clip;
+    font-size: 13px;
+  }
+}
+
+.hud-display-background {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: $z-index-hud-display-background;
+  background-color: black;
+  opacity: .9;
+  display: none;
+}
+
+.hud-display {
+  display: none;
+  background-color: transparent !important;
+  position: fixed !important;
+  height: 100%;
+  width: 100%;
+  top: 50px;
+  z-index: $z-index-hud-display;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .arrow-up {
+    margin-top: -100px;
+  }
+  h3 {
+    margin-top: 10px;
+  }
+  p {
+    padding: 20px;
+  }
+  .img {
+    text-align: center;
+    max-height: 500px;
+    min-height: 300px;
+  }
+
+  .content {
+    overflow-y: auto;
+    height: 100%;
+    position: absolute;
+    color: $light-text-color;
+  }
+}
+
 @import "includes/responsive";

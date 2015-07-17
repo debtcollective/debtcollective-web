@@ -16,8 +16,8 @@ app.controller('splashCtrl',
       widthNumber: 30,
       heightNumber: 54,
       spaceNumbers: 0,
-      offsetRight: -11,
-      maxDigits: 11,
+      offsetRight: -10,
+      maxDigits: 10,
       prefixChar: true
     }
     var total_amount = 182170071;

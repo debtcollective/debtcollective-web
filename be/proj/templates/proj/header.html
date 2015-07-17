@@ -1,21 +1,28 @@
  <div ng-class="{scrolling: yLoc >= 5}" class="header-links hidden-mobile">
     <div class="header-title">
-        <h1>
-      <img style="vertical-align: inherit;" src="/static/img/RedSquare_favicon.png" />
+      <h1>
+        <img src="/static/img/RedSquare_favicon.png" class="logo" />
         DEBT COLLECTIVE
       </h1>
     </div>
+    <a href="/" class="nav-link">
+        <img src="/static/img/RedSquare_favicon.png" class="logo" />
+    </a>
     <a class="nav-link" href="/actions">Action</a>
     &nbsp;&nbsp; | &nbsp;&nbsp;
     <a class="nav-link" href="http://blog.debtcollective.org">Blog</a>
     &nbsp;&nbsp; | &nbsp;&nbsp;
     <a class="nav-link" href="http://strategize.debtcollective.org">Community</a>
     &nbsp;&nbsp; | &nbsp;&nbsp;
-    <a class="nav-link" href="/#donate" du-smooth-scroll>Support</a>
+    <a class="nav-link" ng-click="supportVisible = true" du-smooth-scroll>Support</a>
 </div>
 
 <div class="header-links mobile-only">
-<a class="nav-link" href="/">HOME</a>
-&nbsp;&nbsp;  |  &nbsp;&nbsp;
-<a du-scrollspy class="nav-link" href="/actions">ACTION</a>
+    <a class="nav-link" href="/actions">Action</a>
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+    <a class="nav-link" href="http://blog.debtcollective.org">Blog</a>
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+    <a class="nav-link" href="http://strategize.debtcollective.org">Community</a>
+    &nbsp;&nbsp; | &nbsp;&nbsp;
+    <a class="nav-link" ng-click="supportVisible = true" du-smooth-scroll>Support</a>
 </div>

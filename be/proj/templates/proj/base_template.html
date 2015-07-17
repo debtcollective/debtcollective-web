@@ -2,7 +2,7 @@
   <!-- DC kit -->
   <link rel="stylesheet" href="/static/css/reset.css" />
   <link rel="stylesheet" href="/static/css/base.css?vdb8b9a38" />
-  <link href='//fonts.googleapis.com/css?family=Cutive+Mono|Raleway:400,700' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Ubuntu:500|Raleway:400,700' rel='stylesheet' type='text/css'>
   <link rel="icon" type="image/png" href="/static/img/RedSquare_favicon.png">
 
   <meta charset="UTF-8">
@@ -25,10 +25,19 @@
 
 </head>
 <body scroll ng-app="myDebtIs">
+  <div class="body" ng-controller="baseCtrl">
+  <div class="hud-display-background" ng-click="supportVisible = false"
+    ng-class="{visible: supportVisible}"></div>
+    {% block body %}{% endblock %}
+    <div ng-class="{visible: supportVisible}" class="hud-display">
+      <div class="content">
+        <div class="wrapper floating body-text light">
+          <a ng-click="supportVisible = false" class="close-button">X</a>
+          {% include "proj/donateBox.html" %}
+        </div>
+      </div>
+    </div>
 
-
-  <div class="body">
-  {% block body %}{% endblock %}
   </div>
   {% include "proj/footer.html" %}
 

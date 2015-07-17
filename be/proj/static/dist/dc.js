@@ -2119,7 +2119,11 @@ app.value('duScrollDuration', 1000)
 app.config(function($interpolateProvider, $routeProvider) {
     $interpolateProvider.startSymbol('{$');
     $interpolateProvider.endSymbol('$}');
-});;app.controller('calculatorCtrl', function ($scope) {
+});;app.controller('baseCtrl',
+ function ($scope, $http, util_svc, $document, $timeout, $window) {
+  $scope.supportVisible = false;
+});
+;app.controller('calculatorCtrl', function ($scope) {
     $scope.debtType = 'salliemae';
 
     $scope.resetState = function() {
@@ -2668,8 +2672,8 @@ app.controller('solidarityStrikeCtrl',
       widthNumber: 30,
       heightNumber: 54,
       spaceNumbers: 0,
-      offsetRight: -11,
-      maxDigits: 11,
+      offsetRight: -10,
+      maxDigits: 10,
       prefixChar: true
     }
     var total_amount = 182170071;
