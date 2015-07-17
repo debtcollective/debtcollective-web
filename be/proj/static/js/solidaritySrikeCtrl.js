@@ -23,26 +23,10 @@ app.controller('solidarityStrikeCtrl',
       else $scope.currentChunk -= 3
     }
 
-    function fetchTallies () {
-      var ds = new Miso.Dataset({
-        importer : Miso.Dataset.Importers.GoogleSpreadsheet,
-        parser : Miso.Dataset.Parsers.GoogleSpreadsheet,
-        key : "1r4ZVySodsuZnFqabsSUezJ4CysEs1RwVX9jZj-AjzKQ",
-        worksheet : "2"
-      });
-      ds.fetch({
-        success: function () {
-          var json = this.toJSON();
-          $scope.num = json.length;
-          $scope.solidarityStrikers = json.chunk(4)
-          $scope.doneLoading = true;
-        },
-        error : function() {
-          console.error("Are you sure you are connected to the internet?");
-          setTimeout(fetchTallies, 500)
-        }
-      })
-    }
-
-   fetchTallies()
+    $http.get('/static/data/sstrike.json').then(function (resp) {
+      var json = resp.data.rows;
+      $scope.num = json.length;
+      $scope.solidarityStrikers = json.chunk(4);
+      $scope.doneLoading = true;
+    })
 })

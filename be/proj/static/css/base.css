@@ -182,6 +182,9 @@ a.sm-button {
 .sm-buttons-right {
   float: right; }
 
+input[type=submit] {
+  margin: 2px; }
+
 .btn {
   min-width: 150px;
   background-color: #a82727;

@@ -2122,6 +2122,12 @@ app.config(function($interpolateProvider, $routeProvider) {
 });;app.controller('baseCtrl',
  function ($scope, $http, util_svc, $document, $timeout, $window) {
   $scope.supportVisible = false;
+
+    $('textarea.tweetmsg').keyup(function() {
+      var tweetmsg = $('textarea.tweetmsg').val();
+      console.log(tweetmsg)
+      $('.tweet-go').attr('href', 'https://twitter.com/share?text=' + tweetmsg);
+    });
 });
 ;app.controller('calculatorCtrl', function ($scope) {
     $scope.debtType = 'salliemae';
@@ -2265,7 +2271,7 @@ app.controller('corinthianCtrl',
     $scope.corinthian15 = []
     $scope.strikeTeam = []
 
-    $http.get('/static/js/strikers.json').then(function (resp) {
+    $http.get('/static/data/strikers.json').then(function (resp) {
       $scope.loading = false;
       for (i in resp.data) {
         var striker = resp.data[i]
@@ -2279,11 +2285,11 @@ app.controller('corinthianCtrl',
       $scope.corinthian15Chunks = $scope.corinthian15.chunk(5)
     });
 
-    $http.get('/static/js/name_only_strikers.csv').then(function (resp) {
+    $http.get('/static/data/name_only_strikers.csv').then(function (resp) {
       $scope.strikeTeamNames = resp.data.split('\n')
     })
 
-    $http.get('/static/js/new_strikers.json').then(function (resp) {
+    $http.get('/static/data/new_strikers.json').then(function (resp) {
       $scope.loading = false;
       for (i in resp.data) {
         var striker = resp.data[i]
@@ -2544,7 +2550,7 @@ app.directive('scrollOnClick', function() {
         zoomLongitude: -98.198721
     };
 
-    $http.get('/static/js/map_data.json').then(function (resp) {
+    $http.get('/static/data/map_data.json').then(function (resp) {
         var parsedImages = [];
         var total_amount = resp.data.total_amount;
         var points = resp.data.points;
@@ -2632,29 +2638,14 @@ app.controller('solidarityStrikeCtrl',
       else $scope.currentChunk -= 3
     }
 
-    function fetchTallies () {
-      var ds = new Miso.Dataset({
-        importer : Miso.Dataset.Importers.GoogleSpreadsheet,
-        parser : Miso.Dataset.Parsers.GoogleSpreadsheet,
-        key : "1r4ZVySodsuZnFqabsSUezJ4CysEs1RwVX9jZj-AjzKQ",
-        worksheet : "2"
-      });
-      ds.fetch({
-        success: function () {
-          var json = this.toJSON();
-          $scope.num = json.length;
-          $scope.solidarityStrikers = json.chunk(4)
-          $scope.doneLoading = true;
-        },
-        error : function() {
-          console.error("Are you sure you are connected to the internet?");
-          setTimeout(fetchTallies, 500)
-        }
-      })
-    }
-
-   fetchTallies()
-});app.controller('splashCtrl',
+    $http.get('/static/data/sstrike.json').then(function (resp) {
+      var json = resp.data.rows;
+      $scope.num = json.length;
+      $scope.solidarityStrikers = json.chunk(4);
+      $scope.doneLoading = true;
+    })
+})
+;app.controller('splashCtrl',
  function ($scope, $http, util_svc, $document, $timeout, $window) {
     function scrollToElement(id) {
         var someElement = angular.element(document.getElementById(id));

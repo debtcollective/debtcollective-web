@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response, redirect
 from proj.collectives.models import UserAction, Action, Collective
+from proj.utils import json_response, get_POST_data
 
 def collective(request, slug):
   collective = Collective.objects.get(slug=slug)
@@ -19,3 +20,4 @@ def all_actions(request):
   actions = Action.objects.filter(active=True)
   c = {'collectives': collectives, 'actions': actions, 'user': request.user}
   return render_to_response('collectives/all_actions.html', c)
+

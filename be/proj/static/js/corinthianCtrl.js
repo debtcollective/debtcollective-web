@@ -33,7 +33,7 @@ app.controller('corinthianCtrl',
     $scope.corinthian15 = []
     $scope.strikeTeam = []
 
-    $http.get('/static/js/strikers.json').then(function (resp) {
+    $http.get('/static/data/strikers.json').then(function (resp) {
       $scope.loading = false;
       for (i in resp.data) {
         var striker = resp.data[i]
@@ -47,11 +47,11 @@ app.controller('corinthianCtrl',
       $scope.corinthian15Chunks = $scope.corinthian15.chunk(5)
     });
 
-    $http.get('/static/js/name_only_strikers.csv').then(function (resp) {
+    $http.get('/static/data/name_only_strikers.csv').then(function (resp) {
       $scope.strikeTeamNames = resp.data.split('\n')
     })
 
-    $http.get('/static/js/new_strikers.json').then(function (resp) {
+    $http.get('/static/data/new_strikers.json').then(function (resp) {
       $scope.loading = false;
       for (i in resp.data) {
         var striker = resp.data[i]
