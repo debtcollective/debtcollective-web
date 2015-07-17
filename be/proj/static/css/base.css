@@ -829,7 +829,7 @@ strong {
     color: #e84949; }
 
 hr {
-  border-top: 2px solid white; }
+  border-top: 1px solid white; }
 
 p, .body-text {
   margin: 0px auto;
@@ -969,8 +969,8 @@ h3 {
     color: #e84949 !important; }
 
 h4 {
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 16px;
+  line-height: 20px;
   text-align: center; }
 
 h5 {
