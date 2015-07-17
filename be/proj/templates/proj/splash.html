@@ -42,14 +42,12 @@
       <h1>Action Alert!</h1>
       <h3>View current Debt Collectives and all collective actions on <a href="/actions">the Actions page.</a></h3>
     </div>
-    <div class="row">
-      <div class="row body-text">
-        {% for action in actions %}
-          <div class="col-md-6 col-lg-6 col-sm-12 action-card">
-          {% include "collectives/action_card.html" %}
-          </div>
-        {% endfor %}
-      </div>
+    <div class="row body-text">
+      {% for action in actions %}
+        <div class="col-md-6 col-sm-12 action-card">
+        {% include "collectives/action_card.html" %}
+        </div>
+      {% endfor %}
     </div>
   </div>
   <div class="wrapper arrow-up"></div>

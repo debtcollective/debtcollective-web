@@ -1046,6 +1046,9 @@ p.small {
   .wrapper.light {
     color: #111;
     background-color: #f1eee2; }
+    .wrapper.light .close-button {
+      color: #111 !important;
+      background-color: #f1eee2; }
     .wrapper.light h1, .wrapper.light .close-button {
       color: #111; }
 

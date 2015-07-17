@@ -2128,6 +2128,12 @@ app.config(function($interpolateProvider, $routeProvider) {
       console.log(tweetmsg)
       $('.tweet-go').attr('href', 'https://twitter.com/share?text=' + tweetmsg);
     });
+
+
+  // Close Checkout on page navigation
+  $window.addEventListener('popstate', function() {
+    $scope.supportVisible = false;
+  });
 });
 ;app.controller('calculatorCtrl', function ($scope) {
     $scope.debtType = 'salliemae';
@@ -2761,9 +2767,7 @@ app.controller('solidarityStrikeCtrl',
             stripeToken: token
           })
         }
-
       });
-
       $scope.flexible = !!$attrs.flexible
       $scope.form = {
         flexibleAmount: ''

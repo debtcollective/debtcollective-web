@@ -17,9 +17,7 @@ app.directive('donateButton', function ($window, $http) {
             stripeToken: token
           })
         }
-
       });
-
       $scope.flexible = !!$attrs.flexible
       $scope.form = {
         flexibleAmount: ''

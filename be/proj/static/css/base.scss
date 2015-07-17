@@ -385,7 +385,10 @@ p.small {
   &.light {
     color:  $light-text-color;
     background-color: $light-background-color;
-
+    .close-button {
+      color: $light-text-color !important;
+      background-color: $light-background-color;
+    }
     h1 {
       color: $light-text-color;
     }
