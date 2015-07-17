@@ -179,22 +179,19 @@ p, .body-text {
     .header-title {
       display: none;
     }
-    .logo {
-      display: none;
-    }
-    a.nav-link .logo {
+    a .logo.bar {
       display: inline-block !important;
     }
   }
 
-  a.nav-link {
+  a {
     @extend %mono;
     letter-spacing: 3px;
     font-size: 16px;
     color: $white-text-color;
     .logo {
       margin-right: 10px;
-      display: none;
+      &.bar { display: none; }
       &:hover { text-decoration: none; }
     }
     &:hover {

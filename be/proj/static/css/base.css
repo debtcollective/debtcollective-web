@@ -6,7 +6,7 @@
   font-size: 14px;
   line-height: 16px; }
 
-.button-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .header-links a.nav-link, .mono, .top-quote h1, .top-quote .close-button, .faq-continue {
+.button-box .box-text, .nav-footer, .splash .splash-footer, .debt-total, .testimonial-top, .header-links a, .mono, .top-quote h1, .top-quote .close-button, .faq-continue {
   font-family: "Ubuntu", serif; }
 
 .btn, input[type="text"],
@@ -893,20 +893,19 @@ p, .body-text {
       width: 20px; }
     .header-links.scrolling .header-title {
       display: none; }
-    .header-links.scrolling .logo {
-      display: none; }
-    .header-links.scrolling a.nav-link .logo {
+    .header-links.scrolling a .logo.bar {
       display: inline-block !important; }
-  .header-links a.nav-link {
+  .header-links a {
     letter-spacing: 3px;
     font-size: 16px;
     color: #fefefe; }
-    .header-links a.nav-link .logo {
-      margin-right: 10px;
-      display: none; }
-      .header-links a.nav-link .logo:hover {
+    .header-links a .logo {
+      margin-right: 10px; }
+      .header-links a .logo.bar {
+        display: none; }
+      .header-links a .logo:hover {
         text-decoration: none; }
-    .header-links a.nav-link:hover {
+    .header-links a:hover {
       color: #f7f7ed; }
 
 .close-button {
