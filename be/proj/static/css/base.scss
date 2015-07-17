@@ -94,8 +94,7 @@ strong {
 }
 
 hr {
-  margin: 15px;
-  border-top: 1px solid black;
+  border-top: 2px solid white;
 }
 
 p, .body-text {
@@ -293,7 +292,9 @@ h3 {
 
 h4 {
   @extend %rale;
-  font-size: 24px;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
 }
 
 h5 {
