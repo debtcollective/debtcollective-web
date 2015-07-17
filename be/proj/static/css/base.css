@@ -182,13 +182,10 @@ a.sm-button {
 .sm-buttons-right {
   float: right; }
 
-input[type=submit] {
-  margin: 2px; }
-
 .btn {
   min-width: 150px;
   background-color: #a82727;
-  color: #39413f;
+  color: #111;
   margin: 8px 0px; }
   .btn.red, .btn.btn-primary {
     background-color: #a82727;
@@ -313,7 +310,7 @@ input[type=submit] {
 #resources {
   padding-top: 60px; }
   #resources h6 {
-    color: #39413f;
+    color: #111;
     text-align: center;
     padding-top: 30px; }
   #resources li {
@@ -597,13 +594,13 @@ input[type=submit] {
     /* future proofing */
     margin: 5px;
     background-color: #f1eee2;
-    color: #39413f; }
+    color: #111; }
     .action-card .action-card-content a {
-      color: #39413f !important; }
+      color: #111 !important; }
       .action-card .action-card-content a:hover {
         text-decoration: none; }
     .action-card .action-card-content h2, .action-card .action-card-content a.btn, .action-card .action-card-content button[type=submit], .action-card .action-card-content .tabs .single-tab, .tabs .action-card .action-card-content .single-tab, .action-card .action-card-content h3 {
-      color: #39413f !important;
+      color: #111 !important;
       margin: 5px 0px !important; }
   .action-card .action-card-text {
     padding: 20px; }
@@ -612,8 +609,7 @@ input[type=submit] {
     -webkit-border-radius: 9px 9px 0px 0px;
     border-radius: 9px 9px 0px 0px;
     /* future proofing */
-    width: 100%;
-    max-height: 185px; }
+    width: 100%; }
 
 #corinthian .intro {
   background-color: #1a1b23;
@@ -775,7 +771,7 @@ label {
 :-moz-placeholder,
 ::-moz-placeholder,
 :-ms-input-placeholder {
-  color: #39413f; }
+  color: #111; }
 
 body {
   background-color: #39413f;
@@ -859,8 +855,9 @@ p, .body-text {
   padding-top: 2em; }
 
 .header-links {
+  letter-spacing: 3px;
+  font-size: 16px;
   padding: 5.5px 15px;
-  font-size: 12px;
   line-height: 20px;
   text-align: center;
   width: 100%;
@@ -898,8 +895,6 @@ p, .body-text {
     .header-links.scrolling a .logo.bar {
       display: inline-block !important; }
   .header-links a {
-    letter-spacing: 3px;
-    font-size: 16px;
     color: #fefefe; }
     .header-links a .logo {
       margin-right: 10px; }
@@ -933,7 +928,7 @@ p, .body-text {
   padding: 20px;
   border: 1px solid #39413f;
   background-color: #f1eee2;
-  color: #39413f; }
+  color: #111; }
 
 h1, .close-button {
   font-size: 38px;
@@ -999,7 +994,7 @@ p.small {
     font-size: 22px;
     line-height: 24px;
     letter-spacing: 0px;
-    color: #39413f; }
+    color: #111; }
 
 .quote {
   -webkit-transform: translateY(-25%);
@@ -1029,7 +1024,7 @@ p.small {
 .wrapper {
   position: relative;
   margin: 0 auto;
-  color: #39413f; }
+  color: #111; }
   .wrapper.floating {
     padding: 60px 0px;
     margin: 60px auto; }
@@ -1049,10 +1044,10 @@ p.small {
     .wrapper.dark a {
       color: #fefefe; }
   .wrapper.light {
-    color: #39413f;
+    color: #111;
     background-color: #f1eee2; }
     .wrapper.light h1, .wrapper.light .close-button {
-      color: #39413f; }
+      color: #111; }
 
 .faq-continue {
   text-align: center;
@@ -1070,7 +1065,7 @@ p.small {
   .tabs .single-tab {
     width: 50%;
     background-color: #f1eee2;
-    color: #39413f;
+    color: #111;
     padding: 10px;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
@@ -1087,7 +1082,7 @@ p.small {
     .tabs .active a {
       color: #f1eee2; }
       .tabs .active a:hover {
-        color: #39413f;
+        color: #111;
         cursor: pointer; }
 
 .paper {
@@ -1379,7 +1374,7 @@ select {
     overflow-y: auto;
     height: 100%;
     position: absolute;
-    color: #39413f; }
+    color: #111; }
 
 .mobile-only {
   display: none; }

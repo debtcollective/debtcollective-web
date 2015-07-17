@@ -133,8 +133,9 @@ p, .body-text {
 }
 
 .header-links {
+  letter-spacing: 3px;
+  font-size: 16px;
   padding: 5.5px 15px;
-  font-size: 12px;
   line-height: 20px;
   text-align: center;
   width: 100%;
@@ -185,8 +186,6 @@ p, .body-text {
 
   a {
     @extend %mono;
-    letter-spacing: 3px;
-    font-size: 16px;
     color: $white-text-color;
     .logo {
       margin-right: 10px;

@@ -255,7 +255,11 @@ def knowyourstudentdebt(request):
   return render_to_response('corinthian/knowyourstudentdebt.html')
 
 def solidaritystrike(request):
-  return render_to_response('corinthian/solidaritystrike.html')
+  c = {
+    'collective': Collective.objects.get(name='Debt Collective'),
+    'actions': Action.objects.filter(name__contains='Strike')[:3]
+  }
+  return render_to_response('corinthian/solidaritystrike.html', c)
 
 def solidaritystrikeform(request):
   return render_to_response('corinthian/solidaritystrikeform.html')
