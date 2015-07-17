@@ -4,34 +4,19 @@ app.directive('corinthianSignupForm', function () {
     templateUrl: '/static/directives/ccform.html',
     replace: true,
     controller: function ($scope, $element, $document, $http, $window, users) {
-      $scope.strikeFormSubmitted = false
+      $scope.formSubmitted = false
 
       $scope.submitForm = function () {
         if (!$scope.debtAmount) {
           return
         }
 
-        var userData = {
-          'email': $scope.email,
-          'point': undefined,
-          'kind': 'student',
-          'amount': parseFloat($scope.debtAmount.replace(',', ''))
-        }
-
-        var salliemae = 0
-        var corinthian = 1
-        users.gDocsCollectiveCounter(salliemae, corinthian)
-
         var data = {
-          "cm-nuriti-nuriti": $scope.email, // email
-          "cm-name": null, // name
-          "callback": "JSON_CALLBACK"
+          'email': $scope.email,
+          'list': 'RUDSi1E892892XdpjO763892Zxq892hw'
         }
 
-        $http.jsonp('//strikedebt.createsend.com/t/j/s/nuriti', {
-          params: data
-        }).then(function (resp) {
-          console.log(resp)
+        $http.post('//mail.debtcollective.org/subscribe', data).then(function (resp) {
           $scope.strikeFormSubmitted = true
           var someElement = angular.element(document.getElementById('signup-prompt'));
           $document.scrollToElement(someElement, 150, 500);

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib import admin
 from django.contrib.auth.models import User
 from datetime import datetime
+from django.db.models.signals import post_save
 
 
 class Point(models.Model):
@@ -38,6 +39,11 @@ class UserProfile(models.Model):
   created_at = models.DateTimeField(default=datetime.now)
   point = models.ForeignKey(Point, null=True)
 
+def create_user_profile(sender, instance, created, **kwargs):
+  if created:
+    UserProfile.objects.create(user=instance)
+
+post_save.connect(create_user_profile, sender=User)
 
 class Debt(models.Model):
   AUTO = 'auto'

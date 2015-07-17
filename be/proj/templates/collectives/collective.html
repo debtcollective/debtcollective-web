@@ -1,0 +1,37 @@
+{% extends "proj/base_template.html" %}
+{% load humanize %}
+
+{% block body %}
+{% include "proj/header.html" %}
+
+<div class="container">
+  <div class="wrapper arrow-down-steep">
+    <div class="row">
+      <div class="centered body-text">
+        <img class="smaller-logo" src="{{collective.image}}" />
+      </div>
+      <div class="body-text">
+        <h2>{{collective.name}}
+        {% if user.is_superuser %}
+          <a href="/admin/collectives/collective/{{collective.id}}">Edit </a>
+        {% endif %})</h2>
+        <p>{{collective.description | safe}}</p>
+        <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+          <button type="submit" class="btn btn-primary">JOIN</button>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+          <button type="submit" class="btn btn-primary">SUPPORT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper dark">
+    <div class="row ">
+      <h2>Actions</h2>
+      {% include "collectives/action_cards.html" with actions=collective.actions.all %}
+    </div>
+  </div>
+
+</div>
+{% endblock %}

@@ -2,13 +2,12 @@
 {% load humanize %}
 
 {% block body %}
-{% include "proj/header.html" %}
+{% include "proj/insideHeader.html" with title='CORINTHIAN DEBT STRIKE' %}
 <div scroll ng-controller="corinthianCtrl">
   <div class="hud-display-background"  ng-click="closeStriker($event)" ng-class="{visible: currentStriker != null}"></div>
 
   <section id="corinthian">
     <div class="container">
-
       <div class="wrapper light">
         <div class="top-graphic centered">
           <img class="hidden-mobile" src="/static/img/strikers/striker_headerimage.gif" />
@@ -25,7 +24,7 @@
             </div>
         </div>
         <div class="row light">
-          <div class="body-text main caption centered">
+          <div class="body-text centered">
             <div class="inter-text">
               <h2>
                 To the Department of Education, <br class="hidden-mobile">to the loan servicers,
@@ -59,6 +58,8 @@
 
           <h2>
             <button type="submit" class="btn btn-primary" ng-show="!showCorinthians" ng-click="showCorinthians = true">SEE ALL 200 STRIKERS</button>
+
+             <button type="submit" ng-show="!corithianSignupFormShown" ng-click="corithianSignupFormShown = true" class="btn btn-primary">JOIN THE STRIKE</button>
           </h2>
           <div ng-class="{ 'hidden' : !showCorinthians }">
             <div ng-repeat="striker in strikeTeam | filter: striker.hasImage" >
@@ -74,6 +75,11 @@
           </div>
           </div>
           </div>
+          <div class="row light" ng-show="corithianSignupFormShown">
+            <div class="body-text">
+              <corinthian-signup-form></corinthian-signup-form>
+            </div>
+          </div>
           <div class="row">
           <div class="body-text caption sub">
           <p>Help spread the word, lend your voice over <fb-button class="sm-button big-link">facebook</fb-button> and <a href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" class="big-link" target="_blank">twitter</a>!</p>
@@ -87,56 +93,44 @@
       </div>
         </div>
       </div>
-      <div class="wrapper dark">
-        <h2>DO YOU HAVE DEBT FROM A CORINTHIAN COLLEGE?</h2>
-        <div class="body-text centered">
-          <p>You can be involved in actions to fight to get your money back.
-          Members of the Corinthian strike team will submit Defense to Repayment letters to the Department of Education in Washington DC asking them to cancel the debt of all Corinthian students.
-          </p>
-          <form action="/corinthiandtr" class="dc-input">
-            <button type="submit" class="btn btn-primary">DISPUTE YOUR DEBT</button>
-          </form>
-        </div>
-      </div>
       <div class="spacer"></div>
 
       <div id="letter" class="wrapper arrow-down-steep">
-      <div class="row light">
-      <div class="tabs">
-        <div class="single-tab" ng-class="{'active': !corinthianLetterVisible}"
-          ng-click="showCorinthianLetter()">
-            CORINTHIAN 15</div>
-        <div class="single-tab" ng-class="{'active': corinthianLetterVisible}"
-          ng-click="showSolidarityLetter()">C15 SUPPORTERS</div>
-      </div>
-
-      <div id="corinthianLetter" ng-show="corinthianLetterVisible">
-        {% include "corinthian/corinthian15Letter.html" %}
-      </div>
-
-      <div id="solidarityLetter" ng-show="!corinthianLetterVisible">
-        {% include "corinthian/solidarityLetter.html" %}
-      </div>
- <div class="tabs">
-        <div class="single-tab" ng-class="{'active': !corinthianLetterVisible}"
-          ng-click="showCorinthianLetter()">STUDENTS</div>
-        <div class="single-tab" ng-class="{'active': corinthianLetterVisible}"
-          ng-click="showSolidarityLetter()">SUPPORTERS</div>
-      </div>
-      <div class="paper-bottom-form" id="likethestrike">
-        <div class="dc-input">
-          <div class="body-text" ng-show="corinthianLetterVisible">
-            <h2 class="dark">Corinthian student?</h2>
-            <form action="/corinthiansignup" method="GET">
-              <input type="text" placeholder="your name here" />
-              <button type="submit" class="btn btn-primary">join the strike</button>
-            </form>
+        <div class="row light">
+          <div class="tabs centered">
+            <div class="single-tab" ng-class="{'active': !corinthianLetterVisible}"
+              ng-click="showCorinthianLetter()">
+                CORINTHIAN 15</div>
+            <div class="single-tab" ng-class="{'active': corinthianLetterVisible}"
+              ng-click="showSolidarityLetter()">C15 SUPPORTERS</div>
           </div>
 
-          <signupform ng-show="!corinthianLetterVisible"></signupform>
+          <div id="corinthianLetter" ng-show="corinthianLetterVisible">
+            {% include "corinthian/corinthian15Letter.html" %}
+          </div>
+
+          <div id="solidarityLetter" ng-show="!corinthianLetterVisible">
+            {% include "corinthian/solidarityLetter.html" %}
+          </div>
+          <div class="tabs centered">
+            <div class="single-tab" ng-class="{'active': !corinthianLetterVisible}"
+              ng-click="showCorinthianLetter()">STUDENTS</div>
+            <div class="single-tab" ng-class="{'active': corinthianLetterVisible}"
+              ng-click="showSolidarityLetter()">SUPPORTERS</div>
+          </div>
+          <div class="paper-bottom-form" id="likethestrike">
+            <div class="dc-input">
+              <div class="body-text centered">
+                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                  <button type="submit" ng-click="corithianSignupFormShown = true" class="btn btn-primary">JOIN</button>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+                  <a href="/#donate" class="btn btn-primary">SUPPORT</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
        <div class="body-text caption sub">
           <p>Help spread the word, lend your voice over <fb-button class="big-link">facebook</fb-button> and <a href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" class="big-link" target="_blank">twitter</a>!</p>
         <fb-button class="sm-button">
@@ -147,27 +141,19 @@
         </a>
       </div>
     </div>
-
-      <div class="wrapper dark">
-        <h2>NOT A CORINTHIAN STUDENT BUT WANT TO BE INVOLVED?</h2>
-        <div class="body-text">
-          <h2> You can <a href="#donate">donate</a>, <a href="/#signup">sign up for email updates</a> and join strategy conversations in our <a  href="http://strategize.debtcollective.org"> community forums</a></h2></h2>
-        </div>
-      </div>
-
-      <div id="donate"></div>
-      {% include "proj/donateBox.html" with title="DONATE" %}
-
     <!-- hud display -->
     <div ng-class="{visible: currentStriker != null}"
-      class="hud-display body-text light">
-      <div class="info">
+      class="hud-display body-text">
+      <a ng-click="currentStriker = null" class="close-button">X</a>
+      <div class="content">
         <div class="img">
           <img ng-click="closeStriker($event)"
              ng-src="{$ currentStriker.bigImage $}" />
         </div>
-        <h3 class="centered">{$ currentStriker.name $}</h3>
-        <p>{$ currentStriker.bio $}</p>
+        <div class="wrapper floating row light">
+          <h2 class="centered">{$ currentStriker.name $}</h2>
+          <p>{$ currentStriker.bio $}</p>
+        </div>
       </div>
     </div>
     </div>

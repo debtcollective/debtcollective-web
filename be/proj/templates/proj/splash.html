@@ -2,146 +2,107 @@
 {% load humanize %}
 
 {% block body %}
+{% include "proj/header.html" %}
 
-<div>
-  {% include "proj/header.html" %}
-  <div id="map" class="map-container container" ng-controller="mapCtrl">
-    <div class="wrapper">
-      <p>
-        <div class="counter-container">
-          <div class="counter"></div>
+<div id="map" class="map-container container" ng-controller="mapCtrl">
+  <div class="wrapper">
+    <p>
+      <div class="counter-container">
+        <div class="counter"></div>
+      </div>
+    </p>
+    <img src="/static/img/dcnew_key.png" class="legend" />
+    <div id="mapdiv" class="map-loading"></div>
+  </div>
+</div>
+<div ng-controller="splashCtrl" class="container">
+  <div class="wrapper arrow-down-steep">
+    <div class="row">
+      <div class="intro-caption">
+        <h3 class="centered">dollars of collective debt over 2,380 members.</h3>
+      </div>
+      <div class="intro-caption">
+        <div class="body-text">
+          <h2>The Debt Collective helps people organize with eachother to challenge creditors. We believe no one should have to go into debt for basic needs like education, housing, or healthcare. When the indebted join together they can build power to create a just society.</h2>
         </div>
-      </p>
-      <img src="/static/img/dcnew_key.png" class="legend" />
-      <div id="mapdiv" class="map-loading"></div>
+      </div>
+    </div>
+    <div class="row">
+      <signupform ></signupform>
+    </div>
+    <div class="row body-text caption">
+      <h3>Alone our debts are a burden, together they make us powerful.</h3>
+      <h3>As we grow we will work together to resist our debts</h3>
     </div>
   </div>
-  <div id="scroll" ng-controller="splashCtrl" class="container">
-    <div class="wrapper arrow-down-steep">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <div class="centered intro-caption">
-            <div class="small-italic-caption">total <a href="/#signup" class="big-link">debt pledged</a></div>
-            <div class="body-text">
-            <p>A membership organization that leverages collective power by offering debtors a shared platform for organization, advocacy, and direct action. Alone, our debts are a burden; together, they make us powerful.</p>
-            </div>
+
+  <div id="actionalert"></div>
+  <div class="wrapper dark">
+    <div class="row centered">
+      <h1>Action Alert!</h1>
+      <h3>View current Debt Collectives and all collective actions on <a href="/actions">the Actions page.</a></h3>
+    </div>
+    <div class="row">
+      <div class="row body-text">
+        {% for action in actions %}
+          <div class="col-md-6 col-lg-6 col-sm-12 action-card">
+          {% include "collectives/action_card.html" %}
           </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
-
-    <div class="spacer"  id="signup"></div>
-    <div class="body-text centered">
-      <h2>Become a member. As we grow, we will work to resist our debts, together.</h2>
-    </div>
-
-    <div class="body-text" >
-      <signupform></signupform>
-    </div>
-
-    <div id="actionalert"></div>
-    <div class="wrapper arrow-up"></div>
-    <div class="wrapper arrow-down-steep centered">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <div class="carousel" ng-controller="carouselCtrl">
-            <div class="items">
-              <div class="carousel-item active">
-                <div class="row arrow-top-heading">
-                  <h6>March 31st, 2015: Defense to Repayment</h6>
-                </div>
-                <div class="row">
-                  <img class="carousel-img" src="/static/img/defensetorepayment.jpg" />
-                  <div class="body-text caption">
-                    <h2>
-                    On March 31st, members of the <a href="/studentstrike">Corinthian strike team</a> submited Defense to Repayment letters to the Department of Education in Washington DC <a href="http://blog.debtcollective.org/corinthian-100-demanding-debt-cancellation-in-washington-dc/">asking them to cancel</a> the debt of all Corinthian students.
-                    </h2>
-                    <form action="/corinthiandtr" class="dc-input">
-                      <button type="submit" class="btn btn-primary">DISPUTE YOUR DEBT</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div class="carousel-item">
-                <div class="row arrow-top-heading">
-                  <h6>February 23rd, 2015: Corinthian Student Strike</h6>
-                </div>
-                <div class="row">
-                  <a href="/studentstrike">
-                    <img class="carousel-img hidden-mobile" src="/static/img/strikers/striker_headerimage.gif" />
-                  </a>
-                  <a href="/studentstrike">
-                    <img class="carousel-img mobile-only" src="/static/img/strikers/striker_top-graphic-small.png" />
-                  </a>
-                  <div class="body-text caption">
-                    <h2>On February 23rd, <a href="http://rollingjubilee.org">The Rolling Jubilee</a> erased $13 million ($13,384,642.14) of student debt owed by 9,438 people, while former students of Corinthian Colleges <a href="/studentstrike">declared a debt strike</a>, refusing to pay their loans.</h2>
-                    <form action="/studentstrike" class="dc-input">
-                      <button type="submit" class="btn btn-primary">SEE ALL STRIKERS</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <div class="body-text centered caption sub carousel-nav">
-          <hr>
-              <div class="carousel-nav-item active" ng-click="chooseItemButton(0)"></div>
-              <div class="carousel-nav-item" ng-click="chooseItemButton(1)"></div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="donate"></div>
-    <div class="body-text">
-      {% include "proj/donateBox.html" with title="DONATE" %}
-    </div>
-
-    <div class="wrapper arrow-up"></div>
-    <div class="wrapper arrow-down-steep" id="faq">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h2 class="first hidden-mobile">Questions & Answers</h2>
-          <h2 class="first mobile-only">Q & A</h2>
-          <div class="row">
-            <div class="col-md-6 col-lg-6 col-sm-12">
-              <h3>What is the Debt Collective?</h3>
-              <p>As part of our work in Strike Debt, we launched the Rolling Jubilee to promote public education about the injustice of requiring public goods, such as education and healthcare, to be personally debt-financed. Rolling Jubilee was intended to be a spark and not a solution, and our long-term aim has always been to transform personal grievances into collective political action by helping people realize that they are not “a loan.” Debt collectives, effectively debtors' unions, are the next stage. Only by organizing together, through the pursuit of collective bargaining and debt strikes, can debtors build power against... <a class="underline" href="http://strategize.debtcollective.org/t/what-is-the-debt-collective/104">[READ MORE]</a></p>
-            </div>
-            <div class="col-md-6 col-lg-6 col-sm-12">
-              <h3>What's the red square?</h3>
-              <p>The red square was first used as a symbol in <a href="http://en.wikipedia.org/wiki/2012_Quebec_student_protests">the student strikes in 2005 and again in 2012 in Quebec.</a> The government in Quebec wanted to charge college students tuition and fees for the first time. Students walked out of class to protest, and the strikes lasted several months. Half of Quebec's student population was involved by 2012. Hundreds of thousands of people joined the students in support until the government halted the plan to impose tuition. Srike Debt adopted the red square as the general symbol of debt resistance in 2012, and it has been in widespread use since then.
-              </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-lg-6 col-sm-12">
-              <h3>Why join the Debt Collective?</h3>
-              <p>Creditors profit from the data they have about our loans. We all owe, but we aren’t always sure who really profits from our loan payments. Who is at the end of that paper trail?
-              </p>
-              <p >
-                We can learn where our money goes and who is profiting from those payments. We can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.
-              </p>
-            </div>
-            <div class="col-md-6 col-lg-6 col-sm-12">
-              <h3>What is the Corinthian Collective?</h3>
-              <p>The Corinthian collective is a group of people who attended Corinthian College and a pilot project of the Debt Collective. Working together, organizers and students are demanding a full discharge of student loans held by Everest, Heald, and Wyotech students. In spring 2014, the Rolling Jubilee purchased and abolished $4 million in debt held by Everest students. Since then, Debt Collective organizers have continued to support students as they seek a full refund and demand tuition free education... <a class="underline" href="http://strategize.debtcollective.org/t/what-is-the-corinthian-collective/105">[READ MORE]</a> </p>
-            </div>
-          </div>
-
-        <hr>
-      <div class="body-text caption sub">
-        <h5 class="body-text">
-          <p>To browse all of our FAQ's, get more info, or for general debt support <a class="big-link" href="http://strategize.debtcollective.org">visit our community resource area.</a></p>
-        </h5>
-      </div>
-        </div>
-      </div>
-    </div>
-
-
   </div>
+  <div class="wrapper arrow-up"></div>
+  <div class="wrapper arrow-down-steep" id="faq">
+    <div class="row centered">
+      <h1 class="header">FAQ</h1>
+    </div>
+    <div class="row body-text">
+      <div class="col-md-6 col-lg-6 col-sm-12">
+        <h3>What is the Debt Collective?</h3>
+        <p>As part of our work in Strike Debt, we launched the Rolling Jubilee to promote public education about the injustice of requiring public goods, such as education and healthcare, to be personally debt-financed. Rolling Jubilee was intended to be a spark and not a solution, and our long-term aim has always been to transform personal grievances into collective political action by helping people realize that they are not “a loan.” Debt collectives, effectively debtors' unions, are the next stage. Only by organizing together, through the pursuit of collective bargaining and debt strikes, can ... </p>
+        <p>
+          <div class="faq-continue">
+            <a href="http://strategize.debtcollective.org/t/what-is-the-debt-collective/104">CONTINUE READING >>> </a>
+          </div>
+        </p>
+      </div>
+      <div class="col-md-6 col-lg-6 col-sm-12">
+        <h3>What's the red square?</h3>
+        <p>The red square was first used as a symbol in <a href="http://en.wikipedia.org/wiki/2012_Quebec_student_protests">the student strikes in 2005 and again in 2012 in Quebec.</a> The government in Quebec wanted to charge college students tuition and fees for the first time. Students walked out of class to protest, and the strikes lasted several months. Half of Quebec's student population was involved by 2012. Hundreds of thousands of people joined the students in support until the government halted the plan to impose tuition. Srike Debt adopted the red square as the general symbol of debt resistance in 2012, and it has been in widespread use since then.
+        </p>
+        <p>
+          <div class="faq-continue">
+            <a href="http://strategize.debtcollective.org/t/what-is-the-debt-collective/104">CONTINUE READING >>> </a>
+          </div>
+        </p>
+      </div>
+    </div>
+    <div class="row body-text">
+      <div class="col-md-6 col-lg-6 col-sm-12">
+        <h3>Why join the Debt Collective?</h3>
+        <p>Creditors profit from the data they have about our loans. We all owe, but we aren’t always sure who really profits from our loan payments. Who is at the end of that paper trail? We can learn where our money goes and who is profiting from those payments. We can also learn who stands to lose when we don’t pay. This kind of knowledge could help us work together to renegotiate our payments or even demand the cancellation of illegitimate debts.
+        </p>
+        <p>
+          <div class="faq-continue">
+            <a href="http://strategize.debtcollective.org/t/what-is-the-debt-collective/104">CONTINUE READING >>> </a>
+          </div>
+        </p>
+      </div>
+      <div class="col-md-6 col-lg-6 col-sm-12">
+        <h3>What is the Corinthian Collective?</h3>
+        <p>The Corinthian collective is a group of people who attended Corinthian College and a pilot project of the Debt Collective. Working together, organizers and students are demanding a full discharge of student loans held by Everest, Heald, and Wyotech. In spring 2014, the Rolling Jubilee purchased and abolished $4 million in debt held by Everest students. Since then, Debt Collective organizers have continued to support students...</p>
+        <p>
+          <div class="faq-continue">
+            <a href="http://strategize.debtcollective.org/t/what-is-the-corinthian-collective/105">CONTINUE READING >>> </a>
+          </div>
+        </p>
 
+      </div>
+    </div>
+    <div class="row body-text caption">
+      <h3>To browse all of our FAQ's, get more info, or for general debt support <a class="big-link" href="http://strategize.debtcollective.org">visit our community resource area.</a></h3>
+    </div>
+  </div>
 </div>
 {% endblock %}

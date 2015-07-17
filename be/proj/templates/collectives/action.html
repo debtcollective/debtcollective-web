@@ -1,0 +1,10 @@
+{% extends "proj/base_template.html" %}
+{% load humanize %}
+
+{% block body %}
+{% include "proj/header.html" %}
+<div class="container">
+  <h1>{{action.name}}</h1>
+  <p>{{action.description}}</p>
+</div>
+{% endblock %}

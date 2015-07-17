@@ -7,6 +7,7 @@
 @import "includes/buttons";
 
 @import "pages/splash";
+@import "pages/collectives";
 @import "pages/corinthian";
 
 @import "components/carousel";
@@ -19,11 +20,9 @@
 }
 
 body {
-    background-color: $dark-background-color;
-    line-height: 1.6em;
-    @extend %rale;
-    font-size: 16px;
-    color: $dark-text-color;
+  @extend %rale;
+  background-color: $dark-background-color;
+  color: $dark-text-color;
 }
 
 .form-rest {
@@ -36,22 +35,25 @@ body {
 
 .row {
   margin-left: 0px;
- margin-right: 0px;
+  margin-right: 0px;
+ &.light {
+    background-color: $light-background-color;
+    color: black !important;
+  }
 }
 
 .arrow-down-steep {
   background-image: url(../img/bg_arrow-down-steep.png);
   background-position: center bottom;
   padding-bottom: 210px;
-  background-color: $dark-background-color !important;
   z-index: $z-index-arrow-down-steep;
 
-  h2.first {
-    margin-top: -20px !important;
+  h1.header {
+    text-align: center;
+    margin-top: -61px !important;
+    margin-bottom: 80px;
   }
-  .row.light {
-    background-color: $light-background-color;
-  }
+
   img.full-width {
     width: 100%;
   }
@@ -59,22 +61,13 @@ body {
 
 .arrow-up {
   background: transparent url(../img/bg_arrow-up.png) scroll no-repeat center top;
-  z-index: -5;
+  z-index: $z-index-arrow-up;
   position: relative;
   padding-bottom: 250px;
-  margin-top: -10px;
 }
-
-.arrow-top-heading {
-  margin-bottom: 30px;
-}
-
 
 section {
   width: 100%;
-}
-.mono {
-  @extend %mono;
 }
 
 strong {
@@ -87,44 +80,35 @@ strong {
 }
 
 .caption {
-  font-size: 10px;
-  line-height: 15px;
-  padding-top: 40px;
-  margin-bottom: -13px !important;
+  margin-bottom: -30px !important;
   text-align: center;
-  &.main {
-    margin-top: 30px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 30px 0px;
-    p {
-      margin-bottom: 0px;
-    }
-  }
-  &.sub {
-    margin-bottom: -50px !important;
-    font-style: italic;
-  }
+  width: 50%;
 }
+
 .body-text {
-  p { margin-bottom: 22px; }
+  p {
+    a {  color: $link-color; }
+    margin-top: 22px;
+    margin-bottom: 22px;
+  }
 }
 
 hr {
   margin: 15px;
   border-top: 1px solid black;
 }
+
 p, .body-text {
   @extend %rale;
   margin: 0px auto;
-  font-size: 15.6px;
-  line-height: 24px;
-  letter-spacing: 0.25px;
+  font-size: 16px;
+  line-height: 20px;
 
   &.special {
     font-size: 13px;
     line-height: 20px;
   }
+
   &.small {
     line-height: 20px;
     margin-top: 10px;
@@ -139,59 +123,12 @@ p, .body-text {
       text-decoration: none !important;
     }
   }
-
-  &.mono {
-    h1, h2, h6, p {
-      @extend %mono;
-      font-family: 'Cousine', serif;
-    }
-    h6 {
-      margin-top: 6px;
-      margin-bottom: 12px;
-      line-height: 24px;
-      text-transform: none;
-    }
-    p {
-      font-size: 15px;
-      line-height: 20px;
-    }
-  }
-
-  a {
-    text-decoration: underline;
-  }
-
-  ul {
-    padding-left: 40px;
-  }
-  li {
-    list-style: initial;
-  }
-
-  &.map-body {
-    margin-top: -78px;
-    padding-top: 0;
-  }
-
-  .title-banner {
-    text-align: center;
-    padding-bottom: 22px;
-  }
-
-  &.wide {
-    min-width: 820px;
-    max-width: 950px;
-  }
 }
 
 .spacer {
   padding-top: 30px;
 }
 
-.jumbotron {
-  font-size: 48px;
-  line-height: 50px;
-}
 .inside-container {
   padding-top: 2em;
 }
@@ -201,12 +138,11 @@ p, .body-text {
   font-size: 12px;
   line-height: 20px;
   text-align: center;
-  z-index: 1000;
   width: 100%;
   width: 100%;
-  z-index: 9999999;
+  z-index: $z-index-header;
   background-color: $off-grey;
-  border-bottom: 1px solid $link-color;
+  border-bottom: 1px solid $white-text-color;
 
   &.inside-header {
     text-align: left;
@@ -243,18 +179,52 @@ p, .body-text {
     .header-title {
       display: none;
     }
+    .logo {
+      display: none;
+    }
+    a.nav-link .logo {
+      display: inline-block !important;
+    }
   }
 
   a.nav-link {
     @extend %mono;
     letter-spacing: 3px;
-    color: $link-color;
+    font-size: 16px;
+    color: $white-text-color;
+    .logo {
+      margin-right: 10px;
+      display: none;
+      &:hover { text-decoration: none; }
+    }
     &:hover {
       color: $link-hover;
     }
   }
 }
 
+.close-button {
+  position: absolute;
+  top: 10;
+  right: 10;
+  z-index: $z-index-close-button;
+  @extend h1;
+  color: white !important;
+  background-color: $dark-background-color;
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+.header-title {
+  text-align: center;
+  overflow: auto;
+  h1 {
+    font-weight: normal;
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-top: 0px;
+  }
+}
 .forum-box {
   padding: 20px;
   border: 1px solid $dark-background-color;
@@ -262,67 +232,20 @@ p, .body-text {
   color: $light-text-color;
 }
 
-$banner-height: 32px;
-.banner {
-  //@include frame-transition();
-  z-index: 9999990;
-  font-family: "Cutive mono";
-  position: fixed;
-  width: 100%;
-  height: 88px;
-  top: 0px;
-  font-size: 18px;
-
-  &.fadeIn,
-  &:hover {
-    top: $header-height;
-  }
-
-  .text {
-    background-color: rgba(63,31,48,.80);
-    height: $banner-height;
-    text-align: center;
-    margin: auto;
-    padding: 5px;
-  }
-
-  a {
-    color: #ccaa2d;
-  }
+.mono {
+  @extend %mono;
 }
 
-.triangle-topright {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 120px 120px 0;
-  border-color: transparent #ff0000 transparent transparent;
-}
-.action-banner {
-  float: right;
-  color: $dark-text-color;
-  position: absolute;
-  top: 0;
-  right: 0;
-
-}
-.action-banner-text {
-  text-align: left;
-  position: absolute;
-  top: 10;
-  right: 0;
-  width: 80px;
-}
 
 h1 {
-  @extend %mono;
-  font-size: 24px;
-  line-height: 30px;
+  @extend %rale;
+  font-size: 38px;
+  line-height: 38px;
   font-weight: 100;
   letter-spacing: -1px;
+  margin-bottom: 5px;
 
   &.emphasis {
-    font-family: "Cutive mono", serif !important;
     font-size: 26px !important;
     line-height: 30px !important;
     font-weight: 100 !important;
@@ -337,7 +260,7 @@ h1 {
     line-height: 24px;
   }
   a {
-    color: $link-color !important;
+    color: $white-text-color !important;
     text-decoration: none;
   }
 }
@@ -346,10 +269,12 @@ h1 {
 h2 {
   @extend %rale;
   font-size: 20px;
-  line-height: 30px;
-  text-align: center;
+  line-height: 28px;
   margin-bottom: 22px;
   letter-spacing: 2px;
+  a {
+    color: $link-color !important;
+  }
   &.dark {
     color: $dark-background-color;
   }
@@ -361,18 +286,18 @@ h2 {
 
 h3 {
   @extend %rale;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   font-weight: bold;
-  margin-top: 28px;
-}
-h4 {
-  @extend %rale;
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 24px;
+  a {
+    color: $link-color !important;
+  }
 }
 
+h4 {
+  @extend %rale;
+  font-size: 24px;
+}
 
 h5 {
   @extend %rale;
@@ -425,10 +350,23 @@ p.small {
   text-decoration: underline;
 }
 
+.floating {
+  box-shadow: 2px 2px 6px 8px #3C3C3C;
+  -moz-box-shadow: 2px 2px 6px 8px #3C3C3C;
+  -webkit-box-shadow: 2px 2px 6px 8px #3C3C3C;
+}
+
 .wrapper {
   position: relative;
   margin: 0 auto;
   color: $light-text-color;
+
+  &.floating {
+    padding: 60px 0px;
+    margin: 60px auto;
+    .body-text { max-width: 85%; }
+    h3 { text-align: center; }
+  }
 
   &.page {
     padding-top: 10px;
@@ -438,10 +376,12 @@ p.small {
     color: $dark-text-color !important;
     background-color: $dark-background-color;
     h3 {
-      color: $link-color;
+      color: $white-text-color;
+      margin-top: 10px;
+      margin-bottom: 22px;
     }
     a {
-      color: $link-color;
+      color: $white-text-color;
     }
   }
 
@@ -454,6 +394,13 @@ p.small {
     }
   }
 
+}
+
+.faq-continue {
+  @extend %mono;
+  text-align: center;
+  a { color: $link-color; }
+  margin-bottom: 60px;
 }
 
 /** TABS **/
@@ -646,7 +593,7 @@ select {
   position: absolute;
   top: 100%;
   left: 0;
-  z-index: 1000;
+  z-index: $z-index-dropdown;
   display: none;
   min-width: 160px;
   margin: 2px 0 0;
@@ -666,7 +613,7 @@ select {
     opacity: 1;
     list-style: none;
     a {
-      color: $link-color;
+      color: $white-text-color;
     }
     &.active {
       background-color: $olive;
@@ -714,7 +661,7 @@ select {
 .footer-copyright {
   @extend %captionmono;
   font-size: 12px;
-  color: $link-color;
+  color: $white-text-color;
 }
 
 
@@ -732,4 +679,119 @@ select {
   width: 90px;
   margin: 10px;
 }
+
+
+/** HUD **/
+
+.hud {
+  background-color: $light-background-color;
+  @include flexbox;
+  @include flex-direction(column);
+
+  .top {
+    height: 50%;
+  }
+
+  h1 {
+    line-height: 64px;
+  }
+  h1.large {
+    font-size: 70px;
+  }
+
+  div {
+    text-align: center;
+  }
+
+  .half {
+    background-color: $off-grey;
+    position: relative;
+    height: 100%;
+    width: 49.6%;
+
+    &:first-child {
+      margin-right: 5px;
+    }
+
+    h1 {
+      top: 50%;
+      transform: translateY(-80%);
+      position: relative;
+    }
+  }
+
+  .full {
+    padding: 20px;
+    background-color: $off-grey;
+    margin-top: 5px;
+    width: 100%;
+  }
+}
+
+.slider {
+  padding: 40px 0px;
+  .row {
+    padding: 10px;
+  }
+}
+
+.name-text {
+  font-size: 105%;
+}
+
+.memorial-box {
+  height: 80px;
+  p {
+    height: 50px;
+    overflow: hidden;
+    text-overflow: clip;
+    font-size: 13px;
+  }
+}
+
+.hud-display-background {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: $z-index-hud-display-background;
+  background-color: black;
+  opacity: .9;
+  display: none;
+}
+
+.hud-display {
+  display: none;
+  background-color: transparent !important;
+  position: fixed !important;
+  height: 100%;
+  width: 100%;
+  top: 50px;
+  z-index: $z-index-hud-display;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .arrow-up {
+    margin-top: -100px;
+  }
+  h3 {
+    margin-top: 10px;
+  }
+  p {
+    padding: 20px;
+  }
+  .img {
+    text-align: center;
+    max-height: 500px;
+    min-height: 300px;
+  }
+
+  .content {
+    overflow-y: auto;
+    height: 100%;
+    position: absolute;
+    color: $light-text-color;
+  }
+}
+
 @import "includes/responsive";

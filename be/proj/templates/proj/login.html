@@ -11,9 +11,9 @@
       <div class="dc-input">
         {% csrf_token %}
         {% if bad_auth %}
-        <p class="help-text">Username and password do not match.</p>
+        <p class="help-text">Email and password do not match.</p>
         {% endif %}
-        <input type="text" name="username" placeholder="username" required />
+        <input type="text" name="username" placeholder="email or username" required />
         <input type="password" name="password" placeholder="password" required />
         <button class="btn btn-primary" type="submit">Submit</button>
       </div>

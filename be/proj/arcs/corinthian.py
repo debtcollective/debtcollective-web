@@ -4,11 +4,12 @@ from django.template import loader
 from django.http import Http404, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from proj.arcs.models import DTRUserProfile
-from proj.utils import json_response, get_POST_data
+from proj.utils import json_response, get_POST_data, send_email
+from django.contrib.auth.models import User
+from django.contrib import auth
 from proj.gather.models import Debt, UserProfile, Point
+from proj.collectives.models import UserAction, CollectiveMember, Action, Collective
 from boto.exception import S3ResponseError
-
-import smtplib
 
 # Import the email modules we'll need
 from email.MIMEText import MIMEText
@@ -24,29 +25,73 @@ import StringIO
 import csv
 import json
 
-def dtr_email(dtrprofile):
-  mailserver = smtplib.SMTP('smtp.mandrillapp.com', 587)
-  mailserver.set_debuglevel(1)
-  mailserver.login('noreply@debtcollective.org', settings.MANDRILL_API_KEY)
+def get_dtr(id):
+  try:
+    dtr = DTRUserProfile.objects.get(id=id)
+  except:
+    return None
 
-  user_data = dict(dtrprofile.data)
-  from_email = 'noreply@debtcollective.org'
+  dtr_data = dtr.data
+  if not dtr_data:
+    return None
+
+  return dtr
+
+def dtr_migrate_email(request, id):
+  dtr = get_dtr(id)
+  key = dtr.key()
+
+  BASE_URL = 'https://debtcollective.org'
+  migrate_url = BASE_URL + '/corinthian/dtr/migrate?email=' + dtr.data.email + '&key=' + key
+
+def dtr_migrate(request, id):
+  email = request.GET.get('email')
+  key = request.GET.get('key')
+  dtr = get_dtr(id)
+
+  if not dtr:
+    return json_response({'error': 'Could not find your DTR. Please contact support@debtcollective.org'}, 500)
+  if dtr_data['email'] != email:
+    return json_response({'error': 'Email does not match original. Please provide a valid email address'}, 500)
+
+  dtr_action = Action.objects.get(name='Defense to Repayment')
+
+  username = email
+  password = email.lower()
+  users = User.objects.filter(username=username)
+  if not users:
+    User.objects.create_user(username, password=password, email=email)
+
+  user = auth.authenticate(username=username, password=password)
+  if not user:
+    return redirect('/login')
+  auth.login(request, user)
+
+  useraction, created = UserAction.objects.get_or_create(user=user, action=dtr_action)
+  if created:
+    useraction.data = dtr.data
+    useraction.status = UserAction.COMPLETED
+    return redirect('/change_password')
+  else:
+    return redirect('/profile')
+
+def dtr_email(dtr):
+  user_data = dict(dtr.data)
   to = settings.DTR_RECIPIENT
-
   msg = MIMEMultipart()
-  msg['Subject'] = '{0} at {1}'.format(''.join(user_data['name']), ''.join(user_data['school_name']))
+
+  name = ''.join(user_data['name'])
+  msg['Subject'] = '{0} at {1}'.format(name, ''.join(user_data['school_name']))
   msg['To'] = to
-  msg['From'] = from_email
+  msg['cc'] = ''.join(user_data['email'])
   msg.attach(MIMEText("""
 To whom it may concern:
 
-Attached find yet another application for Defense to Repayment. We hope you soon realize that doing this on an individual basis is a bad arrangement for all parties.
+Attached find my application for Defense to Repayment.
 
-Best,
-
-The Debt Collective
-"""))
-  fp = open(dtrprofile.output_file, 'rb')
+Best, %s
+""" % (name)))
+  fp = open(dtr.output_file, 'rb')
   part = MIMEBase('application', "octet-stream")
   part.set_payload(fp.read())
   Encoders.encode_base64(part)
@@ -55,10 +100,7 @@ The Debt Collective
   msg.attach(part)
   fp.close()
 
-  msg.add_header('X-MC-Track', 'opens, clicks')
-  mailserver.sendmail(from_email, [to], msg.as_string())
-
-  mailserver.quit()
+  send_email(msg)
 
 def remove_dupes(profiles):
   finished = {}
@@ -108,6 +150,8 @@ def dtr_download(request, f, to):
 
 def dtr_csv(request):
   # get dtrs as csv
+  if not request.user.is_superuser:
+    return redirect('/login')
   response = HttpResponse(content_type='text/csv')
   response['Content-Disposition'] = 'attachment; filename="all_dtr.csv"'
 
@@ -153,13 +197,13 @@ def dtr_generate(request):
 
   rq['name_2'] = rq.get('name', 'NA')
   rq['state_2'] = rq.get('state', 'NA')
-  dtrprofile = DTRUserProfile.generate(rq)
+  dtr = DTRUserProfile.generate(rq)
 
-  dtr_email(dtrprofile)
+  dtr_email(dtr)
 
   return json_response({
-    'id': dtrprofile.id,
-    'pdf_link': dtrprofile.pdf_link(),
+    'id': dtr.id,
+    'pdf_link': dtr.pdf_link(),
   }, 200)
 
 def dtr_view(request, id):
@@ -191,7 +235,12 @@ def corinthiandtr(request):
     return HttpResponse(template)
 
 def corinthiansignup(request):
-  return render_to_response('corinthian/signup.html')
+  collective = Collective.objects.get(name='Corinthian Collective')
+  c = {
+    "collective": collective,
+    "actions": Action.objects.filter(collective=collective)
+  }
+  return render_to_response('corinthian/signup.html', c)
 
 def corinthiancollective(request):
   return render_to_response('corinthian/signup.html')

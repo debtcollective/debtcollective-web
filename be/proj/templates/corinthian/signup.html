@@ -2,93 +2,53 @@
 {% load humanize %}
 
 {% block body %}
+{% include "proj/header.html" %}
 
-{% include "proj/insideHeader.html" with title='CORINTHIAN COLLECTIVE' %}
-
-<div class="container inside-container">
+<div class="container">
   <div class="wrapper arrow-down-steep">
-      <div class="row light">
-          <div class="centered body-text">
-            <img class="smaller-logo" src="/static/img/strikers/CorinthianDC-Logo-NoType_BeigeMatte.png" />
-          </div>
-        <div class="body-text ">
-          <h2>We are the Corinthian Collective. We believe that all current and former students of Corinthian Colleges deserve to have their debts cancelled. </h2>
-          <p> Corinthian Colleges has been accused by several state and federal government agencies of fraud and predatory lending, yet the Department of Education continues to collect on Corinthian students’ debts. Join the Corinthian Collective to fight back against Corinthian and the Department of Education.</p>
+    <div class="row">
+      <div class="centered body-text">
+        <img class="smaller-logo" src="/static/img/strikers/CorinthianDC-Logo-NoType_BeigeMatte.png" />
+      </div>
+      <div class="body-text">
+        <h2>We are the Corinthian Collective. We believe that all current and former students of Corinthian Colleges deserve to have their debts cancelled. </h2>
+        <p> Corinthian Colleges has been accused by several state and federal government agencies of fraud and predatory lending, yet the Department of Education continues to collect on Corinthian students’ debts. Join the Corinthian Collective to fight back against Corinthian and the Department of Education.</p>
         <p>By collectively refusing to pay their loans, the <a href="/studentstrike">corinthian strikers</a> are fighting for all student debtors. </p>
 
-        <p>Now, we’re starting a legal campaign called Defense to Repayment </p>
+        <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+          <button type="submit" ng-show="!corithianSignupFormShown" ng-click="corithianSignupFormShown = true" class="btn btn-primary">JOIN</button>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+          <a href="/#donate" ng-show="!corithianSignupFormShown" class="btn btn-primary">SUPPORT</a>
         </div>
       </div>
 
-      <div class="row">
-        <div class="caption main">
-            <a href="/studentstrike">
-              <h2>March 31st, 2015</h2>
-                <!--<div class="hidden-mobile dtr-clock"></div>-->
-          <img src="http://blog.debtcollective.org/content/images/2015/04/group.jpg" />
-            </a>
-
+      <div class="row light" ng-show="corithianSignupFormShown">
         <div class="body-text">
-        <div class="spacer"></div>
+          <corinthian-signup-form></corinthian-signup-form>
+        </div>
+      </div>
+    </div>
+  </div>
 
-          <p>
-          Members of the <a href="/studentstrike">Corinthian strike team</a> submited Defense to Repayment letters to the Department of Education in Washington DC asking them to cancel the debt of all Corinthian students. <a href="http://blog.debtcollective.org/corinthian-100-demanding-debt-cancellation-in-washington-dc/">Read what happened here.</a> You can still dispute your debt if you went to Everest, Heald, or Wyotech.
-          </p>
-          <p>
-          <form action="/corinthiandtr" class="dc-input">
-            <button type="submit" class="btn btn-primary">DISPUTE YOUR DEBT HERE</button>
-          </form>
-          </p>
-        </div>
-        </div>
-      </div>
-      <div class="body-text caption sub">
-          <p>Help spread the word, lend your voice over <fb-button class="big-link">facebook</fb-button> and <a href="http://twitter.com/intent/tweet?text=Fight%20back%20against%20corinthian%20colleges%20and%20@usedgov.%20Join%20the%20Debt%20Collective%20debtcollective.org/corinthiancollective" class="big-link" target="_blank">twitter</a>!</p>
-        <a class="sm-button" href="http://www.facebook.com/share.php?u=http://debtcollective.org&appId=1483700951894498" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">
-          <img src="/static/img/fb.gif">
-        </a>
-        <a class="sm-button" href="http://twitter.com/intent/tweet?text=http://twitter.com/intent/tweet?text=Fight%20back%20against%20corinthian%20colleges%20and%20@usedgov.%20Join%20the%20Debt%20Collective%20debtcollective.org/corinthiancollective" target="_blank">
-          <img src="/static/img/twitter.gif">
-        </a>
-      </div>
+  <div class="wrapper dark">
+    <div class="row">
+      {% include "collectives/action_cards.html" with actions=actions %}
     </div>
-    <div class="wrapper dark" id="signup-prompt">
-      <h2>BECOME A MEMBER OF THE CORINTHIAN COLLECTIVE</h2>
-      <h2><a ng-show="!corithianSignupFormShown" ng-click="corithianSignupFormShown = true" class="big-link">Join the strike and be involved in future actions.</a> We'll call you!</h2>
-    </div>
-    <div ng-if="corithianSignupFormShown" class="frame-container centered" id="signup">
-      <corinthian-signup-form></corinthian-signup-form>
-    </div>
+  </div>
 
     <div class="wrapper arrow-up" id="whathappens"></div>
     <div class="wrapper arrow-down-steep">
-      <div class="row arrow-top-heading">
-          <h2 class="first hidden-mobile">Questions & Answers</h2>
-          <h2 class="first mobile-only">Q & A</h2>
+      <div class="row centered">
+        <h1 class="header">FAQ</h1>
       </div>
       <div class="row">
-        <div class="body-text">
-        <h3>What happens next?</h3>
-
-          <p>
-         Right now we have three campaigns in the works to challenge your Federal, Private, and Genesis debts.
-          </p>
-          <p>
-          <ul>
-          <li><strong>Genesis stop payment campaign.</strong> We are advising all Genesis debtors that, due to the recent settlement between ECMC and CFPB, it is ok to stop paying your Genesis loans. Genesis will not sue you. We will support you by challenging these debts and offering legal support to Genesis debtors.</li>
-          <li><strong>A ‘Defense to Repayment’ initiative.</strong> This involves collecting your information and writing legal claims to loan servicers and the Dept of Ed to demand the cancellation of these debts.
-          <a href="/corinthiandtr">Fill out the form here</a>.</li>
-          <li><strong>Strike. </strong>Some Corinthian students are <a href="/studentstrike">choosing to go public</a> about their decision to stop paying their federal student loans. This decision can be risky, so we want to talk with every student individually about whether this choice makes sense for them.</li>
-          </ul>
-          </p>
-          </div>
         <div class="body-text">
         <h3 >What is a strike?</h3>
           <p>
             <a href="/studentstrike">Corinthian students are currently involved in a student debt strike</a>. A student debt strike is a collective commitment to not pay student loans. The goal of the strike is to join together to put pressure on lenders and the Department of Education to cancel your loans. Corinthian students are in a particularly good position to demand debt relief since their school has been accused of fraud and predatory lending.
           </p>
-          <p><a ng-click="corithianSignupFormShown = true" class="big-link">Want to join the strike?</a></p>
+          <p><a ng-click="corithianSignupFormShown = true">Join the strike.</a></p>
         </div>
         <div class="body-text">
         <h3>Is there a lawsuit?</h3>

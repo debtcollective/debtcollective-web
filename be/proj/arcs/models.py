@@ -32,7 +32,7 @@ class DTRUserProfile(models.Model):
   data = JSONField()
 
   def __unicode__(self):
-    return self.user.username
+    return self.data['email']
 
   def s3_key(self):
     bucket = conn.get_bucket(S3_BUCKET_NAME)
@@ -68,6 +68,9 @@ class DTRUserProfile(models.Model):
     store_in_s3(conn, S3_BUCKET_NAME, key, output_file, metadata)
 
     return output_file
+
+  def unique_key(self):
+    return ahashfunction(self.data)
 
   @classmethod
   def generate(cls, values):

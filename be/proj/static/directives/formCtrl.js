@@ -36,14 +36,6 @@ app.directive('signupform', function () {
       }
       $scope.addDebt()
 
-      $scope.formFocus = function () {
-        $scope.showForm = true;
-      }
-
-      $scope.corinthianSubmitClick = function ($event) {
-        $scope.formSubmitted = true
-      }
-
       $scope.onSubmitClick = function ($event) {
         // temporarily, email is the password
         // so that we can protect anonymity of our users.
@@ -53,16 +45,17 @@ app.directive('signupform', function () {
 
         var debt = $scope.debts[0]
         var userData = {
-          'email': $scope.email,
+          'email': $scope.email.toLowerCase(),
           'point': $scope.location ? $scope.location.id : null,
           'kind': debt.debtType.id,
           'amount': parseFloat(debt.amount.replace(',', ''))
         }
 
-        users.createAnonymousUser(userData, function (resp, username) {
-          console.log(resp)
-          console.log('created user', username)
+        users.createAnonymousUser(userData, function (resp) {
+          console.log('created user', resp)
+          $scope.formSubmitted = true
         })
+        $event.preventDefault()
       }
     }
   }

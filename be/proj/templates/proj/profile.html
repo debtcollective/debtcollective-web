@@ -1,0 +1,34 @@
+{% extends "proj/base_template.html" %}
+{% load humanize %}
+
+{% block body %}
+
+{% include "proj/insideHeader.html" with title='DASHBOARD' %}
+
+<div class="flex">
+  <div class="container inside-container">
+    <div class="wrapper dark">
+      <div class="body-text">
+     <!-- <h2>First name: {{user.first_name}}</h2>
+      <h2>Last name: {{user.last_name}}</h2>
+      -->
+      <p>Email: {{user.email}}</p>
+      </div>
+    </div>
+
+    <div class="wrapper arrow-up"></div>
+    <div class="wrapper light arrow-down-steep centered">
+      <div class="row arrow-top-heading">
+        <h2 class="first">ACTIONS</h2>
+      </div>
+      <div class="row">
+        {% if user.is_superuser %}
+          <a href="/corinthian/admin">Corinthian Defense to Repayment</a>
+        {% endif %}
+        {% include "collectives/action_cards.html" with actions=actions %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

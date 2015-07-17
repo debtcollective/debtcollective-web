@@ -12,8 +12,6 @@ module.exports = function(grunt) {
         'static/vendor/angular-route.min.js',
         'static/vendor/angular-touch.min.js',
         'static/vendor/angular-scroll.min.js',
-        'static/vendor/miso.ds.deps.min.0.2.2.js',
-        'static/vendor/miso.ds.min.0.4.1.js',
         'static/vendor/d3.min.js',
         'static/vendor/jquery.min.js',
         'static/vendor/jquery.jodometer.js',

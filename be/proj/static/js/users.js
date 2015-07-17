@@ -3,6 +3,7 @@ app.service('users', function (util_svc, $http) {
 
   this.createAnonymousUser = function (userData, cb) {
     userData.username = util_svc.generateUUID()
+    userData.email = userData.email
     userData.password = userData.email
     self.create(userData, function (resp) {
       cb(resp, userData.username)
@@ -10,24 +11,18 @@ app.service('users', function (util_svc, $http) {
   }
 
   this.create = function (userData, cb) {
-    console.log('creating user', userData)
     $http.post('/signup', userData).then(function (resp) {
-      console.log(resp)
-      cb(resp)
-    });
+      self.signupForMailingList(userData, cb)
+    })
   }
 
-  this.gDocsCollectiveCounter = function (salliemae, corinthian) {
-    /**
-      Add a row (a user) to the collectives that are displayed on the front page.
-      salliemae, corinthian are either 1 or 0
-    **/
-    var googleForm = $(window).jqGoogleForms({"formKey": "1Vk1WIqyyj4-tHetXZIqCvuoLDmPoDL6QTPQTZ4disUY"});
-    var data = {
-      'entry.71652265': salliemae,
-      'entry.256870148': corinthian
-    }
-    googleForm.sendFormData(data)
-  };
+  this.signupForMailingList = function (userData, cb) {
+    userData.list = '8CaVcsDmVe41wdpl194UlQ',
+    userData.boolean = true
+
+    $http.post('//mail.debtcollective.org/subscribe', userData).then(function (resp) {
+      cb(resp)
+    })
+  }
 
 });
