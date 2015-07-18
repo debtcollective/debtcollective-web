@@ -25,6 +25,9 @@ body {
   color: $dark-text-color;
 }
 
+.container {
+}
+
 .form-rest {
   visibility: hidden;
 
@@ -132,10 +135,17 @@ p, .body-text {
   padding-top: 2em;
 }
 
+.nav {
+  float: inherit;
+  >li {
+    display: inline-block;
+    float: inherit;
+  }
+}
+
 .header-links {
   letter-spacing: 3px;
   font-size: 16px;
-  padding: 5.5px 15px;
   line-height: 20px;
   text-align: center;
   width: 100%;
@@ -143,6 +153,13 @@ p, .body-text {
   z-index: $z-index-header;
   background-color: $off-grey;
   border-bottom: 1px solid $white-text-color;
+
+  .navbar-toggle {
+    background-color: $light-background-color;
+    .icon-bar {
+      background-color: $dark-background-color;
+    }
+  }
 
   &.inside-header {
     text-align: left;
@@ -193,7 +210,7 @@ p, .body-text {
       &:hover { text-decoration: none; }
     }
     &:hover {
-      color: $link-hover;
+      color: $light-text-color;
     }
   }
 }
@@ -210,6 +227,7 @@ p, .body-text {
     text-decoration: none !important;
   }
 }
+
 .header-title {
   text-align: center;
   overflow: auto;
@@ -220,6 +238,7 @@ p, .body-text {
     margin-top: 0px;
   }
 }
+
 .forum-box {
   padding: 20px;
   border: 1px solid $dark-background-color;
@@ -230,6 +249,7 @@ p, .body-text {
 .mono {
   @extend %mono;
 }
+
 
 
 h1 {
