@@ -63,7 +63,7 @@
           </h2>
           <div ng-class="{ 'hidden' : !showCorinthians }">
             <div ng-repeat="striker in strikeTeam | filter: striker.hasImage" >
-              <div class="item striker-row row light col-xs-6 col-sm-2 col-md-2 col-lg-2" ng-click="showStriker(striker, $event)">
+              <div class="striker row light col-xs-6 col-sm-2 col-md-2 col-lg-2" ng-click="showStriker(striker, $event)">
                 <div class="img">
                   <img ng-src="{$ striker.image $}" />
                 </div>

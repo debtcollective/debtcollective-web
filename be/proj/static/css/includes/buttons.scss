@@ -29,6 +29,10 @@
     border-width: 0.2em;
 }
 
+.input-btn {
+  @extend input;
+  text-decoration: none !important;
+}
 
 a.btn, button[type=submit] {
   @extend h2;

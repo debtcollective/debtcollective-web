@@ -16,6 +16,34 @@
     }
   }
 }
+
+.striker {
+  @include flexbox;
+  @include flex-direction(column);
+  @include transition();
+  padding: 10px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $link-color;
+  }
+
+  .img {
+    margin: auto;
+  }
+
+  .info {
+    margin-top: -25%;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+
+    h3 {
+      margin-top: 0px;
+    }
+  }
+}
+
 #ccform {
   input {
     margin-top: 0px !important;

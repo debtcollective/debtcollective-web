@@ -6,9 +6,7 @@
   display: none;
 }
 
-.striker-row.col-lg-2,
-.striker-row.col-sm-2,
-.striker-row.col-md-2 {
+.striker.col-md-2 {
   width: 19.666667%;
 }
 
@@ -53,7 +51,11 @@
     max-width: 65.75%;
   }
   .solidarity-strike-form {
-    height: 340px
+    height: 340px;
+  }
+
+  .striker.col-md-2 {
+    width: 50%;
   }
 
 }
@@ -67,6 +69,9 @@
     margin-top: -45px;
   }
 
+  .striker.col-md-2 {
+    width: 50%;
+  }
   .social-media {
     opacity: 0 !important;
   }

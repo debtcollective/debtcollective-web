@@ -294,6 +294,7 @@ h4 {
   font-size: 16px;
   line-height: 20px;
   text-align: center;
+  margin-top: 44px;
 }
 
 h5 {
@@ -519,7 +520,7 @@ label {
 }
 
 .dc-input {
-  width: 100%;
+  max-width: 100%;
   font-size: 20px;
 
   #receiver {
@@ -648,7 +649,6 @@ select {
 
   a {
     color: $dark-text-color;
-    text-decoration: underline !important;
     &:hover {
       color: $link-hover;
     }

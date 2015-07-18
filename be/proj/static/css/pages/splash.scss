@@ -12,25 +12,9 @@
 
 
 #resources {
-  padding-top: 60px;
-
-  h6 {
-    color: $light-text-color;
-    text-align: center;
-    padding-top: 30px;
-  }
-
   li {
     list-style: initial;
     padding-top: 15px;
-
-    a {
-      @extend %rale;
-      color: $dark-text-color;
-      &:hover {
-        text-decoration: underline !important;
-      }
-    }
   }
 }
 
