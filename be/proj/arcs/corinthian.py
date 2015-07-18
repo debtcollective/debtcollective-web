@@ -251,9 +251,6 @@ def corinthiansolidarity(request):
 def studentstrike(request):
   return render_to_response('corinthian/studentstrike.html')
 
-def knowyourstudentdebt(request):
-  return render_to_response('corinthian/knowyourstudentdebt.html')
-
 def solidaritystrike(request):
   c = {
     'collective': Collective.objects.get(name='Debt Collective'),

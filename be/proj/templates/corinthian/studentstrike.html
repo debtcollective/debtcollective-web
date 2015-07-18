@@ -2,7 +2,7 @@
 {% load humanize %}
 
 {% block body %}
-{% include "proj/insideHeader.html" with title='CORINTHIAN DEBT STRIKE' %}
+{% include "proj/header.html"  %}
 <div scroll ng-controller="corinthianCtrl">
   <div class="hud-display-background"  ng-click="closeStriker($event)" ng-class="{visible: currentStriker != null}"></div>
 
@@ -125,7 +125,7 @@
                   <button type="submit" ng-click="corithianSignupFormShown = true" class="btn btn-primary">JOIN</button>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-                  <a href="/#donate" class="btn btn-primary">SUPPORT</a>
+                  <a ng-click="supportVisible = true" class="btn btn-primary">SUPPORT</a>
                 </div>
               </div>
             </div>
