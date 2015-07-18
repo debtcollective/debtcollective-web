@@ -10,6 +10,17 @@
   width: 19.666667%;
 }
 
+@media (min-width: 1130px) {
+  .nav {
+    float: inherit;
+    >li {
+      display: inline-block;
+      float: inherit;
+    }
+  }
+
+}
+
 @media (min-width: 2500px) {
   .wrapper {
     max-width: 56.5%;
@@ -35,6 +46,7 @@
   .desktop-only {
     display: block !important;
   }
+
 }
 
 // laptop and tablet landscape
