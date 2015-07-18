@@ -571,7 +571,7 @@ a.sm-button {
   height: 250px;
   width: 250px;
   background-repeat: no-repeat;
-  margin: 40px auto 5px auto;
+  margin: 80px auto 5px auto;
   position: relative;
   max-width: 100%; }
   .collective-card .collective-card-content img {
@@ -601,7 +601,7 @@ a.sm-button {
     background-color: #f1eee2;
     color: #111; }
     .action-card .action-card-content:hover {
-      box-shadow: 0px 0px 4px #f1eee2; }
+      box-shadow: 0px 0px 4px black; }
     .action-card .action-card-content a {
       color: #111 !important; }
       .action-card .action-card-content a:hover {

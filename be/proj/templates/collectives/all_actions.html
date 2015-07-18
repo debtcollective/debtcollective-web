@@ -8,7 +8,7 @@
     {% for collective in collectives %}
       <div class="col-xs-12 col-sm-4 collective-card">
         <a href="{{collective.link}}">
-        <div class="collective-card-content" style="background-image:url(http://placekitten.com/g/250/250);" />
+        <div class="collective-card-content" style="background-image:url({{collective.image}});" />
         </div>
         <h3>{{collective.name.upper}}</h3>
         </a>
