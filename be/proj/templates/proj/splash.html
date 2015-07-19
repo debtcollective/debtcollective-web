@@ -4,7 +4,8 @@
 {% block body %}
 {% include "proj/header.html" %}
 
-<div id="map" class="map-container container" ng-controller="mapCtrl">
+<div class="container">
+<div id="map" class="map-container" ng-controller="mapCtrl">
   <div class="wrapper">
     <p>
       <div class="counter-container">
@@ -15,7 +16,7 @@
     <div id="mapdiv" class="map-loading"></div>
   </div>
 </div>
-<div ng-controller="splashCtrl" class="container">
+<div ng-controller="splashCtrl">
   <div class="wrapper arrow-down-steep">
     <div class="row">
       <div class="intro-caption ">
@@ -106,5 +107,6 @@
       <h3>To browse all of our FAQ's, get more info, or for general debt support <a class="big-link" href="http://strategize.debtcollective.org">visit our community resource area.</a></h3>
     </div>
   </div>
+</div>
 </div>
 {% endblock %}
