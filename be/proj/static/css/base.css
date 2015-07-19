@@ -645,12 +645,14 @@ a.sm-button {
   -ms-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
-  padding: 10px; }
+  padding: 10px;
+  z-index: 100; }
   .striker:hover {
     cursor: pointer;
     background-color: #e84949; }
   .striker .img {
-    margin: auto; }
+    margin: auto;
+    width: 100%; }
   .striker .info {
     margin-top: -25%;
     color: white;
@@ -814,6 +816,9 @@ label {
 body {
   background-color: #39413f;
   color: #f1eee2; }
+
+.container {
+  margin-top: 50px; }
 
 .form-rest {
   visibility: hidden; }
@@ -1140,7 +1145,8 @@ p.small {
     font-size: 18px;
     padding-top: 15px;
     font-weight: bold;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    background-color: white !important; }
 
 .paper-bottom-form {
   border-top: 1px solid black;
@@ -1405,6 +1411,11 @@ select {
   top: 50px;
   z-index: 103;
   left: 50%;
+  -webkit-transform: translateX(-50%);
+  -khtml-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
   transform: translateX(-50%); }
   .hud-display .arrow-up {
     margin-top: -100px; }

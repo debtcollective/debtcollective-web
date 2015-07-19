@@ -18,10 +18,11 @@
 }
 
 .striker {
-  @include flexbox;
+  @include flexbox();
   @include flex-direction(column);
   @include transition();
   padding: 10px;
+  z-index: $z-index-clickable;
 
   &:hover {
     cursor: pointer;
@@ -30,6 +31,7 @@
 
   .img {
     margin: auto;
+    width: 100%;
   }
 
   .info {

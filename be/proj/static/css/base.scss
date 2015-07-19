@@ -26,6 +26,7 @@ body {
 }
 
 .container {
+  margin-top: 50px;
 }
 
 .form-rest {
@@ -468,6 +469,7 @@ p.small {
     padding-top: 15px;
     font-weight: bold;
     text-transform: uppercase;
+    background-color: white !important;
   }
 
 }
@@ -781,7 +783,7 @@ select {
   top: 50px;
   z-index: $z-index-hud-display;
   left: 50%;
-  transform: translateX(-50%);
+  @include transform(translateX(-50%));
 
   .arrow-up {
     margin-top: -100px;

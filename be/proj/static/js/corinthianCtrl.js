@@ -31,6 +31,7 @@ app.controller('corinthianCtrl',
     $scope.loading = true;
     $scope.corinthian = false;
     $scope.corinthian15 = []
+    $scope.corinthian100 = []
     $scope.strikeTeam = []
 
     $http.get('/static/data/strikers.json').then(function (resp) {
@@ -41,7 +42,9 @@ app.controller('corinthianCtrl',
         if (striker.first_name) {
           striker.image = "/static/img/strikers/striker-portraits_" + striker.first_name + ".png"
           striker.bigImage = striker.image
+          striker.index = i
           $scope.corinthian15.push(striker)
+          $scope.strikeTeam.push(striker)
         }
       }
       $scope.corinthian15Chunks = $scope.corinthian15.chunk(5)
@@ -69,6 +72,7 @@ app.controller('corinthianCtrl',
           striker.image = photo.replace('.jpg', 'b.jpg')
           striker.bigImage = photo.replace('.jpg', 'm.jpg')
         }
+        $scope.corinthian100.push(striker)
         $scope.strikeTeam.push(striker)
       }
     });
