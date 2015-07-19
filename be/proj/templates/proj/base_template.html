@@ -29,7 +29,6 @@
   <div class="body" ng-controller="baseCtrl">
   <div class="hud-display-background" ng-click="supportVisible = false"
     ng-class="{visible: supportVisible}"></div>
-    {% block body %}{% endblock %}
     <div ng-class="{visible: supportVisible}" class="hud-display">
       <div class="content">
         <div class="wrapper floating body-text light">
@@ -38,6 +37,7 @@
         </div>
       </div>
     </div>
+    {% block body %}{% endblock %}
   {% include "proj/footer.html" %}
 
   </div>

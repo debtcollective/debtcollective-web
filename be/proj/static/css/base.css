@@ -571,7 +571,7 @@ a.sm-button {
   height: 250px;
   width: 250px;
   background-repeat: no-repeat;
-  margin: 80px auto 5px auto;
+  margin: 40px auto 5px auto;
   position: relative;
   max-width: 100%; }
   .collective-card .collective-card-content img {
@@ -1430,6 +1430,7 @@ select {
   .hud-display .content {
     overflow-y: auto;
     height: 100%;
+    width: 100%;
     position: absolute;
     color: #111; }
 

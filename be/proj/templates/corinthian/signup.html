@@ -19,7 +19,7 @@
           <button type="submit" ng-show="!corithianSignupFormShown" ng-click="corithianSignupFormShown = true" class="btn btn-primary">JOIN</button>
         </div>
         <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-          <a href="/#donate" ng-show="!corithianSignupFormShown" class="btn btn-primary">SUPPORT</a>
+          <a ng-click="supportVisible = true" ng-show="!corithianSignupFormShown" class="btn btn-primary">SUPPORT</a>
         </div>
       </div>
 
@@ -77,7 +77,6 @@
           </div>
       </div>
     </div>
-</div>
 </div>
 
 {% endblock %}
