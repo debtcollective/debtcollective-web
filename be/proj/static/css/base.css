@@ -127,7 +127,9 @@ textarea {
   margin-top: 4px; }
 
 .input-btn {
-  text-decoration: none !important; }
+  text-decoration: none !important;
+  background-color: #A82727 !important;
+  font-weight: bold; }
 
 a.btn, button[type=submit] {
   padding: 20px 0px;
@@ -1237,7 +1239,7 @@ textarea {
 input, .input-btn, textarea {
   border: 1px solid #a82727 !important;
   color: #f1eee2;
-  background-color: rgba(2, 2, 2, 0.8) !important; }
+  background-color: rgba(2, 2, 2, 0.8); }
 
 select {
   border: 1px solid rgba(2, 2, 2, 0.8);
