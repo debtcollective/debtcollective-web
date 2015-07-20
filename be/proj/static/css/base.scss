@@ -396,6 +396,11 @@ p.small {
     }
   }
 
+  &.white {
+    color: $dark-background-color;
+    background-color: $white-text-color;
+  }
+
   &.light {
     color:  $light-text-color;
     background-color: $light-background-color;

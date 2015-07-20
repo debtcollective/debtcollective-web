@@ -128,8 +128,7 @@ textarea {
 
 .input-btn {
   text-decoration: none !important;
-  background-color: #A82727 !important;
-  font-weight: bold; }
+  background-color: #A82727 !important; }
 
 a.btn, button[type=submit] {
   padding: 20px 0px;
@@ -1092,6 +1091,9 @@ p.small {
       margin-bottom: 22px; }
     .wrapper.dark a {
       color: #fefefe; }
+  .wrapper.white {
+    color: #39413f;
+    background-color: #fefefe; }
   .wrapper.light {
     color: #111;
     background-color: #f1eee2; }

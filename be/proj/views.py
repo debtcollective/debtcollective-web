@@ -132,6 +132,9 @@ def map(request):
 def solidarity(request):
   return redirect('https://docs.google.com/document/d/1m5l55FCsaQmFef4HcIUJHIE6PsyHjauV1FT6ztSRkSc/edit?usp=sharing')
 
+def howfartofree(request):
+  return render_to_response('proj/howfartofree.html')
+
 def calculator(request):
   return render_to_response('proj/calculator.html')
 

@@ -32,6 +32,7 @@ urlpatterns += patterns('proj.views',
   basic_url('solidarity'),
   basic_url('calculator'),
   basic_url('stripe_endpoint'),
+  basic_url('howfartofree'),
   url(r'^$', 'splash', name='splash'),
 )
 
