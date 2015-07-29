@@ -42,7 +42,7 @@ def dtr_migrate_email(request, id):
   key = dtr.key()
 
   BASE_URL = 'https://debtcollective.org'
-  migrate_url = BASE_URL + '/corinthian/dtr/migrate?email=' + dtr.data.email + '&key=' + key
+  migrate_url = BASE_URL + '/dtr/migrate?email=' + dtr.data.email + '&key=' + key
 
 
 def dtr_migrate(request, id):
@@ -221,7 +221,7 @@ def dtr_view(request, id):
     'dtrprofile': DTRUserProfile.objects.get(id=id)
   }
 
-  return render_to_response('corinthian/dtrview.html', c)
+  return render_to_response('dtr/dtrview.html', c)
 
 def admin(request):
   if not request.user.is_superuser:
@@ -232,9 +232,9 @@ def admin(request):
     'dtr_total': DTRUserProfile.objects.count()
   }
 
-  return render_to_response('corinthian/admin.html', c)
+  return render_to_response('dtr/admin.html', c)
 
-def corinthiandtr(request):
+def dtr(request):
   basepath = settings.TEMPLATE_DIRS[0]
   template_path = os.path.join(basepath, 'debtcollective-wizard/index.html')
   with open(template_path) as fp:
