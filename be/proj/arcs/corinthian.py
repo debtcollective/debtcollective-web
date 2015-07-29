@@ -44,6 +44,7 @@ def dtr_migrate_email(request, id):
   BASE_URL = 'https://debtcollective.org'
   migrate_url = BASE_URL + '/corinthian/dtr/migrate?email=' + dtr.data.email + '&key=' + key
 
+
 def dtr_migrate(request, id):
   email = request.GET.get('email')
   key = request.GET.get('key')
@@ -75,8 +76,6 @@ def dtr_migrate(request, id):
   else:
     return redirect('/profile')
 
-ATTACHMENTS = ['upload1', 'upload2', 'upload3']
-
 def attach(msg, contents, filename):
   part = MIMEBase('application', 'octet-stream')
   part.set_payload(contents)
@@ -105,7 +104,7 @@ Best, %s
   attach(msg, fp.read(), filename)
   fp.close()
 
-  for attachment in attachments:
+  for key, attachment in attachments.iteritems():
     attach(msg, attachment.file.read(), attachment.name)
 
   send_email(msg)

@@ -62,7 +62,6 @@ def generate_pdf(values, source_filename, fdf_filename, output_filename):
   for fieldname, value in values.iteritems():
     fdf_fields.append((fieldname, value))
 
-
   fdf = forge_fdf("", fdf_fields, [], [], [])
 
   fdf_file = open(fdf_filename, "w")

@@ -56,18 +56,16 @@ class DTRUserProfile(models.Model):
       values = self.data
 
     fdf_file = fdf_filename(key)
-    output_file = output_filename(key)
-    generate_pdf(values, SOURCE_FILE, fdf_file, output_file)
-
-    self.output_file = output_file
+    self.output_file = output_filename(key)
+    generate_pdf(values, SOURCE_FILE, fdf_file, self.output_file)
 
     metadata = {
       'name': values['name'],
       'version': 1
     }
-    store_in_s3(conn, S3_BUCKET_NAME, key, output_file, metadata)
+    store_in_s3(conn, S3_BUCKET_NAME, key, self.output_file, metadata)
 
-    return output_file
+    return self.output_file
 
   def unique_key(self):
     return ahashfunction(self.data)
