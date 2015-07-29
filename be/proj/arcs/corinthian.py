@@ -75,7 +75,16 @@ def dtr_migrate(request, id):
   else:
     return redirect('/profile')
 
-def dtr_email(dtr):
+ATTACHMENTS = ['upload1', 'upload2', 'upload3']
+
+def attach(msg, contents, filename):
+  part = MIMEBase('application', 'octet-stream')
+  part.set_payload(contents)
+  Encoders.encode_base64(part)
+  part.add_header('Content-Disposition', 'attachment; filename="{0}"'.format(filename))
+  msg.attach(part)
+
+def dtr_email(dtr, attachments=None):
   user_data = dict(dtr.data)
   to = settings.DTR_RECIPIENT
   msg = MIMEMultipart()
@@ -92,13 +101,12 @@ Attached find my application for Defense to Repayment.
 Best, %s
 """ % (name)))
   fp = open(dtr.output_file, 'rb')
-  part = MIMEBase('application', "octet-stream")
-  part.set_payload(fp.read())
-  Encoders.encode_base64(part)
   filename = "{0}.pdf".format(''.join(user_data['name']))
-  part.add_header('Content-Disposition', 'attachment; filename="{0}"'.format(filename))
-  msg.attach(part)
+  attach(msg, fp.read(), filename)
   fp.close()
+
+  for attachment in attachments:
+    attach(msg, attachment.file.read(), attachment.name)
 
   send_email(msg)
 
@@ -199,7 +207,7 @@ def dtr_generate(request):
   rq['state_2'] = rq.get('state', 'NA')
   dtr = DTRUserProfile.generate(rq)
 
-  dtr_email(dtr)
+  dtr_email(dtr, attachments=request.FILES)
 
   return json_response({
     'id': dtr.id,
