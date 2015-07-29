@@ -249,6 +249,9 @@ def corinthiansignup(request):
   }
   return render_to_response('corinthian/signup.html', c)
 
+def dtr_redirect(request):
+  return redirect('/defense-to-repayment')
+
 def corinthiancollective(request):
   return render_to_response('corinthian/signup.html')
 
