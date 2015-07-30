@@ -42,7 +42,8 @@ def dtr_migrate_email(request, id):
   key = dtr.key()
 
   BASE_URL = 'https://debtcollective.org'
-  migrate_url = BASE_URL + '/corinthian/dtr/migrate?email=' + dtr.data.email + '&key=' + key
+  migrate_url = BASE_URL + '/dtr/migrate?email=' + dtr.data.email + '&key=' + key
+
 
 def dtr_migrate(request, id):
   email = request.GET.get('email')
@@ -75,7 +76,14 @@ def dtr_migrate(request, id):
   else:
     return redirect('/profile')
 
-def dtr_email(dtr):
+def attach(msg, contents, filename):
+  part = MIMEBase('application', 'octet-stream')
+  part.set_payload(contents)
+  Encoders.encode_base64(part)
+  part.add_header('Content-Disposition', 'attachment; filename="{0}"'.format(filename))
+  msg.attach(part)
+
+def dtr_email(dtr, attachments=None):
   user_data = dict(dtr.data)
   to = settings.DTR_RECIPIENT
   msg = MIMEMultipart()
@@ -92,13 +100,12 @@ Attached find my application for Defense to Repayment.
 Best, %s
 """ % (name)))
   fp = open(dtr.output_file, 'rb')
-  part = MIMEBase('application', "octet-stream")
-  part.set_payload(fp.read())
-  Encoders.encode_base64(part)
   filename = "{0}.pdf".format(''.join(user_data['name']))
-  part.add_header('Content-Disposition', 'attachment; filename="{0}"'.format(filename))
-  msg.attach(part)
+  attach(msg, fp.read(), filename)
   fp.close()
+
+  for key, attachment in attachments.iteritems():
+    attach(msg, attachment.file.read(), attachment.name)
 
   send_email(msg)
 
@@ -199,7 +206,7 @@ def dtr_generate(request):
   rq['state_2'] = rq.get('state', 'NA')
   dtr = DTRUserProfile.generate(rq)
 
-  dtr_email(dtr)
+  dtr_email(dtr, attachments=request.FILES)
 
   return json_response({
     'id': dtr.id,
@@ -214,7 +221,7 @@ def dtr_view(request, id):
     'dtrprofile': DTRUserProfile.objects.get(id=id)
   }
 
-  return render_to_response('corinthian/dtrview.html', c)
+  return render_to_response('dtr/dtrview.html', c)
 
 def admin(request):
   if not request.user.is_superuser:
@@ -225,9 +232,9 @@ def admin(request):
     'dtr_total': DTRUserProfile.objects.count()
   }
 
-  return render_to_response('corinthian/admin.html', c)
+  return render_to_response('dtr/admin.html', c)
 
-def corinthiandtr(request):
+def dtr(request):
   basepath = settings.TEMPLATE_DIRS[0]
   template_path = os.path.join(basepath, 'debtcollective-wizard/index.html')
   with open(template_path) as fp:
@@ -241,6 +248,9 @@ def corinthiansignup(request):
     "actions": Action.objects.filter(collective=collective)
   }
   return render_to_response('corinthian/signup.html', c)
+
+def dtr_redirect(request):
+  return redirect('/defense-to-repayment')
 
 def corinthiancollective(request):
   return render_to_response('corinthian/signup.html')

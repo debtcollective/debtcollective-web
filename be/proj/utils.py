@@ -11,7 +11,6 @@ import subprocess
 
 def send_email(msg):
   mailserver = smtplib.SMTP('smtp.mandrillapp.com', 587)
-  mailserver.set_debuglevel(1)
   mailserver.login('noreply@debtcollective.org', settings.MANDRILL_API_KEY)
 
   from_email = 'noreply@debtcollective.org'
@@ -61,7 +60,6 @@ def generate_pdf(values, source_filename, fdf_filename, output_filename):
 
   for fieldname, value in values.iteritems():
     fdf_fields.append((fieldname, value))
-
 
   fdf = forge_fdf("", fdf_fields, [], [], [])
 

@@ -48,15 +48,18 @@ urlpatterns += patterns('proj.gather.views',
 def corinthian_url(name):
   return basic_url(name, prefix="corinthian/")
 
+urlpatterns += patterns('proj.arcs.dtr',
+  url('^dtr/download/(\d+)/(\d+)$', 'dtr_download', name='dtr_download'),
+  url('^dtr/migrate/(\d+)$', 'dtr_migrate', name='dtr_migrate'),
+  url('^dtr/restore/(\d+)$', 'dtr_restore', name='dtr_restore'),
+  url('^dtr/view/(\d+)$', 'dtr_view', name='dtr_view'),
+  basic_url('dtr_generate'),
+  basic_url('dtr_csv'),
+  url('^corinthiandtr$', 'dtr_redirect', name='dtr'),
+  url('^defense-to-repayment$', 'dtr', name='dtr')
+)
 urlpatterns += patterns('proj.arcs.corinthian',
-  corinthian_url('dtr_generate'),
-  corinthian_url('dtr_csv'),
   corinthian_url('admin'),
-  url('^corinthian/dtr/download/(\d+)/(\d+)$', 'dtr_download', name='dtr_download'),
-  url('^corinthian/dtr/migrate/(\d+)$', 'dtr_migrate', name='dtr_migrate'),
-  url('^corinthian/dtr/restore/(\d+)$', 'dtr_restore', name='dtr_restore'),
-  url('^corinthian/dtr/view/(\d+)$', 'dtr_view', name='dtr_view'),
-  basic_url('corinthiandtr'),
   basic_url('corinthiansignup'),
   basic_url('corinthiancollective'),
   basic_url('studentstrike'),
