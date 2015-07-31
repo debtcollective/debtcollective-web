@@ -58,7 +58,7 @@ urlpatterns += patterns('proj.arcs.dtr',
   url('^corinthiandtr$', 'dtr_redirect', name='dtr_redirect'),
   url('^defense-to-repayment$', 'dtr', name='dtr')
 )
-urlpatterns += patterns('proj.arcs.corinthian',
+urlpatterns += patterns('proj.arcs.dtr',
   corinthian_url('admin'),
   basic_url('corinthiansignup'),
   basic_url('corinthiancollective'),
