@@ -203,7 +203,6 @@ def dtr_generate(request):
     i += 1
 
   rq['name_2'] = rq.get('name', 'NA')
-  rq['state_2'] = rq.get('state', 'NA')
   dtr = DTRUserProfile.generate(rq)
 
   dtr_email(dtr, attachments=request.FILES)
