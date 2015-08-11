@@ -10,7 +10,7 @@ def collective(request, slug):
   }
   return render_to_response('collectives/collective.html', c)
 
-def action(request, name):
+def action(request, slug):
   action = Action.objects.get(slug=slug)
   c = {'action': action, 'user': request.user}
   return render_to_response('collectives/action.html', c)

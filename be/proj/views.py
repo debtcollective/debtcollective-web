@@ -50,7 +50,7 @@ def profile(request):
   c = {}
 
   c['user'] = request.user
-  c['user'].profile = request.user.get_profile()
+  c['user'].profile = UserProfile.objects.get_or_create(user=request.user)
   c['debts'] = Debt.objects.filter(user=c['user'])
   c['actions'] = UserAction.objects.filter(user=c['user'])
   c['memberships'] = CollectiveMember.objects.filter(user=c['user'])

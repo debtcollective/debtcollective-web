@@ -17,14 +17,17 @@
     </div>
 
     <div class="wrapper arrow-up"></div>
-    <div class="wrapper light arrow-down-steep centered">
+    <div class="wrapper arrow-down-steep centered">
       <div class="row arrow-top-heading">
         <h2 class="first">ACTIONS</h2>
       </div>
       <div class="row">
-        {% if user.is_superuser %}
-          <a href="/corinthian/admin">Corinthian Defense to Repayment</a>
-        {% endif %}
+        <ul>
+          {% if user.is_superuser %}
+          <li><a href="/corinthian/admin">Corinthian Defense to Repayment</a></li>
+          {% endif %}
+          <li><a href="/logout">Logout</a></li>
+        </ul>
         {% include "collectives/action_cards.html" with actions=actions %}
       </div>
     </div>

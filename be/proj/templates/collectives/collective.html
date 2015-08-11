@@ -14,7 +14,7 @@
         <h2>{{collective.name}}
         {% if user.is_superuser %}
           <a href="/admin/collectives/collective/{{collective.id}}">Edit </a>
-        {% endif %})</h2>
+        {% endif %}</h2>
         <p>{{collective.description | safe}}</p>
         <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
           <button type="submit" class="btn btn-primary">JOIN</button>
