@@ -13,6 +13,7 @@ class Action(models.Model):
   image = models.CharField(max_length=150, null=True, blank=True)
   active = models.BooleanField(default=True)
   featured = models.BooleanField(default=False)
+  private = models.BooleanField(default=False)
 
   def __unicode__(self):
     return self.name

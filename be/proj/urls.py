@@ -22,7 +22,6 @@ urlpatterns += patterns('proj.collectives.views',
 
 ## TODO: Move corinthian specific stuff to arcs.corinthian..
 urlpatterns += patterns('proj.views',
-  basic_url('map'),
   basic_url('login'),
   basic_url('logout'),
   basic_url('change_password'),
@@ -53,13 +52,13 @@ urlpatterns += patterns('proj.arcs.dtr',
   url('^dtr/migrate/(\d+)$', 'dtr_migrate', name='dtr_migrate'),
   url('^dtr/restore/(\d+)$', 'dtr_restore', name='dtr_restore'),
   url('^dtr/view/(\d+)$', 'dtr_view', name='dtr_view'),
+  url('^dtr/admin$', 'dtr_admin', name='dtr_admin'),
   basic_url('dtr_generate'),
   basic_url('dtr_csv'),
   url('^corinthiandtr$', 'dtr_redirect', name='dtr_redirect'),
   url('^defense-to-repayment$', 'dtr', name='dtr')
 )
 urlpatterns += patterns('proj.arcs.dtr',
-  corinthian_url('admin'),
   basic_url('corinthiansignup'),
   basic_url('corinthiancollective'),
   basic_url('studentstrike'),

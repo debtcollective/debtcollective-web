@@ -52,8 +52,10 @@ def profile(request):
   c['user'] = request.user
   c['user'].profile = UserProfile.objects.get_or_create(user=request.user)
   c['debts'] = Debt.objects.filter(user=c['user'])
-  c['actions'] = UserAction.objects.filter(user=c['user'])
-  c['memberships'] = CollectiveMember.objects.filter(user=c['user'])
+  user_actions = UserAction.objects.select_related('action').filter(user=request.user)
+  c['user_actions'] = map(lambda u: u.action, user_actions)
+  c['all_actions'] = Action.objects.all()
+  c['collectives'] = Collective.objects.select_related('membership').all()
 
   return render_to_response('proj/profile.html', c)
 
@@ -125,9 +127,6 @@ def signup(request):
 def splash(request):
   c = {"actions": Action.objects.filter(featured=True)[:2]}
   return render_to_response('proj/splash.html', c)
-
-def map(request):
-  return render_to_response('proj/map.html')
 
 def solidarity(request):
   return redirect('https://docs.google.com/document/d/1m5l55FCsaQmFef4HcIUJHIE6PsyHjauV1FT6ztSRkSc/edit?usp=sharing')

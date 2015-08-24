@@ -12,12 +12,18 @@ def collective(request, slug):
 
 def action(request, slug):
   action = Action.objects.get(slug=slug)
-  c = {'action': action, 'user': request.user}
+  c = {
+    'action': action,
+    'user': request.user
+  }
   return render_to_response('collectives/action.html', c)
 
 def all_actions(request):
   collectives = Collective.objects.all()
-  actions = Action.objects.filter(active=True)
-  c = {'collectives': collectives, 'actions': actions, 'user': request.user}
+  actions = Action.objects.filter(active=True, private=False)
+  c = {
+    'collectives': collectives,
+    'actions': actions,
+    'user': request.user
+  }
   return render_to_response('collectives/all_actions.html', c)
-

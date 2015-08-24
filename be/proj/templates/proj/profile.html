@@ -5,31 +5,38 @@
 
 {% include "proj/insideHeader.html" with title='DASHBOARD' %}
 
-<div class="flex">
-  <div class="container inside-container">
-    <div class="wrapper dark">
+<div class="container">
+  <div class="wrapper light">
+    <div class="row">
+      <div class="centered body-text">
+        <h1>Welcome {{user.username}}!</h1>
+      <ul>
+        <li><a class="big-link" href="/logout">Logout</a></li>
+      </ul>
+      </div>
       <div class="body-text">
-     <!-- <h2>First name: {{user.first_name}}</h2>
-      <h2>Last name: {{user.last_name}}</h2>
-      -->
-      <p>Email: {{user.email}}</p>
+        <p>There's some super important text here I think you should know about. There's some super important text here I think you should know aboutThere's some super important text here I think you should know aboutThere's some super important text here I think you should know aboutThere's some super important text here I think you should know about</p>
       </div>
     </div>
-
-    <div class="wrapper arrow-up"></div>
-    <div class="wrapper arrow-down-steep centered">
-      <div class="row arrow-top-heading">
-        <h2 class="first">ACTIONS</h2>
-      </div>
-      <div class="row">
-        <ul>
-          {% if user.is_superuser %}
-          <li><a href="/corinthian/admin">Corinthian Defense to Repayment</a></li>
-          {% endif %}
-          <li><a href="/logout">Logout</a></li>
-        </ul>
-        {% include "collectives/action_cards.html" with actions=actions %}
-      </div>
+  </div>
+  <div class="wrapper dark">
+    <h2>Actions in progress:</h2>
+    <div class="row">
+      {% include "collectives/action_cards.html" with actions=user_actions %}
+    </div>
+  </div>
+  <div class="wrapper dark">
+    <h2>Membership Collectives:</h2>
+    <div class="row">
+      {% for collective in collectives %}
+        <div class="col-xs-12 col-sm-4 collective-card">
+          <a href="{{collective.link}}">
+          <div class="collective-card-content" style="background-image:url({{collective.image}});" />
+          </div>
+          <h3>{{collective.name.upper}}</h3>
+          </a>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </div>

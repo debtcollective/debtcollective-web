@@ -9,7 +9,7 @@ import json
 import settings
 import subprocess
 
-def send_email(msg):
+def send_email(msg, template='dc-members'):
   mailserver = smtplib.SMTP('smtp.mandrillapp.com', 587)
   mailserver.login('noreply@debtcollective.org', settings.MANDRILL_API_KEY)
 
@@ -17,6 +17,7 @@ def send_email(msg):
   msg['From'] = from_email
   to = msg['To']
   msg.add_header('X-MC-Track', 'opens')
+  msg.add_header('X-MC-Template', template)
   mailserver.sendmail(from_email, to.split(','), msg.as_string())
   mailserver.quit()
 

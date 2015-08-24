@@ -607,6 +607,8 @@ a.sm-button {
       color: #111 !important; }
       .action-card .action-card-content a:hover {
         text-decoration: none; }
+    .action-card .action-card-content img {
+      max-height: 185px; }
     .action-card .action-card-content h2, .action-card .action-card-content a.btn, .action-card .action-card-content button[type=submit], .action-card .action-card-content .tabs .single-tab, .tabs .action-card .action-card-content .single-tab, .action-card .action-card-content h3 {
       color: #111 !important;
       margin: 5px 0px !important; }

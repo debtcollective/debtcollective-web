@@ -40,10 +40,28 @@ def get_dtr(id):
 def dtr_migrate_email(request, id):
   dtr = get_dtr(id)
   key = dtr.key()
+  name = ''.join(user_data['name'])
+  msg['Subject'] = '{0}, Your Defense to Repayment Application for {1}'.format(name, ''.join(user_data['school_name']))
+  msg['To'] = ''.join(user_data['email'])
 
-  BASE_URL = 'https://debtcollective.org'
-  migrate_url = BASE_URL + '/dtr/migrate?email=' + dtr.data.email + '&key=' + key
+  migrate_url = 'https://debtcollective.org/dtr/migrate?email=' + ''.join(user_data['email']) + '&key=' + key
 
+  msg.attach(MIMEText("""
+Hello {0},
+
+Some time ago, you filled out a [Defense to Repayment claim on the Debt Collective website](http://debtcollective.org/defense-to-repayment).
+
+We have good news. You can now you can login to the Debt Collective to edit and resubmit your application.
+
+Please go to [this link]({1}) to make sure all your information is correct. If you don't have the last four of your social security number listed, you might want to resubmit your application.
+
+{1}
+
+Solidarty,
+
+The Debt Collective
+""" % (name, migrate_url)))
+  send_email(msg)
 
 def dtr_migrate(request, id):
   email = request.GET.get('email')
@@ -222,7 +240,7 @@ def dtr_view(request, id):
 
   return render_to_response('dtr/dtrview.html', c)
 
-def admin(request):
+def dtr_admin(request):
   if not request.user.is_superuser:
     return redirect('/login')
 

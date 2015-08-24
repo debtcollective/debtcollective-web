@@ -50,6 +50,9 @@ $border-radius: 9px;
         text-decoration: none;
       }
     }
+    img {
+      max-height: 185px;
+    }
     h2, h3 {
       color: $light-text-color !important;
       margin: 5px 0px !important;
