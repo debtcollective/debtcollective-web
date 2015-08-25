@@ -6,7 +6,7 @@
 {% include "proj/insideHeader.html" with title='DASHBOARD' %}
 
 <div class="container">
-  <div class="wrapper light">
+  <div class="wrapper light floating">
     <div class="row">
       <div class="centered body-text">
         <h1>Welcome {{user.username}}!</h1>
@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="wrapper dark">
-    <h2>Actions in progress:</h2>
+    <h2>Active actions:</h2>
     <div class="row">
       {% include "collectives/action_cards.html" with actions=user_actions %}
     </div>

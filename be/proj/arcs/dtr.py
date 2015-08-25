@@ -237,6 +237,19 @@ def dtr_generate(request):
     'pdf_link': dtr.pdf_link(),
   }, 200)
 
+def dtr_data(request):
+  if not request.user.is_authenticated():
+    data = {'warning': 'No user found'}
+  else:
+    action = Action.objects.get(name='Defense to Repayment')
+    try:
+      user_action = UserAction.objects.get(user=request.user, action=action)
+      data = user_action.data
+    except ObjectDoesNotExist:
+      data = {'warning': 'No dtr found'}
+
+  return json_response(data, 200)
+
 def dtr_view(request, id):
   if not request.user.is_superuser:
     return redirect('/login')
