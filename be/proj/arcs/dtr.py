@@ -87,7 +87,7 @@ def make_a_pdf(dtr, values=None):
 
 def create_dtr_user_action(values, user):
   action = Action.objects.get(name='Defense To Repayment')
-  dtr = UserAction.objects.get_or_create(user=user, action=action)
+  dtr, created = UserAction.objects.get_or_create(user=user, action=action)
 
   # create a pdf with sensitive data to be stored in s3 and thrown away
   make_a_pdf(dtr, values)
@@ -102,7 +102,7 @@ def create_dtr_user_action(values, user):
   dtr.data = values
   dtr.save()
 
-  return dtr
+  return dtr, created
 
 def dtr_migrate_email(dtr):
   key = str(dtr.id)
@@ -136,6 +136,16 @@ The Debt Collective
 
   send_email(msg, headers={'X-MC-MergeVars': '{"header": "Defense to Repayment Ready for Review!"}'})
 
+def user_get_or_create(email, password):
+  try:
+    user = User.objects.get(email=email)
+    created = False
+  except ObjectDoesNotExist:
+    user = User.objects.create_user(email, password=password, email=email)
+    created = True
+
+  return user, created
+
 def dtr_migrate(request, id):
   email = request.GET.get('email')
 
@@ -154,22 +164,21 @@ def dtr_migrate(request, id):
   password = email.lower()
   if request.user.is_authenticated():
     user = request.user
-  else:
-    user = User.objects.filter(email=email)[0]
+
+  user, created_user = user_get_or_create(email, password)
+  create_dtr_user_action(dtr.data, user)
+
+  if request.user_is_authenticated():
+    return redirect('/profile')
+
+  if not created_user:
     return redirect('/login')
 
-  if not user:
-    User.objects.create_user(email, password=password, email=email)
+  # user has been created for them, for the purpose of migrating.
+  # they need to change their password now.
   user = auth.authenticate(username=email, password=password)
   auth.login(request, user)
-
-  useraction, created = UserAction.objects.get_or_create(user=user, action=dtr_action)
-  if created:
-    useraction.data = dtr.data
-    useraction.status = UserAction.COMPLETED
-    return redirect('/change_password')
-  else:
-    return redirect('/profile')
+  return redirect('/change_password')
 
 def attach(msg, contents, filename):
   part = MIMEBase('application', 'octet-stream')
@@ -299,13 +308,11 @@ def dtr_generate(request):
 
   rq['name_2'] = rq.get('name', 'NA')
 
-
   if request.user.is_authenticated():
     user = request.user
   else:
-    user = User.objects.filter(email=rq['email'])
-
-  dtr = create_dtr_user_action(rq, user)
+    user = None
+  dtr = create_dtr_user_action(rq, user=user)
 
   dtr_email(dtr, attachments=request.FILES)
   dtr_migrate_email(dtr)
