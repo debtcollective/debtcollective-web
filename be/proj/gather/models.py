@@ -39,6 +39,7 @@ class UserProfile(models.Model):
   created_at = models.DateTimeField(default=datetime.now)
   point = models.ForeignKey(Point, null=True)
 
+
 def create_user_profile(sender, instance, created, **kwargs):
   if created:
     UserProfile.objects.create(user=instance)

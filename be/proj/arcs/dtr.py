@@ -10,8 +10,10 @@ from django.contrib import auth
 from proj.gather.models import Debt, UserProfile, Point
 from proj.collectives.models import UserAction, CollectiveMember, Action, Collective
 from boto.exception import S3ResponseError
-
-# Import the email modules we'll need
+from boto.s3.key import Key
+from proj.utils import get_s3_conn, store_in_s3, generate_pdf
+from django.contrib.auth.models import User
+from jsonfield import JSONField
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEBase import MIMEBase
@@ -24,16 +26,81 @@ import zipfile
 import StringIO
 import csv
 import json
+import datetime
+import sys
 
-def get_dtr(id):
-  try:
-    dtr = DTRUserProfile.objects.get(id=id)
-  except:
-    return None
+SENSITIVE_FIELDS = ["ssn_1", "ssn_2", "ssn_3"]
 
-  dtr_data = dtr.data
-  if not dtr_data:
-    return None
+
+S3_BUCKET_NAME = 'corinthiandtr'
+if settings.DEBUG:
+  S3_BUCKET_NAME += '.dev'
+
+conn = get_s3_conn()
+
+TMP_FILE_DIR = '/tmp'
+basepath = settings.TEMPLATE_DIRS[0]
+SOURCE_FILE = os.path.join(basepath, 'debtcollective-wizard/borrower_defense_to_repayment.pdf')
+DTR_FIELDS_FILE = os.path.join(os.path.dirname(__file__), 'dtr_fields.json')
+
+with open(DTR_FIELDS_FILE, 'rb') as fp:
+  FIELDS = json.loads(fp.read())
+
+def fdf_filename(key):
+  return os.path.join(TMP_FILE_DIR, str(key) + '_data.fdf')
+
+def output_filename(key):
+  return os.path.join(TMP_FILE_DIR, str(key) + '_output.pdf')
+
+def s3_key(dtr):
+  bucket = conn.get_bucket(S3_BUCKET_NAME)
+  key = Key(bucket)
+  key.key = dtr.id
+  return key
+
+def to_json(dtr):
+  data = dtr.__dict__.copy()
+  del data['_state']
+  return data
+
+def pdf_link(dtr, expires_in=3000):
+  key = s3_key(dtr)
+  url = key.generate_url(expires_in=expires_in, force_http=True)
+  return url
+
+def make_a_pdf(dtr, values=None):
+  key = dtr.id
+  if not values:
+    values = dtr.data
+
+  fdf_file = fdf_filename(key)
+  output_file = output_filename(key)
+  generate_pdf(values, SOURCE_FILE, fdf_file, output_file)
+
+  metadata = {
+    'name': values['name'],
+    'version': 1
+  }
+  store_in_s3(conn, S3_BUCKET_NAME, key, output_file, metadata)
+
+  return output_file
+
+def create_dtr_user_action(values, user):
+  action = Action.objects.get(name='Defense To Repayment')
+  dtr = UserAction.objects.get_or_create(user=user, action=action)
+
+  # create a pdf with sensitive data to be stored in s3 and thrown away
+  make_a_pdf(dtr, values)
+
+  # throw away sensitive fields
+  for field in SENSITIVE_FIELDS:
+    if values.get(field):
+      del values[field]
+  values['key'] = dtr.id
+
+  # store only non-sensitive fields on disk
+  dtr.data = values
+  dtr.save()
 
   return dtr
 
@@ -71,25 +138,29 @@ The Debt Collective
 
 def dtr_migrate(request, id):
   email = request.GET.get('email')
-  key = request.GET.get('key')
-  dtr = get_dtr(id)
+
+  try:
+    dtr = DTRUserProfile.objects.get(id=id)
+  except:
+    dtr = None
 
   if not dtr:
     return json_response({'error': 'Could not find your DTR. Please contact support@debtcollective.org'}, 500)
   if ''.join(dtr.data['email']) != email:
-    return json_response({'error': 'Email does not match original. Please provide a valid email address'}, 500)
+    return json_response({'error': 'Invalid request.'}, 500)
 
   dtr_action = Action.objects.get(name='Defense to Repayment')
 
-  username = email
   password = email.lower()
-  users = User.objects.filter(username=username)
-  if not users:
-    User.objects.create_user(username, password=password, email=email)
-
-  user = auth.authenticate(username=username, password=password)
-  if not user:
+  if request.user.is_authenticated():
+    user = request.user
+  else:
+    user = User.objects.filter(email=email)[0]
     return redirect('/login')
+
+  if not user:
+    User.objects.create_user(email, password=password, email=email)
+  user = auth.authenticate(username=email, password=password)
   auth.login(request, user)
 
   useraction, created = UserAction.objects.get_or_create(user=user, action=dtr_action)
@@ -227,7 +298,14 @@ def dtr_generate(request):
     i += 1
 
   rq['name_2'] = rq.get('name', 'NA')
-  dtr = DTRUserProfile.generate(rq)
+
+
+  if request.user.is_authenticated():
+    user = request.user
+  else:
+    user = User.objects.filter(email=rq['email'])
+
+  dtr = create_dtr_user_action(rq, user)
 
   dtr_email(dtr, attachments=request.FILES)
   dtr_migrate_email(dtr)
