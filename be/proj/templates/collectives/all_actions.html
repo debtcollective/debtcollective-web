@@ -6,7 +6,7 @@
 <div class="container">
   <div class="row">
     {% for collective in collectives %}
-      <div class="col-xs-12 col-sm-4 collective-card">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 collective-card">
         <a href="{{collective.link}}">
         <div class="collective-card-content" style="background-image:url({{collective.image}});" />
         </div>
@@ -15,7 +15,7 @@
       </div>
     {% endfor %}
   </div>
-  <div class="wrapper light floating ">
+  <div class="wrapper light floating">
     <div class="body-text">
       <h2>
       Welcome to the Debt Collective actions page where you will find a list of all past and present debt resistance campaigns and actions. Click to learn more about each collective and how to join.

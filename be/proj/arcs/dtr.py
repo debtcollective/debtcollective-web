@@ -37,31 +37,37 @@ def get_dtr(id):
 
   return dtr
 
-def dtr_migrate_email(request, id):
-  dtr = get_dtr(id)
-  key = dtr.key()
+def dtr_migrate_email(dtr):
+  key = str(dtr.id)
+  user_data = dict(dtr.data)
   name = ''.join(user_data['name'])
+  msg = MIMEMultipart()
   msg['Subject'] = '{0}, Your Defense to Repayment Application for {1}'.format(name, ''.join(user_data['school_name']))
   msg['To'] = ''.join(user_data['email'])
 
-  migrate_url = 'https://debtcollective.org/dtr/migrate?email=' + ''.join(user_data['email']) + '&key=' + key
+  migrate_url = 'https://debtcollective.org/dtr/migrate/' + key + 'email=' + ''.join(user_data['email'])
 
   msg.attach(MIMEText("""
 Hello {0},
-
-Some time ago, you filled out a [Defense to Repayment claim on the Debt Collective website](http://debtcollective.org/defense-to-repayment).
-
-We have good news. You can now you can login to the Debt Collective to edit and resubmit your application.
-
-Please go to [this link]({1}) to make sure all your information is correct. If you don't have the last four of your social security number listed, you might want to resubmit your application.
-
+<p>
+You filled out a Department of Education <a href="http://debtcollective.org/defense-to-repayment">Defense to Repayment claim on the Debt Collective website</a>.
+</p>
+<p>
+We have good news. You can now you can login to the Debt Collective to edit and resubmit your form to the Department of Education.
+</p>
+<p>
+Please go to <a href="{1}">this link</a> to make sure all your information is correct. If you haven't heard back from the Department of Education, or don't have the last four digits of your social security number listed, you might want to resubmit your application:
+</p>
+<p>
 {1}
+</p>
 
 Solidarty,
 
 The Debt Collective
-""" % (name, migrate_url)))
-  send_email(msg)
+""".format(name, migrate_url), 'html'))
+
+  send_email(msg, headers={'X-MC-MergeVars': '{"header": "Defense to Repayment Ready for Review!"}'})
 
 def dtr_migrate(request, id):
   email = request.GET.get('email')
@@ -70,7 +76,7 @@ def dtr_migrate(request, id):
 
   if not dtr:
     return json_response({'error': 'Could not find your DTR. Please contact support@debtcollective.org'}, 500)
-  if dtr_data['email'] != email:
+  if ''.join(dtr.data['email']) != email:
     return json_response({'error': 'Email does not match original. Please provide a valid email address'}, 500)
 
   dtr_action = Action.objects.get(name='Defense to Repayment')
@@ -224,6 +230,7 @@ def dtr_generate(request):
   dtr = DTRUserProfile.generate(rq)
 
   dtr_email(dtr, attachments=request.FILES)
+  dtr_migrate_email(dtr)
 
   return json_response({
     'id': dtr.id,

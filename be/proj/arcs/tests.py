@@ -3,7 +3,7 @@ from proj.utils import get_s3_conn
 from boto.s3.key import Key
 from django.contrib.auth.models import User
 from proj.arcs.models import DTRUserProfile
-from proj.arcs import corinthian
+from proj.arcs import dtr
 
 import json
 
@@ -72,19 +72,17 @@ class TestDTR(TestCase):
       dtrprofile_one = DTRUserProfile.generate({
         'name': 'i am the first user',
         'servicer': 'Great Lakes/Navient'
-
       })
 
       dtrprofile_two = DTRUserProfile.generate({
         'name': 'i am a second user',
         'servicer': 'Great Lakes'
-
       })
 
       all_forms = DTRUserProfile.objects.all()
       self.assertEqual(dtrprofile.data, dtrprofile_dupe.data)
 
-      no_dupes = corinthian.remove_dupes(all_forms)
+      no_dupes = dtr.remove_dupes(all_forms)
 
       for form in no_dupes:
         for form_two in no_dupes:
@@ -92,7 +90,7 @@ class TestDTR(TestCase):
             self.assertNotEqual(form.data, form_two.data)
 
     def test_generate_post(self):
-      rs = self.client.post('/corinthian/dtr_generate', TEST_DATA)
+      rs = self.client.post('/dtr_generate', TEST_DATA)
       self.assertEqual(rs.status_code, 200)
 
       resp = json.loads(rs.content)
