@@ -4,8 +4,10 @@
 
 {% include "proj/insideHeader.html" with title='LOGIN' %}
 
+<div class="inside-container">
 <div class="flex thankyou-background">
   <div class="wrapper dark">
+    <h4>Take action.</h4>
     <form action="/login" method="POST">
       <div class="dc-input">
         {% csrf_token %}
@@ -17,6 +19,7 @@
         <button class="btn btn-primary" type="submit">Submit</button>
       </div>
     </form>
+  </div>
   </div>
 </div>
 

@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from jsonfield import JSONField
 from django.db.models.signals import pre_save
 
+import datetime
+
 class Action(models.Model):
   slug = models.SlugField(max_length=40, unique=True)
   name = models.CharField(max_length=100)
@@ -73,6 +75,7 @@ class UserAction(models.Model):
   user = models.ForeignKey(User)
   action = models.ForeignKey(Action)
   data = JSONField(blank=True)
+  last_changed = models.DateTimeField(default=datetime.datetime.now())
 
   def __unicode__(self):
     return '%s %s' % (self.user, self.action)

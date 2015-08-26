@@ -6,7 +6,6 @@ from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Sum
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
-from django.contrib.auth.decorators import login_required
 
 from proj.utils import json_response, get_POST_data
 from proj.gather.models import Debt, UserProfile, Point
@@ -42,11 +41,12 @@ def change_password(request):
     template_response.context_data['user'] = request.user
   return template_response
 
-@login_required
 def profile(request):
   """
   GET /profile
   """
+  if not request.user.is_authenticated():
+    return redirect('/login')
   c = {}
 
   c['user'] = request.user
