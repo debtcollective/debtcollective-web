@@ -49,9 +49,9 @@ def corinthian_url(name):
 
 urlpatterns += patterns('proj.arcs.dtr',
   url('^dtr/download/(\d+)/(\d+)$', 'dtr_download', name='dtr_download'),
-  url('^dtr/migrate/(\d+)$', 'dtr_migrate', name='dtr_migrate'),
   url('^dtr/restore/(\d+)$', 'dtr_restore', name='dtr_restore'),
   url('^dtr/view/(\d+)$', 'dtr_view', name='dtr_view'),
+  url('^dtr/migrate$', 'dtr_migrate', name='dtr_migrate'),
   url('^dtr/data$', 'dtr_data', name='dtr_data'),
   url('^dtr/admin$', 'dtr_admin', name='dtr_admin'),
   basic_url('dtr_generate'),

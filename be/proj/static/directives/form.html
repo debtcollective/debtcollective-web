@@ -1,33 +1,39 @@
 <div class="forms">
   <div class="dc-input">
+    <div ng-show="!cities">One moment...</div>
     <form ng-show="!formSubmitted && showForm" class="form" id="signupForm"
-      accept-charset="utf-8" ng-submit="onSubmitClick($event)">
+      accept-charset="utf-8" action='POST' ng-submit="onSubmitClick($event)">
 
-    <div ng-repeat="debt in debts" class="flex">
+      <input type="email" id="email" name="email"  ng-model="email"
+        placeholder="EMAIL"
+        required autocomplete="off" />
+
+      <input type="password" id="password" name="password"  ng-model="password"
+        placeholder="PASSWORD"
+        required autocomplete="off" />
+
+      <div ng-repeat="debt in debts" class="flex">
+        <input type="text"
+          ng-model="debt.amount"
+          placeholder="DEBT AMOUNT">
+
+        <select class="debt-type-select"
+          ng-model="debt.debtType"
+          ng-options="item as item.name for item in debt_choices track by item.id"
+          required>
+          <option value="">DEBT TYPE</option>
+        </select>
+      </div>
+
       <input type="text"
-        ng-model="debt.amount"
-        placeholder="DEBT AMOUNT">
+        ng-model="location"
+        placeholder="WHAT CITY DO YOU LIVE IN?"
+        typeahead-editable="false"
+        typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 ">
 
-      <select class="debt-type-select"
-        ng-model="debt.debtType"
-        ng-options="item as item.name for item in debt_choices track by item.id"
-        required>
-        <option value="">DEBT TYPE</option>
-      </select>
-    </div>
-
-    <input type="email" id="email" name="email"  ng-model="email"
-      placeholder="EMAIL"
-      required autocomplete="off" />
-
-    <input type="text"
-      ng-model="location"
-      placeholder="WHAT CITY DO YOU LIVE IN?"
-      typeahead-editable="false"
-      typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 ">
-
-      <button type="submit" name="submit" class="btn btn-primary">sign up</button>
-    </form>
+        <button type="submit" name="submit" class="btn btn-primary">sign up</button>
+        <p class="centered"> <a href="/login">I already have an account</a></p>
+      </form>
       <div class="row" ng-show="formSubmitted">
           <h2 class="spacer">WELCOME TO THE DEBT COLLECTIVE</h2>
             <p>No one should have to go into debt for basic needs like housing, healthcare, and education. When the indebted join together we can build power towards a just society.</p>
@@ -45,7 +51,8 @@
       </div>
 
       <form class="body-text">
-         <button type="submit" ng-show="!showForm" ng-click="showForm = true" name="submit" class="btn btn-primary">JOIN US</button>
+         <button type="submit" ng-show="!showForm" ng-click="showForm = true"
+         id="openFormButton" name="submit" class="btn btn-primary">JOIN US</button>
       </form>
   </div>
 </div>

@@ -136,3 +136,9 @@ class TestDTR(TestCase):
       bucket.delete_key(key)
       bucket.delete_key(key_two)
 
+    def test_migrate(self):
+      dtrprofile = DTRUserProfile.generate({
+        'name': 'another user'
+      })
+
+      dtr.dtr_migrate_email(dtrprofile)

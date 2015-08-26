@@ -12410,7 +12410,8 @@ app.controller('solidarityStrikeCtrl',
     templateUrl: '/static/directives/form.html',
     replace: true,
     scope: {
-      visible: '='
+      open: '=',
+      afterSubmit: '&'
     },
     controller: function ($scope, $element, $http, $document, $timeout, $window, users) {
       $scope.email = null;
@@ -12425,6 +12426,10 @@ app.controller('solidarityStrikeCtrl',
       $scope.cities = []
 
       var form = $element.find('form')[0]
+
+      if ($scope.open) $scope.showForm = true
+
+      // TODO: get query. if 'email' in query params, auto-fill.
 
       $http.get('/debt_choices').then(function (resp) {
         $scope.debt_choices = resp.data
@@ -12452,14 +12457,16 @@ app.controller('solidarityStrikeCtrl',
         var debt = $scope.debts[0]
         var userData = {
           'email': $scope.email.toLowerCase(),
+          'password': $scope.password,
           'point': $scope.location ? $scope.location.id : null,
           'kind': debt.debtType.id,
           'amount': parseFloat(debt.amount.replace(',', ''))
         }
 
-        users.createAnonymousUser(userData, function (resp) {
+        users.create(userData, function (resp) {
           console.log('created user', resp)
           $scope.formSubmitted = true
+          $scope.afterSubmit()
         })
         $event.preventDefault()
       }

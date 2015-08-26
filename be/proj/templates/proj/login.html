@@ -4,22 +4,26 @@
 
 {% include "proj/insideHeader.html" with title='LOGIN' %}
 
-<div class="inside-container">
 <div class="flex thankyou-background">
-  <div class="wrapper dark">
-    <h4>Take action.</h4>
-    <form action="/login" method="POST">
-      <div class="dc-input">
-        {% csrf_token %}
-        {% if bad_auth %}
-        <p class="help-text">Email and password do not match.</p>
-        {% endif %}
-        <input type="text" name="username" placeholder="email or username" required />
-        <input type="password" name="password" placeholder="password" required />
-        <button class="btn btn-primary" type="submit">Submit</button>
+  <div class="container inside-container">
+    <div class="wrapper dark floating">
+      <div class="body-text">
+        <div class="dc-input">
+          <h2 class="centered">Alone, our debts are a burden. Together, they make us powerful.</h2>
+          <form class="form" action="/login" method="POST">
+            {% csrf_token %}
+            {% if bad_auth %}
+            <p class="help-text">Email and password do not match.</p>
+            {% endif %}
+            <input type="text" name="username" placeholder="email or username" required />
+            <input type="password" name="password" placeholder="password" required />
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <p><a href="/signup">I don't have an account.</a>
+              <a class="pull-right" href="/forgot_password">I forgot my password.</a></p>
+          </div>
+        </form>
       </div>
-    </form>
-  </div>
+    </div>
   </div>
 </div>
 

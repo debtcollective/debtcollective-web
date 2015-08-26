@@ -112,7 +112,7 @@ def dtr_migrate_email(dtr):
   msg['Subject'] = '{0}, Your Defense to Repayment Application for {1}'.format(name, ''.join(user_data['school_name']))
   msg['To'] = ''.join(user_data['email'])
 
-  migrate_url = 'https://debtcollective.org/dtr/migrate/' + key + 'email=' + ''.join(user_data['email'])
+  migrate_url = 'https://debtcollective.org/dtr/migrate?email=' + ''.join(user_data['email']) + '&key=' + key
 
   msg.attach(MIMEText("""
 Hello {0},
@@ -136,18 +136,13 @@ The Debt Collective
 
   send_email(msg, headers={'X-MC-MergeVars': '{"header": "Defense to Repayment Ready for Review!"}'})
 
-def user_get_or_create(email, password):
-  try:
-    user = User.objects.get(email=email)
-    created = False
-  except ObjectDoesNotExist:
-    user = User.objects.create_user(email, password=password, email=email)
-    created = True
-
-  return user, created
-
-def dtr_migrate(request, id):
+def dtr_migrate(request):
   email = request.GET.get('email')
+  key = request.GET.get('key')
+
+  if not request.user.is_authenticated():
+    url = request.path + '?' + request.META['QUERY_STRING']
+    return redirect('/signup?next="{0}"'.format(url), {email: email})
 
   try:
     dtr = DTRUserProfile.objects.get(id=id)
@@ -155,9 +150,9 @@ def dtr_migrate(request, id):
     dtr = None
 
   if not dtr:
-    return json_response({'error': 'Could not find your DTR. Please contact support@debtcollective.org'}, 500)
+    return redirect('/profile', {'error': 'Could not find your DTR. Please contact support@debtcollective.org'})
   if ''.join(dtr.data['email']) != email:
-    return json_response({'error': 'Invalid request.'}, 500)
+    return redirect('/profile', {'error': 'Invalid request.'})
 
   dtr_action = Action.objects.get(name='Defense to Repayment')
 
@@ -165,20 +160,9 @@ def dtr_migrate(request, id):
   if request.user.is_authenticated():
     user = request.user
 
-  user, created_user = user_get_or_create(email, password)
-  create_dtr_user_action(dtr.data, user)
+  create_dtr_user_action(dtr.data, request.user)
 
-  if request.user_is_authenticated():
-    return redirect('/profile')
-
-  if not created_user:
-    return redirect('/login')
-
-  # user has been created for them, for the purpose of migrating.
-  # they need to change their password now.
-  user = auth.authenticate(username=email, password=password)
-  auth.login(request, user)
-  return redirect('/change_password')
+  return redirect('/profile')
 
 def attach(msg, contents, filename):
   part = MIMEBase('application', 'octet-stream')

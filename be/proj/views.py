@@ -92,8 +92,11 @@ def signup(request):
   Creates an account for a given user, along with
   debt type information.
   """
+  if request.method == 'GET':
+    return render_to_response('proj/signup.html')
+
   if request.method != 'POST':
-    raise Http404
+    return Http404
 
   rq = get_POST_data(request)
   username = rq.get('username')
