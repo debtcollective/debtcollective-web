@@ -2,7 +2,6 @@ from django.test import TestCase
 from proj.utils import get_s3_conn
 from boto.s3.key import Key
 from django.contrib.auth.models import User
-from proj.arcs.models import DTRUserProfile
 from proj.arcs import dtr
 
 import json
@@ -24,7 +23,7 @@ TEST_DATA = {
 class TestDTR(TestCase):
 
     def test_generate(self):
-      dtrprofile = DTRUserProfile.generate(TEST_DATA)
+      dtrprofile = dtr.create_dtr_user_action(TEST_DATA)
 
       key = dtrprofile.s3_key().key
 
@@ -33,7 +32,7 @@ class TestDTR(TestCase):
       self.assertEqual(user_data['name'], TEST_DATA['name'])
 
       # make sure sensitive data is removed before database storage
-      for field in DTRUserProfile.SENSITIVE_FIELDS:
+      for field in dtr.SENSITIVE_FIELDS:
         self.assertEqual(user_data.get(field), None)
 
       s3_key = bucket.get_key(key)

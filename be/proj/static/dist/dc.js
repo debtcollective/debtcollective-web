@@ -11715,6 +11715,10 @@ app.value('duScrollDuration', 1000)
 app.config(function($interpolateProvider, $routeProvider) {
     $interpolateProvider.startSymbol('{$');
     $interpolateProvider.endSymbol('$}');
+});;app.service('banner', function (util_svc, $http) {
+  this.error = function (message)   {
+    alert(message)
+  }
 });;app.controller('baseCtrl',
  function ($scope, $http, util_svc, $document, $timeout, $window) {
   $scope.supportVisible = false;
@@ -12219,6 +12223,12 @@ app.directive('scrollOnClick', function() {
         return point
     }
 });
+;app.controller('migrateCtrl',
+ function ($scope, $http, util_svc, $document, $timeout, $window) {
+  $scope.reload = function () {
+    $window.location.reload()
+  }
+});
 ;Array.prototype.chunk = function(chunkSize) {
     var array=this;
     return [].concat.apply([],
@@ -12413,7 +12423,8 @@ app.controller('solidarityStrikeCtrl',
       open: '=',
       afterSubmit: '&'
     },
-    controller: function ($scope, $element, $http, $document, $timeout, $window, users) {
+    controller: function ($scope, $element, $http, $document,
+     $timeout, $window, users, banner) {
       $scope.email = null;
       $scope.username = null;
       $scope.debts = [];
@@ -12464,9 +12475,9 @@ app.controller('solidarityStrikeCtrl',
         }
 
         users.create(userData, function (resp) {
-          console.log('created user', resp)
-          $scope.formSubmitted = true
+          if (resp.data.error) return banner.error(resp.data.error)
           $scope.afterSubmit()
+          $scope.formSubmitted = true
         })
         $event.preventDefault()
       }

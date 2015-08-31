@@ -21,6 +21,7 @@ from email import Encoders
 
 import proj.settings as settings
 
+import uuid
 import os
 import zipfile
 import StringIO
@@ -30,7 +31,7 @@ import datetime
 import sys
 
 SENSITIVE_FIELDS = ["ssn_1", "ssn_2", "ssn_3"]
-
+FIELDS = []
 
 S3_BUCKET_NAME = 'corinthiandtr'
 if settings.DEBUG:
@@ -104,15 +105,27 @@ def create_dtr_user_action(values, user):
 
   return dtr, created
 
+def send_dtr_migration_emails():
+  dtrs = DTRUserProfile.objects.all()
+  for dtr in dtrs:
+    dtr_migrate_email(dtr)
+  return
+
 def dtr_migrate_email(dtr):
-  key = str(dtr.id)
+  key = uuid.uuid4().hex
+  dtr.data['key'] = key
+
+  # give it to super user until it is officially migrated
+  user = User.objects.filter(is_superuser=True)[0]
+  dtr = create_dtr_user_action(dtr.data, user)
+
   user_data = dict(dtr.data)
   name = ''.join(user_data['name'])
   msg = MIMEMultipart()
   msg['Subject'] = '{0}, Your Defense to Repayment Application for {1}'.format(name, ''.join(user_data['school_name']))
   msg['To'] = ''.join(user_data['email'])
 
-  migrate_url = 'https://debtcollective.org/dtr/migrate?email=' + ''.join(user_data['email']) + '&key=' + key
+  migrate_url = 'https://debtcollective.org/dtr/migrate?id=' + dtr.id + '&key=' + key
 
   msg.attach(MIMEText("""
 Hello {0},
@@ -137,32 +150,20 @@ The Debt Collective
   send_email(msg, headers={'X-MC-MergeVars': '{"header": "Defense to Repayment Ready for Review!"}'})
 
 def dtr_migrate(request):
-  email = request.GET.get('email')
-  key = request.GET.get('key')
-
   if not request.user.is_authenticated():
-    url = request.path + '?' + request.META['QUERY_STRING']
-    return redirect('/signup?next="{0}"'.format(url), {email: email})
+    return render_to_response('dtr/migrate.html')
 
-  try:
-    dtr = DTRUserProfile.objects.get(id=id)
-  except:
-    dtr = None
+  pk = request.GET.get('pk')
+  user_action = UserAction.objects.get(id=pk)
 
-  if not dtr:
-    return redirect('/profile', {'error': 'Could not find your DTR. Please contact support@debtcollective.org'})
-  if ''.join(dtr.data['email']) != email:
-    return redirect('/profile', {'error': 'Invalid request.'})
+  key = request.GET.get('key')
+  if user_action.data['key'] != key:
+    return Http404 # you need the secret key :)
 
-  dtr_action = Action.objects.get(name='Defense to Repayment')
+  user_action.user = request.user
+  user_action.save()
 
-  password = email.lower()
-  if request.user.is_authenticated():
-    user = request.user
-
-  create_dtr_user_action(dtr.data, request.user)
-
-  return redirect('/profile')
+  return redirect('/defense-to-repayment')
 
 def attach(msg, contents, filename):
   part = MIMEBase('application', 'octet-stream')
@@ -214,10 +215,13 @@ def dtr_download(request, f, to):
   s = StringIO.StringIO()
   zf = zipfile.ZipFile(s, "w")
 
-  profiles = DTRUserProfile.objects.filter(
+  action = Action.objects.get(name='Defense to Repayment')
+  profiles = UserAction.objects.filter(
     id__gte=f
   ).filter(
     id__lte=to
+  ).filter(
+    action=action
   )
 
   for profile in remove_dupes(profiles):
@@ -250,8 +254,8 @@ def dtr_csv(request):
   response = HttpResponse(content_type='text/csv')
   response['Content-Disposition'] = 'attachment; filename="all_dtr.csv"'
 
-  profiles = DTRUserProfile.objects.all()
-  writer = csv.DictWriter(response, fieldnames=DTRUserProfile.FIELDS, extrasaction='ignore')
+  profiles = UserAction.objects.all()
+  writer = csv.DictWriter(response, fieldnames=FIELDS, extrasaction='ignore')
   writer.writeheader()
   for profile in remove_dupes(profiles):
     row = {}
@@ -265,16 +269,6 @@ def dtr_csv(request):
       writer.writerow(data)
 
   return response
-
-def dtr_restore(request, id):
-  profile = DTRUserProfile.objects.get(id=id)
-
-  profile.make_a_pdf()
-
-  return json_response({
-    'id': profile.id,
-    'pdf_link': profile.pdf_link(),
-  }, 200)
 
 @csrf_exempt
 def dtr_generate(request):
@@ -295,11 +289,14 @@ def dtr_generate(request):
   if request.user.is_authenticated():
     user = request.user
   else:
-    user = None
-  dtr = create_dtr_user_action(rq, user=user)
+    try:
+      user = User.objects.get()
+    except ObjectDoesNotExist:
+      user = User.objects.create_user(req.get('email'), req.get('email'), req.get('email'))
+
+  dtr = create_dtr_user_action(rq, user)
 
   dtr_email(dtr, attachments=request.FILES)
-  dtr_migrate_email(dtr)
 
   return json_response({
     'id': dtr.id,
@@ -324,7 +321,7 @@ def dtr_view(request, id):
     return redirect('/login')
 
   c = {
-    'dtrprofile': DTRUserProfile.objects.get(id=id)
+    'dtrprofile': UserAction.objects.get(id=id)
   }
 
   return render_to_response('dtr/dtrview.html', c)
@@ -333,9 +330,11 @@ def dtr_admin(request):
   if not request.user.is_superuser:
     return redirect('/login')
 
+  action = Action.objects.get(name='Defense to Repayment')
+  all_dtrs = UserAction.objects.filter(action=action)
   c = {
-    'all_dtrs': DTRUserProfile.objects.all(),
-    'dtr_total': DTRUserProfile.objects.count()
+    'all_dtrs': all_dtrs,
+    'dtr_total': len(all_dtrs)
   }
 
   return render_to_response('dtr/admin.html', c)

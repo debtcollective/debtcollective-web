@@ -7,7 +7,8 @@ app.directive('signupform', function () {
       open: '=',
       afterSubmit: '&'
     },
-    controller: function ($scope, $element, $http, $document, $timeout, $window, users) {
+    controller: function ($scope, $element, $http, $document,
+     $timeout, $window, users, banner) {
       $scope.email = null;
       $scope.username = null;
       $scope.debts = [];
@@ -58,9 +59,9 @@ app.directive('signupform', function () {
         }
 
         users.create(userData, function (resp) {
-          console.log('created user', resp)
-          $scope.formSubmitted = true
+          if (resp.data.error) return banner.error(resp.data.error)
           $scope.afterSubmit()
+          $scope.formSubmitted = true
         })
         $event.preventDefault()
       }

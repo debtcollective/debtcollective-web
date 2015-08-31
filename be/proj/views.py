@@ -102,12 +102,17 @@ def signup(request):
   username = rq.get('username')
   email = rq.get('email')
   password = rq.get('password')
-  if email and not username:
-    username = email
   if not username or not password:
     return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
 
-  user = User.objects.create_user(username, password=password, email=email)
+  user = User.objects.filter(username=username)
+  if user:
+    return json_response({'error': 'That already exists! Try logging in.'}, 500)
+
+  user = User.objects.create_user(username=username, email=email, password=password)
+  user = auth.authenticate(username=username, password=password)
+  if user is not None:
+    auth.login(request, user)
 
   point = rq.get('point')
   if point:
@@ -123,6 +128,10 @@ def signup(request):
   if amount:
     debt = Debt.objects.create(user=user, amount=amount,
       kind=kind, last_payment=last_payment)
+
+  user = auth.authenticate(username=username, password=password)
+  if user is not None:
+    auth.login(request, user)
 
   return json_response({'status': 'ok'}, 200)
 

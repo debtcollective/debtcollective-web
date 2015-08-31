@@ -12,7 +12,7 @@ class TestSignup(TestCase):
     def test_simple(self):
       # it can create a user from the frontend
       rs = self.client.post('/signup',
-          {'username': 'test', 'password': 'anoyther'})
+          {'username': 'test', 'email': 'test@test.com', 'password': 'anoyther'})
       self.assertEqual(rs.status_code, 200)
 
       user = User.objects.get(username='test')
@@ -22,8 +22,9 @@ class TestSignup(TestCase):
       # it can login a user from the frontend
       username = 'testuser'
       password = 'testingpassword'
+      email = 'testuser@test.com'
       rs = self.client.post('/signup',
-          {'username': username, 'password': password})
+          {'username': username, 'email': email, 'password': password})
       self.assertEqual(rs.status_code, 200)
 
       user = User.objects.get(username=username)
