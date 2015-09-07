@@ -49,12 +49,11 @@ def corinthian_url(name):
 
 urlpatterns += patterns('proj.arcs.dtr',
   url('^dtr/download/(\d+)/(\d+)$', 'dtr_download', name='dtr_download'),
-  url('^dtr/restore/(\d+)$', 'dtr_restore', name='dtr_restore'),
   url('^dtr/view/(\d+)$', 'dtr_view', name='dtr_view'),
   url('^dtr/migrate$', 'dtr_migrate', name='dtr_migrate'),
   url('^dtr/data$', 'dtr_data', name='dtr_data'),
   url('^dtr/admin$', 'dtr_admin', name='dtr_admin'),
-  basic_url('dtr_generate'),
+  url('^dtr_generate$', 'generate', name='generate'),
   basic_url('dtr_csv'),
   url('^corinthiandtr$', 'dtr_redirect', name='dtr_redirect'),
   url('^defense-to-repayment$', 'dtr', name='dtr')

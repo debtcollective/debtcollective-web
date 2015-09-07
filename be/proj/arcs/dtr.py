@@ -56,7 +56,6 @@ def output_filename(key):
 def s3_key(dtr):
   bucket = conn.get_bucket(S3_BUCKET_NAME)
   key = Key(bucket)
-  key.key = dtr.id
   return key
 
 def to_json(dtr):
@@ -91,17 +90,18 @@ def create_dtr_user_action(values, user):
   dtr, created = UserAction.objects.get_or_create(user=user, action=action)
 
   # create a pdf with sensitive data to be stored in s3 and thrown away
-  make_a_pdf(dtr, values)
+  output_file = make_a_pdf(dtr, values)
 
   # throw away sensitive fields
   for field in SENSITIVE_FIELDS:
     if values.get(field):
       del values[field]
-  values['key'] = dtr.id
 
   # store only non-sensitive fields on disk
   dtr.data = values
   dtr.save()
+
+  dtr.output_file = output_file
 
   return dtr, created
 
@@ -121,11 +121,12 @@ def dtr_migrate_email(dtr):
 
   user_data = dict(dtr.data)
   name = ''.join(user_data['name'])
+  school = ''.join(user_data['school_name'])
   msg = MIMEMultipart()
-  msg['Subject'] = '{0}, Your Defense to Repayment Application for {1}'.format(name, ''.join(user_data['school_name']))
+  msg['Subject'] = '{0}, Your Defense to Repayment for {1}'.format(name, school)
   msg['To'] = ''.join(user_data['email'])
 
-  migrate_url = 'https://debtcollective.org/dtr/migrate?id=' + dtr.id + '&key=' + key
+  migrate_url = 'https://debtcollective.org/dtr/migrate?pk=' + dtr.id + '&key=' + key
 
   msg.attach(MIMEText("""
 Hello {0},
@@ -147,7 +148,7 @@ Solidarty,
 The Debt Collective
 """.format(name, migrate_url), 'html'))
 
-  send_email(msg, headers={'X-MC-MergeVars': '{"header": "Defense to Repayment Ready for Review!"}'})
+  send_email(msg, headers={'X-MC-MergeVars': '{"header": "Your Defense to Repayment is Ready!"}'})
 
 def dtr_migrate(request):
   if not request.user.is_authenticated():
@@ -202,7 +203,6 @@ def remove_dupes(profiles):
   finished = {}
   for profile in profiles:
     if type(profile.data) == dict:
-      del profile.data['key']
       duped_key = json.dumps(profile.data)
       finished[duped_key] = profile
   return finished.values()
@@ -271,7 +271,7 @@ def dtr_csv(request):
   return response
 
 @csrf_exempt
-def dtr_generate(request):
+def generate(request):
   if request.method != "POST":
     raise Http404
 
@@ -289,18 +289,14 @@ def dtr_generate(request):
   if request.user.is_authenticated():
     user = request.user
   else:
-    try:
-      user = User.objects.get()
-    except ObjectDoesNotExist:
-      user = User.objects.create_user(req.get('email'), req.get('email'), req.get('email'))
+    user = User.objects.filter(is_superuser=True)[0]
 
   dtr = create_dtr_user_action(rq, user)
-
   dtr_email(dtr, attachments=request.FILES)
 
   return json_response({
     'id': dtr.id,
-    'pdf_link': dtr.pdf_link(),
+    'pdf_link': pdf_link(dtr),
   }, 200)
 
 def dtr_data(request):

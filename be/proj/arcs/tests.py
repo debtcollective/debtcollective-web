@@ -3,13 +3,13 @@ from proj.utils import get_s3_conn
 from boto.s3.key import Key
 from django.contrib.auth.models import User
 from proj.arcs import dtr
+from proj.collectives.models import Collective, UserAction
 
 import json
 
 TEST_BUCKET = 'corinthiandtr.dev'
 conn = get_s3_conn()
 bucket = conn.get_bucket(TEST_BUCKET)
-
 
 TEST_DATA = {
   'name': 'this is awesome TEST!',
@@ -20,6 +20,7 @@ TEST_DATA = {
   'credential': 1,
   'attendance_to_month': 10
 }
+
 class TestDTR(TestCase):
 
     def test_generate(self):
@@ -42,7 +43,7 @@ class TestDTR(TestCase):
       self.assertTrue(len(contents) > 0)
 
       # url works
-      url = dtrprofile.pdf_link()
+      url = dtr.pdf_link(dtrprofile)
       self.assertTrue(type(url), str)
 
       # name metadata exists
@@ -65,20 +66,21 @@ class TestDTR(TestCase):
         'misleading_quality_other': 'there were a bunch of things that were wrong'
       }
 
-      dtrprofile = DTRUserProfile.generate(dupe)
-      dtrprofile_dupe = DTRUserProfile.generate(dupe)
+      dtrprofile = dtr.generate(dupe)
+      dtrprofile_dupe = dtr.generate(dupe)
 
-      dtrprofile_one = DTRUserProfile.generate({
+      dtrprofile_one = dtr.generate({
         'name': 'i am the first user',
         'servicer': 'Great Lakes/Navient'
       })
 
-      dtrprofile_two = DTRUserProfile.generate({
+      dtrprofile_two = dtr.generate({
         'name': 'i am a second user',
         'servicer': 'Great Lakes'
       })
 
-      all_forms = DTRUserProfile.objects.all()
+      action = Action.objects.get(name='Defense to Repayment')
+      all_forms = UserAction.objects.filter(action=action)
       self.assertEqual(dtrprofile.data, dtrprofile_dupe.data)
 
       no_dupes = dtr.remove_dupes(all_forms)
@@ -94,22 +96,21 @@ class TestDTR(TestCase):
 
       resp = json.loads(rs.content)
 
-      dtrprofile = DTRUserProfile.objects.get(id=resp['id'])
+      dtrprofile = UserAction.objects.get(id=resp['id'])
       self.assertEqual(resp['id'], dtrprofile.id)
       self.assertTrue(resp['pdf_link'])
 
-
     def test_generate_two_users(self):
-      dtrprofile = DTRUserProfile.generate({
+      dtrprofile = dtr.generate({
         'name': 'i am the first user'
       })
 
-      dtrprofile_two = DTRUserProfile.generate({
+      dtrprofile_two = dtr.generate({
         'name': 'i am a second user'
       })
 
-      key = dtrprofile.s3_key().key
-      key_two = dtrprofile_two.s3_key().key
+      key = dtr.s3_key(dtrprofile).key
+      key_two = dtr.s3_key(dtrprofile_two).key
 
       s3_key = bucket.get_key(key)
       s3_key_two = bucket.get_key(key_two)
@@ -134,10 +135,3 @@ class TestDTR(TestCase):
       # cleanup
       bucket.delete_key(key)
       bucket.delete_key(key_two)
-
-    def test_migrate(self):
-      dtrprofile = DTRUserProfile.generate({
-        'name': 'another user'
-      })
-
-      dtr.dtr_migrate_email(dtrprofile)
