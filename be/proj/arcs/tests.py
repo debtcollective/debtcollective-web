@@ -3,34 +3,58 @@ from proj.utils import get_s3_conn
 from boto.s3.key import Key
 from django.contrib.auth.models import User
 from proj.arcs import dtr
-from proj.collectives.models import Collective, UserAction
+from proj.collectives.models import Collective, UserAction, Action
 
+import copy
 import json
 
 TEST_BUCKET = 'corinthiandtr.dev'
 conn = get_s3_conn()
 bucket = conn.get_bucket(TEST_BUCKET)
 
-TEST_DATA = {
-  'name': 'this is awesome TEST!',
-  'ssn_1': '234',
-  'ssn_2': '555',
-  'ssn_3': '123',
+TEST_USER = {
+  'name': 'i am the duplicate user',
+  'phone_primary_1': 111,
+  'phone_primary_2': 333,
+  'phone_primary_3': 222,
+  'email': 'krmckelv@gmail.com',
+  'school_name': 'everest',
+  'servicer': 'navient',
   'misleading_job_stats_check': True,
-  'credential': 1,
-  'attendance_to_month': 10
+  'certificate': 'associates',
+  'attendance_to_month': 10,
+  'misleading_quality_other': 'there were a bunch of things that were wrong'
 }
+
+TEST_USER2 = copy.deepcopy(TEST_USER)
+TEST_USER2['name'] = 'name2'
 
 class TestDTR(TestCase):
 
-    def test_generate(self):
-      dtrprofile = dtr.create_dtr_user_action(TEST_DATA)
+    def setUp(self):
+      self.user = {
+        'username': 'testuser',
+        'password': 'testingpassword',
+        'email': 'testuser@test.com'
+      }
+      rs = self.client.post('/signup', self.user)
+      self.user2 = {
+        'username': 'testuser2',
+        'password': 'testingpassword',
+        'email': 'testuser2@test.com'
+      }
+      rs = self.client.post('/signup', self.user2)
 
-      key = dtrprofile.s3_key().key
+      action = Action.objects.create(slug='defense-to-repayment', name='Defense to Repayment', description='dtr ya')
+
+    def test_generate(self):
+      user = User.objects.get(username=self.user['username'])
+      dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
+
+      key = dtr.s3_key(dtrprofile).key
 
       user_data = dtrprofile.data
-      self.assertEqual(user_data['key'], dtrprofile.id)
-      self.assertEqual(user_data['name'], TEST_DATA['name'])
+      self.assertEqual(user_data['name'], TEST_USER['name'])
 
       # make sure sensitive data is removed before database storage
       for field in dtr.SENSITIVE_FIELDS:
@@ -48,36 +72,19 @@ class TestDTR(TestCase):
 
       # name metadata exists
       name = s3_key.get_metadata('name')
-      self.assertEqual(name, TEST_DATA['name'])
+      self.assertEqual(name, TEST_USER['name'])
 
       #cleanup
       bucket.delete_key(key)
 
     def test_duplicate(self):
-      dupe = {
-        'name': 'i am the duplicate user',
-        'phone_primary_1': 111,
-        'phone_primary_2': 333,
-        'phone_primary_3': 222,
-        'servicer': 'navient',
-        'misleading_job_stats_check': True,
-        'certificate': 'associates',
-        'attendance_to_month': 10,
-        'misleading_quality_other': 'there were a bunch of things that were wrong'
-      }
+      user = User.objects.get(username=self.user['username'])
+      user2 = User.objects.get(username=self.user2['username'])
 
-      dtrprofile = dtr.generate(dupe)
-      dtrprofile_dupe = dtr.generate(dupe)
+      dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
 
-      dtrprofile_one = dtr.generate({
-        'name': 'i am the first user',
-        'servicer': 'Great Lakes/Navient'
-      })
-
-      dtrprofile_two = dtr.generate({
-        'name': 'i am a second user',
-        'servicer': 'Great Lakes'
-      })
+      # duplicate, use the same data with different user! (how did that happen? idk)
+      dtrprofile_dupe, created = dtr.create_dtr_user_action(TEST_USER, user2)
 
       action = Action.objects.get(name='Defense to Repayment')
       all_forms = UserAction.objects.filter(action=action)
@@ -91,23 +98,25 @@ class TestDTR(TestCase):
             self.assertNotEqual(form.data, form_two.data)
 
     def test_generate_post(self):
-      rs = self.client.post('/dtr_generate', TEST_DATA)
+      # successful password. logged in
+      rs = self.client.post('/login', self.user)
+      self.assertEqual(rs.status_code, 302)
+
+      rs = self.client.post('/dtr_generate', TEST_USER)
       self.assertEqual(rs.status_code, 200)
 
       resp = json.loads(rs.content)
-
       dtrprofile = UserAction.objects.get(id=resp['id'])
       self.assertEqual(resp['id'], dtrprofile.id)
       self.assertTrue(resp['pdf_link'])
 
     def test_generate_two_users(self):
-      dtrprofile = dtr.generate({
-        'name': 'i am the first user'
-      })
+      user = User.objects.get(username=self.user['username'])
+      user2 = User.objects.get(username=self.user2['username'])
 
-      dtrprofile_two = dtr.generate({
-        'name': 'i am a second user'
-      })
+      dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
+
+      dtrprofile_two, created = dtr.create_dtr_user_action(TEST_USER2, user2)
 
       key = dtr.s3_key(dtrprofile).key
       key_two = dtr.s3_key(dtrprofile_two).key

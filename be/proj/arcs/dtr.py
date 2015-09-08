@@ -86,7 +86,7 @@ def make_a_pdf(dtr, values=None):
   return output_file
 
 def create_dtr_user_action(values, user):
-  action = Action.objects.get(name='Defense To Repayment')
+  action = Action.objects.get(slug='defense-to-repayment')
   dtr, created = UserAction.objects.get_or_create(user=user, action=action)
 
   # create a pdf with sensitive data to be stored in s3 and thrown away
@@ -116,12 +116,14 @@ def dtr_migrate_email(dtr):
   dtr.data['key'] = key
 
   # give it to super user until it is officially migrated
-  user = User.objects.filter(is_superuser=True)[0]
-  dtr = create_dtr_user_action(dtr.data, user)
+  user = User.objects.filter(is_superuser=True)
+  if not user:
+    raise Exception('Need a super user!')
+  dtr, created = create_dtr_user_action(dtr.data, user)
 
   user_data = dict(dtr.data)
   name = ''.join(user_data['name'])
-  school = ''.join(user_data['school_name'])
+  school = ''.join(user_data.get('school_name', 'Unknown'))
   msg = MIMEMultipart()
   msg['Subject'] = '{0}, Your Defense to Repayment for {1}'.format(name, school)
   msg['To'] = ''.join(user_data['email'])
@@ -179,7 +181,7 @@ def dtr_email(dtr, attachments=None):
   msg = MIMEMultipart()
 
   name = ''.join(user_data['name'])
-  msg['Subject'] = '{0} at {1}'.format(name, ''.join(user_data['school_name']))
+  msg['Subject'] = '{0} at {1}'.format(name, ''.join(user_data.get('school_name', 'Unknown')))
   msg['To'] = to
   msg['cc'] = ''.join(user_data['email'])
   msg.attach(MIMEText("""
@@ -215,7 +217,7 @@ def dtr_download(request, f, to):
   s = StringIO.StringIO()
   zf = zipfile.ZipFile(s, "w")
 
-  action = Action.objects.get(name='Defense to Repayment')
+  action = Action.objects.get(slug='defense-to-repayment')
   profiles = UserAction.objects.filter(
     id__gte=f
   ).filter(
@@ -225,7 +227,7 @@ def dtr_download(request, f, to):
   )
 
   for profile in remove_dupes(profiles):
-    key = profile.s3_key()
+    key = s3_key(profile)
     try:
       contents = key.get_contents_as_string()
       if type(profile.data) != dict:
@@ -289,9 +291,11 @@ def generate(request):
   if request.user.is_authenticated():
     user = request.user
   else:
-    user = User.objects.filter(is_superuser=True)[0]
+    user = User.objects.filter(is_superuser=True)
+    if not user:
+      raise Exception('Need a super user!')
 
-  dtr = create_dtr_user_action(rq, user)
+  dtr, created = create_dtr_user_action(rq, user)
   dtr_email(dtr, attachments=request.FILES)
 
   return json_response({
@@ -303,7 +307,7 @@ def dtr_data(request):
   if not request.user.is_authenticated():
     data = {'warning': 'No user found'}
   else:
-    action = Action.objects.get(name='Defense to Repayment')
+    action = Action.objects.get(slug='defense-to-repayment')
     try:
       user_action = UserAction.objects.get(user=request.user, action=action)
       data = user_action.data
@@ -326,7 +330,7 @@ def dtr_admin(request):
   if not request.user.is_superuser:
     return redirect('/login')
 
-  action = Action.objects.get(name='Defense to Repayment')
+  action = Action.objects.get(slug='defense-to-repayment')
   all_dtrs = UserAction.objects.filter(action=action)
   c = {
     'all_dtrs': all_dtrs,
