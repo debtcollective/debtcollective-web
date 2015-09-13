@@ -201,7 +201,7 @@ Best, %s
   for key, attachment in attachments.iteritems():
     attach(msg, attachment.file.read(), attachment.name)
 
-  send_email(msg)
+  send_email(msg, template=None)
 
 def remove_dupes(profiles):
   finished = {}
