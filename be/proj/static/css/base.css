@@ -1440,6 +1440,16 @@ select {
     position: absolute;
     color: #111; }
 
+.choice-item {
+  padding: 10px;
+  margin-top: 10px; }
+  .choice-item:hover {
+    background-color: #ddd; }
+
+.muted {
+  font-style: italic;
+  color: #999; }
+
 .mobile-only {
   display: none; }
 

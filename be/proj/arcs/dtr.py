@@ -56,6 +56,7 @@ def output_filename(key):
 def s3_key(dtr):
   bucket = conn.get_bucket(S3_BUCKET_NAME)
   key = Key(bucket)
+  key.key = dtr.id
   return key
 
 def to_json(dtr):
@@ -87,7 +88,8 @@ def make_a_pdf(dtr, values=None):
 
 def create_dtr_user_action(values, user):
   action = Action.objects.get(slug='defense-to-repayment')
-  dtr, created = UserAction.objects.get_or_create(user=user, action=action)
+  dtr = UserAction.objects.create(user=user, action=action)
+  created = True
 
   # create a pdf with sensitive data to be stored in s3 and thrown away
   output_file = make_a_pdf(dtr, values)
@@ -99,9 +101,8 @@ def create_dtr_user_action(values, user):
 
   # store only non-sensitive fields on disk
   dtr.data = values
-  dtr.save()
-
   dtr.output_file = output_file
+  dtr.save()
 
   return dtr, created
 
@@ -128,7 +129,7 @@ def dtr_migrate_email(dtr):
   msg['Subject'] = '{0}, Your Defense to Repayment for {1}'.format(name, school)
   msg['To'] = ''.join(user_data['email'])
 
-  migrate_url = 'https://debtcollective.org/dtr/migrate?pk=' + dtr.id + '&key=' + key
+  migrate_url = 'https://debtcollective.org/dtr/migrate?pk=' + str(dtr.id) + '&key=' + str(key)
 
   msg.attach(MIMEText("""
 Hello {0},
@@ -152,20 +153,21 @@ The Debt Collective
 
   send_email(msg, headers={'X-MC-MergeVars': '{"header": "Your Defense to Repayment is Ready!"}'})
 
+  return migrate_url
+
 def dtr_migrate(request):
   if not request.user.is_authenticated():
     return render_to_response('dtr/migrate.html')
 
   pk = request.GET.get('pk')
   user_action = UserAction.objects.get(id=pk)
-
-  key = request.GET.get('key')
-  if user_action.data['key'] != key:
-    return Http404 # you need the secret key :)
+  our_key = user_action.data.get('key')
+  incoming_key = request.GET.get('key')
+  if not incoming_key or not our_key or (our_key is not incoming_key):
+    raise Http404('You need the secret key ;)')
 
   user_action.user = request.user
   user_action.save()
-
   return redirect('/defense-to-repayment')
 
 def attach(msg, contents, filename):
@@ -305,11 +307,13 @@ def generate(request):
 
 def dtr_data(request):
   if not request.user.is_authenticated():
-    data = {'warning': 'No user found'}
-  else:
-    action = Action.objects.get(slug='defense-to-repayment')
+    return json_response({'warning': 'No user found'}, 200)
+
+  action = Action.objects.get(slug='defense-to-repayment')
+  pk = request.GET.get('pk')
+  if pk:
     try:
-      user_action = UserAction.objects.get(user=request.user, action=action)
+      user_action = UserAction.objects.get(id=pk, user=request.user)
       data = user_action.data
     except ObjectDoesNotExist:
       data = {'warning': 'No dtr found'}
@@ -339,7 +343,25 @@ def dtr_admin(request):
 
   return render_to_response('dtr/admin.html', c)
 
+def dtr_choice(request):
+  if not request.user.is_authenticated():
+    return redirect('/login')
+
+  action = Action.objects.get(slug='defense-to-repayment')
+  dtrs = UserAction.objects.filter(action=action, user=request.user)
+  return render_to_response('dtr/dtrchoice.html', {"dtrs": dtrs})
+
 def dtr(request):
+  new = request.GET.get('new')
+  pk = request.GET.get('pk')
+  if not new and not pk and request.user.is_authenticated():
+    action = Action.objects.get(slug='defense-to-repayment')
+    all_dtrs = UserAction.objects.filter(action=action, user=request.user)
+    if len(all_dtrs) > 1:
+      return redirect('/dtr/choice')
+    else:
+      return redirect('/defense-to-repayment?pk={0}'.format(all_dtrs[0].id))
+
   basepath = settings.TEMPLATE_DIRS[0]
   template_path = os.path.join(basepath, 'debtcollective-wizard/index.html')
   with open(template_path) as fp:

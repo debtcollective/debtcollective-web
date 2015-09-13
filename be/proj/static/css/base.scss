@@ -814,4 +814,17 @@ select {
   }
 }
 
+.choice-item {
+  padding: 10px;
+  margin-top: 10px;
+  &:hover {
+    background-color: #ddd;
+  }
+}
+
+.muted {
+  font-style: italic;
+  color: #999;
+}
+
 @import "includes/responsive";

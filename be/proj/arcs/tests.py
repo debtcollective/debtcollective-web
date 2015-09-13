@@ -51,7 +51,7 @@ class TestDTR(TestCase):
       user = User.objects.get(username=self.user['username'])
       dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
 
-      key = dtr.s3_key(dtrprofile).key
+      key = dtr.s3_key(dtrprofile)
 
       user_data = dtrprofile.data
       self.assertEqual(user_data['name'], TEST_USER['name'])
@@ -115,7 +115,6 @@ class TestDTR(TestCase):
       user2 = User.objects.get(username=self.user2['username'])
 
       dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
-
       dtrprofile_two, created = dtr.create_dtr_user_action(TEST_USER2, user2)
 
       key = dtr.s3_key(dtrprofile).key
@@ -136,11 +135,43 @@ class TestDTR(TestCase):
 
       # metadata keys are different
       name = s3_key.get_metadata('name')
-      self.assertEqual(name, 'i am the first user')
+      self.assertEqual(name, 'i am the duplicate user')
 
       name = s3_key_two.get_metadata('name')
-      self.assertEqual(name, 'i am a second user')
+      self.assertEqual(name, 'name2')
 
       # cleanup
       bucket.delete_key(key)
       bucket.delete_key(key_two)
+
+    def test_migration(self):
+      # migrate from user1 to user2
+      user = User.objects.get(username=self.user['username'])
+      user.is_superuser = True
+      user.save()
+      dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
+
+      migrate_email = dtr.dtr_migrate_email(dtrprofile)
+      self.assertTrue('pk=' in migrate_email)
+      self.assertTrue('key=' in migrate_email)
+
+      # no login gives login form
+      rs = self.client.get('/dtr/migrate?pk={0}'.format(dtrprofile.id))
+      self.assertEqual(rs.status_code, 200)
+
+      # successful login
+      rs = self.client.post('/login', self.user2)
+      self.assertEqual(rs.status_code, 302)
+
+      # bad secret key fails
+      rs = self.client.get('/dtr/migrate?pk={0}&key=notakey'.format(dtrprofile.id))
+      self.assertEqual(rs.status_code, 404)
+
+      # good secret key success
+      rs = self.client.get('/dtr/migrate?pk={0}&key={1}'.format(dtrprofile.id, dtrprofile.data['key']))
+      self.assertEqual(rs.status_code, 302)
+
+      useraction = UserAction.objects.get(id=dtr.id)
+      self.assertEqual(useraction.user.username, self.user2['username'])
+
+      dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)

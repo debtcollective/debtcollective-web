@@ -1,0 +1,34 @@
+{% extends "proj/base_template.html" %}
+{% load humanize %}
+{% block body %}
+{% include "proj/insideHeader.html" with title='CHOOSE A DTR' %}
+
+<div class="container inside-container">
+  <div class="wrapper dark ">
+    <div class="row">
+      <div class="centered body-text">
+        <h2>Edit an existing application</h2>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper dark">
+    <div class="body-text">
+  {% for dtr in dtrs %}
+      <a href="/defense-to-repayment?pk={{dtr.id}}">
+      <div class="row light choice-item">
+        <h2>{{dtr.data.school_name}}</h2>
+        <p>{{dtr.data.name}} <span class="pull-right">{{dtr.last_changed | naturalday }} >></span></p>
+        </div>
+      </a>
+  {% endfor %}
+
+      <a href="/defense-to-repayment?new=True">
+        <div class="row light choice-item">
+          <h2>Create a new application >></h2>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
