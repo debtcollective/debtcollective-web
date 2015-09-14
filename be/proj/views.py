@@ -1,13 +1,13 @@
 from django.shortcuts import render_to_response, redirect
-from django.contrib.auth.models import User
 from django.contrib import auth
 from django.http import HttpResponse, Http404
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Sum
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
-
 from proj.utils import json_response, get_POST_data
+
+from django.contrib.auth.models import User
 from proj.gather.models import Debt, UserProfile, Point
 from proj.collectives.models import Collective, UserAction, CollectiveMember, Action
 
@@ -52,11 +52,15 @@ def profile(request):
   c['user'] = request.user
   c['user'].profile = UserProfile.objects.get_or_create(user=request.user)
   c['debts'] = Debt.objects.filter(user=c['user'])
-  user_actions = UserAction.objects.select_related('action').filter(user=request.user)
-  c['user_actions'] = map(lambda u: u.action, user_actions)
-  c['all_actions'] = Action.objects.all()
-  c['collectives'] = Collective.objects.select_related('membership').all()
 
+  memberships = CollectiveMember.objects.select_related('collective').filter(user=request.user)
+  c['collectives'] = map(lambda m: m.collective, memberships)
+  c['collective_actions'] = set()
+  for collective in c['collectives']:
+    actions = collective.actions.all()
+    for action in actions:
+      print action
+      c['collective_actions'].add(action)
   return render_to_response('proj/profile.html', c)
 
 def logout(request):

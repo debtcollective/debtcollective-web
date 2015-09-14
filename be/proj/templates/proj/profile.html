@@ -20,13 +20,13 @@
     </div>
   </div>
   <div class="wrapper dark">
-    <h2>Active actions:</h2>
+    <h2>Collective actions:</h2>
     <div class="row">
-      {% include "collectives/action_cards.html" with actions=user_actions %}
+      {% include "collectives/action_cards.html" with actions=collective_actions %}
     </div>
   </div>
   <div class="wrapper dark">
-    <h2>Membership Collectives:</h2>
+    <h2>Memberships:</h2>
     <div class="row">
       {% for collective in collectives %}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 collective-card">
