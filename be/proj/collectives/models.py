@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib import admin
 from django.contrib.auth.models import User
 from jsonfield import JSONField
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
 
 import datetime
 
@@ -40,6 +40,14 @@ def gen_link(path):
 pre_save.connect(gen_link('collectives'), sender=Collective)
 pre_save.connect(gen_link('actions'), sender=Action)
 
+def add_dc():
+  def post_save(sender, instance, **kwargs):
+    dc = Collective.objects.get(slug='debt-collective')
+    CollectiveMember.objects.get_or_create(collective=dc, user=instance)
+  return post_save
+
+post_save.connect(add_dc(), sender=User)
+
 class CollectiveMember(models.Model):
   MEMBER = 1
   ADMIN = 2
@@ -61,6 +69,9 @@ class CollectiveMember(models.Model):
       if self.status is c[0]:
         return c[1]
     return None
+
+  class Meta:
+    unique_together = ('user', 'collective',)
 
 class UserAction(models.Model):
   COMPLETED = 1

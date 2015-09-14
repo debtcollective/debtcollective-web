@@ -52,7 +52,8 @@ def profile(request):
   c['user'] = request.user
   c['user'].profile = UserProfile.objects.get_or_create(user=request.user)
   c['debts'] = Debt.objects.filter(user=c['user'])
-
+  # user_actions = UserAction.objects.select_related('action').filter(user=request.user).distinct('action__id')
+  # c['user_actions'] = map(lambda u: u.action, user_actions)
   memberships = CollectiveMember.objects.select_related('collective').filter(user=request.user)
   c['collectives'] = map(lambda m: m.collective, memberships)
   c['collective_actions'] = set()

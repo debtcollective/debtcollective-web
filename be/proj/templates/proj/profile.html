@@ -20,7 +20,13 @@
     </div>
   </div>
   <div class="wrapper dark">
-    <h2>Collective actions:</h2>
+   <!--  <h2>Completed actions:</h2>
+    <div class="row">
+      {% include "collectives/action_cards.html" with actions=user_actions %}
+    </div>
+    -->
+
+   <h2>Available actions:</h2>
     <div class="row">
       {% include "collectives/action_cards.html" with actions=collective_actions %}
     </div>
