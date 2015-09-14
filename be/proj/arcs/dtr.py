@@ -350,7 +350,7 @@ def dtr_choice(request):
     return redirect('/login')
 
   action = Action.objects.get(slug='defense-to-repayment')
-  dtrs = UserAction.objects.filter(action=action, user=request.user)
+  dtrs = UserAction.objects.filter(action=action, user=request.user).order_by('-last_changed')
   return render_to_response('dtr/dtrchoice.html', {"dtrs": dtrs, "user":request.user})
 
 def dtr(request):
