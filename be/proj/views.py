@@ -163,3 +163,5 @@ def thankyou(request):
 def not_found(request):
   return render_to_response('proj/404.html')
 
+def blog(request):
+  return render_to_response('proj/blog.html')
