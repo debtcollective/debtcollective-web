@@ -351,7 +351,7 @@ def dtr_choice(request):
 
   action = Action.objects.get(slug='defense-to-repayment')
   dtrs = UserAction.objects.filter(action=action, user=request.user)
-  return render_to_response('dtr/dtrchoice.html', {"dtrs": dtrs})
+  return render_to_response('dtr/dtrchoice.html', {"dtrs": dtrs, "user":request.user})
 
 def dtr(request):
   new = request.GET.get('new')
