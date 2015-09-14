@@ -87,12 +87,14 @@ def make_a_pdf(dtr, values=None):
   return output_file
 
 def create_dtr_user_action(values, user):
-  action = Action.objects.get(slug='defense-to-repayment')
-  dtr = UserAction.objects.create(user=user, action=action)
-  created = True
-
-  # create a pdf with sensitive data to be stored in s3 and thrown away
-  output_file = make_a_pdf(dtr, values)
+  try:
+    # create a pdf with sensitive data to be stored in s3 and thrown away
+    output_file = make_a_pdf(dtr, values)
+    action = Action.objects.get(slug='defense-to-repayment')
+    dtr = UserAction.objects.create(user=user, action=action)
+    created = True
+  except:
+    created = False
 
   # throw away sensitive fields
   for field in SENSITIVE_FIELDS:

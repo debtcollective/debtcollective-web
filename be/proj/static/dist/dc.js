@@ -12097,14 +12097,18 @@ app.controller('corinthianCtrl',
     };
 });
 
-app.directive('scrollOnClick', function() {
-  return {
-    restrict: 'A',
-    link: function(scope, $elm) {
-      $elm.on('click', function() {
+
+app.directive('deleteBtn', function () {
+    return function($scope, $elm, $attrs) {
+      $elm.on('click', function (event) {
+        var r = confirm("Are you sure you want to delete that? It will be gone forever.");
+        if (r !== true) {
+            console.log('not deleting')
+            event.preventDefault();
+        }
+        console.log('go!')
       });
     }
-  }
 });
 ;app.filter('humanize', function(){
     return function humanize(number) {
@@ -12358,7 +12362,7 @@ app.controller('solidarityStrikeCtrl',
       }
     }
   }
-});app.directive('donateButton', function ($window, $http) {
+});;app.directive('donateButton', function ($window, $http) {
   return {
     restrict: 'E',
     scope: {

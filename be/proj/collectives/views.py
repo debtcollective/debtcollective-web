@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response, redirect
 from proj.collectives.models import UserAction, Action, Collective
 from proj.utils import json_response, get_POST_data
+from django.core.exceptions import ObjectDoesNotExist
 
 def collective(request, slug):
   collective = Collective.objects.get(slug=slug)
@@ -27,3 +28,16 @@ def all_actions(request):
     'user': request.user
   }
   return render_to_response('collectives/all_actions.html', c)
+
+def ua_delete(request, pk):
+  if not request.user.is_authenticated():
+    return redirect('/login')
+
+  try:
+    useraction = UserAction.objects.get(id=pk)
+    #useraction.delete()
+  except ObjectDoesNotExist:
+    pass
+
+  url = request.GET.get('redirect')
+  return redirect(url)
