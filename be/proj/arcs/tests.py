@@ -7,6 +7,8 @@ from proj.collectives.models import Collective, UserAction, Action
 
 import copy
 import json
+import proj.settings as settings
+
 
 TEST_BUCKET = 'corinthiandtr.dev'
 conn = get_s3_conn()
@@ -45,7 +47,7 @@ class TestDTR(TestCase):
       }
       rs = self.client.post('/signup', self.user2)
 
-      action = Action.objects.create(slug='defense-to-repayment', name='Defense to Repayment', description='dtr ya')
+      action = Action.objects.create(slug=settings.DTR_MODEL_SLUG, name='Defense to Repayment', description='dtr ya')
 
     def test_generate(self):
       user = User.objects.get(username=self.user['username'])
@@ -173,5 +175,3 @@ class TestDTR(TestCase):
 
       useraction = UserAction.objects.get(id=dtr.id)
       self.assertEqual(useraction.user.username, self.user2['username'])
-
-      dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)

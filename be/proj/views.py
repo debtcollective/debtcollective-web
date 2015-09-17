@@ -34,6 +34,12 @@ def stripe_endpoint(request):
 
   return json_response({'status': 'ok'}, 200)
 
+def password_reset_complete(request):
+  template_response = auth.views.password_reset_complete(request)
+  if request.method == 'GET':
+    template_response.template_name = 'proj/password_reset_complete.html'
+  return template_response
+
 def change_password(request):
   template_response = auth.views.password_change(request, post_change_redirect='/profile')
   if request.method == 'GET':
@@ -104,8 +110,8 @@ def signup(request):
     return Http404
 
   rq = get_POST_data(request)
-  username = rq.get('username')
   email = rq.get('email')
+  username = email
   password = rq.get('password')
   if not username or not password:
     return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)

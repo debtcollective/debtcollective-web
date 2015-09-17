@@ -89,22 +89,22 @@ def make_a_pdf(dtr, values=None):
 def create_dtr_user_action(values, user):
   try:
     # create a pdf with sensitive data to be stored in s3 and thrown away
-    output_file = make_a_pdf(dtr, values)
-    action = Action.objects.get(slug='defense-to-repayment')
+    action = Action.objects.get(slug=settings.DTR_MODEL_SLUG)
     dtr = UserAction.objects.create(user=user, action=action)
+    output_file = make_a_pdf(dtr, values)
     created = True
-  except:
+    # throw away sensitive fields
+    for field in SENSITIVE_FIELDS:
+      if values.get(field):
+        del values[field]
+
+    # store only non-sensitive fields on disk
+    dtr.data = values
+    dtr.output_file = output_file
+    dtr.save()
+  except Exception, e:
+    raise e
     created = False
-
-  # throw away sensitive fields
-  for field in SENSITIVE_FIELDS:
-    if values.get(field):
-      del values[field]
-
-  # store only non-sensitive fields on disk
-  dtr.data = values
-  dtr.output_file = output_file
-  dtr.save()
 
   return dtr, created
 
@@ -119,9 +119,11 @@ def dtr_migrate_email(dtr):
   dtr.data['key'] = key
 
   # give it to super user until it is officially migrated
-  user = User.objects.filter(is_superuser=True)
-  if not user:
+  users = User.objects.filter(is_superuser=True)
+  if not users:
     raise Exception('Need a super user!')
+  else:
+    user = users[0]
   dtr, created = create_dtr_user_action(dtr.data, user)
 
   user_data = dict(dtr.data)
@@ -221,14 +223,7 @@ def dtr_download(request, f, to):
   s = StringIO.StringIO()
   zf = zipfile.ZipFile(s, "w")
 
-  action = Action.objects.get(slug='defense-to-repayment')
-  profiles = UserAction.objects.filter(
-    id__gte=f
-  ).filter(
-    id__lte=to
-  ).filter(
-    action=action
-  )
+  profiles = UserAction.DTRS(id__gte=f, id__lte=to)
 
   for profile in remove_dupes(profiles):
     key = s3_key(profile)
@@ -295,9 +290,11 @@ def generate(request):
   if request.user.is_authenticated():
     user = request.user
   else:
-    user = User.objects.filter(is_superuser=True)
-    if not user:
+    users = User.objects.filter(is_superuser=True)
+    if not users:
       raise Exception('Need a super user!')
+    else:
+      user = users[0]
 
   dtr, created = create_dtr_user_action(rq, user)
   dtr_email(dtr, attachments=request.FILES)
@@ -311,7 +308,6 @@ def dtr_data(request):
   if not request.user.is_authenticated():
     return json_response({'warning': 'No user found'}, 200)
 
-  action = Action.objects.get(slug='defense-to-repayment')
   pk = request.GET.get('pk')
   if pk:
     try:
@@ -336,8 +332,7 @@ def dtr_admin(request):
   if not request.user.is_superuser:
     return redirect('/login')
 
-  action = Action.objects.get(slug='defense-to-repayment')
-  all_dtrs = UserAction.objects.filter(action=action)
+  all_dtrs = UserAction.DTRS()
   c = {
     'all_dtrs': all_dtrs,
     'dtr_total': len(all_dtrs)
@@ -349,16 +344,14 @@ def dtr_choice(request):
   if not request.user.is_authenticated():
     return redirect('/login')
 
-  action = Action.objects.get(slug='defense-to-repayment')
-  dtrs = UserAction.objects.filter(action=action, user=request.user).order_by('-last_changed')
+  dtrs = UserAction.DTRS(user=request.user).order_by('-last_changed')
   return render_to_response('dtr/dtrchoice.html', {"dtrs": dtrs, "user":request.user})
 
 def dtr(request):
   new = request.GET.get('new')
   pk = request.GET.get('pk')
   if not new and not pk and request.user.is_authenticated():
-    action = Action.objects.get(slug='defense-to-repayment')
-    all_dtrs = UserAction.objects.filter(action=action, user=request.user)
+    all_dtrs = UserAction.DTRS(user=request.user)
     if len(all_dtrs) > 1:
       return redirect('/dtr/choice')
     else:

@@ -25,7 +25,12 @@ urlpatterns += patterns('proj.collectives.views',
 urlpatterns += patterns('proj.views',
   basic_url('login'),
   basic_url('logout'),
-  basic_url('change_password'),
+  url('^password_change$', auth_views.password_change),
+  url('^password_change/done/$', auth_views.password_change_done, name='password_change_done'),
+  url('^password_reset/$', auth_views.password_reset, name='password_reset'),
+  url('^password_reset/done$', auth_views.password_reset_done, name='password_reset_done'),
+  url('^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', auth_views.password_reset_confirm, name='password_reset_confirm'),
+  url('^reset/done$', 'password_reset_complete', name='password_reset_complete'),
   basic_url('signup'),
   basic_url('blog'),
   basic_url('thankyou'),
@@ -69,4 +74,3 @@ urlpatterns += patterns('proj.arcs.dtr',
   basic_url('solidaritystrikeform'),
   basic_url('corinthiansolidarity')
 )
-

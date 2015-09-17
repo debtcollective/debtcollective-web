@@ -3,7 +3,9 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from jsonfield import JSONField
 from django.db.models.signals import pre_save, post_save
+from django.utils import timezone
 
+import proj.settings as settings
 import datetime
 
 class Action(models.Model):
@@ -40,13 +42,6 @@ def gen_link(path):
 pre_save.connect(gen_link('collectives'), sender=Collective)
 pre_save.connect(gen_link('actions'), sender=Action)
 
-def add_dc():
-  def post_save(sender, instance, **kwargs):
-    dc = Collective.objects.get(slug='debt-collective')
-    CollectiveMember.objects.get_or_create(collective=dc, user=instance)
-  return post_save
-
-post_save.connect(add_dc(), sender=User)
 
 class CollectiveMember(models.Model):
   MEMBER = 1
@@ -86,8 +81,15 @@ class UserAction(models.Model):
   user = models.ForeignKey(User)
   action = models.ForeignKey(Action)
   data = JSONField(blank=True)
-  last_changed = models.DateTimeField(default=datetime.datetime.now())
+  last_changed = models.DateTimeField(default=timezone.now)
 
   def __unicode__(self):
     return '%s %s' % (self.user, self.action)
+
+  @classmethod
+  def DTRS(cls, **kwargs):
+    action = Action.objects.get(slug=settings.DTR_MODEL_SLUG)
+    kwargs['action'] = action
+    return cls.objects.filter(**kwargs)
+
 

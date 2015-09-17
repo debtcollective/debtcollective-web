@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'proj.gather',
     'proj.arcs',
     'proj.collectives',
-    'south'
+    'south',
+    'djrill'
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -117,3 +118,7 @@ AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY', '')
 AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY', '')
 MANDRILL_API_KEY = os.environ.get('MANDRILL_API_KEY', '')
 DTR_RECIPIENT = os.environ.get('DTR_RECIPIENT', '')
+DTR_MODEL_SLUG = os.environ.get('DTR_MODEL', 'defense-to-repayment')
+
+EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
+DEFAULT_FROM_EMAIL = "noreply@debtcollective.org"  # if you don't already have this in settings

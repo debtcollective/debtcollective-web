@@ -1,8 +1,9 @@
 from django.db import models
 from django.contrib import admin
 from django.contrib.auth.models import User
-from datetime import datetime
 from django.db.models.signals import post_save
+from django.utils import timezone
+from proj.collectives.models import Collective, CollectiveMember
 
 
 class Point(models.Model):
@@ -36,15 +37,20 @@ class States(models.Model):
 
 class UserProfile(models.Model):
   user = models.OneToOneField(User, unique=True)
-  created_at = models.DateTimeField(default=datetime.now)
+  created_at = models.DateTimeField(default=timezone.now)
   point = models.ForeignKey(Point, null=True)
-
 
 def create_user_profile(sender, instance, created, **kwargs):
   if created:
     UserProfile.objects.create(user=instance)
 
+def add_dc(sender, instance, created, **kwargs):
+  if created:
+    dc = Collective.objects.get(slug='debt-collective')
+    CollectiveMember.objects.get_or_create(collective=dc, user=instance)
+
 post_save.connect(create_user_profile, sender=User)
+post_save.connect(add_dc, sender=User)
 
 class Debt(models.Model):
   AUTO = 'auto'
