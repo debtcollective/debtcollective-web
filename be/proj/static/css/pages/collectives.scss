@@ -38,6 +38,7 @@ $border-radius: 9px;
     -moz-border-radius: $border-radius;
     -webkit-border-radius: $border-radius;
     border-radius: $border-radius; /* future proofing */
+    max-width: 400px;
     margin: 5px;
     background-color: $light-background-color;
     color: $light-text-color;

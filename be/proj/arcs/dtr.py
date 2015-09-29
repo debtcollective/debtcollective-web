@@ -354,7 +354,7 @@ def dtr(request):
     all_dtrs = UserAction.DTRS(user=request.user)
     if len(all_dtrs) > 1:
       return redirect('/dtr/choice')
-    else:
+    elif len(all_dtrs) == 1:
       return redirect('/defense-to-repayment?pk={0}'.format(all_dtrs[0].id))
 
   basepath = settings.TEMPLATE_DIRS[0]

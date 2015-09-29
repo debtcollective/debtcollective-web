@@ -118,7 +118,7 @@ def signup(request):
 
   user = User.objects.filter(username=username)
   if user:
-    return json_response({'error': 'That already exists! Try logging in.'}, 500)
+    return json_response({'status': 'error', 'message':'That already exists! Try logging in.'}, 500)
 
   user = User.objects.create_user(username=username, email=email, password=password)
   user = auth.authenticate(username=username, password=password)

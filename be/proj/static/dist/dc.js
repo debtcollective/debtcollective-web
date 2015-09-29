@@ -12307,21 +12307,22 @@ app.controller('solidarityStrikeCtrl',
   }
 
   this.create = function (userData, cb) {
-    $http.post('/signup', userData).then(function (resp) {
+    $http.post('/signup', userData).then(function success (resp) {
       self.signupForMailingList(userData, cb)
+    }, function error (resp) {
+      cb(resp)
     })
   }
 
   this.signupForMailingList = function (userData, cb) {
     userData.list = '8CaVcsDmVe41wdpl194UlQ',
     userData.boolean = true
-
     $http.post('//mail.debtcollective.org/subscribe', userData).then(function (resp) {
       cb(resp)
     })
   }
-
-});;app.service('util_svc', function () {
+});
+;app.service('util_svc', function () {
 
   this.generateUUID = function () {
       // unique ID generator modified to create ids 30 characters long
@@ -12427,8 +12428,7 @@ app.controller('solidarityStrikeCtrl',
       open: '=',
       afterSubmit: '&'
     },
-    controller: function ($scope, $element, $http, $document,
-     $timeout, $window, users, banner) {
+    controller: function ($scope, $element, $http, $document, $timeout, $window, users, banner) {
       $scope.email = null;
       $scope.username = null;
       $scope.debts = [];
@@ -12466,7 +12466,6 @@ app.controller('solidarityStrikeCtrl',
         // temporarily, email is the password
         // so that we can protect anonymity of our users.
         // just store one debt type for now.
-        $scope.formSubmitted = true;
         $scope.showForm = true;
 
         var debt = $scope.debts[0]
@@ -12479,15 +12478,21 @@ app.controller('solidarityStrikeCtrl',
         }
 
         users.create(userData, function (resp) {
-          if (resp.data.error) return banner.error(resp.data.error)
-          $scope.afterSubmit()
-          $scope.formSubmitted = true
+          if (resp.data.status === 'error') {
+            if (resp.data.message.match(/That already exists/)) return window.location.href = '/login'
+            return banner.error(resp.data.error)
+          }
+          else {
+            $scope.afterSubmit()
+            $scope.formSubmitted = true
+          }
         })
         $event.preventDefault()
       }
     }
   }
-});app.directive('tweetBtn', function ($window) {
+})
+;app.directive('tweetBtn', function ($window) {
   return {
     restrict: 'E',
     replace: true,

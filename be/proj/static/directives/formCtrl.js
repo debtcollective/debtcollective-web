@@ -7,8 +7,7 @@ app.directive('signupform', function () {
       open: '=',
       afterSubmit: '&'
     },
-    controller: function ($scope, $element, $http, $document,
-     $timeout, $window, users, banner) {
+    controller: function ($scope, $element, $http, $document, $timeout, $window, users, banner) {
       $scope.email = null;
       $scope.username = null;
       $scope.debts = [];
@@ -46,7 +45,6 @@ app.directive('signupform', function () {
         // temporarily, email is the password
         // so that we can protect anonymity of our users.
         // just store one debt type for now.
-        $scope.formSubmitted = true;
         $scope.showForm = true;
 
         var debt = $scope.debts[0]
@@ -59,9 +57,14 @@ app.directive('signupform', function () {
         }
 
         users.create(userData, function (resp) {
-          if (resp.data.error) return banner.error(resp.data.error)
-          $scope.afterSubmit()
-          $scope.formSubmitted = true
+          if (resp.data.status === 'error') {
+            if (resp.data.message.match(/That already exists/)) return window.location.href = '/login'
+            return banner.error(resp.data.error)
+          }
+          else {
+            $scope.afterSubmit()
+            $scope.formSubmitted = true
+          }
         })
         $event.preventDefault()
       }

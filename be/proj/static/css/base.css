@@ -598,6 +598,7 @@ a.sm-button {
     -webkit-border-radius: 9px;
     border-radius: 9px;
     /* future proofing */
+    max-width: 400px;
     margin: 5px;
     background-color: #f1eee2;
     color: #111; }
