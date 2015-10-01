@@ -58,8 +58,7 @@
 
           <h2>
             <button type="submit" class="btn btn-primary" ng-show="!showCorinthians" ng-click="showCorinthians = true">SEE ALL 200 STRIKERS</button>
-
-             <button type="submit" ng-show="!corithianSignupFormShown" ng-click="corithianSignupFormShown = true" class="btn btn-primary">JOIN THE STRIKE</button>
+            <button type="submit" ng-show="!corithianSignupFormShown" ng-click="corithianSignupFormShown = true" class="btn btn-primary">JOIN THE STRIKE</button>
           </h2>
           <div ng-class="{ 'hidden' : !showCorinthians }">
             <div ng-repeat="striker in corinthian100" >
@@ -111,24 +110,6 @@
 
           <div id="solidarityLetter" ng-show="!corinthianLetterVisible">
             {% include "corinthian/solidarityLetter.html" %}
-          </div>
-          <div class="tabs centered">
-            <div class="single-tab" ng-class="{'active': !corinthianLetterVisible}"
-              ng-click="showCorinthianLetter()">STUDENTS</div>
-            <div class="single-tab" ng-class="{'active': corinthianLetterVisible}"
-              ng-click="showSolidarityLetter()">SUPPORTERS</div>
-          </div>
-          <div class="paper-bottom-form" id="likethestrike">
-            <div class="dc-input">
-              <div class="body-text centered">
-                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-                  <button type="submit" ng-click="corithianSignupFormShown = true" class="btn btn-primary">JOIN</button>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-                  <a ng-click="supportVisible = true" class="btn btn-primary">SUPPORT</a>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
        <div class="body-text caption sub">
