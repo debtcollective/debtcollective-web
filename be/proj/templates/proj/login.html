@@ -12,11 +12,14 @@
           <h2 class="centered">Alone, our debts are a burden. Together, they make us powerful.</h2>
           <form class="form" action="/login" method="POST">
             {% csrf_token %}
+            {% if password_change %}
+            <p class="help-text">Changed password successfully!</p>
+            {% endif %}
             {% if bad_auth %}
             <p class="help-text">Email and password do not match.</p>
             {% endif %}
-            <input type="text" name="username" placeholder="email or username" required />
-            <input type="password" name="password" placeholder="password" required />
+            <input type="email" name="username" placeholder="EMAIL" required />
+            <input type="password" name="password" placeholder="PASSWORD" required />
             <button class="btn btn-primary" type="submit">Login</button>
             <p><a href="/signup">I don't have an account.</a>
               <a class="pull-right" href="/password_reset">I forgot my password.</a></p>

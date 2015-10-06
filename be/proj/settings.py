@@ -39,8 +39,7 @@ INSTALLED_APPS = (
     'proj.arcs',
     'proj.collectives',
     'south',
-    'djrill',
-    'simple_email_confirmation'
+    'djrill'
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -110,7 +109,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'templates/debtcollective-wizard/static')
 )
-
+FIXTURE_DIRS = [os.path.join(BASE_DIR, 'fixtures')]
 # Misc.
 AUTH_PROFILE_MODULE = 'gather.UserProfile'
 MAP_PASSWORD = os.environ.get('MAP_PASSWORD', '')

@@ -21,6 +21,7 @@ from email import Encoders
 
 import proj.settings as settings
 
+from copy import deepcopy
 import uuid
 import os
 import zipfile
@@ -93,18 +94,25 @@ def create_dtr_user_action(values, user):
   try:
     # create a pdf with sensitive data to be stored in s3 and thrown away
     action = Action.objects.get(slug=settings.DTR_MODEL_SLUG)
-    dtr = UserAction.objects.create(user=user, action=action)
-    output_file = make_a_pdf(dtr, values)
-    created = True
-    # throw away sensitive fields
-    for field in SENSITIVE_FIELDS:
-      if values.get(field):
-        del values[field]
+    pk = values.get('pk')
+    if pk:
+      dtr = UserAction.objects.get(id=pk)
+    else:
+      dtr = UserAction.objects.create(user=user, action=action)
 
     # store only non-sensitive fields on disk
-    dtr.data = values
+    non_sensitive_values = deepcopy(values)
+    for field in SENSITIVE_FIELDS:
+      if non_sensitive_values.get(field):
+        del non_sensitive_values[field]
+    dtr.data = non_sensitive_value
+    dtr.save()
+
+    output_file = make_a_pdf(dtr, values)
     dtr.output_file = output_file
     dtr.save()
+
+    created = True
   except Exception, e:
     raise e
     created = False
@@ -319,7 +327,7 @@ def dtr_data(request):
     except ObjectDoesNotExist:
       data = {'warning': 'No dtr found'}
 
-  return json_response(data, 200)
+  return json_response({'data': data}, 200)
 
 def dtr_view(request, id):
   if not request.user.is_superuser:

@@ -8,6 +8,7 @@ import json
 
 
 class TestSignup(TestCase):
+    fixtures = ['7-14-15.json']
 
     def test_simple(self):
       # it can create a user from the frontend

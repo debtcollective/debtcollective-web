@@ -37,7 +37,8 @@ def stripe_endpoint(request):
 def password_reset_complete(request):
   template_response = auth.views.password_reset_complete(request)
   if request.method == 'GET':
-    template_response.template_name = 'proj/password_reset_complete.html'
+    template_response.template_name = 'proj/login.html'
+    template_response.context_data['password_change'] = True
   return template_response
 
 def change_password(request):
@@ -66,7 +67,6 @@ def profile(request):
   for collective in c['collectives']:
     actions = collective.actions.all()
     for action in actions:
-      print action
       c['collective_actions'].add(action)
   return render_to_response('proj/profile.html', c)
 
@@ -83,22 +83,31 @@ def login(request):
   POST /login
   """
   c = {}
+  if request.user.is_authenticated():
+    return redirect('/profile')
+
   if request.method == 'POST':
-    username = request.get('username')
-    password = request.get('password')
+    rq = get_POST_data(request)
+    username = rq.get('username')
+    password = rq.get('password')
+
     if not username or not password:
       return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
-
-    rq = get_POST_data(request)
-    user = auth.authenticate(username=username, password=password)
-    if user is not None:
-      auth.login(request, user)
+    user = do_login(request, username, password)
+    if user:
       return redirect('/profile')
     else:
       c.update({"bad_auth": True})
 
   c.update(csrf(request))
   return render_to_response('proj/login.html', c)
+
+def do_login(request, username, password):
+  user = auth.authenticate(username=username, password=password)
+  if user is not None:
+    user = auth.login(request, user)
+    return True
+  return False
 
 @csrf_exempt
 def signup(request):
@@ -116,19 +125,18 @@ def signup(request):
 
   rq = get_POST_data(request)
   email = rq.get('email')
-  username = email
-  if not username:
-    return json_response({'status': 'error', 'message': 'Username required.'}, 500)
+  password = rq.get('password')
+  if not email or not password:
+    return json_response({'status': 'error', 'message': 'Email/password required.'}, 500)
 
-  user = User.objects.filter(username=username)
+  user = User.objects.filter(username=email)
   if user:
-    return login(request)
+    if do_login(request, email, password):
+      return json_response({'status': 'logged_in'}, 200)
+    else:
+      return json_response({'status': 'user_exists'}, 500)
 
-  user = User.objects.create_user(username=username, email=email, password=password)
-  user = auth.authenticate(username=username, password=password)
-  if user is not None:
-    auth.login(request, user)
-
+  user = User.objects.create_user(username=email, email=email, password=password)
   point = rq.get('point')
   if point:
     point = Point.objects.get(id=point)
@@ -144,14 +152,12 @@ def signup(request):
     debt = Debt.objects.create(user=user, amount=amount,
       kind=kind, last_payment=last_payment)
 
-  user = auth.authenticate(username=username, password=password)
-  if user is not None:
-    auth.login(request, user)
-
   return json_response({'status': 'ok'}, 200)
 
 @ensure_csrf_cookie
 def splash(request):
+  if request.user.is_authenticated():
+    return redirect('/profile')
   c = {"actions": Action.objects.filter(featured=True)[:2]}
   return render_to_response('proj/splash.html', c)
 
