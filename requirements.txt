@@ -4,6 +4,7 @@ South==1.0
 boto==2.36.0
 jsonfield==1.0.3
 dj-database-url==0.3.0
+django-simple-email-confirmation==0.12
 dj-static==0.0.6
 django-toolbelt==0.0.1
 fdfgen==0.11.0

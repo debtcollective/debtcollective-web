@@ -39,7 +39,8 @@ INSTALLED_APPS = (
     'proj.arcs',
     'proj.collectives',
     'south',
-    'djrill'
+    'djrill',
+    'simple_email_confirmation'
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

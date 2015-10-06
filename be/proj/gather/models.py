@@ -1,10 +1,13 @@
 from django.db import models
 from django.contrib import admin
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+from simple_email_confirmation import SimpleEmailConfirmationUserMixin
 from django.db.models.signals import post_save
 from django.utils import timezone
 from proj.collectives.models import Collective, CollectiveMember
 
+class User(SimpleEmailConfirmationUserMixin, AbstractUser):
+    pass
 
 class Point(models.Model):
   name = models.CharField(max_length=50, unique=True)

@@ -83,16 +83,21 @@ def login(request):
   POST /login
   """
   c = {}
-  c.update(csrf(request))
   if request.method == 'POST':
+    username = request.get('username')
+    password = request.get('password')
+    if not username or not password:
+      return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
+
     rq = get_POST_data(request)
-    user = auth.authenticate(username=rq['username'], password=rq['password'])
+    user = auth.authenticate(username=username, password=password)
     if user is not None:
       auth.login(request, user)
       return redirect('/profile')
     else:
       c.update({"bad_auth": True})
 
+  c.update(csrf(request))
   return render_to_response('proj/login.html', c)
 
 @csrf_exempt
@@ -112,13 +117,12 @@ def signup(request):
   rq = get_POST_data(request)
   email = rq.get('email')
   username = email
-  password = rq.get('password')
-  if not username or not password:
-    return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
+  if not username:
+    return json_response({'status': 'error', 'message': 'Username required.'}, 500)
 
   user = User.objects.filter(username=username)
   if user:
-    return json_response({'status': 'error', 'message':'That already exists! Try logging in.'}, 500)
+    return login(request)
 
   user = User.objects.create_user(username=username, email=email, password=password)
   user = auth.authenticate(username=username, password=password)
