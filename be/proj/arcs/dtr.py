@@ -356,7 +356,7 @@ def dtr_choice(request):
     return redirect('/login')
 
   dtrs = UserAction.DTRS(user=request.user).order_by('-last_changed')
-  return render_to_response('dtr/dtrchoice.html', {"dtrs": dtrs, "user":request.user})
+  return render_to_response('dtr/dtrchoice.html', {"dtrs": dtrs, "user": request.user})
 
 def dtr(request):
   new = request.GET.get('new')

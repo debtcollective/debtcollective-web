@@ -35,7 +35,7 @@ def ua_delete(request, pk):
 
   try:
     useraction = UserAction.objects.get(id=pk)
-    #useraction.delete()
+    useraction.delete()
   except ObjectDoesNotExist:
     pass
 
