@@ -49,12 +49,15 @@ def get_map_data():
   }
 
 def generate_and_store_map_data():
-    data = get_map_data()
+  data = get_map_data()
+  if settings.DEV:
+    static_dir = settings.STATICFILES_DIRS[0]
+  else:
     static_dir = settings.STATIC_ROOT
-    fp = open("%s/%s.json" % (os.path.join(static_dir, 'data'), "map_data"), 'wb')
-    fp.write(json.dumps(data))
-    fp.close()
-    return data
+  fp = open("%s/%s.json" % (os.path.join(static_dir, 'data'), "map_data"), 'wb')
+  fp.write(json.dumps(data))
+  fp.close()
+  return data
 
 def map_data(request):
   """
