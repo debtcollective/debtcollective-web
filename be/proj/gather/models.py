@@ -45,7 +45,7 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 def add_dc(sender, instance, created, **kwargs):
   if created:
-    dc = Collective.objects.get(slug='debt-collective')
+    dc, created = Collective.objects.get_or_create(slug='debt-collective')
     CollectiveMember.objects.get_or_create(collective=dc, user=instance)
 
 post_save.connect(create_user_profile, sender=User)

@@ -105,7 +105,7 @@ def create_dtr_user_action(values, user):
     if non_sensitive_values.get(field):
       del non_sensitive_values[field]
 
-  dtr.data = non_sensitive_value
+  dtr.data = non_sensitive_values
   dtr.save()
   created = True
 
@@ -113,8 +113,8 @@ def create_dtr_user_action(values, user):
     output_file = make_a_pdf(dtr, values)
     dtr.output_file = output_file
     dtr.save()
+    created = True
   except Exception, e:
-    raise e
     created = False
 
   return dtr, created

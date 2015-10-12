@@ -35,13 +35,11 @@ class TestDTR(TestCase):
 
     def setUp(self):
       self.user = {
-        'username': 'testuser',
         'password': 'testingpassword',
         'email': 'testuser@test.com'
       }
       rs = self.client.post('/signup', self.user)
       self.user2 = {
-        'username': 'testuser2',
         'password': 'testingpassword',
         'email': 'testuser2@test.com'
       }
@@ -50,7 +48,7 @@ class TestDTR(TestCase):
       action = Action.objects.create(slug=settings.DTR_MODEL_SLUG, name='Defense to Repayment', description='dtr ya')
 
     def test_generate(self):
-      user = User.objects.get(username=self.user['username'])
+      user = User.objects.get(username=self.user['email'])
       dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
 
       key = dtr.s3_key(dtrprofile)
@@ -80,8 +78,8 @@ class TestDTR(TestCase):
       bucket.delete_key(key)
 
     def test_duplicate(self):
-      user = User.objects.get(username=self.user['username'])
-      user2 = User.objects.get(username=self.user2['username'])
+      user = User.objects.get(username=self.user['email'])
+      user2 = User.objects.get(username=self.user2['email'])
 
       dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
 
@@ -113,8 +111,8 @@ class TestDTR(TestCase):
       self.assertTrue(resp['pdf_link'])
 
     def test_generate_two_users(self):
-      user = User.objects.get(username=self.user['username'])
-      user2 = User.objects.get(username=self.user2['username'])
+      user = User.objects.get(username=self.user['email'])
+      user2 = User.objects.get(username=self.user2['email'])
 
       dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
       dtrprofile_two, created = dtr.create_dtr_user_action(TEST_USER2, user2)
@@ -148,7 +146,7 @@ class TestDTR(TestCase):
 
     def test_migration(self):
       # migrate from user1 to user2
-      user = User.objects.get(username=self.user['username'])
+      user = User.objects.get(username=self.user['email'])
       user.is_superuser = True
       user.save()
       dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
@@ -174,4 +172,4 @@ class TestDTR(TestCase):
       self.assertEqual(rs.status_code, 302)
 
       useraction = UserAction.objects.get(id=dtr.id)
-      self.assertEqual(useraction.user.username, self.user2['username'])
+      self.assertEqual(useraction.user.username, self.user2['email'])
