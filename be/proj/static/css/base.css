@@ -572,7 +572,7 @@ a.sm-button {
   height: 250px;
   width: 250px;
   background-repeat: no-repeat;
-  margin: 40px auto 5px auto;
+  margin: 0px auto 5px auto;
   position: relative;
   max-width: 100%; }
   .collective-card .collective-card-content img {
@@ -1446,6 +1446,8 @@ select {
   margin-top: 10px; }
   .choice-item:hover {
     background-color: #ddd; }
+  .choice-item a:hover {
+    text-decoration: none; }
 
 .muted {
   font-style: italic;

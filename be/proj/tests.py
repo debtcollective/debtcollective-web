@@ -13,32 +13,31 @@ class TestSignup(TestCase):
     def test_simple(self):
       # it can create a user from the frontend
       rs = self.client.post('/signup',
-          {'username': 'test', 'email': 'test@test.com', 'password': 'anoyther'})
+          {'email': 'test@test.com', 'password': 'anoyther'})
       self.assertEqual(rs.status_code, 200)
 
-      user = User.objects.get(username='test')
-      self.assertEqual('test', user.username)
+      user = User.objects.get(username='test@test.com')
+      self.assertEqual('test@test.com', user.username)
 
     def test_login(self):
       # it can login a user from the frontend
-      username = 'testuser'
       password = 'testingpassword'
       email = 'testuser@test.com'
       rs = self.client.post('/signup',
-          {'username': username, 'email': email, 'password': password})
+          {'email': email, 'password': password})
       self.assertEqual(rs.status_code, 200)
 
-      user = User.objects.get(username=username)
-      self.assertEqual(username, user.username)
+      user = User.objects.get(username=email)
+      self.assertEqual(email, user.username)
 
       # bad password
       rs = self.client.post('/login',
-        {'username': username, 'password': 'this is a bad password'})
+        {'username': email, 'password': 'this is a bad password'})
       self.assertEqual(rs.status_code, 200)
 
       # successful password
       rs = self.client.post('/login',
-        {'username': username, 'password': password})
+        {'username': email, 'password': password})
       self.assertEqual(rs.status_code, 302)
 
     def test_points(self):
@@ -64,7 +63,7 @@ class TestSignup(TestCase):
       p1 = Point.objects.create(latitude=12.23, longitude=-31.25, name="San Francisco")
 
       rs = self.client.post('/signup',
-          {'username': 'doingit',
+          {'email': 'doingit',
            'password': 'testingpw',
            'kind': 'home',
            'amount': 132200,
@@ -73,7 +72,7 @@ class TestSignup(TestCase):
       self.assertEqual(rs.status_code, 200)
 
       rs = self.client.post('/signup',
-          {'username': 'doingit2',
+          {'email': 'doingit2',
            'password': 'testingpw',
            'kind': 'home',
            'amount': 132200,
@@ -103,13 +102,13 @@ class TestSignup(TestCase):
       # it can store and retrieve point from the frontend
       p = Point.objects.create(latitude=12.23, longitude=-34.35, name="Albuquerque")
       rs = self.client.post('/signup',
-          {'username': 'testingloc',
+          {'email': 'testingloc@yo.com',
            'password': 'testingpw',
            'point':  p.id})
       self.assertEqual(rs.status_code, 200)
 
-      user = User.objects.get(username='testingloc')
-      self.assertEqual('testingloc', user.username)
+      user = User.objects.get(username='testingloc@yo.com')
+      self.assertEqual('testingloc@yo.com', user.username)
 
       data = user.get_profile()
       self.assertEqual(p.id, data.point.id)
@@ -117,13 +116,13 @@ class TestSignup(TestCase):
       # it turns numeric data into character
       p = Point.objects.create(latitude=12.23, longitude=-32.35, name="New York")
       rs = self.client.post('/signup',
-          {'username': 'testingloc2',
+          {'email': 'testingloc2@yo.com',
            'password': 'testingpw',
            'point': p.id})
       self.assertEqual(rs.status_code, 200)
 
-      user = User.objects.get(username='testingloc2')
-      self.assertEqual('testingloc2', user.username)
+      user = User.objects.get(username='testingloc2@yo.com')
+      self.assertEqual('testingloc2@yo.com', user.username)
 
       data = UserProfile.objects.get(user=user)
       self.assertEqual(p.id, data.point.id)
@@ -131,7 +130,7 @@ class TestSignup(TestCase):
     def test_debt(self):
       p = Point.objects.create(latitude=12.23, longitude=-32.35, name="New York")
       rs = self.client.post('/signup',
-          {'username': 'doingit',
+          {'email': 'doingit@gmail.com',
            'password': 'testingpw',
            'kind': 'home',
            'amount': 132200,
@@ -139,7 +138,7 @@ class TestSignup(TestCase):
            })
       self.assertEqual(rs.status_code, 200)
 
-      user = User.objects.get(username='doingit')
+      user = User.objects.get(username='doingit@gmail.com')
       debt = Debt.objects.get(user=user)
       self.assertEqual(debt.kind, 'home')
       self.assertEqual(debt.amount, 132200)

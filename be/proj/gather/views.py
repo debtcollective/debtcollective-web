@@ -63,7 +63,6 @@ def map_data(request):
   data = get_map_data()
   return json_response(data, 200)
 
-
 def generate_map_json(request):
   """
   GET /generate_map_json
@@ -75,4 +74,3 @@ def generate_map_json(request):
     return json_response(data, 200)
   else:
     return json_response({'status': 'error'}, 500)
-

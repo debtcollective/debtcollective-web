@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render, render_to_response, redirect
 from django.contrib import auth
 from django.http import HttpResponse, Http404
 from django.core.context_processors import csrf
@@ -88,8 +88,11 @@ def login(request):
 
   if request.method == 'POST':
     rq = get_POST_data(request)
+    email = rq.get('email')
     username = rq.get('username')
     password = rq.get('password')
+    if email and not username:
+      username = User.objects.get(email=email).username
 
     if not username or not password:
       return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
@@ -177,7 +180,7 @@ def thankyou(request):
   return render_to_response('proj/thankyou.html')
 
 def not_found(request):
-  return render_to_response('proj/404.html')
+  return render(request, template_name='proj/404.html', status=404)
 
 def blog(request):
   return render_to_response('proj/blog.html')

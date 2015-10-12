@@ -60,7 +60,7 @@ def output_filename(key):
 def s3_key(dtr):
   bucket = conn.get_bucket(S3_BUCKET_NAME)
   key = Key(bucket)
-  key.key = dtr.id
+  key.key = dtr.data.get('key', dtr.id)
   return key
 
 def to_json(dtr):
@@ -73,21 +73,18 @@ def pdf_link(dtr, expires_in=3000):
   url = key.generate_url(expires_in=expires_in, force_http=True)
   return url
 
-def make_a_pdf(dtr, values=None):
-  key = dtr.id
-  if not values:
-    values = dtr.data
-
+def make_a_pdf(dtr):
+  key = dtr.data['key']
   fdf_file = fdf_filename(key)
   output_file = output_filename(key)
-  generate_pdf(values, SOURCE_FILE, fdf_file, output_file)
+  generate_pdf(dtr.data, SOURCE_FILE, fdf_file, output_file)
 
   metadata = {
-    'name': values['name'],
+    'name': dtr.data['name'],
     'version': 1
   }
   store_in_s3(conn, S3_BUCKET_NAME, key, output_file, metadata)
-
+  dtr.output_file = output_file
   return output_file
 
 def create_dtr_user_action(values, user):
@@ -96,8 +93,14 @@ def create_dtr_user_action(values, user):
   pk = values.get('pk')
   if pk:
     dtr = UserAction.objects.get(id=pk)
+    created = False
   else:
     dtr = UserAction.objects.create(user=user, action=action)
+    key = uuid.uuid4().hex
+    dtr.data = {
+      'key': key
+    }
+    created = True
 
   # store only non-sensitive fields on disk
   non_sensitive_values = deepcopy(values)
@@ -105,18 +108,8 @@ def create_dtr_user_action(values, user):
     if non_sensitive_values.get(field):
       del non_sensitive_values[field]
 
-  dtr.data = non_sensitive_values
+  dtr.data.update(non_sensitive_values)
   dtr.save()
-  created = True
-
-  try:
-    output_file = make_a_pdf(dtr, values)
-    dtr.output_file = output_file
-    dtr.save()
-    created = True
-  except Exception, e:
-    created = False
-
   return dtr, created
 
 def send_dtr_migration_emails():
@@ -129,6 +122,8 @@ def dtr_migrate_email(dtr):
   key = uuid.uuid4().hex
   dtr.data['key'] = key
   dtr.save()
+
+  user_data = dtr.data
 
   name = ''.join(user_data['name'])
   school = ''.join(user_data.get('school_name', 'Unknown'))
@@ -166,12 +161,11 @@ def dtr_migrate(request):
 
   pk = request.GET.get('pk')
   dtr = DTRUserProfile.objects.get(id=pk)
-
-  user_data = dict(dtr.data)
-  our_key = user_action.data.get('key')
+  our_key = dtr.data.get('key')
   incoming_key = request.GET.get('key')
-  if not incoming_key or not our_key or (our_key is not incoming_key):
-    raise Http404('You need the secret key ;)')
+
+  if not incoming_key or not our_key or (our_key != incoming_key):
+    raise Http404()
 
   user_action, created = create_dtr_user_action(dtr.data, request.user)
   user_action.save()
@@ -300,12 +294,18 @@ def generate(request):
       user = users[0]
 
   dtr, created = create_dtr_user_action(rq, user)
-  dtr_email(dtr, attachments=request.FILES)
-
-  return json_response({
-    'id': dtr.id,
-    'pdf_link': pdf_link(dtr),
-  }, 200)
+  try:
+    output_file = make_a_pdf(dtr)
+    dtr_email(dtr, attachments=request.FILES)
+    return json_response({
+      'id': dtr.id,
+      'pdf_link': pdf_link(dtr)
+    }, 200)
+  except Exception, e:
+    raise e
+    return json_response({
+      'error': e.message
+    }, 500)
 
 def dtr_data(request):
   if not request.user.is_authenticated():

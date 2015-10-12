@@ -4,6 +4,7 @@ from boto.s3.key import Key
 from django.contrib.auth.models import User
 from proj.arcs import dtr
 from proj.collectives.models import Collective, UserAction, Action
+from proj.arcs.models import DTRUserProfile
 
 import copy
 import json
@@ -50,16 +51,15 @@ class TestDTR(TestCase):
     def test_generate(self):
       user = User.objects.get(username=self.user['email'])
       dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
+      dtr.make_a_pdf(dtrprofile)
 
-      key = dtr.s3_key(dtrprofile)
-
-      user_data = dtrprofile.data
-      self.assertEqual(user_data['name'], TEST_USER['name'])
+      self.assertEqual(dtrprofile.data['name'], TEST_USER['name'])
 
       # make sure sensitive data is removed before database storage
       for field in dtr.SENSITIVE_FIELDS:
-        self.assertEqual(user_data.get(field), None)
+        self.assertEqual(dtrprofile.data.get(field), None)
 
+      key = dtr.s3_key(dtrprofile).key
       s3_key = bucket.get_key(key)
 
       # contents exist
@@ -88,6 +88,9 @@ class TestDTR(TestCase):
 
       action = Action.objects.get(name='Defense to Repayment')
       all_forms = UserAction.objects.filter(action=action)
+      self.assertNotEqual(dtrprofile.data['key'], dtrprofile_dupe.data['key'])
+      del dtrprofile.data['key']
+      del dtrprofile_dupe.data['key']
       self.assertEqual(dtrprofile.data, dtrprofile_dupe.data)
 
       no_dupes = dtr.remove_dupes(all_forms)
@@ -115,7 +118,9 @@ class TestDTR(TestCase):
       user2 = User.objects.get(username=self.user2['email'])
 
       dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
+      dtr.make_a_pdf(dtrprofile)
       dtrprofile_two, created = dtr.create_dtr_user_action(TEST_USER2, user2)
+      dtr.make_a_pdf(dtrprofile_two)
 
       key = dtr.s3_key(dtrprofile).key
       key_two = dtr.s3_key(dtrprofile_two).key
@@ -146,10 +151,7 @@ class TestDTR(TestCase):
 
     def test_migration(self):
       # migrate from user1 to user2
-      user = User.objects.get(username=self.user['email'])
-      user.is_superuser = True
-      user.save()
-      dtrprofile, created = dtr.create_dtr_user_action(TEST_USER, user)
+      dtrprofile = DTRUserProfile.objects.create(data=TEST_USER)
 
       migrate_email = dtr.dtr_migrate_email(dtrprofile)
       self.assertTrue('pk=' in migrate_email)
@@ -167,9 +169,11 @@ class TestDTR(TestCase):
       rs = self.client.get('/dtr/migrate?pk={0}&key=notakey'.format(dtrprofile.id))
       self.assertEqual(rs.status_code, 404)
 
+      dtrprofile = DTRUserProfile.objects.get(id=dtrprofile.id)
       # good secret key success
       rs = self.client.get('/dtr/migrate?pk={0}&key={1}'.format(dtrprofile.id, dtrprofile.data['key']))
       self.assertEqual(rs.status_code, 302)
 
-      useraction = UserAction.objects.get(id=dtr.id)
+      useraction = UserAction.objects.get(user=User.objects.get(username=self.user2['email']))
+      self.assertEqual(useraction.data, dtrprofile.data)
       self.assertEqual(useraction.user.username, self.user2['email'])

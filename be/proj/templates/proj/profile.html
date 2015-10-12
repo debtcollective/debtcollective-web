@@ -26,14 +26,13 @@
     </div>
     -->
 
-   <h2>Available actions:</h2>
+   <h2>Actions:</h2>
     <div class="row">
       {% include "collectives/action_cards.html" with actions=collective_actions %}
     </div>
-  </div>
-  <div class="wrapper dark">
-    <h2>Memberships:</h2>
+
     <div class="row">
+      <h2>Collectives:</h2>
       {% for collective in collectives %}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 collective-card">
           <a href="{{collective.link}}">
