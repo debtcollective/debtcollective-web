@@ -12,19 +12,19 @@
       </div>
     </div>
   </div>
-  <div class="wrapper dark">
+  <div class="wrapper">
     <div class="body-text">
-  {% for dtr in dtrs %}
-      <a href="/defense-to-repayment?pk={{dtr.id}}">
+      {% for dtr in dtrs %}
       <div class="row light choice-item">
         <div class="pull-right">
           <a class="big-link" delete-btn href="/useractions/delete/{{dtr.id}}?redirect=/dtr/choice">X</a>
         </div>
-        <h2>{{dtr.data.school_name}}</h2>
-        <p>{{dtr.data.name}} <span class="pull-right">{{dtr.last_changed | naturalday }} >></span></p>
+        <a href="/defense-to-repayment?pk={{dtr.id}}">
+          <h2>School: {{dtr.data.school_name}}</h2>
+          <p>{{dtr.data.name}} <span class="pull-right">{{dtr.last_changed | naturalday }} >></span></p>
         </div>
       </a>
-  {% endfor %}
+      {% endfor %}
 
       <a href="/defense-to-repayment?new=True">
         <div class="row light choice-item">

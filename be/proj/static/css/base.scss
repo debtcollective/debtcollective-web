@@ -820,6 +820,9 @@ select {
   &:hover {
     background-color: #ddd;
   }
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .muted {

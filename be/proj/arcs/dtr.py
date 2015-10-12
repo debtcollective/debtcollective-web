@@ -91,28 +91,28 @@ def make_a_pdf(dtr, values=None):
   return output_file
 
 def create_dtr_user_action(values, user):
+  # create a pdf with sensitive data to be stored in s3 and thrown away
+  action = Action.objects.get(slug=settings.DTR_MODEL_SLUG)
+  pk = values.get('pk')
+  if pk:
+    dtr = UserAction.objects.get(id=pk)
+  else:
+    dtr = UserAction.objects.create(user=user, action=action)
+
+  # store only non-sensitive fields on disk
+  non_sensitive_values = deepcopy(values)
+  for field in SENSITIVE_FIELDS:
+    if non_sensitive_values.get(field):
+      del non_sensitive_values[field]
+
+  dtr.data = non_sensitive_value
+  dtr.save()
+  created = True
+
   try:
-    # create a pdf with sensitive data to be stored in s3 and thrown away
-    action = Action.objects.get(slug=settings.DTR_MODEL_SLUG)
-    pk = values.get('pk')
-    if pk:
-      dtr = UserAction.objects.get(id=pk)
-    else:
-      dtr = UserAction.objects.create(user=user, action=action)
-
-    # store only non-sensitive fields on disk
-    non_sensitive_values = deepcopy(values)
-    for field in SENSITIVE_FIELDS:
-      if non_sensitive_values.get(field):
-        del non_sensitive_values[field]
-    dtr.data = non_sensitive_value
-    dtr.save()
-
     output_file = make_a_pdf(dtr, values)
     dtr.output_file = output_file
     dtr.save()
-
-    created = True
   except Exception, e:
     raise e
     created = False
@@ -128,16 +128,8 @@ def send_dtr_migration_emails():
 def dtr_migrate_email(dtr):
   key = uuid.uuid4().hex
   dtr.data['key'] = key
+  dtr.save()
 
-  # give it to super user until it is officially migrated
-  users = User.objects.filter(is_superuser=True)
-  if not users:
-    raise Exception('Need a super user!')
-  else:
-    user = users[0]
-  dtr, created = create_dtr_user_action(dtr.data, user)
-
-  user_data = dict(dtr.data)
   name = ''.join(user_data['name'])
   school = ''.join(user_data.get('school_name', 'Unknown'))
   msg = MIMEMultipart()
@@ -165,9 +157,7 @@ Solidarty,
 
 The Debt Collective
 """.format(name, migrate_url), 'html'))
-
   send_email(msg, headers={'X-MC-MergeVars': '{"header": "Your Defense to Repayment is Ready!"}'})
-
   return migrate_url
 
 def dtr_migrate(request):
@@ -175,13 +165,15 @@ def dtr_migrate(request):
     return render_to_response('dtr/migrate.html')
 
   pk = request.GET.get('pk')
-  user_action = UserAction.objects.get(id=pk)
+  dtr = DTRUserProfile.objects.get(id=pk)
+
+  user_data = dict(dtr.data)
   our_key = user_action.data.get('key')
   incoming_key = request.GET.get('key')
   if not incoming_key or not our_key or (our_key is not incoming_key):
     raise Http404('You need the secret key ;)')
 
-  user_action.user = request.user
+  user_action, created = create_dtr_user_action(dtr.data, request.user)
   user_action.save()
   return redirect('/defense-to-repayment')
 
