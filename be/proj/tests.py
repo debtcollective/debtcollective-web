@@ -97,7 +97,6 @@ class TestSignup(TestCase):
       rs = self.client.get('/generate_map_json')
       self.assertEqual(rs.status_code, 500)
 
-
     def test_location(self):
       # it can store and retrieve point from the frontend
       p = Point.objects.create(latitude=12.23, longitude=-34.35, name="Albuquerque")

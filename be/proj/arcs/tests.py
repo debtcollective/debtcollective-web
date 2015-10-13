@@ -59,8 +59,7 @@ class TestDTR(TestCase):
       for field in dtr.SENSITIVE_FIELDS:
         self.assertEqual(dtrprofile.data.get(field), None)
 
-      key = dtr.s3_key(dtrprofile).key
-      s3_key = bucket.get_key(key)
+      s3_key = dtr.s3_key(dtrprofile)
 
       # contents exist
       contents = s3_key.get_contents_as_string()
@@ -75,7 +74,7 @@ class TestDTR(TestCase):
       self.assertEqual(name, TEST_USER['name'])
 
       #cleanup
-      bucket.delete_key(key)
+      bucket.delete_key(s3_key.key)
 
     def test_duplicate(self):
       user = User.objects.get(username=self.user['email'])
@@ -122,11 +121,8 @@ class TestDTR(TestCase):
       dtrprofile_two, created = dtr.create_dtr_user_action(TEST_USER2, user2)
       dtr.make_a_pdf(dtrprofile_two)
 
-      key = dtr.s3_key(dtrprofile).key
-      key_two = dtr.s3_key(dtrprofile_two).key
-
-      s3_key = bucket.get_key(key)
-      s3_key_two = bucket.get_key(key_two)
+      s3_key = dtr.s3_key(dtrprofile)
+      s3_key_two = dtr.s3_key(dtrprofile_two)
 
       # both contents exist
       contents = s3_key.get_contents_as_string()
@@ -146,8 +142,8 @@ class TestDTR(TestCase):
       self.assertEqual(name, 'name2')
 
       # cleanup
-      bucket.delete_key(key)
-      bucket.delete_key(key_two)
+      bucket.delete_key(s3_key.key)
+      bucket.delete_key(s3_key_two.key)
 
     def test_migration(self):
       # migrate from user1 to user2

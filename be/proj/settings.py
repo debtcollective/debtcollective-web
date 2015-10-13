@@ -84,7 +84,7 @@ USE_TZ = True
 import dj_database_url
 config = dj_database_url.config()
 if config:
-    DATABASES['default'] = config
+  DATABASES['default'] = config
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

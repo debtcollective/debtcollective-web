@@ -148,10 +148,10 @@ def signup(request):
   userprofile.point = point
   userprofile.save()
 
-  kind = rq.get('kind')
   amount = rq.get('amount')
-  last_payment = rq.get('last_payment')
   if amount:
+    last_payment = rq.get('last_payment')
+    kind = rq.get('kind')
     debt = Debt.objects.create(user=user, amount=amount,
       kind=kind, last_payment=last_payment)
 

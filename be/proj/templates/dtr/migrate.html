@@ -6,12 +6,12 @@
 
 <div class="flex thankyou-background" ng-controller='migrateCtrl'>
   <div class="container inside-container">
-    <div class="wrapper dark floating">
+    <div class="wrapper dark floating body-text">
       <div class="body-text">
-        <h2 class="centered">Access the Defense to Repayment application we sent to the Department of Education on your behalf</h2>
+        <h2 class="centered">Access your Defense to Repayment application</h2>
         <p>Because this information is sensitive, it's best if you make an account. Afterwards, you'll be able to review, edit, add missing information, and resubmit your application to the Department of Education.</p>
       </div>
-      <signupform open=true after-submit="reload()"></signupform>
+      <signupform no-redirect=true collect-debt=false open=true after-submit="reload()"></signupform>
     </div>
   </div>
 </div>

@@ -180,13 +180,12 @@ def attach(msg, contents, filename):
 
 def dtr_email(dtr, attachments=None):
   user_data = dict(dtr.data)
-  to = settings.DTR_RECIPIENT
+  email = ''.join(user_data['email'])
   msg = MIMEMultipart()
 
   name = ''.join(user_data['name'])
   msg['Subject'] = '{0} at {1}'.format(name, ''.join(user_data.get('school_name', 'Unknown')))
-  msg['To'] = to
-  msg['cc'] = ''.join(user_data['email'])
+  msg['To'] = ','.join([settings.DTR_RECIPIENT, email])
   msg.attach(MIMEText("""
 To whom it may concern:
 

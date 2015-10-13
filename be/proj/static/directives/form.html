@@ -11,7 +11,7 @@
           placeholder="PASSWORD"
           required autocomplete="off" />
 
-        <div ng-repeat="debt in debts" class="flex">
+        <div ng-show="collectDebt" ng-repeat="debt in debts" class="flex">
           <input type="text"
             ng-model="debt.amount"
             placeholder="DEBT AMOUNT">
@@ -36,16 +36,6 @@
         <h2 class="spacer">WELCOME TO THE DEBT COLLECTIVE</h2>
           <p>No one should have to go into debt for basic needs like housing, healthcare, and education. When the indebted join together we can build power towards a just society.</p>
           <p>Expect an e-mail confirmation! We will update members regularly on campaign developments and include ways to join and support the debt collectives.</p>
-        <hr>
-        <div class="body-text sub">
-        <p><em>Help us meet our goal by spreading the word over <fb-button class="sm-button big-link">facebook</fb-button> and <a href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" class="big-link" target="_blank">twitter</a>!</em></p>
-          <fb-button class="sm-button">
-            <img src="/static/img/fb.gif">
-          </fb-button>
-          <a class="sm-button" href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" target="_blank">
-            <img src="/static/img/twitter.gif">
-          </a>
-        </div>
       </div>
     </div>
   </div>

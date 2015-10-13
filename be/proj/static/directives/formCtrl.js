@@ -1,3 +1,9 @@
+//everything is awesome! :()
+function qs (key) {
+  key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+  var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
+  return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+}
 app.directive('signupform', function () {
   return {
     restrict: 'E',
@@ -5,13 +11,14 @@ app.directive('signupform', function () {
     replace: true,
     scope: {
       open: '=',
-      afterSubmit: '&'
+      afterSubmit: '&',
+      collectDebt: '=',
+      noRedirect: '='
     },
     controller: function ($scope, $element, $location, $http, $document, $timeout, $window, users, banner) {
-      $scope.email = $location.search().email
+      $scope.email = qs('email')
       $scope.username = null
       $scope.debts = []
-      $scope.amount = null
       $scope.showForm = false
       $scope.formSubmitted = false
       $scope.location = null
@@ -21,10 +28,7 @@ app.directive('signupform', function () {
 
       var form = $element.find('form')[0]
 
-
       if ($scope.open) $scope.showForm = true
-
-      // TODO: get query. if 'email' in query params, auto-fill.
 
       $http.get('/debt_choices').then(function (resp) {
         $scope.debt_choices = resp.data
@@ -34,13 +38,13 @@ app.directive('signupform', function () {
         $scope.cities = resp.data
       })
 
-      $scope.addDebt = function () {
+      $scope.addDebt = function (type, amount) {
         $scope.debts.push({
-          debtType: 'none',
-          amount: null
+          debtType: type || 'none',
+          amount: amount || null
         })
       }
-      $scope.addDebt()
+      $scope.addDebt(null, qs('amount'))
 
       $scope.onSubmitClick = function ($event) {
         // temporarily, email is the password
@@ -59,6 +63,7 @@ app.directive('signupform', function () {
 
         users.create(userData, function (resp) {
           if (resp.data.status === 'error') return banner.message('error', resp.data.message)
+          else if ($scope.noRedirect) return $scope.afterSubmit()
           else if (resp.data.status === 'logged_in') window.location.href = '/profile'
           else if (resp.data.status === 'user_exists') window.location.href = '/login'
           else {

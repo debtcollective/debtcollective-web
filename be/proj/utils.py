@@ -15,7 +15,6 @@ def send_email(msg, template='dc-members', headers=None):
   """
   mailserver = smtplib.SMTP('smtp.mandrillapp.com', 587)
   mailserver.login('noreply@debtcollective.org', settings.MANDRILL_API_KEY)
-
   from_email = 'noreply@debtcollective.org'
   msg['From'] = from_email
   to = msg['To']
