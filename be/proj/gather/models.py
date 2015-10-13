@@ -38,6 +38,8 @@ class UserProfile(models.Model):
   user = models.OneToOneField(User, unique=True)
   created_at = models.DateTimeField(default=timezone.now)
   point = models.ForeignKey(Point, null=True)
+  is_active = models.BooleanField(default=True)
+  activation_key = models.CharField(max_length=144)
 
 def create_user_profile(sender, instance, created, **kwargs):
   if created:
