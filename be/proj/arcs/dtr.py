@@ -96,11 +96,12 @@ def create_dtr_user_action(values, user):
     created = False
   else:
     dtr = UserAction.objects.create(user=user, action=action)
-    key = uuid.uuid4().hex
-    dtr.data = {
-      'key': key
-    }
     created = True
+
+  if not dtr.data:
+    dtr.data = {
+      'key': uuid.uuid4().hex
+    }
 
   # store only non-sensitive fields on disk
   non_sensitive_values = deepcopy(values)

@@ -34,7 +34,7 @@ def get_POST_data(request):
   to use ajax POST requests but don't have it encoded as form data.
   """
   if len(request.POST.keys()) > 0:
-    return request.POST.copy()
+    return request.POST.copy().dict()
   else:
     # assuming request.body contains json data which is UTF-8 encoded
     return json.loads(request.body, encoding='utf-8')
