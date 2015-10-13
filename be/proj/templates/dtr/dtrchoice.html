@@ -16,21 +16,25 @@
     <div class="body-text">
       {% for dtr in dtrs %}
       <div class="row light choice-item">
-        <div class="pull-right">
+        <div class="pull-right delete-btn">
           <a class="big-link" delete-btn href="/useractions/delete/{{dtr.id}}?redirect=/dtr/choice">X</a>
         </div>
         <a href="/defense-to-repayment?pk={{dtr.id}}">
-          <h2>School: {{dtr.data.school_name}}</h2>
-          <p>{{dtr.data.name}} <span class="pull-right">{{dtr.last_changed | naturalday }} >></span></p>
+          <div class="choice-item__body">
+            <h3>#{{dtr.id}} {{dtr.data.school_name}} {{dtr.data.corinthian_name}}</h3>
+            <em>last edited {{dtr.last_changed | naturalday }}</em>
+          </div>
+        </a>
         </div>
-      </a>
       {% endfor %}
 
-      <a href="/defense-to-repayment?new=True">
-        <div class="row light choice-item">
-          <h2>Create a new application >></h2>
-        </div>
-      </a>
+      <div class="row light choice-item">
+        <a href="/defense-to-repayment?new=True">
+          <div class="choice-item__body">
+            <h2>Create a new application >></h2>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </div>

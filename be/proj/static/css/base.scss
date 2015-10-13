@@ -815,14 +815,23 @@ select {
 }
 
 .choice-item {
-  padding: 10px;
   margin-top: 10px;
+  .choice-item__body {
+    padding: 0px 10px 10px 10px;
+  }
   &:hover {
-    background-color: #ddd;
+    background-color: white;
   }
   a:hover {
+    color: black !important;
     text-decoration: none;
   }
+}
+
+.delete-btn {
+  padding: 5px;
+  font-size: 26px;
+  a { text-decoration: none; }
 }
 
 .muted {

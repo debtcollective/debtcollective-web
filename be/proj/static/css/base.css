@@ -1442,11 +1442,19 @@ select {
     color: #111; }
 
 .choice-item {
-  padding: 10px;
   margin-top: 10px; }
+  .choice-item .choice-item__body {
+    padding: 0px 10px 10px 10px; }
   .choice-item:hover {
-    background-color: #ddd; }
+    background-color: white; }
   .choice-item a:hover {
+    color: black !important;
+    text-decoration: none; }
+
+.delete-btn {
+  padding: 5px;
+  font-size: 26px; }
+  .delete-btn a {
     text-decoration: none; }
 
 .muted {
