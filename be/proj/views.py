@@ -124,7 +124,7 @@ def signup(request):
     return render_to_response('proj/signup.html')
 
   if request.method != 'POST':
-    return Http404
+    raise Http404
 
   rq = get_POST_data(request)
   email = rq.get('email')
