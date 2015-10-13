@@ -15,7 +15,12 @@
       </ul>
       </div>
       <div class="body-text">
-        <p>There's some super important text here I think you should know about. There's some super important text here I think you should know aboutThere's some super important text here I think you should know aboutThere's some super important text here I think you should know aboutThere's some super important text here I think you should know about</p>
+        {% for collective in collectives %}
+          {% if collective.message %}
+            <h2>{{collective.name}}</h2>
+            <p>{{collective.message}}</p>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </div>

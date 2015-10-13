@@ -29,6 +29,7 @@ class Collective(models.Model):
   actions = models.ManyToManyField(Action)
   image = models.CharField(max_length=150, null=True, blank=True)
   link = models.CharField(max_length=150, null=True, blank=True)
+  message = models.CharField(max_length=185, null=True, blank=True)
 
   def __unicode__(self):
     return self.name
@@ -91,5 +92,3 @@ class UserAction(models.Model):
     action = Action.objects.get(slug=settings.DTR_MODEL_SLUG)
     kwargs['action'] = action
     return cls.objects.filter(**kwargs)
-
-
