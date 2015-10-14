@@ -30,6 +30,11 @@
         </div>
       </div>
     </div>
+    {% if user.is_authenticated %}
+    <div class="row centered">
+    <h3><a class="big-link" href="/profile">You're signed in as {{user.username}}. </a></h3>
+    </div>
+    {% else %}
     <div class="row forms">
       <div class="dc-input">
         <form class="form" id="signupForm" method='GET' action="/signup">
@@ -37,6 +42,7 @@
           <input type="text" name="amount" placeholder="DEBT AMOUNT">
           <button type="submit" name="submit" class="btn btn-primary">sign up</button>
         </div>
+        {% endif %}
       </div>
     </div>
     <div class="row body-text caption">
@@ -48,7 +54,7 @@
   <div class="wrapper dark">
     <div class="row centered">
       <h1>Action Alert!</h1>
-      <h3>View all collective actions on <a href="/actions">the Actions page.</a></h3>
+      <br>
     </div>
     <div class="row body-text wide">
       {% for action in actions %}
@@ -56,6 +62,7 @@
         {% include "collectives/action_card.html" %}
         </div>
       {% endfor %}
+      <h2 class="centered">View more collective actions on <a href="/actions">the Actions page >></a></h2>
     </div>
   </div>
   <div class="wrapper arrow-up"></div>

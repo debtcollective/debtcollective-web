@@ -1,11 +1,11 @@
-from django.shortcuts import render, render_to_response, redirect
+from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.http import HttpResponse, Http404
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Sum
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
-from proj.utils import json_response, get_POST_data
+from proj.utils import json_response, get_POST_data, render_response
 
 from django.contrib.auth.models import User
 from proj.gather.models import Debt, UserProfile, Point
@@ -68,7 +68,8 @@ def profile(request):
     actions = collective.actions.all()
     for action in actions:
       c['collective_actions'].add(action)
-  return render_to_response('proj/profile.html', c)
+  c['user_actions'] = map(lambda m: m.action, UserAction.objects.select_related('action').filter(user=request.user))
+  return render_response(request, 'proj/profile.html', c)
 
 def logout(request):
   """
@@ -103,7 +104,7 @@ def login(request):
       c.update({"bad_auth": True})
 
   c.update(csrf(request))
-  return render_to_response('proj/login.html', c)
+  return render_response(request, 'proj/login.html', c)
 
 def do_login(request, username, password):
   user = auth.authenticate(username=username, password=password)
@@ -121,7 +122,7 @@ def signup(request):
   debt type information.
   """
   if request.method == 'GET':
-    return render_to_response('proj/signup.html')
+    return render_response(request, 'proj/signup.html')
 
   if request.method != 'POST':
     raise Http404
@@ -143,10 +144,9 @@ def signup(request):
   point = rq.get('point')
   if point:
     point = Point.objects.get(id=point)
-
-  userprofile = UserProfile.objects.get(user=user)
-  userprofile.point = point
-  userprofile.save()
+    userprofile = UserProfile.objects.get(user=user)
+    userprofile.point = point
+    userprofile.save()
 
   amount = rq.get('amount')
   if amount:
@@ -159,28 +159,29 @@ def signup(request):
 
 @ensure_csrf_cookie
 def splash(request):
-  if request.user.is_authenticated():
-    return redirect('/profile')
-  c = {"actions": Action.objects.filter(featured=True)[:2]}
-  return render_to_response('proj/splash.html', c)
+  c = {
+    "actions": Action.objects.filter(featured=True)[:2],
+    "user": request.user
+  }
+  return render_response(request, 'proj/splash.html', c)
 
 def solidarity(request):
   return redirect('https://docs.google.com/document/d/1m5l55FCsaQmFef4HcIUJHIE6PsyHjauV1FT6ztSRkSc/edit?usp=sharing')
 
 def howfartofree(request):
-  return render_to_response('proj/howfartofree.html')
+  return render_response(request, 'proj/howfartofree.html')
 
 def calculator(request):
-  return render_to_response('proj/calculator.html')
+  return render_response(request, 'proj/calculator.html')
 
 def nov_fourth(request):
-  return render_to_response('proj/nov4.html')
+  return render_response(request, 'proj/nov4.html')
 
 def thankyou(request):
-  return render_to_response('proj/thankyou.html')
+  return render_response(request, 'proj/thankyou.html')
 
 def not_found(request):
   return render(request, template_name='proj/404.html', status=404)
 
 def blog(request):
-  return render_to_response('proj/blog.html')
+  return render_response(request, 'proj/blog.html')

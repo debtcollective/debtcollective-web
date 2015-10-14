@@ -7,10 +7,6 @@
       <input type="email" id="email" name="email" ng-model="email"
         placeholder="EMAIL"
         required autocomplete="off" />
-        <input type="password" id="password" name="password"  ng-model="password"
-          placeholder="PASSWORD"
-          required autocomplete="off" />
-
         <div ng-show="collectDebt" ng-repeat="debt in debts" class="flex">
           <input type="text"
             ng-model="debt.amount"
@@ -23,6 +19,10 @@
             <option value="">DEBT TYPE</option>
           </select>
         </div>
+
+        <input type="password" id="password" name="password"  ng-model="password"
+          placeholder="CREATE A PASSWORD"
+          required autocomplete="off" />
 
         <input type="text"
           ng-model="location"

@@ -1,3 +1,5 @@
+from django.shortcuts import render_to_response
+from django.template import RequestContext
 from django.http import HttpResponse, Http404
 from fdfgen import forge_fdf
 from boto.s3.key import Key
@@ -8,6 +10,10 @@ import smtplib
 import json
 import settings
 import subprocess
+
+def render_response(req, *args, **kwargs):
+  kwargs['context_instance'] = RequestContext(req)
+  return render_to_response(*args, **kwargs)
 
 def send_email(msg, template='dc-members', headers=None):
   """

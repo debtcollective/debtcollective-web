@@ -6,48 +6,34 @@
 {% include "proj/header.html" %}
 
 <div class="container">
-  <div class="wrapper light floating">
-    <div class="row">
-      <div class="row centered">
-        <h2>Updates for {{user.username}} <a class="big-link button" href="/logout">Logout</a></h2>
-      </div>
-      <div class="body-text ">
-        {% for collective in collectives %}
-          <strong>{{collective.name}}:</strong>
-          {% if collective.message %}
-            {{collective.message | escape}}</p>
-          {% else %}
-            No updates.</p>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
-  </div>
+  <h1>Welcome, {{user.username}} </h1>
+  <a class="big-link button" href="/logout">Logout</a>
   <div class="wrapper dark">
-   <!--  <h2>Completed actions:</h2>
-    <div class="row">
-      {% include "collectives/action_cards.html" with actions=user_actions %}
-    </div>
-    -->
-
-   <h2>Actions:</h2>
     <div class="row">
       {% include "collectives/action_cards.html" with actions=collective_actions %}
     </div>
+  </div>
 
+  <div class="wrapper light floating">
+    <div class="body-text">
+      <h2>We use your information exclusively to erase illegitimate debts. We will store your data safely and never share it with anybody outside the small group of organizers and lawyers working to that end.</h2>
+      <h3>This application does not constitute and cannot substitute for legal advice.</h3>
+    </div>
+  </div>
     <div class="row">
-      <h2>Collectives:</h2>
       {% for collective in collectives %}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 collective-card">
           <a href="{{collective.link}}">
           <div class="collective-card-content" style="background-image:url({{collective.image}});" />
           </div>
-          <h3>{{collective.name.upper}}</h3>
+          <h2>
+          {% if collective.message %}
+            {{collective.message | escape}}
+          {% endif %}
           </a>
         </div>
       {% endfor %}
     </div>
-  </div>
 </div>
 
 {% endblock %}

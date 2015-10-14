@@ -7,16 +7,18 @@
   <div class="wrapper light floating">
     <div class="body-text">
       <h2>
-        Welcome to the Debt Collective actions page where you will find a list of all past and present debt resistance campaigns and actions.  
+        Welcome to the Debt Collective actions page where you will find a list of all past and present debt resistance campaigns and actions.
       </h2>
       <h3>Alone, our debts are a burden. Together, they make us powerful.</h3>
     </div>
   </div>
+
   <div class="wrapper dark">
     <div class="row">
       {% include "collectives/action_cards.html" with actions=actions %}
     </div>
-  </div
+  </div>
+  <!--
     <div class="row">
       {% for collective in collectives %}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 collective-card">
@@ -27,6 +29,7 @@
           </a>
         </div>
       {% endfor %}
-    </div>>
+    </div>
+  -->
 </div>
 {% endblock %}

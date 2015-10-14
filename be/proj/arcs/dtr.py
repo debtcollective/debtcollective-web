@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import redirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.template import loader
 from django.http import Http404, HttpResponse
@@ -11,7 +11,7 @@ from proj.gather.models import Debt, UserProfile, Point
 from proj.collectives.models import UserAction, CollectiveMember, Action, Collective
 from boto.exception import S3ResponseError
 from boto.s3.key import Key
-from proj.utils import get_s3_conn, store_in_s3, generate_pdf
+from proj.utils import get_s3_conn, store_in_s3, generate_pdf, render_response
 from django.contrib.auth.models import User
 from jsonfield import JSONField
 from email.MIMEText import MIMEText
@@ -158,7 +158,7 @@ The Debt Collective
 
 def dtr_migrate(request):
   if not request.user.is_authenticated():
-    return render_to_response('dtr/migrate.html')
+    return render_response(request, 'dtr/migrate.html')
 
   pk = request.GET.get('pk')
   dtr = DTRUserProfile.objects.get(id=pk)
@@ -329,7 +329,7 @@ def dtr_view(request, id):
     'dtrprofile': UserAction.objects.get(id=id)
   }
 
-  return render_to_response('dtr/dtrview.html', c)
+  return render_response(request, 'dtr/dtrview.html', c)
 
 def dtr_admin(request):
   if not request.user.is_superuser:
@@ -341,24 +341,23 @@ def dtr_admin(request):
     'dtr_total': len(all_dtrs)
   }
 
-  return render_to_response('dtr/admin.html', c)
+  return render_response(request, 'dtr/admin.html', c)
 
 def dtr_choice(request):
   if not request.user.is_authenticated():
     return redirect('/login')
 
   dtrs = UserAction.DTRS(user=request.user).order_by('-last_changed')
-  return render_to_response('dtr/dtrchoice.html', {"dtrs": dtrs, "user": request.user})
+  return render_response(request, 'dtr/dtrchoice.html', {"dtrs": dtrs, "user": request.user})
 
 def dtr(request):
+  if not request.user.is_authenticated():
+    return redirect('/login')
   new = request.GET.get('new')
   pk = request.GET.get('pk')
   if not new and not pk and request.user.is_authenticated():
     all_dtrs = UserAction.DTRS(user=request.user)
-    if len(all_dtrs) > 1:
-      return redirect('/dtr/choice')
-    elif len(all_dtrs) == 1:
-      return redirect('/defense-to-repayment?pk={0}'.format(all_dtrs[0].id))
+    return redirect('/dtr/choice')
 
   basepath = settings.TEMPLATE_DIRS[0]
   template_path = os.path.join(basepath, 'debtcollective-wizard/index.html')
@@ -372,26 +371,26 @@ def corinthiansignup(request):
     "collective": collective,
     "actions": Action.objects.filter(collective=collective)
   }
-  return render_to_response('corinthian/signup.html', c)
+  return render_response(request, 'corinthian/signup.html', c)
 
 def dtr_redirect(request):
   return redirect('/defense-to-repayment')
 
 def corinthiancollective(request):
-  return render_to_response('corinthian/signup.html')
+  return render_response(request, 'corinthian/signup.html')
 
 def corinthiansolidarity(request):
-  return render_to_response('corinthian/solidarity.html')
+  return render_response(request, 'corinthian/solidarity.html')
 
 def studentstrike(request):
-  return render_to_response('corinthian/studentstrike.html')
+  return render_response(request, 'corinthian/studentstrike.html')
 
 def solidaritystrike(request):
   c = {
     'collective': Collective.objects.get(name='Debt Collective'),
     'actions': Action.objects.filter(name__contains='Strike')[:3]
   }
-  return render_to_response('corinthian/solidaritystrike.html', c)
+  return render_response(request, 'corinthian/solidaritystrike.html', c)
 
 def solidaritystrikeform(request):
-  return render_to_response('corinthian/solidaritystrikeform.html')
+  return render_response(request, 'corinthian/solidaritystrikeform.html')

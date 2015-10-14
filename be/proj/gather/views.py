@@ -1,10 +1,9 @@
 from django.conf import settings
-from django.shortcuts import render_to_response
 from django.db.models import Count, Sum
 
 from django.contrib.auth.models import User
 from proj.gather.models import UserProfile, Point, Debt, States
-from proj.utils import json_response, get_POST_data
+from proj.utils import json_response, get_POST_data, render_response
 
 import simplejson as json
 import os

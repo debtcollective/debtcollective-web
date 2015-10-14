@@ -1067,11 +1067,6 @@ p.small {
 .underline {
   text-decoration: underline; }
 
-.floating {
-  box-shadow: 2px 2px 6px 8px #3C3C3C;
-  -moz-box-shadow: 2px 2px 6px 8px #3C3C3C;
-  -webkit-box-shadow: 2px 2px 6px 8px #3C3C3C; }
-
 .wrapper {
   position: relative;
   margin: 0 auto;
