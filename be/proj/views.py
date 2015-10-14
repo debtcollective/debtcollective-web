@@ -15,6 +15,7 @@ import simplejson as json
 
 import settings
 import stripe
+import uuid
 
 @csrf_exempt
 def stripe_endpoint(request):
@@ -113,6 +114,37 @@ def do_login(request, username, password):
     return True
   return False
 
+def activation_email(user):
+  profile = UserProfile.objects.get(user=user)
+  profile.is_active = False
+  profile.key = uuid.uuid4().hex
+  profile.save()
+  msg = MIMEMultipart()
+  msg['Subject'] = ''.format(name, school)
+  activation_link = 'http://debtcollective.org/activate?pk' + str(user.id) + '&key=' + str(user.key)
+  msg.attach(MIMEText("""
+Please activate your debt collective account!
+
+{0}""".format(activation_link)))
+  send_email(msg)
+  return activation_link
+
+def activate(request):
+  """
+  GET /activate?user=id&key=key
+  """
+  rq = get_POST_data(request)
+  key = rq.get('key')
+  pk = rq.get('pk')
+  user = User.objects.get(id=pk)
+  profile = UserProfile.objects.get(user=user)
+  if key != profile.key
+    raise Http404
+  else:
+    profile.is_active = True
+    profile.save()
+    return redirect('/login')
+
 @csrf_exempt
 def signup(request):
   """
@@ -141,6 +173,7 @@ def signup(request):
       return json_response({'status': 'user_exists'}, 500)
 
   user = User.objects.create_user(username=email, email=email, password=password)
+  activation_email(user)
   point = rq.get('point')
   if point:
     point = Point.objects.get(id=point)
