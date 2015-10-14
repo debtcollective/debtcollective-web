@@ -12319,6 +12319,8 @@ app.controller('solidarityStrikeCtrl',
     userData.boolean = true
     $http.post('//mail.debtcollective.org/subscribe', userData).then(function (resp) {
       cb(resp)
+    }, function error (resp) {
+      cb(resp)
     })
   }
 });
