@@ -5,11 +5,14 @@ from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Sum
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
-from proj.utils import json_response, get_POST_data, render_response
+from proj.utils import json_response, get_POST_data, render_response, send_email
 
 from django.contrib.auth.models import User
 from proj.gather.models import Debt, UserProfile, Point
 from proj.collectives.models import Collective, UserAction, CollectiveMember, Action
+from email.MIMEText import MIMEText
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEBase import MIMEBase
 
 import simplejson as json
 
@@ -120,22 +123,22 @@ def activation_email(user):
   profile.key = uuid.uuid4().hex
   profile.save()
   msg = MIMEMultipart()
-  msg['Subject'] = ''.format(name, school)
-  activation_link = 'http://debtcollective.org/activate?pk' + str(user.id) + '&key=' + str(user.key)
+  msg['Subject'] = 'Activate your Debt Collective account'
+  msg['To'] = user.email
+  activation_link = 'http://debtcollective.org/activate?pk=' + str(user.id) + '&key=' + str(profile.key)
   msg.attach(MIMEText("""
 Please activate your debt collective account!
 
 {0}""".format(activation_link)))
-  send_email(msg)
+  send_email(msg,  headers={'X-MC-MergeVars': '{"header": "Activate your Debt Collective account!"}'}))
   return activation_link
 
 def activate(request):
   """
   GET /activate?user=id&key=key
   """
-  rq = get_POST_data(request)
-  key = rq.get('key')
-  pk = rq.get('pk')
+  key = request.GET.get('key')
+  pk = request.GET.get('pk')
   user = User.objects.get(id=pk)
   profile = UserProfile.objects.get(user=user)
   if key != profile.key:
