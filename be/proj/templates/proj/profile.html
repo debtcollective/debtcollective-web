@@ -8,17 +8,16 @@
 <div class="container">
   <div class="wrapper light floating">
     <div class="row">
-      <div class="centered body-text">
-        <h1>Welcome {{user.username}}!</h1>
-      <ul>
-        <li><a class="big-link" href="/logout">Logout</a></li>
-      </ul>
+      <div class="row centered">
+        <h2>Updates for {{user.username}} <a class="big-link button" href="/logout">Logout</a></h2>
       </div>
-      <div class="body-text">
+      <div class="body-text ">
         {% for collective in collectives %}
+          <strong>{{collective.name}}:</strong>
           {% if collective.message %}
-            <h2>{{collective.name}}</h2>
-            <p>{{collective.message}}</p>
+            {{collective.message | escape}}</p>
+          {% else %}
+            No updates.</p>
           {% endif %}
         {% endfor %}
       </div>
