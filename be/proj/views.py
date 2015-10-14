@@ -130,7 +130,7 @@ def activation_email(user):
 Please activate your debt collective account!
 
 {0}""".format(activation_link)))
-  send_email(msg,  headers={'X-MC-MergeVars': '{"header": "Activate your Debt Collective account!"}'}))
+  send_email(msg, headers={'X-MC-MergeVars': '{"header": "Activate your Debt Collective account!"}'})
   return activation_link
 
 def activate(request):
