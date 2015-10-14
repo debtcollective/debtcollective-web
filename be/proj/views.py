@@ -115,8 +115,8 @@ def do_login(request, username, password):
   return False
 
 def activation_email(user):
+  user.is_active = False
   profile = UserProfile.objects.get(user=user)
-  profile.is_active = False
   profile.key = uuid.uuid4().hex
   profile.save()
   msg = MIMEMultipart()
@@ -138,11 +138,11 @@ def activate(request):
   pk = rq.get('pk')
   user = User.objects.get(id=pk)
   profile = UserProfile.objects.get(user=user)
-  if key != profile.key
+  if key != profile.key:
     raise Http404
   else:
-    profile.is_active = True
-    profile.save()
+    user.is_active = True
+    user.save()
     return redirect('/login')
 
 @csrf_exempt

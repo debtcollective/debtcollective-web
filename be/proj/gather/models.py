@@ -5,6 +5,8 @@ from django.db.models.signals import post_save
 from django.utils import timezone
 from proj.collectives.models import Collective, CollectiveMember
 
+import uuid
+
 class Point(models.Model):
   name = models.CharField(max_length=50, unique=True)
   latitude = models.FloatField()
@@ -38,8 +40,7 @@ class UserProfile(models.Model):
   user = models.OneToOneField(User, unique=True)
   created_at = models.DateTimeField(default=timezone.now)
   point = models.ForeignKey(Point, null=True)
-  is_active = models.BooleanField(default=True)
-  activation_key = models.CharField(max_length=144)
+  key = models.CharField(max_length=144, default=uuid.uuid4().hex)
 
 def create_user_profile(sender, instance, created, **kwargs):
   if created:
