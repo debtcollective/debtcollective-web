@@ -66,8 +66,7 @@ def profile(request):
   # user_actions = UserAction.objects.select_related('action').filter(user=request.user).distinct('action__id')
   # c['user_actions'] = map(lambda u: u.action, user_actions)
   memberships = CollectiveMember.objects.select_related('collective').filter(user=request.user)
-  if memberships:
-    c['collectives'] = map(lambda m: m.collective, memberships)
+  c['collectives'] = map(lambda m: m.collective, memberships)
   c['collective_actions'] = set()
   for collective in c['collectives']:
     actions = collective.actions.all()

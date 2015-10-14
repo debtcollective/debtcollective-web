@@ -23,7 +23,7 @@ def all_actions(request):
   if request.user.is_authenticated():
     return redirect('/profile')
   collectives = Collective.objects.all()
-  actions = Action.objects.filter(active=True, private=False)
+  actions = Action.objects.filter(active=True)
   c = {
     'collectives': collectives,
     'actions': actions,
