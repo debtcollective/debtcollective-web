@@ -1,24 +1,21 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render_to_response, redirect
+from django.contrib.auth.models import User
 from django.contrib import auth
 from django.http import HttpResponse, Http404
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Sum
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
-from proj.utils import json_response, get_POST_data, render_response, send_email
+from django.contrib.auth.decorators import login_required
 
-from django.contrib.auth.models import User
+from proj.utils import json_response, get_POST_data
 from proj.gather.models import Debt, UserProfile, Point
 from proj.collectives.models import Collective, UserAction, CollectiveMember, Action
-from email.MIMEText import MIMEText
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEBase import MIMEBase
 
 import simplejson as json
 
 import settings
 import stripe
-import uuid
 
 @csrf_exempt
 def stripe_endpoint(request):
@@ -38,13 +35,6 @@ def stripe_endpoint(request):
 
   return json_response({'status': 'ok'}, 200)
 
-def password_reset_complete(request):
-  template_response = auth.views.password_reset_complete(request)
-  if request.method == 'GET':
-    template_response.template_name = 'proj/login.html'
-    template_response.context_data['password_change'] = True
-  return template_response
-
 def change_password(request):
   template_response = auth.views.password_change(request, post_change_redirect='/profile')
   if request.method == 'GET':
@@ -52,28 +42,20 @@ def change_password(request):
     template_response.context_data['user'] = request.user
   return template_response
 
+@login_required
 def profile(request):
   """
   GET /profile
   """
-  if not request.user.is_authenticated():
-    return redirect('/login')
   c = {}
 
   c['user'] = request.user
   c['user'].profile = UserProfile.objects.get_or_create(user=request.user)
   c['debts'] = Debt.objects.filter(user=c['user'])
-  # user_actions = UserAction.objects.select_related('action').filter(user=request.user).distinct('action__id')
-  # c['user_actions'] = map(lambda u: u.action, user_actions)
-  memberships = CollectiveMember.objects.select_related('collective').filter(user=request.user)
-  c['collectives'] = map(lambda m: m.collective, memberships)
-  c['collective_actions'] = set()
-  for collective in c['collectives']:
-    actions = collective.actions.all()
-    for action in actions:
-      c['collective_actions'].add(action)
-  c['user_actions'] = map(lambda m: m.action, UserAction.objects.select_related('action').filter(user=request.user))
-  return render_response(request, 'proj/profile.html', c)
+  c['actions'] = UserAction.objects.filter(user=c['user'])
+  c['memberships'] = CollectiveMember.objects.filter(user=c['user'])
+
+  return render_to_response('proj/profile.html', c)
 
 def logout(request):
   """
@@ -88,65 +70,17 @@ def login(request):
   POST /login
   """
   c = {}
-  if request.user.is_authenticated():
-    return redirect('/profile')
-
+  c.update(csrf(request))
   if request.method == 'POST':
     rq = get_POST_data(request)
-    email = rq.get('email')
-    username = rq.get('username')
-    password = rq.get('password')
-    if email and not username:
-      username = User.objects.get(email=email).username
-
-    if not username or not password:
-      return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
-    user = do_login(request, username, password)
-    if user:
+    user = auth.authenticate(username=rq['username'], password=rq['password'])
+    if user is not None:
+      auth.login(request, user)
       return redirect('/profile')
     else:
       c.update({"bad_auth": True})
 
-  c.update(csrf(request))
-  return render_response(request, 'proj/login.html', c)
-
-def do_login(request, username, password):
-  user = auth.authenticate(username=username, password=password)
-  if user is not None:
-    user = auth.login(request, user)
-    return True
-  return False
-
-def activation_email(user):
-  user.is_active = False
-  profile = UserProfile.objects.get(user=user)
-  profile.key = uuid.uuid4().hex
-  profile.save()
-  msg = MIMEMultipart()
-  msg['Subject'] = 'Activate your Debt Collective account'
-  msg['To'] = user.email
-  activation_link = 'http://debtcollective.org/activate?pk=' + str(user.id) + '&key=' + str(profile.key)
-  msg.attach(MIMEText("""
-Please activate your debt collective account!
-
-{0}""".format(activation_link)))
-  send_email(msg, headers={'X-MC-MergeVars': '{"header": "Activate your Debt Collective account!"}'})
-  return activation_link
-
-def activate(request):
-  """
-  GET /activate?user=id&key=key
-  """
-  key = request.GET.get('key')
-  pk = request.GET.get('pk')
-  user = User.objects.get(id=pk)
-  profile = UserProfile.objects.get(user=user)
-  if key != profile.key:
-    raise Http404
-  else:
-    user.is_active = True
-    user.save()
-    return redirect('/login')
+  return render_to_response('proj/login.html', c)
 
 @csrf_exempt
 def signup(request):
@@ -156,38 +90,32 @@ def signup(request):
   Creates an account for a given user, along with
   debt type information.
   """
-  if request.method == 'GET':
-    return render_response(request, 'proj/signup.html')
-
   if request.method != 'POST':
     raise Http404
 
   rq = get_POST_data(request)
+  username = rq.get('username')
   email = rq.get('email')
   password = rq.get('password')
-  if not email or not password:
-    return json_response({'status': 'error', 'message': 'Email/password required.'}, 500)
+  if email and not username:
+    username = email
+  if not username or not password:
+    return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
 
-  user = User.objects.filter(username=email)
-  if user:
-    if do_login(request, email, password):
-      return json_response({'status': 'logged_in'}, 200)
-    else:
-      return json_response({'status': 'user_exists'}, 500)
+  user = User.objects.create_user(username, password=password, email=email)
 
-  user = User.objects.create_user(username=email, email=email, password=password)
-  activation_email(user)
   point = rq.get('point')
   if point:
     point = Point.objects.get(id=point)
-    userprofile = UserProfile.objects.get(user=user)
-    userprofile.point = point
-    userprofile.save()
 
+  userprofile = UserProfile.objects.get(user=user)
+  userprofile.point = point
+  userprofile.save()
+
+  kind = rq.get('kind')
   amount = rq.get('amount')
+  last_payment = rq.get('last_payment')
   if amount:
-    last_payment = rq.get('last_payment')
-    kind = rq.get('kind')
     debt = Debt.objects.create(user=user, amount=amount,
       kind=kind, last_payment=last_payment)
 
@@ -195,29 +123,27 @@ def signup(request):
 
 @ensure_csrf_cookie
 def splash(request):
-  c = {
-    "actions": Action.objects.filter(featured=True)[:2],
-    "user": request.user
-  }
-  return render_response(request, 'proj/splash.html', c)
+  c = {"actions": Action.objects.filter(featured=True)[:2]}
+  return render_to_response('proj/splash.html', c)
+
+def map(request):
+  return render_to_response('proj/map.html')
 
 def solidarity(request):
   return redirect('https://docs.google.com/document/d/1m5l55FCsaQmFef4HcIUJHIE6PsyHjauV1FT6ztSRkSc/edit?usp=sharing')
 
 def howfartofree(request):
-  return render_response(request, 'proj/howfartofree.html')
+  return render_to_response('proj/howfartofree.html')
 
 def calculator(request):
-  return render_response(request, 'proj/calculator.html')
+  return render_to_response('proj/calculator.html')
 
 def nov_fourth(request):
-  return render_response(request, 'proj/nov4.html')
+  return render_to_response('proj/nov4.html')
 
 def thankyou(request):
-  return render_response(request, 'proj/thankyou.html')
+  return render_to_response('proj/thankyou.html')
 
 def not_found(request):
-  return render(request, template_name='proj/404.html', status=404)
+  return render_to_response('proj/404.html')
 
-def blog(request):
-  return render_response(request, 'proj/blog.html')

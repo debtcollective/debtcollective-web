@@ -10,7 +10,7 @@ $border-radius: 9px;
     height: 250px;
     width: 250px;
     background-repeat: no-repeat;
-    margin: 0px auto 5px auto;
+    margin: 40px auto 5px auto;
     position: relative;
     max-width: 100%;
 
@@ -38,7 +38,6 @@ $border-radius: 9px;
     -moz-border-radius: $border-radius;
     -webkit-border-radius: $border-radius;
     border-radius: $border-radius; /* future proofing */
-    max-width: 400px;
     margin: 5px;
     background-color: $light-background-color;
     color: $light-text-color;
@@ -50,9 +49,6 @@ $border-radius: 9px;
       &:hover {
         text-decoration: none;
       }
-    }
-    img {
-      max-height: 185px;
     }
     h2, h3 {
       color: $light-text-color !important;
