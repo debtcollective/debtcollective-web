@@ -3,35 +3,37 @@
 
 {% block body %}
 
-{% include "proj/insideHeader.html" with title='DASHBOARD' %}
+{% include "proj/header.html" %}
 
-<div class="flex">
-  <div class="container inside-container">
-    <div class="wrapper dark">
-      <div class="body-text">
-     <!-- <h2>First name: {{user.first_name}}</h2>
-      <h2>Last name: {{user.last_name}}</h2>
-      -->
-      <p>Email: {{user.email}}</p>
-      </div>
-    </div>
-
-    <div class="wrapper arrow-up"></div>
-    <div class="wrapper arrow-down-steep centered">
-      <div class="row arrow-top-heading">
-        <h2 class="first">ACTIONS</h2>
-      </div>
-      <div class="row">
-        <ul>
-          {% if user.is_superuser %}
-          <li><a href="/corinthian/admin">Corinthian Defense to Repayment</a></li>
-          {% endif %}
-          <li><a href="/logout">Logout</a></li>
-        </ul>
-        {% include "collectives/action_cards.html" with actions=actions %}
-      </div>
+<div class="container">
+  <h1>Welcome, {{user.username}} </h1>
+  <a class="big-link button" href="/logout">Logout</a>
+  <div class="wrapper dark">
+    <div class="row">
+      {% include "collectives/action_cards.html" with actions=collective_actions %}
     </div>
   </div>
+
+  <div class="wrapper light floating">
+    <div class="body-text">
+      <h2>We use your information exclusively to erase illegitimate debts. We will store your data safely and never share it with anybody outside the small group of organizers and lawyers working to that end.</h2>
+      <h3>This application does not constitute and cannot substitute for legal advice.</h3>
+    </div>
+  </div>
+    <div class="row">
+      {% for collective in collectives %}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 collective-card">
+          <a href="{{collective.link}}">
+          <div class="collective-card-content" style="background-image:url({{collective.image}});" />
+          </div>
+          <h2>
+          {% if collective.message %}
+            {{collective.message | escape}}
+          {% endif %}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

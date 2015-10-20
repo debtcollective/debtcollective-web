@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import redirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.template import loader
 from django.http import Http404, HttpResponse
@@ -10,8 +10,10 @@ from django.contrib import auth
 from proj.gather.models import Debt, UserProfile, Point
 from proj.collectives.models import UserAction, CollectiveMember, Action, Collective
 from boto.exception import S3ResponseError
-
-# Import the email modules we'll need
+from boto.s3.key import Key
+from proj.utils import get_s3_conn, store_in_s3, generate_pdf, render_response
+from django.contrib.auth.models import User
+from jsonfield import JSONField
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEBase import MIMEBase
@@ -19,62 +21,156 @@ from email import Encoders
 
 import proj.settings as settings
 
+from copy import deepcopy
+import uuid
 import os
 import zipfile
 import StringIO
 import csv
 import json
+import datetime
+import sys
 
-def get_dtr(id):
-  try:
-    dtr = DTRUserProfile.objects.get(id=id)
-  except:
-    return None
+SENSITIVE_FIELDS = ["ssn_1", "ssn_2", "ssn_3"]
+FIELDS = []
 
-  dtr_data = dtr.data
-  if not dtr_data:
-    return None
+S3_BUCKET_NAME = 'corinthiandtr'
+if settings.DEBUG:
+  S3_BUCKET_NAME += '.dev'
 
-  return dtr
+conn = get_s3_conn()
 
-def dtr_migrate_email(request, id):
-  dtr = get_dtr(id)
-  key = dtr.key()
+TMP_FILE_DIR = '/tmp'
+basepath = settings.TEMPLATE_DIRS[0]
+SOURCE_FILE = os.path.join(basepath, 'debtcollective-wizard/borrower_defense_to_repayment.pdf')
+if settings.DEBUG:
+  SOURCE_FILE = os.path.join(basepath, 'debtcollective-wizard/borrower_defense_to_repayment_dev.pdf')
 
-  BASE_URL = 'https://debtcollective.org'
-  migrate_url = BASE_URL + '/dtr/migrate?email=' + dtr.data.email + '&key=' + key
+DTR_FIELDS_FILE = os.path.join(os.path.dirname(__file__), 'dtr_fields.json')
 
+with open(DTR_FIELDS_FILE, 'rb') as fp:
+  FIELDS = json.loads(fp.read())
 
-def dtr_migrate(request, id):
-  email = request.GET.get('email')
-  key = request.GET.get('key')
-  dtr = get_dtr(id)
+def fdf_filename(key):
+  return os.path.join(TMP_FILE_DIR, str(key) + '_data.fdf')
 
-  if not dtr:
-    return json_response({'error': 'Could not find your DTR. Please contact support@debtcollective.org'}, 500)
-  if dtr_data['email'] != email:
-    return json_response({'error': 'Email does not match original. Please provide a valid email address'}, 500)
+def output_filename(key):
+  return os.path.join(TMP_FILE_DIR, str(key) + '_output.pdf')
 
-  dtr_action = Action.objects.get(name='Defense to Repayment')
+def s3_key(dtr):
+  bucket = conn.get_bucket(S3_BUCKET_NAME)
+  key = Key(bucket)
+  key.key = dtr.data.get('key', dtr.id)
+  return key
 
-  username = email
-  password = email.lower()
-  users = User.objects.filter(username=username)
-  if not users:
-    User.objects.create_user(username, password=password, email=email)
+def to_json(dtr):
+  data = dtr.__dict__.copy()
+  del data['_state']
+  return data
 
-  user = auth.authenticate(username=username, password=password)
-  if not user:
-    return redirect('/login')
-  auth.login(request, user)
+def pdf_link(dtr, expires_in=3000):
+  key = s3_key(dtr)
+  url = key.generate_url(expires_in=expires_in, force_http=True)
+  return url
 
-  useraction, created = UserAction.objects.get_or_create(user=user, action=dtr_action)
-  if created:
-    useraction.data = dtr.data
-    useraction.status = UserAction.COMPLETED
-    return redirect('/change_password')
+def make_a_pdf(dtr):
+  key = dtr.data['key']
+  fdf_file = fdf_filename(key)
+  output_file = output_filename(key)
+  generate_pdf(dtr.data, SOURCE_FILE, fdf_file, output_file)
+
+  metadata = {
+    'name': dtr.data['name'],
+    'version': 1
+  }
+  store_in_s3(conn, S3_BUCKET_NAME, key, output_file, metadata)
+  dtr.output_file = output_file
+  return output_file
+
+def create_dtr_user_action(values, user):
+  # create a pdf with sensitive data to be stored in s3 and thrown away
+  action = Action.objects.get(slug=settings.DTR_MODEL_SLUG)
+  pk = values.get('pk')
+  if pk:
+    dtr = UserAction.objects.get(id=pk)
+    created = False
   else:
-    return redirect('/profile')
+    dtr = UserAction.objects.create(user=user, action=action)
+    created = True
+
+  if not dtr.data:
+    dtr.data = {
+      'key': uuid.uuid4().hex
+    }
+
+  # store only non-sensitive fields on disk
+  non_sensitive_values = deepcopy(values)
+  for field in SENSITIVE_FIELDS:
+    if non_sensitive_values.get(field):
+      del non_sensitive_values[field]
+
+  dtr.data.update(non_sensitive_values)
+  dtr.save()
+  return dtr, created
+
+def send_dtr_migration_emails():
+  dtrs = DTRUserProfile.objects.all()
+  for dtr in dtrs:
+    dtr_migrate_email(dtr)
+  return
+
+def dtr_migrate_email(dtr):
+  key = uuid.uuid4().hex
+  dtr.data['key'] = key
+  dtr.save()
+
+  user_data = dtr.data
+
+  name = ''.join(user_data['name'])
+  school = ''.join(user_data.get('school_name', 'Unknown'))
+  msg = MIMEMultipart()
+  msg['Subject'] = '{0}, Your Defense to Repayment for {1}'.format(name, school)
+  msg['To'] = ''.join(user_data['email'])
+
+  migrate_url = 'https://debtcollective.org/dtr/migrate?pk=' + str(dtr.id) + '&key=' + str(key)
+
+  msg.attach(MIMEText("""
+Hello {0},
+<p>
+You filled out a Department of Education <a href="http://debtcollective.org/defense-to-repayment">Defense to Repayment claim on the Debt Collective website</a>.
+</p>
+<p>
+We have good news. You can now you can login to the Debt Collective to edit and resubmit your form to the Department of Education.
+</p>
+<p>
+Please go to <a href="{1}">this link</a> to make sure all your information is correct. If you haven't heard back from the Department of Education, or don't have the last four digits of your social security number listed, you might want to resubmit your application:
+</p>
+<p>
+{1}
+</p>
+
+Solidarty,
+
+The Debt Collective
+""".format(name, migrate_url), 'html'))
+  send_email(msg, headers={'X-MC-MergeVars': '{"header": "Your Defense to Repayment is Ready!"}'})
+  return migrate_url
+
+def dtr_migrate(request):
+  if not request.user.is_authenticated():
+    return render_response(request, 'dtr/migrate.html')
+
+  pk = request.GET.get('pk')
+  dtr = DTRUserProfile.objects.get(id=pk)
+  our_key = dtr.data.get('key')
+  incoming_key = request.GET.get('key')
+
+  if not incoming_key or not our_key or (our_key != incoming_key):
+    raise Http404()
+
+  user_action, created = create_dtr_user_action(dtr.data, request.user)
+  user_action.save()
+  return redirect('/defense-to-repayment')
 
 def attach(msg, contents, filename):
   part = MIMEBase('application', 'octet-stream')
@@ -85,13 +181,12 @@ def attach(msg, contents, filename):
 
 def dtr_email(dtr, attachments=None):
   user_data = dict(dtr.data)
-  to = settings.DTR_RECIPIENT
+  email = ''.join(user_data['email'])
   msg = MIMEMultipart()
 
   name = ''.join(user_data['name'])
-  msg['Subject'] = '{0} at {1}'.format(name, ''.join(user_data['school_name']))
-  msg['To'] = to
-  msg['cc'] = ''.join(user_data['email'])
+  msg['Subject'] = '{0} at {1}'.format(name, ''.join(user_data.get('school_name', 'Unknown')))
+  msg['To'] = ','.join([settings.DTR_RECIPIENT, email])
   msg.attach(MIMEText("""
 To whom it may concern:
 
@@ -107,13 +202,12 @@ Best, %s
   for key, attachment in attachments.iteritems():
     attach(msg, attachment.file.read(), attachment.name)
 
-  send_email(msg)
+  send_email(msg, template=None)
 
 def remove_dupes(profiles):
   finished = {}
   for profile in profiles:
     if type(profile.data) == dict:
-      del profile.data['key']
       duped_key = json.dumps(profile.data)
       finished[duped_key] = profile
   return finished.values()
@@ -126,14 +220,10 @@ def dtr_download(request, f, to):
   s = StringIO.StringIO()
   zf = zipfile.ZipFile(s, "w")
 
-  profiles = DTRUserProfile.objects.filter(
-    id__gte=f
-  ).filter(
-    id__lte=to
-  )
+  profiles = UserAction.DTRS(id__gte=f, id__lte=to)
 
   for profile in remove_dupes(profiles):
-    key = profile.s3_key()
+    key = s3_key(profile)
     try:
       contents = key.get_contents_as_string()
       if type(profile.data) != dict:
@@ -162,8 +252,8 @@ def dtr_csv(request):
   response = HttpResponse(content_type='text/csv')
   response['Content-Disposition'] = 'attachment; filename="all_dtr.csv"'
 
-  profiles = DTRUserProfile.objects.all()
-  writer = csv.DictWriter(response, fieldnames=DTRUserProfile.FIELDS, extrasaction='ignore')
+  profiles = UserAction.objects.all()
+  writer = csv.DictWriter(response, fieldnames=FIELDS, extrasaction='ignore')
   writer.writeheader()
   for profile in remove_dupes(profiles):
     row = {}
@@ -178,18 +268,8 @@ def dtr_csv(request):
 
   return response
 
-def dtr_restore(request, id):
-  profile = DTRUserProfile.objects.get(id=id)
-
-  profile.make_a_pdf()
-
-  return json_response({
-    'id': profile.id,
-    'pdf_link': profile.pdf_link(),
-  }, 200)
-
 @csrf_exempt
-def dtr_generate(request):
+def generate(request):
   if request.method != "POST":
     raise Http404
 
@@ -203,37 +283,82 @@ def dtr_generate(request):
     i += 1
 
   rq['name_2'] = rq.get('name', 'NA')
-  dtr = DTRUserProfile.generate(rq)
 
-  dtr_email(dtr, attachments=request.FILES)
+  if request.user.is_authenticated():
+    user = request.user
+  else:
+    users = User.objects.filter(is_superuser=True)
+    if not users:
+      raise Exception('Need a super user!')
+    else:
+      user = users[0]
 
-  return json_response({
-    'id': dtr.id,
-    'pdf_link': dtr.pdf_link(),
-  }, 200)
+  dtr, created = create_dtr_user_action(rq, user)
+  try:
+    output_file = make_a_pdf(dtr)
+    dtr_email(dtr, attachments=request.FILES)
+    return json_response({
+      'id': dtr.id,
+      'pdf_link': pdf_link(dtr)
+    }, 200)
+  except Exception, e:
+    raise e
+    return json_response({
+      'error': e.message
+    }, 500)
+
+def dtr_data(request):
+  if not request.user.is_authenticated():
+    return json_response({'warning': 'No user found'}, 200)
+
+  pk = request.GET.get('pk')
+  if pk:
+    try:
+      user_action = UserAction.objects.get(id=pk, user=request.user)
+      data = user_action.data
+    except ObjectDoesNotExist:
+      data = {'warning': 'No dtr found'}
+
+  return json_response({'data': data}, 200)
 
 def dtr_view(request, id):
   if not request.user.is_superuser:
     return redirect('/login')
 
   c = {
-    'dtrprofile': DTRUserProfile.objects.get(id=id)
+    'dtrprofile': UserAction.objects.get(id=id)
   }
 
-  return render_to_response('dtr/dtrview.html', c)
+  return render_response(request, 'dtr/dtrview.html', c)
 
-def admin(request):
+def dtr_admin(request):
   if not request.user.is_superuser:
     return redirect('/login')
 
+  all_dtrs = UserAction.DTRS()
   c = {
-    'all_dtrs': DTRUserProfile.objects.all(),
-    'dtr_total': DTRUserProfile.objects.count()
+    'all_dtrs': all_dtrs,
+    'dtr_total': len(all_dtrs)
   }
 
-  return render_to_response('dtr/admin.html', c)
+  return render_response(request, 'dtr/admin.html', c)
+
+def dtr_choice(request):
+  if not request.user.is_authenticated():
+    return redirect('/login')
+
+  dtrs = UserAction.DTRS(user=request.user).order_by('-last_changed')
+  return render_response(request, 'dtr/dtrchoice.html', {"dtrs": dtrs, "user": request.user})
 
 def dtr(request):
+  if not request.user.is_authenticated():
+    return redirect('/login')
+  new = request.GET.get('new')
+  pk = request.GET.get('pk')
+  if not new and not pk and request.user.is_authenticated():
+    all_dtrs = UserAction.DTRS(user=request.user)
+    return redirect('/dtr/choice')
+
   basepath = settings.TEMPLATE_DIRS[0]
   template_path = os.path.join(basepath, 'debtcollective-wizard/index.html')
   with open(template_path) as fp:
@@ -246,26 +371,26 @@ def corinthiansignup(request):
     "collective": collective,
     "actions": Action.objects.filter(collective=collective)
   }
-  return render_to_response('corinthian/signup.html', c)
+  return render_response(request, 'corinthian/signup.html', c)
 
 def dtr_redirect(request):
   return redirect('/defense-to-repayment')
 
 def corinthiancollective(request):
-  return render_to_response('corinthian/signup.html')
+  return render_response(request, 'corinthian/signup.html')
 
 def corinthiansolidarity(request):
-  return render_to_response('corinthian/solidarity.html')
+  return render_response(request, 'corinthian/solidarity.html')
 
 def studentstrike(request):
-  return render_to_response('corinthian/studentstrike.html')
+  return render_response(request, 'corinthian/studentstrike.html')
 
 def solidaritystrike(request):
   c = {
     'collective': Collective.objects.get(name='Debt Collective'),
     'actions': Action.objects.filter(name__contains='Strike')[:3]
   }
-  return render_to_response('corinthian/solidaritystrike.html', c)
+  return render_response(request, 'corinthian/solidaritystrike.html', c)
 
 def solidaritystrikeform(request):
-  return render_to_response('corinthian/solidaritystrikeform.html')
+  return render_response(request, 'corinthian/solidaritystrikeform.html')

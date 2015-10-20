@@ -1,3 +1,5 @@
+from django.shortcuts import render_to_response
+from django.template import RequestContext
 from django.http import HttpResponse, Http404
 from fdfgen import forge_fdf
 from boto.s3.key import Key
@@ -9,14 +11,24 @@ import json
 import settings
 import subprocess
 
-def send_email(msg):
+def render_response(req, *args, **kwargs):
+  kwargs['context_instance'] = RequestContext(req)
+  return render_to_response(*args, **kwargs)
+
+def send_email(msg, template='dc-members', headers=None):
+  """
+  headers: dict
+  """
   mailserver = smtplib.SMTP('smtp.mandrillapp.com', 587)
   mailserver.login('noreply@debtcollective.org', settings.MANDRILL_API_KEY)
-
   from_email = 'noreply@debtcollective.org'
   msg['From'] = from_email
   to = msg['To']
   msg.add_header('X-MC-Track', 'opens')
+  msg.add_header('X-MC-Template', template)
+  if headers:
+    for key, value in headers.iteritems():
+      msg.add_header(key, value)
   mailserver.sendmail(from_email, to.split(','), msg.as_string())
   mailserver.quit()
 
@@ -28,7 +40,7 @@ def get_POST_data(request):
   to use ajax POST requests but don't have it encoded as form data.
   """
   if len(request.POST.keys()) > 0:
-    return request.POST.copy()
+    return request.POST.copy().dict()
   else:
     # assuming request.body contains json data which is UTF-8 encoded
     return json.loads(request.body, encoding='utf-8')

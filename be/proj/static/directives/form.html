@@ -1,51 +1,51 @@
 <div class="forms">
   <div class="dc-input">
-    <form ng-show="!formSubmitted && showForm" class="form" id="signupForm"
-      accept-charset="utf-8" ng-submit="onSubmitClick($event)">
+    <form ng-show="!formSubmitted" class="form" id="signupForm"
+      accept-charset="utf-8" action='POST' ng-submit="onSubmitClick($event)">
 
-    <div ng-repeat="debt in debts" class="flex">
-      <input type="text"
-        ng-model="debt.amount"
-        placeholder="DEBT AMOUNT">
+      <input type="email" id="email" name="email" ng-model="email"
+        placeholder="EMAIL"
+        required autocomplete="off" />
+        <div ng-show="collectDebt" ng-repeat="debt in debts" class="flex">
+          <input type="text"
+            ng-model="debt.amount"
+            placeholder="DEBT AMOUNT">
 
-      <select class="debt-type-select"
-        ng-model="debt.debtType"
-        ng-options="item as item.name for item in debt_choices track by item.id"
-        required>
-        <option value="">DEBT TYPE</option>
-      </select>
-    </div>
+          <select class="debt-type-select"
+            ng-model="debt.debtType"
+            ng-options="item as item.name for item in debt_choices track by item.id"
+            required>
+            <option value="">DEBT TYPE</option>
+          </select>
+        </div>
 
-    <input type="email" id="email" name="email"  ng-model="email"
-      placeholder="EMAIL"
-      required autocomplete="off" />
+        <input type="password" id="password" name="password"  ng-model="password"
+          placeholder="CREATE A PASSWORD"
+          required autocomplete="off" />
 
-    <input type="text"
-      ng-model="location"
-      placeholder="WHAT CITY DO YOU LIVE IN?"
-      typeahead-editable="false"
-      typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 ">
-
+<!--        <input type="text"
+          ng-model="location"
+          placeholder="WHAT CITY DO YOU LIVE IN?"
+          typeahead-editable="false"
+          typeahead="city as city.name for city in cities | filter:{name:$viewValue}| limitTo:8 ">-->
       <button type="submit" name="submit" class="btn btn-primary">sign up</button>
     </form>
-      <div class="row" ng-show="formSubmitted">
-          <h2 class="spacer">WELCOME TO THE DEBT COLLECTIVE</h2>
-            <p>No one should have to go into debt for basic needs like housing, healthcare, and education. When the indebted join together we can build power towards a just society.</p>
-            <p>Expect an e-mail confirmation! We will update members regularly on campaign developments and include ways to join and support the debt collectives.</p>
-          <hr>
-          <div class="body-text sub">
-          <p><em>Help us meet our goal by spreading the word over <fb-button class="sm-button big-link">facebook</fb-button> and <a href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" class="big-link" target="_blank">twitter</a>!</em></p>
-            <fb-button class="sm-button">
-              <img src="/static/img/fb.gif">
-            </fb-button>
-            <a class="sm-button" href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" target="_blank">
-              <img src="/static/img/twitter.gif">
-            </a>
+    <div class="row" ng-show="formSubmitted">
+      <div class="body-text">
+        <h2 class="spacer">WELCOME TO THE DEBT COLLECTIVE</h2>
+          <h2>Check your e-mail to confirm your account!</h2>
+          <p>We will update members regularly on campaign developments and include ways to join and support the debt collectives.</p>
+        <hr>
+        <div class="body-text sub">
+        <p><em>Help us meet our goal by spreading the word over <fb-button class="sm-button big-link">facebook</fb-button> and <a href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" class="big-link" target="_blank">twitter</a>!</em></p>
+          <fb-button class="sm-button">
+            <img src="/static/img/fb.gif">
+          </fb-button>
+          <a class="sm-button" href="http://twitter.com/intent/tweet?text=Support%20the%20organizing%20efforts%20of%20debtors%20challenging%20how%20we%20finance%20and%20access%20basic%20necessities%20debtcollective.org%20%23debtstrike" target="_blank">
+            <img src="/static/img/twitter.gif">
+          </a>
         </div>
       </div>
-
-      <form class="body-text">
-         <button type="submit" ng-show="!showForm" ng-click="showForm = true" name="submit" class="btn btn-primary">JOIN US</button>
-      </form>
+    </div>
   </div>
 </div>

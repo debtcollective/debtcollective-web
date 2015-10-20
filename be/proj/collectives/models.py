@@ -2,7 +2,11 @@ from django.db import models
 from django.contrib import admin
 from django.contrib.auth.models import User
 from jsonfield import JSONField
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
+from django.utils import timezone
+
+import proj.settings as settings
+import datetime
 
 class Action(models.Model):
   slug = models.SlugField(max_length=40, unique=True)
@@ -13,6 +17,7 @@ class Action(models.Model):
   image = models.CharField(max_length=150, null=True, blank=True)
   active = models.BooleanField(default=True)
   featured = models.BooleanField(default=False)
+  private = models.BooleanField(default=False)
 
   def __unicode__(self):
     return self.name
@@ -24,6 +29,7 @@ class Collective(models.Model):
   actions = models.ManyToManyField(Action)
   image = models.CharField(max_length=150, null=True, blank=True)
   link = models.CharField(max_length=150, null=True, blank=True)
+  message = models.TextField(null=True, blank=True)
 
   def __unicode__(self):
     return self.name
@@ -36,6 +42,7 @@ def gen_link(path):
 
 pre_save.connect(gen_link('collectives'), sender=Collective)
 pre_save.connect(gen_link('actions'), sender=Action)
+
 
 class CollectiveMember(models.Model):
   MEMBER = 1
@@ -59,6 +66,9 @@ class CollectiveMember(models.Model):
         return c[1]
     return None
 
+  class Meta:
+    unique_together = ('user', 'collective',)
+
 class UserAction(models.Model):
   COMPLETED = 1
   ACTIVE = 2
@@ -72,7 +82,13 @@ class UserAction(models.Model):
   user = models.ForeignKey(User)
   action = models.ForeignKey(Action)
   data = JSONField(blank=True)
+  last_changed = models.DateTimeField(default=timezone.now)
 
   def __unicode__(self):
     return '%s %s' % (self.user, self.action)
 
+  @classmethod
+  def DTRS(cls, **kwargs):
+    action = Action.objects.get(slug=settings.DTR_MODEL_SLUG)
+    kwargs['action'] = action
+    return cls.objects.filter(**kwargs)
