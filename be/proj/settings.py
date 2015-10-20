@@ -19,7 +19,6 @@ SECRET_KEY = None
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-DEV = True
 TEMPLATE_DEBUG = True
 
 from envconfig import get_envconfig
@@ -100,8 +99,7 @@ ALLOWED_HOSTS = [
 # Static asset configuration
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-if not DEV:
-  STATIC_ROOT = os.environ.get('STATIC_ROOT', 'staticfiles')
+STATIC_ROOT = os.environ.get('STATIC_ROOT', 'staticfiles')
 
 STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
