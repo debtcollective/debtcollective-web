@@ -38,8 +38,7 @@ INSTALLED_APPS = (
     'proj.gather',
     'proj.arcs',
     'proj.collectives',
-    'south',
-    'djrill'
+    'south'
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -83,7 +82,7 @@ USE_TZ = True
 import dj_database_url
 config = dj_database_url.config()
 if config:
-  DATABASES['default'] = config
+    DATABASES['default'] = config
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -109,7 +108,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'templates/debtcollective-wizard/static')
 )
-FIXTURE_DIRS = [os.path.join(BASE_DIR, 'fixtures')]
+
 # Misc.
 AUTH_PROFILE_MODULE = 'gather.UserProfile'
 MAP_PASSWORD = os.environ.get('MAP_PASSWORD', '')
@@ -118,7 +117,3 @@ AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY', '')
 AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY', '')
 MANDRILL_API_KEY = os.environ.get('MANDRILL_API_KEY', '')
 DTR_RECIPIENT = os.environ.get('DTR_RECIPIENT', '')
-DTR_MODEL_SLUG = os.environ.get('DTR_MODEL', 'defense-to-repayment')
-
-EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
-DEFAULT_FROM_EMAIL = "noreply@debtcollective.org"  # if you don't already have this in settings

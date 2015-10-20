@@ -44,7 +44,7 @@ $ source venv/bin/activate
 $ pip install -r requirements.txt
 $ cd be
 $ mkdir -p staticfiles/js
-$ python manage.py migrate
+$ python manage.py syncdb
 ```
 
 ### Step 4: Set up point data
@@ -89,18 +89,6 @@ $ python manage.py test
 Visit this in your browser:
 ```
 http://localhost:8000/generate_map_json/?password=MAGIC_PASSWORD
-```
-
-## Migrating the database
-
-If you change the database schema, we use South to manage migrations.
-
-```
-python manage.py schemamigration <app> --auto
-```
-
-```
-python manage.py migrate <app> --auto
 ```
 
 

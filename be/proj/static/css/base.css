@@ -572,7 +572,7 @@ a.sm-button {
   height: 250px;
   width: 250px;
   background-repeat: no-repeat;
-  margin: 0px auto 5px auto;
+  margin: 40px auto 5px auto;
   position: relative;
   max-width: 100%; }
   .collective-card .collective-card-content img {
@@ -598,7 +598,6 @@ a.sm-button {
     -webkit-border-radius: 9px;
     border-radius: 9px;
     /* future proofing */
-    max-width: 400px;
     margin: 5px;
     background-color: #f1eee2;
     color: #111; }
@@ -608,8 +607,6 @@ a.sm-button {
       color: #111 !important; }
       .action-card .action-card-content a:hover {
         text-decoration: none; }
-    .action-card .action-card-content img {
-      max-height: 185px; }
     .action-card .action-card-content h2, .action-card .action-card-content a.btn, .action-card .action-card-content button[type=submit], .action-card .action-card-content .tabs .single-tab, .tabs .action-card .action-card-content .single-tab, .action-card .action-card-content h3 {
       color: #111 !important;
       margin: 5px 0px !important; }
@@ -1067,6 +1064,11 @@ p.small {
 .underline {
   text-decoration: underline; }
 
+.floating {
+  box-shadow: 2px 2px 6px 8px #3C3C3C;
+  -moz-box-shadow: 2px 2px 6px 8px #3C3C3C;
+  -webkit-box-shadow: 2px 2px 6px 8px #3C3C3C; }
+
 .wrapper {
   position: relative;
   margin: 0 auto;
@@ -1435,26 +1437,6 @@ select {
     width: 100%;
     position: absolute;
     color: #111; }
-
-.choice-item {
-  margin-top: 10px; }
-  .choice-item .choice-item__body {
-    padding: 0px 10px 10px 10px; }
-  .choice-item:hover {
-    background-color: white; }
-  .choice-item a:hover {
-    color: black !important;
-    text-decoration: none; }
-
-.delete-btn {
-  padding: 5px;
-  font-size: 26px; }
-  .delete-btn a {
-    text-decoration: none; }
-
-.muted {
-  font-style: italic;
-  color: #999; }
 
 .mobile-only {
   display: none; }

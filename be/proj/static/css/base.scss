@@ -361,6 +361,12 @@ p.small {
   text-decoration: underline;
 }
 
+.floating {
+  box-shadow: 2px 2px 6px 8px #3C3C3C;
+  -moz-box-shadow: 2px 2px 6px 8px #3C3C3C;
+  -webkit-box-shadow: 2px 2px 6px 8px #3C3C3C;
+}
+
 .wrapper {
   position: relative;
   margin: 0 auto;
@@ -806,31 +812,6 @@ select {
     position: absolute;
     color: $light-text-color;
   }
-}
-
-.choice-item {
-  margin-top: 10px;
-  .choice-item__body {
-    padding: 0px 10px 10px 10px;
-  }
-  &:hover {
-    background-color: white;
-  }
-  a:hover {
-    color: black !important;
-    text-decoration: none;
-  }
-}
-
-.delete-btn {
-  padding: 5px;
-  font-size: 26px;
-  a { text-decoration: none; }
-}
-
-.muted {
-  font-style: italic;
-  color: #999;
 }
 
 @import "includes/responsive";

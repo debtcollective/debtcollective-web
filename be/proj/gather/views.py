@@ -1,9 +1,10 @@
 from django.conf import settings
+from django.shortcuts import render_to_response
 from django.db.models import Count, Sum
 
 from django.contrib.auth.models import User
 from proj.gather.models import UserProfile, Point, Debt, States
-from proj.utils import json_response, get_POST_data, render_response
+from proj.utils import json_response, get_POST_data
 
 import simplejson as json
 import os
@@ -48,15 +49,12 @@ def get_map_data():
   }
 
 def generate_and_store_map_data():
-  data = get_map_data()
-  if settings.DEV:
-    static_dir = settings.STATICFILES_DIRS[0]
-  else:
+    data = get_map_data()
     static_dir = settings.STATIC_ROOT
-  fp = open("%s/%s.json" % (os.path.join(static_dir, 'data'), "map_data"), 'wb')
-  fp.write(json.dumps(data))
-  fp.close()
-  return data
+    fp = open("%s/%s.json" % (os.path.join(static_dir, 'data'), "map_data"), 'wb')
+    fp.write(json.dumps(data))
+    fp.close()
+    return data
 
 def map_data(request):
   """
@@ -64,6 +62,7 @@ def map_data(request):
   """
   data = get_map_data()
   return json_response(data, 200)
+
 
 def generate_map_json(request):
   """
@@ -76,3 +75,4 @@ def generate_map_json(request):
     return json_response(data, 200)
   else:
     return json_response({'status': 'error'}, 500)
+

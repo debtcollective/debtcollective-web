@@ -11715,10 +11715,6 @@ app.value('duScrollDuration', 1000)
 app.config(function($interpolateProvider, $routeProvider) {
     $interpolateProvider.startSymbol('{$');
     $interpolateProvider.endSymbol('$}');
-});;app.service('banner', function (util_svc, $http) {
-  this.error = function (message)   {
-    alert(message)
-  }
 });;app.controller('baseCtrl',
  function ($scope, $http, util_svc, $document, $timeout, $window) {
   $scope.supportVisible = false;
@@ -12097,18 +12093,14 @@ app.controller('corinthianCtrl',
     };
 });
 
-
-app.directive('deleteBtn', function () {
-    return function($scope, $elm, $attrs) {
-      $elm.on('click', function (event) {
-        var r = confirm("Are you sure you want to delete that? It will be gone forever.");
-        if (r !== true) {
-            console.log('not deleting')
-            event.preventDefault();
-        }
-        console.log('go!')
+app.directive('scrollOnClick', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, $elm) {
+      $elm.on('click', function() {
       });
     }
+  }
 });
 ;app.filter('humanize', function(){
     return function humanize(number) {
@@ -12227,12 +12219,6 @@ app.directive('deleteBtn', function () {
         return point
     }
 });
-;app.controller('migrateCtrl',
- function ($scope, $http, util_svc, $document, $timeout, $window) {
-  $scope.reload = function () {
-    $window.location.reload()
-  }
-})
 ;Array.prototype.chunk = function(chunkSize) {
     var array=this;
     return [].concat.apply([],
@@ -12307,24 +12293,21 @@ app.controller('solidarityStrikeCtrl',
   }
 
   this.create = function (userData, cb) {
-    $http.post('/signup', userData).then(function success (resp) {
+    $http.post('/signup', userData).then(function (resp) {
       self.signupForMailingList(userData, cb)
-    }, function error (resp) {
-      cb(resp)
     })
   }
 
   this.signupForMailingList = function (userData, cb) {
     userData.list = '8CaVcsDmVe41wdpl194UlQ',
     userData.boolean = true
+
     $http.post('//mail.debtcollective.org/subscribe', userData).then(function (resp) {
-      cb(resp)
-    }, function error (resp) {
       cb(resp)
     })
   }
-});
-;app.service('util_svc', function () {
+
+});;app.service('util_svc', function () {
 
   this.generateUUID = function () {
       // unique ID generator modified to create ids 30 characters long
@@ -12365,7 +12348,7 @@ app.controller('solidarityStrikeCtrl',
       }
     }
   }
-});;app.directive('donateButton', function ($window, $http) {
+});app.directive('donateButton', function ($window, $http) {
   return {
     restrict: 'E',
     scope: {
@@ -12421,85 +12404,68 @@ app.controller('solidarityStrikeCtrl',
 
     }
   }
-});//everything is awesome! :()
-function qs (key) {
-  key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
-  var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
-  return match && decodeURIComponent(match[1].replace(/\+/g, " "));
-}
-app.directive('signupform', function () {
+});app.directive('signupform', function () {
   return {
     restrict: 'E',
     templateUrl: '/static/directives/form.html',
     replace: true,
     scope: {
-      open: '=',
-      afterSubmit: '&',
-      collectDebt: '=',
-      noRedirect: '='
+      visible: '='
     },
-    controller: function ($scope, $element, $location, $http, $document, $timeout, $window, users, banner) {
-      $scope.email = qs('email')
-      $scope.username = null
-      $scope.debts = []
-      $scope.showForm = false
-      $scope.formSubmitted = false
-      $scope.location = null
-      $scope.focused = false
-      $scope.corinthianStudent = false
+    controller: function ($scope, $element, $http, $document, $timeout, $window, users) {
+      $scope.email = null;
+      $scope.username = null;
+      $scope.debts = [];
+      $scope.amount = null;
+      $scope.showForm = false;
+      $scope.formSubmitted = false;
+      $scope.location = null;
+      $scope.focused = false;
+      $scope.corinthianStudent = false;
       $scope.cities = []
 
       var form = $element.find('form')[0]
 
-      if ($scope.open) $scope.showForm = true
-
       $http.get('/debt_choices').then(function (resp) {
         $scope.debt_choices = resp.data
-      })
+      });
 
       $http.get('/points').then(function (resp) {
         $scope.cities = resp.data
-      })
+      });
 
-      $scope.addDebt = function (type, amount) {
+      $scope.addDebt = function () {
         $scope.debts.push({
-          debtType: type || 'none',
-          amount: amount || null
+          debtType: 'none',
+          amount: null
         })
       }
-      $scope.addDebt(null, qs('amount'))
+      $scope.addDebt()
 
       $scope.onSubmitClick = function ($event) {
         // temporarily, email is the password
         // so that we can protect anonymity of our users.
         // just store one debt type for now.
-        $scope.showForm = true
+        $scope.formSubmitted = true;
+        $scope.showForm = true;
 
         var debt = $scope.debts[0]
         var userData = {
           'email': $scope.email.toLowerCase(),
-          'password': $scope.password,
           'point': $scope.location ? $scope.location.id : null,
           'kind': debt.debtType.id,
           'amount': parseFloat(debt.amount.replace(',', ''))
         }
 
-        users.create(userData, function (resp) {
-          if (resp.data.status === 'error') return banner.message('error', resp.data.message)
-          else if ($scope.noRedirect) return $scope.afterSubmit()
-          else if (resp.data.status === 'logged_in') window.location.href = '/profile'
-          else if (resp.data.status === 'user_exists') window.location.href = '/login'
-          else {
-            $scope.afterSubmit()
-            $scope.formSubmitted = true
-          }
+        users.createAnonymousUser(userData, function (resp) {
+          console.log('created user', resp)
+          $scope.formSubmitted = true
         })
         $event.preventDefault()
       }
     }
   }
-})
-;app.directive('tweetBtn', function ($window) {
+});app.directive('tweetBtn', function ($window) {
   return {
     restrict: 'E',
     replace: true,
