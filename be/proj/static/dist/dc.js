@@ -12293,7 +12293,9 @@ app.controller('solidarityStrikeCtrl',
   }
 
   this.create = function (userData, cb) {
-    $http.post('/signup', userData).then(function (resp) {
+    $http.post('/signup', userData).then(function success (resp) {
+      self.signupForMailingList(userData, cb)
+    }, function error (resp) {
       self.signupForMailingList(userData, cb)
     })
   }
@@ -12301,13 +12303,14 @@ app.controller('solidarityStrikeCtrl',
   this.signupForMailingList = function (userData, cb) {
     userData.list = '8CaVcsDmVe41wdpl194UlQ',
     userData.boolean = true
-
     $http.post('//mail.debtcollective.org/subscribe', userData).then(function (resp) {
+      cb(resp)
+    }, function error (resp) {
       cb(resp)
     })
   }
-
-});;app.service('util_svc', function () {
+});
+;app.service('util_svc', function () {
 
   this.generateUUID = function () {
       // unique ID generator modified to create ids 30 characters long
@@ -12348,7 +12351,7 @@ app.controller('solidarityStrikeCtrl',
       }
     }
   }
-});app.directive('donateButton', function ($window, $http) {
+});;app.directive('donateButton', function ($window, $http) {
   return {
     restrict: 'E',
     scope: {
