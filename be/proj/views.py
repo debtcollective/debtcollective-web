@@ -92,41 +92,43 @@ def signup(request):
   """
   import logging
 
-
   if request.method != 'POST':
     raise Http404
 
-  logging.error("JDUNCK TEST" )
   try:
     rq = get_POST_data(request)
-  except: 
-    logging.exception("fail to get data")
-  logging.error("DATA: %s" % rq)
-  username = rq.get('username')
-  email = rq.get('email')
-  password = rq.get('password')
-  if email and not username:
-    username = email
-  if not username or not password:
-    return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
+    username = rq.get('username')
+    email = rq.get('email')
+    password = rq.get('password')
+    if email and not username:
+      username = email
+    if not username or not password:
+      return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
 
-  user = User.objects.create_user(username, password=password, email=email)
+    logging.error('1', username, password, email)
+    user = User.objects.create_user(username, password=password, email=email)
+    logging.error('2')
+    point = rq.get('point')
+    if point:
+      logging.error('3')
+      point = Point.objects.get(id=point)
 
-  point = rq.get('point')
-  if point:
-    point = Point.objects.get(id=point)
+    logging.error('4')
+    userprofile = UserProfile.objects.get(user=user)
+    userprofile.point = point
+    userprofile.save()
+    logging.error('5')
 
-  userprofile = UserProfile.objects.get(user=user)
-  userprofile.point = point
-  userprofile.save()
-
-  kind = rq.get('kind')
-  amount = rq.get('amount')
-  last_payment = rq.get('last_payment')
-  if amount:
-    debt = Debt.objects.create(user=user, amount=amount,
-      kind=kind, last_payment=last_payment)
-
+    kind = rq.get('kind')
+    amount = rq.get('amount')
+    last_payment = rq.get('last_payment')
+    if amount:
+      logging.error('6')
+      debt = Debt.objects.create(user=user, amount=amount,
+        kind=kind, last_payment=last_payment)
+    logging.error('7')
+  except:
+    logging.exception("fail")
   return json_response({'status': 'ok'}, 200)
 
 @ensure_csrf_cookie
