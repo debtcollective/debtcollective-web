@@ -117,3 +117,18 @@ AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY', '')
 AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY', '')
 MANDRILL_API_KEY = os.environ.get('MANDRILL_API_KEY', '')
 DTR_RECIPIENT = os.environ.get('DTR_RECIPIENT', '')
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console': {
+            'level': 'WARNING',
+            'class': 'logging.StreamHandler'
+        }
+    },
+    'loggers': {
+        '': {
+            'handlers': ['console']
+        }
+    }
+}

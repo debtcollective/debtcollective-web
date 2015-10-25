@@ -90,6 +90,10 @@ def signup(request):
   Creates an account for a given user, along with
   debt type information.
   """
+  import logging
+  
+  logging.error("JDUNCK TEST")
+
   if request.method != 'POST':
     raise Http404
 
