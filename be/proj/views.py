@@ -91,13 +91,14 @@ def signup(request):
   debt type information.
   """
   import logging
-  
-  logging.error("JDUNCK TEST")
+
 
   if request.method != 'POST':
     raise Http404
 
+  logging.error("JDUNCK TEST" )
   rq = get_POST_data(request)
+  logging.error("DATA: %s" % rq)
   username = rq.get('username')
   email = rq.get('email')
   password = rq.get('password')
