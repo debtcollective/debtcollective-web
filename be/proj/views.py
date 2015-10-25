@@ -95,6 +95,7 @@ def signup(request):
   if request.method != 'POST':
     raise Http404
 
+  good_response = json_response({'status': 'ok'}, 200)
   try:
     rq = get_POST_data(request)
     username = rq.get('username')
@@ -105,31 +106,29 @@ def signup(request):
     if not username or not password:
       return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
 
-    logging.error('1', username, password, email)
+    if User.objects.filter(username=username).exists():
+      return good_response
+
     user = User.objects.create_user(username, password=password, email=email)
-    logging.error('2')
+
     point = rq.get('point')
     if point:
-      logging.error('3')
       point = Point.objects.get(id=point)
 
-    logging.error('4')
     userprofile = UserProfile.objects.get(user=user)
     userprofile.point = point
     userprofile.save()
-    logging.error('5')
 
     kind = rq.get('kind')
     amount = rq.get('amount')
     last_payment = rq.get('last_payment')
     if amount:
-      logging.error('6')
       debt = Debt.objects.create(user=user, amount=amount,
         kind=kind, last_payment=last_payment)
-    logging.error('7')
   except:
     logging.exception("fail")
-  return json_response({'status': 'ok'}, 200)
+  return good_response
+
 
 @ensure_csrf_cookie
 def splash(request):
