@@ -97,7 +97,10 @@ def signup(request):
     raise Http404
 
   logging.error("JDUNCK TEST" )
-  rq = get_POST_data(request)
+  try:
+    rq = get_POST_data(request)
+  except: 
+    logging.exception("fail to get data")
   logging.error("DATA: %s" % rq)
   username = rq.get('username')
   email = rq.get('email')
