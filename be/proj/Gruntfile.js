@@ -12,7 +12,6 @@ module.exports = function(grunt) {
         'static/vendor/angular-route.min.js',
         'static/vendor/angular-touch.min.js',
         'static/vendor/angular-scroll.min.js',
-        'static/vendor/d3.min.js',
         'static/vendor/jquery.min.js',
         'static/vendor/ui-bootstrap-custom-0.10.0.min.js',
         'static/vendor/ui-bootstrap-custom-tpls-0.10.0.min.js',
