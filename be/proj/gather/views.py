@@ -17,7 +17,7 @@ def points(request):
   return json_response(data, 200)
 
 def debt_total(request):
-  total = Debt.objects.all().aggregate(Sum('amount'))
+  total = Debt.total()
   return json_response({'total': total['amount__sum']}, 200)
 
 def debt_choices(request):
@@ -26,7 +26,7 @@ def debt_choices(request):
   return json_response(choices, 200)
 
 def get_map_data():
-  total_amount = Debt.objects.all().aggregate(Sum('amount'))
+  total_amount = Debt.total()
 
   total_users = User.objects.count()
   query = Point.objects.annotate(
