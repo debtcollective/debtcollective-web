@@ -44,7 +44,7 @@ def get_map_data():
   # probably costing us performance (karissa)
   return {
     'total_users': total_users,
-    'total_amount': total_amount['amount__sum'],
+    'total_amount': Debt.total(),
     'points': points
   }
 
@@ -75,4 +75,3 @@ def generate_map_json(request):
     return json_response(data, 200)
   else:
     return json_response({'status': 'error'}, 500)
-
