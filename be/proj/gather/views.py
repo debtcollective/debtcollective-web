@@ -18,8 +18,7 @@ def points(request):
   return json_response(data, 200)
 
 def debt_total(request):
-  total = Debt.total()
-  return json_response({'total': total['amount__sum']}, 200)
+  return json_response({'total': Debt.total()}, 200)
 
 def debt_choices(request):
   choices = Debt.DEBT_CHOICES
