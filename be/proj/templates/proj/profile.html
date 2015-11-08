@@ -8,18 +8,25 @@
 <div class="container">
   <h1>Welcome, {{user.username}} </h1>
   <a class="big-link button" href="/logout">Logout</a>
-  <div class="wrapper dark">
-    <div class="row">
-      {% include "collectives/action_cards.html" with actions=collective_actions %}
-    </div>
-  </div>
-
+  
+  <h2>Your debts</h2>
+  <ul>
+    {% for debt in debts %}
+    <li>{{debt.amount}}, {{debt.kind}}, {{debt.last_payment}}</li>
+    {% endfor %}
+  </ul>
   <div class="wrapper light floating">
     <div class="body-text">
       <h2>We use your information exclusively to erase illegitimate debts. We will store your data safely and never share it with anybody outside the small group of organizers and lawyers working to that end.</h2>
       <h3>This application does not constitute and cannot substitute for legal advice.</h3>
     </div>
   </div>
+  <div class="wrapper dark">
+    <div class="row">
+      {% include "collectives/action_cards.html" with actions=collective_actions %}
+    </div>
+  </div>
+
     <div class="row">
       {% for collective in collectives %}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 collective-card">

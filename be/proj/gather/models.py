@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib import admin
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.db.models import Count, Sum
 from django.utils import timezone
 from proj.collectives.models import Collective, CollectiveMember
 
@@ -80,5 +81,6 @@ class Debt(models.Model):
   kind = models.CharField(max_length=7, choices=DEBT_CHOICES, null=True)
   last_payment = models.DateTimeField(null=True)
 
-  def total(self):
-    return self.objects.all().aggregate(Sum('amount'))
+  @classmethod
+  def total(cls):
+    return cls.objects.all().aggregate(Sum('amount'))['amount__sum']

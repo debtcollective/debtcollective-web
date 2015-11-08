@@ -869,6 +869,10 @@ strong {
   text-align: center;
   width: 50%; }
 
+.large-number {
+  font-size: 72px;
+  text-align: center; }
+
 .body-text p {
   margin-top: 22px;
   margin-bottom: 22px; }

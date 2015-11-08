@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.shortcuts import redirect
 from django.contrib import auth
 from django.http import HttpResponse, Http404
 from django.core.context_processors import csrf
@@ -197,7 +198,8 @@ def signup(request):
 def splash(request):
   c = {
     "actions": Action.objects.filter(featured=True)[:2],
-    "user": request.user
+    "user": request.user,
+    "total_debt": Debt.total()
   }
   return render_response(request, 'proj/splash.html', c)
 
