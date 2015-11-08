@@ -70,3 +70,6 @@ class Debt(models.Model):
   # optional
   kind = models.CharField(max_length=7, choices=DEBT_CHOICES, null=True)
   last_payment = models.DateTimeField(null=True)
+
+  def total(self):
+    return self.objects.all().aggregate(Sum('amount'))
