@@ -40,7 +40,7 @@ def get_map_data():
   # probably costing us performance (karissa)
   return {
     'total_users': total_users,
-    'total_amount': Debt.total()
+    'total_amount': Debt.total(),
     'points': points
   }
 
