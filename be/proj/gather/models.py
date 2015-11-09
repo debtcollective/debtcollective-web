@@ -3,6 +3,7 @@ from django.contrib import admin
 from django.contrib.auth.models import User
 from datetime import datetime
 from django.db.models.signals import post_save
+from django.db.models import Count, Sum
 
 
 class Point(models.Model):
@@ -70,3 +71,7 @@ class Debt(models.Model):
   # optional
   kind = models.CharField(max_length=7, choices=DEBT_CHOICES, null=True)
   last_payment = models.DateTimeField(null=True)
+
+  @classmethod
+  def total(cls):
+    return cls.objects.all().aggregate(Sum('amount'))['amount__sum']

@@ -11,7 +11,7 @@ app.directive('signupform', function () {
       $scope.username = null;
       $scope.debts = [];
       $scope.amount = null;
-      $scope.showForm = false;
+      $scope.showForm = true;
       $scope.formSubmitted = false;
       $scope.location = null;
       $scope.focused = false;

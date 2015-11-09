@@ -5,23 +5,13 @@
 {% include "proj/header.html" %}
 
 <div class="container">
-<div id="map" class="map-container" ng-controller="mapCtrl">
-  <div class="wrapper">
-    <p>
-      <div class="counter-container">
-        <div class="counter"></div>
-      </div>
-    </p>
-    <img src="/static/img/dcnew_key.png" class="legend" />
-    <div id="mapdiv" class="map-loading"></div>
-  </div>
-</div>
-<div ng-controller="splashCtrl">
+<div>
   <div class="wrapper arrow-down-steep">
     <div class="row">
       <div class="intro-caption ">
         <div class="body-text">
-          <h3 class="centered">total dollars of collective debt.</h3>
+          <h1 class="large-number">${{total_debt | intcomma }}</h1>
+          <h3 class="centered">reported debt</h3>
         </div>
       </div>
       <div class="intro-caption">
@@ -31,8 +21,12 @@
       </div>
     </div>
     <div class="row">
+      <div class="body-text">
+        <h2>READY TO STRIKE?</h2>
       <signupform></signupform>
     </div>
+    </div>
+
     <div class="row body-text caption">
       <h3>Alone our debts are a burden, together they make us powerful. <br class="desktop-only">As we grow we will work together to resist our debts</h3>
     </div>

@@ -132,7 +132,10 @@ def signup(request):
 
 @ensure_csrf_cookie
 def splash(request):
-  c = {"actions": Action.objects.filter(featured=True)[:2]}
+  c = {
+    "actions": Action.objects.filter(featured=True)[:2],
+    "total_debt": Debt.total()
+  }
   return render_to_response('proj/splash.html', c)
 
 def map(request):
