@@ -90,40 +90,52 @@ def signup(request):
   Creates an account for a given user, along with
   debt type information.
   """
+  import logging
+
   if request.method != 'POST':
     raise Http404
 
-  rq = get_POST_data(request)
-  username = rq.get('username')
-  email = rq.get('email')
-  password = rq.get('password')
-  if email and not username:
-    username = email
-  if not username or not password:
-    return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
+  good_response = json_response({'status': 'ok'}, 200)
+  try:
+    rq = get_POST_data(request)
+    username = rq.get('username')
+    email = rq.get('email')
+    password = rq.get('password')
+    if email and not username:
+      username = email
+    if not username or not password:
+      return json_response({'status': 'error', 'message': 'Username/password required.'}, 500)
 
-  user = User.objects.create_user(username, password=password, email=email)
+    if User.objects.filter(username=username).exists():
+      return good_response
 
-  point = rq.get('point')
-  if point:
-    point = Point.objects.get(id=point)
+    user = User.objects.create_user(username, password=password, email=email)
 
-  userprofile = UserProfile.objects.get(user=user)
-  userprofile.point = point
-  userprofile.save()
+    point = rq.get('point')
+    if point:
+      point = Point.objects.get(id=point)
 
-  kind = rq.get('kind')
-  amount = rq.get('amount')
-  last_payment = rq.get('last_payment')
-  if amount:
-    debt = Debt.objects.create(user=user, amount=amount,
-      kind=kind, last_payment=last_payment)
+    userprofile = UserProfile.objects.get(user=user)
+    userprofile.point = point
+    userprofile.save()
 
-  return json_response({'status': 'ok'}, 200)
+    kind = rq.get('kind')
+    amount = rq.get('amount')
+    last_payment = rq.get('last_payment')
+    if amount:
+      debt = Debt.objects.create(user=user, amount=amount,
+        kind=kind, last_payment=last_payment)
+  except:
+    logging.exception("fail")
+  return good_response
+
 
 @ensure_csrf_cookie
 def splash(request):
-  c = {"actions": Action.objects.filter(featured=True)[:2]}
+  c = {
+    "actions": Action.objects.filter(featured=True)[:2],
+    "total_debt": Debt.total()
+  }
   return render_to_response('proj/splash.html', c)
 
 def map(request):
