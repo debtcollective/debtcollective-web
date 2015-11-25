@@ -1,5 +1,4 @@
-module.exports = function(grunt) {
-
+module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
@@ -14,6 +13,7 @@ module.exports = function(grunt) {
         'static/vendor/angular-scroll.min.js',
         'static/vendor/jquery.min.js',
         'static/vendor/jquery.jodometer.js',
+        'static/vendor/d3.min.js',
         'static/vendor/ammap/ammap.js',
         'static/vendor/ui-bootstrap-custom-0.10.0.min.js',
         'static/vendor/ui-bootstrap-custom-tpls-0.10.0.min.js',
