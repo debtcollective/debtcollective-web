@@ -5,12 +5,23 @@
 {% include "proj/header.html" %}
 
 <div class="container">
-<div>
+<div id="map" class="map-container" ng-controller="mapCtrl">
+  <div class="wrapper">
+    <p>
+      <div class="counter-container">
+        <div class="counter"></div>
+      </div>
+    </p>
+    <img src="/static/img/dcnew_key.png" class="legend" />
+    <div id="mapdiv" class="map-loading"></div>
+  </div>
+</div>
+<div ng-controller="splashCtrl">
   <div class="wrapper arrow-down-steep">
     <div class="row">
       <div class="intro-caption ">
         <div class="body-text">
-          <h1 class="large-number">${{total_debt | intcomma }}</h1>
+          <h2 class="large-number">${{total_debt | intcomma }}</h2>
           <h3 class="centered">reported debt</h3>
         </div>
       </div>
