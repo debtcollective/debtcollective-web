@@ -91,7 +91,7 @@ def dtr_email(dtr, attachments=None):
   name = ''.join(user_data['name'])
   msg['Subject'] = '{0} at {1}'.format(name, ''.join(user_data['school_name']))
   msg['To'] = to
-  msg['cc'] = ''.join(user_data['email'])
+  msg['CC'] = ''.join(user_data['email'])
   msg.attach(MIMEText("""
 To whom it may concern:
 
