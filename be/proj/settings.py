@@ -116,6 +116,7 @@ STRIPE_KEY= os.environ.get('STRIPE_KEY','')
 AWS_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY', '')
 AWS_SECRET_KEY = os.environ.get('AWS_SECRET_KEY', '')
 MANDRILL_API_KEY = os.environ.get('MANDRILL_API_KEY', '')
+SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY', '')
 DTR_RECIPIENT = os.environ.get('DTR_RECIPIENT', '')
 
 LOGGING = {

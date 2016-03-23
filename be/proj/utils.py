@@ -10,8 +10,8 @@ import settings
 import subprocess
 
 def send_email(msg):
-  mailserver = smtplib.SMTP('smtp.mandrillapp.com', 587)
-  mailserver.login('noreply@debtcollective.org', settings.MANDRILL_API_KEY)
+  mailserver = smtplib.SMTP('smtp.sendgrid.net', 587)
+  mailserver.login('noreply@debtcollective.org', settings.SENDGRID_API_KEY)
 
   from_email = 'noreply@debtcollective.org'
   msg['From'] = from_email
