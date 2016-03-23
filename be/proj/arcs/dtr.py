@@ -172,8 +172,9 @@ def dtr_csv(request):
     if type(data) == dict:
       for key, value in data.iteritems():
         if type(value) == unicode:
-          profile.data[key] = value.encode('utf-8')
+          data[key] = value.encode('utf-8')
 
+      data['id'] = profile.id
       writer.writerow(data)
 
   return response
