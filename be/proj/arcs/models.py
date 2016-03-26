@@ -47,7 +47,7 @@ class DTRUserProfile(models.Model):
 
   def pdf_link(self, expires_in=3000):
     key = self.s3_key()
-    url = key.generate_url(expires_in=expires_in, force_http=True)
+    url = key.generate_url(expires_in=expires_in)
     return url
 
   def make_a_pdf(self, values=None):
