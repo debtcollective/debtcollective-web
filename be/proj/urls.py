@@ -56,6 +56,7 @@ urlpatterns += patterns('proj.arcs.dtr',
   basic_url('dtr_generate'),
   basic_url('dtr_csv'),
   url('^corinthiandtr$', 'dtr_redirect', name='dtr_redirect'),
+  url('^ittstrike$', 'itt_redirect', name='itt_redirect'),
   url('^defense-to-repayment$', 'dtr', name='dtr')
 )
 urlpatterns += patterns('proj.arcs.dtr',

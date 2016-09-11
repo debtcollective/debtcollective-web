@@ -15,7 +15,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = None
+SECRET_KEY = '=@!&&6_()t$wthz*4d#15p2&!^0_2(s)dzkxydm84ol_yk8%f2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -34,11 +34,14 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'south',
+    'celery',
+    'redis',
+
     'proj',
     'proj.gather',
     'proj.arcs',
     'proj.collectives',
-    'south'
 )
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -132,3 +135,7 @@ LOGGING = {
         }
     }
 }
+
+# celery and redis: enabling the app to process background tasks
+BROKER_URL = os.environ.get('REDIS_URL')
+CELERY_RESULT_BACKEND = os.environ.get('REDIS_URL')

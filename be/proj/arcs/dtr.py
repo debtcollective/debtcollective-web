@@ -251,6 +251,9 @@ def corinthiansignup(request):
 def dtr_redirect(request):
   return redirect('/defense-to-repayment')
 
+def itt_redirect(request):
+  return redirect('http://ittstrike.com')
+
 def corinthiancollective(request):
   return render_to_response('corinthian/signup.html')
 
