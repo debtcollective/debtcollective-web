@@ -11,6 +11,8 @@ from django.contrib import auth
 from proj.gather.models import Debt, UserProfile, Point
 from proj.collectives.models import UserAction, CollectiveMember, Action, Collective
 from boto.exception import S3ResponseError
+from proj import settings
+from django.conf import settings
 
 # Import the email modules we'll need
 from email.MIMEText import MIMEText
@@ -25,9 +27,7 @@ import StringIO
 import csv
 import json
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proj.settings')
-from django.conf import settings
-
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings)
 
 def get_dtr(id):
   try:
