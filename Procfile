@@ -1,2 +1,2 @@
 web: cd be && newrelic-admin run-program gunicorn proj.wsgi --log-file -
-worker: celery worker --app=be.proj.arcs.tasks.app
+worker: cd be && celery worker --app=proj.arcs.dtr.app --loglevel=INFO

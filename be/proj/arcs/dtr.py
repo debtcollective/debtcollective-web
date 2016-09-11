@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 from django.shortcuts import render_to_response, redirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.template import loader
@@ -17,13 +18,16 @@ from email.MIMEMultipart import MIMEMultipart
 from email.MIMEBase import MIMEBase
 from email import Encoders
 
-import proj.settings as settings
-
 import os
+import celery
 import zipfile
 import StringIO
 import csv
 import json
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proj.settings')
+from django.conf import settings
+
 
 def get_dtr(id):
   try:
@@ -83,6 +87,13 @@ def attach(msg, contents, filename):
   part.add_header('Content-Disposition', 'attachment; filename="{0}"'.format(filename))
   msg.attach(part)
 
+
+app = celery.Celery('tasks')
+
+app.config_from_object('django.conf:settings')
+app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
+
+@app.task
 def dtr_email(dtr, attachments=None):
   user_data = dict(dtr.data)
   to = [settings.DTR_RECIPIENT, ''.join(user_data['email'])]

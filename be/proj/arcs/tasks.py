@@ -6,11 +6,14 @@ import celery
 
 # from django.conf import settings
 
-app = celery.Celery('tasks', broker='redis://localhost')
+# app = celery.Celery('tasks')
 
 # app.config_from_object('django.conf:settings')
 # app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
-@app.task
-def add(x, y):
-    return x + y
+# @app.task
+# def add(x, y):
+#     return x + y
+
+# @app.task
+# def attachments()
