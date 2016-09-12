@@ -29,11 +29,6 @@ import json
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings)
 
-app = celery.Celery('tasks')
-
-app.config_from_object('django.conf:settings')
-app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
-
 def get_dtr(id):
   try:
     dtr = DTRUserProfile.objects.get(id=id)
@@ -92,6 +87,13 @@ def attach(msg, contents, filename):
   part.add_header('Content-Disposition', 'attachment; filename="{0}"'.format(filename))
   msg.attach(part)
 
+
+app = celery.Celery('tasks')
+
+app.config_from_object('django.conf:settings')
+app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
+
+@app.task
 def dtr_email(dtr, attachments=None):
   user_data = dict(dtr.data)
   to = [settings.DTR_RECIPIENT, ''.join(user_data['email'])]
@@ -197,7 +199,6 @@ def dtr_restore(request, id):
     'pdf_link': profile.pdf_link(),
   }, 200)
 
-@app.task
 @csrf_exempt
 def dtr_generate(request):
   if request.method != "POST":
@@ -215,7 +216,7 @@ def dtr_generate(request):
   rq['name_2'] = rq.get('name', 'NA')
   dtr = DTRUserProfile.generate(rq)
 
-  dtr_email(dtr, attachments=request.FILES)
+  dtr_email.delay(dtr, attachments=request.FILES)
 
   return json_response({
     'id': dtr.id,
