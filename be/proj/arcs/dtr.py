@@ -5,7 +5,7 @@ from django.template import loader
 from django.http import Http404, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from proj.arcs.models import DTRUserProfile
-from proj.utils import json_response, send_email
+from proj.utils import json_response, get_POST_data, send_email
 from django.contrib.auth.models import User
 from django.contrib import auth
 from proj.gather.models import Debt, UserProfile, Point
@@ -197,23 +197,9 @@ def dtr_restore(request, id):
     'pdf_link': profile.pdf_link(),
   }, 200)
 
+
 @app.task
-def get_POST_data(request):
-  """
-  For some reason, posting json to the backend can be a real
-  headache and django wants to have control over the form
-  submission data. This is a workaround in cases where we want
-  to use ajax POST requests but don't have it encoded as form data.
-  """
-  if len(request.POST.keys()) > 0:
-    return request.POST.copy()
-  else:
-    # assuming request.body contains json data which is UTF-8 encoded
-    return json.loads(request.body, encoding='utf-8')
-
-
-@csrf_exempt
-def dtr_generate(request):
+def dtr_async_generate(request):
   if request.method != "POST":
     raise Http404
 
@@ -235,6 +221,12 @@ def dtr_generate(request):
     'id': dtr.id,
     'pdf_link': dtr.pdf_link(),
   }, 200)
+
+
+@csrf_exempt
+def dtr_generate(request):
+  dtr_async_generate.delay(request)
+
 
 def dtr_view(request, id):
   if not request.user.is_superuser:
