@@ -56,6 +56,7 @@
     "misleading_teachout_check": null,
     "misleading_likelihood": null,
     "misleading_teachout": null,
+    "misleading_other_check": null,
     "misleading_other": null,
     "loan_amount": null,
     "injury_debt_check": null,
@@ -84,5 +85,14 @@
     "school_name_13": null,
     "state_law": null,
     "signature": null,
-    "date_today": null
+    "date_today": null,
+
+    "misleading_job_check": null,
+    "misleading_job": null,
+    "misleading_eligible_check": null,
+    "misleading_eligible": null,
+    "misleading_pay_check": null,
+    "misleading_pay": null,
+    "misleading_illegal_check": null,
+    "misleading_illegal": null,
 }

@@ -203,7 +203,7 @@ def dtr_async_generate(request):
   if request.method != "POST":
     raise Http404
 
-  rq = get_POST_data.delay(request)
+  rq = get_POST_data(request)
 
   # school_name_2 .. 13
   school_name = rq.get('school_name', 'Unknown')
