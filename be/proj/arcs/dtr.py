@@ -198,8 +198,8 @@ def dtr_restore(request, id):
   }, 200)
 
 
-@app.task
-def dtr_async_generate(request):
+@csrf_exempt
+def dtr_generate(request):
   if request.method != "POST":
     raise Http404
 
@@ -223,9 +223,9 @@ def dtr_async_generate(request):
   }, 200)
 
 
-@csrf_exempt
-def dtr_generate(request):
-  dtr_async_generate.delay(request)
+# @app.task
+# def dtr_generate(request):
+#   dtr_async_generate.delay(request)
 
 
 def dtr_view(request, id):
