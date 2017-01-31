@@ -33,6 +33,9 @@ app = celery.Celery('tasks')
 app.config_from_object('django.conf:settings')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
+def dtr_done(request):
+  return render_to_response('dtr/done.html')
+
 def get_dtr(id):
   try:
     dtr = DTRUserProfile.objects.get(id=id)

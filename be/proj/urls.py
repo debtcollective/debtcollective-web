@@ -57,7 +57,8 @@ urlpatterns += patterns('proj.arcs.dtr',
   basic_url('dtr_csv'),
   url('^corinthiandtr$', 'dtr_redirect', name='dtr_redirect'),
   url('^ittstrike$', 'itt_redirect', name='itt_redirect'),
-  url('^defense-to-repayment$', 'dtr', name='dtr')
+  url('^defense-to-repayment-old$', 'dtr', name='dtr'),
+  url('^defense-to-repayment$', 'dtr_done', name='dtr_done')
 )
 urlpatterns += patterns('proj.arcs.dtr',
   corinthian_url('admin'),
@@ -68,4 +69,3 @@ urlpatterns += patterns('proj.arcs.dtr',
   basic_url('solidaritystrikeform'),
   basic_url('corinthiansolidarity')
 )
-
