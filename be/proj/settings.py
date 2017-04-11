@@ -19,6 +19,7 @@ SECRET_KEY = '=@!&&6_()t$wthz*4d#15p2&!^0_2(s)dzkxydm84ol_yk8%f2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DEV = False
 TEMPLATE_DEBUG = True
 
 from envconfig import get_envconfig
