@@ -12,7 +12,7 @@ import os
 
 ## TODO: move this shiz to dtr.py
 S3_BUCKET_NAME = 'corinthiandtr'
-if settings.DEBUG:
+if settings.DEV:
   S3_BUCKET_NAME += '.dev'
 
 conn = get_s3_conn()
