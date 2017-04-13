@@ -75,6 +75,19 @@
   </script>
   <!-- End Google Analytics -->
 
+  <!-- Start of Rocket.Chat Livechat Script -->
+  <script type="text/javascript">
+    (function(w, d, s, u) {
+     w.RocketChat = function(c) { w.RocketChat._.push(c) }; w.RocketChat._
+     = []; w.RocketChat.url = u;
+     var h = d.getElementsByTagName(s)[0], j = d.createElement(s);
+     j.async = true; j.src
+     = 'http://chat.debtcollective.org/packages/rocketchat_livechat/assets/rocketchat-livechat.min.js?_=201702160944';
+     h.parentNode.insertBefore(j, h);
+     })(window, document, 'script',
+       'http://chat.debtcollective.org/livechat');
+  </script>
+  <!-- End of Rocket.Chat Livechat Script -->
   <script src="//checkout.stripe.com/checkout.js"></script>
   <script type="text/javascript" src="/static/dist/dc.js?v41dd3f40"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
