@@ -1,6 +1,12 @@
 debt.is and debtcollective.org
 =======
 
+# DEPRECATED
+
+This website is now obsolete and not deployed. It is kept here only for archiving purposes.
+
+## Description
+
 This is a django site deployed on the heroku framework.
 
 Please fork the repository and open pull requests when you're ready to merge.
